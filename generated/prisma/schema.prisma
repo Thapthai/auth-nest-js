@@ -1,0 +1,36 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                        Int       @id @default(autoincrement())
+  name                      String
+  email                     String    @unique
+  permission_id             Int
+  email_verified_at         DateTime?
+  password                  String
+  two_factor_secret         String?
+  two_factor_recovery_codes String?
+  two_factor_confirmed_at   DateTime?
+  is_two_factor_enabled     Boolean   @default(false)
+  remember_token            String?
+  create_at                 DateTime  @default(now())
+  update_at                 DateTime  @updatedAt
+}
+
+model VerificationToken {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  token     String   @unique
+  expires   DateTime
+  create_at DateTime @default(now())
+  update_at DateTime @updatedAt
+
+  @@unique([email, token])
+}

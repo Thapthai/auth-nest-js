@@ -7,6 +7,7 @@ import { JwtStrategy } from './jwt.strategy';
 import { JwtAuthGuard } from './jwt-auth.guard';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { VerifyEmail } from './verifyEmail.service';
+import { ForgetPassWordEmail } from './forgetPassWordEmail.service';
 
 
 @Module({
@@ -18,6 +19,6 @@ import { VerifyEmail } from './verifyEmail.service';
     }),
   ],
   controllers: [AuthController],
-  providers: [AuthService, PrismaService, JwtStrategy, JwtAuthGuard, VerifyEmail],
+  providers: [AuthService, PrismaService, JwtStrategy, JwtAuthGuard, VerifyEmail, ForgetPassWordEmail],
 })
 export class AuthenticationModule { }

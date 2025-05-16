@@ -1,4 +1,4 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
 import { Prisma } from 'generated/prisma';
@@ -9,7 +9,10 @@ import { LoingDTO, RegisterDTO } from './dto';
 import { VerificationEmailDTO } from './dto/verificationEmail.dto';
 import { VerifyEmail } from './verifyEmail.service';
 import { ResendVerificationDTO } from './dto/resendVerification.dto';
-import { error } from 'console';
+import { ForgotPasswordDTO } from './dto/forgetPassword.dto';
+import { ForgetPassWordEmail } from './forgetPassWordEmail.service';
+import { ResetPasswordDTO } from './dto/resetPassword.dto';
+
 
 @Injectable()
 export class AuthService {
@@ -17,6 +20,7 @@ export class AuthService {
     private jwtService: JwtService,
     private prisma: PrismaService,
     private readonly sendVerifyEmail: VerifyEmail,
+    private readonly forgetPassWordEmail: ForgetPassWordEmail,
   ) { }
 
   async register(userDTO: RegisterDTO) {
@@ -92,16 +96,28 @@ export class AuthService {
           });
 
           await this.sendVerifyEmail.sendVerificationEmail(user.email, newToken);
-          console.log('🕐 มี token หมดอายุ → อัปเดต token และส่งใหม่');
+          console.log('token หมดอายุ → อัปเดต token และส่งใหม่');
         } else if (!activeToken) {
           // ไม่มี token เลย → generate ใหม่
           await this.generateVerificationToken(user.email);
-          console.log('🆕 ไม่มี token เลย → generate ใหม่');
         } else {
-          console.log('✅ มี token ที่ยังไม่หมดอายุอยู่แล้ว → ไม่ต้องส่งใหม่');
         }
         throw new HttpException('EMAIL_NOT_VERIFIED', 401);
       }
+
+      if (user.is_two_factor_enabled) {
+        const tempToken = this.jwtService.sign(
+          { userId: user.id, is2FA: true },
+          { expiresIn: '3m' }
+        );
+
+        return {
+          status: '2FA_REQUIRED',
+          twofa_token: tempToken,
+          user_id: user.id
+        };
+      }
+
 
       const payload = { email: user.email };
       const access_token = this.jwtService.sign(payload, {
@@ -110,7 +126,7 @@ export class AuthService {
 
       return {
         access_token,
-        status: 'LOGIN_SUCCESSFUL',
+        status: 'LOGIN_NORMAL_SUCCESSFUL',
         name: user.name,
       };
 
@@ -208,6 +224,70 @@ export class AuthService {
     };
   }
 
+  async forgotPassword(dto: ForgotPasswordDTO) {
+    const user = await this.prisma.user.findUnique({
+      where: { email: dto.email },
+    });
+    if (!user) {
+      throw new HttpException('EMAIL_NOT_FOUND', HttpStatus.NOT_FOUND);
+    }
+
+    const token = crypto.randomUUID();
+    const expires = new Date(Date.now() + 1000 * 60 * 30); // 30 นาที
+
+    // ลบ token เดิม
+    await this.prisma.passwordResetToken.deleteMany({ where: { email: dto.email } });
+
+    // สร้าง token ใหม่
+    await this.prisma.passwordResetToken.create({
+      data: { email: dto.email, token, expires },
+    });
+
+    const resetUrl = `http://localhost:3005/reset-password?token=${token}&email=${dto.email}`;
+
+    await this.forgetPassWordEmail.sendForgetPassWordEmail(dto.email, resetUrl);
+
+    return { message: 'Password reset email sent.' };
+  }
+
+  async resetPassword(dto: ResetPasswordDTO) {
+    const { email, token, newPassword } = dto;
+
+    // 1. ตรวจสอบ token ว่าถูกต้องหรือหมดอายุหรือไม่
+    const record = await this.prisma.passwordResetToken.findFirst({
+      where: {
+        email,
+        token,
+        expires: {
+          gt: new Date(),
+        },
+      },
+    });
+
+    if (!record) {
+      throw new HttpException('Token is invalid or has expired', HttpStatus.BAD_REQUEST);
+    }
+
+    // 2. เข้ารหัสรหัสผ่านใหม่
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
+
+    // 3. อัปเดตรหัสผ่านของผู้ใช้
+    await this.prisma.user.update({
+      where: { email },
+      data: {
+        password: hashedPassword,
+      },
+    });
+
+    // 4. ลบ token หลังใช้แล้ว
+    await this.prisma.passwordResetToken.delete({
+      where: { id: record.id },
+    });
+
+    return { message: 'Password has been reset successfully' };
+  }
+
+
   async generate2FASecret(email: string) {
     const secret = authenticator.generateSecret();
     const otpauthUrl = authenticator.keyuri(email, 'MyApp', secret);
@@ -234,7 +314,6 @@ export class AuthService {
     return authenticator.verify({ token: code, secret: user.two_factor_secret });
   }
 
-
   async enable2FA(userId: number) {
     return this.prisma.user.update({
       where: { id: userId },
@@ -242,9 +321,32 @@ export class AuthService {
     });
   }
 
+  async login2FA(userId: number, code: string) {
+
+    const valid = await this.verify2FA(userId, code);
+
+    if (!valid) {
+      throw new UnauthorizedException('Invalid 2FA code');
+    }
+
+    const user = await this.getUserById(userId);
+    const payload = { email: user?.email };
+
+    const access_token = this.jwtService.sign(payload, { expiresIn: '1d' });
+
+    return {
+      status: 'LOGIN_2FA_SUCCESSFUL',
+      token: access_token,
+      user: {
+        name: user?.name,
+        email: user?.email,
+        id: user?.id,
+      }
+
+    };
+  }
+
   async getUserById(userId: number) {
     return this.prisma.user.findUnique({ where: { id: userId } });
   }
-
-
 }

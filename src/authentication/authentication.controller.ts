@@ -7,7 +7,8 @@ import {
   UseGuards,
   HttpCode,
   Query,
-  BadRequestException
+  BadRequestException,
+  UnauthorizedException
 } from '@nestjs/common';
 import { AuthService } from './authentication.service';
 import { VerifyEmail } from './verifyEmail.service';
@@ -15,6 +16,8 @@ import { JwtAuthGuard } from './jwt-auth.guard';
 import { LoingDTO, RegisterDTO } from './dto';
 import { VerificationEmailDTO } from './dto/verificationEmail.dto';
 import { ResendVerificationDTO } from './dto/resendVerification.dto';
+import { ForgotPasswordDTO } from './dto/forgetPassword.dto';
+import { ResetPasswordDTO } from './dto/resetPassword.dto';
 
 @Controller('auth')
 export class AuthController {
@@ -35,16 +38,20 @@ export class AuthController {
     return this.authService.login(body);
   }
 
-  // @Post('verify-email')
-  // async verifyEmail(@Body() dto: VerificationEmailDTO) {
-  //   return await this.authService.verifyEmail(dto);
-  // }
+  @Post('forget-password')
+  forgot(@Body() dto: ForgotPasswordDTO) {
+    return this.authService.forgotPassword(dto);
+  }
+
+  @Post('reset-password')
+  reset(@Body() dto: ResetPasswordDTO) {
+    return this.authService.resetPassword(dto);
+  }
 
   @Get('verify-email')
   async verifyEmail(@Query() dto: VerificationEmailDTO) {
     return await this.authService.verifyEmail(dto);
   }
-
 
   @Post('resend-verification')
   @HttpCode(200)
@@ -57,10 +64,8 @@ export class AuthController {
     const isValid = await this.authService.verify2FA(body.userId, body.code);
     if (!isValid) throw new Error('Invalid 2FA code');
 
-
     const user = await this.authService.getUserById(body.userId);
     const oPassword = { email: user?.email };
-    // return this.authService.login(user);
   }
 
   @UseGuards(JwtAuthGuard)
@@ -77,9 +82,13 @@ export class AuthController {
     return this.authService.enable2FA(req.user.userId);
   }
 
+  @UseGuards(JwtAuthGuard)
+  @Post('2fa/login')
+  async loginWith2FA(@Body() body) {
+    return await this.authService.login2FA(body.userId, body.code);
+  }
 
-
-  // ทดสอบ การส่ง Email
+  // =================================== ทดสอบ การส่ง Email ===================================
   @Get('test-send-mail')
   async testSendEmail() {
     const testEmail = 'youremail@gmail.com';

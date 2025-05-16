@@ -1,4 +1,4 @@
-import { HttpException, HttpStatus, Injectable, UnauthorizedException } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
 import { Prisma } from 'generated/prisma';
@@ -12,6 +12,7 @@ import { ResendVerificationDTO } from './dto/resendVerification.dto';
 import { ForgotPasswordDTO } from './dto/forgetPassword.dto';
 import { ForgetPassWordEmail } from './forgetPassWordEmail.service';
 import { ResetPasswordDTO } from './dto/resetPassword.dto';
+import { twoFAEnableDTO } from './dto/twoFAEnable.dto';
 
 
 @Injectable()
@@ -123,13 +124,15 @@ export class AuthService {
       const access_token = this.jwtService.sign(payload, {
         expiresIn: '1d',
       });
-
       return {
-        access_token,
         status: 'LOGIN_NORMAL_SUCCESSFUL',
-        name: user.name,
-      };
-
+        user: {
+          access_token: access_token,
+          name: user?.name,
+          email: user?.email,
+          id: user?.id,
+        }
+      }
     } catch (error) {
       throw error;
     }
@@ -314,12 +317,49 @@ export class AuthService {
     return authenticator.verify({ token: code, secret: user.two_factor_secret });
   }
 
-  async enable2FA(userId: number) {
-    return this.prisma.user.update({
-      where: { id: userId },
-      data: { is_two_factor_enabled: true },
+  async enable2FA(dto: twoFAEnableDTO) {
+    // ดึงข้อมูลผู้ใช้จากฐานข้อมูล
+    const user = await this.prisma.user.findUnique({
+      where: { id: dto.userId },
     });
+
+    if (!user) throw new NotFoundException('User not found');
+
+    if (dto.is_two_factor_enabled) {
+      // เปิดใช้งาน 2FA
+      const secret = authenticator.generateSecret();
+      const otpauthUrl = authenticator.keyuri(user.email, 'MyApp', secret);
+      const qrCodeDataURL = await qrcode.toDataURL(otpauthUrl);
+
+      await this.prisma.user.update({
+        where: { id: dto.userId },
+        data: {
+          two_factor_secret: secret,
+          is_two_factor_enabled: true,
+        },
+      });
+
+      return {
+        message: 'Two-Factor Authentication enabled',
+        otpauthUrl,
+        qrCodeDataURL,
+      };
+    } else {
+      // ปิดการใช้งาน 2FA
+      await this.prisma.user.update({
+        where: { id: dto.userId },
+        data: {
+          two_factor_secret: '',
+          is_two_factor_enabled: false,
+        },
+      });
+
+      return {
+        message: 'Two-Factor Authentication disabled',
+      };
+    }
   }
+
 
   async login2FA(userId: number, code: string) {
 
@@ -336,8 +376,8 @@ export class AuthService {
 
     return {
       status: 'LOGIN_2FA_SUCCESSFUL',
-      token: access_token,
       user: {
+        access_token: access_token,
         name: user?.name,
         email: user?.email,
         id: user?.id,

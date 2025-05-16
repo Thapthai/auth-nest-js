@@ -18,7 +18,7 @@ export class VerifyEmail {
 
         const htmlContent = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px;">
-        <h2 style="color: #333;">ยินดีต้อนรับสู่ <span style="color: #4f46e5;">My App</span> 🎉</h2>
+        <h2 style="color: #333;">ยินดีต้อนรับสู่ <span style="color: #4f46e5;">My App</span></h2>
         <p style="font-size: 16px; color: #555;">สวัสดีคุณ <strong>${email}</strong>,</p>
         <p style="font-size: 16px; color: #555;">
           กรุณาคลิกปุ่มด้านล่างเพื่อยืนยันอีเมลของคุณและเปิดใช้งานบัญชี:

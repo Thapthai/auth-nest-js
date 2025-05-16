@@ -18,6 +18,7 @@ import { VerificationEmailDTO } from './dto/verificationEmail.dto';
 import { ResendVerificationDTO } from './dto/resendVerification.dto';
 import { ForgotPasswordDTO } from './dto/forgetPassword.dto';
 import { ResetPasswordDTO } from './dto/resetPassword.dto';
+import { twoFAEnableDTO } from './dto/twoFAEnable.dto';
 
 @Controller('auth')
 export class AuthController {
@@ -55,8 +56,8 @@ export class AuthController {
 
   @Post('resend-verification')
   @HttpCode(200)
-  async resendVerification(@Body() body: ResendVerificationDTO) {
-    return this.authService.resendVerificationEmail(body);
+  async resendVerification(@Body() dto: ResendVerificationDTO) {
+    return this.authService.resendVerificationEmail(dto);
   }
 
   @Post('2fa/verify')
@@ -74,18 +75,23 @@ export class AuthController {
     return this.authService.generate2FASecret(req.user.email);
   }
 
+  // เปิดการใช้งาน 2FA 
   @UseGuards(JwtAuthGuard)
   @Post('2fa/enable')
-  async enable2FA(@Req() req, @Body() body) {
-    const valid = await this.authService.verify2FA(req.user.userId, body.code);
-    if (!valid) throw new Error('Invalid 2FA code');
-    return this.authService.enable2FA(req.user.userId);
+  async enable2FA(@Body() dto: twoFAEnableDTO) {
+    return this.authService.enable2FA(dto);
   }
 
   @UseGuards(JwtAuthGuard)
   @Post('2fa/login')
   async loginWith2FA(@Body() body) {
     return await this.authService.login2FA(body.userId, body.code);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get('user')
+  async getUser(@Query('userId') userId: number) {
+    return await this.authService.getUserById(Number(userId));
   }
 
   // =================================== ทดสอบ การส่ง Email ===================================

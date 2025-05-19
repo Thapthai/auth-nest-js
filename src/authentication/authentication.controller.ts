@@ -7,8 +7,7 @@ import {
   UseGuards,
   HttpCode,
   Query,
-  BadRequestException,
-  UnauthorizedException
+  Res,
 } from '@nestjs/common';
 import { AuthService } from './authentication.service';
 import { VerifyEmail } from './verifyEmail.service';
@@ -50,8 +49,8 @@ export class AuthController {
   }
 
   @Get('verify-email')
-  async verifyEmail(@Query() dto: VerificationEmailDTO) {
-    return await this.authService.verifyEmail(dto);
+  async verifyEmail(@Query() dto: VerificationEmailDTO, @Res() res: Response) {
+    return await this.authService.verifyEmail(dto, res);
   }
 
   @Post('resend-verification')
@@ -80,7 +79,6 @@ export class AuthController {
   async getQRCode(@Query() body) {
     return this.authService.twoFA_qrCode(parseInt(body.userId)); // change string to number
   }
-
 
   // เปิดการใช้งาน 2FA 
   @UseGuards(JwtAuthGuard)

@@ -170,13 +170,16 @@ export class AuthService {
     return token;
   }
 
-  async verifyEmail(verificationEmailDTO: VerificationEmailDTO) {
+  async verifyEmail(verificationEmailDTO: VerificationEmailDTO, res) {
 
     const token = verificationEmailDTO.token;
     const record = await this.prisma.verificationToken.findUnique({ where: { token } });
 
     if (!record || record.expires < new Date()) {
-      throw new HttpException('Token is invalid or has expired', HttpStatus.BAD_REQUEST);
+      // throw new HttpException('Token is invalid or has expired', HttpStatus.BAD_REQUEST);
+      // return res.redirect('http://localhost:3005/login?error=invalid-token');
+      return res.redirect('http://localhost:3005/login');
+
     }
 
     await this.prisma.user.update({
@@ -187,6 +190,8 @@ export class AuthService {
     await this.prisma.verificationToken.delete({ where: { token } });
 
     return { message: 'Email verified successfully.' };
+    // return res.redirect('http://localhost:3005/login?verified=true');
+    return res.redirect('http://localhost:3005/login');
 
   }
 

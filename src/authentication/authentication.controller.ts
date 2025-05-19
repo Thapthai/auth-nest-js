@@ -70,10 +70,17 @@ export class AuthController {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Post('2fa/setup')
+  @Post('2fa/generate2FASecret')
   async setup2FA(@Req() req) {
     return this.authService.generate2FASecret(req.user.email);
   }
+
+  @UseGuards(JwtAuthGuard)
+  @Get('2fa/2FAqrcode')
+  async getQRCode(@Query() body) {
+    return this.authService.twoFA_qrCode(parseInt(body.userId)); // change string to number
+  }
+
 
   // เปิดการใช้งาน 2FA 
   @UseGuards(JwtAuthGuard)

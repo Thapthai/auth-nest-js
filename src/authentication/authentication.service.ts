@@ -307,6 +307,22 @@ export class AuthService {
     return { otpauthUrl, qrCodeDataURL };
   }
 
+  async twoFA_qrCode(userId: number) {
+    const user = await this.prisma.user.findUnique({
+      where: { id: userId },
+    });
+
+    if (!user || !user.two_factor_secret) {
+      throw new NotFoundException('2FA_SECRET_NOT_FOUND');
+    }
+
+    const otpauthUrl = authenticator.keyuri(user.email, 'MyApp', user.two_factor_secret);
+    const qrCodeDataURL = await qrcode.toDataURL(otpauthUrl);
+
+    return { otpauthUrl, qrCodeDataURL };
+
+  }
+
   async verify2FA(userId: number, code: string): Promise<boolean> {
     const user = await this.prisma.user.findUnique({ where: { id: userId } });
 
@@ -326,25 +342,34 @@ export class AuthService {
     if (!user) throw new NotFoundException('User not found');
 
     if (dto.is_two_factor_enabled) {
-      // เปิดใช้งาน 2FA
-      const secret = authenticator.generateSecret();
-      const otpauthUrl = authenticator.keyuri(user.email, 'MyApp', secret);
-      const qrCodeDataURL = await qrcode.toDataURL(otpauthUrl);
+      // ตรวจสอบว่าผู้ใช้มี secret อยู่แล้วหรือยัง
+      if (!user.two_factor_secret) {
+        const secret = authenticator.generateSecret();
+        const otpauthUrl = authenticator.keyuri(user.email, 'MyApp', secret);
+        const qrCodeDataURL = await qrcode.toDataURL(otpauthUrl);
 
-      await this.prisma.user.update({
-        where: { id: dto.userId },
-        data: {
-          two_factor_secret: secret,
-          is_two_factor_enabled: true,
-        },
-      });
+        await this.prisma.user.update({
+          where: { id: dto.userId },
+          data: {
+            two_factor_secret: secret,
+            is_two_factor_enabled: true,
+          },
+        });
 
-      return {
-        message: 'Two-Factor Authentication enabled',
-        otpauthUrl,
-        qrCodeDataURL,
-      };
-    } else {
+        return { otpauthUrl, qrCodeDataURL };
+      } else {
+        // เปิด 2FA แต่ไม่ต้องสร้างใหม่
+        await this.prisma.user.update({
+          where: { id: dto.userId },
+          data: {
+            is_two_factor_enabled: true,
+          },
+        });
+
+        return { message: '2FA enabled successfully' };
+      }
+    }
+    else {
       // ปิดการใช้งาน 2FA
       await this.prisma.user.update({
         where: { id: dto.userId },

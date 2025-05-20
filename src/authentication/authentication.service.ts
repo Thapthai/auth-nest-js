@@ -7,12 +7,13 @@ import * as qrcode from 'qrcode';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { LoingDTO, RegisterDTO } from './dto';
 import { VerificationEmailDTO } from './dto/verificationEmail.dto';
-import { VerifyEmail } from './verifyEmail.service';
+import { VerifyEmail } from './email/verifyEmail.service';
 import { ResendVerificationDTO } from './dto/resendVerification.dto';
 import { ForgotPasswordDTO } from './dto/forgetPassword.dto';
-import { ForgetPassWordEmail } from './forgetPassWordEmail.service';
+import { ForgetPassWordEmail } from './email/forgetPassWordEmail.service';
 import { ResetPasswordDTO } from './dto/resetPassword.dto';
 import { twoFAEnableDTO } from './dto/twoFAEnable.dto';
+import { TwoFA_enableEmail } from './email/twoFA_enableEmail.service';
 
 
 @Injectable()
@@ -22,6 +23,7 @@ export class AuthService {
     private prisma: PrismaService,
     private readonly sendVerifyEmail: VerifyEmail,
     private readonly forgetPassWordEmail: ForgetPassWordEmail,
+    private readonly twoFA_enableEmail: TwoFA_enableEmail,
   ) { }
 
   async register(userDTO: RegisterDTO) {
@@ -361,6 +363,7 @@ export class AuthService {
           },
         });
 
+        await this.twoFA_enableEmail.sendEnable2FAEmail(user.email, qrCodeDataURL);
         return { otpauthUrl, qrCodeDataURL };
       } else {
         // เปิด 2FA แต่ไม่ต้องสร้างใหม่
@@ -384,6 +387,7 @@ export class AuthService {
         },
       });
 
+      await this.twoFA_enableEmail.sendDisenable2FAEmail(user.email);
       return {
         message: 'Two-Factor Authentication disabled',
       };

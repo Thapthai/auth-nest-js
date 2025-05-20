@@ -10,7 +10,7 @@ import {
   Res,
 } from '@nestjs/common';
 import { AuthService } from './authentication.service';
-import { VerifyEmail } from './verifyEmail.service';
+import { VerifyEmail } from './email/verifyEmail.service';
 import { JwtAuthGuard } from './jwt-auth.guard';
 import { LoingDTO, RegisterDTO } from './dto';
 import { VerificationEmailDTO } from './dto/verificationEmail.dto';
@@ -63,9 +63,7 @@ export class AuthController {
   async verify2FA(@Body() body) {
     const isValid = await this.authService.verify2FA(body.userId, body.code);
     if (!isValid) throw new Error('Invalid 2FA code');
-
     const user = await this.authService.getUserById(body.userId);
-    const oPassword = { email: user?.email };
   }
 
   @UseGuards(JwtAuthGuard)
@@ -77,7 +75,7 @@ export class AuthController {
   @UseGuards(JwtAuthGuard)
   @Get('2fa/2FAqrcode')
   async getQRCode(@Query() body) {
-    return this.authService.twoFA_qrCode(parseInt(body.userId)); // change string to number
+    return this.authService.twoFA_qrCode(parseInt(body.userId));
   }
 
   // เปิดการใช้งาน 2FA 

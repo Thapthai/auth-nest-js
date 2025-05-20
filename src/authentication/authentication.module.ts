@@ -6,8 +6,9 @@ import { AuthController } from './authentication.controller';
 import { JwtStrategy } from './jwt.strategy';
 import { JwtAuthGuard } from './jwt-auth.guard';
 import { PrismaService } from 'src/prisma/prisma.service';
-import { VerifyEmail } from './verifyEmail.service';
-import { ForgetPassWordEmail } from './forgetPassWordEmail.service';
+import { VerifyEmail } from './email/verifyEmail.service';
+import { ForgetPassWordEmail } from './email/forgetPassWordEmail.service';
+import { TwoFA_enableEmail } from './email/twoFA_enableEmail.service';
 
 
 @Module({
@@ -19,6 +20,6 @@ import { ForgetPassWordEmail } from './forgetPassWordEmail.service';
     }),
   ],
   controllers: [AuthController],
-  providers: [AuthService, PrismaService, JwtStrategy, JwtAuthGuard, VerifyEmail, ForgetPassWordEmail],
+  providers: [AuthService, PrismaService, JwtStrategy, JwtAuthGuard, VerifyEmail, ForgetPassWordEmail, TwoFA_enableEmail],
 })
 export class AuthenticationModule { }

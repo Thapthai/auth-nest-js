@@ -14,6 +14,7 @@ import { ForgetPassWordEmail } from './email/forgetPassWordEmail.service';
 import { ResetPasswordDTO } from './dto/resetPassword.dto';
 import { twoFAEnableDTO } from './dto/twoFAEnable.dto';
 import { TwoFA_enableEmail } from './email/twoFA_enableEmail.service';
+import { permission } from 'process';
 
 
 @Injectable()
@@ -117,7 +118,8 @@ export class AuthService {
         return {
           status: '2FA_REQUIRED',
           twofa_token: tempToken,
-          user_id: user.id
+          user_id: user.id,
+          permission: user.permission_id
         };
       }
 
@@ -133,6 +135,7 @@ export class AuthService {
           name: user?.name,
           email: user?.email,
           id: user?.id,
+          permission: user.permission_id
         }
       }
     } catch (error) {

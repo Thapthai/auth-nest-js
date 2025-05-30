@@ -20,6 +20,9 @@ import { ResetPasswordDTO } from './dto/resetPassword.dto';
 import { twoFAEnableDTO } from './dto/twoFAEnable.dto';
 import { Throttle } from '@nestjs/throttler';
 
+
+
+// @Throttle({ default: { limit: 10, ttl: 60000 } })
 @Controller('auth')
 export class AuthController {
   constructor(
@@ -27,15 +30,13 @@ export class AuthController {
     private readonly sendVerifyEmail: VerifyEmail,
   ) { }
 
-  @Throttle({ default: { limit: 10, ttl: 60000 } })
+  
   @Post('register')
   async register(@Body() body: RegisterDTO) {
     const user = await this.authService.register(body);
     return { message: 'User registered', userId: user.id };
   }
 
-
-  @Throttle({ default: { limit: 10, ttl: 60000 } })
   @Post('login')
   @HttpCode(201)
   async login(@Body() body: LoingDTO) {
@@ -71,7 +72,6 @@ export class AuthController {
     const user = await this.authService.getUserById(body.userId);
   }
 
-  @Throttle({ default: { limit: 10, ttl: 60000 } })
   @UseGuards(JwtAuthGuard)
   @Post('2fa/generate2FASecret')
   async setup2FA(@Req() req) {
@@ -91,7 +91,6 @@ export class AuthController {
     return this.authService.enable2FA(dto);
   }
 
-  @Throttle({ default: { limit: 10, ttl: 60000 } })
   @UseGuards(JwtAuthGuard)
   @Post('2fa/login')
   async loginWith2FA(@Body() body) {

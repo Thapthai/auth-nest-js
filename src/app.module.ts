@@ -3,7 +3,7 @@ import { PrismaModule } from './prisma/prisma.module';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { ThrottlerModule, ThrottlerGuard } from '@nestjs/throttler';
 import { APP_GUARD } from '@nestjs/core';
-import { NotificationModule } from './notification_service/notification.module';
+import { NotificationModule } from './notification_socket/notification.module';
 import { TestServiceModule } from './test-service/test-service.module';
 import { NotificationsModule } from './notifications/notifications.module';
 

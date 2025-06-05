@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { CreateTestServiceDto } from './dto/create-test-service.dto';
 import { UpdateTestServiceDto } from './dto/update-test-service.dto';
-import { NotificationGateway } from 'src/notification_service/notification.gateway';
+import { NotificationGateway } from 'src/notification_socket/notification.gateway';
 import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()

@@ -39,7 +39,7 @@ export class NotificationsService {
     const notifications = await this.prisma.notifications.findMany({
       where: { user_id: id },
       orderBy: { create_at: 'desc' }, // optional: เรียงจากใหม่ไปเก่า
-      take: 9
+      take: 10
     });
 
     return {

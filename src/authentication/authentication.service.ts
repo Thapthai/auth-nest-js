@@ -14,8 +14,6 @@ import { ForgetPassWordEmail } from './email/forgetPassWordEmail.service';
 import { ResetPasswordDTO } from './dto/resetPassword.dto';
 import { twoFAEnableDTO } from './dto/twoFAEnable.dto';
 import { TwoFA_enableEmail } from './email/twoFA_enableEmail.service';
-import { permission } from 'process';
-
 
 @Injectable()
 export class AuthService {
@@ -82,7 +80,7 @@ export class AuthService {
 
       if (!user.email_verified_at) {
         // ดึง token ทั้งหมดของ email นี้
-        const tokens = await this.prisma.verificationToken.findMany({
+        const tokens = await this.prisma.verification_token.findMany({
           where: { email: userDto.email }
         });
 
@@ -94,7 +92,7 @@ export class AuthService {
           const newToken = crypto.randomUUID();
           const newExpires = new Date(Date.now() + 1000 * 60 * 60);
 
-          await this.prisma.verificationToken.update({
+          await this.prisma.verification_token.update({
             where: { id: expiredToken.id },
             data: { token: newToken, expires: newExpires },
           });
@@ -157,12 +155,12 @@ export class AuthService {
     const expires = new Date(Date.now() + 1000 * 60 * 60); // 1 ชั่วโมง
 
     // ลบ token เดิม (กันซ้ำ)
-    await this.prisma.verificationToken.deleteMany({
+    await this.prisma.verification_token.deleteMany({
       where: { email },
     });
 
     // สร้าง token ใหม่
-    await this.prisma.verificationToken.create({
+    await this.prisma.verification_token.create({
       data: {
         email,
         token,
@@ -178,7 +176,7 @@ export class AuthService {
   async verifyEmail(verificationEmailDTO: VerificationEmailDTO, res) {
 
     const token = verificationEmailDTO.token;
-    const record = await this.prisma.verificationToken.findUnique({ where: { token } });
+    const record = await this.prisma.verification_token.findUnique({ where: { token } });
 
     if (!record || record.expires < new Date()) {
       // throw new HttpException('Token is invalid or has expired', HttpStatus.BAD_REQUEST);
@@ -192,7 +190,7 @@ export class AuthService {
       data: { email_verified_at: new Date() },
     });
 
-    await this.prisma.verificationToken.delete({ where: { token } });
+    await this.prisma.verification_token.delete({ where: { token } });
 
     return { message: 'Email verified successfully.' };
     // return res.redirect('http://localhost:3005/login?verified=true');
@@ -212,7 +210,7 @@ export class AuthService {
     }
 
     // ลบ token เดิมทั้งหมด (ถ้ามี)
-    await this.prisma.verificationToken.deleteMany({
+    await this.prisma.verification_token.deleteMany({
       where: { email },
     });
 
@@ -220,7 +218,7 @@ export class AuthService {
     const token = crypto.randomUUID();
     const expires = new Date(Date.now() + 1000 * 60 * 60); // 1 ชั่วโมง
 
-    await this.prisma.verificationToken.create({
+    await this.prisma.verification_token.create({
       data: {
         email,
         token,
@@ -249,10 +247,10 @@ export class AuthService {
     const expires = new Date(Date.now() + 1000 * 60 * 30); // 30 นาที
 
     // ลบ token เดิม
-    await this.prisma.passwordResetToken.deleteMany({ where: { email: dto.email } });
+    await this.prisma.password_reset_token.deleteMany({ where: { email: dto.email } });
 
     // สร้าง token ใหม่
-    await this.prisma.passwordResetToken.create({
+    await this.prisma.password_reset_token.create({
       data: { email: dto.email, token, expires },
     });
 
@@ -267,7 +265,7 @@ export class AuthService {
     const { email, token, newPassword } = dto;
 
     // 1. ตรวจสอบ token ว่าถูกต้องหรือหมดอายุหรือไม่
-    const record = await this.prisma.passwordResetToken.findFirst({
+    const record = await this.prisma.password_reset_token.findFirst({
       where: {
         email,
         token,
@@ -293,7 +291,7 @@ export class AuthService {
     });
 
     // 4. ลบ token หลังใช้แล้ว
-    await this.prisma.passwordResetToken.delete({
+    await this.prisma.password_reset_token.delete({
       where: { id: record.id },
     });
 

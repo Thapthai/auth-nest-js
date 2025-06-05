@@ -20,12 +20,12 @@ exports.Prisma = Prisma
 exports.$Enums = {}
 
 /**
- * Prisma Client JS version: 6.7.0
- * Query Engine version: 3cff47a7f5d65c3ea74883f1d736e41d68ce91ed
+ * Prisma Client JS version: 6.9.0
+ * Query Engine version: 81e4af48011447c3cc503a190e86995b66d2a28e
  */
 Prisma.prismaVersion = {
-  client: "6.7.0",
-  engine: "3cff47a7f5d65c3ea74883f1d736e41d68ce91ed"
+  client: "6.9.0",
+  engine: "81e4af48011447c3cc503a190e86995b66d2a28e"
 }
 
 Prisma.PrismaClientKnownRequestError = () => {
@@ -136,7 +136,7 @@ exports.Prisma.UserScalarFieldEnum = {
   update_at: 'update_at'
 };
 
-exports.Prisma.VerificationTokenScalarFieldEnum = {
+exports.Prisma.Verification_tokenScalarFieldEnum = {
   id: 'id',
   email: 'email',
   token: 'token',
@@ -145,11 +145,22 @@ exports.Prisma.VerificationTokenScalarFieldEnum = {
   update_at: 'update_at'
 };
 
-exports.Prisma.PasswordResetTokenScalarFieldEnum = {
+exports.Prisma.Password_reset_tokenScalarFieldEnum = {
   id: 'id',
   email: 'email',
   token: 'token',
   expires: 'expires',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
+exports.Prisma.NotificationsScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  title: 'title',
+  message: 'message',
+  type: 'type',
+  is_read: 'is_read',
   create_at: 'create_at',
   update_at: 'update_at'
 };
@@ -164,7 +175,7 @@ exports.Prisma.NullsOrder = {
   last: 'last'
 };
 
-exports.Prisma.UserOrderByRelevanceFieldEnum = {
+exports.Prisma.userOrderByRelevanceFieldEnum = {
   name: 'name',
   email: 'email',
   password: 'password',
@@ -173,22 +184,29 @@ exports.Prisma.UserOrderByRelevanceFieldEnum = {
   remember_token: 'remember_token'
 };
 
-exports.Prisma.VerificationTokenOrderByRelevanceFieldEnum = {
+exports.Prisma.verification_tokenOrderByRelevanceFieldEnum = {
   email: 'email',
   token: 'token'
 };
 
-exports.Prisma.PasswordResetTokenOrderByRelevanceFieldEnum = {
+exports.Prisma.password_reset_tokenOrderByRelevanceFieldEnum = {
   id: 'id',
   email: 'email',
   token: 'token'
 };
 
+exports.Prisma.notificationsOrderByRelevanceFieldEnum = {
+  title: 'title',
+  message: 'message',
+  type: 'type'
+};
+
 
 exports.Prisma.ModelName = {
-  User: 'User',
-  VerificationToken: 'VerificationToken',
-  PasswordResetToken: 'PasswordResetToken'
+  user: 'user',
+  verification_token: 'verification_token',
+  password_reset_token: 'password_reset_token',
+  notifications: 'notifications'
 };
 
 /**

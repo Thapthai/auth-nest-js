@@ -8,7 +8,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
+model user {
   id                        Int       @id @default(autoincrement())
   name                      String
   email                     String    @unique
@@ -24,7 +24,7 @@ model User {
   update_at                 DateTime  @updatedAt
 }
 
-model VerificationToken {
+model verification_token {
   id        Int      @id @default(autoincrement())
   email     String   @unique
   token     String   @unique
@@ -35,11 +35,22 @@ model VerificationToken {
   @@unique([email, token])
 }
 
-model PasswordResetToken {
+model password_reset_token {
   id        String   @id @default(uuid())
   email     String
   token     String   @unique
   expires   DateTime
+  create_at DateTime @default(now())
+  update_at DateTime @updatedAt
+}
+
+model notifications {
+  id        Int      @id @default(autoincrement())
+  user_id   Int
+  title     String
+  message   String
+  type      String
+  is_read   Boolean  @default(false)
   create_at DateTime @default(now())
   update_at DateTime @updatedAt
 }

@@ -1,9 +1,9 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Query } from '@nestjs/common';
 import { NotificationsService } from './notifications.service';
 import { CreateNotificationDto } from './dto/create-notification.dto';
 import { UpdateNotificationDto } from './dto/update-notification.dto';
 import { JwtAuthGuard } from "../authentication/jwt-auth.guard";
-import { FindByuserIdDto } from './dto/update-notification.dto copy';
+import { FindByuserIdDto } from './dto/findByuserId.dto';
 
 @Controller('notifications')
 export class NotificationsController {
@@ -34,10 +34,15 @@ export class NotificationsController {
     return this.notificationsService.remove(+id);
   }
 
-  @UseGuards(JwtAuthGuard)
-
+  // @UseGuards(JwtAuthGuard)
   @Get('user-notification/:id')
-  findByuserId(@Param('id') id: string, @Body() findByuserIdDto: FindByuserIdDto) {
+  findByuserId(@Param('id') id: string, @Query() findByuserIdDto: FindByuserIdDto) {
     return this.notificationsService.findByuserId(+id, findByuserIdDto);
   }
+
+  @Patch('user-notification/:id')
+  markAsRead(@Param('id') id: string) {
+    return this.notificationsService.markOneAsRead(+id);
+  }
+
 }

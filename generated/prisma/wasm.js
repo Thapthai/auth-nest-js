@@ -165,6 +165,457 @@ exports.Prisma.NotificationsScalarFieldEnum = {
   update_at: 'update_at'
 };
 
+exports.Prisma.Sale_officesScalarFieldEnum = {
+  id: 'id',
+  site_code: 'site_code',
+  site_office_name_th: 'site_office_name_th',
+  site_office_name_en: 'site_office_name_en',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
+exports.Prisma.DepartmentsScalarFieldEnum = {
+  id: 'id',
+  department_code: 'department_code',
+  sale_office_id: 'sale_office_id',
+  description: 'description',
+  group_code: 'group_code',
+  ship_id: 'ship_id',
+  is_default: 'is_default',
+  name_th: 'name_th',
+  name_en: 'name_en',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
+exports.Prisma.Factory_sale_officeScalarFieldEnum = {
+  id: 'id',
+  sale_office_id: 'sale_office_id',
+  factory_id: 'factory_id',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
+exports.Prisma.FactoriesScalarFieldEnum = {
+  id: 'id',
+  price: 'price',
+  address: 'address',
+  post: 'post',
+  tel: 'tel',
+  tax_id: 'tax_id',
+  name_th: 'name_th',
+  name_en: 'name_en',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
+exports.Prisma.MachinesScalarFieldEnum = {
+  id: 'id',
+  facetory_id: 'facetory_id',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
+exports.Prisma.ContactScalarFieldEnum = {
+  id: 'id',
+  sale_office_id: 'sale_office_id',
+  factory_sale_office_id: 'factory_sale_office_id',
+  description: 'description',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
+exports.Prisma.MaterialsScalarFieldEnum = {
+  id: 'id',
+  material_code: 'material_code',
+  material_name_th: 'material_name_th',
+  material_name_en: 'material_name_en',
+  long_meterial_name: 'long_meterial_name',
+  material_type_id: 'material_type_id',
+  material_unit_id: 'material_unit_id',
+  description: 'description',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
+exports.Prisma.Material_typesScalarFieldEnum = {
+  id: 'id',
+  description: 'description',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
+exports.Prisma.Item_units_meauresScalarFieldEnum = {
+  id: 'id',
+  material_id: 'material_id',
+  packing: 'packing',
+  qty: 'qty',
+  countable_unit_id: 'countable_unit_id',
+  description: 'description',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
+exports.Prisma.ItemsScalarFieldEnum = {
+  id: 'id',
+  material_id: 'material_id',
+  saleoffice_id: 'saleoffice_id',
+  department_id: 'department_id',
+  item_category_id: 'item_category_id',
+  stock_location_id: 'stock_location_id',
+  name_th: 'name_th',
+  name_en: 'name_en',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
+exports.Prisma.Items_detailsScalarFieldEnum = {
+  id: 'id',
+  item_id: 'item_id',
+  sale_office_id: 'sale_office_id',
+  qr_code_number: 'qr_code_number',
+  product_lot_number: 'product_lot_number',
+  description: 'description',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
+exports.Prisma.Item_categoriesScalarFieldEnum = {
+  id: 'id',
+  type_id: 'type_id',
+  sale_office_id: 'sale_office_id',
+  department_id: 'department_id',
+  stock_location_id: 'stock_location_id',
+  description: 'description',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
+exports.Prisma.TypesScalarFieldEnum = {
+  id: 'id',
+  description: 'description',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
+exports.Prisma.Item_pricesScalarFieldEnum = {
+  id: 'id',
+  item_id: 'item_id',
+  price: 'price',
+  description: 'description',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
+exports.Prisma.DirtiesScalarFieldEnum = {
+  id: 'id',
+  dirty_doc_no: 'dirty_doc_no',
+  dirty_doc_date: 'dirty_doc_date',
+  sale_office_id: 'sale_office_id',
+  department_id: 'department_id',
+  factory_id: 'factory_id',
+  user_id: 'user_id',
+  signature: 'signature',
+  sign_factory: 'sign_factory',
+  sign_factory_time: 'sign_factory_time',
+  sign_NH: 'sign_NH',
+  sign_NH_time: 'sign_NH_time',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
+exports.Prisma.Dirty_detailsScalarFieldEnum = {
+  id: 'id',
+  dirty_id: 'dirty_id',
+  department_id: 'department_id',
+  item_id: 'item_id',
+  unit_id: 'unit_id',
+  user_id: 'user_id',
+  qty: 'qty',
+  receive_qty: 'receive_qty',
+  weight: 'weight',
+  is_cancel: 'is_cancel',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
+exports.Prisma.Customer_group_typesScalarFieldEnum = {
+  id: 'id',
+  level: 'level',
+  group: 'group',
+  type: 'type',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
+exports.Prisma.Customer_groupsScalarFieldEnum = {
+  id: 'id',
+  sale_office_id: 'sale_office_id',
+  customer_group_type_id: 'customer_group_type_id',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
+exports.Prisma.Stock_locationsScalarFieldEnum = {
+  id: 'id',
+  department_id: 'department_id',
+  sale_office_id: 'sale_office_id',
+  site_short_code: 'site_short_code',
+  description: 'description',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
+exports.Prisma.ShelfcountsScalarFieldEnum = {
+  id: 'id',
+  sale_office_id: 'sale_office_id',
+  doc_no: 'doc_no',
+  doc_date: 'doc_date',
+  shelfcount_doc_no: 'shelfcount_doc_no',
+  department_id: 'department_id',
+  is_request: 'is_request',
+  delivery_time: 'delivery_time',
+  sc_time: 'sc_time',
+  is_mobile: 'is_mobile',
+  complete_user: 'complete_user',
+  complete_date: 'complete_date',
+  cancel_user_id: 'cancel_user_id',
+  cancel_remark: 'cancel_remark',
+  site_short_code: 'site_short_code',
+  description: 'description',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
+exports.Prisma.Shelfcount_detailsScalarFieldEnum = {
+  id: 'id',
+  shelfcount_id: 'shelfcount_id',
+  item_id: 'item_id',
+  unit_id: 'unit_id',
+  par_qty: 'par_qty',
+  cc_qty: 'cc_qty',
+  total_qty: 'total_qty',
+  over_par: 'over_par',
+  short: 'short',
+  over: 'over',
+  weight: 'weight',
+  price: 'price',
+  category_price: 'category_price',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
+exports.Prisma.DamagesScalarFieldEnum = {
+  id: 'id',
+  doc_no: 'doc_no',
+  doc_date: 'doc_date',
+  ref_doc_no: 'ref_doc_no',
+  sale_office_id: 'sale_office_id',
+  department_id: 'department_id',
+  total: 'total',
+  sign_factory: 'sign_factory',
+  sign_NH: 'sign_NH',
+  sign_factory_time: 'sign_factory_time',
+  sign_NH_time: 'sign_NH_time',
+  factory_id: 'factory_id',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
+exports.Prisma.Damage_detailsScalarFieldEnum = {
+  id: 'id',
+  damage_id: 'damage_id',
+  item_id: 'item_id',
+  unit_id: 'unit_id',
+  qty: 'qty',
+  weight: 'weight',
+  is_cancel: 'is_cancel',
+  is_checklist: 'is_checklist',
+  description: 'description',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
+exports.Prisma.ShipsScalarFieldEnum = {
+  id: 'id',
+  item_id: 'item_id',
+  site_short_code: 'site_short_code',
+  description: 'description',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
+exports.Prisma.New_linensScalarFieldEnum = {
+  id: 'id',
+  doc_no: 'doc_no',
+  doc_date: 'doc_date',
+  ref_doc_no: 'ref_doc_no',
+  sale_office_id: 'sale_office_id',
+  department_id: 'department_id',
+  total: 'total',
+  is_recive: 'is_recive',
+  receive_date: 'receive_date',
+  receive_detail: 'receive_detail',
+  is_process: 'is_process',
+  sign_factory: 'sign_factory',
+  sign_NH: 'sign_NH',
+  sign_factory_time: 'sign_factory_time',
+  sign_NH_time: 'sign_NH_time',
+  factory_id: 'factory_id',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
+exports.Prisma.New_linen_detailsScalarFieldEnum = {
+  id: 'id',
+  new_linen_id: 'new_linen_id',
+  department_id: 'department_id',
+  item_id: 'item_id',
+  unit_id: 'unit_id',
+  qty: 'qty',
+  receive_qty: 'receive_qty',
+  weight: 'weight',
+  is_cancel: 'is_cancel',
+  description: 'description',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
+exports.Prisma.Repair_washsScalarFieldEnum = {
+  id: 'id',
+  doc_no: 'doc_no',
+  doc_date: 'doc_date',
+  ref_doc_no: 'ref_doc_no',
+  sale_office_id: 'sale_office_id',
+  department_id: 'department_id',
+  clean_id: 'clean_id',
+  total: 'total',
+  is_recive: 'is_recive',
+  receive_date: 'receive_date',
+  receive_detail: 'receive_detail',
+  is_process: 'is_process',
+  sign_factory: 'sign_factory',
+  sign_NH: 'sign_NH',
+  sign_factory_time: 'sign_factory_time',
+  sign_NH_time: 'sign_NH_time',
+  factory_id: 'factory_id',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
+exports.Prisma.Repair_wash_detailsScalarFieldEnum = {
+  id: 'id',
+  repair_wash_id: 'repair_wash_id',
+  item_id: 'item_id',
+  unit_id: 'unit_id',
+  qty: 'qty',
+  receive_qty: 'receive_qty',
+  weight: 'weight',
+  is_cancel: 'is_cancel',
+  is_checklist: 'is_checklist',
+  description: 'description',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
+exports.Prisma.CleansScalarFieldEnum = {
+  id: 'id',
+  clean_doc_no: 'clean_doc_no',
+  doc_date: 'doc_date',
+  sale_office_id: 'sale_office_id',
+  department_id: 'department_id',
+  dirty_id: 'dirty_id',
+  user_id: 'user_id',
+  signature: 'signature',
+  sign_factory: 'sign_factory',
+  sign_NH: 'sign_NH',
+  sign_factory_time: 'sign_factory_time',
+  sign_NH_time: 'sign_NH_time',
+  factory_id: 'factory_id',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
+exports.Prisma.Clean_detailsScalarFieldEnum = {
+  id: 'id',
+  clean_id: 'clean_id',
+  item_id: 'item_id',
+  unit_id: 'unit_id',
+  qty: 'qty',
+  weight: 'weight',
+  request_name: 'request_name',
+  description: 'description',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
+exports.Prisma.Return_washsScalarFieldEnum = {
+  id: 'id',
+  doc_no: 'doc_no',
+  doc_date: 'doc_date',
+  ref_doc_no: 'ref_doc_no',
+  sale_office_id: 'sale_office_id',
+  department_id: 'department_id',
+  total: 'total',
+  dirty_id: 'dirty_id',
+  user_id: 'user_id',
+  signature: 'signature',
+  sign_factory: 'sign_factory',
+  sign_NH: 'sign_NH',
+  sign_factory_time: 'sign_factory_time',
+  sign_NH_time: 'sign_NH_time',
+  factory_id: 'factory_id',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
+exports.Prisma.Retrun_wash_detailsScalarFieldEnum = {
+  id: 'id',
+  return_wash_id: 'return_wash_id',
+  item_id: 'item_id',
+  unit_id: 'unit_id',
+  qty: 'qty',
+  weight: 'weight',
+  is_cancel: 'is_cancel',
+  is_checklist: 'is_checklist',
+  request_name: 'request_name',
+  description: 'description',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -201,12 +652,199 @@ exports.Prisma.notificationsOrderByRelevanceFieldEnum = {
   type: 'type'
 };
 
+exports.Prisma.sale_officesOrderByRelevanceFieldEnum = {
+  site_code: 'site_code',
+  site_office_name_th: 'site_office_name_th',
+  site_office_name_en: 'site_office_name_en'
+};
+
+exports.Prisma.departmentsOrderByRelevanceFieldEnum = {
+  department_code: 'department_code',
+  description: 'description',
+  group_code: 'group_code',
+  name_th: 'name_th',
+  name_en: 'name_en'
+};
+
+exports.Prisma.factoriesOrderByRelevanceFieldEnum = {
+  address: 'address',
+  post: 'post',
+  tel: 'tel',
+  name_th: 'name_th',
+  name_en: 'name_en'
+};
+
+exports.Prisma.contactOrderByRelevanceFieldEnum = {
+  description: 'description'
+};
+
+exports.Prisma.materialsOrderByRelevanceFieldEnum = {
+  material_name_th: 'material_name_th',
+  material_name_en: 'material_name_en',
+  long_meterial_name: 'long_meterial_name',
+  description: 'description'
+};
+
+exports.Prisma.material_typesOrderByRelevanceFieldEnum = {
+  description: 'description'
+};
+
+exports.Prisma.item_units_meauresOrderByRelevanceFieldEnum = {
+  packing: 'packing',
+  countable_unit_id: 'countable_unit_id',
+  description: 'description'
+};
+
+exports.Prisma.itemsOrderByRelevanceFieldEnum = {
+  name_th: 'name_th',
+  name_en: 'name_en'
+};
+
+exports.Prisma.items_detailsOrderByRelevanceFieldEnum = {
+  qr_code_number: 'qr_code_number',
+  product_lot_number: 'product_lot_number',
+  description: 'description'
+};
+
+exports.Prisma.item_categoriesOrderByRelevanceFieldEnum = {
+  description: 'description'
+};
+
+exports.Prisma.typesOrderByRelevanceFieldEnum = {
+  description: 'description'
+};
+
+exports.Prisma.item_pricesOrderByRelevanceFieldEnum = {
+  description: 'description'
+};
+
+exports.Prisma.dirtiesOrderByRelevanceFieldEnum = {
+  dirty_doc_no: 'dirty_doc_no',
+  signature: 'signature',
+  sign_factory: 'sign_factory',
+  sign_NH: 'sign_NH'
+};
+
+exports.Prisma.customer_group_typesOrderByRelevanceFieldEnum = {
+  level: 'level',
+  group: 'group',
+  type: 'type'
+};
+
+exports.Prisma.stock_locationsOrderByRelevanceFieldEnum = {
+  description: 'description'
+};
+
+exports.Prisma.shelfcountsOrderByRelevanceFieldEnum = {
+  shelfcount_doc_no: 'shelfcount_doc_no',
+  complete_user: 'complete_user',
+  cancel_remark: 'cancel_remark',
+  description: 'description'
+};
+
+exports.Prisma.damagesOrderByRelevanceFieldEnum = {
+  doc_no: 'doc_no',
+  ref_doc_no: 'ref_doc_no',
+  sign_factory: 'sign_factory',
+  sign_NH: 'sign_NH'
+};
+
+exports.Prisma.damage_detailsOrderByRelevanceFieldEnum = {
+  description: 'description'
+};
+
+exports.Prisma.shipsOrderByRelevanceFieldEnum = {
+  site_short_code: 'site_short_code',
+  description: 'description'
+};
+
+exports.Prisma.new_linensOrderByRelevanceFieldEnum = {
+  doc_no: 'doc_no',
+  ref_doc_no: 'ref_doc_no',
+  receive_detail: 'receive_detail',
+  sign_factory: 'sign_factory',
+  sign_NH: 'sign_NH'
+};
+
+exports.Prisma.new_linen_detailsOrderByRelevanceFieldEnum = {
+  description: 'description'
+};
+
+exports.Prisma.repair_washsOrderByRelevanceFieldEnum = {
+  doc_no: 'doc_no',
+  ref_doc_no: 'ref_doc_no',
+  receive_detail: 'receive_detail',
+  sign_factory: 'sign_factory',
+  sign_NH: 'sign_NH'
+};
+
+exports.Prisma.repair_wash_detailsOrderByRelevanceFieldEnum = {
+  description: 'description'
+};
+
+exports.Prisma.cleansOrderByRelevanceFieldEnum = {
+  clean_doc_no: 'clean_doc_no',
+  signature: 'signature',
+  sign_factory: 'sign_factory',
+  sign_NH: 'sign_NH'
+};
+
+exports.Prisma.clean_detailsOrderByRelevanceFieldEnum = {
+  request_name: 'request_name',
+  description: 'description'
+};
+
+exports.Prisma.return_washsOrderByRelevanceFieldEnum = {
+  doc_no: 'doc_no',
+  ref_doc_no: 'ref_doc_no',
+  signature: 'signature',
+  sign_factory: 'sign_factory',
+  sign_NH: 'sign_NH'
+};
+
+exports.Prisma.retrun_wash_detailsOrderByRelevanceFieldEnum = {
+  request_name: 'request_name',
+  description: 'description'
+};
+
 
 exports.Prisma.ModelName = {
   user: 'user',
   verification_token: 'verification_token',
   password_reset_token: 'password_reset_token',
-  notifications: 'notifications'
+  notifications: 'notifications',
+  sale_offices: 'sale_offices',
+  departments: 'departments',
+  factory_sale_office: 'factory_sale_office',
+  factories: 'factories',
+  machines: 'machines',
+  contact: 'contact',
+  materials: 'materials',
+  material_types: 'material_types',
+  item_units_meaures: 'item_units_meaures',
+  items: 'items',
+  items_details: 'items_details',
+  item_categories: 'item_categories',
+  types: 'types',
+  item_prices: 'item_prices',
+  dirties: 'dirties',
+  dirty_details: 'dirty_details',
+  customer_group_types: 'customer_group_types',
+  customer_groups: 'customer_groups',
+  stock_locations: 'stock_locations',
+  shelfcounts: 'shelfcounts',
+  shelfcount_details: 'shelfcount_details',
+  damages: 'damages',
+  damage_details: 'damage_details',
+  ships: 'ships',
+  new_linens: 'new_linens',
+  new_linen_details: 'new_linen_details',
+  repair_washs: 'repair_washs',
+  repair_wash_details: 'repair_wash_details',
+  cleans: 'cleans',
+  clean_details: 'clean_details',
+  return_washs: 'return_washs',
+  retrun_wash_details: 'retrun_wash_details'
 };
 
 /**

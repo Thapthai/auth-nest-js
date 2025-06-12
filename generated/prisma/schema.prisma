@@ -54,3 +54,454 @@ model notifications {
   create_at DateTime @default(now())
   update_at DateTime @updatedAt
 }
+
+model sale_offices {
+  id                  Int      @id @default(autoincrement())
+  site_code           String
+  site_office_name_th String
+  site_office_name_en String
+  status              Boolean
+  create_at           DateTime @default(now())
+  update_at           DateTime @updatedAt
+}
+
+model departments {
+  id              Int      @id @default(autoincrement())
+  department_code String
+  sale_office_id  Int
+  description     String
+  group_code      String
+  ship_id         Int
+  is_default      Boolean
+  name_th         String
+  name_en         String
+  status          Boolean
+  create_at       DateTime @default(now())
+  update_at       DateTime @updatedAt
+}
+
+model factory_sale_office {
+  id             Int      @id @default(autoincrement())
+  sale_office_id Int
+  factory_id     Int
+  status         Boolean
+  create_at      DateTime @default(now())
+  update_at      DateTime @updatedAt
+}
+
+model factories {
+  id        Int      @id @default(autoincrement())
+  price     Float
+  address   String
+  post      String
+  tel       String
+  tax_id    Int
+  name_th   String
+  name_en   String
+  status    Boolean
+  create_at DateTime @default(now())
+  update_at DateTime @updatedAt
+}
+
+model machines {
+  id          Int      @id @default(autoincrement())
+  facetory_id Int
+  status      Boolean
+  create_at   DateTime @default(now())
+  update_at   DateTime @updatedAt
+}
+
+model contact {
+  id                     Int      @id @default(autoincrement())
+  sale_office_id         Int
+  factory_sale_office_id Int
+  description            String
+  status                 Boolean
+  create_at              DateTime @default(now())
+  update_at              DateTime @updatedAt
+}
+
+model materials {
+  id                 Int      @id @default(autoincrement())
+  material_code      Int
+  material_name_th   String
+  material_name_en   String
+  long_meterial_name String
+  material_type_id   Int
+  material_unit_id   Int
+  description        String
+  status             Boolean
+  create_at          DateTime @default(now())
+  update_at          DateTime @updatedAt
+}
+
+model material_types {
+  id          Int      @id @default(autoincrement())
+  description String
+  status      Boolean
+  create_at   DateTime @default(now())
+  update_at   DateTime @updatedAt
+}
+
+model item_units_meaures {
+  id                Int      @id @default(autoincrement())
+  material_id       Int
+  packing           String
+  qty               Float
+  countable_unit_id String
+  description       String
+  status            Boolean
+  create_at         DateTime @default(now())
+  update_at         DateTime @updatedAt
+}
+
+model items {
+  id                Int      @id @default(autoincrement())
+  material_id       Int
+  saleoffice_id     Int
+  department_id     Int
+  item_category_id  Int
+  stock_location_id Int
+  name_th           String?
+  name_en           String?
+  status            Boolean
+  create_at         DateTime @default(now())
+  update_at         DateTime @updatedAt
+}
+
+model items_details {
+  id                 Int      @id @default(autoincrement())
+  item_id            Int
+  sale_office_id     Int
+  qr_code_number     String
+  product_lot_number String
+  description        String
+  status             Boolean
+  create_at          DateTime @default(now())
+  update_at          DateTime @updatedAt
+}
+
+model item_categories {
+  id                Int      @id @default(autoincrement())
+  type_id           Int
+  sale_office_id    Int
+  department_id     Int
+  stock_location_id Int
+  description       String
+  status            Boolean
+  create_at         DateTime @default(now())
+  update_at         DateTime @updatedAt
+}
+
+model types {
+  id          Int      @id @default(autoincrement())
+  description String
+  status      Boolean
+  create_at   DateTime @default(now())
+  update_at   DateTime @updatedAt
+}
+
+model item_prices {
+  id          Int      @id @default(autoincrement())
+  item_id     Int
+  price       Float
+  description String
+  status      Boolean
+  create_at   DateTime @default(now())
+  update_at   DateTime @updatedAt
+}
+
+model dirties {
+  id                Int       @id @default(autoincrement())
+  dirty_doc_no      String
+  dirty_doc_date    DateTime?
+  sale_office_id    Int?
+  department_id     Int?
+  factory_id        Int?
+  user_id           Int?
+  signature         String?
+  sign_factory      String?
+  sign_factory_time DateTime?
+  sign_NH           String?
+  sign_NH_time      DateTime?
+  status            Boolean
+  create_at         DateTime  @default(now())
+  update_at         DateTime  @updatedAt
+}
+
+model dirty_details {
+  id            Int      @id @default(autoincrement())
+  dirty_id      Int
+  department_id Int
+  item_id       Int
+  unit_id       Int
+  user_id       Int
+  qty           Float
+  receive_qty   Float
+  weight        Float
+  is_cancel     Boolean
+  status        Boolean
+  create_at     DateTime @default(now())
+  update_at     DateTime @updatedAt
+}
+
+model customer_group_types {
+  id        Int      @id @default(autoincrement())
+  level     String
+  group     String
+  type      String
+  status    Boolean
+  create_at DateTime @default(now())
+  update_at DateTime @updatedAt
+}
+
+model customer_groups {
+  id                     Int      @id @default(autoincrement())
+  sale_office_id         Int
+  customer_group_type_id Int
+  status                 Boolean
+  create_at              DateTime @default(now())
+  update_at              DateTime @updatedAt
+}
+
+model stock_locations {
+  id              Int      @id @default(autoincrement())
+  department_id   Int
+  sale_office_id  Int
+  site_short_code Int
+  description     String
+  status          Boolean
+  create_at       DateTime @default(now())
+  update_at       DateTime @updatedAt
+}
+
+model shelfcounts {
+  id                Int      @id @default(autoincrement())
+  sale_office_id    Int
+  doc_no            Int
+  doc_date          DateTime
+  shelfcount_doc_no String
+  department_id     Int
+  is_request        Boolean
+  delivery_time     DateTime //รอบส่ง
+  sc_time           DateTime //รอบนับผ้า
+  is_mobile         Boolean
+  complete_user     String
+  complete_date     DateTime
+  cancel_user_id    Int
+  cancel_remark     String
+  site_short_code   Int
+  description       String
+  status            Boolean
+  create_at         DateTime @default(now())
+  update_at         DateTime @updatedAt
+}
+
+model shelfcount_details {
+  id             Int      @id @default(autoincrement())
+  shelfcount_id  Int
+  item_id        Int
+  unit_id        Int
+  par_qty        Float
+  cc_qty         Float //ยอดนับ
+  total_qty      Float //ยอดรวม
+  over_par       Float
+  short          Float
+  over           Float
+  weight         Float
+  price          Float
+  category_price Float
+  status         Boolean
+  create_at      DateTime @default(now())
+  update_at      DateTime @updatedAt
+}
+
+model damages {
+  id                Int      @id @default(autoincrement())
+  doc_no            String
+  doc_date          DateTime
+  ref_doc_no        String
+  sale_office_id    Int
+  department_id     Int
+  total             Float
+  sign_factory      String
+  sign_NH           String
+  sign_factory_time DateTime
+  sign_NH_time      DateTime
+  factory_id        Int
+  status            Boolean
+  create_at         DateTime @default(now())
+  update_at         DateTime @updatedAt
+}
+
+model damage_details {
+  id           Int      @id @default(autoincrement())
+  damage_id    Int
+  item_id      Int
+  unit_id      Int
+  qty          Float
+  weight       Float
+  is_cancel    Boolean
+  is_checklist Boolean
+  description  String
+  status       Boolean
+  create_at    DateTime @default(now())
+  update_at    DateTime @updatedAt
+}
+
+model ships {
+  id              Int      @id @default(autoincrement())
+  item_id         Int
+  site_short_code String
+  description     String
+  status          Boolean
+  create_at       DateTime @default(now())
+  update_at       DateTime @updatedAt
+}
+
+model new_linens {
+  id                Int      @id @default(autoincrement())
+  doc_no            String
+  doc_date          DateTime
+  ref_doc_no        String
+  sale_office_id    Int
+  department_id     Int
+  total             Float
+  is_recive         Boolean
+  receive_date      DateTime
+  receive_detail    String
+  is_process        Boolean
+  sign_factory      String
+  sign_NH           String
+  sign_factory_time DateTime
+  sign_NH_time      DateTime
+  factory_id        Int
+  status            Boolean
+  create_at         DateTime @default(now())
+  update_at         DateTime @updatedAt
+}
+
+model new_linen_details {
+  id            Int      @id @default(autoincrement())
+  new_linen_id  Int
+  department_id Int
+  item_id       Int
+  unit_id       Int
+  qty           Float
+  receive_qty   Float
+  weight        Float
+  is_cancel     Boolean
+  description   String
+  status        Boolean
+  create_at     DateTime @default(now())
+  update_at     DateTime @updatedAt
+}
+
+model repair_washs {
+  id                Int      @id @default(autoincrement())
+  doc_no            String
+  doc_date          DateTime
+  ref_doc_no        String
+  sale_office_id    Int
+  department_id     Int
+  clean_id          Int
+  total             Float
+  is_recive         Boolean
+  receive_date      DateTime
+  receive_detail    String
+  is_process        Boolean
+  sign_factory      String
+  sign_NH           String
+  sign_factory_time DateTime
+  sign_NH_time      DateTime
+  factory_id        Int
+  status            Boolean
+  create_at         DateTime @default(now())
+  update_at         DateTime @updatedAt
+}
+
+model repair_wash_details {
+  id             Int      @id @default(autoincrement())
+  repair_wash_id Int
+  item_id        Int
+  unit_id        Int
+  qty            Float
+  receive_qty    Float
+  weight         Float
+  is_cancel      Boolean
+  is_checklist   Boolean
+  description    String
+  status         Boolean
+  create_at      DateTime @default(now())
+  update_at      DateTime @updatedAt
+}
+
+model cleans {
+  id                Int      @id @default(autoincrement())
+  clean_doc_no      String
+  doc_date          DateTime
+  sale_office_id    Int
+  department_id     Int
+  dirty_id          Int
+  user_id           Int
+  signature         String
+  sign_factory      String
+  sign_NH           String
+  sign_factory_time DateTime
+  sign_NH_time      DateTime
+  factory_id        Int
+  status            Boolean
+  create_at         DateTime @default(now())
+  update_at         DateTime @updatedAt
+}
+
+model clean_details {
+  id           Int      @id @default(autoincrement())
+  clean_id     Int
+  item_id      Int
+  unit_id      Int
+  qty          Float
+  weight       Float
+  request_name String
+  description  String
+  status       Boolean
+  create_at    DateTime @default(now())
+  update_at    DateTime @updatedAt
+}
+
+model return_washs {
+  id                Int      @id @default(autoincrement())
+  doc_no            String
+  doc_date          DateTime
+  ref_doc_no        String
+  sale_office_id    Int
+  department_id     Int
+  total             Float
+  dirty_id          Int
+  user_id           Int
+  signature         String
+  sign_factory      String
+  sign_NH           String
+  sign_factory_time DateTime
+  sign_NH_time      DateTime
+  factory_id        Int
+  status            Boolean
+  create_at         DateTime @default(now())
+  update_at         DateTime @updatedAt
+}
+
+model retrun_wash_details {
+  id             Int      @id @default(autoincrement())
+  return_wash_id Int
+  item_id        Int
+  unit_id        Int
+  qty            Float
+  weight         Float
+  is_cancel      Boolean
+  is_checklist   Boolean
+  request_name   String
+  description    String
+  status         Boolean
+  create_at      DateTime @default(now())
+  update_at      DateTime @updatedAt
+}

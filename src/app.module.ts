@@ -6,6 +6,11 @@ import { APP_GUARD } from '@nestjs/core';
 import { NotificationModule } from './notification_socket/notification.module';
 import { TestServiceModule } from './test-service/test-service.module';
 import { NotificationsModule } from './notifications/notifications.module';
+import { DirtiesModule } from './dirties/dirties.module';
+import { DepartmentsModule } from './departments/departments.module';
+import { DirtyDetailsModule } from './dirty_details/dirty_details.module';
+import { FactoriesModule } from './factories/factories.module';
+import { ItemsModule } from './items/items.module';
 
 @Module({
   imports: [
@@ -18,6 +23,11 @@ import { NotificationsModule } from './notifications/notifications.module';
     NotificationModule,
     TestServiceModule,
     NotificationsModule,
+    DirtiesModule,
+    DepartmentsModule,
+    DirtyDetailsModule,
+    FactoriesModule,
+    ItemsModule,
   ],
   controllers: [],
   providers: [

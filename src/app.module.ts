@@ -13,6 +13,7 @@ import { FactoriesModule } from './factories/factories.module';
 import { ItemsModule } from './items/items.module';
 import { NewLinensModule } from './new_linens/new_linens.module';
 import { NewLinenDetailsModule } from './new_linen_details/new_linen_details.module';
+import { UnregisteredItemsModule } from './unregistered_items/unregistered_items.module';
 
 @Module({
   imports: [
@@ -32,6 +33,7 @@ import { NewLinenDetailsModule } from './new_linen_details/new_linen_details.mod
     ItemsModule,
     NewLinensModule,
     NewLinenDetailsModule,
+    UnregisteredItemsModule,
   ],
   controllers: [],
   providers: [

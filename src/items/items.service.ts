@@ -13,16 +13,34 @@ export class ItemsService {
     });
   }
 
-  async findAll(department_id?: number) {
-    const where = department_id ? { department_id } : {};
+  // async findAll(department_id?: number) {
+  //   const where = department_id ? { department_id } : {};
 
-    const items = await this.prisma.items.findMany({
+  //   const items = await this.prisma.items.findMany({
+  //     where,
+  //     orderBy: { id: 'desc' },
+  //   });
+
+  //   return items;
+  // }
+
+  async findAll(department_id?: number, with_out_id?: number[]) {
+    const where: any = {};
+
+    if (department_id) {
+      where.department_id = department_id;
+    }
+
+    if (with_out_id && with_out_id.length > 0) {
+      where.id = { notIn: with_out_id };
+    }
+
+    return this.prisma.items.findMany({
       where,
       orderBy: { id: 'desc' },
     });
-
-    return items;
   }
+
 
 
   async findOne(id: number) {

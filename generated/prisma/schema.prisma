@@ -505,3 +505,14 @@ model retrun_wash_details {
   create_at      DateTime @default(now())
   update_at      DateTime @updatedAt
 }
+
+model unregistered_items {
+  id            Int      @id @default(autoincrement())
+  item_id       Int
+  name          String
+  type_linen    String
+  type_linen_id Int
+  status        Boolean
+  create_at     DateTime @default(now())
+  update_at     DateTime @updatedAt
+}

@@ -13,9 +13,16 @@ export class ItemsController {
   }
 
   @Get()
-  findAll(@Query('department_id') departmentIdParam?: string) {
+  findAll(
+    @Query('department_id') departmentIdParam?: string,
+    @Query('with_out_id') withOutIdParam?: string,
+  ) {
     const department_id = departmentIdParam ? parseInt(departmentIdParam, 10) : undefined;
-    return this.itemsService.findAll(department_id);
+    const with_out_id = withOutIdParam
+      ? withOutIdParam.split(',').map((id) => parseInt(id, 10)).filter((n) => !isNaN(n))
+      : undefined;
+
+    return this.itemsService.findAll(department_id, with_out_id);
   }
 
   @Get(':id')

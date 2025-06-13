@@ -193,6 +193,11 @@ export type return_washs = $Result.DefaultSelection<Prisma.$return_washsPayload>
  * 
  */
 export type retrun_wash_details = $Result.DefaultSelection<Prisma.$retrun_wash_detailsPayload>
+/**
+ * Model unregistered_items
+ * 
+ */
+export type unregistered_items = $Result.DefaultSelection<Prisma.$unregistered_itemsPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -678,6 +683,16 @@ export class PrismaClient<
     * ```
     */
   get retrun_wash_details(): Prisma.retrun_wash_detailsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.unregistered_items`: Exposes CRUD operations for the **unregistered_items** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Unregistered_items
+    * const unregistered_items = await prisma.unregistered_items.findMany()
+    * ```
+    */
+  get unregistered_items(): Prisma.unregistered_itemsDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -1153,7 +1168,8 @@ export namespace Prisma {
     cleans: 'cleans',
     clean_details: 'clean_details',
     return_washs: 'return_washs',
-    retrun_wash_details: 'retrun_wash_details'
+    retrun_wash_details: 'retrun_wash_details',
+    unregistered_items: 'unregistered_items'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1172,7 +1188,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "verification_token" | "password_reset_token" | "notifications" | "sale_offices" | "departments" | "factory_sale_office" | "factories" | "machines" | "contact" | "materials" | "material_types" | "item_units_meaures" | "items" | "items_details" | "item_categories" | "types" | "item_prices" | "dirties" | "dirty_details" | "customer_group_types" | "customer_groups" | "stock_locations" | "shelfcounts" | "shelfcount_details" | "damages" | "damage_details" | "ships" | "new_linens" | "new_linen_details" | "repair_washs" | "repair_wash_details" | "cleans" | "clean_details" | "return_washs" | "retrun_wash_details"
+      modelProps: "user" | "verification_token" | "password_reset_token" | "notifications" | "sale_offices" | "departments" | "factory_sale_office" | "factories" | "machines" | "contact" | "materials" | "material_types" | "item_units_meaures" | "items" | "items_details" | "item_categories" | "types" | "item_prices" | "dirties" | "dirty_details" | "customer_group_types" | "customer_groups" | "stock_locations" | "shelfcounts" | "shelfcount_details" | "damages" | "damage_details" | "ships" | "new_linens" | "new_linen_details" | "repair_washs" | "repair_wash_details" | "cleans" | "clean_details" | "return_washs" | "retrun_wash_details" | "unregistered_items"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -3552,6 +3568,72 @@ export namespace Prisma {
           }
         }
       }
+      unregistered_items: {
+        payload: Prisma.$unregistered_itemsPayload<ExtArgs>
+        fields: Prisma.unregistered_itemsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.unregistered_itemsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$unregistered_itemsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.unregistered_itemsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$unregistered_itemsPayload>
+          }
+          findFirst: {
+            args: Prisma.unregistered_itemsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$unregistered_itemsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.unregistered_itemsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$unregistered_itemsPayload>
+          }
+          findMany: {
+            args: Prisma.unregistered_itemsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$unregistered_itemsPayload>[]
+          }
+          create: {
+            args: Prisma.unregistered_itemsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$unregistered_itemsPayload>
+          }
+          createMany: {
+            args: Prisma.unregistered_itemsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.unregistered_itemsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$unregistered_itemsPayload>
+          }
+          update: {
+            args: Prisma.unregistered_itemsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$unregistered_itemsPayload>
+          }
+          deleteMany: {
+            args: Prisma.unregistered_itemsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.unregistered_itemsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.unregistered_itemsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$unregistered_itemsPayload>
+          }
+          aggregate: {
+            args: Prisma.Unregistered_itemsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateUnregistered_items>
+          }
+          groupBy: {
+            args: Prisma.unregistered_itemsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Unregistered_itemsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.unregistered_itemsCountArgs<ExtArgs>
+            result: $Utils.Optional<Unregistered_itemsCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -3672,6 +3754,7 @@ export namespace Prisma {
     clean_details?: clean_detailsOmit
     return_washs?: return_washsOmit
     retrun_wash_details?: retrun_wash_detailsOmit
+    unregistered_items?: unregistered_itemsOmit
   }
 
   /* Types for Logging */
@@ -39461,6 +39544,963 @@ export namespace Prisma {
 
 
   /**
+   * Model unregistered_items
+   */
+
+  export type AggregateUnregistered_items = {
+    _count: Unregistered_itemsCountAggregateOutputType | null
+    _avg: Unregistered_itemsAvgAggregateOutputType | null
+    _sum: Unregistered_itemsSumAggregateOutputType | null
+    _min: Unregistered_itemsMinAggregateOutputType | null
+    _max: Unregistered_itemsMaxAggregateOutputType | null
+  }
+
+  export type Unregistered_itemsAvgAggregateOutputType = {
+    id: number | null
+    item_id: number | null
+    type_linen_id: number | null
+  }
+
+  export type Unregistered_itemsSumAggregateOutputType = {
+    id: number | null
+    item_id: number | null
+    type_linen_id: number | null
+  }
+
+  export type Unregistered_itemsMinAggregateOutputType = {
+    id: number | null
+    item_id: number | null
+    name: string | null
+    type_linen: string | null
+    type_linen_id: number | null
+    status: boolean | null
+    create_at: Date | null
+    update_at: Date | null
+  }
+
+  export type Unregistered_itemsMaxAggregateOutputType = {
+    id: number | null
+    item_id: number | null
+    name: string | null
+    type_linen: string | null
+    type_linen_id: number | null
+    status: boolean | null
+    create_at: Date | null
+    update_at: Date | null
+  }
+
+  export type Unregistered_itemsCountAggregateOutputType = {
+    id: number
+    item_id: number
+    name: number
+    type_linen: number
+    type_linen_id: number
+    status: number
+    create_at: number
+    update_at: number
+    _all: number
+  }
+
+
+  export type Unregistered_itemsAvgAggregateInputType = {
+    id?: true
+    item_id?: true
+    type_linen_id?: true
+  }
+
+  export type Unregistered_itemsSumAggregateInputType = {
+    id?: true
+    item_id?: true
+    type_linen_id?: true
+  }
+
+  export type Unregistered_itemsMinAggregateInputType = {
+    id?: true
+    item_id?: true
+    name?: true
+    type_linen?: true
+    type_linen_id?: true
+    status?: true
+    create_at?: true
+    update_at?: true
+  }
+
+  export type Unregistered_itemsMaxAggregateInputType = {
+    id?: true
+    item_id?: true
+    name?: true
+    type_linen?: true
+    type_linen_id?: true
+    status?: true
+    create_at?: true
+    update_at?: true
+  }
+
+  export type Unregistered_itemsCountAggregateInputType = {
+    id?: true
+    item_id?: true
+    name?: true
+    type_linen?: true
+    type_linen_id?: true
+    status?: true
+    create_at?: true
+    update_at?: true
+    _all?: true
+  }
+
+  export type Unregistered_itemsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which unregistered_items to aggregate.
+     */
+    where?: unregistered_itemsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of unregistered_items to fetch.
+     */
+    orderBy?: unregistered_itemsOrderByWithRelationInput | unregistered_itemsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: unregistered_itemsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` unregistered_items from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` unregistered_items.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned unregistered_items
+    **/
+    _count?: true | Unregistered_itemsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Unregistered_itemsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Unregistered_itemsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Unregistered_itemsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Unregistered_itemsMaxAggregateInputType
+  }
+
+  export type GetUnregistered_itemsAggregateType<T extends Unregistered_itemsAggregateArgs> = {
+        [P in keyof T & keyof AggregateUnregistered_items]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateUnregistered_items[P]>
+      : GetScalarType<T[P], AggregateUnregistered_items[P]>
+  }
+
+
+
+
+  export type unregistered_itemsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: unregistered_itemsWhereInput
+    orderBy?: unregistered_itemsOrderByWithAggregationInput | unregistered_itemsOrderByWithAggregationInput[]
+    by: Unregistered_itemsScalarFieldEnum[] | Unregistered_itemsScalarFieldEnum
+    having?: unregistered_itemsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Unregistered_itemsCountAggregateInputType | true
+    _avg?: Unregistered_itemsAvgAggregateInputType
+    _sum?: Unregistered_itemsSumAggregateInputType
+    _min?: Unregistered_itemsMinAggregateInputType
+    _max?: Unregistered_itemsMaxAggregateInputType
+  }
+
+  export type Unregistered_itemsGroupByOutputType = {
+    id: number
+    item_id: number
+    name: string
+    type_linen: string
+    type_linen_id: number
+    status: boolean
+    create_at: Date
+    update_at: Date
+    _count: Unregistered_itemsCountAggregateOutputType | null
+    _avg: Unregistered_itemsAvgAggregateOutputType | null
+    _sum: Unregistered_itemsSumAggregateOutputType | null
+    _min: Unregistered_itemsMinAggregateOutputType | null
+    _max: Unregistered_itemsMaxAggregateOutputType | null
+  }
+
+  type GetUnregistered_itemsGroupByPayload<T extends unregistered_itemsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Unregistered_itemsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Unregistered_itemsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Unregistered_itemsGroupByOutputType[P]>
+            : GetScalarType<T[P], Unregistered_itemsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type unregistered_itemsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    item_id?: boolean
+    name?: boolean
+    type_linen?: boolean
+    type_linen_id?: boolean
+    status?: boolean
+    create_at?: boolean
+    update_at?: boolean
+  }, ExtArgs["result"]["unregistered_items"]>
+
+
+
+  export type unregistered_itemsSelectScalar = {
+    id?: boolean
+    item_id?: boolean
+    name?: boolean
+    type_linen?: boolean
+    type_linen_id?: boolean
+    status?: boolean
+    create_at?: boolean
+    update_at?: boolean
+  }
+
+  export type unregistered_itemsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "item_id" | "name" | "type_linen" | "type_linen_id" | "status" | "create_at" | "update_at", ExtArgs["result"]["unregistered_items"]>
+
+  export type $unregistered_itemsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "unregistered_items"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      item_id: number
+      name: string
+      type_linen: string
+      type_linen_id: number
+      status: boolean
+      create_at: Date
+      update_at: Date
+    }, ExtArgs["result"]["unregistered_items"]>
+    composites: {}
+  }
+
+  type unregistered_itemsGetPayload<S extends boolean | null | undefined | unregistered_itemsDefaultArgs> = $Result.GetResult<Prisma.$unregistered_itemsPayload, S>
+
+  type unregistered_itemsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<unregistered_itemsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Unregistered_itemsCountAggregateInputType | true
+    }
+
+  export interface unregistered_itemsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['unregistered_items'], meta: { name: 'unregistered_items' } }
+    /**
+     * Find zero or one Unregistered_items that matches the filter.
+     * @param {unregistered_itemsFindUniqueArgs} args - Arguments to find a Unregistered_items
+     * @example
+     * // Get one Unregistered_items
+     * const unregistered_items = await prisma.unregistered_items.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends unregistered_itemsFindUniqueArgs>(args: SelectSubset<T, unregistered_itemsFindUniqueArgs<ExtArgs>>): Prisma__unregistered_itemsClient<$Result.GetResult<Prisma.$unregistered_itemsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Unregistered_items that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {unregistered_itemsFindUniqueOrThrowArgs} args - Arguments to find a Unregistered_items
+     * @example
+     * // Get one Unregistered_items
+     * const unregistered_items = await prisma.unregistered_items.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends unregistered_itemsFindUniqueOrThrowArgs>(args: SelectSubset<T, unregistered_itemsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__unregistered_itemsClient<$Result.GetResult<Prisma.$unregistered_itemsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Unregistered_items that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {unregistered_itemsFindFirstArgs} args - Arguments to find a Unregistered_items
+     * @example
+     * // Get one Unregistered_items
+     * const unregistered_items = await prisma.unregistered_items.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends unregistered_itemsFindFirstArgs>(args?: SelectSubset<T, unregistered_itemsFindFirstArgs<ExtArgs>>): Prisma__unregistered_itemsClient<$Result.GetResult<Prisma.$unregistered_itemsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Unregistered_items that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {unregistered_itemsFindFirstOrThrowArgs} args - Arguments to find a Unregistered_items
+     * @example
+     * // Get one Unregistered_items
+     * const unregistered_items = await prisma.unregistered_items.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends unregistered_itemsFindFirstOrThrowArgs>(args?: SelectSubset<T, unregistered_itemsFindFirstOrThrowArgs<ExtArgs>>): Prisma__unregistered_itemsClient<$Result.GetResult<Prisma.$unregistered_itemsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Unregistered_items that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {unregistered_itemsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Unregistered_items
+     * const unregistered_items = await prisma.unregistered_items.findMany()
+     * 
+     * // Get first 10 Unregistered_items
+     * const unregistered_items = await prisma.unregistered_items.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const unregistered_itemsWithIdOnly = await prisma.unregistered_items.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends unregistered_itemsFindManyArgs>(args?: SelectSubset<T, unregistered_itemsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$unregistered_itemsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Unregistered_items.
+     * @param {unregistered_itemsCreateArgs} args - Arguments to create a Unregistered_items.
+     * @example
+     * // Create one Unregistered_items
+     * const Unregistered_items = await prisma.unregistered_items.create({
+     *   data: {
+     *     // ... data to create a Unregistered_items
+     *   }
+     * })
+     * 
+     */
+    create<T extends unregistered_itemsCreateArgs>(args: SelectSubset<T, unregistered_itemsCreateArgs<ExtArgs>>): Prisma__unregistered_itemsClient<$Result.GetResult<Prisma.$unregistered_itemsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Unregistered_items.
+     * @param {unregistered_itemsCreateManyArgs} args - Arguments to create many Unregistered_items.
+     * @example
+     * // Create many Unregistered_items
+     * const unregistered_items = await prisma.unregistered_items.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends unregistered_itemsCreateManyArgs>(args?: SelectSubset<T, unregistered_itemsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Unregistered_items.
+     * @param {unregistered_itemsDeleteArgs} args - Arguments to delete one Unregistered_items.
+     * @example
+     * // Delete one Unregistered_items
+     * const Unregistered_items = await prisma.unregistered_items.delete({
+     *   where: {
+     *     // ... filter to delete one Unregistered_items
+     *   }
+     * })
+     * 
+     */
+    delete<T extends unregistered_itemsDeleteArgs>(args: SelectSubset<T, unregistered_itemsDeleteArgs<ExtArgs>>): Prisma__unregistered_itemsClient<$Result.GetResult<Prisma.$unregistered_itemsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Unregistered_items.
+     * @param {unregistered_itemsUpdateArgs} args - Arguments to update one Unregistered_items.
+     * @example
+     * // Update one Unregistered_items
+     * const unregistered_items = await prisma.unregistered_items.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends unregistered_itemsUpdateArgs>(args: SelectSubset<T, unregistered_itemsUpdateArgs<ExtArgs>>): Prisma__unregistered_itemsClient<$Result.GetResult<Prisma.$unregistered_itemsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Unregistered_items.
+     * @param {unregistered_itemsDeleteManyArgs} args - Arguments to filter Unregistered_items to delete.
+     * @example
+     * // Delete a few Unregistered_items
+     * const { count } = await prisma.unregistered_items.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends unregistered_itemsDeleteManyArgs>(args?: SelectSubset<T, unregistered_itemsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Unregistered_items.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {unregistered_itemsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Unregistered_items
+     * const unregistered_items = await prisma.unregistered_items.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends unregistered_itemsUpdateManyArgs>(args: SelectSubset<T, unregistered_itemsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Unregistered_items.
+     * @param {unregistered_itemsUpsertArgs} args - Arguments to update or create a Unregistered_items.
+     * @example
+     * // Update or create a Unregistered_items
+     * const unregistered_items = await prisma.unregistered_items.upsert({
+     *   create: {
+     *     // ... data to create a Unregistered_items
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Unregistered_items we want to update
+     *   }
+     * })
+     */
+    upsert<T extends unregistered_itemsUpsertArgs>(args: SelectSubset<T, unregistered_itemsUpsertArgs<ExtArgs>>): Prisma__unregistered_itemsClient<$Result.GetResult<Prisma.$unregistered_itemsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Unregistered_items.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {unregistered_itemsCountArgs} args - Arguments to filter Unregistered_items to count.
+     * @example
+     * // Count the number of Unregistered_items
+     * const count = await prisma.unregistered_items.count({
+     *   where: {
+     *     // ... the filter for the Unregistered_items we want to count
+     *   }
+     * })
+    **/
+    count<T extends unregistered_itemsCountArgs>(
+      args?: Subset<T, unregistered_itemsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Unregistered_itemsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Unregistered_items.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Unregistered_itemsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Unregistered_itemsAggregateArgs>(args: Subset<T, Unregistered_itemsAggregateArgs>): Prisma.PrismaPromise<GetUnregistered_itemsAggregateType<T>>
+
+    /**
+     * Group by Unregistered_items.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {unregistered_itemsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends unregistered_itemsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: unregistered_itemsGroupByArgs['orderBy'] }
+        : { orderBy?: unregistered_itemsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, unregistered_itemsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUnregistered_itemsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the unregistered_items model
+   */
+  readonly fields: unregistered_itemsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for unregistered_items.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__unregistered_itemsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the unregistered_items model
+   */
+  interface unregistered_itemsFieldRefs {
+    readonly id: FieldRef<"unregistered_items", 'Int'>
+    readonly item_id: FieldRef<"unregistered_items", 'Int'>
+    readonly name: FieldRef<"unregistered_items", 'String'>
+    readonly type_linen: FieldRef<"unregistered_items", 'String'>
+    readonly type_linen_id: FieldRef<"unregistered_items", 'Int'>
+    readonly status: FieldRef<"unregistered_items", 'Boolean'>
+    readonly create_at: FieldRef<"unregistered_items", 'DateTime'>
+    readonly update_at: FieldRef<"unregistered_items", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * unregistered_items findUnique
+   */
+  export type unregistered_itemsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the unregistered_items
+     */
+    select?: unregistered_itemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the unregistered_items
+     */
+    omit?: unregistered_itemsOmit<ExtArgs> | null
+    /**
+     * Filter, which unregistered_items to fetch.
+     */
+    where: unregistered_itemsWhereUniqueInput
+  }
+
+  /**
+   * unregistered_items findUniqueOrThrow
+   */
+  export type unregistered_itemsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the unregistered_items
+     */
+    select?: unregistered_itemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the unregistered_items
+     */
+    omit?: unregistered_itemsOmit<ExtArgs> | null
+    /**
+     * Filter, which unregistered_items to fetch.
+     */
+    where: unregistered_itemsWhereUniqueInput
+  }
+
+  /**
+   * unregistered_items findFirst
+   */
+  export type unregistered_itemsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the unregistered_items
+     */
+    select?: unregistered_itemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the unregistered_items
+     */
+    omit?: unregistered_itemsOmit<ExtArgs> | null
+    /**
+     * Filter, which unregistered_items to fetch.
+     */
+    where?: unregistered_itemsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of unregistered_items to fetch.
+     */
+    orderBy?: unregistered_itemsOrderByWithRelationInput | unregistered_itemsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for unregistered_items.
+     */
+    cursor?: unregistered_itemsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` unregistered_items from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` unregistered_items.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of unregistered_items.
+     */
+    distinct?: Unregistered_itemsScalarFieldEnum | Unregistered_itemsScalarFieldEnum[]
+  }
+
+  /**
+   * unregistered_items findFirstOrThrow
+   */
+  export type unregistered_itemsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the unregistered_items
+     */
+    select?: unregistered_itemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the unregistered_items
+     */
+    omit?: unregistered_itemsOmit<ExtArgs> | null
+    /**
+     * Filter, which unregistered_items to fetch.
+     */
+    where?: unregistered_itemsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of unregistered_items to fetch.
+     */
+    orderBy?: unregistered_itemsOrderByWithRelationInput | unregistered_itemsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for unregistered_items.
+     */
+    cursor?: unregistered_itemsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` unregistered_items from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` unregistered_items.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of unregistered_items.
+     */
+    distinct?: Unregistered_itemsScalarFieldEnum | Unregistered_itemsScalarFieldEnum[]
+  }
+
+  /**
+   * unregistered_items findMany
+   */
+  export type unregistered_itemsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the unregistered_items
+     */
+    select?: unregistered_itemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the unregistered_items
+     */
+    omit?: unregistered_itemsOmit<ExtArgs> | null
+    /**
+     * Filter, which unregistered_items to fetch.
+     */
+    where?: unregistered_itemsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of unregistered_items to fetch.
+     */
+    orderBy?: unregistered_itemsOrderByWithRelationInput | unregistered_itemsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing unregistered_items.
+     */
+    cursor?: unregistered_itemsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` unregistered_items from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` unregistered_items.
+     */
+    skip?: number
+    distinct?: Unregistered_itemsScalarFieldEnum | Unregistered_itemsScalarFieldEnum[]
+  }
+
+  /**
+   * unregistered_items create
+   */
+  export type unregistered_itemsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the unregistered_items
+     */
+    select?: unregistered_itemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the unregistered_items
+     */
+    omit?: unregistered_itemsOmit<ExtArgs> | null
+    /**
+     * The data needed to create a unregistered_items.
+     */
+    data: XOR<unregistered_itemsCreateInput, unregistered_itemsUncheckedCreateInput>
+  }
+
+  /**
+   * unregistered_items createMany
+   */
+  export type unregistered_itemsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many unregistered_items.
+     */
+    data: unregistered_itemsCreateManyInput | unregistered_itemsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * unregistered_items update
+   */
+  export type unregistered_itemsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the unregistered_items
+     */
+    select?: unregistered_itemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the unregistered_items
+     */
+    omit?: unregistered_itemsOmit<ExtArgs> | null
+    /**
+     * The data needed to update a unregistered_items.
+     */
+    data: XOR<unregistered_itemsUpdateInput, unregistered_itemsUncheckedUpdateInput>
+    /**
+     * Choose, which unregistered_items to update.
+     */
+    where: unregistered_itemsWhereUniqueInput
+  }
+
+  /**
+   * unregistered_items updateMany
+   */
+  export type unregistered_itemsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update unregistered_items.
+     */
+    data: XOR<unregistered_itemsUpdateManyMutationInput, unregistered_itemsUncheckedUpdateManyInput>
+    /**
+     * Filter which unregistered_items to update
+     */
+    where?: unregistered_itemsWhereInput
+    /**
+     * Limit how many unregistered_items to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * unregistered_items upsert
+   */
+  export type unregistered_itemsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the unregistered_items
+     */
+    select?: unregistered_itemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the unregistered_items
+     */
+    omit?: unregistered_itemsOmit<ExtArgs> | null
+    /**
+     * The filter to search for the unregistered_items to update in case it exists.
+     */
+    where: unregistered_itemsWhereUniqueInput
+    /**
+     * In case the unregistered_items found by the `where` argument doesn't exist, create a new unregistered_items with this data.
+     */
+    create: XOR<unregistered_itemsCreateInput, unregistered_itemsUncheckedCreateInput>
+    /**
+     * In case the unregistered_items was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<unregistered_itemsUpdateInput, unregistered_itemsUncheckedUpdateInput>
+  }
+
+  /**
+   * unregistered_items delete
+   */
+  export type unregistered_itemsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the unregistered_items
+     */
+    select?: unregistered_itemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the unregistered_items
+     */
+    omit?: unregistered_itemsOmit<ExtArgs> | null
+    /**
+     * Filter which unregistered_items to delete.
+     */
+    where: unregistered_itemsWhereUniqueInput
+  }
+
+  /**
+   * unregistered_items deleteMany
+   */
+  export type unregistered_itemsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which unregistered_items to delete
+     */
+    where?: unregistered_itemsWhereInput
+    /**
+     * Limit how many unregistered_items to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * unregistered_items without action
+   */
+  export type unregistered_itemsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the unregistered_items
+     */
+    select?: unregistered_itemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the unregistered_items
+     */
+    omit?: unregistered_itemsOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -40078,6 +41118,20 @@ export namespace Prisma {
   export type Retrun_wash_detailsScalarFieldEnum = (typeof Retrun_wash_detailsScalarFieldEnum)[keyof typeof Retrun_wash_detailsScalarFieldEnum]
 
 
+  export const Unregistered_itemsScalarFieldEnum: {
+    id: 'id',
+    item_id: 'item_id',
+    name: 'name',
+    type_linen: 'type_linen',
+    type_linen_id: 'type_linen_id',
+    status: 'status',
+    create_at: 'create_at',
+    update_at: 'update_at'
+  };
+
+  export type Unregistered_itemsScalarFieldEnum = (typeof Unregistered_itemsScalarFieldEnum)[keyof typeof Unregistered_itemsScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -40366,6 +41420,14 @@ export namespace Prisma {
   };
 
   export type retrun_wash_detailsOrderByRelevanceFieldEnum = (typeof retrun_wash_detailsOrderByRelevanceFieldEnum)[keyof typeof retrun_wash_detailsOrderByRelevanceFieldEnum]
+
+
+  export const unregistered_itemsOrderByRelevanceFieldEnum: {
+    name: 'name',
+    type_linen: 'type_linen'
+  };
+
+  export type unregistered_itemsOrderByRelevanceFieldEnum = (typeof unregistered_itemsOrderByRelevanceFieldEnum)[keyof typeof unregistered_itemsOrderByRelevanceFieldEnum]
 
 
   /**
@@ -43423,6 +44485,76 @@ export namespace Prisma {
     status?: BoolWithAggregatesFilter<"retrun_wash_details"> | boolean
     create_at?: DateTimeWithAggregatesFilter<"retrun_wash_details"> | Date | string
     update_at?: DateTimeWithAggregatesFilter<"retrun_wash_details"> | Date | string
+  }
+
+  export type unregistered_itemsWhereInput = {
+    AND?: unregistered_itemsWhereInput | unregistered_itemsWhereInput[]
+    OR?: unregistered_itemsWhereInput[]
+    NOT?: unregistered_itemsWhereInput | unregistered_itemsWhereInput[]
+    id?: IntFilter<"unregistered_items"> | number
+    item_id?: IntFilter<"unregistered_items"> | number
+    name?: StringFilter<"unregistered_items"> | string
+    type_linen?: StringFilter<"unregistered_items"> | string
+    type_linen_id?: IntFilter<"unregistered_items"> | number
+    status?: BoolFilter<"unregistered_items"> | boolean
+    create_at?: DateTimeFilter<"unregistered_items"> | Date | string
+    update_at?: DateTimeFilter<"unregistered_items"> | Date | string
+  }
+
+  export type unregistered_itemsOrderByWithRelationInput = {
+    id?: SortOrder
+    item_id?: SortOrder
+    name?: SortOrder
+    type_linen?: SortOrder
+    type_linen_id?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+    _relevance?: unregistered_itemsOrderByRelevanceInput
+  }
+
+  export type unregistered_itemsWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: unregistered_itemsWhereInput | unregistered_itemsWhereInput[]
+    OR?: unregistered_itemsWhereInput[]
+    NOT?: unregistered_itemsWhereInput | unregistered_itemsWhereInput[]
+    item_id?: IntFilter<"unregistered_items"> | number
+    name?: StringFilter<"unregistered_items"> | string
+    type_linen?: StringFilter<"unregistered_items"> | string
+    type_linen_id?: IntFilter<"unregistered_items"> | number
+    status?: BoolFilter<"unregistered_items"> | boolean
+    create_at?: DateTimeFilter<"unregistered_items"> | Date | string
+    update_at?: DateTimeFilter<"unregistered_items"> | Date | string
+  }, "id">
+
+  export type unregistered_itemsOrderByWithAggregationInput = {
+    id?: SortOrder
+    item_id?: SortOrder
+    name?: SortOrder
+    type_linen?: SortOrder
+    type_linen_id?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+    _count?: unregistered_itemsCountOrderByAggregateInput
+    _avg?: unregistered_itemsAvgOrderByAggregateInput
+    _max?: unregistered_itemsMaxOrderByAggregateInput
+    _min?: unregistered_itemsMinOrderByAggregateInput
+    _sum?: unregistered_itemsSumOrderByAggregateInput
+  }
+
+  export type unregistered_itemsScalarWhereWithAggregatesInput = {
+    AND?: unregistered_itemsScalarWhereWithAggregatesInput | unregistered_itemsScalarWhereWithAggregatesInput[]
+    OR?: unregistered_itemsScalarWhereWithAggregatesInput[]
+    NOT?: unregistered_itemsScalarWhereWithAggregatesInput | unregistered_itemsScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"unregistered_items"> | number
+    item_id?: IntWithAggregatesFilter<"unregistered_items"> | number
+    name?: StringWithAggregatesFilter<"unregistered_items"> | string
+    type_linen?: StringWithAggregatesFilter<"unregistered_items"> | string
+    type_linen_id?: IntWithAggregatesFilter<"unregistered_items"> | number
+    status?: BoolWithAggregatesFilter<"unregistered_items"> | boolean
+    create_at?: DateTimeWithAggregatesFilter<"unregistered_items"> | Date | string
+    update_at?: DateTimeWithAggregatesFilter<"unregistered_items"> | Date | string
   }
 
   export type userCreateInput = {
@@ -46792,6 +47924,80 @@ export namespace Prisma {
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type unregistered_itemsCreateInput = {
+    item_id: number
+    name: string
+    type_linen: string
+    type_linen_id: number
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type unregistered_itemsUncheckedCreateInput = {
+    id?: number
+    item_id: number
+    name: string
+    type_linen: string
+    type_linen_id: number
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type unregistered_itemsUpdateInput = {
+    item_id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    type_linen?: StringFieldUpdateOperationsInput | string
+    type_linen_id?: IntFieldUpdateOperationsInput | number
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type unregistered_itemsUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    item_id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    type_linen?: StringFieldUpdateOperationsInput | string
+    type_linen_id?: IntFieldUpdateOperationsInput | number
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type unregistered_itemsCreateManyInput = {
+    id?: number
+    item_id: number
+    name: string
+    type_linen: string
+    type_linen_id: number
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type unregistered_itemsUpdateManyMutationInput = {
+    item_id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    type_linen?: StringFieldUpdateOperationsInput | string
+    type_linen_id?: IntFieldUpdateOperationsInput | number
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type unregistered_itemsUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    item_id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    type_linen?: StringFieldUpdateOperationsInput | string
+    type_linen_id?: IntFieldUpdateOperationsInput | number
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type IntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[]
@@ -49209,6 +50415,57 @@ export namespace Prisma {
     unit_id?: SortOrder
     qty?: SortOrder
     weight?: SortOrder
+  }
+
+  export type unregistered_itemsOrderByRelevanceInput = {
+    fields: unregistered_itemsOrderByRelevanceFieldEnum | unregistered_itemsOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type unregistered_itemsCountOrderByAggregateInput = {
+    id?: SortOrder
+    item_id?: SortOrder
+    name?: SortOrder
+    type_linen?: SortOrder
+    type_linen_id?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+  }
+
+  export type unregistered_itemsAvgOrderByAggregateInput = {
+    id?: SortOrder
+    item_id?: SortOrder
+    type_linen_id?: SortOrder
+  }
+
+  export type unregistered_itemsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    item_id?: SortOrder
+    name?: SortOrder
+    type_linen?: SortOrder
+    type_linen_id?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+  }
+
+  export type unregistered_itemsMinOrderByAggregateInput = {
+    id?: SortOrder
+    item_id?: SortOrder
+    name?: SortOrder
+    type_linen?: SortOrder
+    type_linen_id?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+  }
+
+  export type unregistered_itemsSumOrderByAggregateInput = {
+    id?: SortOrder
+    item_id?: SortOrder
+    type_linen_id?: SortOrder
   }
 
   export type StringFieldUpdateOperationsInput = {

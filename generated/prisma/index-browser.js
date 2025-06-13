@@ -616,6 +616,17 @@ exports.Prisma.Retrun_wash_detailsScalarFieldEnum = {
   update_at: 'update_at'
 };
 
+exports.Prisma.Unregistered_itemsScalarFieldEnum = {
+  id: 'id',
+  item_id: 'item_id',
+  name: 'name',
+  type_linen: 'type_linen',
+  type_linen_id: 'type_linen_id',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -807,6 +818,11 @@ exports.Prisma.retrun_wash_detailsOrderByRelevanceFieldEnum = {
   description: 'description'
 };
 
+exports.Prisma.unregistered_itemsOrderByRelevanceFieldEnum = {
+  name: 'name',
+  type_linen: 'type_linen'
+};
+
 
 exports.Prisma.ModelName = {
   user: 'user',
@@ -844,7 +860,8 @@ exports.Prisma.ModelName = {
   cleans: 'cleans',
   clean_details: 'clean_details',
   return_washs: 'return_washs',
-  retrun_wash_details: 'retrun_wash_details'
+  retrun_wash_details: 'retrun_wash_details',
+  unregistered_items: 'unregistered_items'
 };
 
 /**

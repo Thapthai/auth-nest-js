@@ -66,9 +66,6 @@ export class DirtiesService {
     };
   }
 
-
-
-
   async findOne(id: number) {
     const dirty = await this.prisma.dirties.findUnique({ where: { id } });
     if (!dirty) throw new NotFoundException(`Dirty #${id} not found`);

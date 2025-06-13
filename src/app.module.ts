@@ -11,6 +11,8 @@ import { DepartmentsModule } from './departments/departments.module';
 import { DirtyDetailsModule } from './dirty_details/dirty_details.module';
 import { FactoriesModule } from './factories/factories.module';
 import { ItemsModule } from './items/items.module';
+import { NewLinensModule } from './new_linens/new_linens.module';
+import { NewLinenDetailsModule } from './new_linen_details/new_linen_details.module';
 
 @Module({
   imports: [
@@ -28,6 +30,8 @@ import { ItemsModule } from './items/items.module';
     DirtyDetailsModule,
     FactoriesModule,
     ItemsModule,
+    NewLinensModule,
+    NewLinenDetailsModule,
   ],
   controllers: [],
   providers: [

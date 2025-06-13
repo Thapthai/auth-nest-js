@@ -360,25 +360,25 @@ model ships {
 }
 
 model new_linens {
-  id                Int      @id @default(autoincrement())
+  id                Int       @id @default(autoincrement())
   doc_no            String
   doc_date          DateTime
-  ref_doc_no        String
+  ref_doc_no        String?
   sale_office_id    Int
   department_id     Int
   total             Float
-  is_recive         Boolean
-  receive_date      DateTime
-  receive_detail    String
-  is_process        Boolean
-  sign_factory      String
-  sign_NH           String
-  sign_factory_time DateTime
-  sign_NH_time      DateTime
+  is_recive         Boolean?
+  receive_date      DateTime?
+  receive_detail    String?
+  is_process        Boolean?
+  sign_factory      String?
+  sign_NH           String?
+  sign_factory_time DateTime?
+  sign_NH_time      DateTime?
   factory_id        Int
   status            Boolean
-  create_at         DateTime @default(now())
-  update_at         DateTime @updatedAt
+  create_at         DateTime  @default(now())
+  update_at         DateTime  @updatedAt
 }
 
 model new_linen_details {
@@ -391,7 +391,7 @@ model new_linen_details {
   receive_qty   Float
   weight        Float
   is_cancel     Boolean
-  description   String
+  description   String?
   status        Boolean
   create_at     DateTime @default(now())
   update_at     DateTime @updatedAt

@@ -31316,18 +31316,18 @@ export namespace Prisma {
     id: number
     doc_no: string
     doc_date: Date
-    ref_doc_no: string
+    ref_doc_no: string | null
     sale_office_id: number
     department_id: number
     total: number
-    is_recive: boolean
-    receive_date: Date
-    receive_detail: string
-    is_process: boolean
-    sign_factory: string
-    sign_NH: string
-    sign_factory_time: Date
-    sign_NH_time: Date
+    is_recive: boolean | null
+    receive_date: Date | null
+    receive_detail: string | null
+    is_process: boolean | null
+    sign_factory: string | null
+    sign_NH: string | null
+    sign_factory_time: Date | null
+    sign_NH_time: Date | null
     factory_id: number
     status: boolean
     create_at: Date
@@ -31408,18 +31408,18 @@ export namespace Prisma {
       id: number
       doc_no: string
       doc_date: Date
-      ref_doc_no: string
+      ref_doc_no: string | null
       sale_office_id: number
       department_id: number
       total: number
-      is_recive: boolean
-      receive_date: Date
-      receive_detail: string
-      is_process: boolean
-      sign_factory: string
-      sign_NH: string
-      sign_factory_time: Date
-      sign_NH_time: Date
+      is_recive: boolean | null
+      receive_date: Date | null
+      receive_detail: string | null
+      is_process: boolean | null
+      sign_factory: string | null
+      sign_NH: string | null
+      sign_factory_time: Date | null
+      sign_NH_time: Date | null
       factory_id: number
       status: boolean
       create_at: Date
@@ -32384,7 +32384,7 @@ export namespace Prisma {
     receive_qty: number
     weight: number
     is_cancel: boolean
-    description: string
+    description: string | null
     status: boolean
     create_at: Date
     update_at: Date
@@ -32458,7 +32458,7 @@ export namespace Prisma {
       receive_qty: number
       weight: number
       is_cancel: boolean
-      description: string
+      description: string | null
       status: boolean
       create_at: Date
       update_at: Date
@@ -42577,18 +42577,18 @@ export namespace Prisma {
     id?: IntFilter<"new_linens"> | number
     doc_no?: StringFilter<"new_linens"> | string
     doc_date?: DateTimeFilter<"new_linens"> | Date | string
-    ref_doc_no?: StringFilter<"new_linens"> | string
+    ref_doc_no?: StringNullableFilter<"new_linens"> | string | null
     sale_office_id?: IntFilter<"new_linens"> | number
     department_id?: IntFilter<"new_linens"> | number
     total?: FloatFilter<"new_linens"> | number
-    is_recive?: BoolFilter<"new_linens"> | boolean
-    receive_date?: DateTimeFilter<"new_linens"> | Date | string
-    receive_detail?: StringFilter<"new_linens"> | string
-    is_process?: BoolFilter<"new_linens"> | boolean
-    sign_factory?: StringFilter<"new_linens"> | string
-    sign_NH?: StringFilter<"new_linens"> | string
-    sign_factory_time?: DateTimeFilter<"new_linens"> | Date | string
-    sign_NH_time?: DateTimeFilter<"new_linens"> | Date | string
+    is_recive?: BoolNullableFilter<"new_linens"> | boolean | null
+    receive_date?: DateTimeNullableFilter<"new_linens"> | Date | string | null
+    receive_detail?: StringNullableFilter<"new_linens"> | string | null
+    is_process?: BoolNullableFilter<"new_linens"> | boolean | null
+    sign_factory?: StringNullableFilter<"new_linens"> | string | null
+    sign_NH?: StringNullableFilter<"new_linens"> | string | null
+    sign_factory_time?: DateTimeNullableFilter<"new_linens"> | Date | string | null
+    sign_NH_time?: DateTimeNullableFilter<"new_linens"> | Date | string | null
     factory_id?: IntFilter<"new_linens"> | number
     status?: BoolFilter<"new_linens"> | boolean
     create_at?: DateTimeFilter<"new_linens"> | Date | string
@@ -42599,18 +42599,18 @@ export namespace Prisma {
     id?: SortOrder
     doc_no?: SortOrder
     doc_date?: SortOrder
-    ref_doc_no?: SortOrder
+    ref_doc_no?: SortOrderInput | SortOrder
     sale_office_id?: SortOrder
     department_id?: SortOrder
     total?: SortOrder
-    is_recive?: SortOrder
-    receive_date?: SortOrder
-    receive_detail?: SortOrder
-    is_process?: SortOrder
-    sign_factory?: SortOrder
-    sign_NH?: SortOrder
-    sign_factory_time?: SortOrder
-    sign_NH_time?: SortOrder
+    is_recive?: SortOrderInput | SortOrder
+    receive_date?: SortOrderInput | SortOrder
+    receive_detail?: SortOrderInput | SortOrder
+    is_process?: SortOrderInput | SortOrder
+    sign_factory?: SortOrderInput | SortOrder
+    sign_NH?: SortOrderInput | SortOrder
+    sign_factory_time?: SortOrderInput | SortOrder
+    sign_NH_time?: SortOrderInput | SortOrder
     factory_id?: SortOrder
     status?: SortOrder
     create_at?: SortOrder
@@ -42625,18 +42625,18 @@ export namespace Prisma {
     NOT?: new_linensWhereInput | new_linensWhereInput[]
     doc_no?: StringFilter<"new_linens"> | string
     doc_date?: DateTimeFilter<"new_linens"> | Date | string
-    ref_doc_no?: StringFilter<"new_linens"> | string
+    ref_doc_no?: StringNullableFilter<"new_linens"> | string | null
     sale_office_id?: IntFilter<"new_linens"> | number
     department_id?: IntFilter<"new_linens"> | number
     total?: FloatFilter<"new_linens"> | number
-    is_recive?: BoolFilter<"new_linens"> | boolean
-    receive_date?: DateTimeFilter<"new_linens"> | Date | string
-    receive_detail?: StringFilter<"new_linens"> | string
-    is_process?: BoolFilter<"new_linens"> | boolean
-    sign_factory?: StringFilter<"new_linens"> | string
-    sign_NH?: StringFilter<"new_linens"> | string
-    sign_factory_time?: DateTimeFilter<"new_linens"> | Date | string
-    sign_NH_time?: DateTimeFilter<"new_linens"> | Date | string
+    is_recive?: BoolNullableFilter<"new_linens"> | boolean | null
+    receive_date?: DateTimeNullableFilter<"new_linens"> | Date | string | null
+    receive_detail?: StringNullableFilter<"new_linens"> | string | null
+    is_process?: BoolNullableFilter<"new_linens"> | boolean | null
+    sign_factory?: StringNullableFilter<"new_linens"> | string | null
+    sign_NH?: StringNullableFilter<"new_linens"> | string | null
+    sign_factory_time?: DateTimeNullableFilter<"new_linens"> | Date | string | null
+    sign_NH_time?: DateTimeNullableFilter<"new_linens"> | Date | string | null
     factory_id?: IntFilter<"new_linens"> | number
     status?: BoolFilter<"new_linens"> | boolean
     create_at?: DateTimeFilter<"new_linens"> | Date | string
@@ -42647,18 +42647,18 @@ export namespace Prisma {
     id?: SortOrder
     doc_no?: SortOrder
     doc_date?: SortOrder
-    ref_doc_no?: SortOrder
+    ref_doc_no?: SortOrderInput | SortOrder
     sale_office_id?: SortOrder
     department_id?: SortOrder
     total?: SortOrder
-    is_recive?: SortOrder
-    receive_date?: SortOrder
-    receive_detail?: SortOrder
-    is_process?: SortOrder
-    sign_factory?: SortOrder
-    sign_NH?: SortOrder
-    sign_factory_time?: SortOrder
-    sign_NH_time?: SortOrder
+    is_recive?: SortOrderInput | SortOrder
+    receive_date?: SortOrderInput | SortOrder
+    receive_detail?: SortOrderInput | SortOrder
+    is_process?: SortOrderInput | SortOrder
+    sign_factory?: SortOrderInput | SortOrder
+    sign_NH?: SortOrderInput | SortOrder
+    sign_factory_time?: SortOrderInput | SortOrder
+    sign_NH_time?: SortOrderInput | SortOrder
     factory_id?: SortOrder
     status?: SortOrder
     create_at?: SortOrder
@@ -42677,18 +42677,18 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"new_linens"> | number
     doc_no?: StringWithAggregatesFilter<"new_linens"> | string
     doc_date?: DateTimeWithAggregatesFilter<"new_linens"> | Date | string
-    ref_doc_no?: StringWithAggregatesFilter<"new_linens"> | string
+    ref_doc_no?: StringNullableWithAggregatesFilter<"new_linens"> | string | null
     sale_office_id?: IntWithAggregatesFilter<"new_linens"> | number
     department_id?: IntWithAggregatesFilter<"new_linens"> | number
     total?: FloatWithAggregatesFilter<"new_linens"> | number
-    is_recive?: BoolWithAggregatesFilter<"new_linens"> | boolean
-    receive_date?: DateTimeWithAggregatesFilter<"new_linens"> | Date | string
-    receive_detail?: StringWithAggregatesFilter<"new_linens"> | string
-    is_process?: BoolWithAggregatesFilter<"new_linens"> | boolean
-    sign_factory?: StringWithAggregatesFilter<"new_linens"> | string
-    sign_NH?: StringWithAggregatesFilter<"new_linens"> | string
-    sign_factory_time?: DateTimeWithAggregatesFilter<"new_linens"> | Date | string
-    sign_NH_time?: DateTimeWithAggregatesFilter<"new_linens"> | Date | string
+    is_recive?: BoolNullableWithAggregatesFilter<"new_linens"> | boolean | null
+    receive_date?: DateTimeNullableWithAggregatesFilter<"new_linens"> | Date | string | null
+    receive_detail?: StringNullableWithAggregatesFilter<"new_linens"> | string | null
+    is_process?: BoolNullableWithAggregatesFilter<"new_linens"> | boolean | null
+    sign_factory?: StringNullableWithAggregatesFilter<"new_linens"> | string | null
+    sign_NH?: StringNullableWithAggregatesFilter<"new_linens"> | string | null
+    sign_factory_time?: DateTimeNullableWithAggregatesFilter<"new_linens"> | Date | string | null
+    sign_NH_time?: DateTimeNullableWithAggregatesFilter<"new_linens"> | Date | string | null
     factory_id?: IntWithAggregatesFilter<"new_linens"> | number
     status?: BoolWithAggregatesFilter<"new_linens"> | boolean
     create_at?: DateTimeWithAggregatesFilter<"new_linens"> | Date | string
@@ -42708,7 +42708,7 @@ export namespace Prisma {
     receive_qty?: FloatFilter<"new_linen_details"> | number
     weight?: FloatFilter<"new_linen_details"> | number
     is_cancel?: BoolFilter<"new_linen_details"> | boolean
-    description?: StringFilter<"new_linen_details"> | string
+    description?: StringNullableFilter<"new_linen_details"> | string | null
     status?: BoolFilter<"new_linen_details"> | boolean
     create_at?: DateTimeFilter<"new_linen_details"> | Date | string
     update_at?: DateTimeFilter<"new_linen_details"> | Date | string
@@ -42724,7 +42724,7 @@ export namespace Prisma {
     receive_qty?: SortOrder
     weight?: SortOrder
     is_cancel?: SortOrder
-    description?: SortOrder
+    description?: SortOrderInput | SortOrder
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
@@ -42744,7 +42744,7 @@ export namespace Prisma {
     receive_qty?: FloatFilter<"new_linen_details"> | number
     weight?: FloatFilter<"new_linen_details"> | number
     is_cancel?: BoolFilter<"new_linen_details"> | boolean
-    description?: StringFilter<"new_linen_details"> | string
+    description?: StringNullableFilter<"new_linen_details"> | string | null
     status?: BoolFilter<"new_linen_details"> | boolean
     create_at?: DateTimeFilter<"new_linen_details"> | Date | string
     update_at?: DateTimeFilter<"new_linen_details"> | Date | string
@@ -42760,7 +42760,7 @@ export namespace Prisma {
     receive_qty?: SortOrder
     weight?: SortOrder
     is_cancel?: SortOrder
-    description?: SortOrder
+    description?: SortOrderInput | SortOrder
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
@@ -42784,7 +42784,7 @@ export namespace Prisma {
     receive_qty?: FloatWithAggregatesFilter<"new_linen_details"> | number
     weight?: FloatWithAggregatesFilter<"new_linen_details"> | number
     is_cancel?: BoolWithAggregatesFilter<"new_linen_details"> | boolean
-    description?: StringWithAggregatesFilter<"new_linen_details"> | string
+    description?: StringNullableWithAggregatesFilter<"new_linen_details"> | string | null
     status?: BoolWithAggregatesFilter<"new_linen_details"> | boolean
     create_at?: DateTimeWithAggregatesFilter<"new_linen_details"> | Date | string
     update_at?: DateTimeWithAggregatesFilter<"new_linen_details"> | Date | string
@@ -45790,18 +45790,18 @@ export namespace Prisma {
   export type new_linensCreateInput = {
     doc_no: string
     doc_date: Date | string
-    ref_doc_no: string
+    ref_doc_no?: string | null
     sale_office_id: number
     department_id: number
     total: number
-    is_recive: boolean
-    receive_date: Date | string
-    receive_detail: string
-    is_process: boolean
-    sign_factory: string
-    sign_NH: string
-    sign_factory_time: Date | string
-    sign_NH_time: Date | string
+    is_recive?: boolean | null
+    receive_date?: Date | string | null
+    receive_detail?: string | null
+    is_process?: boolean | null
+    sign_factory?: string | null
+    sign_NH?: string | null
+    sign_factory_time?: Date | string | null
+    sign_NH_time?: Date | string | null
     factory_id: number
     status: boolean
     create_at?: Date | string
@@ -45812,18 +45812,18 @@ export namespace Prisma {
     id?: number
     doc_no: string
     doc_date: Date | string
-    ref_doc_no: string
+    ref_doc_no?: string | null
     sale_office_id: number
     department_id: number
     total: number
-    is_recive: boolean
-    receive_date: Date | string
-    receive_detail: string
-    is_process: boolean
-    sign_factory: string
-    sign_NH: string
-    sign_factory_time: Date | string
-    sign_NH_time: Date | string
+    is_recive?: boolean | null
+    receive_date?: Date | string | null
+    receive_detail?: string | null
+    is_process?: boolean | null
+    sign_factory?: string | null
+    sign_NH?: string | null
+    sign_factory_time?: Date | string | null
+    sign_NH_time?: Date | string | null
     factory_id: number
     status: boolean
     create_at?: Date | string
@@ -45833,18 +45833,18 @@ export namespace Prisma {
   export type new_linensUpdateInput = {
     doc_no?: StringFieldUpdateOperationsInput | string
     doc_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    ref_doc_no?: StringFieldUpdateOperationsInput | string
+    ref_doc_no?: NullableStringFieldUpdateOperationsInput | string | null
     sale_office_id?: IntFieldUpdateOperationsInput | number
     department_id?: IntFieldUpdateOperationsInput | number
     total?: FloatFieldUpdateOperationsInput | number
-    is_recive?: BoolFieldUpdateOperationsInput | boolean
-    receive_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    receive_detail?: StringFieldUpdateOperationsInput | string
-    is_process?: BoolFieldUpdateOperationsInput | boolean
-    sign_factory?: StringFieldUpdateOperationsInput | string
-    sign_NH?: StringFieldUpdateOperationsInput | string
-    sign_factory_time?: DateTimeFieldUpdateOperationsInput | Date | string
-    sign_NH_time?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_recive?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    receive_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    receive_detail?: NullableStringFieldUpdateOperationsInput | string | null
+    is_process?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    sign_factory?: NullableStringFieldUpdateOperationsInput | string | null
+    sign_NH?: NullableStringFieldUpdateOperationsInput | string | null
+    sign_factory_time?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sign_NH_time?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     factory_id?: IntFieldUpdateOperationsInput | number
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -45855,18 +45855,18 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     doc_no?: StringFieldUpdateOperationsInput | string
     doc_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    ref_doc_no?: StringFieldUpdateOperationsInput | string
+    ref_doc_no?: NullableStringFieldUpdateOperationsInput | string | null
     sale_office_id?: IntFieldUpdateOperationsInput | number
     department_id?: IntFieldUpdateOperationsInput | number
     total?: FloatFieldUpdateOperationsInput | number
-    is_recive?: BoolFieldUpdateOperationsInput | boolean
-    receive_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    receive_detail?: StringFieldUpdateOperationsInput | string
-    is_process?: BoolFieldUpdateOperationsInput | boolean
-    sign_factory?: StringFieldUpdateOperationsInput | string
-    sign_NH?: StringFieldUpdateOperationsInput | string
-    sign_factory_time?: DateTimeFieldUpdateOperationsInput | Date | string
-    sign_NH_time?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_recive?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    receive_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    receive_detail?: NullableStringFieldUpdateOperationsInput | string | null
+    is_process?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    sign_factory?: NullableStringFieldUpdateOperationsInput | string | null
+    sign_NH?: NullableStringFieldUpdateOperationsInput | string | null
+    sign_factory_time?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sign_NH_time?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     factory_id?: IntFieldUpdateOperationsInput | number
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -45877,18 +45877,18 @@ export namespace Prisma {
     id?: number
     doc_no: string
     doc_date: Date | string
-    ref_doc_no: string
+    ref_doc_no?: string | null
     sale_office_id: number
     department_id: number
     total: number
-    is_recive: boolean
-    receive_date: Date | string
-    receive_detail: string
-    is_process: boolean
-    sign_factory: string
-    sign_NH: string
-    sign_factory_time: Date | string
-    sign_NH_time: Date | string
+    is_recive?: boolean | null
+    receive_date?: Date | string | null
+    receive_detail?: string | null
+    is_process?: boolean | null
+    sign_factory?: string | null
+    sign_NH?: string | null
+    sign_factory_time?: Date | string | null
+    sign_NH_time?: Date | string | null
     factory_id: number
     status: boolean
     create_at?: Date | string
@@ -45898,18 +45898,18 @@ export namespace Prisma {
   export type new_linensUpdateManyMutationInput = {
     doc_no?: StringFieldUpdateOperationsInput | string
     doc_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    ref_doc_no?: StringFieldUpdateOperationsInput | string
+    ref_doc_no?: NullableStringFieldUpdateOperationsInput | string | null
     sale_office_id?: IntFieldUpdateOperationsInput | number
     department_id?: IntFieldUpdateOperationsInput | number
     total?: FloatFieldUpdateOperationsInput | number
-    is_recive?: BoolFieldUpdateOperationsInput | boolean
-    receive_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    receive_detail?: StringFieldUpdateOperationsInput | string
-    is_process?: BoolFieldUpdateOperationsInput | boolean
-    sign_factory?: StringFieldUpdateOperationsInput | string
-    sign_NH?: StringFieldUpdateOperationsInput | string
-    sign_factory_time?: DateTimeFieldUpdateOperationsInput | Date | string
-    sign_NH_time?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_recive?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    receive_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    receive_detail?: NullableStringFieldUpdateOperationsInput | string | null
+    is_process?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    sign_factory?: NullableStringFieldUpdateOperationsInput | string | null
+    sign_NH?: NullableStringFieldUpdateOperationsInput | string | null
+    sign_factory_time?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sign_NH_time?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     factory_id?: IntFieldUpdateOperationsInput | number
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -45920,18 +45920,18 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     doc_no?: StringFieldUpdateOperationsInput | string
     doc_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    ref_doc_no?: StringFieldUpdateOperationsInput | string
+    ref_doc_no?: NullableStringFieldUpdateOperationsInput | string | null
     sale_office_id?: IntFieldUpdateOperationsInput | number
     department_id?: IntFieldUpdateOperationsInput | number
     total?: FloatFieldUpdateOperationsInput | number
-    is_recive?: BoolFieldUpdateOperationsInput | boolean
-    receive_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    receive_detail?: StringFieldUpdateOperationsInput | string
-    is_process?: BoolFieldUpdateOperationsInput | boolean
-    sign_factory?: StringFieldUpdateOperationsInput | string
-    sign_NH?: StringFieldUpdateOperationsInput | string
-    sign_factory_time?: DateTimeFieldUpdateOperationsInput | Date | string
-    sign_NH_time?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_recive?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    receive_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    receive_detail?: NullableStringFieldUpdateOperationsInput | string | null
+    is_process?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    sign_factory?: NullableStringFieldUpdateOperationsInput | string | null
+    sign_NH?: NullableStringFieldUpdateOperationsInput | string | null
+    sign_factory_time?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sign_NH_time?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     factory_id?: IntFieldUpdateOperationsInput | number
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -45947,7 +45947,7 @@ export namespace Prisma {
     receive_qty: number
     weight: number
     is_cancel: boolean
-    description: string
+    description?: string | null
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
@@ -45963,7 +45963,7 @@ export namespace Prisma {
     receive_qty: number
     weight: number
     is_cancel: boolean
-    description: string
+    description?: string | null
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
@@ -45978,7 +45978,7 @@ export namespace Prisma {
     receive_qty?: FloatFieldUpdateOperationsInput | number
     weight?: FloatFieldUpdateOperationsInput | number
     is_cancel?: BoolFieldUpdateOperationsInput | boolean
-    description?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -45994,7 +45994,7 @@ export namespace Prisma {
     receive_qty?: FloatFieldUpdateOperationsInput | number
     weight?: FloatFieldUpdateOperationsInput | number
     is_cancel?: BoolFieldUpdateOperationsInput | boolean
-    description?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -46010,7 +46010,7 @@ export namespace Prisma {
     receive_qty: number
     weight: number
     is_cancel: boolean
-    description: string
+    description?: string | null
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
@@ -46025,7 +46025,7 @@ export namespace Prisma {
     receive_qty?: FloatFieldUpdateOperationsInput | number
     weight?: FloatFieldUpdateOperationsInput | number
     is_cancel?: BoolFieldUpdateOperationsInput | boolean
-    description?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -46041,7 +46041,7 @@ export namespace Prisma {
     receive_qty?: FloatFieldUpdateOperationsInput | number
     weight?: FloatFieldUpdateOperationsInput | number
     is_cancel?: BoolFieldUpdateOperationsInput | boolean
-    description?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -48559,6 +48559,11 @@ export namespace Prisma {
     item_id?: SortOrder
   }
 
+  export type BoolNullableFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
+  }
+
   export type new_linensOrderByRelevanceInput = {
     fields: new_linensOrderByRelevanceFieldEnum | new_linensOrderByRelevanceFieldEnum[]
     sort: SortOrder
@@ -48645,6 +48650,14 @@ export namespace Prisma {
     department_id?: SortOrder
     total?: SortOrder
     factory_id?: SortOrder
+  }
+
+  export type BoolNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableWithAggregatesFilter<$PrismaModel> | boolean | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedBoolNullableFilter<$PrismaModel>
+    _max?: NestedBoolNullableFilter<$PrismaModel>
   }
 
   export type new_linen_detailsOrderByRelevanceInput = {
@@ -49242,6 +49255,10 @@ export namespace Prisma {
     divide?: number
   }
 
+  export type NullableBoolFieldUpdateOperationsInput = {
+    set?: boolean | null
+  }
+
   export type NestedIntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[]
@@ -49461,6 +49478,19 @@ export namespace Prisma {
     gt?: number | FloatFieldRefInput<$PrismaModel>
     gte?: number | FloatFieldRefInput<$PrismaModel>
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedBoolNullableFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
+  }
+
+  export type NestedBoolNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableWithAggregatesFilter<$PrismaModel> | boolean | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedBoolNullableFilter<$PrismaModel>
+    _max?: NestedBoolNullableFilter<$PrismaModel>
   }
 
 

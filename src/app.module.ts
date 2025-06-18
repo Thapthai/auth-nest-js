@@ -18,6 +18,7 @@ import { DirtyDetailRoundsModule } from './dirty_detail_rounds/dirty_detail_roun
 import { SaleOfficesModule } from './sale_offices/sale_offices.module';
 import { UserSaleOfficesModule } from './user_sale_offices/user_sale_offices.module';
 import { FactorySaleOfficeModule } from './factory_sale_office/factory_sale_office.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -42,6 +43,7 @@ import { FactorySaleOfficeModule } from './factory_sale_office/factory_sale_offi
     SaleOfficesModule,
     UserSaleOfficesModule,
     FactorySaleOfficeModule,
+    UsersModule,
   ],
   controllers: [],
   providers: [

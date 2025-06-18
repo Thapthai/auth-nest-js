@@ -19,7 +19,6 @@ export class DirtiesService {
           dirty_doc_no: dirty_doc_no,
           dirty_doc_date: now,
           sale_office_id: 1, // <- แก้ตามจริง
-          department_id: 1,  // <- แก้ตามจริง
           factory_id: factory_id,
           status: true,
         },

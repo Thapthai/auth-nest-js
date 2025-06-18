@@ -20,12 +20,12 @@ exports.Prisma = Prisma
 exports.$Enums = {}
 
 /**
- * Prisma Client JS version: 6.9.0
- * Query Engine version: 81e4af48011447c3cc503a190e86995b66d2a28e
+ * Prisma Client JS version: 6.10.0
+ * Query Engine version: aee10d5a411e4360c6d3445ce4810ca65adbf3e8
  */
 Prisma.prismaVersion = {
-  client: "6.9.0",
-  engine: "81e4af48011447c3cc503a190e86995b66d2a28e"
+  client: "6.10.0",
+  engine: "aee10d5a411e4360c6d3445ce4810ca65adbf3e8"
 }
 
 Prisma.PrismaClientKnownRequestError = () => {
@@ -171,6 +171,15 @@ exports.Prisma.Sale_officesScalarFieldEnum = {
   site_office_name_th: 'site_office_name_th',
   site_office_name_en: 'site_office_name_en',
   status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
+exports.Prisma.User_sale_officesScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  sale_office_id: 'sale_office_id',
+  role: 'role',
   create_at: 'create_at',
   update_at: 'update_at'
 };
@@ -326,7 +335,6 @@ exports.Prisma.DirtiesScalarFieldEnum = {
   dirty_doc_no: 'dirty_doc_no',
   dirty_doc_date: 'dirty_doc_date',
   sale_office_id: 'sale_office_id',
-  department_id: 'department_id',
   factory_id: 'factory_id',
   user_id: 'user_id',
   signature: 'signature',
@@ -343,6 +351,22 @@ exports.Prisma.Dirty_detailsScalarFieldEnum = {
   id: 'id',
   dirty_id: 'dirty_id',
   department_id: 'department_id',
+  item_id: 'item_id',
+  unit_id: 'unit_id',
+  user_id: 'user_id',
+  qty: 'qty',
+  receive_qty: 'receive_qty',
+  weight: 'weight',
+  is_cancel: 'is_cancel',
+  unregistered_item_id: 'unregistered_item_id',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
+exports.Prisma.Dirty_detail_roundsScalarFieldEnum = {
+  id: 'id',
+  dirty_detail_id: 'dirty_detail_id',
   item_id: 'item_id',
   unit_id: 'unit_id',
   user_id: 'user_id',
@@ -669,6 +693,10 @@ exports.Prisma.sale_officesOrderByRelevanceFieldEnum = {
   site_office_name_en: 'site_office_name_en'
 };
 
+exports.Prisma.user_sale_officesOrderByRelevanceFieldEnum = {
+  role: 'role'
+};
+
 exports.Prisma.departmentsOrderByRelevanceFieldEnum = {
   department_code: 'department_code',
   description: 'description',
@@ -830,6 +858,7 @@ exports.Prisma.ModelName = {
   password_reset_token: 'password_reset_token',
   notifications: 'notifications',
   sale_offices: 'sale_offices',
+  user_sale_offices: 'user_sale_offices',
   departments: 'departments',
   factory_sale_office: 'factory_sale_office',
   factories: 'factories',
@@ -845,6 +874,7 @@ exports.Prisma.ModelName = {
   item_prices: 'item_prices',
   dirties: 'dirties',
   dirty_details: 'dirty_details',
+  dirty_detail_rounds: 'dirty_detail_rounds',
   customer_group_types: 'customer_group_types',
   customer_groups: 'customer_groups',
   stock_locations: 'stock_locations',

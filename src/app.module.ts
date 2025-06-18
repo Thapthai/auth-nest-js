@@ -14,6 +14,9 @@ import { ItemsModule } from './items/items.module';
 import { NewLinensModule } from './new_linens/new_linens.module';
 import { NewLinenDetailsModule } from './new_linen_details/new_linen_details.module';
 import { UnregisteredItemsModule } from './unregistered_items/unregistered_items.module';
+import { DirtyDetailRoundsModule } from './dirty_detail_rounds/dirty_detail_rounds.module';
+import { SaleOfficesModule } from './sale_offices/sale_offices.module';
+import { UserSaleOfficesModule } from './user_sale_offices/user_sale_offices.module';
 
 @Module({
   imports: [
@@ -34,6 +37,9 @@ import { UnregisteredItemsModule } from './unregistered_items/unregistered_items
     NewLinensModule,
     NewLinenDetailsModule,
     UnregisteredItemsModule,
+    DirtyDetailRoundsModule,
+    SaleOfficesModule,
+    UserSaleOfficesModule,
   ],
   controllers: [],
   providers: [

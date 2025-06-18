@@ -39,6 +39,11 @@ export type notifications = $Result.DefaultSelection<Prisma.$notificationsPayloa
  */
 export type sale_offices = $Result.DefaultSelection<Prisma.$sale_officesPayload>
 /**
+ * Model user_sale_offices
+ * 
+ */
+export type user_sale_offices = $Result.DefaultSelection<Prisma.$user_sale_officesPayload>
+/**
  * Model departments
  * 
  */
@@ -113,6 +118,11 @@ export type dirties = $Result.DefaultSelection<Prisma.$dirtiesPayload>
  * 
  */
 export type dirty_details = $Result.DefaultSelection<Prisma.$dirty_detailsPayload>
+/**
+ * Model dirty_detail_rounds
+ * 
+ */
+export type dirty_detail_rounds = $Result.DefaultSelection<Prisma.$dirty_detail_roundsPayload>
 /**
  * Model customer_group_types
  * 
@@ -375,6 +385,16 @@ export class PrismaClient<
   get sale_offices(): Prisma.sale_officesDelegate<ExtArgs, ClientOptions>;
 
   /**
+   * `prisma.user_sale_offices`: Exposes CRUD operations for the **user_sale_offices** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more User_sale_offices
+    * const user_sale_offices = await prisma.user_sale_offices.findMany()
+    * ```
+    */
+  get user_sale_offices(): Prisma.user_sale_officesDelegate<ExtArgs, ClientOptions>;
+
+  /**
    * `prisma.departments`: Exposes CRUD operations for the **departments** model.
     * Example usage:
     * ```ts
@@ -523,6 +543,16 @@ export class PrismaClient<
     * ```
     */
   get dirty_details(): Prisma.dirty_detailsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.dirty_detail_rounds`: Exposes CRUD operations for the **dirty_detail_rounds** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Dirty_detail_rounds
+    * const dirty_detail_rounds = await prisma.dirty_detail_rounds.findMany()
+    * ```
+    */
+  get dirty_detail_rounds(): Prisma.dirty_detail_roundsDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.customer_group_types`: Exposes CRUD operations for the **customer_group_types** model.
@@ -751,8 +781,8 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 6.9.0
-   * Query Engine version: 81e4af48011447c3cc503a190e86995b66d2a28e
+   * Prisma Client JS version: 6.10.0
+   * Query Engine version: aee10d5a411e4360c6d3445ce4810ca65adbf3e8
    */
   export type PrismaVersion = {
     client: string
@@ -1138,6 +1168,7 @@ export namespace Prisma {
     password_reset_token: 'password_reset_token',
     notifications: 'notifications',
     sale_offices: 'sale_offices',
+    user_sale_offices: 'user_sale_offices',
     departments: 'departments',
     factory_sale_office: 'factory_sale_office',
     factories: 'factories',
@@ -1153,6 +1184,7 @@ export namespace Prisma {
     item_prices: 'item_prices',
     dirties: 'dirties',
     dirty_details: 'dirty_details',
+    dirty_detail_rounds: 'dirty_detail_rounds',
     customer_group_types: 'customer_group_types',
     customer_groups: 'customer_groups',
     stock_locations: 'stock_locations',
@@ -1188,7 +1220,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "verification_token" | "password_reset_token" | "notifications" | "sale_offices" | "departments" | "factory_sale_office" | "factories" | "machines" | "contact" | "materials" | "material_types" | "item_units_meaures" | "items" | "items_details" | "item_categories" | "types" | "item_prices" | "dirties" | "dirty_details" | "customer_group_types" | "customer_groups" | "stock_locations" | "shelfcounts" | "shelfcount_details" | "damages" | "damage_details" | "ships" | "new_linens" | "new_linen_details" | "repair_washs" | "repair_wash_details" | "cleans" | "clean_details" | "return_washs" | "retrun_wash_details" | "unregistered_items"
+      modelProps: "user" | "verification_token" | "password_reset_token" | "notifications" | "sale_offices" | "user_sale_offices" | "departments" | "factory_sale_office" | "factories" | "machines" | "contact" | "materials" | "material_types" | "item_units_meaures" | "items" | "items_details" | "item_categories" | "types" | "item_prices" | "dirties" | "dirty_details" | "dirty_detail_rounds" | "customer_group_types" | "customer_groups" | "stock_locations" | "shelfcounts" | "shelfcount_details" | "damages" | "damage_details" | "ships" | "new_linens" | "new_linen_details" | "repair_washs" | "repair_wash_details" | "cleans" | "clean_details" | "return_washs" | "retrun_wash_details" | "unregistered_items"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1519,6 +1551,72 @@ export namespace Prisma {
           count: {
             args: Prisma.sale_officesCountArgs<ExtArgs>
             result: $Utils.Optional<Sale_officesCountAggregateOutputType> | number
+          }
+        }
+      }
+      user_sale_offices: {
+        payload: Prisma.$user_sale_officesPayload<ExtArgs>
+        fields: Prisma.user_sale_officesFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.user_sale_officesFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$user_sale_officesPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.user_sale_officesFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$user_sale_officesPayload>
+          }
+          findFirst: {
+            args: Prisma.user_sale_officesFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$user_sale_officesPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.user_sale_officesFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$user_sale_officesPayload>
+          }
+          findMany: {
+            args: Prisma.user_sale_officesFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$user_sale_officesPayload>[]
+          }
+          create: {
+            args: Prisma.user_sale_officesCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$user_sale_officesPayload>
+          }
+          createMany: {
+            args: Prisma.user_sale_officesCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.user_sale_officesDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$user_sale_officesPayload>
+          }
+          update: {
+            args: Prisma.user_sale_officesUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$user_sale_officesPayload>
+          }
+          deleteMany: {
+            args: Prisma.user_sale_officesDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.user_sale_officesUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.user_sale_officesUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$user_sale_officesPayload>
+          }
+          aggregate: {
+            args: Prisma.User_sale_officesAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateUser_sale_offices>
+          }
+          groupBy: {
+            args: Prisma.user_sale_officesGroupByArgs<ExtArgs>
+            result: $Utils.Optional<User_sale_officesGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.user_sale_officesCountArgs<ExtArgs>
+            result: $Utils.Optional<User_sale_officesCountAggregateOutputType> | number
           }
         }
       }
@@ -2509,6 +2607,72 @@ export namespace Prisma {
           count: {
             args: Prisma.dirty_detailsCountArgs<ExtArgs>
             result: $Utils.Optional<Dirty_detailsCountAggregateOutputType> | number
+          }
+        }
+      }
+      dirty_detail_rounds: {
+        payload: Prisma.$dirty_detail_roundsPayload<ExtArgs>
+        fields: Prisma.dirty_detail_roundsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.dirty_detail_roundsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$dirty_detail_roundsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.dirty_detail_roundsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$dirty_detail_roundsPayload>
+          }
+          findFirst: {
+            args: Prisma.dirty_detail_roundsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$dirty_detail_roundsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.dirty_detail_roundsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$dirty_detail_roundsPayload>
+          }
+          findMany: {
+            args: Prisma.dirty_detail_roundsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$dirty_detail_roundsPayload>[]
+          }
+          create: {
+            args: Prisma.dirty_detail_roundsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$dirty_detail_roundsPayload>
+          }
+          createMany: {
+            args: Prisma.dirty_detail_roundsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.dirty_detail_roundsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$dirty_detail_roundsPayload>
+          }
+          update: {
+            args: Prisma.dirty_detail_roundsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$dirty_detail_roundsPayload>
+          }
+          deleteMany: {
+            args: Prisma.dirty_detail_roundsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.dirty_detail_roundsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.dirty_detail_roundsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$dirty_detail_roundsPayload>
+          }
+          aggregate: {
+            args: Prisma.Dirty_detail_roundsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateDirty_detail_rounds>
+          }
+          groupBy: {
+            args: Prisma.dirty_detail_roundsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Dirty_detail_roundsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.dirty_detail_roundsCountArgs<ExtArgs>
+            result: $Utils.Optional<Dirty_detail_roundsCountAggregateOutputType> | number
           }
         }
       }
@@ -3723,6 +3887,7 @@ export namespace Prisma {
     password_reset_token?: password_reset_tokenOmit
     notifications?: notificationsOmit
     sale_offices?: sale_officesOmit
+    user_sale_offices?: user_sale_officesOmit
     departments?: departmentsOmit
     factory_sale_office?: factory_sale_officeOmit
     factories?: factoriesOmit
@@ -3738,6 +3903,7 @@ export namespace Prisma {
     item_prices?: item_pricesOmit
     dirties?: dirtiesOmit
     dirty_details?: dirty_detailsOmit
+    dirty_detail_rounds?: dirty_detail_roundsOmit
     customer_group_types?: customer_group_typesOmit
     customer_groups?: customer_groupsOmit
     stock_locations?: stock_locationsOmit
@@ -3843,6 +4009,98 @@ export namespace Prisma {
    * Count Types
    */
 
+
+  /**
+   * Count Type UserCountOutputType
+   */
+
+  export type UserCountOutputType = {
+    user_sale_office: number
+  }
+
+  export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user_sale_office?: boolean | UserCountOutputTypeCountUser_sale_officeArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserCountOutputType
+     */
+    select?: UserCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountUser_sale_officeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: user_sale_officesWhereInput
+  }
+
+
+  /**
+   * Count Type Sale_officesCountOutputType
+   */
+
+  export type Sale_officesCountOutputType = {
+    user_sale_office: number
+  }
+
+  export type Sale_officesCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user_sale_office?: boolean | Sale_officesCountOutputTypeCountUser_sale_officeArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * Sale_officesCountOutputType without action
+   */
+  export type Sale_officesCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sale_officesCountOutputType
+     */
+    select?: Sale_officesCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * Sale_officesCountOutputType without action
+   */
+  export type Sale_officesCountOutputTypeCountUser_sale_officeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: user_sale_officesWhereInput
+  }
+
+
+  /**
+   * Count Type Unregistered_itemsCountOutputType
+   */
+
+  export type Unregistered_itemsCountOutputType = {
+    dirty_details: number
+  }
+
+  export type Unregistered_itemsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    dirty_details?: boolean | Unregistered_itemsCountOutputTypeCountDirty_detailsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * Unregistered_itemsCountOutputType without action
+   */
+  export type Unregistered_itemsCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Unregistered_itemsCountOutputType
+     */
+    select?: Unregistered_itemsCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * Unregistered_itemsCountOutputType without action
+   */
+  export type Unregistered_itemsCountOutputTypeCountDirty_detailsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: dirty_detailsWhereInput
+  }
 
 
   /**
@@ -4115,6 +4373,8 @@ export namespace Prisma {
     remember_token?: boolean
     create_at?: boolean
     update_at?: boolean
+    user_sale_office?: boolean | user$user_sale_officeArgs<ExtArgs>
+    _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
 
@@ -4136,10 +4396,16 @@ export namespace Prisma {
   }
 
   export type userOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "permission_id" | "email_verified_at" | "password" | "two_factor_secret" | "two_factor_recovery_codes" | "two_factor_confirmed_at" | "is_two_factor_enabled" | "remember_token" | "create_at" | "update_at", ExtArgs["result"]["user"]>
+  export type userInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user_sale_office?: boolean | user$user_sale_officeArgs<ExtArgs>
+    _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
+  }
 
   export type $userPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "user"
-    objects: {}
+    objects: {
+      user_sale_office: Prisma.$user_sale_officesPayload<ExtArgs>[]
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       name: string
@@ -4494,6 +4760,7 @@ export namespace Prisma {
    */
   export interface Prisma__userClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    user_sale_office<T extends user$user_sale_officeArgs<ExtArgs> = {}>(args?: Subset<T, user$user_sale_officeArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$user_sale_officesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4553,6 +4820,10 @@ export namespace Prisma {
      */
     omit?: userOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: userInclude<ExtArgs> | null
+    /**
      * Filter, which user to fetch.
      */
     where: userWhereUniqueInput
@@ -4571,6 +4842,10 @@ export namespace Prisma {
      */
     omit?: userOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: userInclude<ExtArgs> | null
+    /**
      * Filter, which user to fetch.
      */
     where: userWhereUniqueInput
@@ -4588,6 +4863,10 @@ export namespace Prisma {
      * Omit specific fields from the user
      */
     omit?: userOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: userInclude<ExtArgs> | null
     /**
      * Filter, which user to fetch.
      */
@@ -4637,6 +4916,10 @@ export namespace Prisma {
      */
     omit?: userOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: userInclude<ExtArgs> | null
+    /**
      * Filter, which user to fetch.
      */
     where?: userWhereInput
@@ -4685,6 +4968,10 @@ export namespace Prisma {
      */
     omit?: userOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: userInclude<ExtArgs> | null
+    /**
      * Filter, which users to fetch.
      */
     where?: userWhereInput
@@ -4728,6 +5015,10 @@ export namespace Prisma {
      */
     omit?: userOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: userInclude<ExtArgs> | null
+    /**
      * The data needed to create a user.
      */
     data: XOR<userCreateInput, userUncheckedCreateInput>
@@ -4756,6 +5047,10 @@ export namespace Prisma {
      * Omit specific fields from the user
      */
     omit?: userOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: userInclude<ExtArgs> | null
     /**
      * The data needed to update a user.
      */
@@ -4797,6 +5092,10 @@ export namespace Prisma {
      */
     omit?: userOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: userInclude<ExtArgs> | null
+    /**
      * The filter to search for the user to update in case it exists.
      */
     where: userWhereUniqueInput
@@ -4823,6 +5122,10 @@ export namespace Prisma {
      */
     omit?: userOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: userInclude<ExtArgs> | null
+    /**
      * Filter which user to delete.
      */
     where: userWhereUniqueInput
@@ -4843,6 +5146,30 @@ export namespace Prisma {
   }
 
   /**
+   * user.user_sale_office
+   */
+  export type user$user_sale_officeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the user_sale_offices
+     */
+    select?: user_sale_officesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the user_sale_offices
+     */
+    omit?: user_sale_officesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: user_sale_officesInclude<ExtArgs> | null
+    where?: user_sale_officesWhereInput
+    orderBy?: user_sale_officesOrderByWithRelationInput | user_sale_officesOrderByWithRelationInput[]
+    cursor?: user_sale_officesWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: User_sale_officesScalarFieldEnum | User_sale_officesScalarFieldEnum[]
+  }
+
+  /**
    * user without action
    */
   export type userDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4854,6 +5181,10 @@ export namespace Prisma {
      * Omit specific fields from the user
      */
     omit?: userOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: userInclude<ExtArgs> | null
   }
 
 
@@ -7844,6 +8175,8 @@ export namespace Prisma {
     status?: boolean
     create_at?: boolean
     update_at?: boolean
+    user_sale_office?: boolean | sale_offices$user_sale_officeArgs<ExtArgs>
+    _count?: boolean | Sale_officesCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["sale_offices"]>
 
 
@@ -7859,10 +8192,16 @@ export namespace Prisma {
   }
 
   export type sale_officesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "site_code" | "site_office_name_th" | "site_office_name_en" | "status" | "create_at" | "update_at", ExtArgs["result"]["sale_offices"]>
+  export type sale_officesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user_sale_office?: boolean | sale_offices$user_sale_officeArgs<ExtArgs>
+    _count?: boolean | Sale_officesCountOutputTypeDefaultArgs<ExtArgs>
+  }
 
   export type $sale_officesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "sale_offices"
-    objects: {}
+    objects: {
+      user_sale_office: Prisma.$user_sale_officesPayload<ExtArgs>[]
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       site_code: string
@@ -8211,6 +8550,7 @@ export namespace Prisma {
    */
   export interface Prisma__sale_officesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    user_sale_office<T extends sale_offices$user_sale_officeArgs<ExtArgs> = {}>(args?: Subset<T, sale_offices$user_sale_officeArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$user_sale_officesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -8264,6 +8604,10 @@ export namespace Prisma {
      */
     omit?: sale_officesOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sale_officesInclude<ExtArgs> | null
+    /**
      * Filter, which sale_offices to fetch.
      */
     where: sale_officesWhereUniqueInput
@@ -8282,6 +8626,10 @@ export namespace Prisma {
      */
     omit?: sale_officesOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sale_officesInclude<ExtArgs> | null
+    /**
      * Filter, which sale_offices to fetch.
      */
     where: sale_officesWhereUniqueInput
@@ -8299,6 +8647,10 @@ export namespace Prisma {
      * Omit specific fields from the sale_offices
      */
     omit?: sale_officesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sale_officesInclude<ExtArgs> | null
     /**
      * Filter, which sale_offices to fetch.
      */
@@ -8348,6 +8700,10 @@ export namespace Prisma {
      */
     omit?: sale_officesOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sale_officesInclude<ExtArgs> | null
+    /**
      * Filter, which sale_offices to fetch.
      */
     where?: sale_officesWhereInput
@@ -8396,6 +8752,10 @@ export namespace Prisma {
      */
     omit?: sale_officesOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sale_officesInclude<ExtArgs> | null
+    /**
      * Filter, which sale_offices to fetch.
      */
     where?: sale_officesWhereInput
@@ -8439,6 +8799,10 @@ export namespace Prisma {
      */
     omit?: sale_officesOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sale_officesInclude<ExtArgs> | null
+    /**
      * The data needed to create a sale_offices.
      */
     data: XOR<sale_officesCreateInput, sale_officesUncheckedCreateInput>
@@ -8467,6 +8831,10 @@ export namespace Prisma {
      * Omit specific fields from the sale_offices
      */
     omit?: sale_officesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sale_officesInclude<ExtArgs> | null
     /**
      * The data needed to update a sale_offices.
      */
@@ -8508,6 +8876,10 @@ export namespace Prisma {
      */
     omit?: sale_officesOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sale_officesInclude<ExtArgs> | null
+    /**
      * The filter to search for the sale_offices to update in case it exists.
      */
     where: sale_officesWhereUniqueInput
@@ -8534,6 +8906,10 @@ export namespace Prisma {
      */
     omit?: sale_officesOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sale_officesInclude<ExtArgs> | null
+    /**
      * Filter which sale_offices to delete.
      */
     where: sale_officesWhereUniqueInput
@@ -8554,6 +8930,30 @@ export namespace Prisma {
   }
 
   /**
+   * sale_offices.user_sale_office
+   */
+  export type sale_offices$user_sale_officeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the user_sale_offices
+     */
+    select?: user_sale_officesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the user_sale_offices
+     */
+    omit?: user_sale_officesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: user_sale_officesInclude<ExtArgs> | null
+    where?: user_sale_officesWhereInput
+    orderBy?: user_sale_officesOrderByWithRelationInput | user_sale_officesOrderByWithRelationInput[]
+    cursor?: user_sale_officesWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: User_sale_officesScalarFieldEnum | User_sale_officesScalarFieldEnum[]
+  }
+
+  /**
    * sale_offices without action
    */
   export type sale_officesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -8565,6 +8965,996 @@ export namespace Prisma {
      * Omit specific fields from the sale_offices
      */
     omit?: sale_officesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sale_officesInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model user_sale_offices
+   */
+
+  export type AggregateUser_sale_offices = {
+    _count: User_sale_officesCountAggregateOutputType | null
+    _avg: User_sale_officesAvgAggregateOutputType | null
+    _sum: User_sale_officesSumAggregateOutputType | null
+    _min: User_sale_officesMinAggregateOutputType | null
+    _max: User_sale_officesMaxAggregateOutputType | null
+  }
+
+  export type User_sale_officesAvgAggregateOutputType = {
+    id: number | null
+    user_id: number | null
+    sale_office_id: number | null
+  }
+
+  export type User_sale_officesSumAggregateOutputType = {
+    id: number | null
+    user_id: number | null
+    sale_office_id: number | null
+  }
+
+  export type User_sale_officesMinAggregateOutputType = {
+    id: number | null
+    user_id: number | null
+    sale_office_id: number | null
+    role: string | null
+    create_at: Date | null
+    update_at: Date | null
+  }
+
+  export type User_sale_officesMaxAggregateOutputType = {
+    id: number | null
+    user_id: number | null
+    sale_office_id: number | null
+    role: string | null
+    create_at: Date | null
+    update_at: Date | null
+  }
+
+  export type User_sale_officesCountAggregateOutputType = {
+    id: number
+    user_id: number
+    sale_office_id: number
+    role: number
+    create_at: number
+    update_at: number
+    _all: number
+  }
+
+
+  export type User_sale_officesAvgAggregateInputType = {
+    id?: true
+    user_id?: true
+    sale_office_id?: true
+  }
+
+  export type User_sale_officesSumAggregateInputType = {
+    id?: true
+    user_id?: true
+    sale_office_id?: true
+  }
+
+  export type User_sale_officesMinAggregateInputType = {
+    id?: true
+    user_id?: true
+    sale_office_id?: true
+    role?: true
+    create_at?: true
+    update_at?: true
+  }
+
+  export type User_sale_officesMaxAggregateInputType = {
+    id?: true
+    user_id?: true
+    sale_office_id?: true
+    role?: true
+    create_at?: true
+    update_at?: true
+  }
+
+  export type User_sale_officesCountAggregateInputType = {
+    id?: true
+    user_id?: true
+    sale_office_id?: true
+    role?: true
+    create_at?: true
+    update_at?: true
+    _all?: true
+  }
+
+  export type User_sale_officesAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which user_sale_offices to aggregate.
+     */
+    where?: user_sale_officesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of user_sale_offices to fetch.
+     */
+    orderBy?: user_sale_officesOrderByWithRelationInput | user_sale_officesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: user_sale_officesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` user_sale_offices from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` user_sale_offices.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned user_sale_offices
+    **/
+    _count?: true | User_sale_officesCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: User_sale_officesAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: User_sale_officesSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: User_sale_officesMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: User_sale_officesMaxAggregateInputType
+  }
+
+  export type GetUser_sale_officesAggregateType<T extends User_sale_officesAggregateArgs> = {
+        [P in keyof T & keyof AggregateUser_sale_offices]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateUser_sale_offices[P]>
+      : GetScalarType<T[P], AggregateUser_sale_offices[P]>
+  }
+
+
+
+
+  export type user_sale_officesGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: user_sale_officesWhereInput
+    orderBy?: user_sale_officesOrderByWithAggregationInput | user_sale_officesOrderByWithAggregationInput[]
+    by: User_sale_officesScalarFieldEnum[] | User_sale_officesScalarFieldEnum
+    having?: user_sale_officesScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: User_sale_officesCountAggregateInputType | true
+    _avg?: User_sale_officesAvgAggregateInputType
+    _sum?: User_sale_officesSumAggregateInputType
+    _min?: User_sale_officesMinAggregateInputType
+    _max?: User_sale_officesMaxAggregateInputType
+  }
+
+  export type User_sale_officesGroupByOutputType = {
+    id: number
+    user_id: number
+    sale_office_id: number
+    role: string | null
+    create_at: Date
+    update_at: Date
+    _count: User_sale_officesCountAggregateOutputType | null
+    _avg: User_sale_officesAvgAggregateOutputType | null
+    _sum: User_sale_officesSumAggregateOutputType | null
+    _min: User_sale_officesMinAggregateOutputType | null
+    _max: User_sale_officesMaxAggregateOutputType | null
+  }
+
+  type GetUser_sale_officesGroupByPayload<T extends user_sale_officesGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<User_sale_officesGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof User_sale_officesGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], User_sale_officesGroupByOutputType[P]>
+            : GetScalarType<T[P], User_sale_officesGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type user_sale_officesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    user_id?: boolean
+    sale_office_id?: boolean
+    role?: boolean
+    create_at?: boolean
+    update_at?: boolean
+    sale_office?: boolean | sale_officesDefaultArgs<ExtArgs>
+    user?: boolean | userDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["user_sale_offices"]>
+
+
+
+  export type user_sale_officesSelectScalar = {
+    id?: boolean
+    user_id?: boolean
+    sale_office_id?: boolean
+    role?: boolean
+    create_at?: boolean
+    update_at?: boolean
+  }
+
+  export type user_sale_officesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "user_id" | "sale_office_id" | "role" | "create_at" | "update_at", ExtArgs["result"]["user_sale_offices"]>
+  export type user_sale_officesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    sale_office?: boolean | sale_officesDefaultArgs<ExtArgs>
+    user?: boolean | userDefaultArgs<ExtArgs>
+  }
+
+  export type $user_sale_officesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "user_sale_offices"
+    objects: {
+      sale_office: Prisma.$sale_officesPayload<ExtArgs>
+      user: Prisma.$userPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      user_id: number
+      sale_office_id: number
+      role: string | null
+      create_at: Date
+      update_at: Date
+    }, ExtArgs["result"]["user_sale_offices"]>
+    composites: {}
+  }
+
+  type user_sale_officesGetPayload<S extends boolean | null | undefined | user_sale_officesDefaultArgs> = $Result.GetResult<Prisma.$user_sale_officesPayload, S>
+
+  type user_sale_officesCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<user_sale_officesFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: User_sale_officesCountAggregateInputType | true
+    }
+
+  export interface user_sale_officesDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['user_sale_offices'], meta: { name: 'user_sale_offices' } }
+    /**
+     * Find zero or one User_sale_offices that matches the filter.
+     * @param {user_sale_officesFindUniqueArgs} args - Arguments to find a User_sale_offices
+     * @example
+     * // Get one User_sale_offices
+     * const user_sale_offices = await prisma.user_sale_offices.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends user_sale_officesFindUniqueArgs>(args: SelectSubset<T, user_sale_officesFindUniqueArgs<ExtArgs>>): Prisma__user_sale_officesClient<$Result.GetResult<Prisma.$user_sale_officesPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one User_sale_offices that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {user_sale_officesFindUniqueOrThrowArgs} args - Arguments to find a User_sale_offices
+     * @example
+     * // Get one User_sale_offices
+     * const user_sale_offices = await prisma.user_sale_offices.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends user_sale_officesFindUniqueOrThrowArgs>(args: SelectSubset<T, user_sale_officesFindUniqueOrThrowArgs<ExtArgs>>): Prisma__user_sale_officesClient<$Result.GetResult<Prisma.$user_sale_officesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first User_sale_offices that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {user_sale_officesFindFirstArgs} args - Arguments to find a User_sale_offices
+     * @example
+     * // Get one User_sale_offices
+     * const user_sale_offices = await prisma.user_sale_offices.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends user_sale_officesFindFirstArgs>(args?: SelectSubset<T, user_sale_officesFindFirstArgs<ExtArgs>>): Prisma__user_sale_officesClient<$Result.GetResult<Prisma.$user_sale_officesPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first User_sale_offices that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {user_sale_officesFindFirstOrThrowArgs} args - Arguments to find a User_sale_offices
+     * @example
+     * // Get one User_sale_offices
+     * const user_sale_offices = await prisma.user_sale_offices.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends user_sale_officesFindFirstOrThrowArgs>(args?: SelectSubset<T, user_sale_officesFindFirstOrThrowArgs<ExtArgs>>): Prisma__user_sale_officesClient<$Result.GetResult<Prisma.$user_sale_officesPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more User_sale_offices that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {user_sale_officesFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all User_sale_offices
+     * const user_sale_offices = await prisma.user_sale_offices.findMany()
+     * 
+     * // Get first 10 User_sale_offices
+     * const user_sale_offices = await prisma.user_sale_offices.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const user_sale_officesWithIdOnly = await prisma.user_sale_offices.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends user_sale_officesFindManyArgs>(args?: SelectSubset<T, user_sale_officesFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$user_sale_officesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a User_sale_offices.
+     * @param {user_sale_officesCreateArgs} args - Arguments to create a User_sale_offices.
+     * @example
+     * // Create one User_sale_offices
+     * const User_sale_offices = await prisma.user_sale_offices.create({
+     *   data: {
+     *     // ... data to create a User_sale_offices
+     *   }
+     * })
+     * 
+     */
+    create<T extends user_sale_officesCreateArgs>(args: SelectSubset<T, user_sale_officesCreateArgs<ExtArgs>>): Prisma__user_sale_officesClient<$Result.GetResult<Prisma.$user_sale_officesPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many User_sale_offices.
+     * @param {user_sale_officesCreateManyArgs} args - Arguments to create many User_sale_offices.
+     * @example
+     * // Create many User_sale_offices
+     * const user_sale_offices = await prisma.user_sale_offices.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends user_sale_officesCreateManyArgs>(args?: SelectSubset<T, user_sale_officesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a User_sale_offices.
+     * @param {user_sale_officesDeleteArgs} args - Arguments to delete one User_sale_offices.
+     * @example
+     * // Delete one User_sale_offices
+     * const User_sale_offices = await prisma.user_sale_offices.delete({
+     *   where: {
+     *     // ... filter to delete one User_sale_offices
+     *   }
+     * })
+     * 
+     */
+    delete<T extends user_sale_officesDeleteArgs>(args: SelectSubset<T, user_sale_officesDeleteArgs<ExtArgs>>): Prisma__user_sale_officesClient<$Result.GetResult<Prisma.$user_sale_officesPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one User_sale_offices.
+     * @param {user_sale_officesUpdateArgs} args - Arguments to update one User_sale_offices.
+     * @example
+     * // Update one User_sale_offices
+     * const user_sale_offices = await prisma.user_sale_offices.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends user_sale_officesUpdateArgs>(args: SelectSubset<T, user_sale_officesUpdateArgs<ExtArgs>>): Prisma__user_sale_officesClient<$Result.GetResult<Prisma.$user_sale_officesPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more User_sale_offices.
+     * @param {user_sale_officesDeleteManyArgs} args - Arguments to filter User_sale_offices to delete.
+     * @example
+     * // Delete a few User_sale_offices
+     * const { count } = await prisma.user_sale_offices.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends user_sale_officesDeleteManyArgs>(args?: SelectSubset<T, user_sale_officesDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more User_sale_offices.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {user_sale_officesUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many User_sale_offices
+     * const user_sale_offices = await prisma.user_sale_offices.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends user_sale_officesUpdateManyArgs>(args: SelectSubset<T, user_sale_officesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one User_sale_offices.
+     * @param {user_sale_officesUpsertArgs} args - Arguments to update or create a User_sale_offices.
+     * @example
+     * // Update or create a User_sale_offices
+     * const user_sale_offices = await prisma.user_sale_offices.upsert({
+     *   create: {
+     *     // ... data to create a User_sale_offices
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the User_sale_offices we want to update
+     *   }
+     * })
+     */
+    upsert<T extends user_sale_officesUpsertArgs>(args: SelectSubset<T, user_sale_officesUpsertArgs<ExtArgs>>): Prisma__user_sale_officesClient<$Result.GetResult<Prisma.$user_sale_officesPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of User_sale_offices.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {user_sale_officesCountArgs} args - Arguments to filter User_sale_offices to count.
+     * @example
+     * // Count the number of User_sale_offices
+     * const count = await prisma.user_sale_offices.count({
+     *   where: {
+     *     // ... the filter for the User_sale_offices we want to count
+     *   }
+     * })
+    **/
+    count<T extends user_sale_officesCountArgs>(
+      args?: Subset<T, user_sale_officesCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], User_sale_officesCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a User_sale_offices.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {User_sale_officesAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends User_sale_officesAggregateArgs>(args: Subset<T, User_sale_officesAggregateArgs>): Prisma.PrismaPromise<GetUser_sale_officesAggregateType<T>>
+
+    /**
+     * Group by User_sale_offices.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {user_sale_officesGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends user_sale_officesGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: user_sale_officesGroupByArgs['orderBy'] }
+        : { orderBy?: user_sale_officesGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, user_sale_officesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUser_sale_officesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the user_sale_offices model
+   */
+  readonly fields: user_sale_officesFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for user_sale_offices.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__user_sale_officesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    sale_office<T extends sale_officesDefaultArgs<ExtArgs> = {}>(args?: Subset<T, sale_officesDefaultArgs<ExtArgs>>): Prisma__sale_officesClient<$Result.GetResult<Prisma.$sale_officesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    user<T extends userDefaultArgs<ExtArgs> = {}>(args?: Subset<T, userDefaultArgs<ExtArgs>>): Prisma__userClient<$Result.GetResult<Prisma.$userPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the user_sale_offices model
+   */
+  interface user_sale_officesFieldRefs {
+    readonly id: FieldRef<"user_sale_offices", 'Int'>
+    readonly user_id: FieldRef<"user_sale_offices", 'Int'>
+    readonly sale_office_id: FieldRef<"user_sale_offices", 'Int'>
+    readonly role: FieldRef<"user_sale_offices", 'String'>
+    readonly create_at: FieldRef<"user_sale_offices", 'DateTime'>
+    readonly update_at: FieldRef<"user_sale_offices", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * user_sale_offices findUnique
+   */
+  export type user_sale_officesFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the user_sale_offices
+     */
+    select?: user_sale_officesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the user_sale_offices
+     */
+    omit?: user_sale_officesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: user_sale_officesInclude<ExtArgs> | null
+    /**
+     * Filter, which user_sale_offices to fetch.
+     */
+    where: user_sale_officesWhereUniqueInput
+  }
+
+  /**
+   * user_sale_offices findUniqueOrThrow
+   */
+  export type user_sale_officesFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the user_sale_offices
+     */
+    select?: user_sale_officesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the user_sale_offices
+     */
+    omit?: user_sale_officesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: user_sale_officesInclude<ExtArgs> | null
+    /**
+     * Filter, which user_sale_offices to fetch.
+     */
+    where: user_sale_officesWhereUniqueInput
+  }
+
+  /**
+   * user_sale_offices findFirst
+   */
+  export type user_sale_officesFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the user_sale_offices
+     */
+    select?: user_sale_officesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the user_sale_offices
+     */
+    omit?: user_sale_officesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: user_sale_officesInclude<ExtArgs> | null
+    /**
+     * Filter, which user_sale_offices to fetch.
+     */
+    where?: user_sale_officesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of user_sale_offices to fetch.
+     */
+    orderBy?: user_sale_officesOrderByWithRelationInput | user_sale_officesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for user_sale_offices.
+     */
+    cursor?: user_sale_officesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` user_sale_offices from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` user_sale_offices.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of user_sale_offices.
+     */
+    distinct?: User_sale_officesScalarFieldEnum | User_sale_officesScalarFieldEnum[]
+  }
+
+  /**
+   * user_sale_offices findFirstOrThrow
+   */
+  export type user_sale_officesFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the user_sale_offices
+     */
+    select?: user_sale_officesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the user_sale_offices
+     */
+    omit?: user_sale_officesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: user_sale_officesInclude<ExtArgs> | null
+    /**
+     * Filter, which user_sale_offices to fetch.
+     */
+    where?: user_sale_officesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of user_sale_offices to fetch.
+     */
+    orderBy?: user_sale_officesOrderByWithRelationInput | user_sale_officesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for user_sale_offices.
+     */
+    cursor?: user_sale_officesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` user_sale_offices from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` user_sale_offices.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of user_sale_offices.
+     */
+    distinct?: User_sale_officesScalarFieldEnum | User_sale_officesScalarFieldEnum[]
+  }
+
+  /**
+   * user_sale_offices findMany
+   */
+  export type user_sale_officesFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the user_sale_offices
+     */
+    select?: user_sale_officesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the user_sale_offices
+     */
+    omit?: user_sale_officesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: user_sale_officesInclude<ExtArgs> | null
+    /**
+     * Filter, which user_sale_offices to fetch.
+     */
+    where?: user_sale_officesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of user_sale_offices to fetch.
+     */
+    orderBy?: user_sale_officesOrderByWithRelationInput | user_sale_officesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing user_sale_offices.
+     */
+    cursor?: user_sale_officesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` user_sale_offices from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` user_sale_offices.
+     */
+    skip?: number
+    distinct?: User_sale_officesScalarFieldEnum | User_sale_officesScalarFieldEnum[]
+  }
+
+  /**
+   * user_sale_offices create
+   */
+  export type user_sale_officesCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the user_sale_offices
+     */
+    select?: user_sale_officesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the user_sale_offices
+     */
+    omit?: user_sale_officesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: user_sale_officesInclude<ExtArgs> | null
+    /**
+     * The data needed to create a user_sale_offices.
+     */
+    data: XOR<user_sale_officesCreateInput, user_sale_officesUncheckedCreateInput>
+  }
+
+  /**
+   * user_sale_offices createMany
+   */
+  export type user_sale_officesCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many user_sale_offices.
+     */
+    data: user_sale_officesCreateManyInput | user_sale_officesCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * user_sale_offices update
+   */
+  export type user_sale_officesUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the user_sale_offices
+     */
+    select?: user_sale_officesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the user_sale_offices
+     */
+    omit?: user_sale_officesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: user_sale_officesInclude<ExtArgs> | null
+    /**
+     * The data needed to update a user_sale_offices.
+     */
+    data: XOR<user_sale_officesUpdateInput, user_sale_officesUncheckedUpdateInput>
+    /**
+     * Choose, which user_sale_offices to update.
+     */
+    where: user_sale_officesWhereUniqueInput
+  }
+
+  /**
+   * user_sale_offices updateMany
+   */
+  export type user_sale_officesUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update user_sale_offices.
+     */
+    data: XOR<user_sale_officesUpdateManyMutationInput, user_sale_officesUncheckedUpdateManyInput>
+    /**
+     * Filter which user_sale_offices to update
+     */
+    where?: user_sale_officesWhereInput
+    /**
+     * Limit how many user_sale_offices to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * user_sale_offices upsert
+   */
+  export type user_sale_officesUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the user_sale_offices
+     */
+    select?: user_sale_officesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the user_sale_offices
+     */
+    omit?: user_sale_officesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: user_sale_officesInclude<ExtArgs> | null
+    /**
+     * The filter to search for the user_sale_offices to update in case it exists.
+     */
+    where: user_sale_officesWhereUniqueInput
+    /**
+     * In case the user_sale_offices found by the `where` argument doesn't exist, create a new user_sale_offices with this data.
+     */
+    create: XOR<user_sale_officesCreateInput, user_sale_officesUncheckedCreateInput>
+    /**
+     * In case the user_sale_offices was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<user_sale_officesUpdateInput, user_sale_officesUncheckedUpdateInput>
+  }
+
+  /**
+   * user_sale_offices delete
+   */
+  export type user_sale_officesDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the user_sale_offices
+     */
+    select?: user_sale_officesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the user_sale_offices
+     */
+    omit?: user_sale_officesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: user_sale_officesInclude<ExtArgs> | null
+    /**
+     * Filter which user_sale_offices to delete.
+     */
+    where: user_sale_officesWhereUniqueInput
+  }
+
+  /**
+   * user_sale_offices deleteMany
+   */
+  export type user_sale_officesDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which user_sale_offices to delete
+     */
+    where?: user_sale_officesWhereInput
+    /**
+     * Limit how many user_sale_offices to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * user_sale_offices without action
+   */
+  export type user_sale_officesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the user_sale_offices
+     */
+    select?: user_sale_officesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the user_sale_offices
+     */
+    omit?: user_sale_officesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: user_sale_officesInclude<ExtArgs> | null
   }
 
 
@@ -21061,7 +22451,6 @@ export namespace Prisma {
   export type DirtiesAvgAggregateOutputType = {
     id: number | null
     sale_office_id: number | null
-    department_id: number | null
     factory_id: number | null
     user_id: number | null
   }
@@ -21069,7 +22458,6 @@ export namespace Prisma {
   export type DirtiesSumAggregateOutputType = {
     id: number | null
     sale_office_id: number | null
-    department_id: number | null
     factory_id: number | null
     user_id: number | null
   }
@@ -21079,7 +22467,6 @@ export namespace Prisma {
     dirty_doc_no: string | null
     dirty_doc_date: Date | null
     sale_office_id: number | null
-    department_id: number | null
     factory_id: number | null
     user_id: number | null
     signature: string | null
@@ -21097,7 +22484,6 @@ export namespace Prisma {
     dirty_doc_no: string | null
     dirty_doc_date: Date | null
     sale_office_id: number | null
-    department_id: number | null
     factory_id: number | null
     user_id: number | null
     signature: string | null
@@ -21115,7 +22501,6 @@ export namespace Prisma {
     dirty_doc_no: number
     dirty_doc_date: number
     sale_office_id: number
-    department_id: number
     factory_id: number
     user_id: number
     signature: number
@@ -21133,7 +22518,6 @@ export namespace Prisma {
   export type DirtiesAvgAggregateInputType = {
     id?: true
     sale_office_id?: true
-    department_id?: true
     factory_id?: true
     user_id?: true
   }
@@ -21141,7 +22525,6 @@ export namespace Prisma {
   export type DirtiesSumAggregateInputType = {
     id?: true
     sale_office_id?: true
-    department_id?: true
     factory_id?: true
     user_id?: true
   }
@@ -21151,7 +22534,6 @@ export namespace Prisma {
     dirty_doc_no?: true
     dirty_doc_date?: true
     sale_office_id?: true
-    department_id?: true
     factory_id?: true
     user_id?: true
     signature?: true
@@ -21169,7 +22551,6 @@ export namespace Prisma {
     dirty_doc_no?: true
     dirty_doc_date?: true
     sale_office_id?: true
-    department_id?: true
     factory_id?: true
     user_id?: true
     signature?: true
@@ -21187,7 +22568,6 @@ export namespace Prisma {
     dirty_doc_no?: true
     dirty_doc_date?: true
     sale_office_id?: true
-    department_id?: true
     factory_id?: true
     user_id?: true
     signature?: true
@@ -21292,7 +22672,6 @@ export namespace Prisma {
     dirty_doc_no: string
     dirty_doc_date: Date | null
     sale_office_id: number | null
-    department_id: number | null
     factory_id: number | null
     user_id: number | null
     signature: string | null
@@ -21329,7 +22708,6 @@ export namespace Prisma {
     dirty_doc_no?: boolean
     dirty_doc_date?: boolean
     sale_office_id?: boolean
-    department_id?: boolean
     factory_id?: boolean
     user_id?: boolean
     signature?: boolean
@@ -21349,7 +22727,6 @@ export namespace Prisma {
     dirty_doc_no?: boolean
     dirty_doc_date?: boolean
     sale_office_id?: boolean
-    department_id?: boolean
     factory_id?: boolean
     user_id?: boolean
     signature?: boolean
@@ -21362,7 +22739,7 @@ export namespace Prisma {
     update_at?: boolean
   }
 
-  export type dirtiesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "dirty_doc_no" | "dirty_doc_date" | "sale_office_id" | "department_id" | "factory_id" | "user_id" | "signature" | "sign_factory" | "sign_factory_time" | "sign_NH" | "sign_NH_time" | "status" | "create_at" | "update_at", ExtArgs["result"]["dirties"]>
+  export type dirtiesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "dirty_doc_no" | "dirty_doc_date" | "sale_office_id" | "factory_id" | "user_id" | "signature" | "sign_factory" | "sign_factory_time" | "sign_NH" | "sign_NH_time" | "status" | "create_at" | "update_at", ExtArgs["result"]["dirties"]>
 
   export type $dirtiesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "dirties"
@@ -21372,7 +22749,6 @@ export namespace Prisma {
       dirty_doc_no: string
       dirty_doc_date: Date | null
       sale_office_id: number | null
-      department_id: number | null
       factory_id: number | null
       user_id: number | null
       signature: string | null
@@ -21756,7 +23132,6 @@ export namespace Prisma {
     readonly dirty_doc_no: FieldRef<"dirties", 'String'>
     readonly dirty_doc_date: FieldRef<"dirties", 'DateTime'>
     readonly sale_office_id: FieldRef<"dirties", 'Int'>
-    readonly department_id: FieldRef<"dirties", 'Int'>
     readonly factory_id: FieldRef<"dirties", 'Int'>
     readonly user_id: FieldRef<"dirties", 'Int'>
     readonly signature: FieldRef<"dirties", 'String'>
@@ -22110,6 +23485,7 @@ export namespace Prisma {
     qty: number | null
     receive_qty: number | null
     weight: number | null
+    unregistered_item_id: number | null
   }
 
   export type Dirty_detailsSumAggregateOutputType = {
@@ -22122,6 +23498,7 @@ export namespace Prisma {
     qty: number | null
     receive_qty: number | null
     weight: number | null
+    unregistered_item_id: number | null
   }
 
   export type Dirty_detailsMinAggregateOutputType = {
@@ -22135,6 +23512,7 @@ export namespace Prisma {
     receive_qty: number | null
     weight: number | null
     is_cancel: boolean | null
+    unregistered_item_id: number | null
     status: boolean | null
     create_at: Date | null
     update_at: Date | null
@@ -22151,6 +23529,7 @@ export namespace Prisma {
     receive_qty: number | null
     weight: number | null
     is_cancel: boolean | null
+    unregistered_item_id: number | null
     status: boolean | null
     create_at: Date | null
     update_at: Date | null
@@ -22167,6 +23546,7 @@ export namespace Prisma {
     receive_qty: number
     weight: number
     is_cancel: number
+    unregistered_item_id: number
     status: number
     create_at: number
     update_at: number
@@ -22184,6 +23564,7 @@ export namespace Prisma {
     qty?: true
     receive_qty?: true
     weight?: true
+    unregistered_item_id?: true
   }
 
   export type Dirty_detailsSumAggregateInputType = {
@@ -22196,6 +23577,7 @@ export namespace Prisma {
     qty?: true
     receive_qty?: true
     weight?: true
+    unregistered_item_id?: true
   }
 
   export type Dirty_detailsMinAggregateInputType = {
@@ -22209,6 +23591,7 @@ export namespace Prisma {
     receive_qty?: true
     weight?: true
     is_cancel?: true
+    unregistered_item_id?: true
     status?: true
     create_at?: true
     update_at?: true
@@ -22225,6 +23608,7 @@ export namespace Prisma {
     receive_qty?: true
     weight?: true
     is_cancel?: true
+    unregistered_item_id?: true
     status?: true
     create_at?: true
     update_at?: true
@@ -22241,6 +23625,7 @@ export namespace Prisma {
     receive_qty?: true
     weight?: true
     is_cancel?: true
+    unregistered_item_id?: true
     status?: true
     create_at?: true
     update_at?: true
@@ -22344,6 +23729,7 @@ export namespace Prisma {
     receive_qty: number
     weight: number
     is_cancel: boolean
+    unregistered_item_id: number | null
     status: boolean
     create_at: Date
     update_at: Date
@@ -22379,9 +23765,11 @@ export namespace Prisma {
     receive_qty?: boolean
     weight?: boolean
     is_cancel?: boolean
+    unregistered_item_id?: boolean
     status?: boolean
     create_at?: boolean
     update_at?: boolean
+    unregistered_item?: boolean | dirty_details$unregistered_itemArgs<ExtArgs>
   }, ExtArgs["result"]["dirty_details"]>
 
 
@@ -22397,16 +23785,22 @@ export namespace Prisma {
     receive_qty?: boolean
     weight?: boolean
     is_cancel?: boolean
+    unregistered_item_id?: boolean
     status?: boolean
     create_at?: boolean
     update_at?: boolean
   }
 
-  export type dirty_detailsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "dirty_id" | "department_id" | "item_id" | "unit_id" | "user_id" | "qty" | "receive_qty" | "weight" | "is_cancel" | "status" | "create_at" | "update_at", ExtArgs["result"]["dirty_details"]>
+  export type dirty_detailsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "dirty_id" | "department_id" | "item_id" | "unit_id" | "user_id" | "qty" | "receive_qty" | "weight" | "is_cancel" | "unregistered_item_id" | "status" | "create_at" | "update_at", ExtArgs["result"]["dirty_details"]>
+  export type dirty_detailsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    unregistered_item?: boolean | dirty_details$unregistered_itemArgs<ExtArgs>
+  }
 
   export type $dirty_detailsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "dirty_details"
-    objects: {}
+    objects: {
+      unregistered_item: Prisma.$unregistered_itemsPayload<ExtArgs> | null
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       dirty_id: number
@@ -22418,6 +23812,7 @@ export namespace Prisma {
       receive_qty: number
       weight: number
       is_cancel: boolean
+      unregistered_item_id: number | null
       status: boolean
       create_at: Date
       update_at: Date
@@ -22761,6 +24156,7 @@ export namespace Prisma {
    */
   export interface Prisma__dirty_detailsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    unregistered_item<T extends dirty_details$unregistered_itemArgs<ExtArgs> = {}>(args?: Subset<T, dirty_details$unregistered_itemArgs<ExtArgs>>): Prisma__unregistered_itemsClient<$Result.GetResult<Prisma.$unregistered_itemsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -22800,6 +24196,7 @@ export namespace Prisma {
     readonly receive_qty: FieldRef<"dirty_details", 'Float'>
     readonly weight: FieldRef<"dirty_details", 'Float'>
     readonly is_cancel: FieldRef<"dirty_details", 'Boolean'>
+    readonly unregistered_item_id: FieldRef<"dirty_details", 'Int'>
     readonly status: FieldRef<"dirty_details", 'Boolean'>
     readonly create_at: FieldRef<"dirty_details", 'DateTime'>
     readonly update_at: FieldRef<"dirty_details", 'DateTime'>
@@ -22820,6 +24217,10 @@ export namespace Prisma {
      */
     omit?: dirty_detailsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: dirty_detailsInclude<ExtArgs> | null
+    /**
      * Filter, which dirty_details to fetch.
      */
     where: dirty_detailsWhereUniqueInput
@@ -22838,6 +24239,10 @@ export namespace Prisma {
      */
     omit?: dirty_detailsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: dirty_detailsInclude<ExtArgs> | null
+    /**
      * Filter, which dirty_details to fetch.
      */
     where: dirty_detailsWhereUniqueInput
@@ -22855,6 +24260,10 @@ export namespace Prisma {
      * Omit specific fields from the dirty_details
      */
     omit?: dirty_detailsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: dirty_detailsInclude<ExtArgs> | null
     /**
      * Filter, which dirty_details to fetch.
      */
@@ -22904,6 +24313,10 @@ export namespace Prisma {
      */
     omit?: dirty_detailsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: dirty_detailsInclude<ExtArgs> | null
+    /**
      * Filter, which dirty_details to fetch.
      */
     where?: dirty_detailsWhereInput
@@ -22952,6 +24365,10 @@ export namespace Prisma {
      */
     omit?: dirty_detailsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: dirty_detailsInclude<ExtArgs> | null
+    /**
      * Filter, which dirty_details to fetch.
      */
     where?: dirty_detailsWhereInput
@@ -22995,6 +24412,10 @@ export namespace Prisma {
      */
     omit?: dirty_detailsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: dirty_detailsInclude<ExtArgs> | null
+    /**
      * The data needed to create a dirty_details.
      */
     data: XOR<dirty_detailsCreateInput, dirty_detailsUncheckedCreateInput>
@@ -23023,6 +24444,10 @@ export namespace Prisma {
      * Omit specific fields from the dirty_details
      */
     omit?: dirty_detailsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: dirty_detailsInclude<ExtArgs> | null
     /**
      * The data needed to update a dirty_details.
      */
@@ -23064,6 +24489,10 @@ export namespace Prisma {
      */
     omit?: dirty_detailsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: dirty_detailsInclude<ExtArgs> | null
+    /**
      * The filter to search for the dirty_details to update in case it exists.
      */
     where: dirty_detailsWhereUniqueInput
@@ -23090,6 +24519,10 @@ export namespace Prisma {
      */
     omit?: dirty_detailsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: dirty_detailsInclude<ExtArgs> | null
+    /**
      * Filter which dirty_details to delete.
      */
     where: dirty_detailsWhereUniqueInput
@@ -23110,6 +24543,25 @@ export namespace Prisma {
   }
 
   /**
+   * dirty_details.unregistered_item
+   */
+  export type dirty_details$unregistered_itemArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the unregistered_items
+     */
+    select?: unregistered_itemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the unregistered_items
+     */
+    omit?: unregistered_itemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: unregistered_itemsInclude<ExtArgs> | null
+    where?: unregistered_itemsWhereInput
+  }
+
+  /**
    * dirty_details without action
    */
   export type dirty_detailsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -23121,6 +24573,1031 @@ export namespace Prisma {
      * Omit specific fields from the dirty_details
      */
     omit?: dirty_detailsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: dirty_detailsInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model dirty_detail_rounds
+   */
+
+  export type AggregateDirty_detail_rounds = {
+    _count: Dirty_detail_roundsCountAggregateOutputType | null
+    _avg: Dirty_detail_roundsAvgAggregateOutputType | null
+    _sum: Dirty_detail_roundsSumAggregateOutputType | null
+    _min: Dirty_detail_roundsMinAggregateOutputType | null
+    _max: Dirty_detail_roundsMaxAggregateOutputType | null
+  }
+
+  export type Dirty_detail_roundsAvgAggregateOutputType = {
+    id: number | null
+    dirty_detail_id: number | null
+    item_id: number | null
+    unit_id: number | null
+    user_id: number | null
+    qty: number | null
+    receive_qty: number | null
+    weight: number | null
+  }
+
+  export type Dirty_detail_roundsSumAggregateOutputType = {
+    id: number | null
+    dirty_detail_id: number | null
+    item_id: number | null
+    unit_id: number | null
+    user_id: number | null
+    qty: number | null
+    receive_qty: number | null
+    weight: number | null
+  }
+
+  export type Dirty_detail_roundsMinAggregateOutputType = {
+    id: number | null
+    dirty_detail_id: number | null
+    item_id: number | null
+    unit_id: number | null
+    user_id: number | null
+    qty: number | null
+    receive_qty: number | null
+    weight: number | null
+    is_cancel: boolean | null
+    status: boolean | null
+    create_at: Date | null
+    update_at: Date | null
+  }
+
+  export type Dirty_detail_roundsMaxAggregateOutputType = {
+    id: number | null
+    dirty_detail_id: number | null
+    item_id: number | null
+    unit_id: number | null
+    user_id: number | null
+    qty: number | null
+    receive_qty: number | null
+    weight: number | null
+    is_cancel: boolean | null
+    status: boolean | null
+    create_at: Date | null
+    update_at: Date | null
+  }
+
+  export type Dirty_detail_roundsCountAggregateOutputType = {
+    id: number
+    dirty_detail_id: number
+    item_id: number
+    unit_id: number
+    user_id: number
+    qty: number
+    receive_qty: number
+    weight: number
+    is_cancel: number
+    status: number
+    create_at: number
+    update_at: number
+    _all: number
+  }
+
+
+  export type Dirty_detail_roundsAvgAggregateInputType = {
+    id?: true
+    dirty_detail_id?: true
+    item_id?: true
+    unit_id?: true
+    user_id?: true
+    qty?: true
+    receive_qty?: true
+    weight?: true
+  }
+
+  export type Dirty_detail_roundsSumAggregateInputType = {
+    id?: true
+    dirty_detail_id?: true
+    item_id?: true
+    unit_id?: true
+    user_id?: true
+    qty?: true
+    receive_qty?: true
+    weight?: true
+  }
+
+  export type Dirty_detail_roundsMinAggregateInputType = {
+    id?: true
+    dirty_detail_id?: true
+    item_id?: true
+    unit_id?: true
+    user_id?: true
+    qty?: true
+    receive_qty?: true
+    weight?: true
+    is_cancel?: true
+    status?: true
+    create_at?: true
+    update_at?: true
+  }
+
+  export type Dirty_detail_roundsMaxAggregateInputType = {
+    id?: true
+    dirty_detail_id?: true
+    item_id?: true
+    unit_id?: true
+    user_id?: true
+    qty?: true
+    receive_qty?: true
+    weight?: true
+    is_cancel?: true
+    status?: true
+    create_at?: true
+    update_at?: true
+  }
+
+  export type Dirty_detail_roundsCountAggregateInputType = {
+    id?: true
+    dirty_detail_id?: true
+    item_id?: true
+    unit_id?: true
+    user_id?: true
+    qty?: true
+    receive_qty?: true
+    weight?: true
+    is_cancel?: true
+    status?: true
+    create_at?: true
+    update_at?: true
+    _all?: true
+  }
+
+  export type Dirty_detail_roundsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which dirty_detail_rounds to aggregate.
+     */
+    where?: dirty_detail_roundsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of dirty_detail_rounds to fetch.
+     */
+    orderBy?: dirty_detail_roundsOrderByWithRelationInput | dirty_detail_roundsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: dirty_detail_roundsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` dirty_detail_rounds from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` dirty_detail_rounds.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned dirty_detail_rounds
+    **/
+    _count?: true | Dirty_detail_roundsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Dirty_detail_roundsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Dirty_detail_roundsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Dirty_detail_roundsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Dirty_detail_roundsMaxAggregateInputType
+  }
+
+  export type GetDirty_detail_roundsAggregateType<T extends Dirty_detail_roundsAggregateArgs> = {
+        [P in keyof T & keyof AggregateDirty_detail_rounds]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateDirty_detail_rounds[P]>
+      : GetScalarType<T[P], AggregateDirty_detail_rounds[P]>
+  }
+
+
+
+
+  export type dirty_detail_roundsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: dirty_detail_roundsWhereInput
+    orderBy?: dirty_detail_roundsOrderByWithAggregationInput | dirty_detail_roundsOrderByWithAggregationInput[]
+    by: Dirty_detail_roundsScalarFieldEnum[] | Dirty_detail_roundsScalarFieldEnum
+    having?: dirty_detail_roundsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Dirty_detail_roundsCountAggregateInputType | true
+    _avg?: Dirty_detail_roundsAvgAggregateInputType
+    _sum?: Dirty_detail_roundsSumAggregateInputType
+    _min?: Dirty_detail_roundsMinAggregateInputType
+    _max?: Dirty_detail_roundsMaxAggregateInputType
+  }
+
+  export type Dirty_detail_roundsGroupByOutputType = {
+    id: number
+    dirty_detail_id: number | null
+    item_id: number | null
+    unit_id: number | null
+    user_id: number | null
+    qty: number | null
+    receive_qty: number | null
+    weight: number | null
+    is_cancel: boolean
+    status: boolean
+    create_at: Date
+    update_at: Date
+    _count: Dirty_detail_roundsCountAggregateOutputType | null
+    _avg: Dirty_detail_roundsAvgAggregateOutputType | null
+    _sum: Dirty_detail_roundsSumAggregateOutputType | null
+    _min: Dirty_detail_roundsMinAggregateOutputType | null
+    _max: Dirty_detail_roundsMaxAggregateOutputType | null
+  }
+
+  type GetDirty_detail_roundsGroupByPayload<T extends dirty_detail_roundsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Dirty_detail_roundsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Dirty_detail_roundsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Dirty_detail_roundsGroupByOutputType[P]>
+            : GetScalarType<T[P], Dirty_detail_roundsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type dirty_detail_roundsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    dirty_detail_id?: boolean
+    item_id?: boolean
+    unit_id?: boolean
+    user_id?: boolean
+    qty?: boolean
+    receive_qty?: boolean
+    weight?: boolean
+    is_cancel?: boolean
+    status?: boolean
+    create_at?: boolean
+    update_at?: boolean
+  }, ExtArgs["result"]["dirty_detail_rounds"]>
+
+
+
+  export type dirty_detail_roundsSelectScalar = {
+    id?: boolean
+    dirty_detail_id?: boolean
+    item_id?: boolean
+    unit_id?: boolean
+    user_id?: boolean
+    qty?: boolean
+    receive_qty?: boolean
+    weight?: boolean
+    is_cancel?: boolean
+    status?: boolean
+    create_at?: boolean
+    update_at?: boolean
+  }
+
+  export type dirty_detail_roundsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "dirty_detail_id" | "item_id" | "unit_id" | "user_id" | "qty" | "receive_qty" | "weight" | "is_cancel" | "status" | "create_at" | "update_at", ExtArgs["result"]["dirty_detail_rounds"]>
+
+  export type $dirty_detail_roundsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "dirty_detail_rounds"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      dirty_detail_id: number | null
+      item_id: number | null
+      unit_id: number | null
+      user_id: number | null
+      qty: number | null
+      receive_qty: number | null
+      weight: number | null
+      is_cancel: boolean
+      status: boolean
+      create_at: Date
+      update_at: Date
+    }, ExtArgs["result"]["dirty_detail_rounds"]>
+    composites: {}
+  }
+
+  type dirty_detail_roundsGetPayload<S extends boolean | null | undefined | dirty_detail_roundsDefaultArgs> = $Result.GetResult<Prisma.$dirty_detail_roundsPayload, S>
+
+  type dirty_detail_roundsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<dirty_detail_roundsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Dirty_detail_roundsCountAggregateInputType | true
+    }
+
+  export interface dirty_detail_roundsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['dirty_detail_rounds'], meta: { name: 'dirty_detail_rounds' } }
+    /**
+     * Find zero or one Dirty_detail_rounds that matches the filter.
+     * @param {dirty_detail_roundsFindUniqueArgs} args - Arguments to find a Dirty_detail_rounds
+     * @example
+     * // Get one Dirty_detail_rounds
+     * const dirty_detail_rounds = await prisma.dirty_detail_rounds.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends dirty_detail_roundsFindUniqueArgs>(args: SelectSubset<T, dirty_detail_roundsFindUniqueArgs<ExtArgs>>): Prisma__dirty_detail_roundsClient<$Result.GetResult<Prisma.$dirty_detail_roundsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Dirty_detail_rounds that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {dirty_detail_roundsFindUniqueOrThrowArgs} args - Arguments to find a Dirty_detail_rounds
+     * @example
+     * // Get one Dirty_detail_rounds
+     * const dirty_detail_rounds = await prisma.dirty_detail_rounds.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends dirty_detail_roundsFindUniqueOrThrowArgs>(args: SelectSubset<T, dirty_detail_roundsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__dirty_detail_roundsClient<$Result.GetResult<Prisma.$dirty_detail_roundsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Dirty_detail_rounds that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {dirty_detail_roundsFindFirstArgs} args - Arguments to find a Dirty_detail_rounds
+     * @example
+     * // Get one Dirty_detail_rounds
+     * const dirty_detail_rounds = await prisma.dirty_detail_rounds.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends dirty_detail_roundsFindFirstArgs>(args?: SelectSubset<T, dirty_detail_roundsFindFirstArgs<ExtArgs>>): Prisma__dirty_detail_roundsClient<$Result.GetResult<Prisma.$dirty_detail_roundsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Dirty_detail_rounds that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {dirty_detail_roundsFindFirstOrThrowArgs} args - Arguments to find a Dirty_detail_rounds
+     * @example
+     * // Get one Dirty_detail_rounds
+     * const dirty_detail_rounds = await prisma.dirty_detail_rounds.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends dirty_detail_roundsFindFirstOrThrowArgs>(args?: SelectSubset<T, dirty_detail_roundsFindFirstOrThrowArgs<ExtArgs>>): Prisma__dirty_detail_roundsClient<$Result.GetResult<Prisma.$dirty_detail_roundsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Dirty_detail_rounds that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {dirty_detail_roundsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Dirty_detail_rounds
+     * const dirty_detail_rounds = await prisma.dirty_detail_rounds.findMany()
+     * 
+     * // Get first 10 Dirty_detail_rounds
+     * const dirty_detail_rounds = await prisma.dirty_detail_rounds.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const dirty_detail_roundsWithIdOnly = await prisma.dirty_detail_rounds.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends dirty_detail_roundsFindManyArgs>(args?: SelectSubset<T, dirty_detail_roundsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$dirty_detail_roundsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Dirty_detail_rounds.
+     * @param {dirty_detail_roundsCreateArgs} args - Arguments to create a Dirty_detail_rounds.
+     * @example
+     * // Create one Dirty_detail_rounds
+     * const Dirty_detail_rounds = await prisma.dirty_detail_rounds.create({
+     *   data: {
+     *     // ... data to create a Dirty_detail_rounds
+     *   }
+     * })
+     * 
+     */
+    create<T extends dirty_detail_roundsCreateArgs>(args: SelectSubset<T, dirty_detail_roundsCreateArgs<ExtArgs>>): Prisma__dirty_detail_roundsClient<$Result.GetResult<Prisma.$dirty_detail_roundsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Dirty_detail_rounds.
+     * @param {dirty_detail_roundsCreateManyArgs} args - Arguments to create many Dirty_detail_rounds.
+     * @example
+     * // Create many Dirty_detail_rounds
+     * const dirty_detail_rounds = await prisma.dirty_detail_rounds.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends dirty_detail_roundsCreateManyArgs>(args?: SelectSubset<T, dirty_detail_roundsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Dirty_detail_rounds.
+     * @param {dirty_detail_roundsDeleteArgs} args - Arguments to delete one Dirty_detail_rounds.
+     * @example
+     * // Delete one Dirty_detail_rounds
+     * const Dirty_detail_rounds = await prisma.dirty_detail_rounds.delete({
+     *   where: {
+     *     // ... filter to delete one Dirty_detail_rounds
+     *   }
+     * })
+     * 
+     */
+    delete<T extends dirty_detail_roundsDeleteArgs>(args: SelectSubset<T, dirty_detail_roundsDeleteArgs<ExtArgs>>): Prisma__dirty_detail_roundsClient<$Result.GetResult<Prisma.$dirty_detail_roundsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Dirty_detail_rounds.
+     * @param {dirty_detail_roundsUpdateArgs} args - Arguments to update one Dirty_detail_rounds.
+     * @example
+     * // Update one Dirty_detail_rounds
+     * const dirty_detail_rounds = await prisma.dirty_detail_rounds.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends dirty_detail_roundsUpdateArgs>(args: SelectSubset<T, dirty_detail_roundsUpdateArgs<ExtArgs>>): Prisma__dirty_detail_roundsClient<$Result.GetResult<Prisma.$dirty_detail_roundsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Dirty_detail_rounds.
+     * @param {dirty_detail_roundsDeleteManyArgs} args - Arguments to filter Dirty_detail_rounds to delete.
+     * @example
+     * // Delete a few Dirty_detail_rounds
+     * const { count } = await prisma.dirty_detail_rounds.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends dirty_detail_roundsDeleteManyArgs>(args?: SelectSubset<T, dirty_detail_roundsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Dirty_detail_rounds.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {dirty_detail_roundsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Dirty_detail_rounds
+     * const dirty_detail_rounds = await prisma.dirty_detail_rounds.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends dirty_detail_roundsUpdateManyArgs>(args: SelectSubset<T, dirty_detail_roundsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Dirty_detail_rounds.
+     * @param {dirty_detail_roundsUpsertArgs} args - Arguments to update or create a Dirty_detail_rounds.
+     * @example
+     * // Update or create a Dirty_detail_rounds
+     * const dirty_detail_rounds = await prisma.dirty_detail_rounds.upsert({
+     *   create: {
+     *     // ... data to create a Dirty_detail_rounds
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Dirty_detail_rounds we want to update
+     *   }
+     * })
+     */
+    upsert<T extends dirty_detail_roundsUpsertArgs>(args: SelectSubset<T, dirty_detail_roundsUpsertArgs<ExtArgs>>): Prisma__dirty_detail_roundsClient<$Result.GetResult<Prisma.$dirty_detail_roundsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Dirty_detail_rounds.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {dirty_detail_roundsCountArgs} args - Arguments to filter Dirty_detail_rounds to count.
+     * @example
+     * // Count the number of Dirty_detail_rounds
+     * const count = await prisma.dirty_detail_rounds.count({
+     *   where: {
+     *     // ... the filter for the Dirty_detail_rounds we want to count
+     *   }
+     * })
+    **/
+    count<T extends dirty_detail_roundsCountArgs>(
+      args?: Subset<T, dirty_detail_roundsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Dirty_detail_roundsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Dirty_detail_rounds.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Dirty_detail_roundsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Dirty_detail_roundsAggregateArgs>(args: Subset<T, Dirty_detail_roundsAggregateArgs>): Prisma.PrismaPromise<GetDirty_detail_roundsAggregateType<T>>
+
+    /**
+     * Group by Dirty_detail_rounds.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {dirty_detail_roundsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends dirty_detail_roundsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: dirty_detail_roundsGroupByArgs['orderBy'] }
+        : { orderBy?: dirty_detail_roundsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, dirty_detail_roundsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDirty_detail_roundsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the dirty_detail_rounds model
+   */
+  readonly fields: dirty_detail_roundsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for dirty_detail_rounds.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__dirty_detail_roundsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the dirty_detail_rounds model
+   */
+  interface dirty_detail_roundsFieldRefs {
+    readonly id: FieldRef<"dirty_detail_rounds", 'Int'>
+    readonly dirty_detail_id: FieldRef<"dirty_detail_rounds", 'Int'>
+    readonly item_id: FieldRef<"dirty_detail_rounds", 'Int'>
+    readonly unit_id: FieldRef<"dirty_detail_rounds", 'Int'>
+    readonly user_id: FieldRef<"dirty_detail_rounds", 'Int'>
+    readonly qty: FieldRef<"dirty_detail_rounds", 'Float'>
+    readonly receive_qty: FieldRef<"dirty_detail_rounds", 'Float'>
+    readonly weight: FieldRef<"dirty_detail_rounds", 'Float'>
+    readonly is_cancel: FieldRef<"dirty_detail_rounds", 'Boolean'>
+    readonly status: FieldRef<"dirty_detail_rounds", 'Boolean'>
+    readonly create_at: FieldRef<"dirty_detail_rounds", 'DateTime'>
+    readonly update_at: FieldRef<"dirty_detail_rounds", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * dirty_detail_rounds findUnique
+   */
+  export type dirty_detail_roundsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the dirty_detail_rounds
+     */
+    select?: dirty_detail_roundsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the dirty_detail_rounds
+     */
+    omit?: dirty_detail_roundsOmit<ExtArgs> | null
+    /**
+     * Filter, which dirty_detail_rounds to fetch.
+     */
+    where: dirty_detail_roundsWhereUniqueInput
+  }
+
+  /**
+   * dirty_detail_rounds findUniqueOrThrow
+   */
+  export type dirty_detail_roundsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the dirty_detail_rounds
+     */
+    select?: dirty_detail_roundsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the dirty_detail_rounds
+     */
+    omit?: dirty_detail_roundsOmit<ExtArgs> | null
+    /**
+     * Filter, which dirty_detail_rounds to fetch.
+     */
+    where: dirty_detail_roundsWhereUniqueInput
+  }
+
+  /**
+   * dirty_detail_rounds findFirst
+   */
+  export type dirty_detail_roundsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the dirty_detail_rounds
+     */
+    select?: dirty_detail_roundsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the dirty_detail_rounds
+     */
+    omit?: dirty_detail_roundsOmit<ExtArgs> | null
+    /**
+     * Filter, which dirty_detail_rounds to fetch.
+     */
+    where?: dirty_detail_roundsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of dirty_detail_rounds to fetch.
+     */
+    orderBy?: dirty_detail_roundsOrderByWithRelationInput | dirty_detail_roundsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for dirty_detail_rounds.
+     */
+    cursor?: dirty_detail_roundsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` dirty_detail_rounds from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` dirty_detail_rounds.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of dirty_detail_rounds.
+     */
+    distinct?: Dirty_detail_roundsScalarFieldEnum | Dirty_detail_roundsScalarFieldEnum[]
+  }
+
+  /**
+   * dirty_detail_rounds findFirstOrThrow
+   */
+  export type dirty_detail_roundsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the dirty_detail_rounds
+     */
+    select?: dirty_detail_roundsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the dirty_detail_rounds
+     */
+    omit?: dirty_detail_roundsOmit<ExtArgs> | null
+    /**
+     * Filter, which dirty_detail_rounds to fetch.
+     */
+    where?: dirty_detail_roundsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of dirty_detail_rounds to fetch.
+     */
+    orderBy?: dirty_detail_roundsOrderByWithRelationInput | dirty_detail_roundsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for dirty_detail_rounds.
+     */
+    cursor?: dirty_detail_roundsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` dirty_detail_rounds from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` dirty_detail_rounds.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of dirty_detail_rounds.
+     */
+    distinct?: Dirty_detail_roundsScalarFieldEnum | Dirty_detail_roundsScalarFieldEnum[]
+  }
+
+  /**
+   * dirty_detail_rounds findMany
+   */
+  export type dirty_detail_roundsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the dirty_detail_rounds
+     */
+    select?: dirty_detail_roundsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the dirty_detail_rounds
+     */
+    omit?: dirty_detail_roundsOmit<ExtArgs> | null
+    /**
+     * Filter, which dirty_detail_rounds to fetch.
+     */
+    where?: dirty_detail_roundsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of dirty_detail_rounds to fetch.
+     */
+    orderBy?: dirty_detail_roundsOrderByWithRelationInput | dirty_detail_roundsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing dirty_detail_rounds.
+     */
+    cursor?: dirty_detail_roundsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` dirty_detail_rounds from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` dirty_detail_rounds.
+     */
+    skip?: number
+    distinct?: Dirty_detail_roundsScalarFieldEnum | Dirty_detail_roundsScalarFieldEnum[]
+  }
+
+  /**
+   * dirty_detail_rounds create
+   */
+  export type dirty_detail_roundsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the dirty_detail_rounds
+     */
+    select?: dirty_detail_roundsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the dirty_detail_rounds
+     */
+    omit?: dirty_detail_roundsOmit<ExtArgs> | null
+    /**
+     * The data needed to create a dirty_detail_rounds.
+     */
+    data: XOR<dirty_detail_roundsCreateInput, dirty_detail_roundsUncheckedCreateInput>
+  }
+
+  /**
+   * dirty_detail_rounds createMany
+   */
+  export type dirty_detail_roundsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many dirty_detail_rounds.
+     */
+    data: dirty_detail_roundsCreateManyInput | dirty_detail_roundsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * dirty_detail_rounds update
+   */
+  export type dirty_detail_roundsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the dirty_detail_rounds
+     */
+    select?: dirty_detail_roundsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the dirty_detail_rounds
+     */
+    omit?: dirty_detail_roundsOmit<ExtArgs> | null
+    /**
+     * The data needed to update a dirty_detail_rounds.
+     */
+    data: XOR<dirty_detail_roundsUpdateInput, dirty_detail_roundsUncheckedUpdateInput>
+    /**
+     * Choose, which dirty_detail_rounds to update.
+     */
+    where: dirty_detail_roundsWhereUniqueInput
+  }
+
+  /**
+   * dirty_detail_rounds updateMany
+   */
+  export type dirty_detail_roundsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update dirty_detail_rounds.
+     */
+    data: XOR<dirty_detail_roundsUpdateManyMutationInput, dirty_detail_roundsUncheckedUpdateManyInput>
+    /**
+     * Filter which dirty_detail_rounds to update
+     */
+    where?: dirty_detail_roundsWhereInput
+    /**
+     * Limit how many dirty_detail_rounds to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * dirty_detail_rounds upsert
+   */
+  export type dirty_detail_roundsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the dirty_detail_rounds
+     */
+    select?: dirty_detail_roundsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the dirty_detail_rounds
+     */
+    omit?: dirty_detail_roundsOmit<ExtArgs> | null
+    /**
+     * The filter to search for the dirty_detail_rounds to update in case it exists.
+     */
+    where: dirty_detail_roundsWhereUniqueInput
+    /**
+     * In case the dirty_detail_rounds found by the `where` argument doesn't exist, create a new dirty_detail_rounds with this data.
+     */
+    create: XOR<dirty_detail_roundsCreateInput, dirty_detail_roundsUncheckedCreateInput>
+    /**
+     * In case the dirty_detail_rounds was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<dirty_detail_roundsUpdateInput, dirty_detail_roundsUncheckedUpdateInput>
+  }
+
+  /**
+   * dirty_detail_rounds delete
+   */
+  export type dirty_detail_roundsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the dirty_detail_rounds
+     */
+    select?: dirty_detail_roundsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the dirty_detail_rounds
+     */
+    omit?: dirty_detail_roundsOmit<ExtArgs> | null
+    /**
+     * Filter which dirty_detail_rounds to delete.
+     */
+    where: dirty_detail_roundsWhereUniqueInput
+  }
+
+  /**
+   * dirty_detail_rounds deleteMany
+   */
+  export type dirty_detail_roundsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which dirty_detail_rounds to delete
+     */
+    where?: dirty_detail_roundsWhereInput
+    /**
+     * Limit how many dirty_detail_rounds to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * dirty_detail_rounds without action
+   */
+  export type dirty_detail_roundsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the dirty_detail_rounds
+     */
+    select?: dirty_detail_roundsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the dirty_detail_rounds
+     */
+    omit?: dirty_detail_roundsOmit<ExtArgs> | null
   }
 
 
@@ -39773,6 +42250,8 @@ export namespace Prisma {
     status?: boolean
     create_at?: boolean
     update_at?: boolean
+    dirty_details?: boolean | unregistered_items$dirty_detailsArgs<ExtArgs>
+    _count?: boolean | Unregistered_itemsCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["unregistered_items"]>
 
 
@@ -39789,10 +42268,16 @@ export namespace Prisma {
   }
 
   export type unregistered_itemsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "item_id" | "name" | "type_linen" | "type_linen_id" | "status" | "create_at" | "update_at", ExtArgs["result"]["unregistered_items"]>
+  export type unregistered_itemsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    dirty_details?: boolean | unregistered_items$dirty_detailsArgs<ExtArgs>
+    _count?: boolean | Unregistered_itemsCountOutputTypeDefaultArgs<ExtArgs>
+  }
 
   export type $unregistered_itemsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "unregistered_items"
-    objects: {}
+    objects: {
+      dirty_details: Prisma.$dirty_detailsPayload<ExtArgs>[]
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       item_id: number
@@ -40142,6 +42627,7 @@ export namespace Prisma {
    */
   export interface Prisma__unregistered_itemsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    dirty_details<T extends unregistered_items$dirty_detailsArgs<ExtArgs> = {}>(args?: Subset<T, unregistered_items$dirty_detailsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$dirty_detailsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -40196,6 +42682,10 @@ export namespace Prisma {
      */
     omit?: unregistered_itemsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: unregistered_itemsInclude<ExtArgs> | null
+    /**
      * Filter, which unregistered_items to fetch.
      */
     where: unregistered_itemsWhereUniqueInput
@@ -40214,6 +42704,10 @@ export namespace Prisma {
      */
     omit?: unregistered_itemsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: unregistered_itemsInclude<ExtArgs> | null
+    /**
      * Filter, which unregistered_items to fetch.
      */
     where: unregistered_itemsWhereUniqueInput
@@ -40231,6 +42725,10 @@ export namespace Prisma {
      * Omit specific fields from the unregistered_items
      */
     omit?: unregistered_itemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: unregistered_itemsInclude<ExtArgs> | null
     /**
      * Filter, which unregistered_items to fetch.
      */
@@ -40280,6 +42778,10 @@ export namespace Prisma {
      */
     omit?: unregistered_itemsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: unregistered_itemsInclude<ExtArgs> | null
+    /**
      * Filter, which unregistered_items to fetch.
      */
     where?: unregistered_itemsWhereInput
@@ -40328,6 +42830,10 @@ export namespace Prisma {
      */
     omit?: unregistered_itemsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: unregistered_itemsInclude<ExtArgs> | null
+    /**
      * Filter, which unregistered_items to fetch.
      */
     where?: unregistered_itemsWhereInput
@@ -40371,6 +42877,10 @@ export namespace Prisma {
      */
     omit?: unregistered_itemsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: unregistered_itemsInclude<ExtArgs> | null
+    /**
      * The data needed to create a unregistered_items.
      */
     data: XOR<unregistered_itemsCreateInput, unregistered_itemsUncheckedCreateInput>
@@ -40399,6 +42909,10 @@ export namespace Prisma {
      * Omit specific fields from the unregistered_items
      */
     omit?: unregistered_itemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: unregistered_itemsInclude<ExtArgs> | null
     /**
      * The data needed to update a unregistered_items.
      */
@@ -40440,6 +42954,10 @@ export namespace Prisma {
      */
     omit?: unregistered_itemsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: unregistered_itemsInclude<ExtArgs> | null
+    /**
      * The filter to search for the unregistered_items to update in case it exists.
      */
     where: unregistered_itemsWhereUniqueInput
@@ -40466,6 +42984,10 @@ export namespace Prisma {
      */
     omit?: unregistered_itemsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: unregistered_itemsInclude<ExtArgs> | null
+    /**
      * Filter which unregistered_items to delete.
      */
     where: unregistered_itemsWhereUniqueInput
@@ -40486,6 +43008,30 @@ export namespace Prisma {
   }
 
   /**
+   * unregistered_items.dirty_details
+   */
+  export type unregistered_items$dirty_detailsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the dirty_details
+     */
+    select?: dirty_detailsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the dirty_details
+     */
+    omit?: dirty_detailsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: dirty_detailsInclude<ExtArgs> | null
+    where?: dirty_detailsWhereInput
+    orderBy?: dirty_detailsOrderByWithRelationInput | dirty_detailsOrderByWithRelationInput[]
+    cursor?: dirty_detailsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Dirty_detailsScalarFieldEnum | Dirty_detailsScalarFieldEnum[]
+  }
+
+  /**
    * unregistered_items without action
    */
   export type unregistered_itemsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -40497,6 +43043,10 @@ export namespace Prisma {
      * Omit specific fields from the unregistered_items
      */
     omit?: unregistered_itemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: unregistered_itemsInclude<ExtArgs> | null
   }
 
 
@@ -40582,6 +43132,18 @@ export namespace Prisma {
   };
 
   export type Sale_officesScalarFieldEnum = (typeof Sale_officesScalarFieldEnum)[keyof typeof Sale_officesScalarFieldEnum]
+
+
+  export const User_sale_officesScalarFieldEnum: {
+    id: 'id',
+    user_id: 'user_id',
+    sale_office_id: 'sale_office_id',
+    role: 'role',
+    create_at: 'create_at',
+    update_at: 'update_at'
+  };
+
+  export type User_sale_officesScalarFieldEnum = (typeof User_sale_officesScalarFieldEnum)[keyof typeof User_sale_officesScalarFieldEnum]
 
 
   export const DepartmentsScalarFieldEnum: {
@@ -40774,7 +43336,6 @@ export namespace Prisma {
     dirty_doc_no: 'dirty_doc_no',
     dirty_doc_date: 'dirty_doc_date',
     sale_office_id: 'sale_office_id',
-    department_id: 'department_id',
     factory_id: 'factory_id',
     user_id: 'user_id',
     signature: 'signature',
@@ -40801,12 +43362,31 @@ export namespace Prisma {
     receive_qty: 'receive_qty',
     weight: 'weight',
     is_cancel: 'is_cancel',
+    unregistered_item_id: 'unregistered_item_id',
     status: 'status',
     create_at: 'create_at',
     update_at: 'update_at'
   };
 
   export type Dirty_detailsScalarFieldEnum = (typeof Dirty_detailsScalarFieldEnum)[keyof typeof Dirty_detailsScalarFieldEnum]
+
+
+  export const Dirty_detail_roundsScalarFieldEnum: {
+    id: 'id',
+    dirty_detail_id: 'dirty_detail_id',
+    item_id: 'item_id',
+    unit_id: 'unit_id',
+    user_id: 'user_id',
+    qty: 'qty',
+    receive_qty: 'receive_qty',
+    weight: 'weight',
+    is_cancel: 'is_cancel',
+    status: 'status',
+    create_at: 'create_at',
+    update_at: 'update_at'
+  };
+
+  export type Dirty_detail_roundsScalarFieldEnum = (typeof Dirty_detail_roundsScalarFieldEnum)[keyof typeof Dirty_detail_roundsScalarFieldEnum]
 
 
   export const Customer_group_typesScalarFieldEnum: {
@@ -41195,6 +43775,13 @@ export namespace Prisma {
   export type sale_officesOrderByRelevanceFieldEnum = (typeof sale_officesOrderByRelevanceFieldEnum)[keyof typeof sale_officesOrderByRelevanceFieldEnum]
 
 
+  export const user_sale_officesOrderByRelevanceFieldEnum: {
+    role: 'role'
+  };
+
+  export type user_sale_officesOrderByRelevanceFieldEnum = (typeof user_sale_officesOrderByRelevanceFieldEnum)[keyof typeof user_sale_officesOrderByRelevanceFieldEnum]
+
+
   export const departmentsOrderByRelevanceFieldEnum: {
     department_code: 'department_code',
     description: 'description',
@@ -41490,6 +44077,7 @@ export namespace Prisma {
     remember_token?: StringNullableFilter<"user"> | string | null
     create_at?: DateTimeFilter<"user"> | Date | string
     update_at?: DateTimeFilter<"user"> | Date | string
+    user_sale_office?: User_sale_officesListRelationFilter
   }
 
   export type userOrderByWithRelationInput = {
@@ -41506,6 +44094,7 @@ export namespace Prisma {
     remember_token?: SortOrderInput | SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
+    user_sale_office?: user_sale_officesOrderByRelationAggregateInput
     _relevance?: userOrderByRelevanceInput
   }
 
@@ -41526,6 +44115,7 @@ export namespace Prisma {
     remember_token?: StringNullableFilter<"user"> | string | null
     create_at?: DateTimeFilter<"user"> | Date | string
     update_at?: DateTimeFilter<"user"> | Date | string
+    user_sale_office?: User_sale_officesListRelationFilter
   }, "id" | "email">
 
   export type userOrderByWithAggregationInput = {
@@ -41768,6 +44358,7 @@ export namespace Prisma {
     status?: BoolFilter<"sale_offices"> | boolean
     create_at?: DateTimeFilter<"sale_offices"> | Date | string
     update_at?: DateTimeFilter<"sale_offices"> | Date | string
+    user_sale_office?: User_sale_officesListRelationFilter
   }
 
   export type sale_officesOrderByWithRelationInput = {
@@ -41778,6 +44369,7 @@ export namespace Prisma {
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
+    user_sale_office?: user_sale_officesOrderByRelationAggregateInput
     _relevance?: sale_officesOrderByRelevanceInput
   }
 
@@ -41792,6 +44384,7 @@ export namespace Prisma {
     status?: BoolFilter<"sale_offices"> | boolean
     create_at?: DateTimeFilter<"sale_offices"> | Date | string
     update_at?: DateTimeFilter<"sale_offices"> | Date | string
+    user_sale_office?: User_sale_officesListRelationFilter
   }, "id">
 
   export type sale_officesOrderByWithAggregationInput = {
@@ -41820,6 +44413,73 @@ export namespace Prisma {
     status?: BoolWithAggregatesFilter<"sale_offices"> | boolean
     create_at?: DateTimeWithAggregatesFilter<"sale_offices"> | Date | string
     update_at?: DateTimeWithAggregatesFilter<"sale_offices"> | Date | string
+  }
+
+  export type user_sale_officesWhereInput = {
+    AND?: user_sale_officesWhereInput | user_sale_officesWhereInput[]
+    OR?: user_sale_officesWhereInput[]
+    NOT?: user_sale_officesWhereInput | user_sale_officesWhereInput[]
+    id?: IntFilter<"user_sale_offices"> | number
+    user_id?: IntFilter<"user_sale_offices"> | number
+    sale_office_id?: IntFilter<"user_sale_offices"> | number
+    role?: StringNullableFilter<"user_sale_offices"> | string | null
+    create_at?: DateTimeFilter<"user_sale_offices"> | Date | string
+    update_at?: DateTimeFilter<"user_sale_offices"> | Date | string
+    sale_office?: XOR<Sale_officesScalarRelationFilter, sale_officesWhereInput>
+    user?: XOR<UserScalarRelationFilter, userWhereInput>
+  }
+
+  export type user_sale_officesOrderByWithRelationInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    sale_office_id?: SortOrder
+    role?: SortOrderInput | SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+    sale_office?: sale_officesOrderByWithRelationInput
+    user?: userOrderByWithRelationInput
+    _relevance?: user_sale_officesOrderByRelevanceInput
+  }
+
+  export type user_sale_officesWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    user_id_sale_office_id?: user_sale_officesUser_idSale_office_idCompoundUniqueInput
+    AND?: user_sale_officesWhereInput | user_sale_officesWhereInput[]
+    OR?: user_sale_officesWhereInput[]
+    NOT?: user_sale_officesWhereInput | user_sale_officesWhereInput[]
+    user_id?: IntFilter<"user_sale_offices"> | number
+    sale_office_id?: IntFilter<"user_sale_offices"> | number
+    role?: StringNullableFilter<"user_sale_offices"> | string | null
+    create_at?: DateTimeFilter<"user_sale_offices"> | Date | string
+    update_at?: DateTimeFilter<"user_sale_offices"> | Date | string
+    sale_office?: XOR<Sale_officesScalarRelationFilter, sale_officesWhereInput>
+    user?: XOR<UserScalarRelationFilter, userWhereInput>
+  }, "id" | "user_id_sale_office_id">
+
+  export type user_sale_officesOrderByWithAggregationInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    sale_office_id?: SortOrder
+    role?: SortOrderInput | SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+    _count?: user_sale_officesCountOrderByAggregateInput
+    _avg?: user_sale_officesAvgOrderByAggregateInput
+    _max?: user_sale_officesMaxOrderByAggregateInput
+    _min?: user_sale_officesMinOrderByAggregateInput
+    _sum?: user_sale_officesSumOrderByAggregateInput
+  }
+
+  export type user_sale_officesScalarWhereWithAggregatesInput = {
+    AND?: user_sale_officesScalarWhereWithAggregatesInput | user_sale_officesScalarWhereWithAggregatesInput[]
+    OR?: user_sale_officesScalarWhereWithAggregatesInput[]
+    NOT?: user_sale_officesScalarWhereWithAggregatesInput | user_sale_officesScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"user_sale_offices"> | number
+    user_id?: IntWithAggregatesFilter<"user_sale_offices"> | number
+    sale_office_id?: IntWithAggregatesFilter<"user_sale_offices"> | number
+    role?: StringNullableWithAggregatesFilter<"user_sale_offices"> | string | null
+    create_at?: DateTimeWithAggregatesFilter<"user_sale_offices"> | Date | string
+    update_at?: DateTimeWithAggregatesFilter<"user_sale_offices"> | Date | string
   }
 
   export type departmentsWhereInput = {
@@ -42753,7 +45413,6 @@ export namespace Prisma {
     dirty_doc_no?: StringFilter<"dirties"> | string
     dirty_doc_date?: DateTimeNullableFilter<"dirties"> | Date | string | null
     sale_office_id?: IntNullableFilter<"dirties"> | number | null
-    department_id?: IntNullableFilter<"dirties"> | number | null
     factory_id?: IntNullableFilter<"dirties"> | number | null
     user_id?: IntNullableFilter<"dirties"> | number | null
     signature?: StringNullableFilter<"dirties"> | string | null
@@ -42771,7 +45430,6 @@ export namespace Prisma {
     dirty_doc_no?: SortOrder
     dirty_doc_date?: SortOrderInput | SortOrder
     sale_office_id?: SortOrderInput | SortOrder
-    department_id?: SortOrderInput | SortOrder
     factory_id?: SortOrderInput | SortOrder
     user_id?: SortOrderInput | SortOrder
     signature?: SortOrderInput | SortOrder
@@ -42793,7 +45451,6 @@ export namespace Prisma {
     dirty_doc_no?: StringFilter<"dirties"> | string
     dirty_doc_date?: DateTimeNullableFilter<"dirties"> | Date | string | null
     sale_office_id?: IntNullableFilter<"dirties"> | number | null
-    department_id?: IntNullableFilter<"dirties"> | number | null
     factory_id?: IntNullableFilter<"dirties"> | number | null
     user_id?: IntNullableFilter<"dirties"> | number | null
     signature?: StringNullableFilter<"dirties"> | string | null
@@ -42811,7 +45468,6 @@ export namespace Prisma {
     dirty_doc_no?: SortOrder
     dirty_doc_date?: SortOrderInput | SortOrder
     sale_office_id?: SortOrderInput | SortOrder
-    department_id?: SortOrderInput | SortOrder
     factory_id?: SortOrderInput | SortOrder
     user_id?: SortOrderInput | SortOrder
     signature?: SortOrderInput | SortOrder
@@ -42837,7 +45493,6 @@ export namespace Prisma {
     dirty_doc_no?: StringWithAggregatesFilter<"dirties"> | string
     dirty_doc_date?: DateTimeNullableWithAggregatesFilter<"dirties"> | Date | string | null
     sale_office_id?: IntNullableWithAggregatesFilter<"dirties"> | number | null
-    department_id?: IntNullableWithAggregatesFilter<"dirties"> | number | null
     factory_id?: IntNullableWithAggregatesFilter<"dirties"> | number | null
     user_id?: IntNullableWithAggregatesFilter<"dirties"> | number | null
     signature?: StringNullableWithAggregatesFilter<"dirties"> | string | null
@@ -42864,9 +45519,11 @@ export namespace Prisma {
     receive_qty?: FloatFilter<"dirty_details"> | number
     weight?: FloatFilter<"dirty_details"> | number
     is_cancel?: BoolFilter<"dirty_details"> | boolean
+    unregistered_item_id?: IntNullableFilter<"dirty_details"> | number | null
     status?: BoolFilter<"dirty_details"> | boolean
     create_at?: DateTimeFilter<"dirty_details"> | Date | string
     update_at?: DateTimeFilter<"dirty_details"> | Date | string
+    unregistered_item?: XOR<Unregistered_itemsNullableScalarRelationFilter, unregistered_itemsWhereInput> | null
   }
 
   export type dirty_detailsOrderByWithRelationInput = {
@@ -42880,9 +45537,11 @@ export namespace Prisma {
     receive_qty?: SortOrder
     weight?: SortOrder
     is_cancel?: SortOrder
+    unregistered_item_id?: SortOrderInput | SortOrder
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
+    unregistered_item?: unregistered_itemsOrderByWithRelationInput
   }
 
   export type dirty_detailsWhereUniqueInput = Prisma.AtLeast<{
@@ -42899,9 +45558,11 @@ export namespace Prisma {
     receive_qty?: FloatFilter<"dirty_details"> | number
     weight?: FloatFilter<"dirty_details"> | number
     is_cancel?: BoolFilter<"dirty_details"> | boolean
+    unregistered_item_id?: IntNullableFilter<"dirty_details"> | number | null
     status?: BoolFilter<"dirty_details"> | boolean
     create_at?: DateTimeFilter<"dirty_details"> | Date | string
     update_at?: DateTimeFilter<"dirty_details"> | Date | string
+    unregistered_item?: XOR<Unregistered_itemsNullableScalarRelationFilter, unregistered_itemsWhereInput> | null
   }, "id">
 
   export type dirty_detailsOrderByWithAggregationInput = {
@@ -42915,6 +45576,7 @@ export namespace Prisma {
     receive_qty?: SortOrder
     weight?: SortOrder
     is_cancel?: SortOrder
+    unregistered_item_id?: SortOrderInput | SortOrder
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
@@ -42939,9 +45601,99 @@ export namespace Prisma {
     receive_qty?: FloatWithAggregatesFilter<"dirty_details"> | number
     weight?: FloatWithAggregatesFilter<"dirty_details"> | number
     is_cancel?: BoolWithAggregatesFilter<"dirty_details"> | boolean
+    unregistered_item_id?: IntNullableWithAggregatesFilter<"dirty_details"> | number | null
     status?: BoolWithAggregatesFilter<"dirty_details"> | boolean
     create_at?: DateTimeWithAggregatesFilter<"dirty_details"> | Date | string
     update_at?: DateTimeWithAggregatesFilter<"dirty_details"> | Date | string
+  }
+
+  export type dirty_detail_roundsWhereInput = {
+    AND?: dirty_detail_roundsWhereInput | dirty_detail_roundsWhereInput[]
+    OR?: dirty_detail_roundsWhereInput[]
+    NOT?: dirty_detail_roundsWhereInput | dirty_detail_roundsWhereInput[]
+    id?: IntFilter<"dirty_detail_rounds"> | number
+    dirty_detail_id?: IntNullableFilter<"dirty_detail_rounds"> | number | null
+    item_id?: IntNullableFilter<"dirty_detail_rounds"> | number | null
+    unit_id?: IntNullableFilter<"dirty_detail_rounds"> | number | null
+    user_id?: IntNullableFilter<"dirty_detail_rounds"> | number | null
+    qty?: FloatNullableFilter<"dirty_detail_rounds"> | number | null
+    receive_qty?: FloatNullableFilter<"dirty_detail_rounds"> | number | null
+    weight?: FloatNullableFilter<"dirty_detail_rounds"> | number | null
+    is_cancel?: BoolFilter<"dirty_detail_rounds"> | boolean
+    status?: BoolFilter<"dirty_detail_rounds"> | boolean
+    create_at?: DateTimeFilter<"dirty_detail_rounds"> | Date | string
+    update_at?: DateTimeFilter<"dirty_detail_rounds"> | Date | string
+  }
+
+  export type dirty_detail_roundsOrderByWithRelationInput = {
+    id?: SortOrder
+    dirty_detail_id?: SortOrderInput | SortOrder
+    item_id?: SortOrderInput | SortOrder
+    unit_id?: SortOrderInput | SortOrder
+    user_id?: SortOrderInput | SortOrder
+    qty?: SortOrderInput | SortOrder
+    receive_qty?: SortOrderInput | SortOrder
+    weight?: SortOrderInput | SortOrder
+    is_cancel?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+  }
+
+  export type dirty_detail_roundsWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: dirty_detail_roundsWhereInput | dirty_detail_roundsWhereInput[]
+    OR?: dirty_detail_roundsWhereInput[]
+    NOT?: dirty_detail_roundsWhereInput | dirty_detail_roundsWhereInput[]
+    dirty_detail_id?: IntNullableFilter<"dirty_detail_rounds"> | number | null
+    item_id?: IntNullableFilter<"dirty_detail_rounds"> | number | null
+    unit_id?: IntNullableFilter<"dirty_detail_rounds"> | number | null
+    user_id?: IntNullableFilter<"dirty_detail_rounds"> | number | null
+    qty?: FloatNullableFilter<"dirty_detail_rounds"> | number | null
+    receive_qty?: FloatNullableFilter<"dirty_detail_rounds"> | number | null
+    weight?: FloatNullableFilter<"dirty_detail_rounds"> | number | null
+    is_cancel?: BoolFilter<"dirty_detail_rounds"> | boolean
+    status?: BoolFilter<"dirty_detail_rounds"> | boolean
+    create_at?: DateTimeFilter<"dirty_detail_rounds"> | Date | string
+    update_at?: DateTimeFilter<"dirty_detail_rounds"> | Date | string
+  }, "id">
+
+  export type dirty_detail_roundsOrderByWithAggregationInput = {
+    id?: SortOrder
+    dirty_detail_id?: SortOrderInput | SortOrder
+    item_id?: SortOrderInput | SortOrder
+    unit_id?: SortOrderInput | SortOrder
+    user_id?: SortOrderInput | SortOrder
+    qty?: SortOrderInput | SortOrder
+    receive_qty?: SortOrderInput | SortOrder
+    weight?: SortOrderInput | SortOrder
+    is_cancel?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+    _count?: dirty_detail_roundsCountOrderByAggregateInput
+    _avg?: dirty_detail_roundsAvgOrderByAggregateInput
+    _max?: dirty_detail_roundsMaxOrderByAggregateInput
+    _min?: dirty_detail_roundsMinOrderByAggregateInput
+    _sum?: dirty_detail_roundsSumOrderByAggregateInput
+  }
+
+  export type dirty_detail_roundsScalarWhereWithAggregatesInput = {
+    AND?: dirty_detail_roundsScalarWhereWithAggregatesInput | dirty_detail_roundsScalarWhereWithAggregatesInput[]
+    OR?: dirty_detail_roundsScalarWhereWithAggregatesInput[]
+    NOT?: dirty_detail_roundsScalarWhereWithAggregatesInput | dirty_detail_roundsScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"dirty_detail_rounds"> | number
+    dirty_detail_id?: IntNullableWithAggregatesFilter<"dirty_detail_rounds"> | number | null
+    item_id?: IntNullableWithAggregatesFilter<"dirty_detail_rounds"> | number | null
+    unit_id?: IntNullableWithAggregatesFilter<"dirty_detail_rounds"> | number | null
+    user_id?: IntNullableWithAggregatesFilter<"dirty_detail_rounds"> | number | null
+    qty?: FloatNullableWithAggregatesFilter<"dirty_detail_rounds"> | number | null
+    receive_qty?: FloatNullableWithAggregatesFilter<"dirty_detail_rounds"> | number | null
+    weight?: FloatNullableWithAggregatesFilter<"dirty_detail_rounds"> | number | null
+    is_cancel?: BoolWithAggregatesFilter<"dirty_detail_rounds"> | boolean
+    status?: BoolWithAggregatesFilter<"dirty_detail_rounds"> | boolean
+    create_at?: DateTimeWithAggregatesFilter<"dirty_detail_rounds"> | Date | string
+    update_at?: DateTimeWithAggregatesFilter<"dirty_detail_rounds"> | Date | string
   }
 
   export type customer_group_typesWhereInput = {
@@ -44499,6 +47251,7 @@ export namespace Prisma {
     status?: BoolFilter<"unregistered_items"> | boolean
     create_at?: DateTimeFilter<"unregistered_items"> | Date | string
     update_at?: DateTimeFilter<"unregistered_items"> | Date | string
+    dirty_details?: Dirty_detailsListRelationFilter
   }
 
   export type unregistered_itemsOrderByWithRelationInput = {
@@ -44510,6 +47263,7 @@ export namespace Prisma {
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
+    dirty_details?: dirty_detailsOrderByRelationAggregateInput
     _relevance?: unregistered_itemsOrderByRelevanceInput
   }
 
@@ -44525,6 +47279,7 @@ export namespace Prisma {
     status?: BoolFilter<"unregistered_items"> | boolean
     create_at?: DateTimeFilter<"unregistered_items"> | Date | string
     update_at?: DateTimeFilter<"unregistered_items"> | Date | string
+    dirty_details?: Dirty_detailsListRelationFilter
   }, "id">
 
   export type unregistered_itemsOrderByWithAggregationInput = {
@@ -44570,6 +47325,7 @@ export namespace Prisma {
     remember_token?: string | null
     create_at?: Date | string
     update_at?: Date | string
+    user_sale_office?: user_sale_officesCreateNestedManyWithoutUserInput
   }
 
   export type userUncheckedCreateInput = {
@@ -44586,6 +47342,7 @@ export namespace Prisma {
     remember_token?: string | null
     create_at?: Date | string
     update_at?: Date | string
+    user_sale_office?: user_sale_officesUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type userUpdateInput = {
@@ -44601,6 +47358,7 @@ export namespace Prisma {
     remember_token?: NullableStringFieldUpdateOperationsInput | string | null
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    user_sale_office?: user_sale_officesUpdateManyWithoutUserNestedInput
   }
 
   export type userUncheckedUpdateInput = {
@@ -44617,6 +47375,7 @@ export namespace Prisma {
     remember_token?: NullableStringFieldUpdateOperationsInput | string | null
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    user_sale_office?: user_sale_officesUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type userCreateManyInput = {
@@ -44870,6 +47629,7 @@ export namespace Prisma {
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
+    user_sale_office?: user_sale_officesCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesUncheckedCreateInput = {
@@ -44880,6 +47640,7 @@ export namespace Prisma {
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
+    user_sale_office?: user_sale_officesUncheckedCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesUpdateInput = {
@@ -44889,6 +47650,7 @@ export namespace Prisma {
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    user_sale_office?: user_sale_officesUpdateManyWithoutSale_officeNestedInput
   }
 
   export type sale_officesUncheckedUpdateInput = {
@@ -44899,6 +47661,7 @@ export namespace Prisma {
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    user_sale_office?: user_sale_officesUncheckedUpdateManyWithoutSale_officeNestedInput
   }
 
   export type sale_officesCreateManyInput = {
@@ -44926,6 +47689,64 @@ export namespace Prisma {
     site_office_name_th?: StringFieldUpdateOperationsInput | string
     site_office_name_en?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type user_sale_officesCreateInput = {
+    role?: string | null
+    create_at?: Date | string
+    update_at?: Date | string
+    sale_office: sale_officesCreateNestedOneWithoutUser_sale_officeInput
+    user: userCreateNestedOneWithoutUser_sale_officeInput
+  }
+
+  export type user_sale_officesUncheckedCreateInput = {
+    id?: number
+    user_id: number
+    sale_office_id: number
+    role?: string | null
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type user_sale_officesUpdateInput = {
+    role?: NullableStringFieldUpdateOperationsInput | string | null
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    sale_office?: sale_officesUpdateOneRequiredWithoutUser_sale_officeNestedInput
+    user?: userUpdateOneRequiredWithoutUser_sale_officeNestedInput
+  }
+
+  export type user_sale_officesUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    user_id?: IntFieldUpdateOperationsInput | number
+    sale_office_id?: IntFieldUpdateOperationsInput | number
+    role?: NullableStringFieldUpdateOperationsInput | string | null
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type user_sale_officesCreateManyInput = {
+    id?: number
+    user_id: number
+    sale_office_id: number
+    role?: string | null
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type user_sale_officesUpdateManyMutationInput = {
+    role?: NullableStringFieldUpdateOperationsInput | string | null
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type user_sale_officesUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    user_id?: IntFieldUpdateOperationsInput | number
+    sale_office_id?: IntFieldUpdateOperationsInput | number
+    role?: NullableStringFieldUpdateOperationsInput | string | null
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -45917,7 +48738,6 @@ export namespace Prisma {
     dirty_doc_no: string
     dirty_doc_date?: Date | string | null
     sale_office_id?: number | null
-    department_id?: number | null
     factory_id?: number | null
     user_id?: number | null
     signature?: string | null
@@ -45935,7 +48755,6 @@ export namespace Prisma {
     dirty_doc_no: string
     dirty_doc_date?: Date | string | null
     sale_office_id?: number | null
-    department_id?: number | null
     factory_id?: number | null
     user_id?: number | null
     signature?: string | null
@@ -45952,7 +48771,6 @@ export namespace Prisma {
     dirty_doc_no?: StringFieldUpdateOperationsInput | string
     dirty_doc_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     sale_office_id?: NullableIntFieldUpdateOperationsInput | number | null
-    department_id?: NullableIntFieldUpdateOperationsInput | number | null
     factory_id?: NullableIntFieldUpdateOperationsInput | number | null
     user_id?: NullableIntFieldUpdateOperationsInput | number | null
     signature?: NullableStringFieldUpdateOperationsInput | string | null
@@ -45970,7 +48788,6 @@ export namespace Prisma {
     dirty_doc_no?: StringFieldUpdateOperationsInput | string
     dirty_doc_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     sale_office_id?: NullableIntFieldUpdateOperationsInput | number | null
-    department_id?: NullableIntFieldUpdateOperationsInput | number | null
     factory_id?: NullableIntFieldUpdateOperationsInput | number | null
     user_id?: NullableIntFieldUpdateOperationsInput | number | null
     signature?: NullableStringFieldUpdateOperationsInput | string | null
@@ -45988,7 +48805,6 @@ export namespace Prisma {
     dirty_doc_no: string
     dirty_doc_date?: Date | string | null
     sale_office_id?: number | null
-    department_id?: number | null
     factory_id?: number | null
     user_id?: number | null
     signature?: string | null
@@ -46005,7 +48821,6 @@ export namespace Prisma {
     dirty_doc_no?: StringFieldUpdateOperationsInput | string
     dirty_doc_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     sale_office_id?: NullableIntFieldUpdateOperationsInput | number | null
-    department_id?: NullableIntFieldUpdateOperationsInput | number | null
     factory_id?: NullableIntFieldUpdateOperationsInput | number | null
     user_id?: NullableIntFieldUpdateOperationsInput | number | null
     signature?: NullableStringFieldUpdateOperationsInput | string | null
@@ -46023,7 +48838,6 @@ export namespace Prisma {
     dirty_doc_no?: StringFieldUpdateOperationsInput | string
     dirty_doc_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     sale_office_id?: NullableIntFieldUpdateOperationsInput | number | null
-    department_id?: NullableIntFieldUpdateOperationsInput | number | null
     factory_id?: NullableIntFieldUpdateOperationsInput | number | null
     user_id?: NullableIntFieldUpdateOperationsInput | number | null
     signature?: NullableStringFieldUpdateOperationsInput | string | null
@@ -46049,6 +48863,7 @@ export namespace Prisma {
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
+    unregistered_item?: unregistered_itemsCreateNestedOneWithoutDirty_detailsInput
   }
 
   export type dirty_detailsUncheckedCreateInput = {
@@ -46062,6 +48877,7 @@ export namespace Prisma {
     receive_qty: number
     weight: number
     is_cancel: boolean
+    unregistered_item_id?: number | null
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
@@ -46080,6 +48896,7 @@ export namespace Prisma {
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    unregistered_item?: unregistered_itemsUpdateOneWithoutDirty_detailsNestedInput
   }
 
   export type dirty_detailsUncheckedUpdateInput = {
@@ -46093,6 +48910,7 @@ export namespace Prisma {
     receive_qty?: FloatFieldUpdateOperationsInput | number
     weight?: FloatFieldUpdateOperationsInput | number
     is_cancel?: BoolFieldUpdateOperationsInput | boolean
+    unregistered_item_id?: NullableIntFieldUpdateOperationsInput | number | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -46109,6 +48927,7 @@ export namespace Prisma {
     receive_qty: number
     weight: number
     is_cancel: boolean
+    unregistered_item_id?: number | null
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
@@ -46139,6 +48958,109 @@ export namespace Prisma {
     qty?: FloatFieldUpdateOperationsInput | number
     receive_qty?: FloatFieldUpdateOperationsInput | number
     weight?: FloatFieldUpdateOperationsInput | number
+    is_cancel?: BoolFieldUpdateOperationsInput | boolean
+    unregistered_item_id?: NullableIntFieldUpdateOperationsInput | number | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type dirty_detail_roundsCreateInput = {
+    dirty_detail_id?: number | null
+    item_id?: number | null
+    unit_id?: number | null
+    user_id?: number | null
+    qty?: number | null
+    receive_qty?: number | null
+    weight?: number | null
+    is_cancel: boolean
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type dirty_detail_roundsUncheckedCreateInput = {
+    id?: number
+    dirty_detail_id?: number | null
+    item_id?: number | null
+    unit_id?: number | null
+    user_id?: number | null
+    qty?: number | null
+    receive_qty?: number | null
+    weight?: number | null
+    is_cancel: boolean
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type dirty_detail_roundsUpdateInput = {
+    dirty_detail_id?: NullableIntFieldUpdateOperationsInput | number | null
+    item_id?: NullableIntFieldUpdateOperationsInput | number | null
+    unit_id?: NullableIntFieldUpdateOperationsInput | number | null
+    user_id?: NullableIntFieldUpdateOperationsInput | number | null
+    qty?: NullableFloatFieldUpdateOperationsInput | number | null
+    receive_qty?: NullableFloatFieldUpdateOperationsInput | number | null
+    weight?: NullableFloatFieldUpdateOperationsInput | number | null
+    is_cancel?: BoolFieldUpdateOperationsInput | boolean
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type dirty_detail_roundsUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    dirty_detail_id?: NullableIntFieldUpdateOperationsInput | number | null
+    item_id?: NullableIntFieldUpdateOperationsInput | number | null
+    unit_id?: NullableIntFieldUpdateOperationsInput | number | null
+    user_id?: NullableIntFieldUpdateOperationsInput | number | null
+    qty?: NullableFloatFieldUpdateOperationsInput | number | null
+    receive_qty?: NullableFloatFieldUpdateOperationsInput | number | null
+    weight?: NullableFloatFieldUpdateOperationsInput | number | null
+    is_cancel?: BoolFieldUpdateOperationsInput | boolean
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type dirty_detail_roundsCreateManyInput = {
+    id?: number
+    dirty_detail_id?: number | null
+    item_id?: number | null
+    unit_id?: number | null
+    user_id?: number | null
+    qty?: number | null
+    receive_qty?: number | null
+    weight?: number | null
+    is_cancel: boolean
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type dirty_detail_roundsUpdateManyMutationInput = {
+    dirty_detail_id?: NullableIntFieldUpdateOperationsInput | number | null
+    item_id?: NullableIntFieldUpdateOperationsInput | number | null
+    unit_id?: NullableIntFieldUpdateOperationsInput | number | null
+    user_id?: NullableIntFieldUpdateOperationsInput | number | null
+    qty?: NullableFloatFieldUpdateOperationsInput | number | null
+    receive_qty?: NullableFloatFieldUpdateOperationsInput | number | null
+    weight?: NullableFloatFieldUpdateOperationsInput | number | null
+    is_cancel?: BoolFieldUpdateOperationsInput | boolean
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type dirty_detail_roundsUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    dirty_detail_id?: NullableIntFieldUpdateOperationsInput | number | null
+    item_id?: NullableIntFieldUpdateOperationsInput | number | null
+    unit_id?: NullableIntFieldUpdateOperationsInput | number | null
+    user_id?: NullableIntFieldUpdateOperationsInput | number | null
+    qty?: NullableFloatFieldUpdateOperationsInput | number | null
+    receive_qty?: NullableFloatFieldUpdateOperationsInput | number | null
+    weight?: NullableFloatFieldUpdateOperationsInput | number | null
     is_cancel?: BoolFieldUpdateOperationsInput | boolean
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -47932,6 +50854,7 @@ export namespace Prisma {
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
+    dirty_details?: dirty_detailsCreateNestedManyWithoutUnregistered_itemInput
   }
 
   export type unregistered_itemsUncheckedCreateInput = {
@@ -47943,6 +50866,7 @@ export namespace Prisma {
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
+    dirty_details?: dirty_detailsUncheckedCreateNestedManyWithoutUnregistered_itemInput
   }
 
   export type unregistered_itemsUpdateInput = {
@@ -47953,6 +50877,7 @@ export namespace Prisma {
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    dirty_details?: dirty_detailsUpdateManyWithoutUnregistered_itemNestedInput
   }
 
   export type unregistered_itemsUncheckedUpdateInput = {
@@ -47964,6 +50889,7 @@ export namespace Prisma {
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    dirty_details?: dirty_detailsUncheckedUpdateManyWithoutUnregistered_itemNestedInput
   }
 
   export type unregistered_itemsCreateManyInput = {
@@ -48066,9 +50992,19 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
+  export type User_sale_officesListRelationFilter = {
+    every?: user_sale_officesWhereInput
+    some?: user_sale_officesWhereInput
+    none?: user_sale_officesWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
+  }
+
+  export type user_sale_officesOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type userOrderByRelevanceInput = {
@@ -48393,6 +51329,66 @@ export namespace Prisma {
 
   export type sale_officesSumOrderByAggregateInput = {
     id?: SortOrder
+  }
+
+  export type Sale_officesScalarRelationFilter = {
+    is?: sale_officesWhereInput
+    isNot?: sale_officesWhereInput
+  }
+
+  export type UserScalarRelationFilter = {
+    is?: userWhereInput
+    isNot?: userWhereInput
+  }
+
+  export type user_sale_officesOrderByRelevanceInput = {
+    fields: user_sale_officesOrderByRelevanceFieldEnum | user_sale_officesOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type user_sale_officesUser_idSale_office_idCompoundUniqueInput = {
+    user_id: number
+    sale_office_id: number
+  }
+
+  export type user_sale_officesCountOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    sale_office_id?: SortOrder
+    role?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+  }
+
+  export type user_sale_officesAvgOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    sale_office_id?: SortOrder
+  }
+
+  export type user_sale_officesMaxOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    sale_office_id?: SortOrder
+    role?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+  }
+
+  export type user_sale_officesMinOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    sale_office_id?: SortOrder
+    role?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+  }
+
+  export type user_sale_officesSumOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    sale_office_id?: SortOrder
   }
 
   export type departmentsOrderByRelevanceInput = {
@@ -49106,7 +52102,6 @@ export namespace Prisma {
     dirty_doc_no?: SortOrder
     dirty_doc_date?: SortOrder
     sale_office_id?: SortOrder
-    department_id?: SortOrder
     factory_id?: SortOrder
     user_id?: SortOrder
     signature?: SortOrder
@@ -49122,7 +52117,6 @@ export namespace Prisma {
   export type dirtiesAvgOrderByAggregateInput = {
     id?: SortOrder
     sale_office_id?: SortOrder
-    department_id?: SortOrder
     factory_id?: SortOrder
     user_id?: SortOrder
   }
@@ -49132,7 +52126,6 @@ export namespace Prisma {
     dirty_doc_no?: SortOrder
     dirty_doc_date?: SortOrder
     sale_office_id?: SortOrder
-    department_id?: SortOrder
     factory_id?: SortOrder
     user_id?: SortOrder
     signature?: SortOrder
@@ -49150,7 +52143,6 @@ export namespace Prisma {
     dirty_doc_no?: SortOrder
     dirty_doc_date?: SortOrder
     sale_office_id?: SortOrder
-    department_id?: SortOrder
     factory_id?: SortOrder
     user_id?: SortOrder
     signature?: SortOrder
@@ -49166,7 +52158,6 @@ export namespace Prisma {
   export type dirtiesSumOrderByAggregateInput = {
     id?: SortOrder
     sale_office_id?: SortOrder
-    department_id?: SortOrder
     factory_id?: SortOrder
     user_id?: SortOrder
   }
@@ -49187,6 +52178,11 @@ export namespace Prisma {
     _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
+  export type Unregistered_itemsNullableScalarRelationFilter = {
+    is?: unregistered_itemsWhereInput | null
+    isNot?: unregistered_itemsWhereInput | null
+  }
+
   export type dirty_detailsCountOrderByAggregateInput = {
     id?: SortOrder
     dirty_id?: SortOrder
@@ -49198,6 +52194,7 @@ export namespace Prisma {
     receive_qty?: SortOrder
     weight?: SortOrder
     is_cancel?: SortOrder
+    unregistered_item_id?: SortOrder
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
@@ -49213,6 +52210,7 @@ export namespace Prisma {
     qty?: SortOrder
     receive_qty?: SortOrder
     weight?: SortOrder
+    unregistered_item_id?: SortOrder
   }
 
   export type dirty_detailsMaxOrderByAggregateInput = {
@@ -49226,6 +52224,7 @@ export namespace Prisma {
     receive_qty?: SortOrder
     weight?: SortOrder
     is_cancel?: SortOrder
+    unregistered_item_id?: SortOrder
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
@@ -49242,6 +52241,7 @@ export namespace Prisma {
     receive_qty?: SortOrder
     weight?: SortOrder
     is_cancel?: SortOrder
+    unregistered_item_id?: SortOrder
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
@@ -49257,6 +52257,101 @@ export namespace Prisma {
     qty?: SortOrder
     receive_qty?: SortOrder
     weight?: SortOrder
+    unregistered_item_id?: SortOrder
+  }
+
+  export type FloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type dirty_detail_roundsCountOrderByAggregateInput = {
+    id?: SortOrder
+    dirty_detail_id?: SortOrder
+    item_id?: SortOrder
+    unit_id?: SortOrder
+    user_id?: SortOrder
+    qty?: SortOrder
+    receive_qty?: SortOrder
+    weight?: SortOrder
+    is_cancel?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+  }
+
+  export type dirty_detail_roundsAvgOrderByAggregateInput = {
+    id?: SortOrder
+    dirty_detail_id?: SortOrder
+    item_id?: SortOrder
+    unit_id?: SortOrder
+    user_id?: SortOrder
+    qty?: SortOrder
+    receive_qty?: SortOrder
+    weight?: SortOrder
+  }
+
+  export type dirty_detail_roundsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    dirty_detail_id?: SortOrder
+    item_id?: SortOrder
+    unit_id?: SortOrder
+    user_id?: SortOrder
+    qty?: SortOrder
+    receive_qty?: SortOrder
+    weight?: SortOrder
+    is_cancel?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+  }
+
+  export type dirty_detail_roundsMinOrderByAggregateInput = {
+    id?: SortOrder
+    dirty_detail_id?: SortOrder
+    item_id?: SortOrder
+    unit_id?: SortOrder
+    user_id?: SortOrder
+    qty?: SortOrder
+    receive_qty?: SortOrder
+    weight?: SortOrder
+    is_cancel?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+  }
+
+  export type dirty_detail_roundsSumOrderByAggregateInput = {
+    id?: SortOrder
+    dirty_detail_id?: SortOrder
+    item_id?: SortOrder
+    unit_id?: SortOrder
+    user_id?: SortOrder
+    qty?: SortOrder
+    receive_qty?: SortOrder
+    weight?: SortOrder
+  }
+
+  export type FloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
   }
 
   export type customer_group_typesOrderByRelevanceInput = {
@@ -50417,6 +53512,16 @@ export namespace Prisma {
     weight?: SortOrder
   }
 
+  export type Dirty_detailsListRelationFilter = {
+    every?: dirty_detailsWhereInput
+    some?: dirty_detailsWhereInput
+    none?: dirty_detailsWhereInput
+  }
+
+  export type dirty_detailsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type unregistered_itemsOrderByRelevanceInput = {
     fields: unregistered_itemsOrderByRelevanceFieldEnum | unregistered_itemsOrderByRelevanceFieldEnum[]
     sort: SortOrder
@@ -50468,6 +53573,20 @@ export namespace Prisma {
     type_linen_id?: SortOrder
   }
 
+  export type user_sale_officesCreateNestedManyWithoutUserInput = {
+    create?: XOR<user_sale_officesCreateWithoutUserInput, user_sale_officesUncheckedCreateWithoutUserInput> | user_sale_officesCreateWithoutUserInput[] | user_sale_officesUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: user_sale_officesCreateOrConnectWithoutUserInput | user_sale_officesCreateOrConnectWithoutUserInput[]
+    createMany?: user_sale_officesCreateManyUserInputEnvelope
+    connect?: user_sale_officesWhereUniqueInput | user_sale_officesWhereUniqueInput[]
+  }
+
+  export type user_sale_officesUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<user_sale_officesCreateWithoutUserInput, user_sale_officesUncheckedCreateWithoutUserInput> | user_sale_officesCreateWithoutUserInput[] | user_sale_officesUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: user_sale_officesCreateOrConnectWithoutUserInput | user_sale_officesCreateOrConnectWithoutUserInput[]
+    createMany?: user_sale_officesCreateManyUserInputEnvelope
+    connect?: user_sale_officesWhereUniqueInput | user_sale_officesWhereUniqueInput[]
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
@@ -50496,6 +53615,104 @@ export namespace Prisma {
     set?: Date | string
   }
 
+  export type user_sale_officesUpdateManyWithoutUserNestedInput = {
+    create?: XOR<user_sale_officesCreateWithoutUserInput, user_sale_officesUncheckedCreateWithoutUserInput> | user_sale_officesCreateWithoutUserInput[] | user_sale_officesUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: user_sale_officesCreateOrConnectWithoutUserInput | user_sale_officesCreateOrConnectWithoutUserInput[]
+    upsert?: user_sale_officesUpsertWithWhereUniqueWithoutUserInput | user_sale_officesUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: user_sale_officesCreateManyUserInputEnvelope
+    set?: user_sale_officesWhereUniqueInput | user_sale_officesWhereUniqueInput[]
+    disconnect?: user_sale_officesWhereUniqueInput | user_sale_officesWhereUniqueInput[]
+    delete?: user_sale_officesWhereUniqueInput | user_sale_officesWhereUniqueInput[]
+    connect?: user_sale_officesWhereUniqueInput | user_sale_officesWhereUniqueInput[]
+    update?: user_sale_officesUpdateWithWhereUniqueWithoutUserInput | user_sale_officesUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: user_sale_officesUpdateManyWithWhereWithoutUserInput | user_sale_officesUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: user_sale_officesScalarWhereInput | user_sale_officesScalarWhereInput[]
+  }
+
+  export type user_sale_officesUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<user_sale_officesCreateWithoutUserInput, user_sale_officesUncheckedCreateWithoutUserInput> | user_sale_officesCreateWithoutUserInput[] | user_sale_officesUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: user_sale_officesCreateOrConnectWithoutUserInput | user_sale_officesCreateOrConnectWithoutUserInput[]
+    upsert?: user_sale_officesUpsertWithWhereUniqueWithoutUserInput | user_sale_officesUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: user_sale_officesCreateManyUserInputEnvelope
+    set?: user_sale_officesWhereUniqueInput | user_sale_officesWhereUniqueInput[]
+    disconnect?: user_sale_officesWhereUniqueInput | user_sale_officesWhereUniqueInput[]
+    delete?: user_sale_officesWhereUniqueInput | user_sale_officesWhereUniqueInput[]
+    connect?: user_sale_officesWhereUniqueInput | user_sale_officesWhereUniqueInput[]
+    update?: user_sale_officesUpdateWithWhereUniqueWithoutUserInput | user_sale_officesUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: user_sale_officesUpdateManyWithWhereWithoutUserInput | user_sale_officesUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: user_sale_officesScalarWhereInput | user_sale_officesScalarWhereInput[]
+  }
+
+  export type user_sale_officesCreateNestedManyWithoutSale_officeInput = {
+    create?: XOR<user_sale_officesCreateWithoutSale_officeInput, user_sale_officesUncheckedCreateWithoutSale_officeInput> | user_sale_officesCreateWithoutSale_officeInput[] | user_sale_officesUncheckedCreateWithoutSale_officeInput[]
+    connectOrCreate?: user_sale_officesCreateOrConnectWithoutSale_officeInput | user_sale_officesCreateOrConnectWithoutSale_officeInput[]
+    createMany?: user_sale_officesCreateManySale_officeInputEnvelope
+    connect?: user_sale_officesWhereUniqueInput | user_sale_officesWhereUniqueInput[]
+  }
+
+  export type user_sale_officesUncheckedCreateNestedManyWithoutSale_officeInput = {
+    create?: XOR<user_sale_officesCreateWithoutSale_officeInput, user_sale_officesUncheckedCreateWithoutSale_officeInput> | user_sale_officesCreateWithoutSale_officeInput[] | user_sale_officesUncheckedCreateWithoutSale_officeInput[]
+    connectOrCreate?: user_sale_officesCreateOrConnectWithoutSale_officeInput | user_sale_officesCreateOrConnectWithoutSale_officeInput[]
+    createMany?: user_sale_officesCreateManySale_officeInputEnvelope
+    connect?: user_sale_officesWhereUniqueInput | user_sale_officesWhereUniqueInput[]
+  }
+
+  export type user_sale_officesUpdateManyWithoutSale_officeNestedInput = {
+    create?: XOR<user_sale_officesCreateWithoutSale_officeInput, user_sale_officesUncheckedCreateWithoutSale_officeInput> | user_sale_officesCreateWithoutSale_officeInput[] | user_sale_officesUncheckedCreateWithoutSale_officeInput[]
+    connectOrCreate?: user_sale_officesCreateOrConnectWithoutSale_officeInput | user_sale_officesCreateOrConnectWithoutSale_officeInput[]
+    upsert?: user_sale_officesUpsertWithWhereUniqueWithoutSale_officeInput | user_sale_officesUpsertWithWhereUniqueWithoutSale_officeInput[]
+    createMany?: user_sale_officesCreateManySale_officeInputEnvelope
+    set?: user_sale_officesWhereUniqueInput | user_sale_officesWhereUniqueInput[]
+    disconnect?: user_sale_officesWhereUniqueInput | user_sale_officesWhereUniqueInput[]
+    delete?: user_sale_officesWhereUniqueInput | user_sale_officesWhereUniqueInput[]
+    connect?: user_sale_officesWhereUniqueInput | user_sale_officesWhereUniqueInput[]
+    update?: user_sale_officesUpdateWithWhereUniqueWithoutSale_officeInput | user_sale_officesUpdateWithWhereUniqueWithoutSale_officeInput[]
+    updateMany?: user_sale_officesUpdateManyWithWhereWithoutSale_officeInput | user_sale_officesUpdateManyWithWhereWithoutSale_officeInput[]
+    deleteMany?: user_sale_officesScalarWhereInput | user_sale_officesScalarWhereInput[]
+  }
+
+  export type user_sale_officesUncheckedUpdateManyWithoutSale_officeNestedInput = {
+    create?: XOR<user_sale_officesCreateWithoutSale_officeInput, user_sale_officesUncheckedCreateWithoutSale_officeInput> | user_sale_officesCreateWithoutSale_officeInput[] | user_sale_officesUncheckedCreateWithoutSale_officeInput[]
+    connectOrCreate?: user_sale_officesCreateOrConnectWithoutSale_officeInput | user_sale_officesCreateOrConnectWithoutSale_officeInput[]
+    upsert?: user_sale_officesUpsertWithWhereUniqueWithoutSale_officeInput | user_sale_officesUpsertWithWhereUniqueWithoutSale_officeInput[]
+    createMany?: user_sale_officesCreateManySale_officeInputEnvelope
+    set?: user_sale_officesWhereUniqueInput | user_sale_officesWhereUniqueInput[]
+    disconnect?: user_sale_officesWhereUniqueInput | user_sale_officesWhereUniqueInput[]
+    delete?: user_sale_officesWhereUniqueInput | user_sale_officesWhereUniqueInput[]
+    connect?: user_sale_officesWhereUniqueInput | user_sale_officesWhereUniqueInput[]
+    update?: user_sale_officesUpdateWithWhereUniqueWithoutSale_officeInput | user_sale_officesUpdateWithWhereUniqueWithoutSale_officeInput[]
+    updateMany?: user_sale_officesUpdateManyWithWhereWithoutSale_officeInput | user_sale_officesUpdateManyWithWhereWithoutSale_officeInput[]
+    deleteMany?: user_sale_officesScalarWhereInput | user_sale_officesScalarWhereInput[]
+  }
+
+  export type sale_officesCreateNestedOneWithoutUser_sale_officeInput = {
+    create?: XOR<sale_officesCreateWithoutUser_sale_officeInput, sale_officesUncheckedCreateWithoutUser_sale_officeInput>
+    connectOrCreate?: sale_officesCreateOrConnectWithoutUser_sale_officeInput
+    connect?: sale_officesWhereUniqueInput
+  }
+
+  export type userCreateNestedOneWithoutUser_sale_officeInput = {
+    create?: XOR<userCreateWithoutUser_sale_officeInput, userUncheckedCreateWithoutUser_sale_officeInput>
+    connectOrCreate?: userCreateOrConnectWithoutUser_sale_officeInput
+    connect?: userWhereUniqueInput
+  }
+
+  export type sale_officesUpdateOneRequiredWithoutUser_sale_officeNestedInput = {
+    create?: XOR<sale_officesCreateWithoutUser_sale_officeInput, sale_officesUncheckedCreateWithoutUser_sale_officeInput>
+    connectOrCreate?: sale_officesCreateOrConnectWithoutUser_sale_officeInput
+    upsert?: sale_officesUpsertWithoutUser_sale_officeInput
+    connect?: sale_officesWhereUniqueInput
+    update?: XOR<XOR<sale_officesUpdateToOneWithWhereWithoutUser_sale_officeInput, sale_officesUpdateWithoutUser_sale_officeInput>, sale_officesUncheckedUpdateWithoutUser_sale_officeInput>
+  }
+
+  export type userUpdateOneRequiredWithoutUser_sale_officeNestedInput = {
+    create?: XOR<userCreateWithoutUser_sale_officeInput, userUncheckedCreateWithoutUser_sale_officeInput>
+    connectOrCreate?: userCreateOrConnectWithoutUser_sale_officeInput
+    upsert?: userUpsertWithoutUser_sale_officeInput
+    connect?: userWhereUniqueInput
+    update?: XOR<XOR<userUpdateToOneWithWhereWithoutUser_sale_officeInput, userUpdateWithoutUser_sale_officeInput>, userUncheckedUpdateWithoutUser_sale_officeInput>
+  }
+
   export type FloatFieldUpdateOperationsInput = {
     set?: number
     increment?: number
@@ -50512,8 +53729,74 @@ export namespace Prisma {
     divide?: number
   }
 
+  export type unregistered_itemsCreateNestedOneWithoutDirty_detailsInput = {
+    create?: XOR<unregistered_itemsCreateWithoutDirty_detailsInput, unregistered_itemsUncheckedCreateWithoutDirty_detailsInput>
+    connectOrCreate?: unregistered_itemsCreateOrConnectWithoutDirty_detailsInput
+    connect?: unregistered_itemsWhereUniqueInput
+  }
+
+  export type unregistered_itemsUpdateOneWithoutDirty_detailsNestedInput = {
+    create?: XOR<unregistered_itemsCreateWithoutDirty_detailsInput, unregistered_itemsUncheckedCreateWithoutDirty_detailsInput>
+    connectOrCreate?: unregistered_itemsCreateOrConnectWithoutDirty_detailsInput
+    upsert?: unregistered_itemsUpsertWithoutDirty_detailsInput
+    disconnect?: unregistered_itemsWhereInput | boolean
+    delete?: unregistered_itemsWhereInput | boolean
+    connect?: unregistered_itemsWhereUniqueInput
+    update?: XOR<XOR<unregistered_itemsUpdateToOneWithWhereWithoutDirty_detailsInput, unregistered_itemsUpdateWithoutDirty_detailsInput>, unregistered_itemsUncheckedUpdateWithoutDirty_detailsInput>
+  }
+
+  export type NullableFloatFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
   export type NullableBoolFieldUpdateOperationsInput = {
     set?: boolean | null
+  }
+
+  export type dirty_detailsCreateNestedManyWithoutUnregistered_itemInput = {
+    create?: XOR<dirty_detailsCreateWithoutUnregistered_itemInput, dirty_detailsUncheckedCreateWithoutUnregistered_itemInput> | dirty_detailsCreateWithoutUnregistered_itemInput[] | dirty_detailsUncheckedCreateWithoutUnregistered_itemInput[]
+    connectOrCreate?: dirty_detailsCreateOrConnectWithoutUnregistered_itemInput | dirty_detailsCreateOrConnectWithoutUnregistered_itemInput[]
+    createMany?: dirty_detailsCreateManyUnregistered_itemInputEnvelope
+    connect?: dirty_detailsWhereUniqueInput | dirty_detailsWhereUniqueInput[]
+  }
+
+  export type dirty_detailsUncheckedCreateNestedManyWithoutUnregistered_itemInput = {
+    create?: XOR<dirty_detailsCreateWithoutUnregistered_itemInput, dirty_detailsUncheckedCreateWithoutUnregistered_itemInput> | dirty_detailsCreateWithoutUnregistered_itemInput[] | dirty_detailsUncheckedCreateWithoutUnregistered_itemInput[]
+    connectOrCreate?: dirty_detailsCreateOrConnectWithoutUnregistered_itemInput | dirty_detailsCreateOrConnectWithoutUnregistered_itemInput[]
+    createMany?: dirty_detailsCreateManyUnregistered_itemInputEnvelope
+    connect?: dirty_detailsWhereUniqueInput | dirty_detailsWhereUniqueInput[]
+  }
+
+  export type dirty_detailsUpdateManyWithoutUnregistered_itemNestedInput = {
+    create?: XOR<dirty_detailsCreateWithoutUnregistered_itemInput, dirty_detailsUncheckedCreateWithoutUnregistered_itemInput> | dirty_detailsCreateWithoutUnregistered_itemInput[] | dirty_detailsUncheckedCreateWithoutUnregistered_itemInput[]
+    connectOrCreate?: dirty_detailsCreateOrConnectWithoutUnregistered_itemInput | dirty_detailsCreateOrConnectWithoutUnregistered_itemInput[]
+    upsert?: dirty_detailsUpsertWithWhereUniqueWithoutUnregistered_itemInput | dirty_detailsUpsertWithWhereUniqueWithoutUnregistered_itemInput[]
+    createMany?: dirty_detailsCreateManyUnregistered_itemInputEnvelope
+    set?: dirty_detailsWhereUniqueInput | dirty_detailsWhereUniqueInput[]
+    disconnect?: dirty_detailsWhereUniqueInput | dirty_detailsWhereUniqueInput[]
+    delete?: dirty_detailsWhereUniqueInput | dirty_detailsWhereUniqueInput[]
+    connect?: dirty_detailsWhereUniqueInput | dirty_detailsWhereUniqueInput[]
+    update?: dirty_detailsUpdateWithWhereUniqueWithoutUnregistered_itemInput | dirty_detailsUpdateWithWhereUniqueWithoutUnregistered_itemInput[]
+    updateMany?: dirty_detailsUpdateManyWithWhereWithoutUnregistered_itemInput | dirty_detailsUpdateManyWithWhereWithoutUnregistered_itemInput[]
+    deleteMany?: dirty_detailsScalarWhereInput | dirty_detailsScalarWhereInput[]
+  }
+
+  export type dirty_detailsUncheckedUpdateManyWithoutUnregistered_itemNestedInput = {
+    create?: XOR<dirty_detailsCreateWithoutUnregistered_itemInput, dirty_detailsUncheckedCreateWithoutUnregistered_itemInput> | dirty_detailsCreateWithoutUnregistered_itemInput[] | dirty_detailsUncheckedCreateWithoutUnregistered_itemInput[]
+    connectOrCreate?: dirty_detailsCreateOrConnectWithoutUnregistered_itemInput | dirty_detailsCreateOrConnectWithoutUnregistered_itemInput[]
+    upsert?: dirty_detailsUpsertWithWhereUniqueWithoutUnregistered_itemInput | dirty_detailsUpsertWithWhereUniqueWithoutUnregistered_itemInput[]
+    createMany?: dirty_detailsCreateManyUnregistered_itemInputEnvelope
+    set?: dirty_detailsWhereUniqueInput | dirty_detailsWhereUniqueInput[]
+    disconnect?: dirty_detailsWhereUniqueInput | dirty_detailsWhereUniqueInput[]
+    delete?: dirty_detailsWhereUniqueInput | dirty_detailsWhereUniqueInput[]
+    connect?: dirty_detailsWhereUniqueInput | dirty_detailsWhereUniqueInput[]
+    update?: dirty_detailsUpdateWithWhereUniqueWithoutUnregistered_itemInput | dirty_detailsUpdateWithWhereUniqueWithoutUnregistered_itemInput[]
+    updateMany?: dirty_detailsUpdateManyWithWhereWithoutUnregistered_itemInput | dirty_detailsUpdateManyWithWhereWithoutUnregistered_itemInput[]
+    deleteMany?: dirty_detailsScalarWhereInput | dirty_detailsScalarWhereInput[]
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -50737,6 +54020,22 @@ export namespace Prisma {
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
+  export type NestedFloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
+  }
+
   export type NestedBoolNullableFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
     not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
@@ -50748,6 +54047,492 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedBoolNullableFilter<$PrismaModel>
     _max?: NestedBoolNullableFilter<$PrismaModel>
+  }
+
+  export type user_sale_officesCreateWithoutUserInput = {
+    role?: string | null
+    create_at?: Date | string
+    update_at?: Date | string
+    sale_office: sale_officesCreateNestedOneWithoutUser_sale_officeInput
+  }
+
+  export type user_sale_officesUncheckedCreateWithoutUserInput = {
+    id?: number
+    sale_office_id: number
+    role?: string | null
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type user_sale_officesCreateOrConnectWithoutUserInput = {
+    where: user_sale_officesWhereUniqueInput
+    create: XOR<user_sale_officesCreateWithoutUserInput, user_sale_officesUncheckedCreateWithoutUserInput>
+  }
+
+  export type user_sale_officesCreateManyUserInputEnvelope = {
+    data: user_sale_officesCreateManyUserInput | user_sale_officesCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type user_sale_officesUpsertWithWhereUniqueWithoutUserInput = {
+    where: user_sale_officesWhereUniqueInput
+    update: XOR<user_sale_officesUpdateWithoutUserInput, user_sale_officesUncheckedUpdateWithoutUserInput>
+    create: XOR<user_sale_officesCreateWithoutUserInput, user_sale_officesUncheckedCreateWithoutUserInput>
+  }
+
+  export type user_sale_officesUpdateWithWhereUniqueWithoutUserInput = {
+    where: user_sale_officesWhereUniqueInput
+    data: XOR<user_sale_officesUpdateWithoutUserInput, user_sale_officesUncheckedUpdateWithoutUserInput>
+  }
+
+  export type user_sale_officesUpdateManyWithWhereWithoutUserInput = {
+    where: user_sale_officesScalarWhereInput
+    data: XOR<user_sale_officesUpdateManyMutationInput, user_sale_officesUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type user_sale_officesScalarWhereInput = {
+    AND?: user_sale_officesScalarWhereInput | user_sale_officesScalarWhereInput[]
+    OR?: user_sale_officesScalarWhereInput[]
+    NOT?: user_sale_officesScalarWhereInput | user_sale_officesScalarWhereInput[]
+    id?: IntFilter<"user_sale_offices"> | number
+    user_id?: IntFilter<"user_sale_offices"> | number
+    sale_office_id?: IntFilter<"user_sale_offices"> | number
+    role?: StringNullableFilter<"user_sale_offices"> | string | null
+    create_at?: DateTimeFilter<"user_sale_offices"> | Date | string
+    update_at?: DateTimeFilter<"user_sale_offices"> | Date | string
+  }
+
+  export type user_sale_officesCreateWithoutSale_officeInput = {
+    role?: string | null
+    create_at?: Date | string
+    update_at?: Date | string
+    user: userCreateNestedOneWithoutUser_sale_officeInput
+  }
+
+  export type user_sale_officesUncheckedCreateWithoutSale_officeInput = {
+    id?: number
+    user_id: number
+    role?: string | null
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type user_sale_officesCreateOrConnectWithoutSale_officeInput = {
+    where: user_sale_officesWhereUniqueInput
+    create: XOR<user_sale_officesCreateWithoutSale_officeInput, user_sale_officesUncheckedCreateWithoutSale_officeInput>
+  }
+
+  export type user_sale_officesCreateManySale_officeInputEnvelope = {
+    data: user_sale_officesCreateManySale_officeInput | user_sale_officesCreateManySale_officeInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type user_sale_officesUpsertWithWhereUniqueWithoutSale_officeInput = {
+    where: user_sale_officesWhereUniqueInput
+    update: XOR<user_sale_officesUpdateWithoutSale_officeInput, user_sale_officesUncheckedUpdateWithoutSale_officeInput>
+    create: XOR<user_sale_officesCreateWithoutSale_officeInput, user_sale_officesUncheckedCreateWithoutSale_officeInput>
+  }
+
+  export type user_sale_officesUpdateWithWhereUniqueWithoutSale_officeInput = {
+    where: user_sale_officesWhereUniqueInput
+    data: XOR<user_sale_officesUpdateWithoutSale_officeInput, user_sale_officesUncheckedUpdateWithoutSale_officeInput>
+  }
+
+  export type user_sale_officesUpdateManyWithWhereWithoutSale_officeInput = {
+    where: user_sale_officesScalarWhereInput
+    data: XOR<user_sale_officesUpdateManyMutationInput, user_sale_officesUncheckedUpdateManyWithoutSale_officeInput>
+  }
+
+  export type sale_officesCreateWithoutUser_sale_officeInput = {
+    site_code: string
+    site_office_name_th: string
+    site_office_name_en: string
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type sale_officesUncheckedCreateWithoutUser_sale_officeInput = {
+    id?: number
+    site_code: string
+    site_office_name_th: string
+    site_office_name_en: string
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type sale_officesCreateOrConnectWithoutUser_sale_officeInput = {
+    where: sale_officesWhereUniqueInput
+    create: XOR<sale_officesCreateWithoutUser_sale_officeInput, sale_officesUncheckedCreateWithoutUser_sale_officeInput>
+  }
+
+  export type userCreateWithoutUser_sale_officeInput = {
+    name: string
+    email: string
+    permission_id: number
+    email_verified_at?: Date | string | null
+    password: string
+    two_factor_secret?: string | null
+    two_factor_recovery_codes?: string | null
+    two_factor_confirmed_at?: Date | string | null
+    is_two_factor_enabled?: boolean
+    remember_token?: string | null
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type userUncheckedCreateWithoutUser_sale_officeInput = {
+    id?: number
+    name: string
+    email: string
+    permission_id: number
+    email_verified_at?: Date | string | null
+    password: string
+    two_factor_secret?: string | null
+    two_factor_recovery_codes?: string | null
+    two_factor_confirmed_at?: Date | string | null
+    is_two_factor_enabled?: boolean
+    remember_token?: string | null
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type userCreateOrConnectWithoutUser_sale_officeInput = {
+    where: userWhereUniqueInput
+    create: XOR<userCreateWithoutUser_sale_officeInput, userUncheckedCreateWithoutUser_sale_officeInput>
+  }
+
+  export type sale_officesUpsertWithoutUser_sale_officeInput = {
+    update: XOR<sale_officesUpdateWithoutUser_sale_officeInput, sale_officesUncheckedUpdateWithoutUser_sale_officeInput>
+    create: XOR<sale_officesCreateWithoutUser_sale_officeInput, sale_officesUncheckedCreateWithoutUser_sale_officeInput>
+    where?: sale_officesWhereInput
+  }
+
+  export type sale_officesUpdateToOneWithWhereWithoutUser_sale_officeInput = {
+    where?: sale_officesWhereInput
+    data: XOR<sale_officesUpdateWithoutUser_sale_officeInput, sale_officesUncheckedUpdateWithoutUser_sale_officeInput>
+  }
+
+  export type sale_officesUpdateWithoutUser_sale_officeInput = {
+    site_code?: StringFieldUpdateOperationsInput | string
+    site_office_name_th?: StringFieldUpdateOperationsInput | string
+    site_office_name_en?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type sale_officesUncheckedUpdateWithoutUser_sale_officeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    site_code?: StringFieldUpdateOperationsInput | string
+    site_office_name_th?: StringFieldUpdateOperationsInput | string
+    site_office_name_en?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type userUpsertWithoutUser_sale_officeInput = {
+    update: XOR<userUpdateWithoutUser_sale_officeInput, userUncheckedUpdateWithoutUser_sale_officeInput>
+    create: XOR<userCreateWithoutUser_sale_officeInput, userUncheckedCreateWithoutUser_sale_officeInput>
+    where?: userWhereInput
+  }
+
+  export type userUpdateToOneWithWhereWithoutUser_sale_officeInput = {
+    where?: userWhereInput
+    data: XOR<userUpdateWithoutUser_sale_officeInput, userUncheckedUpdateWithoutUser_sale_officeInput>
+  }
+
+  export type userUpdateWithoutUser_sale_officeInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    permission_id?: IntFieldUpdateOperationsInput | number
+    email_verified_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    password?: StringFieldUpdateOperationsInput | string
+    two_factor_secret?: NullableStringFieldUpdateOperationsInput | string | null
+    two_factor_recovery_codes?: NullableStringFieldUpdateOperationsInput | string | null
+    two_factor_confirmed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    is_two_factor_enabled?: BoolFieldUpdateOperationsInput | boolean
+    remember_token?: NullableStringFieldUpdateOperationsInput | string | null
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type userUncheckedUpdateWithoutUser_sale_officeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    permission_id?: IntFieldUpdateOperationsInput | number
+    email_verified_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    password?: StringFieldUpdateOperationsInput | string
+    two_factor_secret?: NullableStringFieldUpdateOperationsInput | string | null
+    two_factor_recovery_codes?: NullableStringFieldUpdateOperationsInput | string | null
+    two_factor_confirmed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    is_two_factor_enabled?: BoolFieldUpdateOperationsInput | boolean
+    remember_token?: NullableStringFieldUpdateOperationsInput | string | null
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type unregistered_itemsCreateWithoutDirty_detailsInput = {
+    item_id: number
+    name: string
+    type_linen: string
+    type_linen_id: number
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type unregistered_itemsUncheckedCreateWithoutDirty_detailsInput = {
+    id?: number
+    item_id: number
+    name: string
+    type_linen: string
+    type_linen_id: number
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type unregistered_itemsCreateOrConnectWithoutDirty_detailsInput = {
+    where: unregistered_itemsWhereUniqueInput
+    create: XOR<unregistered_itemsCreateWithoutDirty_detailsInput, unregistered_itemsUncheckedCreateWithoutDirty_detailsInput>
+  }
+
+  export type unregistered_itemsUpsertWithoutDirty_detailsInput = {
+    update: XOR<unregistered_itemsUpdateWithoutDirty_detailsInput, unregistered_itemsUncheckedUpdateWithoutDirty_detailsInput>
+    create: XOR<unregistered_itemsCreateWithoutDirty_detailsInput, unregistered_itemsUncheckedCreateWithoutDirty_detailsInput>
+    where?: unregistered_itemsWhereInput
+  }
+
+  export type unregistered_itemsUpdateToOneWithWhereWithoutDirty_detailsInput = {
+    where?: unregistered_itemsWhereInput
+    data: XOR<unregistered_itemsUpdateWithoutDirty_detailsInput, unregistered_itemsUncheckedUpdateWithoutDirty_detailsInput>
+  }
+
+  export type unregistered_itemsUpdateWithoutDirty_detailsInput = {
+    item_id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    type_linen?: StringFieldUpdateOperationsInput | string
+    type_linen_id?: IntFieldUpdateOperationsInput | number
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type unregistered_itemsUncheckedUpdateWithoutDirty_detailsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    item_id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    type_linen?: StringFieldUpdateOperationsInput | string
+    type_linen_id?: IntFieldUpdateOperationsInput | number
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type dirty_detailsCreateWithoutUnregistered_itemInput = {
+    dirty_id: number
+    department_id: number
+    item_id: number
+    unit_id: number
+    user_id: number
+    qty: number
+    receive_qty: number
+    weight: number
+    is_cancel: boolean
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type dirty_detailsUncheckedCreateWithoutUnregistered_itemInput = {
+    id?: number
+    dirty_id: number
+    department_id: number
+    item_id: number
+    unit_id: number
+    user_id: number
+    qty: number
+    receive_qty: number
+    weight: number
+    is_cancel: boolean
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type dirty_detailsCreateOrConnectWithoutUnregistered_itemInput = {
+    where: dirty_detailsWhereUniqueInput
+    create: XOR<dirty_detailsCreateWithoutUnregistered_itemInput, dirty_detailsUncheckedCreateWithoutUnregistered_itemInput>
+  }
+
+  export type dirty_detailsCreateManyUnregistered_itemInputEnvelope = {
+    data: dirty_detailsCreateManyUnregistered_itemInput | dirty_detailsCreateManyUnregistered_itemInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type dirty_detailsUpsertWithWhereUniqueWithoutUnregistered_itemInput = {
+    where: dirty_detailsWhereUniqueInput
+    update: XOR<dirty_detailsUpdateWithoutUnregistered_itemInput, dirty_detailsUncheckedUpdateWithoutUnregistered_itemInput>
+    create: XOR<dirty_detailsCreateWithoutUnregistered_itemInput, dirty_detailsUncheckedCreateWithoutUnregistered_itemInput>
+  }
+
+  export type dirty_detailsUpdateWithWhereUniqueWithoutUnregistered_itemInput = {
+    where: dirty_detailsWhereUniqueInput
+    data: XOR<dirty_detailsUpdateWithoutUnregistered_itemInput, dirty_detailsUncheckedUpdateWithoutUnregistered_itemInput>
+  }
+
+  export type dirty_detailsUpdateManyWithWhereWithoutUnregistered_itemInput = {
+    where: dirty_detailsScalarWhereInput
+    data: XOR<dirty_detailsUpdateManyMutationInput, dirty_detailsUncheckedUpdateManyWithoutUnregistered_itemInput>
+  }
+
+  export type dirty_detailsScalarWhereInput = {
+    AND?: dirty_detailsScalarWhereInput | dirty_detailsScalarWhereInput[]
+    OR?: dirty_detailsScalarWhereInput[]
+    NOT?: dirty_detailsScalarWhereInput | dirty_detailsScalarWhereInput[]
+    id?: IntFilter<"dirty_details"> | number
+    dirty_id?: IntFilter<"dirty_details"> | number
+    department_id?: IntFilter<"dirty_details"> | number
+    item_id?: IntFilter<"dirty_details"> | number
+    unit_id?: IntFilter<"dirty_details"> | number
+    user_id?: IntFilter<"dirty_details"> | number
+    qty?: FloatFilter<"dirty_details"> | number
+    receive_qty?: FloatFilter<"dirty_details"> | number
+    weight?: FloatFilter<"dirty_details"> | number
+    is_cancel?: BoolFilter<"dirty_details"> | boolean
+    unregistered_item_id?: IntNullableFilter<"dirty_details"> | number | null
+    status?: BoolFilter<"dirty_details"> | boolean
+    create_at?: DateTimeFilter<"dirty_details"> | Date | string
+    update_at?: DateTimeFilter<"dirty_details"> | Date | string
+  }
+
+  export type user_sale_officesCreateManyUserInput = {
+    id?: number
+    sale_office_id: number
+    role?: string | null
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type user_sale_officesUpdateWithoutUserInput = {
+    role?: NullableStringFieldUpdateOperationsInput | string | null
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    sale_office?: sale_officesUpdateOneRequiredWithoutUser_sale_officeNestedInput
+  }
+
+  export type user_sale_officesUncheckedUpdateWithoutUserInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    sale_office_id?: IntFieldUpdateOperationsInput | number
+    role?: NullableStringFieldUpdateOperationsInput | string | null
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type user_sale_officesUncheckedUpdateManyWithoutUserInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    sale_office_id?: IntFieldUpdateOperationsInput | number
+    role?: NullableStringFieldUpdateOperationsInput | string | null
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type user_sale_officesCreateManySale_officeInput = {
+    id?: number
+    user_id: number
+    role?: string | null
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type user_sale_officesUpdateWithoutSale_officeInput = {
+    role?: NullableStringFieldUpdateOperationsInput | string | null
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: userUpdateOneRequiredWithoutUser_sale_officeNestedInput
+  }
+
+  export type user_sale_officesUncheckedUpdateWithoutSale_officeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    user_id?: IntFieldUpdateOperationsInput | number
+    role?: NullableStringFieldUpdateOperationsInput | string | null
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type user_sale_officesUncheckedUpdateManyWithoutSale_officeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    user_id?: IntFieldUpdateOperationsInput | number
+    role?: NullableStringFieldUpdateOperationsInput | string | null
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type dirty_detailsCreateManyUnregistered_itemInput = {
+    id?: number
+    dirty_id: number
+    department_id: number
+    item_id: number
+    unit_id: number
+    user_id: number
+    qty: number
+    receive_qty: number
+    weight: number
+    is_cancel: boolean
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type dirty_detailsUpdateWithoutUnregistered_itemInput = {
+    dirty_id?: IntFieldUpdateOperationsInput | number
+    department_id?: IntFieldUpdateOperationsInput | number
+    item_id?: IntFieldUpdateOperationsInput | number
+    unit_id?: IntFieldUpdateOperationsInput | number
+    user_id?: IntFieldUpdateOperationsInput | number
+    qty?: FloatFieldUpdateOperationsInput | number
+    receive_qty?: FloatFieldUpdateOperationsInput | number
+    weight?: FloatFieldUpdateOperationsInput | number
+    is_cancel?: BoolFieldUpdateOperationsInput | boolean
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type dirty_detailsUncheckedUpdateWithoutUnregistered_itemInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    dirty_id?: IntFieldUpdateOperationsInput | number
+    department_id?: IntFieldUpdateOperationsInput | number
+    item_id?: IntFieldUpdateOperationsInput | number
+    unit_id?: IntFieldUpdateOperationsInput | number
+    user_id?: IntFieldUpdateOperationsInput | number
+    qty?: FloatFieldUpdateOperationsInput | number
+    receive_qty?: FloatFieldUpdateOperationsInput | number
+    weight?: FloatFieldUpdateOperationsInput | number
+    is_cancel?: BoolFieldUpdateOperationsInput | boolean
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type dirty_detailsUncheckedUpdateManyWithoutUnregistered_itemInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    dirty_id?: IntFieldUpdateOperationsInput | number
+    department_id?: IntFieldUpdateOperationsInput | number
+    item_id?: IntFieldUpdateOperationsInput | number
+    unit_id?: IntFieldUpdateOperationsInput | number
+    user_id?: IntFieldUpdateOperationsInput | number
+    qty?: FloatFieldUpdateOperationsInput | number
+    receive_qty?: FloatFieldUpdateOperationsInput | number
+    weight?: FloatFieldUpdateOperationsInput | number
+    is_cancel?: BoolFieldUpdateOperationsInput | boolean
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 

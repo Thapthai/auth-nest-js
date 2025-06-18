@@ -20,11 +20,13 @@ export class DirtyDetailsService {
     const details = await this.prisma.dirty_details.findMany({
       where,
       orderBy: { id: 'desc' },
+      include: {
+        unregistered_item: true, // 👈 Join ข้อมูลจาก table unregistered_items
+      },
     });
 
     return details;
   }
-
 
   async findOne(id: number) {
     const detail = await this.prisma.dirty_details.findUnique({ where: { id } });

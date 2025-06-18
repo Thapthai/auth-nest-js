@@ -1,7 +1,8 @@
 import {
     IsInt,
     IsNumber,
-    IsBoolean
+    IsBoolean,
+    IsOptional
 } from 'class-validator';
 
 export class CreateDirtyDetailDto {
@@ -28,6 +29,10 @@ export class CreateDirtyDetailDto {
 
     @IsNumber()
     weight: number;
+
+    @IsOptional()
+    @IsNumber()
+    unregistered_item_id: number;
 
     @IsBoolean()
     is_cancel: boolean;

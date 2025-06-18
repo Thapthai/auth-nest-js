@@ -13,17 +13,6 @@ export class ItemsService {
     });
   }
 
-  // async findAll(department_id?: number) {
-  //   const where = department_id ? { department_id } : {};
-
-  //   const items = await this.prisma.items.findMany({
-  //     where,
-  //     orderBy: { id: 'desc' },
-  //   });
-
-  //   return items;
-  // }
-
   async findAll(department_id?: number, with_out_id?: number[]) {
     const where: any = {};
 

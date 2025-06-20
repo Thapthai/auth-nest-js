@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateSaleOfficeDto } from './dto/create-sale_office.dto';
 import { UpdateSaleOfficeDto } from './dto/update-sale_office.dto';
- 
+
 
 @Injectable()
 export class SaleOfficesService {
@@ -13,7 +13,13 @@ export class SaleOfficesService {
   }
 
   findAll() {
-    return this.prisma.sale_offices.findMany();
+    return this.prisma.sale_offices.findMany(
+      {
+        include: {
+          departments: true
+        }
+      }
+    );
   }
 
   findOne(id: number) {

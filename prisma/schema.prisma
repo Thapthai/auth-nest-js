@@ -56,6 +56,16 @@ model notifications {
   update_at DateTime @updatedAt
 }
 
+model permission {
+  id          Int      @id @default(autoincrement())
+  name_th     String
+  name_en     String
+  description String?
+  status      Boolean  @default(true)
+  create_at   DateTime @default(now())
+  update_at   DateTime @updatedAt
+}
+
 model sale_offices {
   id                  Int                 @id @default(autoincrement())
   site_code           String
@@ -65,6 +75,7 @@ model sale_offices {
   create_at           DateTime            @default(now())
   update_at           DateTime            @updatedAt
   user_sale_office    user_sale_offices[]
+  departments         departments[]
 }
 
 model user_sale_offices {
@@ -81,9 +92,10 @@ model user_sale_offices {
 }
 
 model departments {
-  id              Int      @id @default(autoincrement())
+  id              Int          @id @default(autoincrement())
   department_code String
   sale_office_id  Int
+  sale_office     sale_offices @relation(fields: [sale_office_id], references: [id]) // ✅ ความสัมพันธ์
   description     String
   group_code      String
   ship_id         Int
@@ -91,8 +103,8 @@ model departments {
   name_th         String
   name_en         String
   status          Boolean
-  create_at       DateTime @default(now())
-  update_at       DateTime @updatedAt
+  create_at       DateTime     @default(now())
+  update_at       DateTime     @updatedAt
 }
 
 model factory_sale_office {

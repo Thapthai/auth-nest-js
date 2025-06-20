@@ -19,6 +19,7 @@ import { SaleOfficesModule } from './sale_offices/sale_offices.module';
 import { UserSaleOfficesModule } from './user_sale_offices/user_sale_offices.module';
 import { FactorySaleOfficeModule } from './factory_sale_office/factory_sale_office.module';
 import { UsersModule } from './users/users.module';
+import { PermissionModule } from './permission/permission.module';
 
 @Module({
   imports: [
@@ -44,6 +45,7 @@ import { UsersModule } from './users/users.module';
     UserSaleOfficesModule,
     FactorySaleOfficeModule,
     UsersModule,
+    PermissionModule,
   ],
   controllers: [],
   providers: [

@@ -34,6 +34,11 @@ export type password_reset_token = $Result.DefaultSelection<Prisma.$password_res
  */
 export type notifications = $Result.DefaultSelection<Prisma.$notificationsPayload>
 /**
+ * Model permission
+ * 
+ */
+export type permission = $Result.DefaultSelection<Prisma.$permissionPayload>
+/**
  * Model sale_offices
  * 
  */
@@ -373,6 +378,16 @@ export class PrismaClient<
     * ```
     */
   get notifications(): Prisma.notificationsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.permission`: Exposes CRUD operations for the **permission** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Permissions
+    * const permissions = await prisma.permission.findMany()
+    * ```
+    */
+  get permission(): Prisma.permissionDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.sale_offices`: Exposes CRUD operations for the **sale_offices** model.
@@ -781,8 +796,8 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 6.10.0
-   * Query Engine version: aee10d5a411e4360c6d3445ce4810ca65adbf3e8
+   * Prisma Client JS version: 6.10.1
+   * Query Engine version: 9b628578b3b7cae625e8c927178f15a170e74a9c
    */
   export type PrismaVersion = {
     client: string
@@ -1167,6 +1182,7 @@ export namespace Prisma {
     verification_token: 'verification_token',
     password_reset_token: 'password_reset_token',
     notifications: 'notifications',
+    permission: 'permission',
     sale_offices: 'sale_offices',
     user_sale_offices: 'user_sale_offices',
     departments: 'departments',
@@ -1220,7 +1236,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "verification_token" | "password_reset_token" | "notifications" | "sale_offices" | "user_sale_offices" | "departments" | "factory_sale_office" | "factories" | "machines" | "contact" | "materials" | "material_types" | "item_units_meaures" | "items" | "items_details" | "item_categories" | "types" | "item_prices" | "dirties" | "dirty_details" | "dirty_detail_rounds" | "customer_group_types" | "customer_groups" | "stock_locations" | "shelfcounts" | "shelfcount_details" | "damages" | "damage_details" | "ships" | "new_linens" | "new_linen_details" | "repair_washs" | "repair_wash_details" | "cleans" | "clean_details" | "return_washs" | "retrun_wash_details" | "unregistered_items"
+      modelProps: "user" | "verification_token" | "password_reset_token" | "notifications" | "permission" | "sale_offices" | "user_sale_offices" | "departments" | "factory_sale_office" | "factories" | "machines" | "contact" | "materials" | "material_types" | "item_units_meaures" | "items" | "items_details" | "item_categories" | "types" | "item_prices" | "dirties" | "dirty_details" | "dirty_detail_rounds" | "customer_group_types" | "customer_groups" | "stock_locations" | "shelfcounts" | "shelfcount_details" | "damages" | "damage_details" | "ships" | "new_linens" | "new_linen_details" | "repair_washs" | "repair_wash_details" | "cleans" | "clean_details" | "return_washs" | "retrun_wash_details" | "unregistered_items"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1485,6 +1501,72 @@ export namespace Prisma {
           count: {
             args: Prisma.notificationsCountArgs<ExtArgs>
             result: $Utils.Optional<NotificationsCountAggregateOutputType> | number
+          }
+        }
+      }
+      permission: {
+        payload: Prisma.$permissionPayload<ExtArgs>
+        fields: Prisma.permissionFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.permissionFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$permissionPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.permissionFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$permissionPayload>
+          }
+          findFirst: {
+            args: Prisma.permissionFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$permissionPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.permissionFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$permissionPayload>
+          }
+          findMany: {
+            args: Prisma.permissionFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$permissionPayload>[]
+          }
+          create: {
+            args: Prisma.permissionCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$permissionPayload>
+          }
+          createMany: {
+            args: Prisma.permissionCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.permissionDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$permissionPayload>
+          }
+          update: {
+            args: Prisma.permissionUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$permissionPayload>
+          }
+          deleteMany: {
+            args: Prisma.permissionDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.permissionUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.permissionUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$permissionPayload>
+          }
+          aggregate: {
+            args: Prisma.PermissionAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePermission>
+          }
+          groupBy: {
+            args: Prisma.permissionGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PermissionGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.permissionCountArgs<ExtArgs>
+            result: $Utils.Optional<PermissionCountAggregateOutputType> | number
           }
         }
       }
@@ -3886,6 +3968,7 @@ export namespace Prisma {
     verification_token?: verification_tokenOmit
     password_reset_token?: password_reset_tokenOmit
     notifications?: notificationsOmit
+    permission?: permissionOmit
     sale_offices?: sale_officesOmit
     user_sale_offices?: user_sale_officesOmit
     departments?: departmentsOmit
@@ -4047,10 +4130,12 @@ export namespace Prisma {
 
   export type Sale_officesCountOutputType = {
     user_sale_office: number
+    departments: number
   }
 
   export type Sale_officesCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user_sale_office?: boolean | Sale_officesCountOutputTypeCountUser_sale_officeArgs
+    departments?: boolean | Sale_officesCountOutputTypeCountDepartmentsArgs
   }
 
   // Custom InputTypes
@@ -4069,6 +4154,13 @@ export namespace Prisma {
    */
   export type Sale_officesCountOutputTypeCountUser_sale_officeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: user_sale_officesWhereInput
+  }
+
+  /**
+   * Sale_officesCountOutputType without action
+   */
+  export type Sale_officesCountOutputTypeCountDepartmentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: departmentsWhereInput
   }
 
 
@@ -7962,6 +8054,944 @@ export namespace Prisma {
 
 
   /**
+   * Model permission
+   */
+
+  export type AggregatePermission = {
+    _count: PermissionCountAggregateOutputType | null
+    _avg: PermissionAvgAggregateOutputType | null
+    _sum: PermissionSumAggregateOutputType | null
+    _min: PermissionMinAggregateOutputType | null
+    _max: PermissionMaxAggregateOutputType | null
+  }
+
+  export type PermissionAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type PermissionSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type PermissionMinAggregateOutputType = {
+    id: number | null
+    name_th: string | null
+    name_en: string | null
+    description: string | null
+    status: boolean | null
+    create_at: Date | null
+    update_at: Date | null
+  }
+
+  export type PermissionMaxAggregateOutputType = {
+    id: number | null
+    name_th: string | null
+    name_en: string | null
+    description: string | null
+    status: boolean | null
+    create_at: Date | null
+    update_at: Date | null
+  }
+
+  export type PermissionCountAggregateOutputType = {
+    id: number
+    name_th: number
+    name_en: number
+    description: number
+    status: number
+    create_at: number
+    update_at: number
+    _all: number
+  }
+
+
+  export type PermissionAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type PermissionSumAggregateInputType = {
+    id?: true
+  }
+
+  export type PermissionMinAggregateInputType = {
+    id?: true
+    name_th?: true
+    name_en?: true
+    description?: true
+    status?: true
+    create_at?: true
+    update_at?: true
+  }
+
+  export type PermissionMaxAggregateInputType = {
+    id?: true
+    name_th?: true
+    name_en?: true
+    description?: true
+    status?: true
+    create_at?: true
+    update_at?: true
+  }
+
+  export type PermissionCountAggregateInputType = {
+    id?: true
+    name_th?: true
+    name_en?: true
+    description?: true
+    status?: true
+    create_at?: true
+    update_at?: true
+    _all?: true
+  }
+
+  export type PermissionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which permission to aggregate.
+     */
+    where?: permissionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of permissions to fetch.
+     */
+    orderBy?: permissionOrderByWithRelationInput | permissionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: permissionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` permissions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` permissions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned permissions
+    **/
+    _count?: true | PermissionCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: PermissionAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: PermissionSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: PermissionMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: PermissionMaxAggregateInputType
+  }
+
+  export type GetPermissionAggregateType<T extends PermissionAggregateArgs> = {
+        [P in keyof T & keyof AggregatePermission]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePermission[P]>
+      : GetScalarType<T[P], AggregatePermission[P]>
+  }
+
+
+
+
+  export type permissionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: permissionWhereInput
+    orderBy?: permissionOrderByWithAggregationInput | permissionOrderByWithAggregationInput[]
+    by: PermissionScalarFieldEnum[] | PermissionScalarFieldEnum
+    having?: permissionScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: PermissionCountAggregateInputType | true
+    _avg?: PermissionAvgAggregateInputType
+    _sum?: PermissionSumAggregateInputType
+    _min?: PermissionMinAggregateInputType
+    _max?: PermissionMaxAggregateInputType
+  }
+
+  export type PermissionGroupByOutputType = {
+    id: number
+    name_th: string
+    name_en: string
+    description: string | null
+    status: boolean
+    create_at: Date
+    update_at: Date
+    _count: PermissionCountAggregateOutputType | null
+    _avg: PermissionAvgAggregateOutputType | null
+    _sum: PermissionSumAggregateOutputType | null
+    _min: PermissionMinAggregateOutputType | null
+    _max: PermissionMaxAggregateOutputType | null
+  }
+
+  type GetPermissionGroupByPayload<T extends permissionGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<PermissionGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof PermissionGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], PermissionGroupByOutputType[P]>
+            : GetScalarType<T[P], PermissionGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type permissionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name_th?: boolean
+    name_en?: boolean
+    description?: boolean
+    status?: boolean
+    create_at?: boolean
+    update_at?: boolean
+  }, ExtArgs["result"]["permission"]>
+
+
+
+  export type permissionSelectScalar = {
+    id?: boolean
+    name_th?: boolean
+    name_en?: boolean
+    description?: boolean
+    status?: boolean
+    create_at?: boolean
+    update_at?: boolean
+  }
+
+  export type permissionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name_th" | "name_en" | "description" | "status" | "create_at" | "update_at", ExtArgs["result"]["permission"]>
+
+  export type $permissionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "permission"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      name_th: string
+      name_en: string
+      description: string | null
+      status: boolean
+      create_at: Date
+      update_at: Date
+    }, ExtArgs["result"]["permission"]>
+    composites: {}
+  }
+
+  type permissionGetPayload<S extends boolean | null | undefined | permissionDefaultArgs> = $Result.GetResult<Prisma.$permissionPayload, S>
+
+  type permissionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<permissionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: PermissionCountAggregateInputType | true
+    }
+
+  export interface permissionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['permission'], meta: { name: 'permission' } }
+    /**
+     * Find zero or one Permission that matches the filter.
+     * @param {permissionFindUniqueArgs} args - Arguments to find a Permission
+     * @example
+     * // Get one Permission
+     * const permission = await prisma.permission.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends permissionFindUniqueArgs>(args: SelectSubset<T, permissionFindUniqueArgs<ExtArgs>>): Prisma__permissionClient<$Result.GetResult<Prisma.$permissionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Permission that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {permissionFindUniqueOrThrowArgs} args - Arguments to find a Permission
+     * @example
+     * // Get one Permission
+     * const permission = await prisma.permission.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends permissionFindUniqueOrThrowArgs>(args: SelectSubset<T, permissionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__permissionClient<$Result.GetResult<Prisma.$permissionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Permission that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {permissionFindFirstArgs} args - Arguments to find a Permission
+     * @example
+     * // Get one Permission
+     * const permission = await prisma.permission.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends permissionFindFirstArgs>(args?: SelectSubset<T, permissionFindFirstArgs<ExtArgs>>): Prisma__permissionClient<$Result.GetResult<Prisma.$permissionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Permission that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {permissionFindFirstOrThrowArgs} args - Arguments to find a Permission
+     * @example
+     * // Get one Permission
+     * const permission = await prisma.permission.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends permissionFindFirstOrThrowArgs>(args?: SelectSubset<T, permissionFindFirstOrThrowArgs<ExtArgs>>): Prisma__permissionClient<$Result.GetResult<Prisma.$permissionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Permissions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {permissionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Permissions
+     * const permissions = await prisma.permission.findMany()
+     * 
+     * // Get first 10 Permissions
+     * const permissions = await prisma.permission.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const permissionWithIdOnly = await prisma.permission.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends permissionFindManyArgs>(args?: SelectSubset<T, permissionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$permissionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Permission.
+     * @param {permissionCreateArgs} args - Arguments to create a Permission.
+     * @example
+     * // Create one Permission
+     * const Permission = await prisma.permission.create({
+     *   data: {
+     *     // ... data to create a Permission
+     *   }
+     * })
+     * 
+     */
+    create<T extends permissionCreateArgs>(args: SelectSubset<T, permissionCreateArgs<ExtArgs>>): Prisma__permissionClient<$Result.GetResult<Prisma.$permissionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Permissions.
+     * @param {permissionCreateManyArgs} args - Arguments to create many Permissions.
+     * @example
+     * // Create many Permissions
+     * const permission = await prisma.permission.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends permissionCreateManyArgs>(args?: SelectSubset<T, permissionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Permission.
+     * @param {permissionDeleteArgs} args - Arguments to delete one Permission.
+     * @example
+     * // Delete one Permission
+     * const Permission = await prisma.permission.delete({
+     *   where: {
+     *     // ... filter to delete one Permission
+     *   }
+     * })
+     * 
+     */
+    delete<T extends permissionDeleteArgs>(args: SelectSubset<T, permissionDeleteArgs<ExtArgs>>): Prisma__permissionClient<$Result.GetResult<Prisma.$permissionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Permission.
+     * @param {permissionUpdateArgs} args - Arguments to update one Permission.
+     * @example
+     * // Update one Permission
+     * const permission = await prisma.permission.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends permissionUpdateArgs>(args: SelectSubset<T, permissionUpdateArgs<ExtArgs>>): Prisma__permissionClient<$Result.GetResult<Prisma.$permissionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Permissions.
+     * @param {permissionDeleteManyArgs} args - Arguments to filter Permissions to delete.
+     * @example
+     * // Delete a few Permissions
+     * const { count } = await prisma.permission.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends permissionDeleteManyArgs>(args?: SelectSubset<T, permissionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Permissions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {permissionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Permissions
+     * const permission = await prisma.permission.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends permissionUpdateManyArgs>(args: SelectSubset<T, permissionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Permission.
+     * @param {permissionUpsertArgs} args - Arguments to update or create a Permission.
+     * @example
+     * // Update or create a Permission
+     * const permission = await prisma.permission.upsert({
+     *   create: {
+     *     // ... data to create a Permission
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Permission we want to update
+     *   }
+     * })
+     */
+    upsert<T extends permissionUpsertArgs>(args: SelectSubset<T, permissionUpsertArgs<ExtArgs>>): Prisma__permissionClient<$Result.GetResult<Prisma.$permissionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Permissions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {permissionCountArgs} args - Arguments to filter Permissions to count.
+     * @example
+     * // Count the number of Permissions
+     * const count = await prisma.permission.count({
+     *   where: {
+     *     // ... the filter for the Permissions we want to count
+     *   }
+     * })
+    **/
+    count<T extends permissionCountArgs>(
+      args?: Subset<T, permissionCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], PermissionCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Permission.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PermissionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PermissionAggregateArgs>(args: Subset<T, PermissionAggregateArgs>): Prisma.PrismaPromise<GetPermissionAggregateType<T>>
+
+    /**
+     * Group by Permission.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {permissionGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends permissionGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: permissionGroupByArgs['orderBy'] }
+        : { orderBy?: permissionGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, permissionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPermissionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the permission model
+   */
+  readonly fields: permissionFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for permission.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__permissionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the permission model
+   */
+  interface permissionFieldRefs {
+    readonly id: FieldRef<"permission", 'Int'>
+    readonly name_th: FieldRef<"permission", 'String'>
+    readonly name_en: FieldRef<"permission", 'String'>
+    readonly description: FieldRef<"permission", 'String'>
+    readonly status: FieldRef<"permission", 'Boolean'>
+    readonly create_at: FieldRef<"permission", 'DateTime'>
+    readonly update_at: FieldRef<"permission", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * permission findUnique
+   */
+  export type permissionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the permission
+     */
+    select?: permissionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the permission
+     */
+    omit?: permissionOmit<ExtArgs> | null
+    /**
+     * Filter, which permission to fetch.
+     */
+    where: permissionWhereUniqueInput
+  }
+
+  /**
+   * permission findUniqueOrThrow
+   */
+  export type permissionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the permission
+     */
+    select?: permissionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the permission
+     */
+    omit?: permissionOmit<ExtArgs> | null
+    /**
+     * Filter, which permission to fetch.
+     */
+    where: permissionWhereUniqueInput
+  }
+
+  /**
+   * permission findFirst
+   */
+  export type permissionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the permission
+     */
+    select?: permissionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the permission
+     */
+    omit?: permissionOmit<ExtArgs> | null
+    /**
+     * Filter, which permission to fetch.
+     */
+    where?: permissionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of permissions to fetch.
+     */
+    orderBy?: permissionOrderByWithRelationInput | permissionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for permissions.
+     */
+    cursor?: permissionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` permissions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` permissions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of permissions.
+     */
+    distinct?: PermissionScalarFieldEnum | PermissionScalarFieldEnum[]
+  }
+
+  /**
+   * permission findFirstOrThrow
+   */
+  export type permissionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the permission
+     */
+    select?: permissionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the permission
+     */
+    omit?: permissionOmit<ExtArgs> | null
+    /**
+     * Filter, which permission to fetch.
+     */
+    where?: permissionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of permissions to fetch.
+     */
+    orderBy?: permissionOrderByWithRelationInput | permissionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for permissions.
+     */
+    cursor?: permissionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` permissions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` permissions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of permissions.
+     */
+    distinct?: PermissionScalarFieldEnum | PermissionScalarFieldEnum[]
+  }
+
+  /**
+   * permission findMany
+   */
+  export type permissionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the permission
+     */
+    select?: permissionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the permission
+     */
+    omit?: permissionOmit<ExtArgs> | null
+    /**
+     * Filter, which permissions to fetch.
+     */
+    where?: permissionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of permissions to fetch.
+     */
+    orderBy?: permissionOrderByWithRelationInput | permissionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing permissions.
+     */
+    cursor?: permissionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` permissions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` permissions.
+     */
+    skip?: number
+    distinct?: PermissionScalarFieldEnum | PermissionScalarFieldEnum[]
+  }
+
+  /**
+   * permission create
+   */
+  export type permissionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the permission
+     */
+    select?: permissionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the permission
+     */
+    omit?: permissionOmit<ExtArgs> | null
+    /**
+     * The data needed to create a permission.
+     */
+    data: XOR<permissionCreateInput, permissionUncheckedCreateInput>
+  }
+
+  /**
+   * permission createMany
+   */
+  export type permissionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many permissions.
+     */
+    data: permissionCreateManyInput | permissionCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * permission update
+   */
+  export type permissionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the permission
+     */
+    select?: permissionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the permission
+     */
+    omit?: permissionOmit<ExtArgs> | null
+    /**
+     * The data needed to update a permission.
+     */
+    data: XOR<permissionUpdateInput, permissionUncheckedUpdateInput>
+    /**
+     * Choose, which permission to update.
+     */
+    where: permissionWhereUniqueInput
+  }
+
+  /**
+   * permission updateMany
+   */
+  export type permissionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update permissions.
+     */
+    data: XOR<permissionUpdateManyMutationInput, permissionUncheckedUpdateManyInput>
+    /**
+     * Filter which permissions to update
+     */
+    where?: permissionWhereInput
+    /**
+     * Limit how many permissions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * permission upsert
+   */
+  export type permissionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the permission
+     */
+    select?: permissionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the permission
+     */
+    omit?: permissionOmit<ExtArgs> | null
+    /**
+     * The filter to search for the permission to update in case it exists.
+     */
+    where: permissionWhereUniqueInput
+    /**
+     * In case the permission found by the `where` argument doesn't exist, create a new permission with this data.
+     */
+    create: XOR<permissionCreateInput, permissionUncheckedCreateInput>
+    /**
+     * In case the permission was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<permissionUpdateInput, permissionUncheckedUpdateInput>
+  }
+
+  /**
+   * permission delete
+   */
+  export type permissionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the permission
+     */
+    select?: permissionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the permission
+     */
+    omit?: permissionOmit<ExtArgs> | null
+    /**
+     * Filter which permission to delete.
+     */
+    where: permissionWhereUniqueInput
+  }
+
+  /**
+   * permission deleteMany
+   */
+  export type permissionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which permissions to delete
+     */
+    where?: permissionWhereInput
+    /**
+     * Limit how many permissions to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * permission without action
+   */
+  export type permissionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the permission
+     */
+    select?: permissionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the permission
+     */
+    omit?: permissionOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Model sale_offices
    */
 
@@ -8176,6 +9206,7 @@ export namespace Prisma {
     create_at?: boolean
     update_at?: boolean
     user_sale_office?: boolean | sale_offices$user_sale_officeArgs<ExtArgs>
+    departments?: boolean | sale_offices$departmentsArgs<ExtArgs>
     _count?: boolean | Sale_officesCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["sale_offices"]>
 
@@ -8194,6 +9225,7 @@ export namespace Prisma {
   export type sale_officesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "site_code" | "site_office_name_th" | "site_office_name_en" | "status" | "create_at" | "update_at", ExtArgs["result"]["sale_offices"]>
   export type sale_officesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user_sale_office?: boolean | sale_offices$user_sale_officeArgs<ExtArgs>
+    departments?: boolean | sale_offices$departmentsArgs<ExtArgs>
     _count?: boolean | Sale_officesCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -8201,6 +9233,7 @@ export namespace Prisma {
     name: "sale_offices"
     objects: {
       user_sale_office: Prisma.$user_sale_officesPayload<ExtArgs>[]
+      departments: Prisma.$departmentsPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -8551,6 +9584,7 @@ export namespace Prisma {
   export interface Prisma__sale_officesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     user_sale_office<T extends sale_offices$user_sale_officeArgs<ExtArgs> = {}>(args?: Subset<T, sale_offices$user_sale_officeArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$user_sale_officesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    departments<T extends sale_offices$departmentsArgs<ExtArgs> = {}>(args?: Subset<T, sale_offices$departmentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$departmentsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -8951,6 +9985,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: User_sale_officesScalarFieldEnum | User_sale_officesScalarFieldEnum[]
+  }
+
+  /**
+   * sale_offices.departments
+   */
+  export type sale_offices$departmentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the departments
+     */
+    select?: departmentsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the departments
+     */
+    omit?: departmentsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: departmentsInclude<ExtArgs> | null
+    where?: departmentsWhereInput
+    orderBy?: departmentsOrderByWithRelationInput | departmentsOrderByWithRelationInput[]
+    cursor?: departmentsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: DepartmentsScalarFieldEnum | DepartmentsScalarFieldEnum[]
   }
 
   /**
@@ -10220,6 +11278,7 @@ export namespace Prisma {
     status?: boolean
     create_at?: boolean
     update_at?: boolean
+    sale_office?: boolean | sale_officesDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["departments"]>
 
 
@@ -10240,10 +11299,15 @@ export namespace Prisma {
   }
 
   export type departmentsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "department_code" | "sale_office_id" | "description" | "group_code" | "ship_id" | "is_default" | "name_th" | "name_en" | "status" | "create_at" | "update_at", ExtArgs["result"]["departments"]>
+  export type departmentsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    sale_office?: boolean | sale_officesDefaultArgs<ExtArgs>
+  }
 
   export type $departmentsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "departments"
-    objects: {}
+    objects: {
+      sale_office: Prisma.$sale_officesPayload<ExtArgs>
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       department_code: string
@@ -10597,6 +11661,7 @@ export namespace Prisma {
    */
   export interface Prisma__departmentsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    sale_office<T extends sale_officesDefaultArgs<ExtArgs> = {}>(args?: Subset<T, sale_officesDefaultArgs<ExtArgs>>): Prisma__sale_officesClient<$Result.GetResult<Prisma.$sale_officesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -10655,6 +11720,10 @@ export namespace Prisma {
      */
     omit?: departmentsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: departmentsInclude<ExtArgs> | null
+    /**
      * Filter, which departments to fetch.
      */
     where: departmentsWhereUniqueInput
@@ -10673,6 +11742,10 @@ export namespace Prisma {
      */
     omit?: departmentsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: departmentsInclude<ExtArgs> | null
+    /**
      * Filter, which departments to fetch.
      */
     where: departmentsWhereUniqueInput
@@ -10690,6 +11763,10 @@ export namespace Prisma {
      * Omit specific fields from the departments
      */
     omit?: departmentsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: departmentsInclude<ExtArgs> | null
     /**
      * Filter, which departments to fetch.
      */
@@ -10739,6 +11816,10 @@ export namespace Prisma {
      */
     omit?: departmentsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: departmentsInclude<ExtArgs> | null
+    /**
      * Filter, which departments to fetch.
      */
     where?: departmentsWhereInput
@@ -10787,6 +11868,10 @@ export namespace Prisma {
      */
     omit?: departmentsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: departmentsInclude<ExtArgs> | null
+    /**
      * Filter, which departments to fetch.
      */
     where?: departmentsWhereInput
@@ -10830,6 +11915,10 @@ export namespace Prisma {
      */
     omit?: departmentsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: departmentsInclude<ExtArgs> | null
+    /**
      * The data needed to create a departments.
      */
     data: XOR<departmentsCreateInput, departmentsUncheckedCreateInput>
@@ -10858,6 +11947,10 @@ export namespace Prisma {
      * Omit specific fields from the departments
      */
     omit?: departmentsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: departmentsInclude<ExtArgs> | null
     /**
      * The data needed to update a departments.
      */
@@ -10899,6 +11992,10 @@ export namespace Prisma {
      */
     omit?: departmentsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: departmentsInclude<ExtArgs> | null
+    /**
      * The filter to search for the departments to update in case it exists.
      */
     where: departmentsWhereUniqueInput
@@ -10924,6 +12021,10 @@ export namespace Prisma {
      * Omit specific fields from the departments
      */
     omit?: departmentsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: departmentsInclude<ExtArgs> | null
     /**
      * Filter which departments to delete.
      */
@@ -10956,6 +12057,10 @@ export namespace Prisma {
      * Omit specific fields from the departments
      */
     omit?: departmentsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: departmentsInclude<ExtArgs> | null
   }
 
 
@@ -43121,6 +44226,19 @@ export namespace Prisma {
   export type NotificationsScalarFieldEnum = (typeof NotificationsScalarFieldEnum)[keyof typeof NotificationsScalarFieldEnum]
 
 
+  export const PermissionScalarFieldEnum: {
+    id: 'id',
+    name_th: 'name_th',
+    name_en: 'name_en',
+    description: 'description',
+    status: 'status',
+    create_at: 'create_at',
+    update_at: 'update_at'
+  };
+
+  export type PermissionScalarFieldEnum = (typeof PermissionScalarFieldEnum)[keyof typeof PermissionScalarFieldEnum]
+
+
   export const Sale_officesScalarFieldEnum: {
     id: 'id',
     site_code: 'site_code',
@@ -43766,6 +44884,15 @@ export namespace Prisma {
   export type notificationsOrderByRelevanceFieldEnum = (typeof notificationsOrderByRelevanceFieldEnum)[keyof typeof notificationsOrderByRelevanceFieldEnum]
 
 
+  export const permissionOrderByRelevanceFieldEnum: {
+    name_th: 'name_th',
+    name_en: 'name_en',
+    description: 'description'
+  };
+
+  export type permissionOrderByRelevanceFieldEnum = (typeof permissionOrderByRelevanceFieldEnum)[keyof typeof permissionOrderByRelevanceFieldEnum]
+
+
   export const sale_officesOrderByRelevanceFieldEnum: {
     site_code: 'site_code',
     site_office_name_th: 'site_office_name_th',
@@ -44347,6 +45474,71 @@ export namespace Prisma {
     update_at?: DateTimeWithAggregatesFilter<"notifications"> | Date | string
   }
 
+  export type permissionWhereInput = {
+    AND?: permissionWhereInput | permissionWhereInput[]
+    OR?: permissionWhereInput[]
+    NOT?: permissionWhereInput | permissionWhereInput[]
+    id?: IntFilter<"permission"> | number
+    name_th?: StringFilter<"permission"> | string
+    name_en?: StringFilter<"permission"> | string
+    description?: StringNullableFilter<"permission"> | string | null
+    status?: BoolFilter<"permission"> | boolean
+    create_at?: DateTimeFilter<"permission"> | Date | string
+    update_at?: DateTimeFilter<"permission"> | Date | string
+  }
+
+  export type permissionOrderByWithRelationInput = {
+    id?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
+    description?: SortOrderInput | SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+    _relevance?: permissionOrderByRelevanceInput
+  }
+
+  export type permissionWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: permissionWhereInput | permissionWhereInput[]
+    OR?: permissionWhereInput[]
+    NOT?: permissionWhereInput | permissionWhereInput[]
+    name_th?: StringFilter<"permission"> | string
+    name_en?: StringFilter<"permission"> | string
+    description?: StringNullableFilter<"permission"> | string | null
+    status?: BoolFilter<"permission"> | boolean
+    create_at?: DateTimeFilter<"permission"> | Date | string
+    update_at?: DateTimeFilter<"permission"> | Date | string
+  }, "id">
+
+  export type permissionOrderByWithAggregationInput = {
+    id?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
+    description?: SortOrderInput | SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+    _count?: permissionCountOrderByAggregateInput
+    _avg?: permissionAvgOrderByAggregateInput
+    _max?: permissionMaxOrderByAggregateInput
+    _min?: permissionMinOrderByAggregateInput
+    _sum?: permissionSumOrderByAggregateInput
+  }
+
+  export type permissionScalarWhereWithAggregatesInput = {
+    AND?: permissionScalarWhereWithAggregatesInput | permissionScalarWhereWithAggregatesInput[]
+    OR?: permissionScalarWhereWithAggregatesInput[]
+    NOT?: permissionScalarWhereWithAggregatesInput | permissionScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"permission"> | number
+    name_th?: StringWithAggregatesFilter<"permission"> | string
+    name_en?: StringWithAggregatesFilter<"permission"> | string
+    description?: StringNullableWithAggregatesFilter<"permission"> | string | null
+    status?: BoolWithAggregatesFilter<"permission"> | boolean
+    create_at?: DateTimeWithAggregatesFilter<"permission"> | Date | string
+    update_at?: DateTimeWithAggregatesFilter<"permission"> | Date | string
+  }
+
   export type sale_officesWhereInput = {
     AND?: sale_officesWhereInput | sale_officesWhereInput[]
     OR?: sale_officesWhereInput[]
@@ -44359,6 +45551,7 @@ export namespace Prisma {
     create_at?: DateTimeFilter<"sale_offices"> | Date | string
     update_at?: DateTimeFilter<"sale_offices"> | Date | string
     user_sale_office?: User_sale_officesListRelationFilter
+    departments?: DepartmentsListRelationFilter
   }
 
   export type sale_officesOrderByWithRelationInput = {
@@ -44370,6 +45563,7 @@ export namespace Prisma {
     create_at?: SortOrder
     update_at?: SortOrder
     user_sale_office?: user_sale_officesOrderByRelationAggregateInput
+    departments?: departmentsOrderByRelationAggregateInput
     _relevance?: sale_officesOrderByRelevanceInput
   }
 
@@ -44385,6 +45579,7 @@ export namespace Prisma {
     create_at?: DateTimeFilter<"sale_offices"> | Date | string
     update_at?: DateTimeFilter<"sale_offices"> | Date | string
     user_sale_office?: User_sale_officesListRelationFilter
+    departments?: DepartmentsListRelationFilter
   }, "id">
 
   export type sale_officesOrderByWithAggregationInput = {
@@ -44498,6 +45693,7 @@ export namespace Prisma {
     status?: BoolFilter<"departments"> | boolean
     create_at?: DateTimeFilter<"departments"> | Date | string
     update_at?: DateTimeFilter<"departments"> | Date | string
+    sale_office?: XOR<Sale_officesScalarRelationFilter, sale_officesWhereInput>
   }
 
   export type departmentsOrderByWithRelationInput = {
@@ -44513,6 +45709,7 @@ export namespace Prisma {
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
+    sale_office?: sale_officesOrderByWithRelationInput
     _relevance?: departmentsOrderByRelevanceInput
   }
 
@@ -44532,6 +45729,7 @@ export namespace Prisma {
     status?: BoolFilter<"departments"> | boolean
     create_at?: DateTimeFilter<"departments"> | Date | string
     update_at?: DateTimeFilter<"departments"> | Date | string
+    sale_office?: XOR<Sale_officesScalarRelationFilter, sale_officesWhereInput>
   }, "id">
 
   export type departmentsOrderByWithAggregationInput = {
@@ -47622,6 +48820,73 @@ export namespace Prisma {
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type permissionCreateInput = {
+    name_th: string
+    name_en: string
+    description?: string | null
+    status?: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type permissionUncheckedCreateInput = {
+    id?: number
+    name_th: string
+    name_en: string
+    description?: string | null
+    status?: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type permissionUpdateInput = {
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type permissionUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type permissionCreateManyInput = {
+    id?: number
+    name_th: string
+    name_en: string
+    description?: string | null
+    status?: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type permissionUpdateManyMutationInput = {
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type permissionUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type sale_officesCreateInput = {
     site_code: string
     site_office_name_th: string
@@ -47630,6 +48895,7 @@ export namespace Prisma {
     create_at?: Date | string
     update_at?: Date | string
     user_sale_office?: user_sale_officesCreateNestedManyWithoutSale_officeInput
+    departments?: departmentsCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesUncheckedCreateInput = {
@@ -47641,6 +48907,7 @@ export namespace Prisma {
     create_at?: Date | string
     update_at?: Date | string
     user_sale_office?: user_sale_officesUncheckedCreateNestedManyWithoutSale_officeInput
+    departments?: departmentsUncheckedCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesUpdateInput = {
@@ -47651,6 +48918,7 @@ export namespace Prisma {
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
     user_sale_office?: user_sale_officesUpdateManyWithoutSale_officeNestedInput
+    departments?: departmentsUpdateManyWithoutSale_officeNestedInput
   }
 
   export type sale_officesUncheckedUpdateInput = {
@@ -47662,6 +48930,7 @@ export namespace Prisma {
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
     user_sale_office?: user_sale_officesUncheckedUpdateManyWithoutSale_officeNestedInput
+    departments?: departmentsUncheckedUpdateManyWithoutSale_officeNestedInput
   }
 
   export type sale_officesCreateManyInput = {
@@ -47753,7 +49022,6 @@ export namespace Prisma {
 
   export type departmentsCreateInput = {
     department_code: string
-    sale_office_id: number
     description: string
     group_code: string
     ship_id: number
@@ -47763,6 +49031,7 @@ export namespace Prisma {
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
+    sale_office: sale_officesCreateNestedOneWithoutDepartmentsInput
   }
 
   export type departmentsUncheckedCreateInput = {
@@ -47782,7 +49051,6 @@ export namespace Prisma {
 
   export type departmentsUpdateInput = {
     department_code?: StringFieldUpdateOperationsInput | string
-    sale_office_id?: IntFieldUpdateOperationsInput | number
     description?: StringFieldUpdateOperationsInput | string
     group_code?: StringFieldUpdateOperationsInput | string
     ship_id?: IntFieldUpdateOperationsInput | number
@@ -47792,6 +49060,7 @@ export namespace Prisma {
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    sale_office?: sale_officesUpdateOneRequiredWithoutDepartmentsNestedInput
   }
 
   export type departmentsUncheckedUpdateInput = {
@@ -47826,7 +49095,6 @@ export namespace Prisma {
 
   export type departmentsUpdateManyMutationInput = {
     department_code?: StringFieldUpdateOperationsInput | string
-    sale_office_id?: IntFieldUpdateOperationsInput | number
     description?: StringFieldUpdateOperationsInput | string
     group_code?: StringFieldUpdateOperationsInput | string
     ship_id?: IntFieldUpdateOperationsInput | number
@@ -51287,6 +52555,60 @@ export namespace Prisma {
     user_id?: SortOrder
   }
 
+  export type permissionOrderByRelevanceInput = {
+    fields: permissionOrderByRelevanceFieldEnum | permissionOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type permissionCountOrderByAggregateInput = {
+    id?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
+    description?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+  }
+
+  export type permissionAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type permissionMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
+    description?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+  }
+
+  export type permissionMinOrderByAggregateInput = {
+    id?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
+    description?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+  }
+
+  export type permissionSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type DepartmentsListRelationFilter = {
+    every?: departmentsWhereInput
+    some?: departmentsWhereInput
+    none?: departmentsWhereInput
+  }
+
+  export type departmentsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type sale_officesOrderByRelevanceInput = {
     fields: sale_officesOrderByRelevanceFieldEnum | sale_officesOrderByRelevanceFieldEnum[]
     sort: SortOrder
@@ -53650,11 +54972,25 @@ export namespace Prisma {
     connect?: user_sale_officesWhereUniqueInput | user_sale_officesWhereUniqueInput[]
   }
 
+  export type departmentsCreateNestedManyWithoutSale_officeInput = {
+    create?: XOR<departmentsCreateWithoutSale_officeInput, departmentsUncheckedCreateWithoutSale_officeInput> | departmentsCreateWithoutSale_officeInput[] | departmentsUncheckedCreateWithoutSale_officeInput[]
+    connectOrCreate?: departmentsCreateOrConnectWithoutSale_officeInput | departmentsCreateOrConnectWithoutSale_officeInput[]
+    createMany?: departmentsCreateManySale_officeInputEnvelope
+    connect?: departmentsWhereUniqueInput | departmentsWhereUniqueInput[]
+  }
+
   export type user_sale_officesUncheckedCreateNestedManyWithoutSale_officeInput = {
     create?: XOR<user_sale_officesCreateWithoutSale_officeInput, user_sale_officesUncheckedCreateWithoutSale_officeInput> | user_sale_officesCreateWithoutSale_officeInput[] | user_sale_officesUncheckedCreateWithoutSale_officeInput[]
     connectOrCreate?: user_sale_officesCreateOrConnectWithoutSale_officeInput | user_sale_officesCreateOrConnectWithoutSale_officeInput[]
     createMany?: user_sale_officesCreateManySale_officeInputEnvelope
     connect?: user_sale_officesWhereUniqueInput | user_sale_officesWhereUniqueInput[]
+  }
+
+  export type departmentsUncheckedCreateNestedManyWithoutSale_officeInput = {
+    create?: XOR<departmentsCreateWithoutSale_officeInput, departmentsUncheckedCreateWithoutSale_officeInput> | departmentsCreateWithoutSale_officeInput[] | departmentsUncheckedCreateWithoutSale_officeInput[]
+    connectOrCreate?: departmentsCreateOrConnectWithoutSale_officeInput | departmentsCreateOrConnectWithoutSale_officeInput[]
+    createMany?: departmentsCreateManySale_officeInputEnvelope
+    connect?: departmentsWhereUniqueInput | departmentsWhereUniqueInput[]
   }
 
   export type user_sale_officesUpdateManyWithoutSale_officeNestedInput = {
@@ -53671,6 +55007,20 @@ export namespace Prisma {
     deleteMany?: user_sale_officesScalarWhereInput | user_sale_officesScalarWhereInput[]
   }
 
+  export type departmentsUpdateManyWithoutSale_officeNestedInput = {
+    create?: XOR<departmentsCreateWithoutSale_officeInput, departmentsUncheckedCreateWithoutSale_officeInput> | departmentsCreateWithoutSale_officeInput[] | departmentsUncheckedCreateWithoutSale_officeInput[]
+    connectOrCreate?: departmentsCreateOrConnectWithoutSale_officeInput | departmentsCreateOrConnectWithoutSale_officeInput[]
+    upsert?: departmentsUpsertWithWhereUniqueWithoutSale_officeInput | departmentsUpsertWithWhereUniqueWithoutSale_officeInput[]
+    createMany?: departmentsCreateManySale_officeInputEnvelope
+    set?: departmentsWhereUniqueInput | departmentsWhereUniqueInput[]
+    disconnect?: departmentsWhereUniqueInput | departmentsWhereUniqueInput[]
+    delete?: departmentsWhereUniqueInput | departmentsWhereUniqueInput[]
+    connect?: departmentsWhereUniqueInput | departmentsWhereUniqueInput[]
+    update?: departmentsUpdateWithWhereUniqueWithoutSale_officeInput | departmentsUpdateWithWhereUniqueWithoutSale_officeInput[]
+    updateMany?: departmentsUpdateManyWithWhereWithoutSale_officeInput | departmentsUpdateManyWithWhereWithoutSale_officeInput[]
+    deleteMany?: departmentsScalarWhereInput | departmentsScalarWhereInput[]
+  }
+
   export type user_sale_officesUncheckedUpdateManyWithoutSale_officeNestedInput = {
     create?: XOR<user_sale_officesCreateWithoutSale_officeInput, user_sale_officesUncheckedCreateWithoutSale_officeInput> | user_sale_officesCreateWithoutSale_officeInput[] | user_sale_officesUncheckedCreateWithoutSale_officeInput[]
     connectOrCreate?: user_sale_officesCreateOrConnectWithoutSale_officeInput | user_sale_officesCreateOrConnectWithoutSale_officeInput[]
@@ -53683,6 +55033,20 @@ export namespace Prisma {
     update?: user_sale_officesUpdateWithWhereUniqueWithoutSale_officeInput | user_sale_officesUpdateWithWhereUniqueWithoutSale_officeInput[]
     updateMany?: user_sale_officesUpdateManyWithWhereWithoutSale_officeInput | user_sale_officesUpdateManyWithWhereWithoutSale_officeInput[]
     deleteMany?: user_sale_officesScalarWhereInput | user_sale_officesScalarWhereInput[]
+  }
+
+  export type departmentsUncheckedUpdateManyWithoutSale_officeNestedInput = {
+    create?: XOR<departmentsCreateWithoutSale_officeInput, departmentsUncheckedCreateWithoutSale_officeInput> | departmentsCreateWithoutSale_officeInput[] | departmentsUncheckedCreateWithoutSale_officeInput[]
+    connectOrCreate?: departmentsCreateOrConnectWithoutSale_officeInput | departmentsCreateOrConnectWithoutSale_officeInput[]
+    upsert?: departmentsUpsertWithWhereUniqueWithoutSale_officeInput | departmentsUpsertWithWhereUniqueWithoutSale_officeInput[]
+    createMany?: departmentsCreateManySale_officeInputEnvelope
+    set?: departmentsWhereUniqueInput | departmentsWhereUniqueInput[]
+    disconnect?: departmentsWhereUniqueInput | departmentsWhereUniqueInput[]
+    delete?: departmentsWhereUniqueInput | departmentsWhereUniqueInput[]
+    connect?: departmentsWhereUniqueInput | departmentsWhereUniqueInput[]
+    update?: departmentsUpdateWithWhereUniqueWithoutSale_officeInput | departmentsUpdateWithWhereUniqueWithoutSale_officeInput[]
+    updateMany?: departmentsUpdateManyWithWhereWithoutSale_officeInput | departmentsUpdateManyWithWhereWithoutSale_officeInput[]
+    deleteMany?: departmentsScalarWhereInput | departmentsScalarWhereInput[]
   }
 
   export type sale_officesCreateNestedOneWithoutUser_sale_officeInput = {
@@ -53711,6 +55075,20 @@ export namespace Prisma {
     upsert?: userUpsertWithoutUser_sale_officeInput
     connect?: userWhereUniqueInput
     update?: XOR<XOR<userUpdateToOneWithWhereWithoutUser_sale_officeInput, userUpdateWithoutUser_sale_officeInput>, userUncheckedUpdateWithoutUser_sale_officeInput>
+  }
+
+  export type sale_officesCreateNestedOneWithoutDepartmentsInput = {
+    create?: XOR<sale_officesCreateWithoutDepartmentsInput, sale_officesUncheckedCreateWithoutDepartmentsInput>
+    connectOrCreate?: sale_officesCreateOrConnectWithoutDepartmentsInput
+    connect?: sale_officesWhereUniqueInput
+  }
+
+  export type sale_officesUpdateOneRequiredWithoutDepartmentsNestedInput = {
+    create?: XOR<sale_officesCreateWithoutDepartmentsInput, sale_officesUncheckedCreateWithoutDepartmentsInput>
+    connectOrCreate?: sale_officesCreateOrConnectWithoutDepartmentsInput
+    upsert?: sale_officesUpsertWithoutDepartmentsInput
+    connect?: sale_officesWhereUniqueInput
+    update?: XOR<XOR<sale_officesUpdateToOneWithWhereWithoutDepartmentsInput, sale_officesUpdateWithoutDepartmentsInput>, sale_officesUncheckedUpdateWithoutDepartmentsInput>
   }
 
   export type FloatFieldUpdateOperationsInput = {
@@ -54127,6 +55505,43 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type departmentsCreateWithoutSale_officeInput = {
+    department_code: string
+    description: string
+    group_code: string
+    ship_id: number
+    is_default: boolean
+    name_th: string
+    name_en: string
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type departmentsUncheckedCreateWithoutSale_officeInput = {
+    id?: number
+    department_code: string
+    description: string
+    group_code: string
+    ship_id: number
+    is_default: boolean
+    name_th: string
+    name_en: string
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type departmentsCreateOrConnectWithoutSale_officeInput = {
+    where: departmentsWhereUniqueInput
+    create: XOR<departmentsCreateWithoutSale_officeInput, departmentsUncheckedCreateWithoutSale_officeInput>
+  }
+
+  export type departmentsCreateManySale_officeInputEnvelope = {
+    data: departmentsCreateManySale_officeInput | departmentsCreateManySale_officeInput[]
+    skipDuplicates?: boolean
+  }
+
   export type user_sale_officesUpsertWithWhereUniqueWithoutSale_officeInput = {
     where: user_sale_officesWhereUniqueInput
     update: XOR<user_sale_officesUpdateWithoutSale_officeInput, user_sale_officesUncheckedUpdateWithoutSale_officeInput>
@@ -54143,6 +55558,40 @@ export namespace Prisma {
     data: XOR<user_sale_officesUpdateManyMutationInput, user_sale_officesUncheckedUpdateManyWithoutSale_officeInput>
   }
 
+  export type departmentsUpsertWithWhereUniqueWithoutSale_officeInput = {
+    where: departmentsWhereUniqueInput
+    update: XOR<departmentsUpdateWithoutSale_officeInput, departmentsUncheckedUpdateWithoutSale_officeInput>
+    create: XOR<departmentsCreateWithoutSale_officeInput, departmentsUncheckedCreateWithoutSale_officeInput>
+  }
+
+  export type departmentsUpdateWithWhereUniqueWithoutSale_officeInput = {
+    where: departmentsWhereUniqueInput
+    data: XOR<departmentsUpdateWithoutSale_officeInput, departmentsUncheckedUpdateWithoutSale_officeInput>
+  }
+
+  export type departmentsUpdateManyWithWhereWithoutSale_officeInput = {
+    where: departmentsScalarWhereInput
+    data: XOR<departmentsUpdateManyMutationInput, departmentsUncheckedUpdateManyWithoutSale_officeInput>
+  }
+
+  export type departmentsScalarWhereInput = {
+    AND?: departmentsScalarWhereInput | departmentsScalarWhereInput[]
+    OR?: departmentsScalarWhereInput[]
+    NOT?: departmentsScalarWhereInput | departmentsScalarWhereInput[]
+    id?: IntFilter<"departments"> | number
+    department_code?: StringFilter<"departments"> | string
+    sale_office_id?: IntFilter<"departments"> | number
+    description?: StringFilter<"departments"> | string
+    group_code?: StringFilter<"departments"> | string
+    ship_id?: IntFilter<"departments"> | number
+    is_default?: BoolFilter<"departments"> | boolean
+    name_th?: StringFilter<"departments"> | string
+    name_en?: StringFilter<"departments"> | string
+    status?: BoolFilter<"departments"> | boolean
+    create_at?: DateTimeFilter<"departments"> | Date | string
+    update_at?: DateTimeFilter<"departments"> | Date | string
+  }
+
   export type sale_officesCreateWithoutUser_sale_officeInput = {
     site_code: string
     site_office_name_th: string
@@ -54150,6 +55599,7 @@ export namespace Prisma {
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
+    departments?: departmentsCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesUncheckedCreateWithoutUser_sale_officeInput = {
@@ -54160,6 +55610,7 @@ export namespace Prisma {
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
+    departments?: departmentsUncheckedCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesCreateOrConnectWithoutUser_sale_officeInput = {
@@ -54221,6 +55672,7 @@ export namespace Prisma {
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    departments?: departmentsUpdateManyWithoutSale_officeNestedInput
   }
 
   export type sale_officesUncheckedUpdateWithoutUser_sale_officeInput = {
@@ -54231,6 +55683,7 @@ export namespace Prisma {
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    departments?: departmentsUncheckedUpdateManyWithoutSale_officeNestedInput
   }
 
   export type userUpsertWithoutUser_sale_officeInput = {
@@ -54273,6 +55726,64 @@ export namespace Prisma {
     remember_token?: NullableStringFieldUpdateOperationsInput | string | null
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type sale_officesCreateWithoutDepartmentsInput = {
+    site_code: string
+    site_office_name_th: string
+    site_office_name_en: string
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    user_sale_office?: user_sale_officesCreateNestedManyWithoutSale_officeInput
+  }
+
+  export type sale_officesUncheckedCreateWithoutDepartmentsInput = {
+    id?: number
+    site_code: string
+    site_office_name_th: string
+    site_office_name_en: string
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    user_sale_office?: user_sale_officesUncheckedCreateNestedManyWithoutSale_officeInput
+  }
+
+  export type sale_officesCreateOrConnectWithoutDepartmentsInput = {
+    where: sale_officesWhereUniqueInput
+    create: XOR<sale_officesCreateWithoutDepartmentsInput, sale_officesUncheckedCreateWithoutDepartmentsInput>
+  }
+
+  export type sale_officesUpsertWithoutDepartmentsInput = {
+    update: XOR<sale_officesUpdateWithoutDepartmentsInput, sale_officesUncheckedUpdateWithoutDepartmentsInput>
+    create: XOR<sale_officesCreateWithoutDepartmentsInput, sale_officesUncheckedCreateWithoutDepartmentsInput>
+    where?: sale_officesWhereInput
+  }
+
+  export type sale_officesUpdateToOneWithWhereWithoutDepartmentsInput = {
+    where?: sale_officesWhereInput
+    data: XOR<sale_officesUpdateWithoutDepartmentsInput, sale_officesUncheckedUpdateWithoutDepartmentsInput>
+  }
+
+  export type sale_officesUpdateWithoutDepartmentsInput = {
+    site_code?: StringFieldUpdateOperationsInput | string
+    site_office_name_th?: StringFieldUpdateOperationsInput | string
+    site_office_name_en?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    user_sale_office?: user_sale_officesUpdateManyWithoutSale_officeNestedInput
+  }
+
+  export type sale_officesUncheckedUpdateWithoutDepartmentsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    site_code?: StringFieldUpdateOperationsInput | string
+    site_office_name_th?: StringFieldUpdateOperationsInput | string
+    site_office_name_en?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    user_sale_office?: user_sale_officesUncheckedUpdateManyWithoutSale_officeNestedInput
   }
 
   export type unregistered_itemsCreateWithoutDirty_detailsInput = {
@@ -54449,6 +55960,20 @@ export namespace Prisma {
     update_at?: Date | string
   }
 
+  export type departmentsCreateManySale_officeInput = {
+    id?: number
+    department_code: string
+    description: string
+    group_code: string
+    ship_id: number
+    is_default: boolean
+    name_th: string
+    name_en: string
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
   export type user_sale_officesUpdateWithoutSale_officeInput = {
     role?: NullableStringFieldUpdateOperationsInput | string | null
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -54468,6 +55993,47 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     user_id?: IntFieldUpdateOperationsInput | number
     role?: NullableStringFieldUpdateOperationsInput | string | null
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type departmentsUpdateWithoutSale_officeInput = {
+    department_code?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    group_code?: StringFieldUpdateOperationsInput | string
+    ship_id?: IntFieldUpdateOperationsInput | number
+    is_default?: BoolFieldUpdateOperationsInput | boolean
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type departmentsUncheckedUpdateWithoutSale_officeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    department_code?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    group_code?: StringFieldUpdateOperationsInput | string
+    ship_id?: IntFieldUpdateOperationsInput | number
+    is_default?: BoolFieldUpdateOperationsInput | boolean
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type departmentsUncheckedUpdateManyWithoutSale_officeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    department_code?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    group_code?: StringFieldUpdateOperationsInput | string
+    ship_id?: IntFieldUpdateOperationsInput | number
+    is_default?: BoolFieldUpdateOperationsInput | boolean
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }

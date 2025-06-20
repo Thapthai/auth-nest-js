@@ -13,8 +13,12 @@ export class DepartmentsService {
     });
   }
 
+
   async findAll() {
     return this.prisma.departments.findMany({
+      include: {
+        sale_office: true,
+      },
       orderBy: { id: 'desc' },
     });
   }

@@ -20,12 +20,12 @@ exports.Prisma = Prisma
 exports.$Enums = {}
 
 /**
- * Prisma Client JS version: 6.10.0
- * Query Engine version: aee10d5a411e4360c6d3445ce4810ca65adbf3e8
+ * Prisma Client JS version: 6.10.1
+ * Query Engine version: 9b628578b3b7cae625e8c927178f15a170e74a9c
  */
 Prisma.prismaVersion = {
-  client: "6.10.0",
-  engine: "aee10d5a411e4360c6d3445ce4810ca65adbf3e8"
+  client: "6.10.1",
+  engine: "9b628578b3b7cae625e8c927178f15a170e74a9c"
 }
 
 Prisma.PrismaClientKnownRequestError = () => {
@@ -161,6 +161,16 @@ exports.Prisma.NotificationsScalarFieldEnum = {
   message: 'message',
   type: 'type',
   is_read: 'is_read',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
+exports.Prisma.PermissionScalarFieldEnum = {
+  id: 'id',
+  name_th: 'name_th',
+  name_en: 'name_en',
+  description: 'description',
+  status: 'status',
   create_at: 'create_at',
   update_at: 'update_at'
 };
@@ -687,6 +697,12 @@ exports.Prisma.notificationsOrderByRelevanceFieldEnum = {
   type: 'type'
 };
 
+exports.Prisma.permissionOrderByRelevanceFieldEnum = {
+  name_th: 'name_th',
+  name_en: 'name_en',
+  description: 'description'
+};
+
 exports.Prisma.sale_officesOrderByRelevanceFieldEnum = {
   site_code: 'site_code',
   site_office_name_th: 'site_office_name_th',
@@ -857,6 +873,7 @@ exports.Prisma.ModelName = {
   verification_token: 'verification_token',
   password_reset_token: 'password_reset_token',
   notifications: 'notifications',
+  permission: 'permission',
   sale_offices: 'sale_offices',
   user_sale_offices: 'user_sale_offices',
   departments: 'departments',

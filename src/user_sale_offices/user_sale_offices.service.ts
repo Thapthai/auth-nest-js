@@ -47,6 +47,40 @@ export class UserSaleOfficesService {
     });
   }
 
+
+  async updateUserSaleOffice(id: number, userSaleOfficedto: UpdateUserSaleOfficeDto) {
+    const { sale_office_ids } = userSaleOfficedto;
+
+    const currentOffices = await this.prisma.user_sale_offices.findMany({
+      where: { user_id: id },
+      select: { sale_office_id: true },
+    });
+
+    const currentIds = currentOffices.map((o) => o.sale_office_id);
+
+    const toAdd = sale_office_ids.filter((id) => !currentIds.includes(id));
+
+    const toRemove = currentIds.filter((id) => !sale_office_ids.includes(id));
+
+    await this.prisma.user_sale_offices.createMany({
+      data: toAdd.map((sale_office_id) => ({
+        user_id: id,
+        sale_office_id,
+      })),
+      skipDuplicates: true,
+    });
+
+    await this.prisma.user_sale_offices.deleteMany({
+      where: {
+        user_id: id,
+        sale_office_id: { in: toRemove },
+      },
+    });
+
+    return { message: 'Updated successfully' };
+  }
+
+
   remove(id: number) {
     return this.prisma.user_sale_offices.delete({ where: { id } });
   }

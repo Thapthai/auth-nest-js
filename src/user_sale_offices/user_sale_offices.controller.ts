@@ -32,6 +32,11 @@ export class UserSaleOfficesController {
     return this.userSaleOfficesService.update(+id, updateUserSaleOfficeDto);
   }
 
+  @Patch('/user/:id/sale-offices')
+  updateUserSaleOffice(@Param('id') id: string, @Body() updateUserSaleOfficeDto: UpdateUserSaleOfficeDto) {
+    return this.userSaleOfficesService.updateUserSaleOffice(+id, updateUserSaleOfficeDto);
+  }
+
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.userSaleOfficesService.remove(+id);

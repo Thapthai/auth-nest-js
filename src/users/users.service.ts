@@ -85,12 +85,14 @@ export class UsersService {
       select: {
         name: true,
         email: true,
+        id:true,
+        permission_id: true,
         user_sale_office: {
           select: {
             sale_office_id: true,
             // หากต้องการดึง sale office ชื่อด้วย:
             sale_office: {
-      
+
             }
           }
         }
@@ -103,9 +105,15 @@ export class UsersService {
     return `This action returns a #${id} user`;
   }
 
-  update(id: number, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`;
+  async update(id: number, updateUserDto: UpdateUserDto) {
+    await this.prisma.user.update({
+      where: { id },
+      data: updateUserDto,
+    });
+
+    return { message: 'update successful' };
   }
+
 
   remove(id: number) {
     return `This action removes a #${id} user`;

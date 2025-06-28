@@ -13,15 +13,74 @@ export class DepartmentsService {
     });
   }
 
-
   async findAll() {
     return this.prisma.departments.findMany({
       include: {
-        sale_office: true,
+        sale_office: false,
       },
       orderBy: { id: 'desc' },
     });
   }
+
+
+  async findAllBySaleOffice({ page, pageSize, keyword, saleOfficeId }: {
+    page: number;
+    pageSize: number;
+    keyword: string;
+    saleOfficeId?: number;
+  }) {
+    const skip = (page - 1) * pageSize;
+
+    // นับจำนวนรวมก่อน (total)
+    const total = await this.prisma.departments.count({
+      where: {
+        AND: [
+          saleOfficeId ? { sale_office_id: saleOfficeId } : {},
+          {
+            OR: [
+              { name_th: { contains: keyword } },
+              { name_en: { contains: keyword } },
+              { department_code: { contains: keyword } },
+              { description: { contains: keyword } },
+            ],
+          },
+        ],
+      },
+    });
+
+    // ดึงข้อมูลแบบ paginate
+    const items = await this.prisma.departments.findMany({
+      where: {
+        AND: [
+          saleOfficeId ? { sale_office_id: saleOfficeId } : {},
+          {
+            OR: [
+              { name_th: { contains: keyword } },
+              { name_en: { contains: keyword } },
+              { department_code: { contains: keyword } },
+              { description: { contains: keyword } },
+            ],
+          },
+        ],
+      },
+      skip,
+      take: pageSize,
+      orderBy: { id: 'asc' },
+      select: {
+        id: true,
+        department_code: true,
+        name_th: true,
+        name_en: true,
+        description: true,
+        status: true,
+        create_at: true,
+        update_at: true,
+      },
+    });
+
+    return { items, total };
+  }
+
 
   async findOne(id: number) {
     const department = await this.prisma.departments.findUnique({

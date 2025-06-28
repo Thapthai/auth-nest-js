@@ -90,7 +90,6 @@ export class UsersService {
         user_sale_office: {
           select: {
             sale_office_id: true,
-            // หากต้องการดึง sale office ชื่อด้วย:
             sale_office: {
 
             }

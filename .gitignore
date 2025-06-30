@@ -54,3 +54,26 @@ pids
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+docker-compose.prod.yml
+
+# Database backups
+*.sql
+backup_*.sql
+
+# Generated Prisma files (keep the generated directory but ignore specific files)
+/generated/prisma/client.js
+/generated/prisma/client.d.ts
+/generated/prisma/index.js
+/generated/prisma/index.d.ts
+/generated/prisma/libquery_engine-*
+/generated/prisma/wasm.*
+/generated/prisma/edge.*
+/generated/prisma/default.*
+/generated/prisma/index-browser.*
+/generated/prisma/runtime/
+/generated/prisma/package.json
+/generated/prisma/schema.prisma

@@ -1,5 +1,5 @@
-# Use Node.js 18 Alpine as base image
-FROM node:18-alpine AS base
+# Use Node.js 18 as base image
+FROM node:18 AS base
 
 # Install dependencies only when needed
 FROM base AS deps
@@ -30,8 +30,8 @@ WORKDIR /app
 ENV NODE_ENV production
 
 # Create a non-root user
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 nestjs
+RUN groupadd --system --gid 1001 nodejs
+RUN useradd --system --uid 1001 nestjs
 
 # Copy the built application
 COPY --from=builder /app/dist ./dist

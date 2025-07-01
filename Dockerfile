@@ -31,6 +31,9 @@ ENV NODE_ENV production
 RUN groupadd --system --gid 1001 nodejs
 RUN useradd --system --uid 1001 nestjs
 
+# Create npm cache directory with proper permissions
+RUN mkdir -p /home/nestjs/.npm && chown -R nestjs:nodejs /home/nestjs
+
 # Copy the built application
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/generated ./generated

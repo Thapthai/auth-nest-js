@@ -4129,13 +4129,13 @@ export namespace Prisma {
    */
 
   export type Sale_officesCountOutputType = {
-    user_sale_office: number
     departments: number
+    user_sale_office: number
   }
 
   export type Sale_officesCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user_sale_office?: boolean | Sale_officesCountOutputTypeCountUser_sale_officeArgs
     departments?: boolean | Sale_officesCountOutputTypeCountDepartmentsArgs
+    user_sale_office?: boolean | Sale_officesCountOutputTypeCountUser_sale_officeArgs
   }
 
   // Custom InputTypes
@@ -4152,15 +4152,15 @@ export namespace Prisma {
   /**
    * Sale_officesCountOutputType without action
    */
-  export type Sale_officesCountOutputTypeCountUser_sale_officeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: user_sale_officesWhereInput
+  export type Sale_officesCountOutputTypeCountDepartmentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: departmentsWhereInput
   }
 
   /**
    * Sale_officesCountOutputType without action
    */
-  export type Sale_officesCountOutputTypeCountDepartmentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: departmentsWhereInput
+  export type Sale_officesCountOutputTypeCountUser_sale_officeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: user_sale_officesWhereInput
   }
 
 
@@ -9205,8 +9205,8 @@ export namespace Prisma {
     status?: boolean
     create_at?: boolean
     update_at?: boolean
-    user_sale_office?: boolean | sale_offices$user_sale_officeArgs<ExtArgs>
     departments?: boolean | sale_offices$departmentsArgs<ExtArgs>
+    user_sale_office?: boolean | sale_offices$user_sale_officeArgs<ExtArgs>
     _count?: boolean | Sale_officesCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["sale_offices"]>
 
@@ -9224,16 +9224,16 @@ export namespace Prisma {
 
   export type sale_officesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "site_code" | "site_office_name_th" | "site_office_name_en" | "status" | "create_at" | "update_at", ExtArgs["result"]["sale_offices"]>
   export type sale_officesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user_sale_office?: boolean | sale_offices$user_sale_officeArgs<ExtArgs>
     departments?: boolean | sale_offices$departmentsArgs<ExtArgs>
+    user_sale_office?: boolean | sale_offices$user_sale_officeArgs<ExtArgs>
     _count?: boolean | Sale_officesCountOutputTypeDefaultArgs<ExtArgs>
   }
 
   export type $sale_officesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "sale_offices"
     objects: {
-      user_sale_office: Prisma.$user_sale_officesPayload<ExtArgs>[]
       departments: Prisma.$departmentsPayload<ExtArgs>[]
+      user_sale_office: Prisma.$user_sale_officesPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -9583,8 +9583,8 @@ export namespace Prisma {
    */
   export interface Prisma__sale_officesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    user_sale_office<T extends sale_offices$user_sale_officeArgs<ExtArgs> = {}>(args?: Subset<T, sale_offices$user_sale_officeArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$user_sale_officesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     departments<T extends sale_offices$departmentsArgs<ExtArgs> = {}>(args?: Subset<T, sale_offices$departmentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$departmentsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    user_sale_office<T extends sale_offices$user_sale_officeArgs<ExtArgs> = {}>(args?: Subset<T, sale_offices$user_sale_officeArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$user_sale_officesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -9964,30 +9964,6 @@ export namespace Prisma {
   }
 
   /**
-   * sale_offices.user_sale_office
-   */
-  export type sale_offices$user_sale_officeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the user_sale_offices
-     */
-    select?: user_sale_officesSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the user_sale_offices
-     */
-    omit?: user_sale_officesOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: user_sale_officesInclude<ExtArgs> | null
-    where?: user_sale_officesWhereInput
-    orderBy?: user_sale_officesOrderByWithRelationInput | user_sale_officesOrderByWithRelationInput[]
-    cursor?: user_sale_officesWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: User_sale_officesScalarFieldEnum | User_sale_officesScalarFieldEnum[]
-  }
-
-  /**
    * sale_offices.departments
    */
   export type sale_offices$departmentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -10009,6 +9985,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: DepartmentsScalarFieldEnum | DepartmentsScalarFieldEnum[]
+  }
+
+  /**
+   * sale_offices.user_sale_office
+   */
+  export type sale_offices$user_sale_officeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the user_sale_offices
+     */
+    select?: user_sale_officesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the user_sale_offices
+     */
+    omit?: user_sale_officesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: user_sale_officesInclude<ExtArgs> | null
+    where?: user_sale_officesWhereInput
+    orderBy?: user_sale_officesOrderByWithRelationInput | user_sale_officesOrderByWithRelationInput[]
+    cursor?: user_sale_officesWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: User_sale_officesScalarFieldEnum | User_sale_officesScalarFieldEnum[]
   }
 
   /**
@@ -45550,8 +45550,8 @@ export namespace Prisma {
     status?: BoolFilter<"sale_offices"> | boolean
     create_at?: DateTimeFilter<"sale_offices"> | Date | string
     update_at?: DateTimeFilter<"sale_offices"> | Date | string
-    user_sale_office?: User_sale_officesListRelationFilter
     departments?: DepartmentsListRelationFilter
+    user_sale_office?: User_sale_officesListRelationFilter
   }
 
   export type sale_officesOrderByWithRelationInput = {
@@ -45562,8 +45562,8 @@ export namespace Prisma {
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
-    user_sale_office?: user_sale_officesOrderByRelationAggregateInput
     departments?: departmentsOrderByRelationAggregateInput
+    user_sale_office?: user_sale_officesOrderByRelationAggregateInput
     _relevance?: sale_officesOrderByRelevanceInput
   }
 
@@ -45578,8 +45578,8 @@ export namespace Prisma {
     status?: BoolFilter<"sale_offices"> | boolean
     create_at?: DateTimeFilter<"sale_offices"> | Date | string
     update_at?: DateTimeFilter<"sale_offices"> | Date | string
-    user_sale_office?: User_sale_officesListRelationFilter
     departments?: DepartmentsListRelationFilter
+    user_sale_office?: User_sale_officesListRelationFilter
   }, "id">
 
   export type sale_officesOrderByWithAggregationInput = {
@@ -48894,8 +48894,8 @@ export namespace Prisma {
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
-    user_sale_office?: user_sale_officesCreateNestedManyWithoutSale_officeInput
     departments?: departmentsCreateNestedManyWithoutSale_officeInput
+    user_sale_office?: user_sale_officesCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesUncheckedCreateInput = {
@@ -48906,8 +48906,8 @@ export namespace Prisma {
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
-    user_sale_office?: user_sale_officesUncheckedCreateNestedManyWithoutSale_officeInput
     departments?: departmentsUncheckedCreateNestedManyWithoutSale_officeInput
+    user_sale_office?: user_sale_officesUncheckedCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesUpdateInput = {
@@ -48917,8 +48917,8 @@ export namespace Prisma {
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    user_sale_office?: user_sale_officesUpdateManyWithoutSale_officeNestedInput
     departments?: departmentsUpdateManyWithoutSale_officeNestedInput
+    user_sale_office?: user_sale_officesUpdateManyWithoutSale_officeNestedInput
   }
 
   export type sale_officesUncheckedUpdateInput = {
@@ -48929,8 +48929,8 @@ export namespace Prisma {
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    user_sale_office?: user_sale_officesUncheckedUpdateManyWithoutSale_officeNestedInput
     departments?: departmentsUncheckedUpdateManyWithoutSale_officeNestedInput
+    user_sale_office?: user_sale_officesUncheckedUpdateManyWithoutSale_officeNestedInput
   }
 
   export type sale_officesCreateManyInput = {
@@ -54965,13 +54965,6 @@ export namespace Prisma {
     deleteMany?: user_sale_officesScalarWhereInput | user_sale_officesScalarWhereInput[]
   }
 
-  export type user_sale_officesCreateNestedManyWithoutSale_officeInput = {
-    create?: XOR<user_sale_officesCreateWithoutSale_officeInput, user_sale_officesUncheckedCreateWithoutSale_officeInput> | user_sale_officesCreateWithoutSale_officeInput[] | user_sale_officesUncheckedCreateWithoutSale_officeInput[]
-    connectOrCreate?: user_sale_officesCreateOrConnectWithoutSale_officeInput | user_sale_officesCreateOrConnectWithoutSale_officeInput[]
-    createMany?: user_sale_officesCreateManySale_officeInputEnvelope
-    connect?: user_sale_officesWhereUniqueInput | user_sale_officesWhereUniqueInput[]
-  }
-
   export type departmentsCreateNestedManyWithoutSale_officeInput = {
     create?: XOR<departmentsCreateWithoutSale_officeInput, departmentsUncheckedCreateWithoutSale_officeInput> | departmentsCreateWithoutSale_officeInput[] | departmentsUncheckedCreateWithoutSale_officeInput[]
     connectOrCreate?: departmentsCreateOrConnectWithoutSale_officeInput | departmentsCreateOrConnectWithoutSale_officeInput[]
@@ -54979,7 +54972,7 @@ export namespace Prisma {
     connect?: departmentsWhereUniqueInput | departmentsWhereUniqueInput[]
   }
 
-  export type user_sale_officesUncheckedCreateNestedManyWithoutSale_officeInput = {
+  export type user_sale_officesCreateNestedManyWithoutSale_officeInput = {
     create?: XOR<user_sale_officesCreateWithoutSale_officeInput, user_sale_officesUncheckedCreateWithoutSale_officeInput> | user_sale_officesCreateWithoutSale_officeInput[] | user_sale_officesUncheckedCreateWithoutSale_officeInput[]
     connectOrCreate?: user_sale_officesCreateOrConnectWithoutSale_officeInput | user_sale_officesCreateOrConnectWithoutSale_officeInput[]
     createMany?: user_sale_officesCreateManySale_officeInputEnvelope
@@ -54993,18 +54986,11 @@ export namespace Prisma {
     connect?: departmentsWhereUniqueInput | departmentsWhereUniqueInput[]
   }
 
-  export type user_sale_officesUpdateManyWithoutSale_officeNestedInput = {
+  export type user_sale_officesUncheckedCreateNestedManyWithoutSale_officeInput = {
     create?: XOR<user_sale_officesCreateWithoutSale_officeInput, user_sale_officesUncheckedCreateWithoutSale_officeInput> | user_sale_officesCreateWithoutSale_officeInput[] | user_sale_officesUncheckedCreateWithoutSale_officeInput[]
     connectOrCreate?: user_sale_officesCreateOrConnectWithoutSale_officeInput | user_sale_officesCreateOrConnectWithoutSale_officeInput[]
-    upsert?: user_sale_officesUpsertWithWhereUniqueWithoutSale_officeInput | user_sale_officesUpsertWithWhereUniqueWithoutSale_officeInput[]
     createMany?: user_sale_officesCreateManySale_officeInputEnvelope
-    set?: user_sale_officesWhereUniqueInput | user_sale_officesWhereUniqueInput[]
-    disconnect?: user_sale_officesWhereUniqueInput | user_sale_officesWhereUniqueInput[]
-    delete?: user_sale_officesWhereUniqueInput | user_sale_officesWhereUniqueInput[]
     connect?: user_sale_officesWhereUniqueInput | user_sale_officesWhereUniqueInput[]
-    update?: user_sale_officesUpdateWithWhereUniqueWithoutSale_officeInput | user_sale_officesUpdateWithWhereUniqueWithoutSale_officeInput[]
-    updateMany?: user_sale_officesUpdateManyWithWhereWithoutSale_officeInput | user_sale_officesUpdateManyWithWhereWithoutSale_officeInput[]
-    deleteMany?: user_sale_officesScalarWhereInput | user_sale_officesScalarWhereInput[]
   }
 
   export type departmentsUpdateManyWithoutSale_officeNestedInput = {
@@ -55021,7 +55007,7 @@ export namespace Prisma {
     deleteMany?: departmentsScalarWhereInput | departmentsScalarWhereInput[]
   }
 
-  export type user_sale_officesUncheckedUpdateManyWithoutSale_officeNestedInput = {
+  export type user_sale_officesUpdateManyWithoutSale_officeNestedInput = {
     create?: XOR<user_sale_officesCreateWithoutSale_officeInput, user_sale_officesUncheckedCreateWithoutSale_officeInput> | user_sale_officesCreateWithoutSale_officeInput[] | user_sale_officesUncheckedCreateWithoutSale_officeInput[]
     connectOrCreate?: user_sale_officesCreateOrConnectWithoutSale_officeInput | user_sale_officesCreateOrConnectWithoutSale_officeInput[]
     upsert?: user_sale_officesUpsertWithWhereUniqueWithoutSale_officeInput | user_sale_officesUpsertWithWhereUniqueWithoutSale_officeInput[]
@@ -55047,6 +55033,20 @@ export namespace Prisma {
     update?: departmentsUpdateWithWhereUniqueWithoutSale_officeInput | departmentsUpdateWithWhereUniqueWithoutSale_officeInput[]
     updateMany?: departmentsUpdateManyWithWhereWithoutSale_officeInput | departmentsUpdateManyWithWhereWithoutSale_officeInput[]
     deleteMany?: departmentsScalarWhereInput | departmentsScalarWhereInput[]
+  }
+
+  export type user_sale_officesUncheckedUpdateManyWithoutSale_officeNestedInput = {
+    create?: XOR<user_sale_officesCreateWithoutSale_officeInput, user_sale_officesUncheckedCreateWithoutSale_officeInput> | user_sale_officesCreateWithoutSale_officeInput[] | user_sale_officesUncheckedCreateWithoutSale_officeInput[]
+    connectOrCreate?: user_sale_officesCreateOrConnectWithoutSale_officeInput | user_sale_officesCreateOrConnectWithoutSale_officeInput[]
+    upsert?: user_sale_officesUpsertWithWhereUniqueWithoutSale_officeInput | user_sale_officesUpsertWithWhereUniqueWithoutSale_officeInput[]
+    createMany?: user_sale_officesCreateManySale_officeInputEnvelope
+    set?: user_sale_officesWhereUniqueInput | user_sale_officesWhereUniqueInput[]
+    disconnect?: user_sale_officesWhereUniqueInput | user_sale_officesWhereUniqueInput[]
+    delete?: user_sale_officesWhereUniqueInput | user_sale_officesWhereUniqueInput[]
+    connect?: user_sale_officesWhereUniqueInput | user_sale_officesWhereUniqueInput[]
+    update?: user_sale_officesUpdateWithWhereUniqueWithoutSale_officeInput | user_sale_officesUpdateWithWhereUniqueWithoutSale_officeInput[]
+    updateMany?: user_sale_officesUpdateManyWithWhereWithoutSale_officeInput | user_sale_officesUpdateManyWithWhereWithoutSale_officeInput[]
+    deleteMany?: user_sale_officesScalarWhereInput | user_sale_officesScalarWhereInput[]
   }
 
   export type sale_officesCreateNestedOneWithoutUser_sale_officeInput = {
@@ -55480,31 +55480,6 @@ export namespace Prisma {
     update_at?: DateTimeFilter<"user_sale_offices"> | Date | string
   }
 
-  export type user_sale_officesCreateWithoutSale_officeInput = {
-    role?: string | null
-    create_at?: Date | string
-    update_at?: Date | string
-    user: userCreateNestedOneWithoutUser_sale_officeInput
-  }
-
-  export type user_sale_officesUncheckedCreateWithoutSale_officeInput = {
-    id?: number
-    user_id: number
-    role?: string | null
-    create_at?: Date | string
-    update_at?: Date | string
-  }
-
-  export type user_sale_officesCreateOrConnectWithoutSale_officeInput = {
-    where: user_sale_officesWhereUniqueInput
-    create: XOR<user_sale_officesCreateWithoutSale_officeInput, user_sale_officesUncheckedCreateWithoutSale_officeInput>
-  }
-
-  export type user_sale_officesCreateManySale_officeInputEnvelope = {
-    data: user_sale_officesCreateManySale_officeInput | user_sale_officesCreateManySale_officeInput[]
-    skipDuplicates?: boolean
-  }
-
   export type departmentsCreateWithoutSale_officeInput = {
     department_code: string
     description: string
@@ -55542,20 +55517,29 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type user_sale_officesUpsertWithWhereUniqueWithoutSale_officeInput = {
+  export type user_sale_officesCreateWithoutSale_officeInput = {
+    role?: string | null
+    create_at?: Date | string
+    update_at?: Date | string
+    user: userCreateNestedOneWithoutUser_sale_officeInput
+  }
+
+  export type user_sale_officesUncheckedCreateWithoutSale_officeInput = {
+    id?: number
+    user_id: number
+    role?: string | null
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type user_sale_officesCreateOrConnectWithoutSale_officeInput = {
     where: user_sale_officesWhereUniqueInput
-    update: XOR<user_sale_officesUpdateWithoutSale_officeInput, user_sale_officesUncheckedUpdateWithoutSale_officeInput>
     create: XOR<user_sale_officesCreateWithoutSale_officeInput, user_sale_officesUncheckedCreateWithoutSale_officeInput>
   }
 
-  export type user_sale_officesUpdateWithWhereUniqueWithoutSale_officeInput = {
-    where: user_sale_officesWhereUniqueInput
-    data: XOR<user_sale_officesUpdateWithoutSale_officeInput, user_sale_officesUncheckedUpdateWithoutSale_officeInput>
-  }
-
-  export type user_sale_officesUpdateManyWithWhereWithoutSale_officeInput = {
-    where: user_sale_officesScalarWhereInput
-    data: XOR<user_sale_officesUpdateManyMutationInput, user_sale_officesUncheckedUpdateManyWithoutSale_officeInput>
+  export type user_sale_officesCreateManySale_officeInputEnvelope = {
+    data: user_sale_officesCreateManySale_officeInput | user_sale_officesCreateManySale_officeInput[]
+    skipDuplicates?: boolean
   }
 
   export type departmentsUpsertWithWhereUniqueWithoutSale_officeInput = {
@@ -55590,6 +55574,22 @@ export namespace Prisma {
     status?: BoolFilter<"departments"> | boolean
     create_at?: DateTimeFilter<"departments"> | Date | string
     update_at?: DateTimeFilter<"departments"> | Date | string
+  }
+
+  export type user_sale_officesUpsertWithWhereUniqueWithoutSale_officeInput = {
+    where: user_sale_officesWhereUniqueInput
+    update: XOR<user_sale_officesUpdateWithoutSale_officeInput, user_sale_officesUncheckedUpdateWithoutSale_officeInput>
+    create: XOR<user_sale_officesCreateWithoutSale_officeInput, user_sale_officesUncheckedCreateWithoutSale_officeInput>
+  }
+
+  export type user_sale_officesUpdateWithWhereUniqueWithoutSale_officeInput = {
+    where: user_sale_officesWhereUniqueInput
+    data: XOR<user_sale_officesUpdateWithoutSale_officeInput, user_sale_officesUncheckedUpdateWithoutSale_officeInput>
+  }
+
+  export type user_sale_officesUpdateManyWithWhereWithoutSale_officeInput = {
+    where: user_sale_officesScalarWhereInput
+    data: XOR<user_sale_officesUpdateManyMutationInput, user_sale_officesUncheckedUpdateManyWithoutSale_officeInput>
   }
 
   export type sale_officesCreateWithoutUser_sale_officeInput = {
@@ -55952,14 +55952,6 @@ export namespace Prisma {
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type user_sale_officesCreateManySale_officeInput = {
-    id?: number
-    user_id: number
-    role?: string | null
-    create_at?: Date | string
-    update_at?: Date | string
-  }
-
   export type departmentsCreateManySale_officeInput = {
     id?: number
     department_code: string
@@ -55974,27 +55966,12 @@ export namespace Prisma {
     update_at?: Date | string
   }
 
-  export type user_sale_officesUpdateWithoutSale_officeInput = {
-    role?: NullableStringFieldUpdateOperationsInput | string | null
-    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: userUpdateOneRequiredWithoutUser_sale_officeNestedInput
-  }
-
-  export type user_sale_officesUncheckedUpdateWithoutSale_officeInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    user_id?: IntFieldUpdateOperationsInput | number
-    role?: NullableStringFieldUpdateOperationsInput | string | null
-    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type user_sale_officesUncheckedUpdateManyWithoutSale_officeInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    user_id?: IntFieldUpdateOperationsInput | number
-    role?: NullableStringFieldUpdateOperationsInput | string | null
-    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  export type user_sale_officesCreateManySale_officeInput = {
+    id?: number
+    user_id: number
+    role?: string | null
+    create_at?: Date | string
+    update_at?: Date | string
   }
 
   export type departmentsUpdateWithoutSale_officeInput = {
@@ -56034,6 +56011,29 @@ export namespace Prisma {
     name_th?: StringFieldUpdateOperationsInput | string
     name_en?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type user_sale_officesUpdateWithoutSale_officeInput = {
+    role?: NullableStringFieldUpdateOperationsInput | string | null
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: userUpdateOneRequiredWithoutUser_sale_officeNestedInput
+  }
+
+  export type user_sale_officesUncheckedUpdateWithoutSale_officeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    user_id?: IntFieldUpdateOperationsInput | number
+    role?: NullableStringFieldUpdateOperationsInput | string | null
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type user_sale_officesUncheckedUpdateManyWithoutSale_officeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    user_id?: IntFieldUpdateOperationsInput | number
+    role?: NullableStringFieldUpdateOperationsInput | string | null
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }

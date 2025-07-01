@@ -74,8 +74,8 @@ model sale_offices {
   status              Boolean
   create_at           DateTime            @default(now())
   update_at           DateTime            @updatedAt
-  user_sale_office    user_sale_offices[]
   departments         departments[]
+  user_sale_office    user_sale_offices[]
 }
 
 model user_sale_offices {
@@ -83,19 +83,19 @@ model user_sale_offices {
   user_id        Int
   sale_office_id Int
   role           String?
-  sale_office    sale_offices @relation(fields: [sale_office_id], references: [id])
-  user           user         @relation(fields: [user_id], references: [id])
   create_at      DateTime     @default(now())
   update_at      DateTime     @updatedAt
+  sale_office    sale_offices @relation(fields: [sale_office_id], references: [id])
+  user           user         @relation(fields: [user_id], references: [id])
 
-  @@unique([user_id, sale_office_id]) // unique constraint แทน composite key
+  @@unique([user_id, sale_office_id])
+  @@index([sale_office_id], map: "user_sale_offices_sale_office_id_fkey")
 }
 
 model departments {
   id              Int          @id @default(autoincrement())
   department_code String
   sale_office_id  Int
-  sale_office     sale_offices @relation(fields: [sale_office_id], references: [id]) // ✅ ความสัมพันธ์
   description     String
   group_code      String
   ship_id         Int
@@ -105,6 +105,9 @@ model departments {
   status          Boolean
   create_at       DateTime     @default(now())
   update_at       DateTime     @updatedAt
+  sale_office     sale_offices @relation(fields: [sale_office_id], references: [id])
+
+  @@index([sale_office_id], map: "departments_sale_office_id_fkey")
 }
 
 model factory_sale_office {
@@ -256,7 +259,7 @@ model dirties {
 }
 
 model dirty_details {
-  id                   Int      @id @default(autoincrement())
+  id                   Int                 @id @default(autoincrement())
   dirty_id             Int
   department_id        Int
   item_id              Int
@@ -268,10 +271,11 @@ model dirty_details {
   is_cancel            Boolean
   unregistered_item_id Int?
   status               Boolean
-  create_at            DateTime @default(now())
-  update_at            DateTime @updatedAt
+  create_at            DateTime            @default(now())
+  update_at            DateTime            @updatedAt
+  unregistered_item    unregistered_items? @relation(fields: [unregistered_item_id], references: [id])
 
-  unregistered_item unregistered_items? @relation(fields: [unregistered_item_id], references: [id])
+  @@index([unregistered_item_id], map: "dirty_details_unregistered_item_id_fkey")
 }
 
 model dirty_detail_rounds {
@@ -327,8 +331,8 @@ model shelfcounts {
   shelfcount_doc_no String
   department_id     Int
   is_request        Boolean
-  delivery_time     DateTime //รอบส่ง
-  sc_time           DateTime //รอบนับผ้า
+  delivery_time     DateTime
+  sc_time           DateTime
   is_mobile         Boolean
   complete_user     String
   complete_date     DateTime
@@ -347,8 +351,8 @@ model shelfcount_details {
   item_id        Int
   unit_id        Int
   par_qty        Float
-  cc_qty         Float //ยอดนับ
-  total_qty      Float //ยอดรวม
+  cc_qty         Float
+  total_qty      Float
   over_par       Float
   short          Float
   over           Float

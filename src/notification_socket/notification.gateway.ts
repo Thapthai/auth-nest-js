@@ -1,10 +1,16 @@
 import { WebSocketGateway, WebSocketServer, SubscribeMessage, MessageBody } from '@nestjs/websockets';
 import { NotificationService } from './notification.service';
-import { CreateNotificationDto } from './dto/create-notification.dto';
-import { UpdateNotificationDto } from './dto/update-notification.dto';
 import { Server, Socket } from 'socket.io';
 
-@WebSocketGateway()
+@WebSocketGateway({
+  cors: {
+    origin: [
+      'http://localhost:3005',
+      'http://10.11.9.43:3005'
+    ],
+    credentials: true
+  }
+})
 export class NotificationGateway {
   constructor(private readonly notificationService: NotificationService) { }
 

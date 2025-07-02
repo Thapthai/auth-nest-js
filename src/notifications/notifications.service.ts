@@ -4,6 +4,7 @@ import { UpdateNotificationDto } from './dto/update-notification.dto';
 import { JwtService } from '@nestjs/jwt';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { FindByuserIdDto } from './dto/findByuserId.dto';
+import { NotificationGateway } from '../notification_socket/notification.gateway';
 import { count } from 'console';
 
 @Injectable()
@@ -12,6 +13,7 @@ export class NotificationsService {
   constructor(
     private jwtService: JwtService,
     private prisma: PrismaService,
+    private notificationGateway: NotificationGateway,
   ) { }
 
   create(createNotificationDto: CreateNotificationDto) {
@@ -74,6 +76,89 @@ export class NotificationsService {
       message: `Notification ${notificationId} marked as read.`,
       updated,
     };
+  }
+
+  async sendNotification(createNotificationDto: CreateNotificationDto) {
+    try {
+      // สร้างการแจ้งเตือนในฐานข้อมูล
+      const notification = await this.prisma.notifications.create({
+        data: {
+          user_id: createNotificationDto.user_id || 1, // default user if not specified
+          title: createNotificationDto.title,
+          message: createNotificationDto.message,
+          type: createNotificationDto.type,
+          is_read: createNotificationDto.is_read || false,
+        },
+      });
+
+      // ส่งการแจ้งเตือนผ่าน WebSocket
+      this.notificationGateway.sendNotification(notification);
+
+      return {
+        message: 'Notification sent successfully',
+        notification,
+      };
+    } catch (error) {
+      throw new Error(`Failed to send notification: ${error.message}`);
+    }
+  }
+
+  async sendNotificationToUser(userId: number, createNotificationDto: CreateNotificationDto) {
+    try {
+      // สร้างการแจ้งเตือนในฐานข้อมูล
+      const notification = await this.prisma.notifications.create({
+        data: {
+          user_id: userId,
+          title: createNotificationDto.title,
+          message: createNotificationDto.message,
+          type: createNotificationDto.type,
+          is_read: createNotificationDto.is_read || false,
+        },
+      });
+ 
+      
+
+      // ส่งการแจ้งเตือนไปยังผู้ใช้เฉพาะผ่าน WebSocket
+      this.notificationGateway.sendNotificationToUser(userId.toString(), notification);
+
+      return {
+        message: `Notification sent to user ${userId} successfully`,
+        notification,
+      };
+    } catch (error) {
+      throw new Error(`Failed to send notification to user: ${error.message}`);
+    }
+  }
+
+  async sendNotificationToMultipleUsers(userIds: number[], createNotificationDto: CreateNotificationDto) {
+    try {
+      const notifications: any[] = [];
+
+      // สร้างการแจ้งเตือนสำหรับแต่ละผู้ใช้
+      for (const userId of userIds) {
+        const notification = await this.prisma.notifications.create({
+          data: {
+            user_id: userId,
+            title: createNotificationDto.title,
+            message: createNotificationDto.message,
+            type: createNotificationDto.type,
+            is_read: createNotificationDto.is_read || false,
+          },
+        });
+
+        // ส่งการแจ้งเตือนไปยังผู้ใช้แต่ละคน
+        this.notificationGateway.sendNotificationToUser(userId.toString(), notification);
+        notifications.push(notification);
+      }
+
+      return {
+        message: `Notifications sent to ${userIds.length} users successfully`,
+        notifications,
+        count: notifications.length,
+      };
+    } catch (error) {
+      throw new Error(`Failed to send notifications to multiple users: ${error.message}`);
+    }
   }
 
 }

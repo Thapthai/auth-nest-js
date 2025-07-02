@@ -13,6 +13,29 @@ export class NotificationsController {
     return this.notificationsService.create(createNotificationDto);
   }
 
+  @Post('send')
+  async sendNotification(@Body() createNotificationDto: CreateNotificationDto) {
+    return this.notificationsService.sendNotification(createNotificationDto);
+  }
+
+  @Post('send-to-user/:userId')
+  async sendNotificationToUser(
+    @Param('userId') userId: string,
+    @Body() createNotificationDto: CreateNotificationDto
+  ) {
+    return this.notificationsService.sendNotificationToUser(+userId, createNotificationDto);
+  }
+
+  @Post('send-to-multiple-users')
+  async sendNotificationToMultipleUsers(
+    @Body() data: {
+      userIds: number[];
+      notification: CreateNotificationDto;
+    }
+  ) {
+    return this.notificationsService.sendNotificationToMultipleUsers(data.userIds, data.notification);
+  }
+
   @Get()
   findAll() {
     return this.notificationsService.findAll();

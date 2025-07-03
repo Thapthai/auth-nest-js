@@ -16,7 +16,7 @@ import { LoingDTO, RegisterDTO } from './dto';
 import { VerificationEmailDTO } from './dto/verificationEmail.dto';
 import { ResendVerificationDTO } from './dto/resendVerification.dto';
 import { ForgotPasswordDTO } from './dto/forgetPassword.dto';
-import { ResetPasswordDTO } from './dto/resetPassword.dto';
+import { ResetPasswordDTO } from './dto/resetPassword.dto'; 
 import { twoFAEnableDTO } from './dto/twoFAEnable.dto';
 import { Throttle } from '@nestjs/throttler';
 

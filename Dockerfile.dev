@@ -1,0 +1,25 @@
+# Use Node.js 18 as base image
+FROM node:18-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Install dependencies based on the preferred package manager
+COPY package.json package-lock.json* ./
+RUN npm ci
+
+# Copy source code
+COPY . .
+
+# Generate Prisma client
+RUN npx prisma generate
+
+# Expose port
+EXPOSE 3000
+
+# Set environment variables for development
+ENV NODE_ENV=development
+ENV PORT=3000
+
+# Start the application in development mode with hot reload
+CMD ["npm", "run", "start:dev"] 

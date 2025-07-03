@@ -4,17 +4,19 @@ import * as nodemailer from 'nodemailer';
 @Injectable()
 export class VerifyEmail {
     private transporter = nodemailer.createTransport({
-        host: process.env.MAIL_HOST,
-        port: Number(process.env.MAIL_PORT),
+        host: process.env.EMAIL_HOST,
+        port: Number(process.env.EMAIL_PORT),
         secure: false,
         auth: {
-            user: process.env.MAIL_USER,
-            pass: process.env.MAIL_PASS,
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PASS,
         },
     });
 
+ 
+
     async sendVerificationEmail(email: string, token: string) {
-        const url = `http://localhost:3000/auth/verify-email?token=${token}&email=${email}`;
+        const url = `${process.env.PROJECT_URL}/auth/verify-email?token=${token}&email=${email}`;
 
         const htmlContent = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px;">

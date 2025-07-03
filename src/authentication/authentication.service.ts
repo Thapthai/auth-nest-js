@@ -1,6 +1,7 @@
 import { HttpException, HttpStatus, Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
+import * as crypto from 'crypto';
 import { Prisma } from 'generated/prisma';
 import { authenticator } from 'otplib';
 import * as qrcode from 'qrcode';
@@ -46,6 +47,7 @@ export class AuthService {
           id: true
         }
       });
+      
       await this.generateVerificationToken(user.email);
 
       return user;
@@ -148,7 +150,7 @@ export class AuthService {
     });
 
     if (!user) {
-      throw new Error("Email not found");
+      throw new HttpException('EMAIL_NOT_FOUND', HttpStatus.NOT_FOUND);
     }
 
     const token = crypto.randomUUID();
@@ -167,7 +169,8 @@ export class AuthService {
         expires,
       },
     });
-
+ 
+    // ส่งอีเมลยืนยัน
     await this.sendVerifyEmail.sendVerificationEmail(email, token);
 
     return token;
@@ -179,7 +182,7 @@ export class AuthService {
     const record = await this.prisma.verification_token.findUnique({ where: { token } });
 
     if (!record || record.expires < new Date()) {
-      return res.redirect('http://localhost:3005/login');
+      return res.redirect(`${process.env.FRONTEND_URL}/login`);
     }
 
     await this.prisma.user.update({
@@ -190,8 +193,7 @@ export class AuthService {
     await this.prisma.verification_token.delete({ where: { token } });
 
     // return { message: 'Email verified successfully.' };
-    // return res.redirect('http://localhost:3005/login?verified=true');
-    return res.redirect('http://localhost:3005/verify-email-successful');
+    return res.redirect(`${process.env.FRONTEND_URL}/verify-email-successful`);
 
   }
 
@@ -251,7 +253,7 @@ export class AuthService {
       data: { email: dto.email, token, expires },
     });
 
-    const resetUrl = `http://localhost:3005/reset-password?token=${token}&email=${dto.email}`;
+    const resetUrl = `${process.env.FRONTEND_URL}/reset-password?token=${token}&email=${dto.email}`;
 
     await this.forgetPassWordEmail.sendForgetPassWordEmail(dto.email, resetUrl);
 

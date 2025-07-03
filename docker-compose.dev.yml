@@ -1,0 +1,53 @@
+
+
+services:
+  app-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: auth-nest-app-dev
+    restart: unless-stopped
+    ports:
+      - '3000:3000'
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+      - DEBUG=*
+    networks:
+      - auth-network-dev
+    volumes:
+      # Mount source code for hot reload
+      - .:/app
+      - /app/node_modules
+      - /app/generated
+    command: >
+      sh -c "
+        npx prisma generate &&
+        npm run start:dev
+      "
+
+  # Optional: Add database for local development
+  # mysql-dev:
+  #   image: mysql:8.0
+  #   container_name: mysql-dev
+  #   restart: unless-stopped
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: rootpassword
+  #     MYSQL_DATABASE: new_nlinen_dev
+  #     MYSQL_USER: devuser
+  #     MYSQL_PASSWORD: devpassword
+  #   ports:
+  #     - '3307:3306'
+  #   volumes:
+  #     - mysql_dev_data:/var/lib/mysql
+  #   networks:
+  #     - auth-network-dev
+
+volumes:
+  mysql_dev_data:
+
+networks:
+  auth-network-dev:
+    driver: bridge 

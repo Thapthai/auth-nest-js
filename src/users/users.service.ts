@@ -13,7 +13,6 @@ export class UsersService {
     private readonly sendVerifyEmail: VerifyEmail
   ) { }
 
-
   async generateVerificationToken(email: string) {
 
     const user = await this.prisma.user.findUnique({
@@ -21,11 +20,11 @@ export class UsersService {
     });
 
     if (!user) {
-      throw new Error("Email not found");
+      throw new HttpException('EMAIL_NOT_FOUND', HttpStatus.NOT_FOUND);
     }
 
     const token = crypto.randomUUID();
-    const expires = new Date(Date.now() + 1000 * 60 * 60 * 24); // 1 วัน
+    const expires = new Date(Date.now() + 1000 * 60 * 60); // 1 ชั่วโมง (สอดคล้องกับ AuthService)
 
     // ลบ token เดิม (กันซ้ำ)
     await this.prisma.verification_token.deleteMany({

@@ -1,5 +1,5 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { FactoriesService } from './factories.service';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestjs/common';
+import { FactoriesService, FindAllFactoriesQuery } from './factories.service';
 import { CreateFactoryDto } from './dto/create-factory.dto';
 import { UpdateFactoryDto } from './dto/update-factory.dto';
 
@@ -13,8 +13,18 @@ export class FactoriesController {
   }
 
   @Get()
-  findAll() {
+  findAll(@Query() query?: FindAllFactoriesQuery) {
+    // If any pagination parameters are provided, use pagination
+    if (query?.page || query?.limit || query?.search) {
+      return this.factoriesService.findAllWithPagination(query);
+    }
+    // Otherwise, return all data
     return this.factoriesService.findAll();
+  }
+
+  @Get('paginated')
+  findAllPaginated(@Query() query: FindAllFactoriesQuery) {
+    return this.factoriesService.findAllWithPagination(query);
   }
 
   @Get(':id')

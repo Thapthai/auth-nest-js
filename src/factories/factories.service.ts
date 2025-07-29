@@ -31,38 +31,45 @@ export class FactoriesService {
     });
   }
 
-  async findAllWithPagination(query: FindAllFactoriesQuery): Promise<PaginatedFactoriesResult> {
-    const { page = 1, limit = 10, search } = query;
-    const skip = (page - 1) * limit;
+  async findAllItemPagination({ page = 1, pageSize = 10, keyword = '' }: { page?: number; pageSize?: number; keyword?: string }) {
+    const skip = (page - 1) * pageSize;
 
-    // Build where clause for search
-    const where = search
-      ? {
-          OR: [
-            { name_th: { contains: search, mode: 'insensitive' } },
-            { name_en: { contains: search, mode: 'insensitive' } },
-            { address: { contains: search, mode: 'insensitive' } },
-          ],
-        }
-      : {};
+    const where: any = {};
 
-    // Get total count
-    const total = await this.prisma.factories.count({ where });
+    if (keyword) {
+      where.OR = [
+        { name_th: { contains: keyword } },
+        { name_en: { contains: keyword } },
+        { address: { contains: keyword } },
+      ];
+    }
 
-    // Get paginated data
+    const total = await this.prisma.factories.count({
+      where,
+    });
+
     const data = await this.prisma.factories.findMany({
       where,
       skip,
-      take: limit,
-      orderBy: { id: 'desc' },
+      take: pageSize,
+      orderBy: { id: 'asc' },
+      select: {
+        id: true,
+        name_th: true,
+        name_en: true,
+        address: true,
+        status: true,
+        create_at: true,
+        update_at: true,
+      },
     });
 
     return {
       data,
       total,
       page,
-      limit,
-      totalPages: Math.ceil(total / limit),
+      pageSize,
+      totalPages: Math.ceil(total / pageSize),
     };
   }
 

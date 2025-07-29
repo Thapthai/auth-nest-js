@@ -3,6 +3,7 @@ import { CreateItemDto } from './dto/create-item.dto';
 import { UpdateItemDto } from './dto/update-item.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
 
+
 @Injectable()
 export class ItemsService {
   constructor(private prisma: PrismaService) { }
@@ -30,6 +31,46 @@ export class ItemsService {
     });
   }
 
+  async findAllItemPagination({ page = 1, pageSize = 10, keyword = '' }: { page?: number; pageSize?: number; keyword?: string }) {
+    const skip = (page - 1) * pageSize;
+
+
+    const where: any = {};
+
+    if (keyword) {
+      where.OR = [
+        { name_th: { contains: keyword } },
+        { name_en: { contains: keyword } },
+      ];
+    }
+
+    const total = await this.prisma.items.count({
+      where,
+    });
+
+    const data = await this.prisma.items.findMany({
+      where,
+      skip,
+      take: pageSize,
+      orderBy: { id: 'asc' },
+      select: {
+        id: true,
+        name_th: true,
+        name_en: true,
+        status: true,
+        create_at: true,
+        update_at: true,
+      },
+    });
+
+    return {
+      data,
+      total,
+      page,
+      pageSize,
+      totalPages: Math.ceil(total / pageSize),
+    };
+  }
 
 
   async findOne(id: number) {

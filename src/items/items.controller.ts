@@ -25,6 +25,20 @@ export class ItemsController {
     return this.itemsService.findAll(department_id, with_out_id);
   }
 
+
+  @Get('item-pagination-with-search')
+  findAllItemPagination(
+    @Query('page') page = '1',
+    @Query('pageSize') pageSize = '10',
+    @Query('keyword') keyword = ''
+  ) {
+    return this.itemsService.findAllItemPagination({
+      page: Number(page),
+      pageSize: Number(pageSize),
+      keyword: keyword.trim(),
+    });
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.itemsService.findOne(+id);

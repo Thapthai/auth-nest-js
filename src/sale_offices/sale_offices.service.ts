@@ -23,17 +23,26 @@ export class SaleOfficesService {
   // }
 
 
-  findAllWithPagination({ page = 1, pageSize = 10, keyword = '' }: { page?: number; pageSize?: number; keyword?: string }) {
+  async findAllWithPagination({ page = 1, pageSize = 10, keyword = '' }: { page?: number; pageSize?: number; keyword?: string }) {
     const skip = (page - 1) * pageSize;
 
-    return this.prisma.sale_offices.findMany({
-      where: {
-        OR: [
-          { site_code: { contains: keyword } },
-          { site_office_name_th: { contains: keyword } },
-          { site_office_name_en: { contains: keyword } },
-        ],
-      },
+
+    const where: any = {};
+
+    if (keyword) {
+      where.OR = [
+        { site_code: { contains: keyword } },
+        { site_office_name_th: { contains: keyword } },
+        { site_office_name_en: { contains: keyword } },
+      ];
+    }
+
+    const total = await this.prisma.sale_offices.count({
+      where,
+    });
+
+    const data = await this.prisma.sale_offices.findMany({
+      where,
       skip,
       take: pageSize,
       orderBy: { id: 'asc' },
@@ -47,6 +56,16 @@ export class SaleOfficesService {
         update_at: true,
       },
     });
+
+    return {
+      data,
+      total,
+      page,
+      pageSize,
+      totalPages: Math.ceil(total / pageSize),
+    };
+
+
   }
 
 

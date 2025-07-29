@@ -5,7 +5,7 @@ import { UpdateFactoryDto } from './dto/update-factory.dto';
 
 @Controller('factories')
 export class FactoriesController {
-  constructor(private readonly factoriesService: FactoriesService) {}
+  constructor(private readonly factoriesService: FactoriesService) { }
 
   @Post()
   create(@Body() createFactoryDto: CreateFactoryDto) {
@@ -14,17 +14,21 @@ export class FactoriesController {
 
   @Get()
   findAll(@Query() query?: FindAllFactoriesQuery) {
-    // If any pagination parameters are provided, use pagination
-    if (query?.page || query?.limit || query?.search) {
-      return this.factoriesService.findAllWithPagination(query);
-    }
-    // Otherwise, return all data
+
     return this.factoriesService.findAll();
   }
 
   @Get('paginated')
-  findAllPaginated(@Query() query: FindAllFactoriesQuery) {
-    return this.factoriesService.findAllWithPagination(query);
+  findAllPaginated(
+    @Query('page') page = '1',
+    @Query('pageSize') pageSize = '10',
+    @Query('keyword') keyword = ''
+  ) {
+    return this.factoriesService.findAllItemPagination({
+      page: Number(page),
+      pageSize: Number(pageSize),
+      keyword: keyword.trim(),
+    });
   }
 
   @Get(':id')

@@ -20,6 +20,8 @@ import { UserSaleOfficesModule } from './user_sale_offices/user_sale_offices.mod
 import { FactorySaleOfficeModule } from './factory_sale_office/factory_sale_office.module';
 import { UsersModule } from './users/users.module';
 import { PermissionModule } from './permission/permission.module';
+import { RoundTimeDirtiesModule } from './round_time_dirties/round_time_dirties.module';
+import { RoundTimeExpressModule } from './round_time_express/round_time_express.module';
 
 @Module({
   imports: [
@@ -46,6 +48,8 @@ import { PermissionModule } from './permission/permission.module';
     FactorySaleOfficeModule,
     UsersModule,
     PermissionModule,
+    RoundTimeDirtiesModule,
+    RoundTimeExpressModule,
   ],
   controllers: [],
   providers: [

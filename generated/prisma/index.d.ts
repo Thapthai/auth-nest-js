@@ -213,6 +213,16 @@ export type retrun_wash_details = $Result.DefaultSelection<Prisma.$retrun_wash_d
  * 
  */
 export type unregistered_items = $Result.DefaultSelection<Prisma.$unregistered_itemsPayload>
+/**
+ * Model round_time_dirties
+ * 
+ */
+export type round_time_dirties = $Result.DefaultSelection<Prisma.$round_time_dirtiesPayload>
+/**
+ * Model round_time_express
+ * 
+ */
+export type round_time_express = $Result.DefaultSelection<Prisma.$round_time_expressPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -230,7 +240,7 @@ export type unregistered_items = $Result.DefaultSelection<Prisma.$unregistered_i
  */
 export class PrismaClient<
   ClientOptions extends Prisma.PrismaClientOptions = Prisma.PrismaClientOptions,
-  U = 'log' extends keyof ClientOptions ? ClientOptions['log'] extends Array<Prisma.LogLevel | Prisma.LogDefinition> ? Prisma.GetEvents<ClientOptions['log']> : never : never,
+  const U = 'log' extends keyof ClientOptions ? ClientOptions['log'] extends Array<Prisma.LogLevel | Prisma.LogDefinition> ? Prisma.GetEvents<ClientOptions['log']> : never : never,
   ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs
 > {
   [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['other'] }
@@ -738,6 +748,26 @@ export class PrismaClient<
     * ```
     */
   get unregistered_items(): Prisma.unregistered_itemsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.round_time_dirties`: Exposes CRUD operations for the **round_time_dirties** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Round_time_dirties
+    * const round_time_dirties = await prisma.round_time_dirties.findMany()
+    * ```
+    */
+  get round_time_dirties(): Prisma.round_time_dirtiesDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.round_time_express`: Exposes CRUD operations for the **round_time_express** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Round_time_expresses
+    * const round_time_expresses = await prisma.round_time_express.findMany()
+    * ```
+    */
+  get round_time_express(): Prisma.round_time_expressDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -796,8 +826,8 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 6.11.0
-   * Query Engine version: 9c30299f5a0ea26a96790e13f796dc6094db3173
+   * Prisma Client JS version: 6.13.0
+   * Query Engine version: 361e86d0ea4987e9f53a565309b3eed797a6bcbd
    */
   export type PrismaVersion = {
     client: string
@@ -1217,7 +1247,9 @@ export namespace Prisma {
     clean_details: 'clean_details',
     return_washs: 'return_washs',
     retrun_wash_details: 'retrun_wash_details',
-    unregistered_items: 'unregistered_items'
+    unregistered_items: 'unregistered_items',
+    round_time_dirties: 'round_time_dirties',
+    round_time_express: 'round_time_express'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1236,7 +1268,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "verification_token" | "password_reset_token" | "notifications" | "permission" | "sale_offices" | "user_sale_offices" | "departments" | "factory_sale_office" | "factories" | "machines" | "contact" | "materials" | "material_types" | "item_units_meaures" | "items" | "items_details" | "item_categories" | "types" | "item_prices" | "dirties" | "dirty_details" | "dirty_detail_rounds" | "customer_group_types" | "customer_groups" | "stock_locations" | "shelfcounts" | "shelfcount_details" | "damages" | "damage_details" | "ships" | "new_linens" | "new_linen_details" | "repair_washs" | "repair_wash_details" | "cleans" | "clean_details" | "return_washs" | "retrun_wash_details" | "unregistered_items"
+      modelProps: "user" | "verification_token" | "password_reset_token" | "notifications" | "permission" | "sale_offices" | "user_sale_offices" | "departments" | "factory_sale_office" | "factories" | "machines" | "contact" | "materials" | "material_types" | "item_units_meaures" | "items" | "items_details" | "item_categories" | "types" | "item_prices" | "dirties" | "dirty_details" | "dirty_detail_rounds" | "customer_group_types" | "customer_groups" | "stock_locations" | "shelfcounts" | "shelfcount_details" | "damages" | "damage_details" | "ships" | "new_linens" | "new_linen_details" | "repair_washs" | "repair_wash_details" | "cleans" | "clean_details" | "return_washs" | "retrun_wash_details" | "unregistered_items" | "round_time_dirties" | "round_time_express"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -3880,6 +3912,138 @@ export namespace Prisma {
           }
         }
       }
+      round_time_dirties: {
+        payload: Prisma.$round_time_dirtiesPayload<ExtArgs>
+        fields: Prisma.round_time_dirtiesFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.round_time_dirtiesFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$round_time_dirtiesPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.round_time_dirtiesFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$round_time_dirtiesPayload>
+          }
+          findFirst: {
+            args: Prisma.round_time_dirtiesFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$round_time_dirtiesPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.round_time_dirtiesFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$round_time_dirtiesPayload>
+          }
+          findMany: {
+            args: Prisma.round_time_dirtiesFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$round_time_dirtiesPayload>[]
+          }
+          create: {
+            args: Prisma.round_time_dirtiesCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$round_time_dirtiesPayload>
+          }
+          createMany: {
+            args: Prisma.round_time_dirtiesCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.round_time_dirtiesDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$round_time_dirtiesPayload>
+          }
+          update: {
+            args: Prisma.round_time_dirtiesUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$round_time_dirtiesPayload>
+          }
+          deleteMany: {
+            args: Prisma.round_time_dirtiesDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.round_time_dirtiesUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.round_time_dirtiesUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$round_time_dirtiesPayload>
+          }
+          aggregate: {
+            args: Prisma.Round_time_dirtiesAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateRound_time_dirties>
+          }
+          groupBy: {
+            args: Prisma.round_time_dirtiesGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Round_time_dirtiesGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.round_time_dirtiesCountArgs<ExtArgs>
+            result: $Utils.Optional<Round_time_dirtiesCountAggregateOutputType> | number
+          }
+        }
+      }
+      round_time_express: {
+        payload: Prisma.$round_time_expressPayload<ExtArgs>
+        fields: Prisma.round_time_expressFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.round_time_expressFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$round_time_expressPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.round_time_expressFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$round_time_expressPayload>
+          }
+          findFirst: {
+            args: Prisma.round_time_expressFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$round_time_expressPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.round_time_expressFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$round_time_expressPayload>
+          }
+          findMany: {
+            args: Prisma.round_time_expressFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$round_time_expressPayload>[]
+          }
+          create: {
+            args: Prisma.round_time_expressCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$round_time_expressPayload>
+          }
+          createMany: {
+            args: Prisma.round_time_expressCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.round_time_expressDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$round_time_expressPayload>
+          }
+          update: {
+            args: Prisma.round_time_expressUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$round_time_expressPayload>
+          }
+          deleteMany: {
+            args: Prisma.round_time_expressDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.round_time_expressUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.round_time_expressUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$round_time_expressPayload>
+          }
+          aggregate: {
+            args: Prisma.Round_time_expressAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateRound_time_express>
+          }
+          groupBy: {
+            args: Prisma.round_time_expressGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Round_time_expressGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.round_time_expressCountArgs<ExtArgs>
+            result: $Utils.Optional<Round_time_expressCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -3923,16 +4087,24 @@ export namespace Prisma {
     /**
      * @example
      * ```
-     * // Defaults to stdout
+     * // Shorthand for `emit: 'stdout'`
      * log: ['query', 'info', 'warn', 'error']
      * 
-     * // Emit as events
+     * // Emit as events only
      * log: [
-     *   { emit: 'stdout', level: 'query' },
-     *   { emit: 'stdout', level: 'info' },
-     *   { emit: 'stdout', level: 'warn' }
-     *   { emit: 'stdout', level: 'error' }
+     *   { emit: 'event', level: 'query' },
+     *   { emit: 'event', level: 'info' },
+     *   { emit: 'event', level: 'warn' }
+     *   { emit: 'event', level: 'error' }
      * ]
+     * 
+     * / Emit as events and log to stdout
+     * og: [
+     *  { emit: 'stdout', level: 'query' },
+     *  { emit: 'stdout', level: 'info' },
+     *  { emit: 'stdout', level: 'warn' }
+     *  { emit: 'stdout', level: 'error' }
+     * 
      * ```
      * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/logging#the-log-option).
      */
@@ -4004,6 +4176,8 @@ export namespace Prisma {
     return_washs?: return_washsOmit
     retrun_wash_details?: retrun_wash_detailsOmit
     unregistered_items?: unregistered_itemsOmit
+    round_time_dirties?: round_time_dirtiesOmit
+    round_time_express?: round_time_expressOmit
   }
 
   /* Types for Logging */
@@ -4013,10 +4187,15 @@ export namespace Prisma {
     emit: 'stdout' | 'event'
   }
 
-  export type GetLogType<T extends LogLevel | LogDefinition> = T extends LogDefinition ? T['emit'] extends 'event' ? T['level'] : never : never
-  export type GetEvents<T extends any> = T extends Array<LogLevel | LogDefinition> ?
-    GetLogType<T[0]> | GetLogType<T[1]> | GetLogType<T[2]> | GetLogType<T[3]>
-    : never
+  export type CheckIsLogLevel<T> = T extends LogLevel ? T : never;
+
+  export type GetLogType<T> = CheckIsLogLevel<
+    T extends LogDefinition ? T['level'] : T
+  >;
+
+  export type GetEvents<T extends any[]> = T extends Array<LogLevel | LogDefinition>
+    ? GetLogType<T[number]>
+    : never;
 
   export type QueryEvent = {
     timestamp: Date
@@ -4131,11 +4310,15 @@ export namespace Prisma {
   export type Sale_officesCountOutputType = {
     departments: number
     user_sale_office: number
+    round_time_dirties: number
+    round_time_express: number
   }
 
   export type Sale_officesCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     departments?: boolean | Sale_officesCountOutputTypeCountDepartmentsArgs
     user_sale_office?: boolean | Sale_officesCountOutputTypeCountUser_sale_officeArgs
+    round_time_dirties?: boolean | Sale_officesCountOutputTypeCountRound_time_dirtiesArgs
+    round_time_express?: boolean | Sale_officesCountOutputTypeCountRound_time_expressArgs
   }
 
   // Custom InputTypes
@@ -4161,6 +4344,20 @@ export namespace Prisma {
    */
   export type Sale_officesCountOutputTypeCountUser_sale_officeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: user_sale_officesWhereInput
+  }
+
+  /**
+   * Sale_officesCountOutputType without action
+   */
+  export type Sale_officesCountOutputTypeCountRound_time_dirtiesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: round_time_dirtiesWhereInput
+  }
+
+  /**
+   * Sale_officesCountOutputType without action
+   */
+  export type Sale_officesCountOutputTypeCountRound_time_expressArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: round_time_expressWhereInput
   }
 
 
@@ -9207,6 +9404,8 @@ export namespace Prisma {
     update_at?: boolean
     departments?: boolean | sale_offices$departmentsArgs<ExtArgs>
     user_sale_office?: boolean | sale_offices$user_sale_officeArgs<ExtArgs>
+    round_time_dirties?: boolean | sale_offices$round_time_dirtiesArgs<ExtArgs>
+    round_time_express?: boolean | sale_offices$round_time_expressArgs<ExtArgs>
     _count?: boolean | Sale_officesCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["sale_offices"]>
 
@@ -9226,6 +9425,8 @@ export namespace Prisma {
   export type sale_officesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     departments?: boolean | sale_offices$departmentsArgs<ExtArgs>
     user_sale_office?: boolean | sale_offices$user_sale_officeArgs<ExtArgs>
+    round_time_dirties?: boolean | sale_offices$round_time_dirtiesArgs<ExtArgs>
+    round_time_express?: boolean | sale_offices$round_time_expressArgs<ExtArgs>
     _count?: boolean | Sale_officesCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -9234,6 +9435,8 @@ export namespace Prisma {
     objects: {
       departments: Prisma.$departmentsPayload<ExtArgs>[]
       user_sale_office: Prisma.$user_sale_officesPayload<ExtArgs>[]
+      round_time_dirties: Prisma.$round_time_dirtiesPayload<ExtArgs>[]
+      round_time_express: Prisma.$round_time_expressPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -9585,6 +9788,8 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     departments<T extends sale_offices$departmentsArgs<ExtArgs> = {}>(args?: Subset<T, sale_offices$departmentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$departmentsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     user_sale_office<T extends sale_offices$user_sale_officeArgs<ExtArgs> = {}>(args?: Subset<T, sale_offices$user_sale_officeArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$user_sale_officesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    round_time_dirties<T extends sale_offices$round_time_dirtiesArgs<ExtArgs> = {}>(args?: Subset<T, sale_offices$round_time_dirtiesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$round_time_dirtiesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    round_time_express<T extends sale_offices$round_time_expressArgs<ExtArgs> = {}>(args?: Subset<T, sale_offices$round_time_expressArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$round_time_expressPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -10009,6 +10214,54 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: User_sale_officesScalarFieldEnum | User_sale_officesScalarFieldEnum[]
+  }
+
+  /**
+   * sale_offices.round_time_dirties
+   */
+  export type sale_offices$round_time_dirtiesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the round_time_dirties
+     */
+    select?: round_time_dirtiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the round_time_dirties
+     */
+    omit?: round_time_dirtiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: round_time_dirtiesInclude<ExtArgs> | null
+    where?: round_time_dirtiesWhereInput
+    orderBy?: round_time_dirtiesOrderByWithRelationInput | round_time_dirtiesOrderByWithRelationInput[]
+    cursor?: round_time_dirtiesWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Round_time_dirtiesScalarFieldEnum | Round_time_dirtiesScalarFieldEnum[]
+  }
+
+  /**
+   * sale_offices.round_time_express
+   */
+  export type sale_offices$round_time_expressArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the round_time_express
+     */
+    select?: round_time_expressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the round_time_express
+     */
+    omit?: round_time_expressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: round_time_expressInclude<ExtArgs> | null
+    where?: round_time_expressWhereInput
+    orderBy?: round_time_expressOrderByWithRelationInput | round_time_expressOrderByWithRelationInput[]
+    cursor?: round_time_expressWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Round_time_expressScalarFieldEnum | Round_time_expressScalarFieldEnum[]
   }
 
   /**
@@ -44156,6 +44409,1962 @@ export namespace Prisma {
 
 
   /**
+   * Model round_time_dirties
+   */
+
+  export type AggregateRound_time_dirties = {
+    _count: Round_time_dirtiesCountAggregateOutputType | null
+    _avg: Round_time_dirtiesAvgAggregateOutputType | null
+    _sum: Round_time_dirtiesSumAggregateOutputType | null
+    _min: Round_time_dirtiesMinAggregateOutputType | null
+    _max: Round_time_dirtiesMaxAggregateOutputType | null
+  }
+
+  export type Round_time_dirtiesAvgAggregateOutputType = {
+    id: number | null
+    sale_office_id: number | null
+  }
+
+  export type Round_time_dirtiesSumAggregateOutputType = {
+    id: number | null
+    sale_office_id: number | null
+  }
+
+  export type Round_time_dirtiesMinAggregateOutputType = {
+    id: number | null
+    sale_office_id: number | null
+    time: string | null
+    status: boolean | null
+    create_at: Date | null
+    update_at: Date | null
+  }
+
+  export type Round_time_dirtiesMaxAggregateOutputType = {
+    id: number | null
+    sale_office_id: number | null
+    time: string | null
+    status: boolean | null
+    create_at: Date | null
+    update_at: Date | null
+  }
+
+  export type Round_time_dirtiesCountAggregateOutputType = {
+    id: number
+    sale_office_id: number
+    time: number
+    status: number
+    create_at: number
+    update_at: number
+    _all: number
+  }
+
+
+  export type Round_time_dirtiesAvgAggregateInputType = {
+    id?: true
+    sale_office_id?: true
+  }
+
+  export type Round_time_dirtiesSumAggregateInputType = {
+    id?: true
+    sale_office_id?: true
+  }
+
+  export type Round_time_dirtiesMinAggregateInputType = {
+    id?: true
+    sale_office_id?: true
+    time?: true
+    status?: true
+    create_at?: true
+    update_at?: true
+  }
+
+  export type Round_time_dirtiesMaxAggregateInputType = {
+    id?: true
+    sale_office_id?: true
+    time?: true
+    status?: true
+    create_at?: true
+    update_at?: true
+  }
+
+  export type Round_time_dirtiesCountAggregateInputType = {
+    id?: true
+    sale_office_id?: true
+    time?: true
+    status?: true
+    create_at?: true
+    update_at?: true
+    _all?: true
+  }
+
+  export type Round_time_dirtiesAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which round_time_dirties to aggregate.
+     */
+    where?: round_time_dirtiesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of round_time_dirties to fetch.
+     */
+    orderBy?: round_time_dirtiesOrderByWithRelationInput | round_time_dirtiesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: round_time_dirtiesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` round_time_dirties from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` round_time_dirties.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned round_time_dirties
+    **/
+    _count?: true | Round_time_dirtiesCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Round_time_dirtiesAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Round_time_dirtiesSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Round_time_dirtiesMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Round_time_dirtiesMaxAggregateInputType
+  }
+
+  export type GetRound_time_dirtiesAggregateType<T extends Round_time_dirtiesAggregateArgs> = {
+        [P in keyof T & keyof AggregateRound_time_dirties]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateRound_time_dirties[P]>
+      : GetScalarType<T[P], AggregateRound_time_dirties[P]>
+  }
+
+
+
+
+  export type round_time_dirtiesGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: round_time_dirtiesWhereInput
+    orderBy?: round_time_dirtiesOrderByWithAggregationInput | round_time_dirtiesOrderByWithAggregationInput[]
+    by: Round_time_dirtiesScalarFieldEnum[] | Round_time_dirtiesScalarFieldEnum
+    having?: round_time_dirtiesScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Round_time_dirtiesCountAggregateInputType | true
+    _avg?: Round_time_dirtiesAvgAggregateInputType
+    _sum?: Round_time_dirtiesSumAggregateInputType
+    _min?: Round_time_dirtiesMinAggregateInputType
+    _max?: Round_time_dirtiesMaxAggregateInputType
+  }
+
+  export type Round_time_dirtiesGroupByOutputType = {
+    id: number
+    sale_office_id: number
+    time: string
+    status: boolean
+    create_at: Date
+    update_at: Date
+    _count: Round_time_dirtiesCountAggregateOutputType | null
+    _avg: Round_time_dirtiesAvgAggregateOutputType | null
+    _sum: Round_time_dirtiesSumAggregateOutputType | null
+    _min: Round_time_dirtiesMinAggregateOutputType | null
+    _max: Round_time_dirtiesMaxAggregateOutputType | null
+  }
+
+  type GetRound_time_dirtiesGroupByPayload<T extends round_time_dirtiesGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Round_time_dirtiesGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Round_time_dirtiesGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Round_time_dirtiesGroupByOutputType[P]>
+            : GetScalarType<T[P], Round_time_dirtiesGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type round_time_dirtiesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    sale_office_id?: boolean
+    time?: boolean
+    status?: boolean
+    create_at?: boolean
+    update_at?: boolean
+    sale_office?: boolean | sale_officesDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["round_time_dirties"]>
+
+
+
+  export type round_time_dirtiesSelectScalar = {
+    id?: boolean
+    sale_office_id?: boolean
+    time?: boolean
+    status?: boolean
+    create_at?: boolean
+    update_at?: boolean
+  }
+
+  export type round_time_dirtiesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "sale_office_id" | "time" | "status" | "create_at" | "update_at", ExtArgs["result"]["round_time_dirties"]>
+  export type round_time_dirtiesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    sale_office?: boolean | sale_officesDefaultArgs<ExtArgs>
+  }
+
+  export type $round_time_dirtiesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "round_time_dirties"
+    objects: {
+      sale_office: Prisma.$sale_officesPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      sale_office_id: number
+      time: string
+      status: boolean
+      create_at: Date
+      update_at: Date
+    }, ExtArgs["result"]["round_time_dirties"]>
+    composites: {}
+  }
+
+  type round_time_dirtiesGetPayload<S extends boolean | null | undefined | round_time_dirtiesDefaultArgs> = $Result.GetResult<Prisma.$round_time_dirtiesPayload, S>
+
+  type round_time_dirtiesCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<round_time_dirtiesFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Round_time_dirtiesCountAggregateInputType | true
+    }
+
+  export interface round_time_dirtiesDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['round_time_dirties'], meta: { name: 'round_time_dirties' } }
+    /**
+     * Find zero or one Round_time_dirties that matches the filter.
+     * @param {round_time_dirtiesFindUniqueArgs} args - Arguments to find a Round_time_dirties
+     * @example
+     * // Get one Round_time_dirties
+     * const round_time_dirties = await prisma.round_time_dirties.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends round_time_dirtiesFindUniqueArgs>(args: SelectSubset<T, round_time_dirtiesFindUniqueArgs<ExtArgs>>): Prisma__round_time_dirtiesClient<$Result.GetResult<Prisma.$round_time_dirtiesPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Round_time_dirties that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {round_time_dirtiesFindUniqueOrThrowArgs} args - Arguments to find a Round_time_dirties
+     * @example
+     * // Get one Round_time_dirties
+     * const round_time_dirties = await prisma.round_time_dirties.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends round_time_dirtiesFindUniqueOrThrowArgs>(args: SelectSubset<T, round_time_dirtiesFindUniqueOrThrowArgs<ExtArgs>>): Prisma__round_time_dirtiesClient<$Result.GetResult<Prisma.$round_time_dirtiesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Round_time_dirties that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {round_time_dirtiesFindFirstArgs} args - Arguments to find a Round_time_dirties
+     * @example
+     * // Get one Round_time_dirties
+     * const round_time_dirties = await prisma.round_time_dirties.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends round_time_dirtiesFindFirstArgs>(args?: SelectSubset<T, round_time_dirtiesFindFirstArgs<ExtArgs>>): Prisma__round_time_dirtiesClient<$Result.GetResult<Prisma.$round_time_dirtiesPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Round_time_dirties that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {round_time_dirtiesFindFirstOrThrowArgs} args - Arguments to find a Round_time_dirties
+     * @example
+     * // Get one Round_time_dirties
+     * const round_time_dirties = await prisma.round_time_dirties.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends round_time_dirtiesFindFirstOrThrowArgs>(args?: SelectSubset<T, round_time_dirtiesFindFirstOrThrowArgs<ExtArgs>>): Prisma__round_time_dirtiesClient<$Result.GetResult<Prisma.$round_time_dirtiesPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Round_time_dirties that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {round_time_dirtiesFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Round_time_dirties
+     * const round_time_dirties = await prisma.round_time_dirties.findMany()
+     * 
+     * // Get first 10 Round_time_dirties
+     * const round_time_dirties = await prisma.round_time_dirties.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const round_time_dirtiesWithIdOnly = await prisma.round_time_dirties.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends round_time_dirtiesFindManyArgs>(args?: SelectSubset<T, round_time_dirtiesFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$round_time_dirtiesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Round_time_dirties.
+     * @param {round_time_dirtiesCreateArgs} args - Arguments to create a Round_time_dirties.
+     * @example
+     * // Create one Round_time_dirties
+     * const Round_time_dirties = await prisma.round_time_dirties.create({
+     *   data: {
+     *     // ... data to create a Round_time_dirties
+     *   }
+     * })
+     * 
+     */
+    create<T extends round_time_dirtiesCreateArgs>(args: SelectSubset<T, round_time_dirtiesCreateArgs<ExtArgs>>): Prisma__round_time_dirtiesClient<$Result.GetResult<Prisma.$round_time_dirtiesPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Round_time_dirties.
+     * @param {round_time_dirtiesCreateManyArgs} args - Arguments to create many Round_time_dirties.
+     * @example
+     * // Create many Round_time_dirties
+     * const round_time_dirties = await prisma.round_time_dirties.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends round_time_dirtiesCreateManyArgs>(args?: SelectSubset<T, round_time_dirtiesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Round_time_dirties.
+     * @param {round_time_dirtiesDeleteArgs} args - Arguments to delete one Round_time_dirties.
+     * @example
+     * // Delete one Round_time_dirties
+     * const Round_time_dirties = await prisma.round_time_dirties.delete({
+     *   where: {
+     *     // ... filter to delete one Round_time_dirties
+     *   }
+     * })
+     * 
+     */
+    delete<T extends round_time_dirtiesDeleteArgs>(args: SelectSubset<T, round_time_dirtiesDeleteArgs<ExtArgs>>): Prisma__round_time_dirtiesClient<$Result.GetResult<Prisma.$round_time_dirtiesPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Round_time_dirties.
+     * @param {round_time_dirtiesUpdateArgs} args - Arguments to update one Round_time_dirties.
+     * @example
+     * // Update one Round_time_dirties
+     * const round_time_dirties = await prisma.round_time_dirties.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends round_time_dirtiesUpdateArgs>(args: SelectSubset<T, round_time_dirtiesUpdateArgs<ExtArgs>>): Prisma__round_time_dirtiesClient<$Result.GetResult<Prisma.$round_time_dirtiesPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Round_time_dirties.
+     * @param {round_time_dirtiesDeleteManyArgs} args - Arguments to filter Round_time_dirties to delete.
+     * @example
+     * // Delete a few Round_time_dirties
+     * const { count } = await prisma.round_time_dirties.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends round_time_dirtiesDeleteManyArgs>(args?: SelectSubset<T, round_time_dirtiesDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Round_time_dirties.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {round_time_dirtiesUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Round_time_dirties
+     * const round_time_dirties = await prisma.round_time_dirties.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends round_time_dirtiesUpdateManyArgs>(args: SelectSubset<T, round_time_dirtiesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Round_time_dirties.
+     * @param {round_time_dirtiesUpsertArgs} args - Arguments to update or create a Round_time_dirties.
+     * @example
+     * // Update or create a Round_time_dirties
+     * const round_time_dirties = await prisma.round_time_dirties.upsert({
+     *   create: {
+     *     // ... data to create a Round_time_dirties
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Round_time_dirties we want to update
+     *   }
+     * })
+     */
+    upsert<T extends round_time_dirtiesUpsertArgs>(args: SelectSubset<T, round_time_dirtiesUpsertArgs<ExtArgs>>): Prisma__round_time_dirtiesClient<$Result.GetResult<Prisma.$round_time_dirtiesPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Round_time_dirties.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {round_time_dirtiesCountArgs} args - Arguments to filter Round_time_dirties to count.
+     * @example
+     * // Count the number of Round_time_dirties
+     * const count = await prisma.round_time_dirties.count({
+     *   where: {
+     *     // ... the filter for the Round_time_dirties we want to count
+     *   }
+     * })
+    **/
+    count<T extends round_time_dirtiesCountArgs>(
+      args?: Subset<T, round_time_dirtiesCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Round_time_dirtiesCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Round_time_dirties.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Round_time_dirtiesAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Round_time_dirtiesAggregateArgs>(args: Subset<T, Round_time_dirtiesAggregateArgs>): Prisma.PrismaPromise<GetRound_time_dirtiesAggregateType<T>>
+
+    /**
+     * Group by Round_time_dirties.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {round_time_dirtiesGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends round_time_dirtiesGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: round_time_dirtiesGroupByArgs['orderBy'] }
+        : { orderBy?: round_time_dirtiesGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, round_time_dirtiesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetRound_time_dirtiesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the round_time_dirties model
+   */
+  readonly fields: round_time_dirtiesFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for round_time_dirties.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__round_time_dirtiesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    sale_office<T extends sale_officesDefaultArgs<ExtArgs> = {}>(args?: Subset<T, sale_officesDefaultArgs<ExtArgs>>): Prisma__sale_officesClient<$Result.GetResult<Prisma.$sale_officesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the round_time_dirties model
+   */
+  interface round_time_dirtiesFieldRefs {
+    readonly id: FieldRef<"round_time_dirties", 'Int'>
+    readonly sale_office_id: FieldRef<"round_time_dirties", 'Int'>
+    readonly time: FieldRef<"round_time_dirties", 'String'>
+    readonly status: FieldRef<"round_time_dirties", 'Boolean'>
+    readonly create_at: FieldRef<"round_time_dirties", 'DateTime'>
+    readonly update_at: FieldRef<"round_time_dirties", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * round_time_dirties findUnique
+   */
+  export type round_time_dirtiesFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the round_time_dirties
+     */
+    select?: round_time_dirtiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the round_time_dirties
+     */
+    omit?: round_time_dirtiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: round_time_dirtiesInclude<ExtArgs> | null
+    /**
+     * Filter, which round_time_dirties to fetch.
+     */
+    where: round_time_dirtiesWhereUniqueInput
+  }
+
+  /**
+   * round_time_dirties findUniqueOrThrow
+   */
+  export type round_time_dirtiesFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the round_time_dirties
+     */
+    select?: round_time_dirtiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the round_time_dirties
+     */
+    omit?: round_time_dirtiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: round_time_dirtiesInclude<ExtArgs> | null
+    /**
+     * Filter, which round_time_dirties to fetch.
+     */
+    where: round_time_dirtiesWhereUniqueInput
+  }
+
+  /**
+   * round_time_dirties findFirst
+   */
+  export type round_time_dirtiesFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the round_time_dirties
+     */
+    select?: round_time_dirtiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the round_time_dirties
+     */
+    omit?: round_time_dirtiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: round_time_dirtiesInclude<ExtArgs> | null
+    /**
+     * Filter, which round_time_dirties to fetch.
+     */
+    where?: round_time_dirtiesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of round_time_dirties to fetch.
+     */
+    orderBy?: round_time_dirtiesOrderByWithRelationInput | round_time_dirtiesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for round_time_dirties.
+     */
+    cursor?: round_time_dirtiesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` round_time_dirties from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` round_time_dirties.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of round_time_dirties.
+     */
+    distinct?: Round_time_dirtiesScalarFieldEnum | Round_time_dirtiesScalarFieldEnum[]
+  }
+
+  /**
+   * round_time_dirties findFirstOrThrow
+   */
+  export type round_time_dirtiesFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the round_time_dirties
+     */
+    select?: round_time_dirtiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the round_time_dirties
+     */
+    omit?: round_time_dirtiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: round_time_dirtiesInclude<ExtArgs> | null
+    /**
+     * Filter, which round_time_dirties to fetch.
+     */
+    where?: round_time_dirtiesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of round_time_dirties to fetch.
+     */
+    orderBy?: round_time_dirtiesOrderByWithRelationInput | round_time_dirtiesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for round_time_dirties.
+     */
+    cursor?: round_time_dirtiesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` round_time_dirties from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` round_time_dirties.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of round_time_dirties.
+     */
+    distinct?: Round_time_dirtiesScalarFieldEnum | Round_time_dirtiesScalarFieldEnum[]
+  }
+
+  /**
+   * round_time_dirties findMany
+   */
+  export type round_time_dirtiesFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the round_time_dirties
+     */
+    select?: round_time_dirtiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the round_time_dirties
+     */
+    omit?: round_time_dirtiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: round_time_dirtiesInclude<ExtArgs> | null
+    /**
+     * Filter, which round_time_dirties to fetch.
+     */
+    where?: round_time_dirtiesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of round_time_dirties to fetch.
+     */
+    orderBy?: round_time_dirtiesOrderByWithRelationInput | round_time_dirtiesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing round_time_dirties.
+     */
+    cursor?: round_time_dirtiesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` round_time_dirties from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` round_time_dirties.
+     */
+    skip?: number
+    distinct?: Round_time_dirtiesScalarFieldEnum | Round_time_dirtiesScalarFieldEnum[]
+  }
+
+  /**
+   * round_time_dirties create
+   */
+  export type round_time_dirtiesCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the round_time_dirties
+     */
+    select?: round_time_dirtiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the round_time_dirties
+     */
+    omit?: round_time_dirtiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: round_time_dirtiesInclude<ExtArgs> | null
+    /**
+     * The data needed to create a round_time_dirties.
+     */
+    data: XOR<round_time_dirtiesCreateInput, round_time_dirtiesUncheckedCreateInput>
+  }
+
+  /**
+   * round_time_dirties createMany
+   */
+  export type round_time_dirtiesCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many round_time_dirties.
+     */
+    data: round_time_dirtiesCreateManyInput | round_time_dirtiesCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * round_time_dirties update
+   */
+  export type round_time_dirtiesUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the round_time_dirties
+     */
+    select?: round_time_dirtiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the round_time_dirties
+     */
+    omit?: round_time_dirtiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: round_time_dirtiesInclude<ExtArgs> | null
+    /**
+     * The data needed to update a round_time_dirties.
+     */
+    data: XOR<round_time_dirtiesUpdateInput, round_time_dirtiesUncheckedUpdateInput>
+    /**
+     * Choose, which round_time_dirties to update.
+     */
+    where: round_time_dirtiesWhereUniqueInput
+  }
+
+  /**
+   * round_time_dirties updateMany
+   */
+  export type round_time_dirtiesUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update round_time_dirties.
+     */
+    data: XOR<round_time_dirtiesUpdateManyMutationInput, round_time_dirtiesUncheckedUpdateManyInput>
+    /**
+     * Filter which round_time_dirties to update
+     */
+    where?: round_time_dirtiesWhereInput
+    /**
+     * Limit how many round_time_dirties to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * round_time_dirties upsert
+   */
+  export type round_time_dirtiesUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the round_time_dirties
+     */
+    select?: round_time_dirtiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the round_time_dirties
+     */
+    omit?: round_time_dirtiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: round_time_dirtiesInclude<ExtArgs> | null
+    /**
+     * The filter to search for the round_time_dirties to update in case it exists.
+     */
+    where: round_time_dirtiesWhereUniqueInput
+    /**
+     * In case the round_time_dirties found by the `where` argument doesn't exist, create a new round_time_dirties with this data.
+     */
+    create: XOR<round_time_dirtiesCreateInput, round_time_dirtiesUncheckedCreateInput>
+    /**
+     * In case the round_time_dirties was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<round_time_dirtiesUpdateInput, round_time_dirtiesUncheckedUpdateInput>
+  }
+
+  /**
+   * round_time_dirties delete
+   */
+  export type round_time_dirtiesDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the round_time_dirties
+     */
+    select?: round_time_dirtiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the round_time_dirties
+     */
+    omit?: round_time_dirtiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: round_time_dirtiesInclude<ExtArgs> | null
+    /**
+     * Filter which round_time_dirties to delete.
+     */
+    where: round_time_dirtiesWhereUniqueInput
+  }
+
+  /**
+   * round_time_dirties deleteMany
+   */
+  export type round_time_dirtiesDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which round_time_dirties to delete
+     */
+    where?: round_time_dirtiesWhereInput
+    /**
+     * Limit how many round_time_dirties to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * round_time_dirties without action
+   */
+  export type round_time_dirtiesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the round_time_dirties
+     */
+    select?: round_time_dirtiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the round_time_dirties
+     */
+    omit?: round_time_dirtiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: round_time_dirtiesInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model round_time_express
+   */
+
+  export type AggregateRound_time_express = {
+    _count: Round_time_expressCountAggregateOutputType | null
+    _avg: Round_time_expressAvgAggregateOutputType | null
+    _sum: Round_time_expressSumAggregateOutputType | null
+    _min: Round_time_expressMinAggregateOutputType | null
+    _max: Round_time_expressMaxAggregateOutputType | null
+  }
+
+  export type Round_time_expressAvgAggregateOutputType = {
+    id: number | null
+    sale_office_id: number | null
+  }
+
+  export type Round_time_expressSumAggregateOutputType = {
+    id: number | null
+    sale_office_id: number | null
+  }
+
+  export type Round_time_expressMinAggregateOutputType = {
+    id: number | null
+    sale_office_id: number | null
+    time: string | null
+    status: boolean | null
+    create_at: Date | null
+    update_at: Date | null
+  }
+
+  export type Round_time_expressMaxAggregateOutputType = {
+    id: number | null
+    sale_office_id: number | null
+    time: string | null
+    status: boolean | null
+    create_at: Date | null
+    update_at: Date | null
+  }
+
+  export type Round_time_expressCountAggregateOutputType = {
+    id: number
+    sale_office_id: number
+    time: number
+    status: number
+    create_at: number
+    update_at: number
+    _all: number
+  }
+
+
+  export type Round_time_expressAvgAggregateInputType = {
+    id?: true
+    sale_office_id?: true
+  }
+
+  export type Round_time_expressSumAggregateInputType = {
+    id?: true
+    sale_office_id?: true
+  }
+
+  export type Round_time_expressMinAggregateInputType = {
+    id?: true
+    sale_office_id?: true
+    time?: true
+    status?: true
+    create_at?: true
+    update_at?: true
+  }
+
+  export type Round_time_expressMaxAggregateInputType = {
+    id?: true
+    sale_office_id?: true
+    time?: true
+    status?: true
+    create_at?: true
+    update_at?: true
+  }
+
+  export type Round_time_expressCountAggregateInputType = {
+    id?: true
+    sale_office_id?: true
+    time?: true
+    status?: true
+    create_at?: true
+    update_at?: true
+    _all?: true
+  }
+
+  export type Round_time_expressAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which round_time_express to aggregate.
+     */
+    where?: round_time_expressWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of round_time_expresses to fetch.
+     */
+    orderBy?: round_time_expressOrderByWithRelationInput | round_time_expressOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: round_time_expressWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` round_time_expresses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` round_time_expresses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned round_time_expresses
+    **/
+    _count?: true | Round_time_expressCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Round_time_expressAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Round_time_expressSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Round_time_expressMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Round_time_expressMaxAggregateInputType
+  }
+
+  export type GetRound_time_expressAggregateType<T extends Round_time_expressAggregateArgs> = {
+        [P in keyof T & keyof AggregateRound_time_express]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateRound_time_express[P]>
+      : GetScalarType<T[P], AggregateRound_time_express[P]>
+  }
+
+
+
+
+  export type round_time_expressGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: round_time_expressWhereInput
+    orderBy?: round_time_expressOrderByWithAggregationInput | round_time_expressOrderByWithAggregationInput[]
+    by: Round_time_expressScalarFieldEnum[] | Round_time_expressScalarFieldEnum
+    having?: round_time_expressScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Round_time_expressCountAggregateInputType | true
+    _avg?: Round_time_expressAvgAggregateInputType
+    _sum?: Round_time_expressSumAggregateInputType
+    _min?: Round_time_expressMinAggregateInputType
+    _max?: Round_time_expressMaxAggregateInputType
+  }
+
+  export type Round_time_expressGroupByOutputType = {
+    id: number
+    sale_office_id: number
+    time: string
+    status: boolean
+    create_at: Date
+    update_at: Date
+    _count: Round_time_expressCountAggregateOutputType | null
+    _avg: Round_time_expressAvgAggregateOutputType | null
+    _sum: Round_time_expressSumAggregateOutputType | null
+    _min: Round_time_expressMinAggregateOutputType | null
+    _max: Round_time_expressMaxAggregateOutputType | null
+  }
+
+  type GetRound_time_expressGroupByPayload<T extends round_time_expressGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Round_time_expressGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Round_time_expressGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Round_time_expressGroupByOutputType[P]>
+            : GetScalarType<T[P], Round_time_expressGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type round_time_expressSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    sale_office_id?: boolean
+    time?: boolean
+    status?: boolean
+    create_at?: boolean
+    update_at?: boolean
+    sale_office?: boolean | sale_officesDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["round_time_express"]>
+
+
+
+  export type round_time_expressSelectScalar = {
+    id?: boolean
+    sale_office_id?: boolean
+    time?: boolean
+    status?: boolean
+    create_at?: boolean
+    update_at?: boolean
+  }
+
+  export type round_time_expressOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "sale_office_id" | "time" | "status" | "create_at" | "update_at", ExtArgs["result"]["round_time_express"]>
+  export type round_time_expressInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    sale_office?: boolean | sale_officesDefaultArgs<ExtArgs>
+  }
+
+  export type $round_time_expressPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "round_time_express"
+    objects: {
+      sale_office: Prisma.$sale_officesPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      sale_office_id: number
+      time: string
+      status: boolean
+      create_at: Date
+      update_at: Date
+    }, ExtArgs["result"]["round_time_express"]>
+    composites: {}
+  }
+
+  type round_time_expressGetPayload<S extends boolean | null | undefined | round_time_expressDefaultArgs> = $Result.GetResult<Prisma.$round_time_expressPayload, S>
+
+  type round_time_expressCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<round_time_expressFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Round_time_expressCountAggregateInputType | true
+    }
+
+  export interface round_time_expressDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['round_time_express'], meta: { name: 'round_time_express' } }
+    /**
+     * Find zero or one Round_time_express that matches the filter.
+     * @param {round_time_expressFindUniqueArgs} args - Arguments to find a Round_time_express
+     * @example
+     * // Get one Round_time_express
+     * const round_time_express = await prisma.round_time_express.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends round_time_expressFindUniqueArgs>(args: SelectSubset<T, round_time_expressFindUniqueArgs<ExtArgs>>): Prisma__round_time_expressClient<$Result.GetResult<Prisma.$round_time_expressPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Round_time_express that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {round_time_expressFindUniqueOrThrowArgs} args - Arguments to find a Round_time_express
+     * @example
+     * // Get one Round_time_express
+     * const round_time_express = await prisma.round_time_express.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends round_time_expressFindUniqueOrThrowArgs>(args: SelectSubset<T, round_time_expressFindUniqueOrThrowArgs<ExtArgs>>): Prisma__round_time_expressClient<$Result.GetResult<Prisma.$round_time_expressPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Round_time_express that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {round_time_expressFindFirstArgs} args - Arguments to find a Round_time_express
+     * @example
+     * // Get one Round_time_express
+     * const round_time_express = await prisma.round_time_express.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends round_time_expressFindFirstArgs>(args?: SelectSubset<T, round_time_expressFindFirstArgs<ExtArgs>>): Prisma__round_time_expressClient<$Result.GetResult<Prisma.$round_time_expressPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Round_time_express that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {round_time_expressFindFirstOrThrowArgs} args - Arguments to find a Round_time_express
+     * @example
+     * // Get one Round_time_express
+     * const round_time_express = await prisma.round_time_express.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends round_time_expressFindFirstOrThrowArgs>(args?: SelectSubset<T, round_time_expressFindFirstOrThrowArgs<ExtArgs>>): Prisma__round_time_expressClient<$Result.GetResult<Prisma.$round_time_expressPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Round_time_expresses that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {round_time_expressFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Round_time_expresses
+     * const round_time_expresses = await prisma.round_time_express.findMany()
+     * 
+     * // Get first 10 Round_time_expresses
+     * const round_time_expresses = await prisma.round_time_express.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const round_time_expressWithIdOnly = await prisma.round_time_express.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends round_time_expressFindManyArgs>(args?: SelectSubset<T, round_time_expressFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$round_time_expressPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Round_time_express.
+     * @param {round_time_expressCreateArgs} args - Arguments to create a Round_time_express.
+     * @example
+     * // Create one Round_time_express
+     * const Round_time_express = await prisma.round_time_express.create({
+     *   data: {
+     *     // ... data to create a Round_time_express
+     *   }
+     * })
+     * 
+     */
+    create<T extends round_time_expressCreateArgs>(args: SelectSubset<T, round_time_expressCreateArgs<ExtArgs>>): Prisma__round_time_expressClient<$Result.GetResult<Prisma.$round_time_expressPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Round_time_expresses.
+     * @param {round_time_expressCreateManyArgs} args - Arguments to create many Round_time_expresses.
+     * @example
+     * // Create many Round_time_expresses
+     * const round_time_express = await prisma.round_time_express.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends round_time_expressCreateManyArgs>(args?: SelectSubset<T, round_time_expressCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Round_time_express.
+     * @param {round_time_expressDeleteArgs} args - Arguments to delete one Round_time_express.
+     * @example
+     * // Delete one Round_time_express
+     * const Round_time_express = await prisma.round_time_express.delete({
+     *   where: {
+     *     // ... filter to delete one Round_time_express
+     *   }
+     * })
+     * 
+     */
+    delete<T extends round_time_expressDeleteArgs>(args: SelectSubset<T, round_time_expressDeleteArgs<ExtArgs>>): Prisma__round_time_expressClient<$Result.GetResult<Prisma.$round_time_expressPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Round_time_express.
+     * @param {round_time_expressUpdateArgs} args - Arguments to update one Round_time_express.
+     * @example
+     * // Update one Round_time_express
+     * const round_time_express = await prisma.round_time_express.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends round_time_expressUpdateArgs>(args: SelectSubset<T, round_time_expressUpdateArgs<ExtArgs>>): Prisma__round_time_expressClient<$Result.GetResult<Prisma.$round_time_expressPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Round_time_expresses.
+     * @param {round_time_expressDeleteManyArgs} args - Arguments to filter Round_time_expresses to delete.
+     * @example
+     * // Delete a few Round_time_expresses
+     * const { count } = await prisma.round_time_express.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends round_time_expressDeleteManyArgs>(args?: SelectSubset<T, round_time_expressDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Round_time_expresses.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {round_time_expressUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Round_time_expresses
+     * const round_time_express = await prisma.round_time_express.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends round_time_expressUpdateManyArgs>(args: SelectSubset<T, round_time_expressUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Round_time_express.
+     * @param {round_time_expressUpsertArgs} args - Arguments to update or create a Round_time_express.
+     * @example
+     * // Update or create a Round_time_express
+     * const round_time_express = await prisma.round_time_express.upsert({
+     *   create: {
+     *     // ... data to create a Round_time_express
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Round_time_express we want to update
+     *   }
+     * })
+     */
+    upsert<T extends round_time_expressUpsertArgs>(args: SelectSubset<T, round_time_expressUpsertArgs<ExtArgs>>): Prisma__round_time_expressClient<$Result.GetResult<Prisma.$round_time_expressPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Round_time_expresses.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {round_time_expressCountArgs} args - Arguments to filter Round_time_expresses to count.
+     * @example
+     * // Count the number of Round_time_expresses
+     * const count = await prisma.round_time_express.count({
+     *   where: {
+     *     // ... the filter for the Round_time_expresses we want to count
+     *   }
+     * })
+    **/
+    count<T extends round_time_expressCountArgs>(
+      args?: Subset<T, round_time_expressCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Round_time_expressCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Round_time_express.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Round_time_expressAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Round_time_expressAggregateArgs>(args: Subset<T, Round_time_expressAggregateArgs>): Prisma.PrismaPromise<GetRound_time_expressAggregateType<T>>
+
+    /**
+     * Group by Round_time_express.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {round_time_expressGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends round_time_expressGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: round_time_expressGroupByArgs['orderBy'] }
+        : { orderBy?: round_time_expressGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, round_time_expressGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetRound_time_expressGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the round_time_express model
+   */
+  readonly fields: round_time_expressFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for round_time_express.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__round_time_expressClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    sale_office<T extends sale_officesDefaultArgs<ExtArgs> = {}>(args?: Subset<T, sale_officesDefaultArgs<ExtArgs>>): Prisma__sale_officesClient<$Result.GetResult<Prisma.$sale_officesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the round_time_express model
+   */
+  interface round_time_expressFieldRefs {
+    readonly id: FieldRef<"round_time_express", 'Int'>
+    readonly sale_office_id: FieldRef<"round_time_express", 'Int'>
+    readonly time: FieldRef<"round_time_express", 'String'>
+    readonly status: FieldRef<"round_time_express", 'Boolean'>
+    readonly create_at: FieldRef<"round_time_express", 'DateTime'>
+    readonly update_at: FieldRef<"round_time_express", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * round_time_express findUnique
+   */
+  export type round_time_expressFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the round_time_express
+     */
+    select?: round_time_expressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the round_time_express
+     */
+    omit?: round_time_expressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: round_time_expressInclude<ExtArgs> | null
+    /**
+     * Filter, which round_time_express to fetch.
+     */
+    where: round_time_expressWhereUniqueInput
+  }
+
+  /**
+   * round_time_express findUniqueOrThrow
+   */
+  export type round_time_expressFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the round_time_express
+     */
+    select?: round_time_expressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the round_time_express
+     */
+    omit?: round_time_expressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: round_time_expressInclude<ExtArgs> | null
+    /**
+     * Filter, which round_time_express to fetch.
+     */
+    where: round_time_expressWhereUniqueInput
+  }
+
+  /**
+   * round_time_express findFirst
+   */
+  export type round_time_expressFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the round_time_express
+     */
+    select?: round_time_expressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the round_time_express
+     */
+    omit?: round_time_expressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: round_time_expressInclude<ExtArgs> | null
+    /**
+     * Filter, which round_time_express to fetch.
+     */
+    where?: round_time_expressWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of round_time_expresses to fetch.
+     */
+    orderBy?: round_time_expressOrderByWithRelationInput | round_time_expressOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for round_time_expresses.
+     */
+    cursor?: round_time_expressWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` round_time_expresses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` round_time_expresses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of round_time_expresses.
+     */
+    distinct?: Round_time_expressScalarFieldEnum | Round_time_expressScalarFieldEnum[]
+  }
+
+  /**
+   * round_time_express findFirstOrThrow
+   */
+  export type round_time_expressFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the round_time_express
+     */
+    select?: round_time_expressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the round_time_express
+     */
+    omit?: round_time_expressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: round_time_expressInclude<ExtArgs> | null
+    /**
+     * Filter, which round_time_express to fetch.
+     */
+    where?: round_time_expressWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of round_time_expresses to fetch.
+     */
+    orderBy?: round_time_expressOrderByWithRelationInput | round_time_expressOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for round_time_expresses.
+     */
+    cursor?: round_time_expressWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` round_time_expresses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` round_time_expresses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of round_time_expresses.
+     */
+    distinct?: Round_time_expressScalarFieldEnum | Round_time_expressScalarFieldEnum[]
+  }
+
+  /**
+   * round_time_express findMany
+   */
+  export type round_time_expressFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the round_time_express
+     */
+    select?: round_time_expressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the round_time_express
+     */
+    omit?: round_time_expressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: round_time_expressInclude<ExtArgs> | null
+    /**
+     * Filter, which round_time_expresses to fetch.
+     */
+    where?: round_time_expressWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of round_time_expresses to fetch.
+     */
+    orderBy?: round_time_expressOrderByWithRelationInput | round_time_expressOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing round_time_expresses.
+     */
+    cursor?: round_time_expressWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` round_time_expresses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` round_time_expresses.
+     */
+    skip?: number
+    distinct?: Round_time_expressScalarFieldEnum | Round_time_expressScalarFieldEnum[]
+  }
+
+  /**
+   * round_time_express create
+   */
+  export type round_time_expressCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the round_time_express
+     */
+    select?: round_time_expressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the round_time_express
+     */
+    omit?: round_time_expressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: round_time_expressInclude<ExtArgs> | null
+    /**
+     * The data needed to create a round_time_express.
+     */
+    data: XOR<round_time_expressCreateInput, round_time_expressUncheckedCreateInput>
+  }
+
+  /**
+   * round_time_express createMany
+   */
+  export type round_time_expressCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many round_time_expresses.
+     */
+    data: round_time_expressCreateManyInput | round_time_expressCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * round_time_express update
+   */
+  export type round_time_expressUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the round_time_express
+     */
+    select?: round_time_expressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the round_time_express
+     */
+    omit?: round_time_expressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: round_time_expressInclude<ExtArgs> | null
+    /**
+     * The data needed to update a round_time_express.
+     */
+    data: XOR<round_time_expressUpdateInput, round_time_expressUncheckedUpdateInput>
+    /**
+     * Choose, which round_time_express to update.
+     */
+    where: round_time_expressWhereUniqueInput
+  }
+
+  /**
+   * round_time_express updateMany
+   */
+  export type round_time_expressUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update round_time_expresses.
+     */
+    data: XOR<round_time_expressUpdateManyMutationInput, round_time_expressUncheckedUpdateManyInput>
+    /**
+     * Filter which round_time_expresses to update
+     */
+    where?: round_time_expressWhereInput
+    /**
+     * Limit how many round_time_expresses to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * round_time_express upsert
+   */
+  export type round_time_expressUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the round_time_express
+     */
+    select?: round_time_expressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the round_time_express
+     */
+    omit?: round_time_expressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: round_time_expressInclude<ExtArgs> | null
+    /**
+     * The filter to search for the round_time_express to update in case it exists.
+     */
+    where: round_time_expressWhereUniqueInput
+    /**
+     * In case the round_time_express found by the `where` argument doesn't exist, create a new round_time_express with this data.
+     */
+    create: XOR<round_time_expressCreateInput, round_time_expressUncheckedCreateInput>
+    /**
+     * In case the round_time_express was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<round_time_expressUpdateInput, round_time_expressUncheckedUpdateInput>
+  }
+
+  /**
+   * round_time_express delete
+   */
+  export type round_time_expressDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the round_time_express
+     */
+    select?: round_time_expressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the round_time_express
+     */
+    omit?: round_time_expressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: round_time_expressInclude<ExtArgs> | null
+    /**
+     * Filter which round_time_express to delete.
+     */
+    where: round_time_expressWhereUniqueInput
+  }
+
+  /**
+   * round_time_express deleteMany
+   */
+  export type round_time_expressDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which round_time_expresses to delete
+     */
+    where?: round_time_expressWhereInput
+    /**
+     * Limit how many round_time_expresses to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * round_time_express without action
+   */
+  export type round_time_expressDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the round_time_express
+     */
+    select?: round_time_expressSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the round_time_express
+     */
+    omit?: round_time_expressOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: round_time_expressInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -44830,6 +47039,30 @@ export namespace Prisma {
   export type Unregistered_itemsScalarFieldEnum = (typeof Unregistered_itemsScalarFieldEnum)[keyof typeof Unregistered_itemsScalarFieldEnum]
 
 
+  export const Round_time_dirtiesScalarFieldEnum: {
+    id: 'id',
+    sale_office_id: 'sale_office_id',
+    time: 'time',
+    status: 'status',
+    create_at: 'create_at',
+    update_at: 'update_at'
+  };
+
+  export type Round_time_dirtiesScalarFieldEnum = (typeof Round_time_dirtiesScalarFieldEnum)[keyof typeof Round_time_dirtiesScalarFieldEnum]
+
+
+  export const Round_time_expressScalarFieldEnum: {
+    id: 'id',
+    sale_office_id: 'sale_office_id',
+    time: 'time',
+    status: 'status',
+    create_at: 'create_at',
+    update_at: 'update_at'
+  };
+
+  export type Round_time_expressScalarFieldEnum = (typeof Round_time_expressScalarFieldEnum)[keyof typeof Round_time_expressScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -45142,6 +47375,20 @@ export namespace Prisma {
   };
 
   export type unregistered_itemsOrderByRelevanceFieldEnum = (typeof unregistered_itemsOrderByRelevanceFieldEnum)[keyof typeof unregistered_itemsOrderByRelevanceFieldEnum]
+
+
+  export const round_time_dirtiesOrderByRelevanceFieldEnum: {
+    time: 'time'
+  };
+
+  export type round_time_dirtiesOrderByRelevanceFieldEnum = (typeof round_time_dirtiesOrderByRelevanceFieldEnum)[keyof typeof round_time_dirtiesOrderByRelevanceFieldEnum]
+
+
+  export const round_time_expressOrderByRelevanceFieldEnum: {
+    time: 'time'
+  };
+
+  export type round_time_expressOrderByRelevanceFieldEnum = (typeof round_time_expressOrderByRelevanceFieldEnum)[keyof typeof round_time_expressOrderByRelevanceFieldEnum]
 
 
   /**
@@ -45552,6 +47799,8 @@ export namespace Prisma {
     update_at?: DateTimeFilter<"sale_offices"> | Date | string
     departments?: DepartmentsListRelationFilter
     user_sale_office?: User_sale_officesListRelationFilter
+    round_time_dirties?: Round_time_dirtiesListRelationFilter
+    round_time_express?: Round_time_expressListRelationFilter
   }
 
   export type sale_officesOrderByWithRelationInput = {
@@ -45564,6 +47813,8 @@ export namespace Prisma {
     update_at?: SortOrder
     departments?: departmentsOrderByRelationAggregateInput
     user_sale_office?: user_sale_officesOrderByRelationAggregateInput
+    round_time_dirties?: round_time_dirtiesOrderByRelationAggregateInput
+    round_time_express?: round_time_expressOrderByRelationAggregateInput
     _relevance?: sale_officesOrderByRelevanceInput
   }
 
@@ -45580,6 +47831,8 @@ export namespace Prisma {
     update_at?: DateTimeFilter<"sale_offices"> | Date | string
     departments?: DepartmentsListRelationFilter
     user_sale_office?: User_sale_officesListRelationFilter
+    round_time_dirties?: Round_time_dirtiesListRelationFilter
+    round_time_express?: Round_time_expressListRelationFilter
   }, "id">
 
   export type sale_officesOrderByWithAggregationInput = {
@@ -48510,6 +50763,132 @@ export namespace Prisma {
     update_at?: DateTimeWithAggregatesFilter<"unregistered_items"> | Date | string
   }
 
+  export type round_time_dirtiesWhereInput = {
+    AND?: round_time_dirtiesWhereInput | round_time_dirtiesWhereInput[]
+    OR?: round_time_dirtiesWhereInput[]
+    NOT?: round_time_dirtiesWhereInput | round_time_dirtiesWhereInput[]
+    id?: IntFilter<"round_time_dirties"> | number
+    sale_office_id?: IntFilter<"round_time_dirties"> | number
+    time?: StringFilter<"round_time_dirties"> | string
+    status?: BoolFilter<"round_time_dirties"> | boolean
+    create_at?: DateTimeFilter<"round_time_dirties"> | Date | string
+    update_at?: DateTimeFilter<"round_time_dirties"> | Date | string
+    sale_office?: XOR<Sale_officesScalarRelationFilter, sale_officesWhereInput>
+  }
+
+  export type round_time_dirtiesOrderByWithRelationInput = {
+    id?: SortOrder
+    sale_office_id?: SortOrder
+    time?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+    sale_office?: sale_officesOrderByWithRelationInput
+    _relevance?: round_time_dirtiesOrderByRelevanceInput
+  }
+
+  export type round_time_dirtiesWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: round_time_dirtiesWhereInput | round_time_dirtiesWhereInput[]
+    OR?: round_time_dirtiesWhereInput[]
+    NOT?: round_time_dirtiesWhereInput | round_time_dirtiesWhereInput[]
+    sale_office_id?: IntFilter<"round_time_dirties"> | number
+    time?: StringFilter<"round_time_dirties"> | string
+    status?: BoolFilter<"round_time_dirties"> | boolean
+    create_at?: DateTimeFilter<"round_time_dirties"> | Date | string
+    update_at?: DateTimeFilter<"round_time_dirties"> | Date | string
+    sale_office?: XOR<Sale_officesScalarRelationFilter, sale_officesWhereInput>
+  }, "id">
+
+  export type round_time_dirtiesOrderByWithAggregationInput = {
+    id?: SortOrder
+    sale_office_id?: SortOrder
+    time?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+    _count?: round_time_dirtiesCountOrderByAggregateInput
+    _avg?: round_time_dirtiesAvgOrderByAggregateInput
+    _max?: round_time_dirtiesMaxOrderByAggregateInput
+    _min?: round_time_dirtiesMinOrderByAggregateInput
+    _sum?: round_time_dirtiesSumOrderByAggregateInput
+  }
+
+  export type round_time_dirtiesScalarWhereWithAggregatesInput = {
+    AND?: round_time_dirtiesScalarWhereWithAggregatesInput | round_time_dirtiesScalarWhereWithAggregatesInput[]
+    OR?: round_time_dirtiesScalarWhereWithAggregatesInput[]
+    NOT?: round_time_dirtiesScalarWhereWithAggregatesInput | round_time_dirtiesScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"round_time_dirties"> | number
+    sale_office_id?: IntWithAggregatesFilter<"round_time_dirties"> | number
+    time?: StringWithAggregatesFilter<"round_time_dirties"> | string
+    status?: BoolWithAggregatesFilter<"round_time_dirties"> | boolean
+    create_at?: DateTimeWithAggregatesFilter<"round_time_dirties"> | Date | string
+    update_at?: DateTimeWithAggregatesFilter<"round_time_dirties"> | Date | string
+  }
+
+  export type round_time_expressWhereInput = {
+    AND?: round_time_expressWhereInput | round_time_expressWhereInput[]
+    OR?: round_time_expressWhereInput[]
+    NOT?: round_time_expressWhereInput | round_time_expressWhereInput[]
+    id?: IntFilter<"round_time_express"> | number
+    sale_office_id?: IntFilter<"round_time_express"> | number
+    time?: StringFilter<"round_time_express"> | string
+    status?: BoolFilter<"round_time_express"> | boolean
+    create_at?: DateTimeFilter<"round_time_express"> | Date | string
+    update_at?: DateTimeFilter<"round_time_express"> | Date | string
+    sale_office?: XOR<Sale_officesScalarRelationFilter, sale_officesWhereInput>
+  }
+
+  export type round_time_expressOrderByWithRelationInput = {
+    id?: SortOrder
+    sale_office_id?: SortOrder
+    time?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+    sale_office?: sale_officesOrderByWithRelationInput
+    _relevance?: round_time_expressOrderByRelevanceInput
+  }
+
+  export type round_time_expressWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: round_time_expressWhereInput | round_time_expressWhereInput[]
+    OR?: round_time_expressWhereInput[]
+    NOT?: round_time_expressWhereInput | round_time_expressWhereInput[]
+    sale_office_id?: IntFilter<"round_time_express"> | number
+    time?: StringFilter<"round_time_express"> | string
+    status?: BoolFilter<"round_time_express"> | boolean
+    create_at?: DateTimeFilter<"round_time_express"> | Date | string
+    update_at?: DateTimeFilter<"round_time_express"> | Date | string
+    sale_office?: XOR<Sale_officesScalarRelationFilter, sale_officesWhereInput>
+  }, "id">
+
+  export type round_time_expressOrderByWithAggregationInput = {
+    id?: SortOrder
+    sale_office_id?: SortOrder
+    time?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+    _count?: round_time_expressCountOrderByAggregateInput
+    _avg?: round_time_expressAvgOrderByAggregateInput
+    _max?: round_time_expressMaxOrderByAggregateInput
+    _min?: round_time_expressMinOrderByAggregateInput
+    _sum?: round_time_expressSumOrderByAggregateInput
+  }
+
+  export type round_time_expressScalarWhereWithAggregatesInput = {
+    AND?: round_time_expressScalarWhereWithAggregatesInput | round_time_expressScalarWhereWithAggregatesInput[]
+    OR?: round_time_expressScalarWhereWithAggregatesInput[]
+    NOT?: round_time_expressScalarWhereWithAggregatesInput | round_time_expressScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"round_time_express"> | number
+    sale_office_id?: IntWithAggregatesFilter<"round_time_express"> | number
+    time?: StringWithAggregatesFilter<"round_time_express"> | string
+    status?: BoolWithAggregatesFilter<"round_time_express"> | boolean
+    create_at?: DateTimeWithAggregatesFilter<"round_time_express"> | Date | string
+    update_at?: DateTimeWithAggregatesFilter<"round_time_express"> | Date | string
+  }
+
   export type userCreateInput = {
     name: string
     email: string
@@ -48896,6 +51275,8 @@ export namespace Prisma {
     update_at?: Date | string
     departments?: departmentsCreateNestedManyWithoutSale_officeInput
     user_sale_office?: user_sale_officesCreateNestedManyWithoutSale_officeInput
+    round_time_dirties?: round_time_dirtiesCreateNestedManyWithoutSale_officeInput
+    round_time_express?: round_time_expressCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesUncheckedCreateInput = {
@@ -48908,6 +51289,8 @@ export namespace Prisma {
     update_at?: Date | string
     departments?: departmentsUncheckedCreateNestedManyWithoutSale_officeInput
     user_sale_office?: user_sale_officesUncheckedCreateNestedManyWithoutSale_officeInput
+    round_time_dirties?: round_time_dirtiesUncheckedCreateNestedManyWithoutSale_officeInput
+    round_time_express?: round_time_expressUncheckedCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesUpdateInput = {
@@ -48919,6 +51302,8 @@ export namespace Prisma {
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
     departments?: departmentsUpdateManyWithoutSale_officeNestedInput
     user_sale_office?: user_sale_officesUpdateManyWithoutSale_officeNestedInput
+    round_time_dirties?: round_time_dirtiesUpdateManyWithoutSale_officeNestedInput
+    round_time_express?: round_time_expressUpdateManyWithoutSale_officeNestedInput
   }
 
   export type sale_officesUncheckedUpdateInput = {
@@ -48931,6 +51316,8 @@ export namespace Prisma {
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
     departments?: departmentsUncheckedUpdateManyWithoutSale_officeNestedInput
     user_sale_office?: user_sale_officesUncheckedUpdateManyWithoutSale_officeNestedInput
+    round_time_dirties?: round_time_dirtiesUncheckedUpdateManyWithoutSale_officeNestedInput
+    round_time_express?: round_time_expressUncheckedUpdateManyWithoutSale_officeNestedInput
   }
 
   export type sale_officesCreateManyInput = {
@@ -52192,6 +54579,124 @@ export namespace Prisma {
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type round_time_dirtiesCreateInput = {
+    time: string
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    sale_office: sale_officesCreateNestedOneWithoutRound_time_dirtiesInput
+  }
+
+  export type round_time_dirtiesUncheckedCreateInput = {
+    id?: number
+    sale_office_id: number
+    time: string
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type round_time_dirtiesUpdateInput = {
+    time?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    sale_office?: sale_officesUpdateOneRequiredWithoutRound_time_dirtiesNestedInput
+  }
+
+  export type round_time_dirtiesUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    sale_office_id?: IntFieldUpdateOperationsInput | number
+    time?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type round_time_dirtiesCreateManyInput = {
+    id?: number
+    sale_office_id: number
+    time: string
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type round_time_dirtiesUpdateManyMutationInput = {
+    time?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type round_time_dirtiesUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    sale_office_id?: IntFieldUpdateOperationsInput | number
+    time?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type round_time_expressCreateInput = {
+    time: string
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    sale_office: sale_officesCreateNestedOneWithoutRound_time_expressInput
+  }
+
+  export type round_time_expressUncheckedCreateInput = {
+    id?: number
+    sale_office_id: number
+    time: string
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type round_time_expressUpdateInput = {
+    time?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    sale_office?: sale_officesUpdateOneRequiredWithoutRound_time_expressNestedInput
+  }
+
+  export type round_time_expressUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    sale_office_id?: IntFieldUpdateOperationsInput | number
+    time?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type round_time_expressCreateManyInput = {
+    id?: number
+    sale_office_id: number
+    time: string
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type round_time_expressUpdateManyMutationInput = {
+    time?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type round_time_expressUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    sale_office_id?: IntFieldUpdateOperationsInput | number
+    time?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type IntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[]
@@ -52605,7 +55110,27 @@ export namespace Prisma {
     none?: departmentsWhereInput
   }
 
+  export type Round_time_dirtiesListRelationFilter = {
+    every?: round_time_dirtiesWhereInput
+    some?: round_time_dirtiesWhereInput
+    none?: round_time_dirtiesWhereInput
+  }
+
+  export type Round_time_expressListRelationFilter = {
+    every?: round_time_expressWhereInput
+    some?: round_time_expressWhereInput
+    none?: round_time_expressWhereInput
+  }
+
   export type departmentsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type round_time_dirtiesOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type round_time_expressOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -54895,6 +57420,92 @@ export namespace Prisma {
     type_linen_id?: SortOrder
   }
 
+  export type round_time_dirtiesOrderByRelevanceInput = {
+    fields: round_time_dirtiesOrderByRelevanceFieldEnum | round_time_dirtiesOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type round_time_dirtiesCountOrderByAggregateInput = {
+    id?: SortOrder
+    sale_office_id?: SortOrder
+    time?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+  }
+
+  export type round_time_dirtiesAvgOrderByAggregateInput = {
+    id?: SortOrder
+    sale_office_id?: SortOrder
+  }
+
+  export type round_time_dirtiesMaxOrderByAggregateInput = {
+    id?: SortOrder
+    sale_office_id?: SortOrder
+    time?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+  }
+
+  export type round_time_dirtiesMinOrderByAggregateInput = {
+    id?: SortOrder
+    sale_office_id?: SortOrder
+    time?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+  }
+
+  export type round_time_dirtiesSumOrderByAggregateInput = {
+    id?: SortOrder
+    sale_office_id?: SortOrder
+  }
+
+  export type round_time_expressOrderByRelevanceInput = {
+    fields: round_time_expressOrderByRelevanceFieldEnum | round_time_expressOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type round_time_expressCountOrderByAggregateInput = {
+    id?: SortOrder
+    sale_office_id?: SortOrder
+    time?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+  }
+
+  export type round_time_expressAvgOrderByAggregateInput = {
+    id?: SortOrder
+    sale_office_id?: SortOrder
+  }
+
+  export type round_time_expressMaxOrderByAggregateInput = {
+    id?: SortOrder
+    sale_office_id?: SortOrder
+    time?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+  }
+
+  export type round_time_expressMinOrderByAggregateInput = {
+    id?: SortOrder
+    sale_office_id?: SortOrder
+    time?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+  }
+
+  export type round_time_expressSumOrderByAggregateInput = {
+    id?: SortOrder
+    sale_office_id?: SortOrder
+  }
+
   export type user_sale_officesCreateNestedManyWithoutUserInput = {
     create?: XOR<user_sale_officesCreateWithoutUserInput, user_sale_officesUncheckedCreateWithoutUserInput> | user_sale_officesCreateWithoutUserInput[] | user_sale_officesUncheckedCreateWithoutUserInput[]
     connectOrCreate?: user_sale_officesCreateOrConnectWithoutUserInput | user_sale_officesCreateOrConnectWithoutUserInput[]
@@ -54979,6 +57590,20 @@ export namespace Prisma {
     connect?: user_sale_officesWhereUniqueInput | user_sale_officesWhereUniqueInput[]
   }
 
+  export type round_time_dirtiesCreateNestedManyWithoutSale_officeInput = {
+    create?: XOR<round_time_dirtiesCreateWithoutSale_officeInput, round_time_dirtiesUncheckedCreateWithoutSale_officeInput> | round_time_dirtiesCreateWithoutSale_officeInput[] | round_time_dirtiesUncheckedCreateWithoutSale_officeInput[]
+    connectOrCreate?: round_time_dirtiesCreateOrConnectWithoutSale_officeInput | round_time_dirtiesCreateOrConnectWithoutSale_officeInput[]
+    createMany?: round_time_dirtiesCreateManySale_officeInputEnvelope
+    connect?: round_time_dirtiesWhereUniqueInput | round_time_dirtiesWhereUniqueInput[]
+  }
+
+  export type round_time_expressCreateNestedManyWithoutSale_officeInput = {
+    create?: XOR<round_time_expressCreateWithoutSale_officeInput, round_time_expressUncheckedCreateWithoutSale_officeInput> | round_time_expressCreateWithoutSale_officeInput[] | round_time_expressUncheckedCreateWithoutSale_officeInput[]
+    connectOrCreate?: round_time_expressCreateOrConnectWithoutSale_officeInput | round_time_expressCreateOrConnectWithoutSale_officeInput[]
+    createMany?: round_time_expressCreateManySale_officeInputEnvelope
+    connect?: round_time_expressWhereUniqueInput | round_time_expressWhereUniqueInput[]
+  }
+
   export type departmentsUncheckedCreateNestedManyWithoutSale_officeInput = {
     create?: XOR<departmentsCreateWithoutSale_officeInput, departmentsUncheckedCreateWithoutSale_officeInput> | departmentsCreateWithoutSale_officeInput[] | departmentsUncheckedCreateWithoutSale_officeInput[]
     connectOrCreate?: departmentsCreateOrConnectWithoutSale_officeInput | departmentsCreateOrConnectWithoutSale_officeInput[]
@@ -54991,6 +57616,20 @@ export namespace Prisma {
     connectOrCreate?: user_sale_officesCreateOrConnectWithoutSale_officeInput | user_sale_officesCreateOrConnectWithoutSale_officeInput[]
     createMany?: user_sale_officesCreateManySale_officeInputEnvelope
     connect?: user_sale_officesWhereUniqueInput | user_sale_officesWhereUniqueInput[]
+  }
+
+  export type round_time_dirtiesUncheckedCreateNestedManyWithoutSale_officeInput = {
+    create?: XOR<round_time_dirtiesCreateWithoutSale_officeInput, round_time_dirtiesUncheckedCreateWithoutSale_officeInput> | round_time_dirtiesCreateWithoutSale_officeInput[] | round_time_dirtiesUncheckedCreateWithoutSale_officeInput[]
+    connectOrCreate?: round_time_dirtiesCreateOrConnectWithoutSale_officeInput | round_time_dirtiesCreateOrConnectWithoutSale_officeInput[]
+    createMany?: round_time_dirtiesCreateManySale_officeInputEnvelope
+    connect?: round_time_dirtiesWhereUniqueInput | round_time_dirtiesWhereUniqueInput[]
+  }
+
+  export type round_time_expressUncheckedCreateNestedManyWithoutSale_officeInput = {
+    create?: XOR<round_time_expressCreateWithoutSale_officeInput, round_time_expressUncheckedCreateWithoutSale_officeInput> | round_time_expressCreateWithoutSale_officeInput[] | round_time_expressUncheckedCreateWithoutSale_officeInput[]
+    connectOrCreate?: round_time_expressCreateOrConnectWithoutSale_officeInput | round_time_expressCreateOrConnectWithoutSale_officeInput[]
+    createMany?: round_time_expressCreateManySale_officeInputEnvelope
+    connect?: round_time_expressWhereUniqueInput | round_time_expressWhereUniqueInput[]
   }
 
   export type departmentsUpdateManyWithoutSale_officeNestedInput = {
@@ -55021,6 +57660,34 @@ export namespace Prisma {
     deleteMany?: user_sale_officesScalarWhereInput | user_sale_officesScalarWhereInput[]
   }
 
+  export type round_time_dirtiesUpdateManyWithoutSale_officeNestedInput = {
+    create?: XOR<round_time_dirtiesCreateWithoutSale_officeInput, round_time_dirtiesUncheckedCreateWithoutSale_officeInput> | round_time_dirtiesCreateWithoutSale_officeInput[] | round_time_dirtiesUncheckedCreateWithoutSale_officeInput[]
+    connectOrCreate?: round_time_dirtiesCreateOrConnectWithoutSale_officeInput | round_time_dirtiesCreateOrConnectWithoutSale_officeInput[]
+    upsert?: round_time_dirtiesUpsertWithWhereUniqueWithoutSale_officeInput | round_time_dirtiesUpsertWithWhereUniqueWithoutSale_officeInput[]
+    createMany?: round_time_dirtiesCreateManySale_officeInputEnvelope
+    set?: round_time_dirtiesWhereUniqueInput | round_time_dirtiesWhereUniqueInput[]
+    disconnect?: round_time_dirtiesWhereUniqueInput | round_time_dirtiesWhereUniqueInput[]
+    delete?: round_time_dirtiesWhereUniqueInput | round_time_dirtiesWhereUniqueInput[]
+    connect?: round_time_dirtiesWhereUniqueInput | round_time_dirtiesWhereUniqueInput[]
+    update?: round_time_dirtiesUpdateWithWhereUniqueWithoutSale_officeInput | round_time_dirtiesUpdateWithWhereUniqueWithoutSale_officeInput[]
+    updateMany?: round_time_dirtiesUpdateManyWithWhereWithoutSale_officeInput | round_time_dirtiesUpdateManyWithWhereWithoutSale_officeInput[]
+    deleteMany?: round_time_dirtiesScalarWhereInput | round_time_dirtiesScalarWhereInput[]
+  }
+
+  export type round_time_expressUpdateManyWithoutSale_officeNestedInput = {
+    create?: XOR<round_time_expressCreateWithoutSale_officeInput, round_time_expressUncheckedCreateWithoutSale_officeInput> | round_time_expressCreateWithoutSale_officeInput[] | round_time_expressUncheckedCreateWithoutSale_officeInput[]
+    connectOrCreate?: round_time_expressCreateOrConnectWithoutSale_officeInput | round_time_expressCreateOrConnectWithoutSale_officeInput[]
+    upsert?: round_time_expressUpsertWithWhereUniqueWithoutSale_officeInput | round_time_expressUpsertWithWhereUniqueWithoutSale_officeInput[]
+    createMany?: round_time_expressCreateManySale_officeInputEnvelope
+    set?: round_time_expressWhereUniqueInput | round_time_expressWhereUniqueInput[]
+    disconnect?: round_time_expressWhereUniqueInput | round_time_expressWhereUniqueInput[]
+    delete?: round_time_expressWhereUniqueInput | round_time_expressWhereUniqueInput[]
+    connect?: round_time_expressWhereUniqueInput | round_time_expressWhereUniqueInput[]
+    update?: round_time_expressUpdateWithWhereUniqueWithoutSale_officeInput | round_time_expressUpdateWithWhereUniqueWithoutSale_officeInput[]
+    updateMany?: round_time_expressUpdateManyWithWhereWithoutSale_officeInput | round_time_expressUpdateManyWithWhereWithoutSale_officeInput[]
+    deleteMany?: round_time_expressScalarWhereInput | round_time_expressScalarWhereInput[]
+  }
+
   export type departmentsUncheckedUpdateManyWithoutSale_officeNestedInput = {
     create?: XOR<departmentsCreateWithoutSale_officeInput, departmentsUncheckedCreateWithoutSale_officeInput> | departmentsCreateWithoutSale_officeInput[] | departmentsUncheckedCreateWithoutSale_officeInput[]
     connectOrCreate?: departmentsCreateOrConnectWithoutSale_officeInput | departmentsCreateOrConnectWithoutSale_officeInput[]
@@ -55047,6 +57714,34 @@ export namespace Prisma {
     update?: user_sale_officesUpdateWithWhereUniqueWithoutSale_officeInput | user_sale_officesUpdateWithWhereUniqueWithoutSale_officeInput[]
     updateMany?: user_sale_officesUpdateManyWithWhereWithoutSale_officeInput | user_sale_officesUpdateManyWithWhereWithoutSale_officeInput[]
     deleteMany?: user_sale_officesScalarWhereInput | user_sale_officesScalarWhereInput[]
+  }
+
+  export type round_time_dirtiesUncheckedUpdateManyWithoutSale_officeNestedInput = {
+    create?: XOR<round_time_dirtiesCreateWithoutSale_officeInput, round_time_dirtiesUncheckedCreateWithoutSale_officeInput> | round_time_dirtiesCreateWithoutSale_officeInput[] | round_time_dirtiesUncheckedCreateWithoutSale_officeInput[]
+    connectOrCreate?: round_time_dirtiesCreateOrConnectWithoutSale_officeInput | round_time_dirtiesCreateOrConnectWithoutSale_officeInput[]
+    upsert?: round_time_dirtiesUpsertWithWhereUniqueWithoutSale_officeInput | round_time_dirtiesUpsertWithWhereUniqueWithoutSale_officeInput[]
+    createMany?: round_time_dirtiesCreateManySale_officeInputEnvelope
+    set?: round_time_dirtiesWhereUniqueInput | round_time_dirtiesWhereUniqueInput[]
+    disconnect?: round_time_dirtiesWhereUniqueInput | round_time_dirtiesWhereUniqueInput[]
+    delete?: round_time_dirtiesWhereUniqueInput | round_time_dirtiesWhereUniqueInput[]
+    connect?: round_time_dirtiesWhereUniqueInput | round_time_dirtiesWhereUniqueInput[]
+    update?: round_time_dirtiesUpdateWithWhereUniqueWithoutSale_officeInput | round_time_dirtiesUpdateWithWhereUniqueWithoutSale_officeInput[]
+    updateMany?: round_time_dirtiesUpdateManyWithWhereWithoutSale_officeInput | round_time_dirtiesUpdateManyWithWhereWithoutSale_officeInput[]
+    deleteMany?: round_time_dirtiesScalarWhereInput | round_time_dirtiesScalarWhereInput[]
+  }
+
+  export type round_time_expressUncheckedUpdateManyWithoutSale_officeNestedInput = {
+    create?: XOR<round_time_expressCreateWithoutSale_officeInput, round_time_expressUncheckedCreateWithoutSale_officeInput> | round_time_expressCreateWithoutSale_officeInput[] | round_time_expressUncheckedCreateWithoutSale_officeInput[]
+    connectOrCreate?: round_time_expressCreateOrConnectWithoutSale_officeInput | round_time_expressCreateOrConnectWithoutSale_officeInput[]
+    upsert?: round_time_expressUpsertWithWhereUniqueWithoutSale_officeInput | round_time_expressUpsertWithWhereUniqueWithoutSale_officeInput[]
+    createMany?: round_time_expressCreateManySale_officeInputEnvelope
+    set?: round_time_expressWhereUniqueInput | round_time_expressWhereUniqueInput[]
+    disconnect?: round_time_expressWhereUniqueInput | round_time_expressWhereUniqueInput[]
+    delete?: round_time_expressWhereUniqueInput | round_time_expressWhereUniqueInput[]
+    connect?: round_time_expressWhereUniqueInput | round_time_expressWhereUniqueInput[]
+    update?: round_time_expressUpdateWithWhereUniqueWithoutSale_officeInput | round_time_expressUpdateWithWhereUniqueWithoutSale_officeInput[]
+    updateMany?: round_time_expressUpdateManyWithWhereWithoutSale_officeInput | round_time_expressUpdateManyWithWhereWithoutSale_officeInput[]
+    deleteMany?: round_time_expressScalarWhereInput | round_time_expressScalarWhereInput[]
   }
 
   export type sale_officesCreateNestedOneWithoutUser_sale_officeInput = {
@@ -55175,6 +57870,34 @@ export namespace Prisma {
     update?: dirty_detailsUpdateWithWhereUniqueWithoutUnregistered_itemInput | dirty_detailsUpdateWithWhereUniqueWithoutUnregistered_itemInput[]
     updateMany?: dirty_detailsUpdateManyWithWhereWithoutUnregistered_itemInput | dirty_detailsUpdateManyWithWhereWithoutUnregistered_itemInput[]
     deleteMany?: dirty_detailsScalarWhereInput | dirty_detailsScalarWhereInput[]
+  }
+
+  export type sale_officesCreateNestedOneWithoutRound_time_dirtiesInput = {
+    create?: XOR<sale_officesCreateWithoutRound_time_dirtiesInput, sale_officesUncheckedCreateWithoutRound_time_dirtiesInput>
+    connectOrCreate?: sale_officesCreateOrConnectWithoutRound_time_dirtiesInput
+    connect?: sale_officesWhereUniqueInput
+  }
+
+  export type sale_officesUpdateOneRequiredWithoutRound_time_dirtiesNestedInput = {
+    create?: XOR<sale_officesCreateWithoutRound_time_dirtiesInput, sale_officesUncheckedCreateWithoutRound_time_dirtiesInput>
+    connectOrCreate?: sale_officesCreateOrConnectWithoutRound_time_dirtiesInput
+    upsert?: sale_officesUpsertWithoutRound_time_dirtiesInput
+    connect?: sale_officesWhereUniqueInput
+    update?: XOR<XOR<sale_officesUpdateToOneWithWhereWithoutRound_time_dirtiesInput, sale_officesUpdateWithoutRound_time_dirtiesInput>, sale_officesUncheckedUpdateWithoutRound_time_dirtiesInput>
+  }
+
+  export type sale_officesCreateNestedOneWithoutRound_time_expressInput = {
+    create?: XOR<sale_officesCreateWithoutRound_time_expressInput, sale_officesUncheckedCreateWithoutRound_time_expressInput>
+    connectOrCreate?: sale_officesCreateOrConnectWithoutRound_time_expressInput
+    connect?: sale_officesWhereUniqueInput
+  }
+
+  export type sale_officesUpdateOneRequiredWithoutRound_time_expressNestedInput = {
+    create?: XOR<sale_officesCreateWithoutRound_time_expressInput, sale_officesUncheckedCreateWithoutRound_time_expressInput>
+    connectOrCreate?: sale_officesCreateOrConnectWithoutRound_time_expressInput
+    upsert?: sale_officesUpsertWithoutRound_time_expressInput
+    connect?: sale_officesWhereUniqueInput
+    update?: XOR<XOR<sale_officesUpdateToOneWithWhereWithoutRound_time_expressInput, sale_officesUpdateWithoutRound_time_expressInput>, sale_officesUncheckedUpdateWithoutRound_time_expressInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -55542,6 +58265,56 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type round_time_dirtiesCreateWithoutSale_officeInput = {
+    time: string
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type round_time_dirtiesUncheckedCreateWithoutSale_officeInput = {
+    id?: number
+    time: string
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type round_time_dirtiesCreateOrConnectWithoutSale_officeInput = {
+    where: round_time_dirtiesWhereUniqueInput
+    create: XOR<round_time_dirtiesCreateWithoutSale_officeInput, round_time_dirtiesUncheckedCreateWithoutSale_officeInput>
+  }
+
+  export type round_time_dirtiesCreateManySale_officeInputEnvelope = {
+    data: round_time_dirtiesCreateManySale_officeInput | round_time_dirtiesCreateManySale_officeInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type round_time_expressCreateWithoutSale_officeInput = {
+    time: string
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type round_time_expressUncheckedCreateWithoutSale_officeInput = {
+    id?: number
+    time: string
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type round_time_expressCreateOrConnectWithoutSale_officeInput = {
+    where: round_time_expressWhereUniqueInput
+    create: XOR<round_time_expressCreateWithoutSale_officeInput, round_time_expressUncheckedCreateWithoutSale_officeInput>
+  }
+
+  export type round_time_expressCreateManySale_officeInputEnvelope = {
+    data: round_time_expressCreateManySale_officeInput | round_time_expressCreateManySale_officeInput[]
+    skipDuplicates?: boolean
+  }
+
   export type departmentsUpsertWithWhereUniqueWithoutSale_officeInput = {
     where: departmentsWhereUniqueInput
     update: XOR<departmentsUpdateWithoutSale_officeInput, departmentsUncheckedUpdateWithoutSale_officeInput>
@@ -55592,6 +58365,62 @@ export namespace Prisma {
     data: XOR<user_sale_officesUpdateManyMutationInput, user_sale_officesUncheckedUpdateManyWithoutSale_officeInput>
   }
 
+  export type round_time_dirtiesUpsertWithWhereUniqueWithoutSale_officeInput = {
+    where: round_time_dirtiesWhereUniqueInput
+    update: XOR<round_time_dirtiesUpdateWithoutSale_officeInput, round_time_dirtiesUncheckedUpdateWithoutSale_officeInput>
+    create: XOR<round_time_dirtiesCreateWithoutSale_officeInput, round_time_dirtiesUncheckedCreateWithoutSale_officeInput>
+  }
+
+  export type round_time_dirtiesUpdateWithWhereUniqueWithoutSale_officeInput = {
+    where: round_time_dirtiesWhereUniqueInput
+    data: XOR<round_time_dirtiesUpdateWithoutSale_officeInput, round_time_dirtiesUncheckedUpdateWithoutSale_officeInput>
+  }
+
+  export type round_time_dirtiesUpdateManyWithWhereWithoutSale_officeInput = {
+    where: round_time_dirtiesScalarWhereInput
+    data: XOR<round_time_dirtiesUpdateManyMutationInput, round_time_dirtiesUncheckedUpdateManyWithoutSale_officeInput>
+  }
+
+  export type round_time_dirtiesScalarWhereInput = {
+    AND?: round_time_dirtiesScalarWhereInput | round_time_dirtiesScalarWhereInput[]
+    OR?: round_time_dirtiesScalarWhereInput[]
+    NOT?: round_time_dirtiesScalarWhereInput | round_time_dirtiesScalarWhereInput[]
+    id?: IntFilter<"round_time_dirties"> | number
+    sale_office_id?: IntFilter<"round_time_dirties"> | number
+    time?: StringFilter<"round_time_dirties"> | string
+    status?: BoolFilter<"round_time_dirties"> | boolean
+    create_at?: DateTimeFilter<"round_time_dirties"> | Date | string
+    update_at?: DateTimeFilter<"round_time_dirties"> | Date | string
+  }
+
+  export type round_time_expressUpsertWithWhereUniqueWithoutSale_officeInput = {
+    where: round_time_expressWhereUniqueInput
+    update: XOR<round_time_expressUpdateWithoutSale_officeInput, round_time_expressUncheckedUpdateWithoutSale_officeInput>
+    create: XOR<round_time_expressCreateWithoutSale_officeInput, round_time_expressUncheckedCreateWithoutSale_officeInput>
+  }
+
+  export type round_time_expressUpdateWithWhereUniqueWithoutSale_officeInput = {
+    where: round_time_expressWhereUniqueInput
+    data: XOR<round_time_expressUpdateWithoutSale_officeInput, round_time_expressUncheckedUpdateWithoutSale_officeInput>
+  }
+
+  export type round_time_expressUpdateManyWithWhereWithoutSale_officeInput = {
+    where: round_time_expressScalarWhereInput
+    data: XOR<round_time_expressUpdateManyMutationInput, round_time_expressUncheckedUpdateManyWithoutSale_officeInput>
+  }
+
+  export type round_time_expressScalarWhereInput = {
+    AND?: round_time_expressScalarWhereInput | round_time_expressScalarWhereInput[]
+    OR?: round_time_expressScalarWhereInput[]
+    NOT?: round_time_expressScalarWhereInput | round_time_expressScalarWhereInput[]
+    id?: IntFilter<"round_time_express"> | number
+    sale_office_id?: IntFilter<"round_time_express"> | number
+    time?: StringFilter<"round_time_express"> | string
+    status?: BoolFilter<"round_time_express"> | boolean
+    create_at?: DateTimeFilter<"round_time_express"> | Date | string
+    update_at?: DateTimeFilter<"round_time_express"> | Date | string
+  }
+
   export type sale_officesCreateWithoutUser_sale_officeInput = {
     site_code: string
     site_office_name_th: string
@@ -55600,6 +58429,8 @@ export namespace Prisma {
     create_at?: Date | string
     update_at?: Date | string
     departments?: departmentsCreateNestedManyWithoutSale_officeInput
+    round_time_dirties?: round_time_dirtiesCreateNestedManyWithoutSale_officeInput
+    round_time_express?: round_time_expressCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesUncheckedCreateWithoutUser_sale_officeInput = {
@@ -55611,6 +58442,8 @@ export namespace Prisma {
     create_at?: Date | string
     update_at?: Date | string
     departments?: departmentsUncheckedCreateNestedManyWithoutSale_officeInput
+    round_time_dirties?: round_time_dirtiesUncheckedCreateNestedManyWithoutSale_officeInput
+    round_time_express?: round_time_expressUncheckedCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesCreateOrConnectWithoutUser_sale_officeInput = {
@@ -55673,6 +58506,8 @@ export namespace Prisma {
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
     departments?: departmentsUpdateManyWithoutSale_officeNestedInput
+    round_time_dirties?: round_time_dirtiesUpdateManyWithoutSale_officeNestedInput
+    round_time_express?: round_time_expressUpdateManyWithoutSale_officeNestedInput
   }
 
   export type sale_officesUncheckedUpdateWithoutUser_sale_officeInput = {
@@ -55684,6 +58519,8 @@ export namespace Prisma {
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
     departments?: departmentsUncheckedUpdateManyWithoutSale_officeNestedInput
+    round_time_dirties?: round_time_dirtiesUncheckedUpdateManyWithoutSale_officeNestedInput
+    round_time_express?: round_time_expressUncheckedUpdateManyWithoutSale_officeNestedInput
   }
 
   export type userUpsertWithoutUser_sale_officeInput = {
@@ -55736,6 +58573,8 @@ export namespace Prisma {
     create_at?: Date | string
     update_at?: Date | string
     user_sale_office?: user_sale_officesCreateNestedManyWithoutSale_officeInput
+    round_time_dirties?: round_time_dirtiesCreateNestedManyWithoutSale_officeInput
+    round_time_express?: round_time_expressCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesUncheckedCreateWithoutDepartmentsInput = {
@@ -55747,6 +58586,8 @@ export namespace Prisma {
     create_at?: Date | string
     update_at?: Date | string
     user_sale_office?: user_sale_officesUncheckedCreateNestedManyWithoutSale_officeInput
+    round_time_dirties?: round_time_dirtiesUncheckedCreateNestedManyWithoutSale_officeInput
+    round_time_express?: round_time_expressUncheckedCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesCreateOrConnectWithoutDepartmentsInput = {
@@ -55773,6 +58614,8 @@ export namespace Prisma {
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
     user_sale_office?: user_sale_officesUpdateManyWithoutSale_officeNestedInput
+    round_time_dirties?: round_time_dirtiesUpdateManyWithoutSale_officeNestedInput
+    round_time_express?: round_time_expressUpdateManyWithoutSale_officeNestedInput
   }
 
   export type sale_officesUncheckedUpdateWithoutDepartmentsInput = {
@@ -55784,6 +58627,8 @@ export namespace Prisma {
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
     user_sale_office?: user_sale_officesUncheckedUpdateManyWithoutSale_officeNestedInput
+    round_time_dirties?: round_time_dirtiesUncheckedUpdateManyWithoutSale_officeNestedInput
+    round_time_express?: round_time_expressUncheckedUpdateManyWithoutSale_officeNestedInput
   }
 
   export type unregistered_itemsCreateWithoutDirty_detailsInput = {
@@ -55921,6 +58766,138 @@ export namespace Prisma {
     update_at?: DateTimeFilter<"dirty_details"> | Date | string
   }
 
+  export type sale_officesCreateWithoutRound_time_dirtiesInput = {
+    site_code: string
+    site_office_name_th: string
+    site_office_name_en: string
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    departments?: departmentsCreateNestedManyWithoutSale_officeInput
+    user_sale_office?: user_sale_officesCreateNestedManyWithoutSale_officeInput
+    round_time_express?: round_time_expressCreateNestedManyWithoutSale_officeInput
+  }
+
+  export type sale_officesUncheckedCreateWithoutRound_time_dirtiesInput = {
+    id?: number
+    site_code: string
+    site_office_name_th: string
+    site_office_name_en: string
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    departments?: departmentsUncheckedCreateNestedManyWithoutSale_officeInput
+    user_sale_office?: user_sale_officesUncheckedCreateNestedManyWithoutSale_officeInput
+    round_time_express?: round_time_expressUncheckedCreateNestedManyWithoutSale_officeInput
+  }
+
+  export type sale_officesCreateOrConnectWithoutRound_time_dirtiesInput = {
+    where: sale_officesWhereUniqueInput
+    create: XOR<sale_officesCreateWithoutRound_time_dirtiesInput, sale_officesUncheckedCreateWithoutRound_time_dirtiesInput>
+  }
+
+  export type sale_officesUpsertWithoutRound_time_dirtiesInput = {
+    update: XOR<sale_officesUpdateWithoutRound_time_dirtiesInput, sale_officesUncheckedUpdateWithoutRound_time_dirtiesInput>
+    create: XOR<sale_officesCreateWithoutRound_time_dirtiesInput, sale_officesUncheckedCreateWithoutRound_time_dirtiesInput>
+    where?: sale_officesWhereInput
+  }
+
+  export type sale_officesUpdateToOneWithWhereWithoutRound_time_dirtiesInput = {
+    where?: sale_officesWhereInput
+    data: XOR<sale_officesUpdateWithoutRound_time_dirtiesInput, sale_officesUncheckedUpdateWithoutRound_time_dirtiesInput>
+  }
+
+  export type sale_officesUpdateWithoutRound_time_dirtiesInput = {
+    site_code?: StringFieldUpdateOperationsInput | string
+    site_office_name_th?: StringFieldUpdateOperationsInput | string
+    site_office_name_en?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    departments?: departmentsUpdateManyWithoutSale_officeNestedInput
+    user_sale_office?: user_sale_officesUpdateManyWithoutSale_officeNestedInput
+    round_time_express?: round_time_expressUpdateManyWithoutSale_officeNestedInput
+  }
+
+  export type sale_officesUncheckedUpdateWithoutRound_time_dirtiesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    site_code?: StringFieldUpdateOperationsInput | string
+    site_office_name_th?: StringFieldUpdateOperationsInput | string
+    site_office_name_en?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    departments?: departmentsUncheckedUpdateManyWithoutSale_officeNestedInput
+    user_sale_office?: user_sale_officesUncheckedUpdateManyWithoutSale_officeNestedInput
+    round_time_express?: round_time_expressUncheckedUpdateManyWithoutSale_officeNestedInput
+  }
+
+  export type sale_officesCreateWithoutRound_time_expressInput = {
+    site_code: string
+    site_office_name_th: string
+    site_office_name_en: string
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    departments?: departmentsCreateNestedManyWithoutSale_officeInput
+    user_sale_office?: user_sale_officesCreateNestedManyWithoutSale_officeInput
+    round_time_dirties?: round_time_dirtiesCreateNestedManyWithoutSale_officeInput
+  }
+
+  export type sale_officesUncheckedCreateWithoutRound_time_expressInput = {
+    id?: number
+    site_code: string
+    site_office_name_th: string
+    site_office_name_en: string
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    departments?: departmentsUncheckedCreateNestedManyWithoutSale_officeInput
+    user_sale_office?: user_sale_officesUncheckedCreateNestedManyWithoutSale_officeInput
+    round_time_dirties?: round_time_dirtiesUncheckedCreateNestedManyWithoutSale_officeInput
+  }
+
+  export type sale_officesCreateOrConnectWithoutRound_time_expressInput = {
+    where: sale_officesWhereUniqueInput
+    create: XOR<sale_officesCreateWithoutRound_time_expressInput, sale_officesUncheckedCreateWithoutRound_time_expressInput>
+  }
+
+  export type sale_officesUpsertWithoutRound_time_expressInput = {
+    update: XOR<sale_officesUpdateWithoutRound_time_expressInput, sale_officesUncheckedUpdateWithoutRound_time_expressInput>
+    create: XOR<sale_officesCreateWithoutRound_time_expressInput, sale_officesUncheckedCreateWithoutRound_time_expressInput>
+    where?: sale_officesWhereInput
+  }
+
+  export type sale_officesUpdateToOneWithWhereWithoutRound_time_expressInput = {
+    where?: sale_officesWhereInput
+    data: XOR<sale_officesUpdateWithoutRound_time_expressInput, sale_officesUncheckedUpdateWithoutRound_time_expressInput>
+  }
+
+  export type sale_officesUpdateWithoutRound_time_expressInput = {
+    site_code?: StringFieldUpdateOperationsInput | string
+    site_office_name_th?: StringFieldUpdateOperationsInput | string
+    site_office_name_en?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    departments?: departmentsUpdateManyWithoutSale_officeNestedInput
+    user_sale_office?: user_sale_officesUpdateManyWithoutSale_officeNestedInput
+    round_time_dirties?: round_time_dirtiesUpdateManyWithoutSale_officeNestedInput
+  }
+
+  export type sale_officesUncheckedUpdateWithoutRound_time_expressInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    site_code?: StringFieldUpdateOperationsInput | string
+    site_office_name_th?: StringFieldUpdateOperationsInput | string
+    site_office_name_en?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    departments?: departmentsUncheckedUpdateManyWithoutSale_officeNestedInput
+    user_sale_office?: user_sale_officesUncheckedUpdateManyWithoutSale_officeNestedInput
+    round_time_dirties?: round_time_dirtiesUncheckedUpdateManyWithoutSale_officeNestedInput
+  }
+
   export type user_sale_officesCreateManyUserInput = {
     id?: number
     sale_office_id: number
@@ -55970,6 +58947,22 @@ export namespace Prisma {
     id?: number
     user_id: number
     role?: string | null
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type round_time_dirtiesCreateManySale_officeInput = {
+    id?: number
+    time: string
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type round_time_expressCreateManySale_officeInput = {
+    id?: number
+    time: string
+    status: boolean
     create_at?: Date | string
     update_at?: Date | string
   }
@@ -56034,6 +59027,52 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     user_id?: IntFieldUpdateOperationsInput | number
     role?: NullableStringFieldUpdateOperationsInput | string | null
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type round_time_dirtiesUpdateWithoutSale_officeInput = {
+    time?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type round_time_dirtiesUncheckedUpdateWithoutSale_officeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    time?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type round_time_dirtiesUncheckedUpdateManyWithoutSale_officeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    time?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type round_time_expressUpdateWithoutSale_officeInput = {
+    time?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type round_time_expressUncheckedUpdateWithoutSale_officeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    time?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type round_time_expressUncheckedUpdateManyWithoutSale_officeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    time?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }

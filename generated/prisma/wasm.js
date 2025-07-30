@@ -20,12 +20,12 @@ exports.Prisma = Prisma
 exports.$Enums = {}
 
 /**
- * Prisma Client JS version: 6.11.0
- * Query Engine version: 9c30299f5a0ea26a96790e13f796dc6094db3173
+ * Prisma Client JS version: 6.13.0
+ * Query Engine version: 361e86d0ea4987e9f53a565309b3eed797a6bcbd
  */
 Prisma.prismaVersion = {
-  client: "6.11.0",
-  engine: "9c30299f5a0ea26a96790e13f796dc6094db3173"
+  client: "6.13.0",
+  engine: "361e86d0ea4987e9f53a565309b3eed797a6bcbd"
 }
 
 Prisma.PrismaClientKnownRequestError = () => {
@@ -661,6 +661,24 @@ exports.Prisma.Unregistered_itemsScalarFieldEnum = {
   update_at: 'update_at'
 };
 
+exports.Prisma.Round_time_dirtiesScalarFieldEnum = {
+  id: 'id',
+  sale_office_id: 'sale_office_id',
+  time: 'time',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
+exports.Prisma.Round_time_expressScalarFieldEnum = {
+  id: 'id',
+  sale_office_id: 'sale_office_id',
+  time: 'time',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -867,6 +885,14 @@ exports.Prisma.unregistered_itemsOrderByRelevanceFieldEnum = {
   type_linen: 'type_linen'
 };
 
+exports.Prisma.round_time_dirtiesOrderByRelevanceFieldEnum = {
+  time: 'time'
+};
+
+exports.Prisma.round_time_expressOrderByRelevanceFieldEnum = {
+  time: 'time'
+};
+
 
 exports.Prisma.ModelName = {
   user: 'user',
@@ -908,7 +934,9 @@ exports.Prisma.ModelName = {
   clean_details: 'clean_details',
   return_washs: 'return_washs',
   retrun_wash_details: 'retrun_wash_details',
-  unregistered_items: 'unregistered_items'
+  unregistered_items: 'unregistered_items',
+  round_time_dirties: 'round_time_dirties',
+  round_time_express: 'round_time_express'
 };
 
 /**

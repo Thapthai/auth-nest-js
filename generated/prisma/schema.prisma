@@ -67,15 +67,18 @@ model permission {
 }
 
 model sale_offices {
-  id                  Int                 @id @default(autoincrement())
+  id                  Int      @id @default(autoincrement())
   site_code           String
   site_office_name_th String
   site_office_name_en String
   status              Boolean
-  create_at           DateTime            @default(now())
-  update_at           DateTime            @updatedAt
-  departments         departments[]
-  user_sale_office    user_sale_offices[]
+  create_at           DateTime @default(now())
+  update_at           DateTime @updatedAt
+
+  departments        departments[]
+  user_sale_office   user_sale_offices[]
+  round_time_dirties round_time_dirties[]
+  round_time_express round_time_express[]
 }
 
 model user_sale_offices {
@@ -564,4 +567,26 @@ model unregistered_items {
   create_at     DateTime        @default(now())
   update_at     DateTime        @updatedAt
   dirty_details dirty_details[]
+}
+
+model round_time_dirties {
+  id             Int      @id @default(autoincrement())
+  sale_office_id Int
+  time           String
+  status         Boolean
+  create_at      DateTime @default(now())
+  update_at      DateTime @updatedAt
+
+  sale_office sale_offices @relation(fields: [sale_office_id], references: [id])
+}
+
+model round_time_express {
+  id             Int      @id @default(autoincrement())
+  sale_office_id Int
+  time           String
+  status         Boolean
+  create_at      DateTime @default(now())
+  update_at      DateTime @updatedAt
+
+  sale_office sale_offices @relation(fields: [sale_office_id], references: [id])
 }

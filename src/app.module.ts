@@ -22,6 +22,9 @@ import { UsersModule } from './users/users.module';
 import { PermissionModule } from './permission/permission.module';
 import { RoundTimeDirtiesModule } from './round_time_dirties/round_time_dirties.module';
 import { RoundTimeExpressModule } from './round_time_express/round_time_express.module';
+import { RoundTimeShelfCountExpressModule } from './round_time_shelf_count_express/round_time_shelf_count_express.module';
+import { RoundTimeCleanModule } from './round_time_clean/round_time_clean.module';
+import { RoundTimeFactoryModule } from './round_time_factory/round_time_factory.module';
 
 @Module({
   imports: [
@@ -50,6 +53,9 @@ import { RoundTimeExpressModule } from './round_time_express/round_time_express.
     PermissionModule,
     RoundTimeDirtiesModule,
     RoundTimeExpressModule,
+    RoundTimeShelfCountExpressModule,
+    RoundTimeCleanModule,
+    RoundTimeFactoryModule,
   ],
   controllers: [],
   providers: [

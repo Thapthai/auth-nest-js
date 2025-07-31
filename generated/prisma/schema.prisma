@@ -75,10 +75,12 @@ model sale_offices {
   create_at           DateTime @default(now())
   update_at           DateTime @updatedAt
 
-  departments        departments[]
-  user_sale_office   user_sale_offices[]
-  round_time_dirties round_time_dirties[]
-  round_time_express round_time_express[]
+  departments                    departments[]
+  user_sale_office               user_sale_offices[]
+  round_time_dirties             round_time_dirties[]
+  round_time_express             round_time_express[]
+  round_time_shelf_count_express round_time_shelf_count_express[]
+  round_time_clean               round_time_clean[]
 }
 
 model user_sale_offices {
@@ -134,6 +136,8 @@ model factories {
   status    Boolean
   create_at DateTime @default(now())
   update_at DateTime @updatedAt
+
+  round_time_factory round_time_factory[]
 }
 
 model machines {
@@ -589,4 +593,37 @@ model round_time_express {
   update_at      DateTime @updatedAt
 
   sale_office sale_offices @relation(fields: [sale_office_id], references: [id])
+}
+
+model round_time_shelf_count_express {
+  id             Int      @id @default(autoincrement())
+  sale_office_id Int
+  time           String
+  status         Boolean
+  create_at      DateTime @default(now())
+  update_at      DateTime @updatedAt
+
+  sale_office sale_offices @relation(fields: [sale_office_id], references: [id])
+}
+
+model round_time_clean {
+  id             Int      @id @default(autoincrement())
+  sale_office_id Int
+  time           String
+  status         Boolean
+  create_at      DateTime @default(now())
+  update_at      DateTime @updatedAt
+
+  sale_office sale_offices @relation(fields: [sale_office_id], references: [id])
+}
+
+model round_time_factory {
+  id         Int      @id @default(autoincrement())
+  factory_id Int
+  time       String
+  status     Boolean
+  create_at  DateTime @default(now())
+  update_at  DateTime @updatedAt
+
+  factory factories @relation(fields: [factory_id], references: [id])
 }

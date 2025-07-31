@@ -679,6 +679,33 @@ exports.Prisma.Round_time_expressScalarFieldEnum = {
   update_at: 'update_at'
 };
 
+exports.Prisma.Round_time_shelf_count_expressScalarFieldEnum = {
+  id: 'id',
+  sale_office_id: 'sale_office_id',
+  time: 'time',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
+exports.Prisma.Round_time_cleanScalarFieldEnum = {
+  id: 'id',
+  sale_office_id: 'sale_office_id',
+  time: 'time',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
+exports.Prisma.Round_time_factoryScalarFieldEnum = {
+  id: 'id',
+  factory_id: 'factory_id',
+  time: 'time',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -893,6 +920,18 @@ exports.Prisma.round_time_expressOrderByRelevanceFieldEnum = {
   time: 'time'
 };
 
+exports.Prisma.round_time_shelf_count_expressOrderByRelevanceFieldEnum = {
+  time: 'time'
+};
+
+exports.Prisma.round_time_cleanOrderByRelevanceFieldEnum = {
+  time: 'time'
+};
+
+exports.Prisma.round_time_factoryOrderByRelevanceFieldEnum = {
+  time: 'time'
+};
+
 
 exports.Prisma.ModelName = {
   user: 'user',
@@ -936,7 +975,10 @@ exports.Prisma.ModelName = {
   retrun_wash_details: 'retrun_wash_details',
   unregistered_items: 'unregistered_items',
   round_time_dirties: 'round_time_dirties',
-  round_time_express: 'round_time_express'
+  round_time_express: 'round_time_express',
+  round_time_shelf_count_express: 'round_time_shelf_count_express',
+  round_time_clean: 'round_time_clean',
+  round_time_factory: 'round_time_factory'
 };
 
 /**

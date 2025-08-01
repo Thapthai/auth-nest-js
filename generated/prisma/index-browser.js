@@ -324,7 +324,9 @@ exports.Prisma.Items_detailsScalarFieldEnum = {
 
 exports.Prisma.Item_categoriesScalarFieldEnum = {
   id: 'id',
-  type_id: 'type_id',
+  name_th: 'name_th',
+  name_en: 'name_en',
+  material_id: 'material_id',
   sale_office_id: 'sale_office_id',
   department_id: 'department_id',
   stock_location_id: 'stock_location_id',
@@ -820,6 +822,8 @@ exports.Prisma.items_detailsOrderByRelevanceFieldEnum = {
 };
 
 exports.Prisma.item_categoriesOrderByRelevanceFieldEnum = {
+  name_th: 'name_th',
+  name_en: 'name_en',
   description: 'description'
 };
 

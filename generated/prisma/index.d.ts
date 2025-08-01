@@ -4696,10 +4696,12 @@ export namespace Prisma {
 
   export type MaterialsCountOutputType = {
     items: number
+    item_categories: number
   }
 
   export type MaterialsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     items?: boolean | MaterialsCountOutputTypeCountItemsArgs
+    item_categories?: boolean | MaterialsCountOutputTypeCountItem_categoriesArgs
   }
 
   // Custom InputTypes
@@ -4718,6 +4720,13 @@ export namespace Prisma {
    */
   export type MaterialsCountOutputTypeCountItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: itemsWhereInput
+  }
+
+  /**
+   * MaterialsCountOutputType without action
+   */
+  export type MaterialsCountOutputTypeCountItem_categoriesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: item_categoriesWhereInput
   }
 
 
@@ -17925,6 +17934,7 @@ export namespace Prisma {
     material_types?: boolean | material_typesDefaultArgs<ExtArgs>
     sap_sale?: boolean | materials$sap_saleArgs<ExtArgs>
     items?: boolean | materials$itemsArgs<ExtArgs>
+    item_categories?: boolean | materials$item_categoriesArgs<ExtArgs>
     _count?: boolean | MaterialsCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["materials"]>
 
@@ -17949,6 +17959,7 @@ export namespace Prisma {
     material_types?: boolean | material_typesDefaultArgs<ExtArgs>
     sap_sale?: boolean | materials$sap_saleArgs<ExtArgs>
     items?: boolean | materials$itemsArgs<ExtArgs>
+    item_categories?: boolean | materials$item_categoriesArgs<ExtArgs>
     _count?: boolean | MaterialsCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -17958,6 +17969,7 @@ export namespace Prisma {
       material_types: Prisma.$material_typesPayload<ExtArgs>
       sap_sale: Prisma.$sap_salePayload<ExtArgs> | null
       items: Prisma.$itemsPayload<ExtArgs>[]
+      item_categories: Prisma.$item_categoriesPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -18314,6 +18326,7 @@ export namespace Prisma {
     material_types<T extends material_typesDefaultArgs<ExtArgs> = {}>(args?: Subset<T, material_typesDefaultArgs<ExtArgs>>): Prisma__material_typesClient<$Result.GetResult<Prisma.$material_typesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     sap_sale<T extends materials$sap_saleArgs<ExtArgs> = {}>(args?: Subset<T, materials$sap_saleArgs<ExtArgs>>): Prisma__sap_saleClient<$Result.GetResult<Prisma.$sap_salePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     items<T extends materials$itemsArgs<ExtArgs> = {}>(args?: Subset<T, materials$itemsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$itemsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    item_categories<T extends materials$item_categoriesArgs<ExtArgs> = {}>(args?: Subset<T, materials$item_categoriesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$item_categoriesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -18737,6 +18750,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: ItemsScalarFieldEnum | ItemsScalarFieldEnum[]
+  }
+
+  /**
+   * materials.item_categories
+   */
+  export type materials$item_categoriesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the item_categories
+     */
+    select?: item_categoriesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the item_categories
+     */
+    omit?: item_categoriesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: item_categoriesInclude<ExtArgs> | null
+    where?: item_categoriesWhereInput
+    orderBy?: item_categoriesOrderByWithRelationInput | item_categoriesOrderByWithRelationInput[]
+    cursor?: item_categoriesWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Item_categoriesScalarFieldEnum | Item_categoriesScalarFieldEnum[]
   }
 
   /**
@@ -20970,7 +21007,7 @@ export namespace Prisma {
     saleoffice_id: number
     department_id: number
     item_category_id: number | null
-    stock_location_id: number
+    stock_location_id: number | null
     rfid_number: string | null
     name_th: string | null
     name_en: string | null
@@ -21050,7 +21087,7 @@ export namespace Prisma {
       saleoffice_id: number
       department_id: number
       item_category_id: number | null
-      stock_location_id: number
+      stock_location_id: number | null
       rfid_number: string | null
       name_th: string | null
       name_en: string | null
@@ -22042,7 +22079,7 @@ export namespace Prisma {
     sale_office_id: number
     qr_code_number: string
     product_lot_number: string
-    description: string
+    description: string | null
     status: boolean
     create_at: Date
     update_at: Date
@@ -22104,7 +22141,7 @@ export namespace Prisma {
       sale_office_id: number
       qr_code_number: string
       product_lot_number: string
-      description: string
+      description: string | null
       status: boolean
       create_at: Date
       update_at: Date
@@ -22821,7 +22858,7 @@ export namespace Prisma {
 
   export type Item_categoriesAvgAggregateOutputType = {
     id: number | null
-    type_id: number | null
+    material_id: number | null
     sale_office_id: number | null
     department_id: number | null
     stock_location_id: number | null
@@ -22829,7 +22866,7 @@ export namespace Prisma {
 
   export type Item_categoriesSumAggregateOutputType = {
     id: number | null
-    type_id: number | null
+    material_id: number | null
     sale_office_id: number | null
     department_id: number | null
     stock_location_id: number | null
@@ -22837,7 +22874,9 @@ export namespace Prisma {
 
   export type Item_categoriesMinAggregateOutputType = {
     id: number | null
-    type_id: number | null
+    name_th: string | null
+    name_en: string | null
+    material_id: number | null
     sale_office_id: number | null
     department_id: number | null
     stock_location_id: number | null
@@ -22849,7 +22888,9 @@ export namespace Prisma {
 
   export type Item_categoriesMaxAggregateOutputType = {
     id: number | null
-    type_id: number | null
+    name_th: string | null
+    name_en: string | null
+    material_id: number | null
     sale_office_id: number | null
     department_id: number | null
     stock_location_id: number | null
@@ -22861,7 +22902,9 @@ export namespace Prisma {
 
   export type Item_categoriesCountAggregateOutputType = {
     id: number
-    type_id: number
+    name_th: number
+    name_en: number
+    material_id: number
     sale_office_id: number
     department_id: number
     stock_location_id: number
@@ -22875,7 +22918,7 @@ export namespace Prisma {
 
   export type Item_categoriesAvgAggregateInputType = {
     id?: true
-    type_id?: true
+    material_id?: true
     sale_office_id?: true
     department_id?: true
     stock_location_id?: true
@@ -22883,7 +22926,7 @@ export namespace Prisma {
 
   export type Item_categoriesSumAggregateInputType = {
     id?: true
-    type_id?: true
+    material_id?: true
     sale_office_id?: true
     department_id?: true
     stock_location_id?: true
@@ -22891,7 +22934,9 @@ export namespace Prisma {
 
   export type Item_categoriesMinAggregateInputType = {
     id?: true
-    type_id?: true
+    name_th?: true
+    name_en?: true
+    material_id?: true
     sale_office_id?: true
     department_id?: true
     stock_location_id?: true
@@ -22903,7 +22948,9 @@ export namespace Prisma {
 
   export type Item_categoriesMaxAggregateInputType = {
     id?: true
-    type_id?: true
+    name_th?: true
+    name_en?: true
+    material_id?: true
     sale_office_id?: true
     department_id?: true
     stock_location_id?: true
@@ -22915,7 +22962,9 @@ export namespace Prisma {
 
   export type Item_categoriesCountAggregateInputType = {
     id?: true
-    type_id?: true
+    name_th?: true
+    name_en?: true
+    material_id?: true
     sale_office_id?: true
     department_id?: true
     stock_location_id?: true
@@ -23014,11 +23063,13 @@ export namespace Prisma {
 
   export type Item_categoriesGroupByOutputType = {
     id: number
-    type_id: number
+    name_th: string
+    name_en: string
+    material_id: number
     sale_office_id: number
     department_id: number
-    stock_location_id: number
-    description: string
+    stock_location_id: number | null
+    description: string | null
     status: boolean
     create_at: Date
     update_at: Date
@@ -23045,7 +23096,9 @@ export namespace Prisma {
 
   export type item_categoriesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    type_id?: boolean
+    name_th?: boolean
+    name_en?: boolean
+    material_id?: boolean
     sale_office_id?: boolean
     department_id?: boolean
     stock_location_id?: boolean
@@ -23055,6 +23108,7 @@ export namespace Prisma {
     update_at?: boolean
     item_category_prices?: boolean | item_categories$item_category_pricesArgs<ExtArgs>
     items?: boolean | item_categories$itemsArgs<ExtArgs>
+    material?: boolean | item_categories$materialArgs<ExtArgs>
     _count?: boolean | Item_categoriesCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["item_categories"]>
 
@@ -23062,7 +23116,9 @@ export namespace Prisma {
 
   export type item_categoriesSelectScalar = {
     id?: boolean
-    type_id?: boolean
+    name_th?: boolean
+    name_en?: boolean
+    material_id?: boolean
     sale_office_id?: boolean
     department_id?: boolean
     stock_location_id?: boolean
@@ -23072,10 +23128,11 @@ export namespace Prisma {
     update_at?: boolean
   }
 
-  export type item_categoriesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "type_id" | "sale_office_id" | "department_id" | "stock_location_id" | "description" | "status" | "create_at" | "update_at", ExtArgs["result"]["item_categories"]>
+  export type item_categoriesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name_th" | "name_en" | "material_id" | "sale_office_id" | "department_id" | "stock_location_id" | "description" | "status" | "create_at" | "update_at", ExtArgs["result"]["item_categories"]>
   export type item_categoriesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     item_category_prices?: boolean | item_categories$item_category_pricesArgs<ExtArgs>
     items?: boolean | item_categories$itemsArgs<ExtArgs>
+    material?: boolean | item_categories$materialArgs<ExtArgs>
     _count?: boolean | Item_categoriesCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -23084,14 +23141,17 @@ export namespace Prisma {
     objects: {
       item_category_prices: Prisma.$item_category_pricesPayload<ExtArgs>[]
       items: Prisma.$itemsPayload<ExtArgs>[]
+      material: Prisma.$materialsPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      type_id: number
+      name_th: string
+      name_en: string
+      material_id: number
       sale_office_id: number
       department_id: number
-      stock_location_id: number
-      description: string
+      stock_location_id: number | null
+      description: string | null
       status: boolean
       create_at: Date
       update_at: Date
@@ -23437,6 +23497,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     item_category_prices<T extends item_categories$item_category_pricesArgs<ExtArgs> = {}>(args?: Subset<T, item_categories$item_category_pricesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$item_category_pricesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     items<T extends item_categories$itemsArgs<ExtArgs> = {}>(args?: Subset<T, item_categories$itemsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$itemsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    material<T extends item_categories$materialArgs<ExtArgs> = {}>(args?: Subset<T, item_categories$materialArgs<ExtArgs>>): Prisma__materialsClient<$Result.GetResult<Prisma.$materialsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -23467,7 +23528,9 @@ export namespace Prisma {
    */
   interface item_categoriesFieldRefs {
     readonly id: FieldRef<"item_categories", 'Int'>
-    readonly type_id: FieldRef<"item_categories", 'Int'>
+    readonly name_th: FieldRef<"item_categories", 'String'>
+    readonly name_en: FieldRef<"item_categories", 'String'>
+    readonly material_id: FieldRef<"item_categories", 'Int'>
     readonly sale_office_id: FieldRef<"item_categories", 'Int'>
     readonly department_id: FieldRef<"item_categories", 'Int'>
     readonly stock_location_id: FieldRef<"item_categories", 'Int'>
@@ -23866,6 +23929,25 @@ export namespace Prisma {
   }
 
   /**
+   * item_categories.material
+   */
+  export type item_categories$materialArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the materials
+     */
+    select?: materialsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the materials
+     */
+    omit?: materialsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: materialsInclude<ExtArgs> | null
+    where?: materialsWhereInput
+  }
+
+  /**
    * item_categories without action
    */
   export type item_categoriesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -24073,7 +24155,7 @@ export namespace Prisma {
     id: number
     item_category_id: number
     price: number
-    description: string
+    description: string | null
     status: boolean
     create_at: Date
     update_at: Date
@@ -24135,7 +24217,7 @@ export namespace Prisma {
       id: number
       item_category_id: number
       price: number
-      description: string
+      description: string | null
       status: boolean
       create_at: Date
       update_at: Date
@@ -50653,7 +50735,9 @@ export namespace Prisma {
 
   export const Item_categoriesScalarFieldEnum: {
     id: 'id',
-    type_id: 'type_id',
+    name_th: 'name_th',
+    name_en: 'name_en',
+    material_id: 'material_id',
     sale_office_id: 'sale_office_id',
     department_id: 'department_id',
     stock_location_id: 'stock_location_id',
@@ -51284,6 +51368,8 @@ export namespace Prisma {
 
 
   export const item_categoriesOrderByRelevanceFieldEnum: {
+    name_th: 'name_th',
+    name_en: 'name_en',
     description: 'description'
   };
 
@@ -52459,6 +52545,7 @@ export namespace Prisma {
     material_types?: XOR<Material_typesScalarRelationFilter, material_typesWhereInput>
     sap_sale?: XOR<Sap_saleNullableScalarRelationFilter, sap_saleWhereInput> | null
     items?: ItemsListRelationFilter
+    item_categories?: Item_categoriesListRelationFilter
   }
 
   export type materialsOrderByWithRelationInput = {
@@ -52476,6 +52563,7 @@ export namespace Prisma {
     material_types?: material_typesOrderByWithRelationInput
     sap_sale?: sap_saleOrderByWithRelationInput
     items?: itemsOrderByRelationAggregateInput
+    item_categories?: item_categoriesOrderByRelationAggregateInput
     _relevance?: materialsOrderByRelevanceInput
   }
 
@@ -52497,6 +52585,7 @@ export namespace Prisma {
     material_types?: XOR<Material_typesScalarRelationFilter, material_typesWhereInput>
     sap_sale?: XOR<Sap_saleNullableScalarRelationFilter, sap_saleWhereInput> | null
     items?: ItemsListRelationFilter
+    item_categories?: Item_categoriesListRelationFilter
   }, "id" | "material_code">
 
   export type materialsOrderByWithAggregationInput = {
@@ -52687,7 +52776,7 @@ export namespace Prisma {
     saleoffice_id?: IntFilter<"items"> | number
     department_id?: IntFilter<"items"> | number
     item_category_id?: IntNullableFilter<"items"> | number | null
-    stock_location_id?: IntFilter<"items"> | number
+    stock_location_id?: IntNullableFilter<"items"> | number | null
     rfid_number?: StringNullableFilter<"items"> | string | null
     name_th?: StringNullableFilter<"items"> | string | null
     name_en?: StringNullableFilter<"items"> | string | null
@@ -52704,7 +52793,7 @@ export namespace Prisma {
     saleoffice_id?: SortOrder
     department_id?: SortOrder
     item_category_id?: SortOrderInput | SortOrder
-    stock_location_id?: SortOrder
+    stock_location_id?: SortOrderInput | SortOrder
     rfid_number?: SortOrderInput | SortOrder
     name_th?: SortOrderInput | SortOrder
     name_en?: SortOrderInput | SortOrder
@@ -52726,7 +52815,7 @@ export namespace Prisma {
     saleoffice_id?: IntFilter<"items"> | number
     department_id?: IntFilter<"items"> | number
     item_category_id?: IntNullableFilter<"items"> | number | null
-    stock_location_id?: IntFilter<"items"> | number
+    stock_location_id?: IntNullableFilter<"items"> | number | null
     name_th?: StringNullableFilter<"items"> | string | null
     name_en?: StringNullableFilter<"items"> | string | null
     status?: BoolFilter<"items"> | boolean
@@ -52742,7 +52831,7 @@ export namespace Prisma {
     saleoffice_id?: SortOrder
     department_id?: SortOrder
     item_category_id?: SortOrderInput | SortOrder
-    stock_location_id?: SortOrder
+    stock_location_id?: SortOrderInput | SortOrder
     rfid_number?: SortOrderInput | SortOrder
     name_th?: SortOrderInput | SortOrder
     name_en?: SortOrderInput | SortOrder
@@ -52765,7 +52854,7 @@ export namespace Prisma {
     saleoffice_id?: IntWithAggregatesFilter<"items"> | number
     department_id?: IntWithAggregatesFilter<"items"> | number
     item_category_id?: IntNullableWithAggregatesFilter<"items"> | number | null
-    stock_location_id?: IntWithAggregatesFilter<"items"> | number
+    stock_location_id?: IntNullableWithAggregatesFilter<"items"> | number | null
     rfid_number?: StringNullableWithAggregatesFilter<"items"> | string | null
     name_th?: StringNullableWithAggregatesFilter<"items"> | string | null
     name_en?: StringNullableWithAggregatesFilter<"items"> | string | null
@@ -52783,7 +52872,7 @@ export namespace Prisma {
     sale_office_id?: IntFilter<"items_details"> | number
     qr_code_number?: StringFilter<"items_details"> | string
     product_lot_number?: StringFilter<"items_details"> | string
-    description?: StringFilter<"items_details"> | string
+    description?: StringNullableFilter<"items_details"> | string | null
     status?: BoolFilter<"items_details"> | boolean
     create_at?: DateTimeFilter<"items_details"> | Date | string
     update_at?: DateTimeFilter<"items_details"> | Date | string
@@ -52795,7 +52884,7 @@ export namespace Prisma {
     sale_office_id?: SortOrder
     qr_code_number?: SortOrder
     product_lot_number?: SortOrder
-    description?: SortOrder
+    description?: SortOrderInput | SortOrder
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
@@ -52811,7 +52900,7 @@ export namespace Prisma {
     sale_office_id?: IntFilter<"items_details"> | number
     qr_code_number?: StringFilter<"items_details"> | string
     product_lot_number?: StringFilter<"items_details"> | string
-    description?: StringFilter<"items_details"> | string
+    description?: StringNullableFilter<"items_details"> | string | null
     status?: BoolFilter<"items_details"> | boolean
     create_at?: DateTimeFilter<"items_details"> | Date | string
     update_at?: DateTimeFilter<"items_details"> | Date | string
@@ -52823,7 +52912,7 @@ export namespace Prisma {
     sale_office_id?: SortOrder
     qr_code_number?: SortOrder
     product_lot_number?: SortOrder
-    description?: SortOrder
+    description?: SortOrderInput | SortOrder
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
@@ -52843,7 +52932,7 @@ export namespace Prisma {
     sale_office_id?: IntWithAggregatesFilter<"items_details"> | number
     qr_code_number?: StringWithAggregatesFilter<"items_details"> | string
     product_lot_number?: StringWithAggregatesFilter<"items_details"> | string
-    description?: StringWithAggregatesFilter<"items_details"> | string
+    description?: StringNullableWithAggregatesFilter<"items_details"> | string | null
     status?: BoolWithAggregatesFilter<"items_details"> | boolean
     create_at?: DateTimeWithAggregatesFilter<"items_details"> | Date | string
     update_at?: DateTimeWithAggregatesFilter<"items_details"> | Date | string
@@ -52854,30 +52943,36 @@ export namespace Prisma {
     OR?: item_categoriesWhereInput[]
     NOT?: item_categoriesWhereInput | item_categoriesWhereInput[]
     id?: IntFilter<"item_categories"> | number
-    type_id?: IntFilter<"item_categories"> | number
+    name_th?: StringFilter<"item_categories"> | string
+    name_en?: StringFilter<"item_categories"> | string
+    material_id?: IntFilter<"item_categories"> | number
     sale_office_id?: IntFilter<"item_categories"> | number
     department_id?: IntFilter<"item_categories"> | number
-    stock_location_id?: IntFilter<"item_categories"> | number
-    description?: StringFilter<"item_categories"> | string
+    stock_location_id?: IntNullableFilter<"item_categories"> | number | null
+    description?: StringNullableFilter<"item_categories"> | string | null
     status?: BoolFilter<"item_categories"> | boolean
     create_at?: DateTimeFilter<"item_categories"> | Date | string
     update_at?: DateTimeFilter<"item_categories"> | Date | string
     item_category_prices?: Item_category_pricesListRelationFilter
     items?: ItemsListRelationFilter
+    material?: XOR<MaterialsNullableScalarRelationFilter, materialsWhereInput> | null
   }
 
   export type item_categoriesOrderByWithRelationInput = {
     id?: SortOrder
-    type_id?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
+    material_id?: SortOrder
     sale_office_id?: SortOrder
     department_id?: SortOrder
-    stock_location_id?: SortOrder
-    description?: SortOrder
+    stock_location_id?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
     item_category_prices?: item_category_pricesOrderByRelationAggregateInput
     items?: itemsOrderByRelationAggregateInput
+    material?: materialsOrderByWithRelationInput
     _relevance?: item_categoriesOrderByRelevanceInput
   }
 
@@ -52886,25 +52981,30 @@ export namespace Prisma {
     AND?: item_categoriesWhereInput | item_categoriesWhereInput[]
     OR?: item_categoriesWhereInput[]
     NOT?: item_categoriesWhereInput | item_categoriesWhereInput[]
-    type_id?: IntFilter<"item_categories"> | number
+    name_th?: StringFilter<"item_categories"> | string
+    name_en?: StringFilter<"item_categories"> | string
+    material_id?: IntFilter<"item_categories"> | number
     sale_office_id?: IntFilter<"item_categories"> | number
     department_id?: IntFilter<"item_categories"> | number
-    stock_location_id?: IntFilter<"item_categories"> | number
-    description?: StringFilter<"item_categories"> | string
+    stock_location_id?: IntNullableFilter<"item_categories"> | number | null
+    description?: StringNullableFilter<"item_categories"> | string | null
     status?: BoolFilter<"item_categories"> | boolean
     create_at?: DateTimeFilter<"item_categories"> | Date | string
     update_at?: DateTimeFilter<"item_categories"> | Date | string
     item_category_prices?: Item_category_pricesListRelationFilter
     items?: ItemsListRelationFilter
+    material?: XOR<MaterialsNullableScalarRelationFilter, materialsWhereInput> | null
   }, "id">
 
   export type item_categoriesOrderByWithAggregationInput = {
     id?: SortOrder
-    type_id?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
+    material_id?: SortOrder
     sale_office_id?: SortOrder
     department_id?: SortOrder
-    stock_location_id?: SortOrder
-    description?: SortOrder
+    stock_location_id?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
@@ -52920,11 +53020,13 @@ export namespace Prisma {
     OR?: item_categoriesScalarWhereWithAggregatesInput[]
     NOT?: item_categoriesScalarWhereWithAggregatesInput | item_categoriesScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"item_categories"> | number
-    type_id?: IntWithAggregatesFilter<"item_categories"> | number
+    name_th?: StringWithAggregatesFilter<"item_categories"> | string
+    name_en?: StringWithAggregatesFilter<"item_categories"> | string
+    material_id?: IntWithAggregatesFilter<"item_categories"> | number
     sale_office_id?: IntWithAggregatesFilter<"item_categories"> | number
     department_id?: IntWithAggregatesFilter<"item_categories"> | number
-    stock_location_id?: IntWithAggregatesFilter<"item_categories"> | number
-    description?: StringWithAggregatesFilter<"item_categories"> | string
+    stock_location_id?: IntNullableWithAggregatesFilter<"item_categories"> | number | null
+    description?: StringNullableWithAggregatesFilter<"item_categories"> | string | null
     status?: BoolWithAggregatesFilter<"item_categories"> | boolean
     create_at?: DateTimeWithAggregatesFilter<"item_categories"> | Date | string
     update_at?: DateTimeWithAggregatesFilter<"item_categories"> | Date | string
@@ -52937,7 +53039,7 @@ export namespace Prisma {
     id?: IntFilter<"item_category_prices"> | number
     item_category_id?: IntFilter<"item_category_prices"> | number
     price?: FloatFilter<"item_category_prices"> | number
-    description?: StringFilter<"item_category_prices"> | string
+    description?: StringNullableFilter<"item_category_prices"> | string | null
     status?: BoolFilter<"item_category_prices"> | boolean
     create_at?: DateTimeFilter<"item_category_prices"> | Date | string
     update_at?: DateTimeFilter<"item_category_prices"> | Date | string
@@ -52948,7 +53050,7 @@ export namespace Prisma {
     id?: SortOrder
     item_category_id?: SortOrder
     price?: SortOrder
-    description?: SortOrder
+    description?: SortOrderInput | SortOrder
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
@@ -52963,7 +53065,7 @@ export namespace Prisma {
     NOT?: item_category_pricesWhereInput | item_category_pricesWhereInput[]
     item_category_id?: IntFilter<"item_category_prices"> | number
     price?: FloatFilter<"item_category_prices"> | number
-    description?: StringFilter<"item_category_prices"> | string
+    description?: StringNullableFilter<"item_category_prices"> | string | null
     status?: BoolFilter<"item_category_prices"> | boolean
     create_at?: DateTimeFilter<"item_category_prices"> | Date | string
     update_at?: DateTimeFilter<"item_category_prices"> | Date | string
@@ -52974,7 +53076,7 @@ export namespace Prisma {
     id?: SortOrder
     item_category_id?: SortOrder
     price?: SortOrder
-    description?: SortOrder
+    description?: SortOrderInput | SortOrder
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
@@ -52992,7 +53094,7 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"item_category_prices"> | number
     item_category_id?: IntWithAggregatesFilter<"item_category_prices"> | number
     price?: FloatWithAggregatesFilter<"item_category_prices"> | number
-    description?: StringWithAggregatesFilter<"item_category_prices"> | string
+    description?: StringNullableWithAggregatesFilter<"item_category_prices"> | string | null
     status?: BoolWithAggregatesFilter<"item_category_prices"> | boolean
     create_at?: DateTimeWithAggregatesFilter<"item_category_prices"> | Date | string
     update_at?: DateTimeWithAggregatesFilter<"item_category_prices"> | Date | string
@@ -56202,6 +56304,7 @@ export namespace Prisma {
     material_types: material_typesCreateNestedOneWithoutMaterialsInput
     sap_sale?: sap_saleCreateNestedOneWithoutMaterialsInput
     items?: itemsCreateNestedManyWithoutMaterialInput
+    item_categories?: item_categoriesCreateNestedManyWithoutMaterialInput
   }
 
   export type materialsUncheckedCreateInput = {
@@ -56217,6 +56320,7 @@ export namespace Prisma {
     create_at?: Date | string
     update_at?: Date | string
     items?: itemsUncheckedCreateNestedManyWithoutMaterialInput
+    item_categories?: item_categoriesUncheckedCreateNestedManyWithoutMaterialInput
   }
 
   export type materialsUpdateInput = {
@@ -56231,6 +56335,7 @@ export namespace Prisma {
     material_types?: material_typesUpdateOneRequiredWithoutMaterialsNestedInput
     sap_sale?: sap_saleUpdateOneWithoutMaterialsNestedInput
     items?: itemsUpdateManyWithoutMaterialNestedInput
+    item_categories?: item_categoriesUpdateManyWithoutMaterialNestedInput
   }
 
   export type materialsUncheckedUpdateInput = {
@@ -56246,6 +56351,7 @@ export namespace Prisma {
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
     items?: itemsUncheckedUpdateManyWithoutMaterialNestedInput
+    item_categories?: item_categoriesUncheckedUpdateManyWithoutMaterialNestedInput
   }
 
   export type materialsCreateManyInput = {
@@ -56442,7 +56548,7 @@ export namespace Prisma {
   export type itemsCreateInput = {
     saleoffice_id: number
     department_id: number
-    stock_location_id: number
+    stock_location_id?: number | null
     rfid_number?: string | null
     name_th?: string | null
     name_en?: string | null
@@ -56459,7 +56565,7 @@ export namespace Prisma {
     saleoffice_id: number
     department_id: number
     item_category_id?: number | null
-    stock_location_id: number
+    stock_location_id?: number | null
     rfid_number?: string | null
     name_th?: string | null
     name_en?: string | null
@@ -56471,7 +56577,7 @@ export namespace Prisma {
   export type itemsUpdateInput = {
     saleoffice_id?: IntFieldUpdateOperationsInput | number
     department_id?: IntFieldUpdateOperationsInput | number
-    stock_location_id?: IntFieldUpdateOperationsInput | number
+    stock_location_id?: NullableIntFieldUpdateOperationsInput | number | null
     rfid_number?: NullableStringFieldUpdateOperationsInput | string | null
     name_th?: NullableStringFieldUpdateOperationsInput | string | null
     name_en?: NullableStringFieldUpdateOperationsInput | string | null
@@ -56488,7 +56594,7 @@ export namespace Prisma {
     saleoffice_id?: IntFieldUpdateOperationsInput | number
     department_id?: IntFieldUpdateOperationsInput | number
     item_category_id?: NullableIntFieldUpdateOperationsInput | number | null
-    stock_location_id?: IntFieldUpdateOperationsInput | number
+    stock_location_id?: NullableIntFieldUpdateOperationsInput | number | null
     rfid_number?: NullableStringFieldUpdateOperationsInput | string | null
     name_th?: NullableStringFieldUpdateOperationsInput | string | null
     name_en?: NullableStringFieldUpdateOperationsInput | string | null
@@ -56503,7 +56609,7 @@ export namespace Prisma {
     saleoffice_id: number
     department_id: number
     item_category_id?: number | null
-    stock_location_id: number
+    stock_location_id?: number | null
     rfid_number?: string | null
     name_th?: string | null
     name_en?: string | null
@@ -56515,7 +56621,7 @@ export namespace Prisma {
   export type itemsUpdateManyMutationInput = {
     saleoffice_id?: IntFieldUpdateOperationsInput | number
     department_id?: IntFieldUpdateOperationsInput | number
-    stock_location_id?: IntFieldUpdateOperationsInput | number
+    stock_location_id?: NullableIntFieldUpdateOperationsInput | number | null
     rfid_number?: NullableStringFieldUpdateOperationsInput | string | null
     name_th?: NullableStringFieldUpdateOperationsInput | string | null
     name_en?: NullableStringFieldUpdateOperationsInput | string | null
@@ -56530,7 +56636,7 @@ export namespace Prisma {
     saleoffice_id?: IntFieldUpdateOperationsInput | number
     department_id?: IntFieldUpdateOperationsInput | number
     item_category_id?: NullableIntFieldUpdateOperationsInput | number | null
-    stock_location_id?: IntFieldUpdateOperationsInput | number
+    stock_location_id?: NullableIntFieldUpdateOperationsInput | number | null
     rfid_number?: NullableStringFieldUpdateOperationsInput | string | null
     name_th?: NullableStringFieldUpdateOperationsInput | string | null
     name_en?: NullableStringFieldUpdateOperationsInput | string | null
@@ -56544,7 +56650,7 @@ export namespace Prisma {
     sale_office_id: number
     qr_code_number: string
     product_lot_number: string
-    description: string
+    description?: string | null
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
@@ -56556,7 +56662,7 @@ export namespace Prisma {
     sale_office_id: number
     qr_code_number: string
     product_lot_number: string
-    description: string
+    description?: string | null
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
@@ -56567,7 +56673,7 @@ export namespace Prisma {
     sale_office_id?: IntFieldUpdateOperationsInput | number
     qr_code_number?: StringFieldUpdateOperationsInput | string
     product_lot_number?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -56579,7 +56685,7 @@ export namespace Prisma {
     sale_office_id?: IntFieldUpdateOperationsInput | number
     qr_code_number?: StringFieldUpdateOperationsInput | string
     product_lot_number?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -56591,7 +56697,7 @@ export namespace Prisma {
     sale_office_id: number
     qr_code_number: string
     product_lot_number: string
-    description: string
+    description?: string | null
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
@@ -56602,7 +56708,7 @@ export namespace Prisma {
     sale_office_id?: IntFieldUpdateOperationsInput | number
     qr_code_number?: StringFieldUpdateOperationsInput | string
     product_lot_number?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -56614,32 +56720,36 @@ export namespace Prisma {
     sale_office_id?: IntFieldUpdateOperationsInput | number
     qr_code_number?: StringFieldUpdateOperationsInput | string
     product_lot_number?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type item_categoriesCreateInput = {
-    type_id: number
+    name_th: string
+    name_en: string
     sale_office_id: number
     department_id: number
-    stock_location_id: number
-    description: string
+    stock_location_id?: number | null
+    description?: string | null
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
     item_category_prices?: item_category_pricesCreateNestedManyWithoutItem_categoryInput
     items?: itemsCreateNestedManyWithoutItem_categoryInput
+    material?: materialsCreateNestedOneWithoutItem_categoriesInput
   }
 
   export type item_categoriesUncheckedCreateInput = {
     id?: number
-    type_id: number
+    name_th: string
+    name_en: string
+    material_id: number
     sale_office_id: number
     department_id: number
-    stock_location_id: number
-    description: string
+    stock_location_id?: number | null
+    description?: string | null
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
@@ -56648,25 +56758,29 @@ export namespace Prisma {
   }
 
   export type item_categoriesUpdateInput = {
-    type_id?: IntFieldUpdateOperationsInput | number
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
     sale_office_id?: IntFieldUpdateOperationsInput | number
     department_id?: IntFieldUpdateOperationsInput | number
-    stock_location_id?: IntFieldUpdateOperationsInput | number
-    description?: StringFieldUpdateOperationsInput | string
+    stock_location_id?: NullableIntFieldUpdateOperationsInput | number | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
     item_category_prices?: item_category_pricesUpdateManyWithoutItem_categoryNestedInput
     items?: itemsUpdateManyWithoutItem_categoryNestedInput
+    material?: materialsUpdateOneWithoutItem_categoriesNestedInput
   }
 
   export type item_categoriesUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    type_id?: IntFieldUpdateOperationsInput | number
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    material_id?: IntFieldUpdateOperationsInput | number
     sale_office_id?: IntFieldUpdateOperationsInput | number
     department_id?: IntFieldUpdateOperationsInput | number
-    stock_location_id?: IntFieldUpdateOperationsInput | number
-    description?: StringFieldUpdateOperationsInput | string
+    stock_location_id?: NullableIntFieldUpdateOperationsInput | number | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -56676,22 +56790,25 @@ export namespace Prisma {
 
   export type item_categoriesCreateManyInput = {
     id?: number
-    type_id: number
+    name_th: string
+    name_en: string
+    material_id: number
     sale_office_id: number
     department_id: number
-    stock_location_id: number
-    description: string
+    stock_location_id?: number | null
+    description?: string | null
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
   }
 
   export type item_categoriesUpdateManyMutationInput = {
-    type_id?: IntFieldUpdateOperationsInput | number
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
     sale_office_id?: IntFieldUpdateOperationsInput | number
     department_id?: IntFieldUpdateOperationsInput | number
-    stock_location_id?: IntFieldUpdateOperationsInput | number
-    description?: StringFieldUpdateOperationsInput | string
+    stock_location_id?: NullableIntFieldUpdateOperationsInput | number | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -56699,11 +56816,13 @@ export namespace Prisma {
 
   export type item_categoriesUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    type_id?: IntFieldUpdateOperationsInput | number
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    material_id?: IntFieldUpdateOperationsInput | number
     sale_office_id?: IntFieldUpdateOperationsInput | number
     department_id?: IntFieldUpdateOperationsInput | number
-    stock_location_id?: IntFieldUpdateOperationsInput | number
-    description?: StringFieldUpdateOperationsInput | string
+    stock_location_id?: NullableIntFieldUpdateOperationsInput | number | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -56711,7 +56830,7 @@ export namespace Prisma {
 
   export type item_category_pricesCreateInput = {
     price: number
-    description: string
+    description?: string | null
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
@@ -56722,7 +56841,7 @@ export namespace Prisma {
     id?: number
     item_category_id: number
     price: number
-    description: string
+    description?: string | null
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
@@ -56730,7 +56849,7 @@ export namespace Prisma {
 
   export type item_category_pricesUpdateInput = {
     price?: FloatFieldUpdateOperationsInput | number
-    description?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -56741,7 +56860,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     item_category_id?: IntFieldUpdateOperationsInput | number
     price?: FloatFieldUpdateOperationsInput | number
-    description?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -56751,7 +56870,7 @@ export namespace Prisma {
     id?: number
     item_category_id: number
     price: number
-    description: string
+    description?: string | null
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
@@ -56759,7 +56878,7 @@ export namespace Prisma {
 
   export type item_category_pricesUpdateManyMutationInput = {
     price?: FloatFieldUpdateOperationsInput | number
-    description?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -56769,7 +56888,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     item_category_id?: IntFieldUpdateOperationsInput | number
     price?: FloatFieldUpdateOperationsInput | number
-    description?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -60180,7 +60299,17 @@ export namespace Prisma {
     none?: itemsWhereInput
   }
 
+  export type Item_categoriesListRelationFilter = {
+    every?: item_categoriesWhereInput
+    some?: item_categoriesWhereInput
+    none?: item_categoriesWhereInput
+  }
+
   export type itemsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type item_categoriesOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -60509,7 +60638,9 @@ export namespace Prisma {
 
   export type item_categoriesCountOrderByAggregateInput = {
     id?: SortOrder
-    type_id?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
+    material_id?: SortOrder
     sale_office_id?: SortOrder
     department_id?: SortOrder
     stock_location_id?: SortOrder
@@ -60521,7 +60652,7 @@ export namespace Prisma {
 
   export type item_categoriesAvgOrderByAggregateInput = {
     id?: SortOrder
-    type_id?: SortOrder
+    material_id?: SortOrder
     sale_office_id?: SortOrder
     department_id?: SortOrder
     stock_location_id?: SortOrder
@@ -60529,7 +60660,9 @@ export namespace Prisma {
 
   export type item_categoriesMaxOrderByAggregateInput = {
     id?: SortOrder
-    type_id?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
+    material_id?: SortOrder
     sale_office_id?: SortOrder
     department_id?: SortOrder
     stock_location_id?: SortOrder
@@ -60541,7 +60674,9 @@ export namespace Prisma {
 
   export type item_categoriesMinOrderByAggregateInput = {
     id?: SortOrder
-    type_id?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
+    material_id?: SortOrder
     sale_office_id?: SortOrder
     department_id?: SortOrder
     stock_location_id?: SortOrder
@@ -60553,7 +60688,7 @@ export namespace Prisma {
 
   export type item_categoriesSumOrderByAggregateInput = {
     id?: SortOrder
-    type_id?: SortOrder
+    material_id?: SortOrder
     sale_office_id?: SortOrder
     department_id?: SortOrder
     stock_location_id?: SortOrder
@@ -62773,11 +62908,25 @@ export namespace Prisma {
     connect?: itemsWhereUniqueInput | itemsWhereUniqueInput[]
   }
 
+  export type item_categoriesCreateNestedManyWithoutMaterialInput = {
+    create?: XOR<item_categoriesCreateWithoutMaterialInput, item_categoriesUncheckedCreateWithoutMaterialInput> | item_categoriesCreateWithoutMaterialInput[] | item_categoriesUncheckedCreateWithoutMaterialInput[]
+    connectOrCreate?: item_categoriesCreateOrConnectWithoutMaterialInput | item_categoriesCreateOrConnectWithoutMaterialInput[]
+    createMany?: item_categoriesCreateManyMaterialInputEnvelope
+    connect?: item_categoriesWhereUniqueInput | item_categoriesWhereUniqueInput[]
+  }
+
   export type itemsUncheckedCreateNestedManyWithoutMaterialInput = {
     create?: XOR<itemsCreateWithoutMaterialInput, itemsUncheckedCreateWithoutMaterialInput> | itemsCreateWithoutMaterialInput[] | itemsUncheckedCreateWithoutMaterialInput[]
     connectOrCreate?: itemsCreateOrConnectWithoutMaterialInput | itemsCreateOrConnectWithoutMaterialInput[]
     createMany?: itemsCreateManyMaterialInputEnvelope
     connect?: itemsWhereUniqueInput | itemsWhereUniqueInput[]
+  }
+
+  export type item_categoriesUncheckedCreateNestedManyWithoutMaterialInput = {
+    create?: XOR<item_categoriesCreateWithoutMaterialInput, item_categoriesUncheckedCreateWithoutMaterialInput> | item_categoriesCreateWithoutMaterialInput[] | item_categoriesUncheckedCreateWithoutMaterialInput[]
+    connectOrCreate?: item_categoriesCreateOrConnectWithoutMaterialInput | item_categoriesCreateOrConnectWithoutMaterialInput[]
+    createMany?: item_categoriesCreateManyMaterialInputEnvelope
+    connect?: item_categoriesWhereUniqueInput | item_categoriesWhereUniqueInput[]
   }
 
   export type material_typesUpdateOneRequiredWithoutMaterialsNestedInput = {
@@ -62812,6 +62961,20 @@ export namespace Prisma {
     deleteMany?: itemsScalarWhereInput | itemsScalarWhereInput[]
   }
 
+  export type item_categoriesUpdateManyWithoutMaterialNestedInput = {
+    create?: XOR<item_categoriesCreateWithoutMaterialInput, item_categoriesUncheckedCreateWithoutMaterialInput> | item_categoriesCreateWithoutMaterialInput[] | item_categoriesUncheckedCreateWithoutMaterialInput[]
+    connectOrCreate?: item_categoriesCreateOrConnectWithoutMaterialInput | item_categoriesCreateOrConnectWithoutMaterialInput[]
+    upsert?: item_categoriesUpsertWithWhereUniqueWithoutMaterialInput | item_categoriesUpsertWithWhereUniqueWithoutMaterialInput[]
+    createMany?: item_categoriesCreateManyMaterialInputEnvelope
+    set?: item_categoriesWhereUniqueInput | item_categoriesWhereUniqueInput[]
+    disconnect?: item_categoriesWhereUniqueInput | item_categoriesWhereUniqueInput[]
+    delete?: item_categoriesWhereUniqueInput | item_categoriesWhereUniqueInput[]
+    connect?: item_categoriesWhereUniqueInput | item_categoriesWhereUniqueInput[]
+    update?: item_categoriesUpdateWithWhereUniqueWithoutMaterialInput | item_categoriesUpdateWithWhereUniqueWithoutMaterialInput[]
+    updateMany?: item_categoriesUpdateManyWithWhereWithoutMaterialInput | item_categoriesUpdateManyWithWhereWithoutMaterialInput[]
+    deleteMany?: item_categoriesScalarWhereInput | item_categoriesScalarWhereInput[]
+  }
+
   export type NullableIntFieldUpdateOperationsInput = {
     set?: number | null
     increment?: number
@@ -62832,6 +62995,20 @@ export namespace Prisma {
     update?: itemsUpdateWithWhereUniqueWithoutMaterialInput | itemsUpdateWithWhereUniqueWithoutMaterialInput[]
     updateMany?: itemsUpdateManyWithWhereWithoutMaterialInput | itemsUpdateManyWithWhereWithoutMaterialInput[]
     deleteMany?: itemsScalarWhereInput | itemsScalarWhereInput[]
+  }
+
+  export type item_categoriesUncheckedUpdateManyWithoutMaterialNestedInput = {
+    create?: XOR<item_categoriesCreateWithoutMaterialInput, item_categoriesUncheckedCreateWithoutMaterialInput> | item_categoriesCreateWithoutMaterialInput[] | item_categoriesUncheckedCreateWithoutMaterialInput[]
+    connectOrCreate?: item_categoriesCreateOrConnectWithoutMaterialInput | item_categoriesCreateOrConnectWithoutMaterialInput[]
+    upsert?: item_categoriesUpsertWithWhereUniqueWithoutMaterialInput | item_categoriesUpsertWithWhereUniqueWithoutMaterialInput[]
+    createMany?: item_categoriesCreateManyMaterialInputEnvelope
+    set?: item_categoriesWhereUniqueInput | item_categoriesWhereUniqueInput[]
+    disconnect?: item_categoriesWhereUniqueInput | item_categoriesWhereUniqueInput[]
+    delete?: item_categoriesWhereUniqueInput | item_categoriesWhereUniqueInput[]
+    connect?: item_categoriesWhereUniqueInput | item_categoriesWhereUniqueInput[]
+    update?: item_categoriesUpdateWithWhereUniqueWithoutMaterialInput | item_categoriesUpdateWithWhereUniqueWithoutMaterialInput[]
+    updateMany?: item_categoriesUpdateManyWithWhereWithoutMaterialInput | item_categoriesUpdateManyWithWhereWithoutMaterialInput[]
+    deleteMany?: item_categoriesScalarWhereInput | item_categoriesScalarWhereInput[]
   }
 
   export type materialsCreateNestedManyWithoutMaterial_typesInput = {
@@ -62922,6 +63099,12 @@ export namespace Prisma {
     connect?: itemsWhereUniqueInput | itemsWhereUniqueInput[]
   }
 
+  export type materialsCreateNestedOneWithoutItem_categoriesInput = {
+    create?: XOR<materialsCreateWithoutItem_categoriesInput, materialsUncheckedCreateWithoutItem_categoriesInput>
+    connectOrCreate?: materialsCreateOrConnectWithoutItem_categoriesInput
+    connect?: materialsWhereUniqueInput
+  }
+
   export type item_category_pricesUncheckedCreateNestedManyWithoutItem_categoryInput = {
     create?: XOR<item_category_pricesCreateWithoutItem_categoryInput, item_category_pricesUncheckedCreateWithoutItem_categoryInput> | item_category_pricesCreateWithoutItem_categoryInput[] | item_category_pricesUncheckedCreateWithoutItem_categoryInput[]
     connectOrCreate?: item_category_pricesCreateOrConnectWithoutItem_categoryInput | item_category_pricesCreateOrConnectWithoutItem_categoryInput[]
@@ -62962,6 +63145,16 @@ export namespace Prisma {
     update?: itemsUpdateWithWhereUniqueWithoutItem_categoryInput | itemsUpdateWithWhereUniqueWithoutItem_categoryInput[]
     updateMany?: itemsUpdateManyWithWhereWithoutItem_categoryInput | itemsUpdateManyWithWhereWithoutItem_categoryInput[]
     deleteMany?: itemsScalarWhereInput | itemsScalarWhereInput[]
+  }
+
+  export type materialsUpdateOneWithoutItem_categoriesNestedInput = {
+    create?: XOR<materialsCreateWithoutItem_categoriesInput, materialsUncheckedCreateWithoutItem_categoriesInput>
+    connectOrCreate?: materialsCreateOrConnectWithoutItem_categoriesInput
+    upsert?: materialsUpsertWithoutItem_categoriesInput
+    disconnect?: materialsWhereInput | boolean
+    delete?: materialsWhereInput | boolean
+    connect?: materialsWhereUniqueInput
+    update?: XOR<XOR<materialsUpdateToOneWithWhereWithoutItem_categoriesInput, materialsUpdateWithoutItem_categoriesInput>, materialsUncheckedUpdateWithoutItem_categoriesInput>
   }
 
   export type item_category_pricesUncheckedUpdateManyWithoutItem_categoryNestedInput = {
@@ -64063,6 +64256,7 @@ export namespace Prisma {
     update_at?: Date | string
     material_types: material_typesCreateNestedOneWithoutMaterialsInput
     items?: itemsCreateNestedManyWithoutMaterialInput
+    item_categories?: item_categoriesCreateNestedManyWithoutMaterialInput
   }
 
   export type materialsUncheckedCreateWithoutSap_saleInput = {
@@ -64077,6 +64271,7 @@ export namespace Prisma {
     create_at?: Date | string
     update_at?: Date | string
     items?: itemsUncheckedCreateNestedManyWithoutMaterialInput
+    item_categories?: item_categoriesUncheckedCreateNestedManyWithoutMaterialInput
   }
 
   export type materialsCreateOrConnectWithoutSap_saleInput = {
@@ -64171,7 +64366,7 @@ export namespace Prisma {
   export type itemsCreateWithoutMaterialInput = {
     saleoffice_id: number
     department_id: number
-    stock_location_id: number
+    stock_location_id?: number | null
     rfid_number?: string | null
     name_th?: string | null
     name_en?: string | null
@@ -64186,7 +64381,7 @@ export namespace Prisma {
     saleoffice_id: number
     department_id: number
     item_category_id?: number | null
-    stock_location_id: number
+    stock_location_id?: number | null
     rfid_number?: string | null
     name_th?: string | null
     name_en?: string | null
@@ -64202,6 +64397,45 @@ export namespace Prisma {
 
   export type itemsCreateManyMaterialInputEnvelope = {
     data: itemsCreateManyMaterialInput | itemsCreateManyMaterialInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type item_categoriesCreateWithoutMaterialInput = {
+    name_th: string
+    name_en: string
+    sale_office_id: number
+    department_id: number
+    stock_location_id?: number | null
+    description?: string | null
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    item_category_prices?: item_category_pricesCreateNestedManyWithoutItem_categoryInput
+    items?: itemsCreateNestedManyWithoutItem_categoryInput
+  }
+
+  export type item_categoriesUncheckedCreateWithoutMaterialInput = {
+    id?: number
+    name_th: string
+    name_en: string
+    sale_office_id: number
+    department_id: number
+    stock_location_id?: number | null
+    description?: string | null
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    item_category_prices?: item_category_pricesUncheckedCreateNestedManyWithoutItem_categoryInput
+    items?: itemsUncheckedCreateNestedManyWithoutItem_categoryInput
+  }
+
+  export type item_categoriesCreateOrConnectWithoutMaterialInput = {
+    where: item_categoriesWhereUniqueInput
+    create: XOR<item_categoriesCreateWithoutMaterialInput, item_categoriesUncheckedCreateWithoutMaterialInput>
+  }
+
+  export type item_categoriesCreateManyMaterialInputEnvelope = {
+    data: item_categoriesCreateManyMaterialInput | item_categoriesCreateManyMaterialInput[]
     skipDuplicates?: boolean
   }
 
@@ -64288,13 +64522,46 @@ export namespace Prisma {
     saleoffice_id?: IntFilter<"items"> | number
     department_id?: IntFilter<"items"> | number
     item_category_id?: IntNullableFilter<"items"> | number | null
-    stock_location_id?: IntFilter<"items"> | number
+    stock_location_id?: IntNullableFilter<"items"> | number | null
     rfid_number?: StringNullableFilter<"items"> | string | null
     name_th?: StringNullableFilter<"items"> | string | null
     name_en?: StringNullableFilter<"items"> | string | null
     status?: BoolFilter<"items"> | boolean
     create_at?: DateTimeFilter<"items"> | Date | string
     update_at?: DateTimeFilter<"items"> | Date | string
+  }
+
+  export type item_categoriesUpsertWithWhereUniqueWithoutMaterialInput = {
+    where: item_categoriesWhereUniqueInput
+    update: XOR<item_categoriesUpdateWithoutMaterialInput, item_categoriesUncheckedUpdateWithoutMaterialInput>
+    create: XOR<item_categoriesCreateWithoutMaterialInput, item_categoriesUncheckedCreateWithoutMaterialInput>
+  }
+
+  export type item_categoriesUpdateWithWhereUniqueWithoutMaterialInput = {
+    where: item_categoriesWhereUniqueInput
+    data: XOR<item_categoriesUpdateWithoutMaterialInput, item_categoriesUncheckedUpdateWithoutMaterialInput>
+  }
+
+  export type item_categoriesUpdateManyWithWhereWithoutMaterialInput = {
+    where: item_categoriesScalarWhereInput
+    data: XOR<item_categoriesUpdateManyMutationInput, item_categoriesUncheckedUpdateManyWithoutMaterialInput>
+  }
+
+  export type item_categoriesScalarWhereInput = {
+    AND?: item_categoriesScalarWhereInput | item_categoriesScalarWhereInput[]
+    OR?: item_categoriesScalarWhereInput[]
+    NOT?: item_categoriesScalarWhereInput | item_categoriesScalarWhereInput[]
+    id?: IntFilter<"item_categories"> | number
+    name_th?: StringFilter<"item_categories"> | string
+    name_en?: StringFilter<"item_categories"> | string
+    material_id?: IntFilter<"item_categories"> | number
+    sale_office_id?: IntFilter<"item_categories"> | number
+    department_id?: IntFilter<"item_categories"> | number
+    stock_location_id?: IntNullableFilter<"item_categories"> | number | null
+    description?: StringNullableFilter<"item_categories"> | string | null
+    status?: BoolFilter<"item_categories"> | boolean
+    create_at?: DateTimeFilter<"item_categories"> | Date | string
+    update_at?: DateTimeFilter<"item_categories"> | Date | string
   }
 
   export type materialsCreateWithoutMaterial_typesInput = {
@@ -64308,6 +64575,7 @@ export namespace Prisma {
     update_at?: Date | string
     sap_sale?: sap_saleCreateNestedOneWithoutMaterialsInput
     items?: itemsCreateNestedManyWithoutMaterialInput
+    item_categories?: item_categoriesCreateNestedManyWithoutMaterialInput
   }
 
   export type materialsUncheckedCreateWithoutMaterial_typesInput = {
@@ -64322,6 +64590,7 @@ export namespace Prisma {
     create_at?: Date | string
     update_at?: Date | string
     items?: itemsUncheckedCreateNestedManyWithoutMaterialInput
+    item_categories?: item_categoriesUncheckedCreateNestedManyWithoutMaterialInput
   }
 
   export type materialsCreateOrConnectWithoutMaterial_typesInput = {
@@ -64351,24 +64620,28 @@ export namespace Prisma {
   }
 
   export type item_categoriesCreateWithoutItemsInput = {
-    type_id: number
+    name_th: string
+    name_en: string
     sale_office_id: number
     department_id: number
-    stock_location_id: number
-    description: string
+    stock_location_id?: number | null
+    description?: string | null
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
     item_category_prices?: item_category_pricesCreateNestedManyWithoutItem_categoryInput
+    material?: materialsCreateNestedOneWithoutItem_categoriesInput
   }
 
   export type item_categoriesUncheckedCreateWithoutItemsInput = {
     id?: number
-    type_id: number
+    name_th: string
+    name_en: string
+    material_id: number
     sale_office_id: number
     department_id: number
-    stock_location_id: number
-    description: string
+    stock_location_id?: number | null
+    description?: string | null
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
@@ -64391,6 +64664,7 @@ export namespace Prisma {
     update_at?: Date | string
     material_types: material_typesCreateNestedOneWithoutMaterialsInput
     sap_sale?: sap_saleCreateNestedOneWithoutMaterialsInput
+    item_categories?: item_categoriesCreateNestedManyWithoutMaterialInput
   }
 
   export type materialsUncheckedCreateWithoutItemsInput = {
@@ -64405,6 +64679,7 @@ export namespace Prisma {
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
+    item_categories?: item_categoriesUncheckedCreateNestedManyWithoutMaterialInput
   }
 
   export type materialsCreateOrConnectWithoutItemsInput = {
@@ -64424,24 +64699,28 @@ export namespace Prisma {
   }
 
   export type item_categoriesUpdateWithoutItemsInput = {
-    type_id?: IntFieldUpdateOperationsInput | number
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
     sale_office_id?: IntFieldUpdateOperationsInput | number
     department_id?: IntFieldUpdateOperationsInput | number
-    stock_location_id?: IntFieldUpdateOperationsInput | number
-    description?: StringFieldUpdateOperationsInput | string
+    stock_location_id?: NullableIntFieldUpdateOperationsInput | number | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
     item_category_prices?: item_category_pricesUpdateManyWithoutItem_categoryNestedInput
+    material?: materialsUpdateOneWithoutItem_categoriesNestedInput
   }
 
   export type item_categoriesUncheckedUpdateWithoutItemsInput = {
     id?: IntFieldUpdateOperationsInput | number
-    type_id?: IntFieldUpdateOperationsInput | number
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    material_id?: IntFieldUpdateOperationsInput | number
     sale_office_id?: IntFieldUpdateOperationsInput | number
     department_id?: IntFieldUpdateOperationsInput | number
-    stock_location_id?: IntFieldUpdateOperationsInput | number
-    description?: StringFieldUpdateOperationsInput | string
+    stock_location_id?: NullableIntFieldUpdateOperationsInput | number | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -64470,6 +64749,7 @@ export namespace Prisma {
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
     material_types?: material_typesUpdateOneRequiredWithoutMaterialsNestedInput
     sap_sale?: sap_saleUpdateOneWithoutMaterialsNestedInput
+    item_categories?: item_categoriesUpdateManyWithoutMaterialNestedInput
   }
 
   export type materialsUncheckedUpdateWithoutItemsInput = {
@@ -64484,11 +64764,12 @@ export namespace Prisma {
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    item_categories?: item_categoriesUncheckedUpdateManyWithoutMaterialNestedInput
   }
 
   export type item_category_pricesCreateWithoutItem_categoryInput = {
     price: number
-    description: string
+    description?: string | null
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
@@ -64497,7 +64778,7 @@ export namespace Prisma {
   export type item_category_pricesUncheckedCreateWithoutItem_categoryInput = {
     id?: number
     price: number
-    description: string
+    description?: string | null
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
@@ -64516,7 +64797,7 @@ export namespace Prisma {
   export type itemsCreateWithoutItem_categoryInput = {
     saleoffice_id: number
     department_id: number
-    stock_location_id: number
+    stock_location_id?: number | null
     rfid_number?: string | null
     name_th?: string | null
     name_en?: string | null
@@ -64531,7 +64812,7 @@ export namespace Prisma {
     material_id?: number | null
     saleoffice_id: number
     department_id: number
-    stock_location_id: number
+    stock_location_id?: number | null
     rfid_number?: string | null
     name_th?: string | null
     name_en?: string | null
@@ -64548,6 +64829,40 @@ export namespace Prisma {
   export type itemsCreateManyItem_categoryInputEnvelope = {
     data: itemsCreateManyItem_categoryInput | itemsCreateManyItem_categoryInput[]
     skipDuplicates?: boolean
+  }
+
+  export type materialsCreateWithoutItem_categoriesInput = {
+    material_code: string
+    material_name_th: string
+    material_name_en: string
+    long_meterial_name: string
+    description?: string | null
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    material_types: material_typesCreateNestedOneWithoutMaterialsInput
+    sap_sale?: sap_saleCreateNestedOneWithoutMaterialsInput
+    items?: itemsCreateNestedManyWithoutMaterialInput
+  }
+
+  export type materialsUncheckedCreateWithoutItem_categoriesInput = {
+    id?: number
+    material_code: string
+    material_name_th: string
+    material_name_en: string
+    long_meterial_name: string
+    material_type_id: number
+    sap_sale_id?: number | null
+    description?: string | null
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    items?: itemsUncheckedCreateNestedManyWithoutMaterialInput
+  }
+
+  export type materialsCreateOrConnectWithoutItem_categoriesInput = {
+    where: materialsWhereUniqueInput
+    create: XOR<materialsCreateWithoutItem_categoriesInput, materialsUncheckedCreateWithoutItem_categoriesInput>
   }
 
   export type item_category_pricesUpsertWithWhereUniqueWithoutItem_categoryInput = {
@@ -64573,7 +64888,7 @@ export namespace Prisma {
     id?: IntFilter<"item_category_prices"> | number
     item_category_id?: IntFilter<"item_category_prices"> | number
     price?: FloatFilter<"item_category_prices"> | number
-    description?: StringFilter<"item_category_prices"> | string
+    description?: StringNullableFilter<"item_category_prices"> | string | null
     status?: BoolFilter<"item_category_prices"> | boolean
     create_at?: DateTimeFilter<"item_category_prices"> | Date | string
     update_at?: DateTimeFilter<"item_category_prices"> | Date | string
@@ -64595,25 +64910,69 @@ export namespace Prisma {
     data: XOR<itemsUpdateManyMutationInput, itemsUncheckedUpdateManyWithoutItem_categoryInput>
   }
 
+  export type materialsUpsertWithoutItem_categoriesInput = {
+    update: XOR<materialsUpdateWithoutItem_categoriesInput, materialsUncheckedUpdateWithoutItem_categoriesInput>
+    create: XOR<materialsCreateWithoutItem_categoriesInput, materialsUncheckedCreateWithoutItem_categoriesInput>
+    where?: materialsWhereInput
+  }
+
+  export type materialsUpdateToOneWithWhereWithoutItem_categoriesInput = {
+    where?: materialsWhereInput
+    data: XOR<materialsUpdateWithoutItem_categoriesInput, materialsUncheckedUpdateWithoutItem_categoriesInput>
+  }
+
+  export type materialsUpdateWithoutItem_categoriesInput = {
+    material_code?: StringFieldUpdateOperationsInput | string
+    material_name_th?: StringFieldUpdateOperationsInput | string
+    material_name_en?: StringFieldUpdateOperationsInput | string
+    long_meterial_name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    material_types?: material_typesUpdateOneRequiredWithoutMaterialsNestedInput
+    sap_sale?: sap_saleUpdateOneWithoutMaterialsNestedInput
+    items?: itemsUpdateManyWithoutMaterialNestedInput
+  }
+
+  export type materialsUncheckedUpdateWithoutItem_categoriesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    material_code?: StringFieldUpdateOperationsInput | string
+    material_name_th?: StringFieldUpdateOperationsInput | string
+    material_name_en?: StringFieldUpdateOperationsInput | string
+    long_meterial_name?: StringFieldUpdateOperationsInput | string
+    material_type_id?: IntFieldUpdateOperationsInput | number
+    sap_sale_id?: NullableIntFieldUpdateOperationsInput | number | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    items?: itemsUncheckedUpdateManyWithoutMaterialNestedInput
+  }
+
   export type item_categoriesCreateWithoutItem_category_pricesInput = {
-    type_id: number
+    name_th: string
+    name_en: string
     sale_office_id: number
     department_id: number
-    stock_location_id: number
-    description: string
+    stock_location_id?: number | null
+    description?: string | null
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
     items?: itemsCreateNestedManyWithoutItem_categoryInput
+    material?: materialsCreateNestedOneWithoutItem_categoriesInput
   }
 
   export type item_categoriesUncheckedCreateWithoutItem_category_pricesInput = {
     id?: number
-    type_id: number
+    name_th: string
+    name_en: string
+    material_id: number
     sale_office_id: number
     department_id: number
-    stock_location_id: number
-    description: string
+    stock_location_id?: number | null
+    description?: string | null
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
@@ -64637,24 +64996,28 @@ export namespace Prisma {
   }
 
   export type item_categoriesUpdateWithoutItem_category_pricesInput = {
-    type_id?: IntFieldUpdateOperationsInput | number
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
     sale_office_id?: IntFieldUpdateOperationsInput | number
     department_id?: IntFieldUpdateOperationsInput | number
-    stock_location_id?: IntFieldUpdateOperationsInput | number
-    description?: StringFieldUpdateOperationsInput | string
+    stock_location_id?: NullableIntFieldUpdateOperationsInput | number | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
     items?: itemsUpdateManyWithoutItem_categoryNestedInput
+    material?: materialsUpdateOneWithoutItem_categoriesNestedInput
   }
 
   export type item_categoriesUncheckedUpdateWithoutItem_category_pricesInput = {
     id?: IntFieldUpdateOperationsInput | number
-    type_id?: IntFieldUpdateOperationsInput | number
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    material_id?: IntFieldUpdateOperationsInput | number
     sale_office_id?: IntFieldUpdateOperationsInput | number
     department_id?: IntFieldUpdateOperationsInput | number
-    stock_location_id?: IntFieldUpdateOperationsInput | number
-    description?: StringFieldUpdateOperationsInput | string
+    stock_location_id?: NullableIntFieldUpdateOperationsInput | number | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -65458,6 +65821,7 @@ export namespace Prisma {
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
     material_types?: material_typesUpdateOneRequiredWithoutMaterialsNestedInput
     items?: itemsUpdateManyWithoutMaterialNestedInput
+    item_categories?: item_categoriesUpdateManyWithoutMaterialNestedInput
   }
 
   export type materialsUncheckedUpdateWithoutSap_saleInput = {
@@ -65472,6 +65836,7 @@ export namespace Prisma {
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
     items?: itemsUncheckedUpdateManyWithoutMaterialNestedInput
+    item_categories?: item_categoriesUncheckedUpdateManyWithoutMaterialNestedInput
   }
 
   export type materialsUncheckedUpdateManyWithoutSap_saleInput = {
@@ -65492,7 +65857,7 @@ export namespace Prisma {
     saleoffice_id: number
     department_id: number
     item_category_id?: number | null
-    stock_location_id: number
+    stock_location_id?: number | null
     rfid_number?: string | null
     name_th?: string | null
     name_en?: string | null
@@ -65501,10 +65866,23 @@ export namespace Prisma {
     update_at?: Date | string
   }
 
+  export type item_categoriesCreateManyMaterialInput = {
+    id?: number
+    name_th: string
+    name_en: string
+    sale_office_id: number
+    department_id: number
+    stock_location_id?: number | null
+    description?: string | null
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
   export type itemsUpdateWithoutMaterialInput = {
     saleoffice_id?: IntFieldUpdateOperationsInput | number
     department_id?: IntFieldUpdateOperationsInput | number
-    stock_location_id?: IntFieldUpdateOperationsInput | number
+    stock_location_id?: NullableIntFieldUpdateOperationsInput | number | null
     rfid_number?: NullableStringFieldUpdateOperationsInput | string | null
     name_th?: NullableStringFieldUpdateOperationsInput | string | null
     name_en?: NullableStringFieldUpdateOperationsInput | string | null
@@ -65519,7 +65897,7 @@ export namespace Prisma {
     saleoffice_id?: IntFieldUpdateOperationsInput | number
     department_id?: IntFieldUpdateOperationsInput | number
     item_category_id?: NullableIntFieldUpdateOperationsInput | number | null
-    stock_location_id?: IntFieldUpdateOperationsInput | number
+    stock_location_id?: NullableIntFieldUpdateOperationsInput | number | null
     rfid_number?: NullableStringFieldUpdateOperationsInput | string | null
     name_th?: NullableStringFieldUpdateOperationsInput | string | null
     name_en?: NullableStringFieldUpdateOperationsInput | string | null
@@ -65533,10 +65911,52 @@ export namespace Prisma {
     saleoffice_id?: IntFieldUpdateOperationsInput | number
     department_id?: IntFieldUpdateOperationsInput | number
     item_category_id?: NullableIntFieldUpdateOperationsInput | number | null
-    stock_location_id?: IntFieldUpdateOperationsInput | number
+    stock_location_id?: NullableIntFieldUpdateOperationsInput | number | null
     rfid_number?: NullableStringFieldUpdateOperationsInput | string | null
     name_th?: NullableStringFieldUpdateOperationsInput | string | null
     name_en?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type item_categoriesUpdateWithoutMaterialInput = {
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    sale_office_id?: IntFieldUpdateOperationsInput | number
+    department_id?: IntFieldUpdateOperationsInput | number
+    stock_location_id?: NullableIntFieldUpdateOperationsInput | number | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    item_category_prices?: item_category_pricesUpdateManyWithoutItem_categoryNestedInput
+    items?: itemsUpdateManyWithoutItem_categoryNestedInput
+  }
+
+  export type item_categoriesUncheckedUpdateWithoutMaterialInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    sale_office_id?: IntFieldUpdateOperationsInput | number
+    department_id?: IntFieldUpdateOperationsInput | number
+    stock_location_id?: NullableIntFieldUpdateOperationsInput | number | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    item_category_prices?: item_category_pricesUncheckedUpdateManyWithoutItem_categoryNestedInput
+    items?: itemsUncheckedUpdateManyWithoutItem_categoryNestedInput
+  }
+
+  export type item_categoriesUncheckedUpdateManyWithoutMaterialInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    sale_office_id?: IntFieldUpdateOperationsInput | number
+    department_id?: IntFieldUpdateOperationsInput | number
+    stock_location_id?: NullableIntFieldUpdateOperationsInput | number | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -65566,6 +65986,7 @@ export namespace Prisma {
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
     sap_sale?: sap_saleUpdateOneWithoutMaterialsNestedInput
     items?: itemsUpdateManyWithoutMaterialNestedInput
+    item_categories?: item_categoriesUpdateManyWithoutMaterialNestedInput
   }
 
   export type materialsUncheckedUpdateWithoutMaterial_typesInput = {
@@ -65580,6 +66001,7 @@ export namespace Prisma {
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
     items?: itemsUncheckedUpdateManyWithoutMaterialNestedInput
+    item_categories?: item_categoriesUncheckedUpdateManyWithoutMaterialNestedInput
   }
 
   export type materialsUncheckedUpdateManyWithoutMaterial_typesInput = {
@@ -65598,7 +66020,7 @@ export namespace Prisma {
   export type item_category_pricesCreateManyItem_categoryInput = {
     id?: number
     price: number
-    description: string
+    description?: string | null
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
@@ -65609,7 +66031,7 @@ export namespace Prisma {
     material_id?: number | null
     saleoffice_id: number
     department_id: number
-    stock_location_id: number
+    stock_location_id?: number | null
     rfid_number?: string | null
     name_th?: string | null
     name_en?: string | null
@@ -65620,7 +66042,7 @@ export namespace Prisma {
 
   export type item_category_pricesUpdateWithoutItem_categoryInput = {
     price?: FloatFieldUpdateOperationsInput | number
-    description?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -65629,7 +66051,7 @@ export namespace Prisma {
   export type item_category_pricesUncheckedUpdateWithoutItem_categoryInput = {
     id?: IntFieldUpdateOperationsInput | number
     price?: FloatFieldUpdateOperationsInput | number
-    description?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -65638,7 +66060,7 @@ export namespace Prisma {
   export type item_category_pricesUncheckedUpdateManyWithoutItem_categoryInput = {
     id?: IntFieldUpdateOperationsInput | number
     price?: FloatFieldUpdateOperationsInput | number
-    description?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -65647,7 +66069,7 @@ export namespace Prisma {
   export type itemsUpdateWithoutItem_categoryInput = {
     saleoffice_id?: IntFieldUpdateOperationsInput | number
     department_id?: IntFieldUpdateOperationsInput | number
-    stock_location_id?: IntFieldUpdateOperationsInput | number
+    stock_location_id?: NullableIntFieldUpdateOperationsInput | number | null
     rfid_number?: NullableStringFieldUpdateOperationsInput | string | null
     name_th?: NullableStringFieldUpdateOperationsInput | string | null
     name_en?: NullableStringFieldUpdateOperationsInput | string | null
@@ -65662,7 +66084,7 @@ export namespace Prisma {
     material_id?: NullableIntFieldUpdateOperationsInput | number | null
     saleoffice_id?: IntFieldUpdateOperationsInput | number
     department_id?: IntFieldUpdateOperationsInput | number
-    stock_location_id?: IntFieldUpdateOperationsInput | number
+    stock_location_id?: NullableIntFieldUpdateOperationsInput | number | null
     rfid_number?: NullableStringFieldUpdateOperationsInput | string | null
     name_th?: NullableStringFieldUpdateOperationsInput | string | null
     name_en?: NullableStringFieldUpdateOperationsInput | string | null
@@ -65676,7 +66098,7 @@ export namespace Prisma {
     material_id?: NullableIntFieldUpdateOperationsInput | number | null
     saleoffice_id?: IntFieldUpdateOperationsInput | number
     department_id?: IntFieldUpdateOperationsInput | number
-    stock_location_id?: IntFieldUpdateOperationsInput | number
+    stock_location_id?: NullableIntFieldUpdateOperationsInput | number | null
     rfid_number?: NullableStringFieldUpdateOperationsInput | string | null
     name_th?: NullableStringFieldUpdateOperationsInput | string | null
     name_en?: NullableStringFieldUpdateOperationsInput | string | null

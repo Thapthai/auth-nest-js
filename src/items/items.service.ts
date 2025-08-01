@@ -10,11 +10,7 @@ export class ItemsService {
 
   async create(createItemDto: CreateItemDto) {
     return this.prisma.items.create({
-      data: createItemDto,
-      include: {
-        material: true,
-        item_category: true,
-      },
+      data: createItemDto
     });
   }
 

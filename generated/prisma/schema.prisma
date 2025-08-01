@@ -182,9 +182,10 @@ model materials {
   create_at          DateTime @default(now())
   update_at          DateTime @updatedAt
 
-  material_types material_types @relation(fields: [material_type_id], references: [id])
-  sap_sale       sap_sale?      @relation(fields: [sap_sale_id], references: [id])
-  items          items[]
+  material_types  material_types    @relation(fields: [material_type_id], references: [id])
+  sap_sale        sap_sale?         @relation(fields: [sap_sale_id], references: [id])
+  items           items[]
+  item_categories item_categories[]
 }
 
 model material_types {
@@ -217,7 +218,7 @@ model items {
   saleoffice_id     Int
   department_id     Int
   item_category_id  Int?
-  stock_location_id Int
+  stock_location_id Int?
   rfid_number       String?  @unique
   name_th           String?
   name_en           String?
@@ -235,7 +236,7 @@ model items_details {
   sale_office_id     Int
   qr_code_number     String
   product_lot_number String
-  description        String
+  description        String?
   status             Boolean
   create_at          DateTime @default(now())
   update_at          DateTime @updatedAt
@@ -243,24 +244,27 @@ model items_details {
 
 model item_categories {
   id                Int      @id @default(autoincrement())
-  type_id           Int
+  name_th           String
+  name_en           String
+  material_id       Int
   sale_office_id    Int
   department_id     Int
-  stock_location_id Int
-  description       String
+  stock_location_id Int?
+  description       String?
   status            Boolean
   create_at         DateTime @default(now())
   update_at         DateTime @updatedAt
 
   item_category_prices item_category_prices[]
   items                items[]
+  material             materials?             @relation(fields: [material_id], references: [id])
 }
 
 model item_category_prices {
   id               Int      @id @default(autoincrement())
   item_category_id Int
   price            Float
-  description      String
+  description      String?
   status           Boolean
   create_at        DateTime @default(now())
   update_at        DateTime @updatedAt

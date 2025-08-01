@@ -17,10 +17,10 @@ export class CreateItemDto {
     @IsInt()
     item_category_id?: number;
 
-    @IsNotEmpty()
     @IsInt()
     stock_location_id: number;
 
+ 
     @IsOptional()
     @IsString()
     rfid_number?: string;

@@ -158,26 +158,45 @@ model contact {
   update_at              DateTime @updatedAt
 }
 
+model sap_sale {
+  id          Int      @id @default(autoincrement())
+  code        String
+  description String?
+  status      Boolean
+  create_at   DateTime @default(now())
+  update_at   DateTime @updatedAt
+
+  materials materials[]
+}
+
 model materials {
   id                 Int      @id @default(autoincrement())
-  material_code      Int
+  material_code      String   @unique
   material_name_th   String
   material_name_en   String
   long_meterial_name String
   material_type_id   Int
-  material_unit_id   Int
-  description        String
+  sap_sale_id        Int?
+  description        String?
   status             Boolean
   create_at          DateTime @default(now())
   update_at          DateTime @updatedAt
+
+  material_types material_types @relation(fields: [material_type_id], references: [id])
+  sap_sale       sap_sale?      @relation(fields: [sap_sale_id], references: [id])
+  items          items[]
 }
 
 model material_types {
   id          Int      @id @default(autoincrement())
-  description String
+  name_th     String
+  name_en     String
+  description String?
   status      Boolean
   create_at   DateTime @default(now())
   update_at   DateTime @updatedAt
+
+  materials materials[]
 }
 
 model item_units_meaures {
@@ -194,16 +213,20 @@ model item_units_meaures {
 
 model items {
   id                Int      @id @default(autoincrement())
-  material_id       Int
+  material_id       Int?
   saleoffice_id     Int
   department_id     Int
-  item_category_id  Int
+  item_category_id  Int?
   stock_location_id Int
+  rfid_number       String?  @unique
   name_th           String?
   name_en           String?
   status            Boolean
   create_at         DateTime @default(now())
   update_at         DateTime @updatedAt
+
+  item_category item_categories? @relation(fields: [item_category_id], references: [id])
+  material      materials?       @relation(fields: [material_id], references: [id])
 }
 
 model items_details {
@@ -228,24 +251,21 @@ model item_categories {
   status            Boolean
   create_at         DateTime @default(now())
   update_at         DateTime @updatedAt
+
+  item_category_prices item_category_prices[]
+  items                items[]
 }
 
-model types {
-  id          Int      @id @default(autoincrement())
-  description String
-  status      Boolean
-  create_at   DateTime @default(now())
-  update_at   DateTime @updatedAt
-}
+model item_category_prices {
+  id               Int      @id @default(autoincrement())
+  item_category_id Int
+  price            Float
+  description      String
+  status           Boolean
+  create_at        DateTime @default(now())
+  update_at        DateTime @updatedAt
 
-model item_prices {
-  id          Int      @id @default(autoincrement())
-  item_id     Int
-  price       Float
-  description String
-  status      Boolean
-  create_at   DateTime @default(now())
-  update_at   DateTime @updatedAt
+  item_category item_categories @relation(fields: [item_category_id], references: [id])
 }
 
 model dirties {

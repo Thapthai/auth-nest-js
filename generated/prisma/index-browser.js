@@ -250,6 +250,15 @@ exports.Prisma.ContactScalarFieldEnum = {
   update_at: 'update_at'
 };
 
+exports.Prisma.Sap_saleScalarFieldEnum = {
+  id: 'id',
+  code: 'code',
+  description: 'description',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
 exports.Prisma.MaterialsScalarFieldEnum = {
   id: 'id',
   material_code: 'material_code',
@@ -257,7 +266,7 @@ exports.Prisma.MaterialsScalarFieldEnum = {
   material_name_en: 'material_name_en',
   long_meterial_name: 'long_meterial_name',
   material_type_id: 'material_type_id',
-  material_unit_id: 'material_unit_id',
+  sap_sale_id: 'sap_sale_id',
   description: 'description',
   status: 'status',
   create_at: 'create_at',
@@ -266,6 +275,8 @@ exports.Prisma.MaterialsScalarFieldEnum = {
 
 exports.Prisma.Material_typesScalarFieldEnum = {
   id: 'id',
+  name_th: 'name_th',
+  name_en: 'name_en',
   description: 'description',
   status: 'status',
   create_at: 'create_at',
@@ -291,6 +302,7 @@ exports.Prisma.ItemsScalarFieldEnum = {
   department_id: 'department_id',
   item_category_id: 'item_category_id',
   stock_location_id: 'stock_location_id',
+  rfid_number: 'rfid_number',
   name_th: 'name_th',
   name_en: 'name_en',
   status: 'status',
@@ -322,17 +334,9 @@ exports.Prisma.Item_categoriesScalarFieldEnum = {
   update_at: 'update_at'
 };
 
-exports.Prisma.TypesScalarFieldEnum = {
+exports.Prisma.Item_category_pricesScalarFieldEnum = {
   id: 'id',
-  description: 'description',
-  status: 'status',
-  create_at: 'create_at',
-  update_at: 'update_at'
-};
-
-exports.Prisma.Item_pricesScalarFieldEnum = {
-  id: 'id',
-  item_id: 'item_id',
+  item_category_id: 'item_category_id',
   price: 'price',
   description: 'description',
   status: 'status',
@@ -778,7 +782,13 @@ exports.Prisma.contactOrderByRelevanceFieldEnum = {
   description: 'description'
 };
 
+exports.Prisma.sap_saleOrderByRelevanceFieldEnum = {
+  code: 'code',
+  description: 'description'
+};
+
 exports.Prisma.materialsOrderByRelevanceFieldEnum = {
+  material_code: 'material_code',
   material_name_th: 'material_name_th',
   material_name_en: 'material_name_en',
   long_meterial_name: 'long_meterial_name',
@@ -786,6 +796,8 @@ exports.Prisma.materialsOrderByRelevanceFieldEnum = {
 };
 
 exports.Prisma.material_typesOrderByRelevanceFieldEnum = {
+  name_th: 'name_th',
+  name_en: 'name_en',
   description: 'description'
 };
 
@@ -796,6 +808,7 @@ exports.Prisma.item_units_meauresOrderByRelevanceFieldEnum = {
 };
 
 exports.Prisma.itemsOrderByRelevanceFieldEnum = {
+  rfid_number: 'rfid_number',
   name_th: 'name_th',
   name_en: 'name_en'
 };
@@ -810,11 +823,7 @@ exports.Prisma.item_categoriesOrderByRelevanceFieldEnum = {
   description: 'description'
 };
 
-exports.Prisma.typesOrderByRelevanceFieldEnum = {
-  description: 'description'
-};
-
-exports.Prisma.item_pricesOrderByRelevanceFieldEnum = {
+exports.Prisma.item_category_pricesOrderByRelevanceFieldEnum = {
   description: 'description'
 };
 
@@ -946,14 +955,14 @@ exports.Prisma.ModelName = {
   factories: 'factories',
   machines: 'machines',
   contact: 'contact',
+  sap_sale: 'sap_sale',
   materials: 'materials',
   material_types: 'material_types',
   item_units_meaures: 'item_units_meaures',
   items: 'items',
   items_details: 'items_details',
   item_categories: 'item_categories',
-  types: 'types',
-  item_prices: 'item_prices',
+  item_category_prices: 'item_category_prices',
   dirties: 'dirties',
   dirty_details: 'dirty_details',
   dirty_detail_rounds: 'dirty_detail_rounds',

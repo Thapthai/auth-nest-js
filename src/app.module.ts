@@ -25,6 +25,11 @@ import { RoundTimeExpressModule } from './round_time_express/round_time_express.
 import { RoundTimeShelfCountExpressModule } from './round_time_shelf_count_express/round_time_shelf_count_express.module';
 import { RoundTimeCleanModule } from './round_time_clean/round_time_clean.module';
 import { RoundTimeFactoryModule } from './round_time_factory/round_time_factory.module';
+import { ItemCategoryPricesModule } from './item_category_prices/item_category_prices.module';
+import { ItemCategoriesModule } from './item_categories/item_categories.module';
+import { MaterialTypesModule } from './material_types/material_types.module';
+import { MaterialsModule } from './materials/materials.module';
+import { SapSaleModule } from './sap_sale/sap_sale.module';
 
 @Module({
   imports: [
@@ -56,6 +61,11 @@ import { RoundTimeFactoryModule } from './round_time_factory/round_time_factory.
     RoundTimeShelfCountExpressModule,
     RoundTimeCleanModule,
     RoundTimeFactoryModule,
+    ItemCategoryPricesModule,
+    ItemCategoriesModule,
+    MaterialTypesModule,
+    MaterialsModule,
+    SapSaleModule,
   ],
   controllers: [],
   providers: [

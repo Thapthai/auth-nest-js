@@ -74,6 +74,11 @@ export type machines = $Result.DefaultSelection<Prisma.$machinesPayload>
  */
 export type contact = $Result.DefaultSelection<Prisma.$contactPayload>
 /**
+ * Model sap_sale
+ * 
+ */
+export type sap_sale = $Result.DefaultSelection<Prisma.$sap_salePayload>
+/**
  * Model materials
  * 
  */
@@ -104,15 +109,10 @@ export type items_details = $Result.DefaultSelection<Prisma.$items_detailsPayloa
  */
 export type item_categories = $Result.DefaultSelection<Prisma.$item_categoriesPayload>
 /**
- * Model types
+ * Model item_category_prices
  * 
  */
-export type types = $Result.DefaultSelection<Prisma.$typesPayload>
-/**
- * Model item_prices
- * 
- */
-export type item_prices = $Result.DefaultSelection<Prisma.$item_pricesPayload>
+export type item_category_prices = $Result.DefaultSelection<Prisma.$item_category_pricesPayload>
 /**
  * Model dirties
  * 
@@ -485,6 +485,16 @@ export class PrismaClient<
   get contact(): Prisma.contactDelegate<ExtArgs, ClientOptions>;
 
   /**
+   * `prisma.sap_sale`: Exposes CRUD operations for the **sap_sale** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Sap_sales
+    * const sap_sales = await prisma.sap_sale.findMany()
+    * ```
+    */
+  get sap_sale(): Prisma.sap_saleDelegate<ExtArgs, ClientOptions>;
+
+  /**
    * `prisma.materials`: Exposes CRUD operations for the **materials** model.
     * Example usage:
     * ```ts
@@ -545,24 +555,14 @@ export class PrismaClient<
   get item_categories(): Prisma.item_categoriesDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.types`: Exposes CRUD operations for the **types** model.
+   * `prisma.item_category_prices`: Exposes CRUD operations for the **item_category_prices** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Types
-    * const types = await prisma.types.findMany()
+    * // Fetch zero or more Item_category_prices
+    * const item_category_prices = await prisma.item_category_prices.findMany()
     * ```
     */
-  get types(): Prisma.typesDelegate<ExtArgs, ClientOptions>;
-
-  /**
-   * `prisma.item_prices`: Exposes CRUD operations for the **item_prices** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Item_prices
-    * const item_prices = await prisma.item_prices.findMany()
-    * ```
-    */
-  get item_prices(): Prisma.item_pricesDelegate<ExtArgs, ClientOptions>;
+  get item_category_prices(): Prisma.item_category_pricesDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.dirties`: Exposes CRUD operations for the **dirties** model.
@@ -1265,14 +1265,14 @@ export namespace Prisma {
     factories: 'factories',
     machines: 'machines',
     contact: 'contact',
+    sap_sale: 'sap_sale',
     materials: 'materials',
     material_types: 'material_types',
     item_units_meaures: 'item_units_meaures',
     items: 'items',
     items_details: 'items_details',
     item_categories: 'item_categories',
-    types: 'types',
-    item_prices: 'item_prices',
+    item_category_prices: 'item_category_prices',
     dirties: 'dirties',
     dirty_details: 'dirty_details',
     dirty_detail_rounds: 'dirty_detail_rounds',
@@ -1316,7 +1316,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "verification_token" | "password_reset_token" | "notifications" | "permission" | "sale_offices" | "user_sale_offices" | "departments" | "factory_sale_office" | "factories" | "machines" | "contact" | "materials" | "material_types" | "item_units_meaures" | "items" | "items_details" | "item_categories" | "types" | "item_prices" | "dirties" | "dirty_details" | "dirty_detail_rounds" | "customer_group_types" | "customer_groups" | "stock_locations" | "shelfcounts" | "shelfcount_details" | "damages" | "damage_details" | "ships" | "new_linens" | "new_linen_details" | "repair_washs" | "repair_wash_details" | "cleans" | "clean_details" | "return_washs" | "retrun_wash_details" | "unregistered_items" | "round_time_dirties" | "round_time_express" | "round_time_shelf_count_express" | "round_time_clean" | "round_time_factory"
+      modelProps: "user" | "verification_token" | "password_reset_token" | "notifications" | "permission" | "sale_offices" | "user_sale_offices" | "departments" | "factory_sale_office" | "factories" | "machines" | "contact" | "sap_sale" | "materials" | "material_types" | "item_units_meaures" | "items" | "items_details" | "item_categories" | "item_category_prices" | "dirties" | "dirty_details" | "dirty_detail_rounds" | "customer_group_types" | "customer_groups" | "stock_locations" | "shelfcounts" | "shelfcount_details" | "damages" | "damage_details" | "ships" | "new_linens" | "new_linen_details" | "repair_washs" | "repair_wash_details" | "cleans" | "clean_details" | "return_washs" | "retrun_wash_details" | "unregistered_items" | "round_time_dirties" | "round_time_express" | "round_time_shelf_count_express" | "round_time_clean" | "round_time_factory"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -2112,6 +2112,72 @@ export namespace Prisma {
           }
         }
       }
+      sap_sale: {
+        payload: Prisma.$sap_salePayload<ExtArgs>
+        fields: Prisma.sap_saleFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.sap_saleFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sap_salePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.sap_saleFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sap_salePayload>
+          }
+          findFirst: {
+            args: Prisma.sap_saleFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sap_salePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.sap_saleFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sap_salePayload>
+          }
+          findMany: {
+            args: Prisma.sap_saleFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sap_salePayload>[]
+          }
+          create: {
+            args: Prisma.sap_saleCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sap_salePayload>
+          }
+          createMany: {
+            args: Prisma.sap_saleCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.sap_saleDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sap_salePayload>
+          }
+          update: {
+            args: Prisma.sap_saleUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sap_salePayload>
+          }
+          deleteMany: {
+            args: Prisma.sap_saleDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.sap_saleUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.sap_saleUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sap_salePayload>
+          }
+          aggregate: {
+            args: Prisma.Sap_saleAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSap_sale>
+          }
+          groupBy: {
+            args: Prisma.sap_saleGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Sap_saleGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.sap_saleCountArgs<ExtArgs>
+            result: $Utils.Optional<Sap_saleCountAggregateOutputType> | number
+          }
+        }
+      }
       materials: {
         payload: Prisma.$materialsPayload<ExtArgs>
         fields: Prisma.materialsFieldRefs
@@ -2508,135 +2574,69 @@ export namespace Prisma {
           }
         }
       }
-      types: {
-        payload: Prisma.$typesPayload<ExtArgs>
-        fields: Prisma.typesFieldRefs
+      item_category_prices: {
+        payload: Prisma.$item_category_pricesPayload<ExtArgs>
+        fields: Prisma.item_category_pricesFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.typesFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$typesPayload> | null
+            args: Prisma.item_category_pricesFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$item_category_pricesPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.typesFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$typesPayload>
+            args: Prisma.item_category_pricesFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$item_category_pricesPayload>
           }
           findFirst: {
-            args: Prisma.typesFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$typesPayload> | null
+            args: Prisma.item_category_pricesFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$item_category_pricesPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.typesFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$typesPayload>
+            args: Prisma.item_category_pricesFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$item_category_pricesPayload>
           }
           findMany: {
-            args: Prisma.typesFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$typesPayload>[]
+            args: Prisma.item_category_pricesFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$item_category_pricesPayload>[]
           }
           create: {
-            args: Prisma.typesCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$typesPayload>
+            args: Prisma.item_category_pricesCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$item_category_pricesPayload>
           }
           createMany: {
-            args: Prisma.typesCreateManyArgs<ExtArgs>
+            args: Prisma.item_category_pricesCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           delete: {
-            args: Prisma.typesDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$typesPayload>
+            args: Prisma.item_category_pricesDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$item_category_pricesPayload>
           }
           update: {
-            args: Prisma.typesUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$typesPayload>
+            args: Prisma.item_category_pricesUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$item_category_pricesPayload>
           }
           deleteMany: {
-            args: Prisma.typesDeleteManyArgs<ExtArgs>
+            args: Prisma.item_category_pricesDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.typesUpdateManyArgs<ExtArgs>
+            args: Prisma.item_category_pricesUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           upsert: {
-            args: Prisma.typesUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$typesPayload>
+            args: Prisma.item_category_pricesUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$item_category_pricesPayload>
           }
           aggregate: {
-            args: Prisma.TypesAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateTypes>
+            args: Prisma.Item_category_pricesAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateItem_category_prices>
           }
           groupBy: {
-            args: Prisma.typesGroupByArgs<ExtArgs>
-            result: $Utils.Optional<TypesGroupByOutputType>[]
+            args: Prisma.item_category_pricesGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Item_category_pricesGroupByOutputType>[]
           }
           count: {
-            args: Prisma.typesCountArgs<ExtArgs>
-            result: $Utils.Optional<TypesCountAggregateOutputType> | number
-          }
-        }
-      }
-      item_prices: {
-        payload: Prisma.$item_pricesPayload<ExtArgs>
-        fields: Prisma.item_pricesFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.item_pricesFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$item_pricesPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.item_pricesFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$item_pricesPayload>
-          }
-          findFirst: {
-            args: Prisma.item_pricesFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$item_pricesPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.item_pricesFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$item_pricesPayload>
-          }
-          findMany: {
-            args: Prisma.item_pricesFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$item_pricesPayload>[]
-          }
-          create: {
-            args: Prisma.item_pricesCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$item_pricesPayload>
-          }
-          createMany: {
-            args: Prisma.item_pricesCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          delete: {
-            args: Prisma.item_pricesDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$item_pricesPayload>
-          }
-          update: {
-            args: Prisma.item_pricesUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$item_pricesPayload>
-          }
-          deleteMany: {
-            args: Prisma.item_pricesDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.item_pricesUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          upsert: {
-            args: Prisma.item_pricesUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$item_pricesPayload>
-          }
-          aggregate: {
-            args: Prisma.Item_pricesAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateItem_prices>
-          }
-          groupBy: {
-            args: Prisma.item_pricesGroupByArgs<ExtArgs>
-            result: $Utils.Optional<Item_pricesGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.item_pricesCountArgs<ExtArgs>
-            result: $Utils.Optional<Item_pricesCountAggregateOutputType> | number
+            args: Prisma.item_category_pricesCountArgs<ExtArgs>
+            result: $Utils.Optional<Item_category_pricesCountAggregateOutputType> | number
           }
         }
       }
@@ -4394,14 +4394,14 @@ export namespace Prisma {
     factories?: factoriesOmit
     machines?: machinesOmit
     contact?: contactOmit
+    sap_sale?: sap_saleOmit
     materials?: materialsOmit
     material_types?: material_typesOmit
     item_units_meaures?: item_units_meauresOmit
     items?: itemsOmit
     items_details?: items_detailsOmit
     item_categories?: item_categoriesOmit
-    types?: typesOmit
-    item_prices?: item_pricesOmit
+    item_category_prices?: item_category_pricesOmit
     dirties?: dirtiesOmit
     dirty_details?: dirty_detailsOmit
     dirty_detail_rounds?: dirty_detail_roundsOmit
@@ -4656,6 +4656,139 @@ export namespace Prisma {
    */
   export type FactoriesCountOutputTypeCountRound_time_factoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: round_time_factoryWhereInput
+  }
+
+
+  /**
+   * Count Type Sap_saleCountOutputType
+   */
+
+  export type Sap_saleCountOutputType = {
+    materials: number
+  }
+
+  export type Sap_saleCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    materials?: boolean | Sap_saleCountOutputTypeCountMaterialsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * Sap_saleCountOutputType without action
+   */
+  export type Sap_saleCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sap_saleCountOutputType
+     */
+    select?: Sap_saleCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * Sap_saleCountOutputType without action
+   */
+  export type Sap_saleCountOutputTypeCountMaterialsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: materialsWhereInput
+  }
+
+
+  /**
+   * Count Type MaterialsCountOutputType
+   */
+
+  export type MaterialsCountOutputType = {
+    items: number
+  }
+
+  export type MaterialsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    items?: boolean | MaterialsCountOutputTypeCountItemsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * MaterialsCountOutputType without action
+   */
+  export type MaterialsCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MaterialsCountOutputType
+     */
+    select?: MaterialsCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * MaterialsCountOutputType without action
+   */
+  export type MaterialsCountOutputTypeCountItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: itemsWhereInput
+  }
+
+
+  /**
+   * Count Type Material_typesCountOutputType
+   */
+
+  export type Material_typesCountOutputType = {
+    materials: number
+  }
+
+  export type Material_typesCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    materials?: boolean | Material_typesCountOutputTypeCountMaterialsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * Material_typesCountOutputType without action
+   */
+  export type Material_typesCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Material_typesCountOutputType
+     */
+    select?: Material_typesCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * Material_typesCountOutputType without action
+   */
+  export type Material_typesCountOutputTypeCountMaterialsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: materialsWhereInput
+  }
+
+
+  /**
+   * Count Type Item_categoriesCountOutputType
+   */
+
+  export type Item_categoriesCountOutputType = {
+    item_category_prices: number
+    items: number
+  }
+
+  export type Item_categoriesCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    item_category_prices?: boolean | Item_categoriesCountOutputTypeCountItem_category_pricesArgs
+    items?: boolean | Item_categoriesCountOutputTypeCountItemsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * Item_categoriesCountOutputType without action
+   */
+  export type Item_categoriesCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Item_categoriesCountOutputType
+     */
+    select?: Item_categoriesCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * Item_categoriesCountOutputType without action
+   */
+  export type Item_categoriesCountOutputTypeCountItem_category_pricesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: item_category_pricesWhereInput
+  }
+
+  /**
+   * Item_categoriesCountOutputType without action
+   */
+  export type Item_categoriesCountOutputTypeCountItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: itemsWhereInput
   }
 
 
@@ -16536,6 +16669,1006 @@ export namespace Prisma {
 
 
   /**
+   * Model sap_sale
+   */
+
+  export type AggregateSap_sale = {
+    _count: Sap_saleCountAggregateOutputType | null
+    _avg: Sap_saleAvgAggregateOutputType | null
+    _sum: Sap_saleSumAggregateOutputType | null
+    _min: Sap_saleMinAggregateOutputType | null
+    _max: Sap_saleMaxAggregateOutputType | null
+  }
+
+  export type Sap_saleAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type Sap_saleSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type Sap_saleMinAggregateOutputType = {
+    id: number | null
+    code: string | null
+    description: string | null
+    status: boolean | null
+    create_at: Date | null
+    update_at: Date | null
+  }
+
+  export type Sap_saleMaxAggregateOutputType = {
+    id: number | null
+    code: string | null
+    description: string | null
+    status: boolean | null
+    create_at: Date | null
+    update_at: Date | null
+  }
+
+  export type Sap_saleCountAggregateOutputType = {
+    id: number
+    code: number
+    description: number
+    status: number
+    create_at: number
+    update_at: number
+    _all: number
+  }
+
+
+  export type Sap_saleAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type Sap_saleSumAggregateInputType = {
+    id?: true
+  }
+
+  export type Sap_saleMinAggregateInputType = {
+    id?: true
+    code?: true
+    description?: true
+    status?: true
+    create_at?: true
+    update_at?: true
+  }
+
+  export type Sap_saleMaxAggregateInputType = {
+    id?: true
+    code?: true
+    description?: true
+    status?: true
+    create_at?: true
+    update_at?: true
+  }
+
+  export type Sap_saleCountAggregateInputType = {
+    id?: true
+    code?: true
+    description?: true
+    status?: true
+    create_at?: true
+    update_at?: true
+    _all?: true
+  }
+
+  export type Sap_saleAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which sap_sale to aggregate.
+     */
+    where?: sap_saleWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of sap_sales to fetch.
+     */
+    orderBy?: sap_saleOrderByWithRelationInput | sap_saleOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: sap_saleWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` sap_sales from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` sap_sales.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned sap_sales
+    **/
+    _count?: true | Sap_saleCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Sap_saleAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Sap_saleSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Sap_saleMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Sap_saleMaxAggregateInputType
+  }
+
+  export type GetSap_saleAggregateType<T extends Sap_saleAggregateArgs> = {
+        [P in keyof T & keyof AggregateSap_sale]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSap_sale[P]>
+      : GetScalarType<T[P], AggregateSap_sale[P]>
+  }
+
+
+
+
+  export type sap_saleGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: sap_saleWhereInput
+    orderBy?: sap_saleOrderByWithAggregationInput | sap_saleOrderByWithAggregationInput[]
+    by: Sap_saleScalarFieldEnum[] | Sap_saleScalarFieldEnum
+    having?: sap_saleScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Sap_saleCountAggregateInputType | true
+    _avg?: Sap_saleAvgAggregateInputType
+    _sum?: Sap_saleSumAggregateInputType
+    _min?: Sap_saleMinAggregateInputType
+    _max?: Sap_saleMaxAggregateInputType
+  }
+
+  export type Sap_saleGroupByOutputType = {
+    id: number
+    code: string
+    description: string | null
+    status: boolean
+    create_at: Date
+    update_at: Date
+    _count: Sap_saleCountAggregateOutputType | null
+    _avg: Sap_saleAvgAggregateOutputType | null
+    _sum: Sap_saleSumAggregateOutputType | null
+    _min: Sap_saleMinAggregateOutputType | null
+    _max: Sap_saleMaxAggregateOutputType | null
+  }
+
+  type GetSap_saleGroupByPayload<T extends sap_saleGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Sap_saleGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Sap_saleGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Sap_saleGroupByOutputType[P]>
+            : GetScalarType<T[P], Sap_saleGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type sap_saleSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    code?: boolean
+    description?: boolean
+    status?: boolean
+    create_at?: boolean
+    update_at?: boolean
+    materials?: boolean | sap_sale$materialsArgs<ExtArgs>
+    _count?: boolean | Sap_saleCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["sap_sale"]>
+
+
+
+  export type sap_saleSelectScalar = {
+    id?: boolean
+    code?: boolean
+    description?: boolean
+    status?: boolean
+    create_at?: boolean
+    update_at?: boolean
+  }
+
+  export type sap_saleOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "code" | "description" | "status" | "create_at" | "update_at", ExtArgs["result"]["sap_sale"]>
+  export type sap_saleInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    materials?: boolean | sap_sale$materialsArgs<ExtArgs>
+    _count?: boolean | Sap_saleCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+  export type $sap_salePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "sap_sale"
+    objects: {
+      materials: Prisma.$materialsPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      code: string
+      description: string | null
+      status: boolean
+      create_at: Date
+      update_at: Date
+    }, ExtArgs["result"]["sap_sale"]>
+    composites: {}
+  }
+
+  type sap_saleGetPayload<S extends boolean | null | undefined | sap_saleDefaultArgs> = $Result.GetResult<Prisma.$sap_salePayload, S>
+
+  type sap_saleCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<sap_saleFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Sap_saleCountAggregateInputType | true
+    }
+
+  export interface sap_saleDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['sap_sale'], meta: { name: 'sap_sale' } }
+    /**
+     * Find zero or one Sap_sale that matches the filter.
+     * @param {sap_saleFindUniqueArgs} args - Arguments to find a Sap_sale
+     * @example
+     * // Get one Sap_sale
+     * const sap_sale = await prisma.sap_sale.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends sap_saleFindUniqueArgs>(args: SelectSubset<T, sap_saleFindUniqueArgs<ExtArgs>>): Prisma__sap_saleClient<$Result.GetResult<Prisma.$sap_salePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Sap_sale that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {sap_saleFindUniqueOrThrowArgs} args - Arguments to find a Sap_sale
+     * @example
+     * // Get one Sap_sale
+     * const sap_sale = await prisma.sap_sale.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends sap_saleFindUniqueOrThrowArgs>(args: SelectSubset<T, sap_saleFindUniqueOrThrowArgs<ExtArgs>>): Prisma__sap_saleClient<$Result.GetResult<Prisma.$sap_salePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Sap_sale that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {sap_saleFindFirstArgs} args - Arguments to find a Sap_sale
+     * @example
+     * // Get one Sap_sale
+     * const sap_sale = await prisma.sap_sale.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends sap_saleFindFirstArgs>(args?: SelectSubset<T, sap_saleFindFirstArgs<ExtArgs>>): Prisma__sap_saleClient<$Result.GetResult<Prisma.$sap_salePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Sap_sale that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {sap_saleFindFirstOrThrowArgs} args - Arguments to find a Sap_sale
+     * @example
+     * // Get one Sap_sale
+     * const sap_sale = await prisma.sap_sale.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends sap_saleFindFirstOrThrowArgs>(args?: SelectSubset<T, sap_saleFindFirstOrThrowArgs<ExtArgs>>): Prisma__sap_saleClient<$Result.GetResult<Prisma.$sap_salePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Sap_sales that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {sap_saleFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Sap_sales
+     * const sap_sales = await prisma.sap_sale.findMany()
+     * 
+     * // Get first 10 Sap_sales
+     * const sap_sales = await prisma.sap_sale.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const sap_saleWithIdOnly = await prisma.sap_sale.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends sap_saleFindManyArgs>(args?: SelectSubset<T, sap_saleFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$sap_salePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Sap_sale.
+     * @param {sap_saleCreateArgs} args - Arguments to create a Sap_sale.
+     * @example
+     * // Create one Sap_sale
+     * const Sap_sale = await prisma.sap_sale.create({
+     *   data: {
+     *     // ... data to create a Sap_sale
+     *   }
+     * })
+     * 
+     */
+    create<T extends sap_saleCreateArgs>(args: SelectSubset<T, sap_saleCreateArgs<ExtArgs>>): Prisma__sap_saleClient<$Result.GetResult<Prisma.$sap_salePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Sap_sales.
+     * @param {sap_saleCreateManyArgs} args - Arguments to create many Sap_sales.
+     * @example
+     * // Create many Sap_sales
+     * const sap_sale = await prisma.sap_sale.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends sap_saleCreateManyArgs>(args?: SelectSubset<T, sap_saleCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Sap_sale.
+     * @param {sap_saleDeleteArgs} args - Arguments to delete one Sap_sale.
+     * @example
+     * // Delete one Sap_sale
+     * const Sap_sale = await prisma.sap_sale.delete({
+     *   where: {
+     *     // ... filter to delete one Sap_sale
+     *   }
+     * })
+     * 
+     */
+    delete<T extends sap_saleDeleteArgs>(args: SelectSubset<T, sap_saleDeleteArgs<ExtArgs>>): Prisma__sap_saleClient<$Result.GetResult<Prisma.$sap_salePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Sap_sale.
+     * @param {sap_saleUpdateArgs} args - Arguments to update one Sap_sale.
+     * @example
+     * // Update one Sap_sale
+     * const sap_sale = await prisma.sap_sale.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends sap_saleUpdateArgs>(args: SelectSubset<T, sap_saleUpdateArgs<ExtArgs>>): Prisma__sap_saleClient<$Result.GetResult<Prisma.$sap_salePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Sap_sales.
+     * @param {sap_saleDeleteManyArgs} args - Arguments to filter Sap_sales to delete.
+     * @example
+     * // Delete a few Sap_sales
+     * const { count } = await prisma.sap_sale.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends sap_saleDeleteManyArgs>(args?: SelectSubset<T, sap_saleDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Sap_sales.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {sap_saleUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Sap_sales
+     * const sap_sale = await prisma.sap_sale.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends sap_saleUpdateManyArgs>(args: SelectSubset<T, sap_saleUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Sap_sale.
+     * @param {sap_saleUpsertArgs} args - Arguments to update or create a Sap_sale.
+     * @example
+     * // Update or create a Sap_sale
+     * const sap_sale = await prisma.sap_sale.upsert({
+     *   create: {
+     *     // ... data to create a Sap_sale
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Sap_sale we want to update
+     *   }
+     * })
+     */
+    upsert<T extends sap_saleUpsertArgs>(args: SelectSubset<T, sap_saleUpsertArgs<ExtArgs>>): Prisma__sap_saleClient<$Result.GetResult<Prisma.$sap_salePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Sap_sales.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {sap_saleCountArgs} args - Arguments to filter Sap_sales to count.
+     * @example
+     * // Count the number of Sap_sales
+     * const count = await prisma.sap_sale.count({
+     *   where: {
+     *     // ... the filter for the Sap_sales we want to count
+     *   }
+     * })
+    **/
+    count<T extends sap_saleCountArgs>(
+      args?: Subset<T, sap_saleCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Sap_saleCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Sap_sale.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Sap_saleAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Sap_saleAggregateArgs>(args: Subset<T, Sap_saleAggregateArgs>): Prisma.PrismaPromise<GetSap_saleAggregateType<T>>
+
+    /**
+     * Group by Sap_sale.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {sap_saleGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends sap_saleGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: sap_saleGroupByArgs['orderBy'] }
+        : { orderBy?: sap_saleGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, sap_saleGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSap_saleGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the sap_sale model
+   */
+  readonly fields: sap_saleFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for sap_sale.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__sap_saleClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    materials<T extends sap_sale$materialsArgs<ExtArgs> = {}>(args?: Subset<T, sap_sale$materialsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$materialsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the sap_sale model
+   */
+  interface sap_saleFieldRefs {
+    readonly id: FieldRef<"sap_sale", 'Int'>
+    readonly code: FieldRef<"sap_sale", 'String'>
+    readonly description: FieldRef<"sap_sale", 'String'>
+    readonly status: FieldRef<"sap_sale", 'Boolean'>
+    readonly create_at: FieldRef<"sap_sale", 'DateTime'>
+    readonly update_at: FieldRef<"sap_sale", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * sap_sale findUnique
+   */
+  export type sap_saleFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sap_sale
+     */
+    select?: sap_saleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sap_sale
+     */
+    omit?: sap_saleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sap_saleInclude<ExtArgs> | null
+    /**
+     * Filter, which sap_sale to fetch.
+     */
+    where: sap_saleWhereUniqueInput
+  }
+
+  /**
+   * sap_sale findUniqueOrThrow
+   */
+  export type sap_saleFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sap_sale
+     */
+    select?: sap_saleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sap_sale
+     */
+    omit?: sap_saleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sap_saleInclude<ExtArgs> | null
+    /**
+     * Filter, which sap_sale to fetch.
+     */
+    where: sap_saleWhereUniqueInput
+  }
+
+  /**
+   * sap_sale findFirst
+   */
+  export type sap_saleFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sap_sale
+     */
+    select?: sap_saleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sap_sale
+     */
+    omit?: sap_saleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sap_saleInclude<ExtArgs> | null
+    /**
+     * Filter, which sap_sale to fetch.
+     */
+    where?: sap_saleWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of sap_sales to fetch.
+     */
+    orderBy?: sap_saleOrderByWithRelationInput | sap_saleOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for sap_sales.
+     */
+    cursor?: sap_saleWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` sap_sales from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` sap_sales.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of sap_sales.
+     */
+    distinct?: Sap_saleScalarFieldEnum | Sap_saleScalarFieldEnum[]
+  }
+
+  /**
+   * sap_sale findFirstOrThrow
+   */
+  export type sap_saleFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sap_sale
+     */
+    select?: sap_saleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sap_sale
+     */
+    omit?: sap_saleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sap_saleInclude<ExtArgs> | null
+    /**
+     * Filter, which sap_sale to fetch.
+     */
+    where?: sap_saleWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of sap_sales to fetch.
+     */
+    orderBy?: sap_saleOrderByWithRelationInput | sap_saleOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for sap_sales.
+     */
+    cursor?: sap_saleWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` sap_sales from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` sap_sales.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of sap_sales.
+     */
+    distinct?: Sap_saleScalarFieldEnum | Sap_saleScalarFieldEnum[]
+  }
+
+  /**
+   * sap_sale findMany
+   */
+  export type sap_saleFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sap_sale
+     */
+    select?: sap_saleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sap_sale
+     */
+    omit?: sap_saleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sap_saleInclude<ExtArgs> | null
+    /**
+     * Filter, which sap_sales to fetch.
+     */
+    where?: sap_saleWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of sap_sales to fetch.
+     */
+    orderBy?: sap_saleOrderByWithRelationInput | sap_saleOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing sap_sales.
+     */
+    cursor?: sap_saleWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` sap_sales from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` sap_sales.
+     */
+    skip?: number
+    distinct?: Sap_saleScalarFieldEnum | Sap_saleScalarFieldEnum[]
+  }
+
+  /**
+   * sap_sale create
+   */
+  export type sap_saleCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sap_sale
+     */
+    select?: sap_saleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sap_sale
+     */
+    omit?: sap_saleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sap_saleInclude<ExtArgs> | null
+    /**
+     * The data needed to create a sap_sale.
+     */
+    data: XOR<sap_saleCreateInput, sap_saleUncheckedCreateInput>
+  }
+
+  /**
+   * sap_sale createMany
+   */
+  export type sap_saleCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many sap_sales.
+     */
+    data: sap_saleCreateManyInput | sap_saleCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * sap_sale update
+   */
+  export type sap_saleUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sap_sale
+     */
+    select?: sap_saleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sap_sale
+     */
+    omit?: sap_saleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sap_saleInclude<ExtArgs> | null
+    /**
+     * The data needed to update a sap_sale.
+     */
+    data: XOR<sap_saleUpdateInput, sap_saleUncheckedUpdateInput>
+    /**
+     * Choose, which sap_sale to update.
+     */
+    where: sap_saleWhereUniqueInput
+  }
+
+  /**
+   * sap_sale updateMany
+   */
+  export type sap_saleUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update sap_sales.
+     */
+    data: XOR<sap_saleUpdateManyMutationInput, sap_saleUncheckedUpdateManyInput>
+    /**
+     * Filter which sap_sales to update
+     */
+    where?: sap_saleWhereInput
+    /**
+     * Limit how many sap_sales to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * sap_sale upsert
+   */
+  export type sap_saleUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sap_sale
+     */
+    select?: sap_saleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sap_sale
+     */
+    omit?: sap_saleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sap_saleInclude<ExtArgs> | null
+    /**
+     * The filter to search for the sap_sale to update in case it exists.
+     */
+    where: sap_saleWhereUniqueInput
+    /**
+     * In case the sap_sale found by the `where` argument doesn't exist, create a new sap_sale with this data.
+     */
+    create: XOR<sap_saleCreateInput, sap_saleUncheckedCreateInput>
+    /**
+     * In case the sap_sale was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<sap_saleUpdateInput, sap_saleUncheckedUpdateInput>
+  }
+
+  /**
+   * sap_sale delete
+   */
+  export type sap_saleDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sap_sale
+     */
+    select?: sap_saleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sap_sale
+     */
+    omit?: sap_saleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sap_saleInclude<ExtArgs> | null
+    /**
+     * Filter which sap_sale to delete.
+     */
+    where: sap_saleWhereUniqueInput
+  }
+
+  /**
+   * sap_sale deleteMany
+   */
+  export type sap_saleDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which sap_sales to delete
+     */
+    where?: sap_saleWhereInput
+    /**
+     * Limit how many sap_sales to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * sap_sale.materials
+   */
+  export type sap_sale$materialsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the materials
+     */
+    select?: materialsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the materials
+     */
+    omit?: materialsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: materialsInclude<ExtArgs> | null
+    where?: materialsWhereInput
+    orderBy?: materialsOrderByWithRelationInput | materialsOrderByWithRelationInput[]
+    cursor?: materialsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: MaterialsScalarFieldEnum | MaterialsScalarFieldEnum[]
+  }
+
+  /**
+   * sap_sale without action
+   */
+  export type sap_saleDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sap_sale
+     */
+    select?: sap_saleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sap_sale
+     */
+    omit?: sap_saleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sap_saleInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Model materials
    */
 
@@ -16549,26 +17682,24 @@ export namespace Prisma {
 
   export type MaterialsAvgAggregateOutputType = {
     id: number | null
-    material_code: number | null
     material_type_id: number | null
-    material_unit_id: number | null
+    sap_sale_id: number | null
   }
 
   export type MaterialsSumAggregateOutputType = {
     id: number | null
-    material_code: number | null
     material_type_id: number | null
-    material_unit_id: number | null
+    sap_sale_id: number | null
   }
 
   export type MaterialsMinAggregateOutputType = {
     id: number | null
-    material_code: number | null
+    material_code: string | null
     material_name_th: string | null
     material_name_en: string | null
     long_meterial_name: string | null
     material_type_id: number | null
-    material_unit_id: number | null
+    sap_sale_id: number | null
     description: string | null
     status: boolean | null
     create_at: Date | null
@@ -16577,12 +17708,12 @@ export namespace Prisma {
 
   export type MaterialsMaxAggregateOutputType = {
     id: number | null
-    material_code: number | null
+    material_code: string | null
     material_name_th: string | null
     material_name_en: string | null
     long_meterial_name: string | null
     material_type_id: number | null
-    material_unit_id: number | null
+    sap_sale_id: number | null
     description: string | null
     status: boolean | null
     create_at: Date | null
@@ -16596,7 +17727,7 @@ export namespace Prisma {
     material_name_en: number
     long_meterial_name: number
     material_type_id: number
-    material_unit_id: number
+    sap_sale_id: number
     description: number
     status: number
     create_at: number
@@ -16607,16 +17738,14 @@ export namespace Prisma {
 
   export type MaterialsAvgAggregateInputType = {
     id?: true
-    material_code?: true
     material_type_id?: true
-    material_unit_id?: true
+    sap_sale_id?: true
   }
 
   export type MaterialsSumAggregateInputType = {
     id?: true
-    material_code?: true
     material_type_id?: true
-    material_unit_id?: true
+    sap_sale_id?: true
   }
 
   export type MaterialsMinAggregateInputType = {
@@ -16626,7 +17755,7 @@ export namespace Prisma {
     material_name_en?: true
     long_meterial_name?: true
     material_type_id?: true
-    material_unit_id?: true
+    sap_sale_id?: true
     description?: true
     status?: true
     create_at?: true
@@ -16640,7 +17769,7 @@ export namespace Prisma {
     material_name_en?: true
     long_meterial_name?: true
     material_type_id?: true
-    material_unit_id?: true
+    sap_sale_id?: true
     description?: true
     status?: true
     create_at?: true
@@ -16654,7 +17783,7 @@ export namespace Prisma {
     material_name_en?: true
     long_meterial_name?: true
     material_type_id?: true
-    material_unit_id?: true
+    sap_sale_id?: true
     description?: true
     status?: true
     create_at?: true
@@ -16750,13 +17879,13 @@ export namespace Prisma {
 
   export type MaterialsGroupByOutputType = {
     id: number
-    material_code: number
+    material_code: string
     material_name_th: string
     material_name_en: string
     long_meterial_name: string
     material_type_id: number
-    material_unit_id: number
-    description: string
+    sap_sale_id: number | null
+    description: string | null
     status: boolean
     create_at: Date
     update_at: Date
@@ -16788,11 +17917,15 @@ export namespace Prisma {
     material_name_en?: boolean
     long_meterial_name?: boolean
     material_type_id?: boolean
-    material_unit_id?: boolean
+    sap_sale_id?: boolean
     description?: boolean
     status?: boolean
     create_at?: boolean
     update_at?: boolean
+    material_types?: boolean | material_typesDefaultArgs<ExtArgs>
+    sap_sale?: boolean | materials$sap_saleArgs<ExtArgs>
+    items?: boolean | materials$itemsArgs<ExtArgs>
+    _count?: boolean | MaterialsCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["materials"]>
 
 
@@ -16804,27 +17937,37 @@ export namespace Prisma {
     material_name_en?: boolean
     long_meterial_name?: boolean
     material_type_id?: boolean
-    material_unit_id?: boolean
+    sap_sale_id?: boolean
     description?: boolean
     status?: boolean
     create_at?: boolean
     update_at?: boolean
   }
 
-  export type materialsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "material_code" | "material_name_th" | "material_name_en" | "long_meterial_name" | "material_type_id" | "material_unit_id" | "description" | "status" | "create_at" | "update_at", ExtArgs["result"]["materials"]>
+  export type materialsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "material_code" | "material_name_th" | "material_name_en" | "long_meterial_name" | "material_type_id" | "sap_sale_id" | "description" | "status" | "create_at" | "update_at", ExtArgs["result"]["materials"]>
+  export type materialsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    material_types?: boolean | material_typesDefaultArgs<ExtArgs>
+    sap_sale?: boolean | materials$sap_saleArgs<ExtArgs>
+    items?: boolean | materials$itemsArgs<ExtArgs>
+    _count?: boolean | MaterialsCountOutputTypeDefaultArgs<ExtArgs>
+  }
 
   export type $materialsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "materials"
-    objects: {}
+    objects: {
+      material_types: Prisma.$material_typesPayload<ExtArgs>
+      sap_sale: Prisma.$sap_salePayload<ExtArgs> | null
+      items: Prisma.$itemsPayload<ExtArgs>[]
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      material_code: number
+      material_code: string
       material_name_th: string
       material_name_en: string
       long_meterial_name: string
       material_type_id: number
-      material_unit_id: number
-      description: string
+      sap_sale_id: number | null
+      description: string | null
       status: boolean
       create_at: Date
       update_at: Date
@@ -17168,6 +18311,9 @@ export namespace Prisma {
    */
   export interface Prisma__materialsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    material_types<T extends material_typesDefaultArgs<ExtArgs> = {}>(args?: Subset<T, material_typesDefaultArgs<ExtArgs>>): Prisma__material_typesClient<$Result.GetResult<Prisma.$material_typesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    sap_sale<T extends materials$sap_saleArgs<ExtArgs> = {}>(args?: Subset<T, materials$sap_saleArgs<ExtArgs>>): Prisma__sap_saleClient<$Result.GetResult<Prisma.$sap_salePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    items<T extends materials$itemsArgs<ExtArgs> = {}>(args?: Subset<T, materials$itemsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$itemsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -17198,12 +18344,12 @@ export namespace Prisma {
    */
   interface materialsFieldRefs {
     readonly id: FieldRef<"materials", 'Int'>
-    readonly material_code: FieldRef<"materials", 'Int'>
+    readonly material_code: FieldRef<"materials", 'String'>
     readonly material_name_th: FieldRef<"materials", 'String'>
     readonly material_name_en: FieldRef<"materials", 'String'>
     readonly long_meterial_name: FieldRef<"materials", 'String'>
     readonly material_type_id: FieldRef<"materials", 'Int'>
-    readonly material_unit_id: FieldRef<"materials", 'Int'>
+    readonly sap_sale_id: FieldRef<"materials", 'Int'>
     readonly description: FieldRef<"materials", 'String'>
     readonly status: FieldRef<"materials", 'Boolean'>
     readonly create_at: FieldRef<"materials", 'DateTime'>
@@ -17225,6 +18371,10 @@ export namespace Prisma {
      */
     omit?: materialsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: materialsInclude<ExtArgs> | null
+    /**
      * Filter, which materials to fetch.
      */
     where: materialsWhereUniqueInput
@@ -17243,6 +18393,10 @@ export namespace Prisma {
      */
     omit?: materialsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: materialsInclude<ExtArgs> | null
+    /**
      * Filter, which materials to fetch.
      */
     where: materialsWhereUniqueInput
@@ -17260,6 +18414,10 @@ export namespace Prisma {
      * Omit specific fields from the materials
      */
     omit?: materialsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: materialsInclude<ExtArgs> | null
     /**
      * Filter, which materials to fetch.
      */
@@ -17309,6 +18467,10 @@ export namespace Prisma {
      */
     omit?: materialsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: materialsInclude<ExtArgs> | null
+    /**
      * Filter, which materials to fetch.
      */
     where?: materialsWhereInput
@@ -17357,6 +18519,10 @@ export namespace Prisma {
      */
     omit?: materialsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: materialsInclude<ExtArgs> | null
+    /**
      * Filter, which materials to fetch.
      */
     where?: materialsWhereInput
@@ -17400,6 +18566,10 @@ export namespace Prisma {
      */
     omit?: materialsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: materialsInclude<ExtArgs> | null
+    /**
      * The data needed to create a materials.
      */
     data: XOR<materialsCreateInput, materialsUncheckedCreateInput>
@@ -17428,6 +18598,10 @@ export namespace Prisma {
      * Omit specific fields from the materials
      */
     omit?: materialsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: materialsInclude<ExtArgs> | null
     /**
      * The data needed to update a materials.
      */
@@ -17469,6 +18643,10 @@ export namespace Prisma {
      */
     omit?: materialsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: materialsInclude<ExtArgs> | null
+    /**
      * The filter to search for the materials to update in case it exists.
      */
     where: materialsWhereUniqueInput
@@ -17495,6 +18673,10 @@ export namespace Prisma {
      */
     omit?: materialsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: materialsInclude<ExtArgs> | null
+    /**
      * Filter which materials to delete.
      */
     where: materialsWhereUniqueInput
@@ -17515,6 +18697,49 @@ export namespace Prisma {
   }
 
   /**
+   * materials.sap_sale
+   */
+  export type materials$sap_saleArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sap_sale
+     */
+    select?: sap_saleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sap_sale
+     */
+    omit?: sap_saleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sap_saleInclude<ExtArgs> | null
+    where?: sap_saleWhereInput
+  }
+
+  /**
+   * materials.items
+   */
+  export type materials$itemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the items
+     */
+    select?: itemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the items
+     */
+    omit?: itemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: itemsInclude<ExtArgs> | null
+    where?: itemsWhereInput
+    orderBy?: itemsOrderByWithRelationInput | itemsOrderByWithRelationInput[]
+    cursor?: itemsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ItemsScalarFieldEnum | ItemsScalarFieldEnum[]
+  }
+
+  /**
    * materials without action
    */
   export type materialsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -17526,6 +18751,10 @@ export namespace Prisma {
      * Omit specific fields from the materials
      */
     omit?: materialsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: materialsInclude<ExtArgs> | null
   }
 
 
@@ -17551,6 +18780,8 @@ export namespace Prisma {
 
   export type Material_typesMinAggregateOutputType = {
     id: number | null
+    name_th: string | null
+    name_en: string | null
     description: string | null
     status: boolean | null
     create_at: Date | null
@@ -17559,6 +18790,8 @@ export namespace Prisma {
 
   export type Material_typesMaxAggregateOutputType = {
     id: number | null
+    name_th: string | null
+    name_en: string | null
     description: string | null
     status: boolean | null
     create_at: Date | null
@@ -17567,6 +18800,8 @@ export namespace Prisma {
 
   export type Material_typesCountAggregateOutputType = {
     id: number
+    name_th: number
+    name_en: number
     description: number
     status: number
     create_at: number
@@ -17585,6 +18820,8 @@ export namespace Prisma {
 
   export type Material_typesMinAggregateInputType = {
     id?: true
+    name_th?: true
+    name_en?: true
     description?: true
     status?: true
     create_at?: true
@@ -17593,6 +18830,8 @@ export namespace Prisma {
 
   export type Material_typesMaxAggregateInputType = {
     id?: true
+    name_th?: true
+    name_en?: true
     description?: true
     status?: true
     create_at?: true
@@ -17601,6 +18840,8 @@ export namespace Prisma {
 
   export type Material_typesCountAggregateInputType = {
     id?: true
+    name_th?: true
+    name_en?: true
     description?: true
     status?: true
     create_at?: true
@@ -17696,7 +18937,9 @@ export namespace Prisma {
 
   export type Material_typesGroupByOutputType = {
     id: number
-    description: string
+    name_th: string
+    name_en: string
+    description: string | null
     status: boolean
     create_at: Date
     update_at: Date
@@ -17723,30 +18966,44 @@ export namespace Prisma {
 
   export type material_typesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    name_th?: boolean
+    name_en?: boolean
     description?: boolean
     status?: boolean
     create_at?: boolean
     update_at?: boolean
+    materials?: boolean | material_types$materialsArgs<ExtArgs>
+    _count?: boolean | Material_typesCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["material_types"]>
 
 
 
   export type material_typesSelectScalar = {
     id?: boolean
+    name_th?: boolean
+    name_en?: boolean
     description?: boolean
     status?: boolean
     create_at?: boolean
     update_at?: boolean
   }
 
-  export type material_typesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "description" | "status" | "create_at" | "update_at", ExtArgs["result"]["material_types"]>
+  export type material_typesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name_th" | "name_en" | "description" | "status" | "create_at" | "update_at", ExtArgs["result"]["material_types"]>
+  export type material_typesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    materials?: boolean | material_types$materialsArgs<ExtArgs>
+    _count?: boolean | Material_typesCountOutputTypeDefaultArgs<ExtArgs>
+  }
 
   export type $material_typesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "material_types"
-    objects: {}
+    objects: {
+      materials: Prisma.$materialsPayload<ExtArgs>[]
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      description: string
+      name_th: string
+      name_en: string
+      description: string | null
       status: boolean
       create_at: Date
       update_at: Date
@@ -18090,6 +19347,7 @@ export namespace Prisma {
    */
   export interface Prisma__material_typesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    materials<T extends material_types$materialsArgs<ExtArgs> = {}>(args?: Subset<T, material_types$materialsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$materialsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -18120,6 +19378,8 @@ export namespace Prisma {
    */
   interface material_typesFieldRefs {
     readonly id: FieldRef<"material_types", 'Int'>
+    readonly name_th: FieldRef<"material_types", 'String'>
+    readonly name_en: FieldRef<"material_types", 'String'>
     readonly description: FieldRef<"material_types", 'String'>
     readonly status: FieldRef<"material_types", 'Boolean'>
     readonly create_at: FieldRef<"material_types", 'DateTime'>
@@ -18141,6 +19401,10 @@ export namespace Prisma {
      */
     omit?: material_typesOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: material_typesInclude<ExtArgs> | null
+    /**
      * Filter, which material_types to fetch.
      */
     where: material_typesWhereUniqueInput
@@ -18159,6 +19423,10 @@ export namespace Prisma {
      */
     omit?: material_typesOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: material_typesInclude<ExtArgs> | null
+    /**
      * Filter, which material_types to fetch.
      */
     where: material_typesWhereUniqueInput
@@ -18176,6 +19444,10 @@ export namespace Prisma {
      * Omit specific fields from the material_types
      */
     omit?: material_typesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: material_typesInclude<ExtArgs> | null
     /**
      * Filter, which material_types to fetch.
      */
@@ -18225,6 +19497,10 @@ export namespace Prisma {
      */
     omit?: material_typesOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: material_typesInclude<ExtArgs> | null
+    /**
      * Filter, which material_types to fetch.
      */
     where?: material_typesWhereInput
@@ -18273,6 +19549,10 @@ export namespace Prisma {
      */
     omit?: material_typesOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: material_typesInclude<ExtArgs> | null
+    /**
      * Filter, which material_types to fetch.
      */
     where?: material_typesWhereInput
@@ -18316,6 +19596,10 @@ export namespace Prisma {
      */
     omit?: material_typesOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: material_typesInclude<ExtArgs> | null
+    /**
      * The data needed to create a material_types.
      */
     data: XOR<material_typesCreateInput, material_typesUncheckedCreateInput>
@@ -18344,6 +19628,10 @@ export namespace Prisma {
      * Omit specific fields from the material_types
      */
     omit?: material_typesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: material_typesInclude<ExtArgs> | null
     /**
      * The data needed to update a material_types.
      */
@@ -18385,6 +19673,10 @@ export namespace Prisma {
      */
     omit?: material_typesOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: material_typesInclude<ExtArgs> | null
+    /**
      * The filter to search for the material_types to update in case it exists.
      */
     where: material_typesWhereUniqueInput
@@ -18411,6 +19703,10 @@ export namespace Prisma {
      */
     omit?: material_typesOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: material_typesInclude<ExtArgs> | null
+    /**
      * Filter which material_types to delete.
      */
     where: material_typesWhereUniqueInput
@@ -18431,6 +19727,30 @@ export namespace Prisma {
   }
 
   /**
+   * material_types.materials
+   */
+  export type material_types$materialsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the materials
+     */
+    select?: materialsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the materials
+     */
+    omit?: materialsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: materialsInclude<ExtArgs> | null
+    where?: materialsWhereInput
+    orderBy?: materialsOrderByWithRelationInput | materialsOrderByWithRelationInput[]
+    cursor?: materialsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: MaterialsScalarFieldEnum | MaterialsScalarFieldEnum[]
+  }
+
+  /**
    * material_types without action
    */
   export type material_typesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -18442,6 +19762,10 @@ export namespace Prisma {
      * Omit specific fields from the material_types
      */
     omit?: material_typesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: material_typesInclude<ExtArgs> | null
   }
 
 
@@ -19450,6 +20774,7 @@ export namespace Prisma {
     department_id: number | null
     item_category_id: number | null
     stock_location_id: number | null
+    rfid_number: string | null
     name_th: string | null
     name_en: string | null
     status: boolean | null
@@ -19464,6 +20789,7 @@ export namespace Prisma {
     department_id: number | null
     item_category_id: number | null
     stock_location_id: number | null
+    rfid_number: string | null
     name_th: string | null
     name_en: string | null
     status: boolean | null
@@ -19478,6 +20804,7 @@ export namespace Prisma {
     department_id: number
     item_category_id: number
     stock_location_id: number
+    rfid_number: number
     name_th: number
     name_en: number
     status: number
@@ -19512,6 +20839,7 @@ export namespace Prisma {
     department_id?: true
     item_category_id?: true
     stock_location_id?: true
+    rfid_number?: true
     name_th?: true
     name_en?: true
     status?: true
@@ -19526,6 +20854,7 @@ export namespace Prisma {
     department_id?: true
     item_category_id?: true
     stock_location_id?: true
+    rfid_number?: true
     name_th?: true
     name_en?: true
     status?: true
@@ -19540,6 +20869,7 @@ export namespace Prisma {
     department_id?: true
     item_category_id?: true
     stock_location_id?: true
+    rfid_number?: true
     name_th?: true
     name_en?: true
     status?: true
@@ -19636,11 +20966,12 @@ export namespace Prisma {
 
   export type ItemsGroupByOutputType = {
     id: number
-    material_id: number
+    material_id: number | null
     saleoffice_id: number
     department_id: number
-    item_category_id: number
+    item_category_id: number | null
     stock_location_id: number
+    rfid_number: string | null
     name_th: string | null
     name_en: string | null
     status: boolean
@@ -19674,11 +21005,14 @@ export namespace Prisma {
     department_id?: boolean
     item_category_id?: boolean
     stock_location_id?: boolean
+    rfid_number?: boolean
     name_th?: boolean
     name_en?: boolean
     status?: boolean
     create_at?: boolean
     update_at?: boolean
+    item_category?: boolean | items$item_categoryArgs<ExtArgs>
+    material?: boolean | items$materialArgs<ExtArgs>
   }, ExtArgs["result"]["items"]>
 
 
@@ -19690,6 +21024,7 @@ export namespace Prisma {
     department_id?: boolean
     item_category_id?: boolean
     stock_location_id?: boolean
+    rfid_number?: boolean
     name_th?: boolean
     name_en?: boolean
     status?: boolean
@@ -19697,18 +21032,26 @@ export namespace Prisma {
     update_at?: boolean
   }
 
-  export type itemsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "material_id" | "saleoffice_id" | "department_id" | "item_category_id" | "stock_location_id" | "name_th" | "name_en" | "status" | "create_at" | "update_at", ExtArgs["result"]["items"]>
+  export type itemsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "material_id" | "saleoffice_id" | "department_id" | "item_category_id" | "stock_location_id" | "rfid_number" | "name_th" | "name_en" | "status" | "create_at" | "update_at", ExtArgs["result"]["items"]>
+  export type itemsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    item_category?: boolean | items$item_categoryArgs<ExtArgs>
+    material?: boolean | items$materialArgs<ExtArgs>
+  }
 
   export type $itemsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "items"
-    objects: {}
+    objects: {
+      item_category: Prisma.$item_categoriesPayload<ExtArgs> | null
+      material: Prisma.$materialsPayload<ExtArgs> | null
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      material_id: number
+      material_id: number | null
       saleoffice_id: number
       department_id: number
-      item_category_id: number
+      item_category_id: number | null
       stock_location_id: number
+      rfid_number: string | null
       name_th: string | null
       name_en: string | null
       status: boolean
@@ -20054,6 +21397,8 @@ export namespace Prisma {
    */
   export interface Prisma__itemsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    item_category<T extends items$item_categoryArgs<ExtArgs> = {}>(args?: Subset<T, items$item_categoryArgs<ExtArgs>>): Prisma__item_categoriesClient<$Result.GetResult<Prisma.$item_categoriesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    material<T extends items$materialArgs<ExtArgs> = {}>(args?: Subset<T, items$materialArgs<ExtArgs>>): Prisma__materialsClient<$Result.GetResult<Prisma.$materialsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -20089,6 +21434,7 @@ export namespace Prisma {
     readonly department_id: FieldRef<"items", 'Int'>
     readonly item_category_id: FieldRef<"items", 'Int'>
     readonly stock_location_id: FieldRef<"items", 'Int'>
+    readonly rfid_number: FieldRef<"items", 'String'>
     readonly name_th: FieldRef<"items", 'String'>
     readonly name_en: FieldRef<"items", 'String'>
     readonly status: FieldRef<"items", 'Boolean'>
@@ -20111,6 +21457,10 @@ export namespace Prisma {
      */
     omit?: itemsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: itemsInclude<ExtArgs> | null
+    /**
      * Filter, which items to fetch.
      */
     where: itemsWhereUniqueInput
@@ -20129,6 +21479,10 @@ export namespace Prisma {
      */
     omit?: itemsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: itemsInclude<ExtArgs> | null
+    /**
      * Filter, which items to fetch.
      */
     where: itemsWhereUniqueInput
@@ -20146,6 +21500,10 @@ export namespace Prisma {
      * Omit specific fields from the items
      */
     omit?: itemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: itemsInclude<ExtArgs> | null
     /**
      * Filter, which items to fetch.
      */
@@ -20195,6 +21553,10 @@ export namespace Prisma {
      */
     omit?: itemsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: itemsInclude<ExtArgs> | null
+    /**
      * Filter, which items to fetch.
      */
     where?: itemsWhereInput
@@ -20243,6 +21605,10 @@ export namespace Prisma {
      */
     omit?: itemsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: itemsInclude<ExtArgs> | null
+    /**
      * Filter, which items to fetch.
      */
     where?: itemsWhereInput
@@ -20286,6 +21652,10 @@ export namespace Prisma {
      */
     omit?: itemsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: itemsInclude<ExtArgs> | null
+    /**
      * The data needed to create a items.
      */
     data: XOR<itemsCreateInput, itemsUncheckedCreateInput>
@@ -20314,6 +21684,10 @@ export namespace Prisma {
      * Omit specific fields from the items
      */
     omit?: itemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: itemsInclude<ExtArgs> | null
     /**
      * The data needed to update a items.
      */
@@ -20355,6 +21729,10 @@ export namespace Prisma {
      */
     omit?: itemsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: itemsInclude<ExtArgs> | null
+    /**
      * The filter to search for the items to update in case it exists.
      */
     where: itemsWhereUniqueInput
@@ -20381,6 +21759,10 @@ export namespace Prisma {
      */
     omit?: itemsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: itemsInclude<ExtArgs> | null
+    /**
      * Filter which items to delete.
      */
     where: itemsWhereUniqueInput
@@ -20401,6 +21783,44 @@ export namespace Prisma {
   }
 
   /**
+   * items.item_category
+   */
+  export type items$item_categoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the item_categories
+     */
+    select?: item_categoriesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the item_categories
+     */
+    omit?: item_categoriesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: item_categoriesInclude<ExtArgs> | null
+    where?: item_categoriesWhereInput
+  }
+
+  /**
+   * items.material
+   */
+  export type items$materialArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the materials
+     */
+    select?: materialsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the materials
+     */
+    omit?: materialsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: materialsInclude<ExtArgs> | null
+    where?: materialsWhereInput
+  }
+
+  /**
    * items without action
    */
   export type itemsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -20412,6 +21832,10 @@ export namespace Prisma {
      * Omit specific fields from the items
      */
     omit?: itemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: itemsInclude<ExtArgs> | null
   }
 
 
@@ -21629,6 +23053,9 @@ export namespace Prisma {
     status?: boolean
     create_at?: boolean
     update_at?: boolean
+    item_category_prices?: boolean | item_categories$item_category_pricesArgs<ExtArgs>
+    items?: boolean | item_categories$itemsArgs<ExtArgs>
+    _count?: boolean | Item_categoriesCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["item_categories"]>
 
 
@@ -21646,10 +23073,18 @@ export namespace Prisma {
   }
 
   export type item_categoriesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "type_id" | "sale_office_id" | "department_id" | "stock_location_id" | "description" | "status" | "create_at" | "update_at", ExtArgs["result"]["item_categories"]>
+  export type item_categoriesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    item_category_prices?: boolean | item_categories$item_category_pricesArgs<ExtArgs>
+    items?: boolean | item_categories$itemsArgs<ExtArgs>
+    _count?: boolean | Item_categoriesCountOutputTypeDefaultArgs<ExtArgs>
+  }
 
   export type $item_categoriesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "item_categories"
-    objects: {}
+    objects: {
+      item_category_prices: Prisma.$item_category_pricesPayload<ExtArgs>[]
+      items: Prisma.$itemsPayload<ExtArgs>[]
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       type_id: number
@@ -22000,6 +23435,8 @@ export namespace Prisma {
    */
   export interface Prisma__item_categoriesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    item_category_prices<T extends item_categories$item_category_pricesArgs<ExtArgs> = {}>(args?: Subset<T, item_categories$item_category_pricesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$item_category_pricesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    items<T extends item_categories$itemsArgs<ExtArgs> = {}>(args?: Subset<T, item_categories$itemsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$itemsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -22055,6 +23492,10 @@ export namespace Prisma {
      */
     omit?: item_categoriesOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: item_categoriesInclude<ExtArgs> | null
+    /**
      * Filter, which item_categories to fetch.
      */
     where: item_categoriesWhereUniqueInput
@@ -22073,6 +23514,10 @@ export namespace Prisma {
      */
     omit?: item_categoriesOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: item_categoriesInclude<ExtArgs> | null
+    /**
      * Filter, which item_categories to fetch.
      */
     where: item_categoriesWhereUniqueInput
@@ -22090,6 +23535,10 @@ export namespace Prisma {
      * Omit specific fields from the item_categories
      */
     omit?: item_categoriesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: item_categoriesInclude<ExtArgs> | null
     /**
      * Filter, which item_categories to fetch.
      */
@@ -22139,6 +23588,10 @@ export namespace Prisma {
      */
     omit?: item_categoriesOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: item_categoriesInclude<ExtArgs> | null
+    /**
      * Filter, which item_categories to fetch.
      */
     where?: item_categoriesWhereInput
@@ -22187,6 +23640,10 @@ export namespace Prisma {
      */
     omit?: item_categoriesOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: item_categoriesInclude<ExtArgs> | null
+    /**
      * Filter, which item_categories to fetch.
      */
     where?: item_categoriesWhereInput
@@ -22230,6 +23687,10 @@ export namespace Prisma {
      */
     omit?: item_categoriesOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: item_categoriesInclude<ExtArgs> | null
+    /**
      * The data needed to create a item_categories.
      */
     data: XOR<item_categoriesCreateInput, item_categoriesUncheckedCreateInput>
@@ -22258,6 +23719,10 @@ export namespace Prisma {
      * Omit specific fields from the item_categories
      */
     omit?: item_categoriesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: item_categoriesInclude<ExtArgs> | null
     /**
      * The data needed to update a item_categories.
      */
@@ -22299,6 +23764,10 @@ export namespace Prisma {
      */
     omit?: item_categoriesOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: item_categoriesInclude<ExtArgs> | null
+    /**
      * The filter to search for the item_categories to update in case it exists.
      */
     where: item_categoriesWhereUniqueInput
@@ -22325,6 +23794,10 @@ export namespace Prisma {
      */
     omit?: item_categoriesOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: item_categoriesInclude<ExtArgs> | null
+    /**
      * Filter which item_categories to delete.
      */
     where: item_categoriesWhereUniqueInput
@@ -22345,6 +23818,54 @@ export namespace Prisma {
   }
 
   /**
+   * item_categories.item_category_prices
+   */
+  export type item_categories$item_category_pricesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the item_category_prices
+     */
+    select?: item_category_pricesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the item_category_prices
+     */
+    omit?: item_category_pricesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: item_category_pricesInclude<ExtArgs> | null
+    where?: item_category_pricesWhereInput
+    orderBy?: item_category_pricesOrderByWithRelationInput | item_category_pricesOrderByWithRelationInput[]
+    cursor?: item_category_pricesWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Item_category_pricesScalarFieldEnum | Item_category_pricesScalarFieldEnum[]
+  }
+
+  /**
+   * item_categories.items
+   */
+  export type item_categories$itemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the items
+     */
+    select?: itemsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the items
+     */
+    omit?: itemsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: itemsInclude<ExtArgs> | null
+    where?: itemsWhereInput
+    orderBy?: itemsOrderByWithRelationInput | itemsOrderByWithRelationInput[]
+    cursor?: itemsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ItemsScalarFieldEnum | ItemsScalarFieldEnum[]
+  }
+
+  /**
    * item_categories without action
    */
   export type item_categoriesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -22356,47 +23877,61 @@ export namespace Prisma {
      * Omit specific fields from the item_categories
      */
     omit?: item_categoriesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: item_categoriesInclude<ExtArgs> | null
   }
 
 
   /**
-   * Model types
+   * Model item_category_prices
    */
 
-  export type AggregateTypes = {
-    _count: TypesCountAggregateOutputType | null
-    _avg: TypesAvgAggregateOutputType | null
-    _sum: TypesSumAggregateOutputType | null
-    _min: TypesMinAggregateOutputType | null
-    _max: TypesMaxAggregateOutputType | null
+  export type AggregateItem_category_prices = {
+    _count: Item_category_pricesCountAggregateOutputType | null
+    _avg: Item_category_pricesAvgAggregateOutputType | null
+    _sum: Item_category_pricesSumAggregateOutputType | null
+    _min: Item_category_pricesMinAggregateOutputType | null
+    _max: Item_category_pricesMaxAggregateOutputType | null
   }
 
-  export type TypesAvgAggregateOutputType = {
+  export type Item_category_pricesAvgAggregateOutputType = {
     id: number | null
+    item_category_id: number | null
+    price: number | null
   }
 
-  export type TypesSumAggregateOutputType = {
+  export type Item_category_pricesSumAggregateOutputType = {
     id: number | null
+    item_category_id: number | null
+    price: number | null
   }
 
-  export type TypesMinAggregateOutputType = {
+  export type Item_category_pricesMinAggregateOutputType = {
     id: number | null
+    item_category_id: number | null
+    price: number | null
     description: string | null
     status: boolean | null
     create_at: Date | null
     update_at: Date | null
   }
 
-  export type TypesMaxAggregateOutputType = {
+  export type Item_category_pricesMaxAggregateOutputType = {
     id: number | null
+    item_category_id: number | null
+    price: number | null
     description: string | null
     status: boolean | null
     create_at: Date | null
     update_at: Date | null
   }
 
-  export type TypesCountAggregateOutputType = {
+  export type Item_category_pricesCountAggregateOutputType = {
     id: number
+    item_category_id: number
+    price: number
     description: number
     status: number
     create_at: number
@@ -22405,32 +23940,42 @@ export namespace Prisma {
   }
 
 
-  export type TypesAvgAggregateInputType = {
+  export type Item_category_pricesAvgAggregateInputType = {
     id?: true
+    item_category_id?: true
+    price?: true
   }
 
-  export type TypesSumAggregateInputType = {
+  export type Item_category_pricesSumAggregateInputType = {
     id?: true
+    item_category_id?: true
+    price?: true
   }
 
-  export type TypesMinAggregateInputType = {
+  export type Item_category_pricesMinAggregateInputType = {
     id?: true
+    item_category_id?: true
+    price?: true
     description?: true
     status?: true
     create_at?: true
     update_at?: true
   }
 
-  export type TypesMaxAggregateInputType = {
+  export type Item_category_pricesMaxAggregateInputType = {
     id?: true
+    item_category_id?: true
+    price?: true
     description?: true
     status?: true
     create_at?: true
     update_at?: true
   }
 
-  export type TypesCountAggregateInputType = {
+  export type Item_category_pricesCountAggregateInputType = {
     id?: true
+    item_category_id?: true
+    price?: true
     description?: true
     status?: true
     create_at?: true
@@ -22438,1229 +23983,299 @@ export namespace Prisma {
     _all?: true
   }
 
-  export type TypesAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Item_category_pricesAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which types to aggregate.
+     * Filter which item_category_prices to aggregate.
      */
-    where?: typesWhereInput
+    where?: item_category_pricesWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of types to fetch.
+     * Determine the order of item_category_prices to fetch.
      */
-    orderBy?: typesOrderByWithRelationInput | typesOrderByWithRelationInput[]
+    orderBy?: item_category_pricesOrderByWithRelationInput | item_category_pricesOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: typesWhereUniqueInput
+    cursor?: item_category_pricesWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` types from the position of the cursor.
+     * Take `±n` item_category_prices from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` types.
+     * Skip the first `n` item_category_prices.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned types
+     * Count returned item_category_prices
     **/
-    _count?: true | TypesCountAggregateInputType
+    _count?: true | Item_category_pricesCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: TypesAvgAggregateInputType
+    _avg?: Item_category_pricesAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: TypesSumAggregateInputType
+    _sum?: Item_category_pricesSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: TypesMinAggregateInputType
+    _min?: Item_category_pricesMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: TypesMaxAggregateInputType
+    _max?: Item_category_pricesMaxAggregateInputType
   }
 
-  export type GetTypesAggregateType<T extends TypesAggregateArgs> = {
-        [P in keyof T & keyof AggregateTypes]: P extends '_count' | 'count'
+  export type GetItem_category_pricesAggregateType<T extends Item_category_pricesAggregateArgs> = {
+        [P in keyof T & keyof AggregateItem_category_prices]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateTypes[P]>
-      : GetScalarType<T[P], AggregateTypes[P]>
+        : GetScalarType<T[P], AggregateItem_category_prices[P]>
+      : GetScalarType<T[P], AggregateItem_category_prices[P]>
   }
 
 
 
 
-  export type typesGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: typesWhereInput
-    orderBy?: typesOrderByWithAggregationInput | typesOrderByWithAggregationInput[]
-    by: TypesScalarFieldEnum[] | TypesScalarFieldEnum
-    having?: typesScalarWhereWithAggregatesInput
+  export type item_category_pricesGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: item_category_pricesWhereInput
+    orderBy?: item_category_pricesOrderByWithAggregationInput | item_category_pricesOrderByWithAggregationInput[]
+    by: Item_category_pricesScalarFieldEnum[] | Item_category_pricesScalarFieldEnum
+    having?: item_category_pricesScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: TypesCountAggregateInputType | true
-    _avg?: TypesAvgAggregateInputType
-    _sum?: TypesSumAggregateInputType
-    _min?: TypesMinAggregateInputType
-    _max?: TypesMaxAggregateInputType
+    _count?: Item_category_pricesCountAggregateInputType | true
+    _avg?: Item_category_pricesAvgAggregateInputType
+    _sum?: Item_category_pricesSumAggregateInputType
+    _min?: Item_category_pricesMinAggregateInputType
+    _max?: Item_category_pricesMaxAggregateInputType
   }
 
-  export type TypesGroupByOutputType = {
+  export type Item_category_pricesGroupByOutputType = {
     id: number
+    item_category_id: number
+    price: number
     description: string
     status: boolean
     create_at: Date
     update_at: Date
-    _count: TypesCountAggregateOutputType | null
-    _avg: TypesAvgAggregateOutputType | null
-    _sum: TypesSumAggregateOutputType | null
-    _min: TypesMinAggregateOutputType | null
-    _max: TypesMaxAggregateOutputType | null
+    _count: Item_category_pricesCountAggregateOutputType | null
+    _avg: Item_category_pricesAvgAggregateOutputType | null
+    _sum: Item_category_pricesSumAggregateOutputType | null
+    _min: Item_category_pricesMinAggregateOutputType | null
+    _max: Item_category_pricesMaxAggregateOutputType | null
   }
 
-  type GetTypesGroupByPayload<T extends typesGroupByArgs> = Prisma.PrismaPromise<
+  type GetItem_category_pricesGroupByPayload<T extends item_category_pricesGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<TypesGroupByOutputType, T['by']> &
+      PickEnumerable<Item_category_pricesGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof TypesGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof Item_category_pricesGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], TypesGroupByOutputType[P]>
-            : GetScalarType<T[P], TypesGroupByOutputType[P]>
+              : GetScalarType<T[P], Item_category_pricesGroupByOutputType[P]>
+            : GetScalarType<T[P], Item_category_pricesGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type typesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type item_category_pricesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    item_category_id?: boolean
+    price?: boolean
     description?: boolean
     status?: boolean
     create_at?: boolean
     update_at?: boolean
-  }, ExtArgs["result"]["types"]>
+    item_category?: boolean | item_categoriesDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["item_category_prices"]>
 
 
 
-  export type typesSelectScalar = {
+  export type item_category_pricesSelectScalar = {
     id?: boolean
+    item_category_id?: boolean
+    price?: boolean
     description?: boolean
     status?: boolean
     create_at?: boolean
     update_at?: boolean
   }
 
-  export type typesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "description" | "status" | "create_at" | "update_at", ExtArgs["result"]["types"]>
-
-  export type $typesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "types"
-    objects: {}
-    scalars: $Extensions.GetPayloadResult<{
-      id: number
-      description: string
-      status: boolean
-      create_at: Date
-      update_at: Date
-    }, ExtArgs["result"]["types"]>
-    composites: {}
+  export type item_category_pricesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "item_category_id" | "price" | "description" | "status" | "create_at" | "update_at", ExtArgs["result"]["item_category_prices"]>
+  export type item_category_pricesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    item_category?: boolean | item_categoriesDefaultArgs<ExtArgs>
   }
 
-  type typesGetPayload<S extends boolean | null | undefined | typesDefaultArgs> = $Result.GetResult<Prisma.$typesPayload, S>
-
-  type typesCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<typesFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: TypesCountAggregateInputType | true
+  export type $item_category_pricesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "item_category_prices"
+    objects: {
+      item_category: Prisma.$item_categoriesPayload<ExtArgs>
     }
-
-  export interface typesDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['types'], meta: { name: 'types' } }
-    /**
-     * Find zero or one Types that matches the filter.
-     * @param {typesFindUniqueArgs} args - Arguments to find a Types
-     * @example
-     * // Get one Types
-     * const types = await prisma.types.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends typesFindUniqueArgs>(args: SelectSubset<T, typesFindUniqueArgs<ExtArgs>>): Prisma__typesClient<$Result.GetResult<Prisma.$typesPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one Types that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {typesFindUniqueOrThrowArgs} args - Arguments to find a Types
-     * @example
-     * // Get one Types
-     * const types = await prisma.types.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends typesFindUniqueOrThrowArgs>(args: SelectSubset<T, typesFindUniqueOrThrowArgs<ExtArgs>>): Prisma__typesClient<$Result.GetResult<Prisma.$typesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Types that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {typesFindFirstArgs} args - Arguments to find a Types
-     * @example
-     * // Get one Types
-     * const types = await prisma.types.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends typesFindFirstArgs>(args?: SelectSubset<T, typesFindFirstArgs<ExtArgs>>): Prisma__typesClient<$Result.GetResult<Prisma.$typesPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Types that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {typesFindFirstOrThrowArgs} args - Arguments to find a Types
-     * @example
-     * // Get one Types
-     * const types = await prisma.types.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends typesFindFirstOrThrowArgs>(args?: SelectSubset<T, typesFindFirstOrThrowArgs<ExtArgs>>): Prisma__typesClient<$Result.GetResult<Prisma.$typesPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more Types that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {typesFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all Types
-     * const types = await prisma.types.findMany()
-     * 
-     * // Get first 10 Types
-     * const types = await prisma.types.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const typesWithIdOnly = await prisma.types.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends typesFindManyArgs>(args?: SelectSubset<T, typesFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$typesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a Types.
-     * @param {typesCreateArgs} args - Arguments to create a Types.
-     * @example
-     * // Create one Types
-     * const Types = await prisma.types.create({
-     *   data: {
-     *     // ... data to create a Types
-     *   }
-     * })
-     * 
-     */
-    create<T extends typesCreateArgs>(args: SelectSubset<T, typesCreateArgs<ExtArgs>>): Prisma__typesClient<$Result.GetResult<Prisma.$typesPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many Types.
-     * @param {typesCreateManyArgs} args - Arguments to create many Types.
-     * @example
-     * // Create many Types
-     * const types = await prisma.types.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends typesCreateManyArgs>(args?: SelectSubset<T, typesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Delete a Types.
-     * @param {typesDeleteArgs} args - Arguments to delete one Types.
-     * @example
-     * // Delete one Types
-     * const Types = await prisma.types.delete({
-     *   where: {
-     *     // ... filter to delete one Types
-     *   }
-     * })
-     * 
-     */
-    delete<T extends typesDeleteArgs>(args: SelectSubset<T, typesDeleteArgs<ExtArgs>>): Prisma__typesClient<$Result.GetResult<Prisma.$typesPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one Types.
-     * @param {typesUpdateArgs} args - Arguments to update one Types.
-     * @example
-     * // Update one Types
-     * const types = await prisma.types.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends typesUpdateArgs>(args: SelectSubset<T, typesUpdateArgs<ExtArgs>>): Prisma__typesClient<$Result.GetResult<Prisma.$typesPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more Types.
-     * @param {typesDeleteManyArgs} args - Arguments to filter Types to delete.
-     * @example
-     * // Delete a few Types
-     * const { count } = await prisma.types.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends typesDeleteManyArgs>(args?: SelectSubset<T, typesDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Types.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {typesUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many Types
-     * const types = await prisma.types.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends typesUpdateManyArgs>(args: SelectSubset<T, typesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create or update one Types.
-     * @param {typesUpsertArgs} args - Arguments to update or create a Types.
-     * @example
-     * // Update or create a Types
-     * const types = await prisma.types.upsert({
-     *   create: {
-     *     // ... data to create a Types
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the Types we want to update
-     *   }
-     * })
-     */
-    upsert<T extends typesUpsertArgs>(args: SelectSubset<T, typesUpsertArgs<ExtArgs>>): Prisma__typesClient<$Result.GetResult<Prisma.$typesPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of Types.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {typesCountArgs} args - Arguments to filter Types to count.
-     * @example
-     * // Count the number of Types
-     * const count = await prisma.types.count({
-     *   where: {
-     *     // ... the filter for the Types we want to count
-     *   }
-     * })
-    **/
-    count<T extends typesCountArgs>(
-      args?: Subset<T, typesCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], TypesCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a Types.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {TypesAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends TypesAggregateArgs>(args: Subset<T, TypesAggregateArgs>): Prisma.PrismaPromise<GetTypesAggregateType<T>>
-
-    /**
-     * Group by Types.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {typesGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends typesGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: typesGroupByArgs['orderBy'] }
-        : { orderBy?: typesGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, typesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTypesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the types model
-   */
-  readonly fields: typesFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for types.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__typesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the types model
-   */
-  interface typesFieldRefs {
-    readonly id: FieldRef<"types", 'Int'>
-    readonly description: FieldRef<"types", 'String'>
-    readonly status: FieldRef<"types", 'Boolean'>
-    readonly create_at: FieldRef<"types", 'DateTime'>
-    readonly update_at: FieldRef<"types", 'DateTime'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * types findUnique
-   */
-  export type typesFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the types
-     */
-    select?: typesSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the types
-     */
-    omit?: typesOmit<ExtArgs> | null
-    /**
-     * Filter, which types to fetch.
-     */
-    where: typesWhereUniqueInput
-  }
-
-  /**
-   * types findUniqueOrThrow
-   */
-  export type typesFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the types
-     */
-    select?: typesSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the types
-     */
-    omit?: typesOmit<ExtArgs> | null
-    /**
-     * Filter, which types to fetch.
-     */
-    where: typesWhereUniqueInput
-  }
-
-  /**
-   * types findFirst
-   */
-  export type typesFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the types
-     */
-    select?: typesSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the types
-     */
-    omit?: typesOmit<ExtArgs> | null
-    /**
-     * Filter, which types to fetch.
-     */
-    where?: typesWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of types to fetch.
-     */
-    orderBy?: typesOrderByWithRelationInput | typesOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for types.
-     */
-    cursor?: typesWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` types from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` types.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of types.
-     */
-    distinct?: TypesScalarFieldEnum | TypesScalarFieldEnum[]
-  }
-
-  /**
-   * types findFirstOrThrow
-   */
-  export type typesFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the types
-     */
-    select?: typesSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the types
-     */
-    omit?: typesOmit<ExtArgs> | null
-    /**
-     * Filter, which types to fetch.
-     */
-    where?: typesWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of types to fetch.
-     */
-    orderBy?: typesOrderByWithRelationInput | typesOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for types.
-     */
-    cursor?: typesWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` types from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` types.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of types.
-     */
-    distinct?: TypesScalarFieldEnum | TypesScalarFieldEnum[]
-  }
-
-  /**
-   * types findMany
-   */
-  export type typesFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the types
-     */
-    select?: typesSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the types
-     */
-    omit?: typesOmit<ExtArgs> | null
-    /**
-     * Filter, which types to fetch.
-     */
-    where?: typesWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of types to fetch.
-     */
-    orderBy?: typesOrderByWithRelationInput | typesOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing types.
-     */
-    cursor?: typesWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` types from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` types.
-     */
-    skip?: number
-    distinct?: TypesScalarFieldEnum | TypesScalarFieldEnum[]
-  }
-
-  /**
-   * types create
-   */
-  export type typesCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the types
-     */
-    select?: typesSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the types
-     */
-    omit?: typesOmit<ExtArgs> | null
-    /**
-     * The data needed to create a types.
-     */
-    data: XOR<typesCreateInput, typesUncheckedCreateInput>
-  }
-
-  /**
-   * types createMany
-   */
-  export type typesCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many types.
-     */
-    data: typesCreateManyInput | typesCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * types update
-   */
-  export type typesUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the types
-     */
-    select?: typesSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the types
-     */
-    omit?: typesOmit<ExtArgs> | null
-    /**
-     * The data needed to update a types.
-     */
-    data: XOR<typesUpdateInput, typesUncheckedUpdateInput>
-    /**
-     * Choose, which types to update.
-     */
-    where: typesWhereUniqueInput
-  }
-
-  /**
-   * types updateMany
-   */
-  export type typesUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update types.
-     */
-    data: XOR<typesUpdateManyMutationInput, typesUncheckedUpdateManyInput>
-    /**
-     * Filter which types to update
-     */
-    where?: typesWhereInput
-    /**
-     * Limit how many types to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * types upsert
-   */
-  export type typesUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the types
-     */
-    select?: typesSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the types
-     */
-    omit?: typesOmit<ExtArgs> | null
-    /**
-     * The filter to search for the types to update in case it exists.
-     */
-    where: typesWhereUniqueInput
-    /**
-     * In case the types found by the `where` argument doesn't exist, create a new types with this data.
-     */
-    create: XOR<typesCreateInput, typesUncheckedCreateInput>
-    /**
-     * In case the types was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<typesUpdateInput, typesUncheckedUpdateInput>
-  }
-
-  /**
-   * types delete
-   */
-  export type typesDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the types
-     */
-    select?: typesSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the types
-     */
-    omit?: typesOmit<ExtArgs> | null
-    /**
-     * Filter which types to delete.
-     */
-    where: typesWhereUniqueInput
-  }
-
-  /**
-   * types deleteMany
-   */
-  export type typesDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which types to delete
-     */
-    where?: typesWhereInput
-    /**
-     * Limit how many types to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * types without action
-   */
-  export type typesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the types
-     */
-    select?: typesSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the types
-     */
-    omit?: typesOmit<ExtArgs> | null
-  }
-
-
-  /**
-   * Model item_prices
-   */
-
-  export type AggregateItem_prices = {
-    _count: Item_pricesCountAggregateOutputType | null
-    _avg: Item_pricesAvgAggregateOutputType | null
-    _sum: Item_pricesSumAggregateOutputType | null
-    _min: Item_pricesMinAggregateOutputType | null
-    _max: Item_pricesMaxAggregateOutputType | null
-  }
-
-  export type Item_pricesAvgAggregateOutputType = {
-    id: number | null
-    item_id: number | null
-    price: number | null
-  }
-
-  export type Item_pricesSumAggregateOutputType = {
-    id: number | null
-    item_id: number | null
-    price: number | null
-  }
-
-  export type Item_pricesMinAggregateOutputType = {
-    id: number | null
-    item_id: number | null
-    price: number | null
-    description: string | null
-    status: boolean | null
-    create_at: Date | null
-    update_at: Date | null
-  }
-
-  export type Item_pricesMaxAggregateOutputType = {
-    id: number | null
-    item_id: number | null
-    price: number | null
-    description: string | null
-    status: boolean | null
-    create_at: Date | null
-    update_at: Date | null
-  }
-
-  export type Item_pricesCountAggregateOutputType = {
-    id: number
-    item_id: number
-    price: number
-    description: number
-    status: number
-    create_at: number
-    update_at: number
-    _all: number
-  }
-
-
-  export type Item_pricesAvgAggregateInputType = {
-    id?: true
-    item_id?: true
-    price?: true
-  }
-
-  export type Item_pricesSumAggregateInputType = {
-    id?: true
-    item_id?: true
-    price?: true
-  }
-
-  export type Item_pricesMinAggregateInputType = {
-    id?: true
-    item_id?: true
-    price?: true
-    description?: true
-    status?: true
-    create_at?: true
-    update_at?: true
-  }
-
-  export type Item_pricesMaxAggregateInputType = {
-    id?: true
-    item_id?: true
-    price?: true
-    description?: true
-    status?: true
-    create_at?: true
-    update_at?: true
-  }
-
-  export type Item_pricesCountAggregateInputType = {
-    id?: true
-    item_id?: true
-    price?: true
-    description?: true
-    status?: true
-    create_at?: true
-    update_at?: true
-    _all?: true
-  }
-
-  export type Item_pricesAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which item_prices to aggregate.
-     */
-    where?: item_pricesWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of item_prices to fetch.
-     */
-    orderBy?: item_pricesOrderByWithRelationInput | item_pricesOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: item_pricesWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` item_prices from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` item_prices.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned item_prices
-    **/
-    _count?: true | Item_pricesCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: Item_pricesAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: Item_pricesSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: Item_pricesMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: Item_pricesMaxAggregateInputType
-  }
-
-  export type GetItem_pricesAggregateType<T extends Item_pricesAggregateArgs> = {
-        [P in keyof T & keyof AggregateItem_prices]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateItem_prices[P]>
-      : GetScalarType<T[P], AggregateItem_prices[P]>
-  }
-
-
-
-
-  export type item_pricesGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: item_pricesWhereInput
-    orderBy?: item_pricesOrderByWithAggregationInput | item_pricesOrderByWithAggregationInput[]
-    by: Item_pricesScalarFieldEnum[] | Item_pricesScalarFieldEnum
-    having?: item_pricesScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: Item_pricesCountAggregateInputType | true
-    _avg?: Item_pricesAvgAggregateInputType
-    _sum?: Item_pricesSumAggregateInputType
-    _min?: Item_pricesMinAggregateInputType
-    _max?: Item_pricesMaxAggregateInputType
-  }
-
-  export type Item_pricesGroupByOutputType = {
-    id: number
-    item_id: number
-    price: number
-    description: string
-    status: boolean
-    create_at: Date
-    update_at: Date
-    _count: Item_pricesCountAggregateOutputType | null
-    _avg: Item_pricesAvgAggregateOutputType | null
-    _sum: Item_pricesSumAggregateOutputType | null
-    _min: Item_pricesMinAggregateOutputType | null
-    _max: Item_pricesMaxAggregateOutputType | null
-  }
-
-  type GetItem_pricesGroupByPayload<T extends item_pricesGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<Item_pricesGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof Item_pricesGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], Item_pricesGroupByOutputType[P]>
-            : GetScalarType<T[P], Item_pricesGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type item_pricesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    item_id?: boolean
-    price?: boolean
-    description?: boolean
-    status?: boolean
-    create_at?: boolean
-    update_at?: boolean
-  }, ExtArgs["result"]["item_prices"]>
-
-
-
-  export type item_pricesSelectScalar = {
-    id?: boolean
-    item_id?: boolean
-    price?: boolean
-    description?: boolean
-    status?: boolean
-    create_at?: boolean
-    update_at?: boolean
-  }
-
-  export type item_pricesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "item_id" | "price" | "description" | "status" | "create_at" | "update_at", ExtArgs["result"]["item_prices"]>
-
-  export type $item_pricesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "item_prices"
-    objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      item_id: number
+      item_category_id: number
       price: number
       description: string
       status: boolean
       create_at: Date
       update_at: Date
-    }, ExtArgs["result"]["item_prices"]>
+    }, ExtArgs["result"]["item_category_prices"]>
     composites: {}
   }
 
-  type item_pricesGetPayload<S extends boolean | null | undefined | item_pricesDefaultArgs> = $Result.GetResult<Prisma.$item_pricesPayload, S>
+  type item_category_pricesGetPayload<S extends boolean | null | undefined | item_category_pricesDefaultArgs> = $Result.GetResult<Prisma.$item_category_pricesPayload, S>
 
-  type item_pricesCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<item_pricesFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: Item_pricesCountAggregateInputType | true
+  type item_category_pricesCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<item_category_pricesFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Item_category_pricesCountAggregateInputType | true
     }
 
-  export interface item_pricesDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['item_prices'], meta: { name: 'item_prices' } }
+  export interface item_category_pricesDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['item_category_prices'], meta: { name: 'item_category_prices' } }
     /**
-     * Find zero or one Item_prices that matches the filter.
-     * @param {item_pricesFindUniqueArgs} args - Arguments to find a Item_prices
+     * Find zero or one Item_category_prices that matches the filter.
+     * @param {item_category_pricesFindUniqueArgs} args - Arguments to find a Item_category_prices
      * @example
-     * // Get one Item_prices
-     * const item_prices = await prisma.item_prices.findUnique({
+     * // Get one Item_category_prices
+     * const item_category_prices = await prisma.item_category_prices.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends item_pricesFindUniqueArgs>(args: SelectSubset<T, item_pricesFindUniqueArgs<ExtArgs>>): Prisma__item_pricesClient<$Result.GetResult<Prisma.$item_pricesPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends item_category_pricesFindUniqueArgs>(args: SelectSubset<T, item_category_pricesFindUniqueArgs<ExtArgs>>): Prisma__item_category_pricesClient<$Result.GetResult<Prisma.$item_category_pricesPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Item_prices that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Item_category_prices that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {item_pricesFindUniqueOrThrowArgs} args - Arguments to find a Item_prices
+     * @param {item_category_pricesFindUniqueOrThrowArgs} args - Arguments to find a Item_category_prices
      * @example
-     * // Get one Item_prices
-     * const item_prices = await prisma.item_prices.findUniqueOrThrow({
+     * // Get one Item_category_prices
+     * const item_category_prices = await prisma.item_category_prices.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends item_pricesFindUniqueOrThrowArgs>(args: SelectSubset<T, item_pricesFindUniqueOrThrowArgs<ExtArgs>>): Prisma__item_pricesClient<$Result.GetResult<Prisma.$item_pricesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends item_category_pricesFindUniqueOrThrowArgs>(args: SelectSubset<T, item_category_pricesFindUniqueOrThrowArgs<ExtArgs>>): Prisma__item_category_pricesClient<$Result.GetResult<Prisma.$item_category_pricesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Item_prices that matches the filter.
+     * Find the first Item_category_prices that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {item_pricesFindFirstArgs} args - Arguments to find a Item_prices
+     * @param {item_category_pricesFindFirstArgs} args - Arguments to find a Item_category_prices
      * @example
-     * // Get one Item_prices
-     * const item_prices = await prisma.item_prices.findFirst({
+     * // Get one Item_category_prices
+     * const item_category_prices = await prisma.item_category_prices.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends item_pricesFindFirstArgs>(args?: SelectSubset<T, item_pricesFindFirstArgs<ExtArgs>>): Prisma__item_pricesClient<$Result.GetResult<Prisma.$item_pricesPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends item_category_pricesFindFirstArgs>(args?: SelectSubset<T, item_category_pricesFindFirstArgs<ExtArgs>>): Prisma__item_category_pricesClient<$Result.GetResult<Prisma.$item_category_pricesPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Item_prices that matches the filter or
+     * Find the first Item_category_prices that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {item_pricesFindFirstOrThrowArgs} args - Arguments to find a Item_prices
+     * @param {item_category_pricesFindFirstOrThrowArgs} args - Arguments to find a Item_category_prices
      * @example
-     * // Get one Item_prices
-     * const item_prices = await prisma.item_prices.findFirstOrThrow({
+     * // Get one Item_category_prices
+     * const item_category_prices = await prisma.item_category_prices.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends item_pricesFindFirstOrThrowArgs>(args?: SelectSubset<T, item_pricesFindFirstOrThrowArgs<ExtArgs>>): Prisma__item_pricesClient<$Result.GetResult<Prisma.$item_pricesPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends item_category_pricesFindFirstOrThrowArgs>(args?: SelectSubset<T, item_category_pricesFindFirstOrThrowArgs<ExtArgs>>): Prisma__item_category_pricesClient<$Result.GetResult<Prisma.$item_category_pricesPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Item_prices that matches the filter.
+     * Find zero or more Item_category_prices that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {item_pricesFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {item_category_pricesFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Item_prices
-     * const item_prices = await prisma.item_prices.findMany()
+     * // Get all Item_category_prices
+     * const item_category_prices = await prisma.item_category_prices.findMany()
      * 
-     * // Get first 10 Item_prices
-     * const item_prices = await prisma.item_prices.findMany({ take: 10 })
+     * // Get first 10 Item_category_prices
+     * const item_category_prices = await prisma.item_category_prices.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const item_pricesWithIdOnly = await prisma.item_prices.findMany({ select: { id: true } })
+     * const item_category_pricesWithIdOnly = await prisma.item_category_prices.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends item_pricesFindManyArgs>(args?: SelectSubset<T, item_pricesFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$item_pricesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends item_category_pricesFindManyArgs>(args?: SelectSubset<T, item_category_pricesFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$item_category_pricesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Item_prices.
-     * @param {item_pricesCreateArgs} args - Arguments to create a Item_prices.
+     * Create a Item_category_prices.
+     * @param {item_category_pricesCreateArgs} args - Arguments to create a Item_category_prices.
      * @example
-     * // Create one Item_prices
-     * const Item_prices = await prisma.item_prices.create({
+     * // Create one Item_category_prices
+     * const Item_category_prices = await prisma.item_category_prices.create({
      *   data: {
-     *     // ... data to create a Item_prices
+     *     // ... data to create a Item_category_prices
      *   }
      * })
      * 
      */
-    create<T extends item_pricesCreateArgs>(args: SelectSubset<T, item_pricesCreateArgs<ExtArgs>>): Prisma__item_pricesClient<$Result.GetResult<Prisma.$item_pricesPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends item_category_pricesCreateArgs>(args: SelectSubset<T, item_category_pricesCreateArgs<ExtArgs>>): Prisma__item_category_pricesClient<$Result.GetResult<Prisma.$item_category_pricesPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Item_prices.
-     * @param {item_pricesCreateManyArgs} args - Arguments to create many Item_prices.
+     * Create many Item_category_prices.
+     * @param {item_category_pricesCreateManyArgs} args - Arguments to create many Item_category_prices.
      * @example
-     * // Create many Item_prices
-     * const item_prices = await prisma.item_prices.createMany({
+     * // Create many Item_category_prices
+     * const item_category_prices = await prisma.item_category_prices.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends item_pricesCreateManyArgs>(args?: SelectSubset<T, item_pricesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends item_category_pricesCreateManyArgs>(args?: SelectSubset<T, item_category_pricesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Delete a Item_prices.
-     * @param {item_pricesDeleteArgs} args - Arguments to delete one Item_prices.
+     * Delete a Item_category_prices.
+     * @param {item_category_pricesDeleteArgs} args - Arguments to delete one Item_category_prices.
      * @example
-     * // Delete one Item_prices
-     * const Item_prices = await prisma.item_prices.delete({
+     * // Delete one Item_category_prices
+     * const Item_category_prices = await prisma.item_category_prices.delete({
      *   where: {
-     *     // ... filter to delete one Item_prices
+     *     // ... filter to delete one Item_category_prices
      *   }
      * })
      * 
      */
-    delete<T extends item_pricesDeleteArgs>(args: SelectSubset<T, item_pricesDeleteArgs<ExtArgs>>): Prisma__item_pricesClient<$Result.GetResult<Prisma.$item_pricesPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends item_category_pricesDeleteArgs>(args: SelectSubset<T, item_category_pricesDeleteArgs<ExtArgs>>): Prisma__item_category_pricesClient<$Result.GetResult<Prisma.$item_category_pricesPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Item_prices.
-     * @param {item_pricesUpdateArgs} args - Arguments to update one Item_prices.
+     * Update one Item_category_prices.
+     * @param {item_category_pricesUpdateArgs} args - Arguments to update one Item_category_prices.
      * @example
-     * // Update one Item_prices
-     * const item_prices = await prisma.item_prices.update({
+     * // Update one Item_category_prices
+     * const item_category_prices = await prisma.item_category_prices.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -23670,30 +24285,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends item_pricesUpdateArgs>(args: SelectSubset<T, item_pricesUpdateArgs<ExtArgs>>): Prisma__item_pricesClient<$Result.GetResult<Prisma.$item_pricesPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends item_category_pricesUpdateArgs>(args: SelectSubset<T, item_category_pricesUpdateArgs<ExtArgs>>): Prisma__item_category_pricesClient<$Result.GetResult<Prisma.$item_category_pricesPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Item_prices.
-     * @param {item_pricesDeleteManyArgs} args - Arguments to filter Item_prices to delete.
+     * Delete zero or more Item_category_prices.
+     * @param {item_category_pricesDeleteManyArgs} args - Arguments to filter Item_category_prices to delete.
      * @example
-     * // Delete a few Item_prices
-     * const { count } = await prisma.item_prices.deleteMany({
+     * // Delete a few Item_category_prices
+     * const { count } = await prisma.item_category_prices.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends item_pricesDeleteManyArgs>(args?: SelectSubset<T, item_pricesDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends item_category_pricesDeleteManyArgs>(args?: SelectSubset<T, item_category_pricesDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Item_prices.
+     * Update zero or more Item_category_prices.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {item_pricesUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {item_category_pricesUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Item_prices
-     * const item_prices = await prisma.item_prices.updateMany({
+     * // Update many Item_category_prices
+     * const item_category_prices = await prisma.item_category_prices.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -23703,56 +24318,56 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends item_pricesUpdateManyArgs>(args: SelectSubset<T, item_pricesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends item_category_pricesUpdateManyArgs>(args: SelectSubset<T, item_category_pricesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one Item_prices.
-     * @param {item_pricesUpsertArgs} args - Arguments to update or create a Item_prices.
+     * Create or update one Item_category_prices.
+     * @param {item_category_pricesUpsertArgs} args - Arguments to update or create a Item_category_prices.
      * @example
-     * // Update or create a Item_prices
-     * const item_prices = await prisma.item_prices.upsert({
+     * // Update or create a Item_category_prices
+     * const item_category_prices = await prisma.item_category_prices.upsert({
      *   create: {
-     *     // ... data to create a Item_prices
+     *     // ... data to create a Item_category_prices
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Item_prices we want to update
+     *     // ... the filter for the Item_category_prices we want to update
      *   }
      * })
      */
-    upsert<T extends item_pricesUpsertArgs>(args: SelectSubset<T, item_pricesUpsertArgs<ExtArgs>>): Prisma__item_pricesClient<$Result.GetResult<Prisma.$item_pricesPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends item_category_pricesUpsertArgs>(args: SelectSubset<T, item_category_pricesUpsertArgs<ExtArgs>>): Prisma__item_category_pricesClient<$Result.GetResult<Prisma.$item_category_pricesPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Item_prices.
+     * Count the number of Item_category_prices.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {item_pricesCountArgs} args - Arguments to filter Item_prices to count.
+     * @param {item_category_pricesCountArgs} args - Arguments to filter Item_category_prices to count.
      * @example
-     * // Count the number of Item_prices
-     * const count = await prisma.item_prices.count({
+     * // Count the number of Item_category_prices
+     * const count = await prisma.item_category_prices.count({
      *   where: {
-     *     // ... the filter for the Item_prices we want to count
+     *     // ... the filter for the Item_category_prices we want to count
      *   }
      * })
     **/
-    count<T extends item_pricesCountArgs>(
-      args?: Subset<T, item_pricesCountArgs>,
+    count<T extends item_category_pricesCountArgs>(
+      args?: Subset<T, item_category_pricesCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], Item_pricesCountAggregateOutputType>
+          : GetScalarType<T['select'], Item_category_pricesCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Item_prices.
+     * Allows you to perform aggregations operations on a Item_category_prices.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {Item_pricesAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {Item_category_pricesAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -23772,13 +24387,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends Item_pricesAggregateArgs>(args: Subset<T, Item_pricesAggregateArgs>): Prisma.PrismaPromise<GetItem_pricesAggregateType<T>>
+    aggregate<T extends Item_category_pricesAggregateArgs>(args: Subset<T, Item_category_pricesAggregateArgs>): Prisma.PrismaPromise<GetItem_category_pricesAggregateType<T>>
 
     /**
-     * Group by Item_prices.
+     * Group by Item_category_prices.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {item_pricesGroupByArgs} args - Group by arguments.
+     * @param {item_category_pricesGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -23793,14 +24408,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends item_pricesGroupByArgs,
+      T extends item_category_pricesGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: item_pricesGroupByArgs['orderBy'] }
-        : { orderBy?: item_pricesGroupByArgs['orderBy'] },
+        ? { orderBy: item_category_pricesGroupByArgs['orderBy'] }
+        : { orderBy?: item_category_pricesGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -23849,21 +24464,22 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, item_pricesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetItem_pricesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, item_category_pricesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetItem_category_pricesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the item_prices model
+   * Fields of the item_category_prices model
    */
-  readonly fields: item_pricesFieldRefs;
+  readonly fields: item_category_pricesFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for item_prices.
+   * The delegate class that acts as a "Promise-like" for item_category_prices.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__item_pricesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__item_category_pricesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    item_category<T extends item_categoriesDefaultArgs<ExtArgs> = {}>(args?: Subset<T, item_categoriesDefaultArgs<ExtArgs>>): Prisma__item_categoriesClient<$Result.GetResult<Prisma.$item_categoriesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -23890,334 +24506,374 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the item_prices model
+   * Fields of the item_category_prices model
    */
-  interface item_pricesFieldRefs {
-    readonly id: FieldRef<"item_prices", 'Int'>
-    readonly item_id: FieldRef<"item_prices", 'Int'>
-    readonly price: FieldRef<"item_prices", 'Float'>
-    readonly description: FieldRef<"item_prices", 'String'>
-    readonly status: FieldRef<"item_prices", 'Boolean'>
-    readonly create_at: FieldRef<"item_prices", 'DateTime'>
-    readonly update_at: FieldRef<"item_prices", 'DateTime'>
+  interface item_category_pricesFieldRefs {
+    readonly id: FieldRef<"item_category_prices", 'Int'>
+    readonly item_category_id: FieldRef<"item_category_prices", 'Int'>
+    readonly price: FieldRef<"item_category_prices", 'Float'>
+    readonly description: FieldRef<"item_category_prices", 'String'>
+    readonly status: FieldRef<"item_category_prices", 'Boolean'>
+    readonly create_at: FieldRef<"item_category_prices", 'DateTime'>
+    readonly update_at: FieldRef<"item_category_prices", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * item_prices findUnique
+   * item_category_prices findUnique
    */
-  export type item_pricesFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type item_category_pricesFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the item_prices
+     * Select specific fields to fetch from the item_category_prices
      */
-    select?: item_pricesSelect<ExtArgs> | null
+    select?: item_category_pricesSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the item_prices
+     * Omit specific fields from the item_category_prices
      */
-    omit?: item_pricesOmit<ExtArgs> | null
+    omit?: item_category_pricesOmit<ExtArgs> | null
     /**
-     * Filter, which item_prices to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where: item_pricesWhereUniqueInput
+    include?: item_category_pricesInclude<ExtArgs> | null
+    /**
+     * Filter, which item_category_prices to fetch.
+     */
+    where: item_category_pricesWhereUniqueInput
   }
 
   /**
-   * item_prices findUniqueOrThrow
+   * item_category_prices findUniqueOrThrow
    */
-  export type item_pricesFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type item_category_pricesFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the item_prices
+     * Select specific fields to fetch from the item_category_prices
      */
-    select?: item_pricesSelect<ExtArgs> | null
+    select?: item_category_pricesSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the item_prices
+     * Omit specific fields from the item_category_prices
      */
-    omit?: item_pricesOmit<ExtArgs> | null
+    omit?: item_category_pricesOmit<ExtArgs> | null
     /**
-     * Filter, which item_prices to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where: item_pricesWhereUniqueInput
+    include?: item_category_pricesInclude<ExtArgs> | null
+    /**
+     * Filter, which item_category_prices to fetch.
+     */
+    where: item_category_pricesWhereUniqueInput
   }
 
   /**
-   * item_prices findFirst
+   * item_category_prices findFirst
    */
-  export type item_pricesFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type item_category_pricesFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the item_prices
+     * Select specific fields to fetch from the item_category_prices
      */
-    select?: item_pricesSelect<ExtArgs> | null
+    select?: item_category_pricesSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the item_prices
+     * Omit specific fields from the item_category_prices
      */
-    omit?: item_pricesOmit<ExtArgs> | null
+    omit?: item_category_pricesOmit<ExtArgs> | null
     /**
-     * Filter, which item_prices to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where?: item_pricesWhereInput
+    include?: item_category_pricesInclude<ExtArgs> | null
+    /**
+     * Filter, which item_category_prices to fetch.
+     */
+    where?: item_category_pricesWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of item_prices to fetch.
+     * Determine the order of item_category_prices to fetch.
      */
-    orderBy?: item_pricesOrderByWithRelationInput | item_pricesOrderByWithRelationInput[]
+    orderBy?: item_category_pricesOrderByWithRelationInput | item_category_pricesOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for item_prices.
+     * Sets the position for searching for item_category_prices.
      */
-    cursor?: item_pricesWhereUniqueInput
+    cursor?: item_category_pricesWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` item_prices from the position of the cursor.
+     * Take `±n` item_category_prices from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` item_prices.
+     * Skip the first `n` item_category_prices.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of item_prices.
+     * Filter by unique combinations of item_category_prices.
      */
-    distinct?: Item_pricesScalarFieldEnum | Item_pricesScalarFieldEnum[]
+    distinct?: Item_category_pricesScalarFieldEnum | Item_category_pricesScalarFieldEnum[]
   }
 
   /**
-   * item_prices findFirstOrThrow
+   * item_category_prices findFirstOrThrow
    */
-  export type item_pricesFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type item_category_pricesFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the item_prices
+     * Select specific fields to fetch from the item_category_prices
      */
-    select?: item_pricesSelect<ExtArgs> | null
+    select?: item_category_pricesSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the item_prices
+     * Omit specific fields from the item_category_prices
      */
-    omit?: item_pricesOmit<ExtArgs> | null
+    omit?: item_category_pricesOmit<ExtArgs> | null
     /**
-     * Filter, which item_prices to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where?: item_pricesWhereInput
+    include?: item_category_pricesInclude<ExtArgs> | null
+    /**
+     * Filter, which item_category_prices to fetch.
+     */
+    where?: item_category_pricesWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of item_prices to fetch.
+     * Determine the order of item_category_prices to fetch.
      */
-    orderBy?: item_pricesOrderByWithRelationInput | item_pricesOrderByWithRelationInput[]
+    orderBy?: item_category_pricesOrderByWithRelationInput | item_category_pricesOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for item_prices.
+     * Sets the position for searching for item_category_prices.
      */
-    cursor?: item_pricesWhereUniqueInput
+    cursor?: item_category_pricesWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` item_prices from the position of the cursor.
+     * Take `±n` item_category_prices from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` item_prices.
+     * Skip the first `n` item_category_prices.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of item_prices.
+     * Filter by unique combinations of item_category_prices.
      */
-    distinct?: Item_pricesScalarFieldEnum | Item_pricesScalarFieldEnum[]
+    distinct?: Item_category_pricesScalarFieldEnum | Item_category_pricesScalarFieldEnum[]
   }
 
   /**
-   * item_prices findMany
+   * item_category_prices findMany
    */
-  export type item_pricesFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type item_category_pricesFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the item_prices
+     * Select specific fields to fetch from the item_category_prices
      */
-    select?: item_pricesSelect<ExtArgs> | null
+    select?: item_category_pricesSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the item_prices
+     * Omit specific fields from the item_category_prices
      */
-    omit?: item_pricesOmit<ExtArgs> | null
+    omit?: item_category_pricesOmit<ExtArgs> | null
     /**
-     * Filter, which item_prices to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where?: item_pricesWhereInput
+    include?: item_category_pricesInclude<ExtArgs> | null
+    /**
+     * Filter, which item_category_prices to fetch.
+     */
+    where?: item_category_pricesWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of item_prices to fetch.
+     * Determine the order of item_category_prices to fetch.
      */
-    orderBy?: item_pricesOrderByWithRelationInput | item_pricesOrderByWithRelationInput[]
+    orderBy?: item_category_pricesOrderByWithRelationInput | item_category_pricesOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing item_prices.
+     * Sets the position for listing item_category_prices.
      */
-    cursor?: item_pricesWhereUniqueInput
+    cursor?: item_category_pricesWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` item_prices from the position of the cursor.
+     * Take `±n` item_category_prices from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` item_prices.
+     * Skip the first `n` item_category_prices.
      */
     skip?: number
-    distinct?: Item_pricesScalarFieldEnum | Item_pricesScalarFieldEnum[]
+    distinct?: Item_category_pricesScalarFieldEnum | Item_category_pricesScalarFieldEnum[]
   }
 
   /**
-   * item_prices create
+   * item_category_prices create
    */
-  export type item_pricesCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type item_category_pricesCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the item_prices
+     * Select specific fields to fetch from the item_category_prices
      */
-    select?: item_pricesSelect<ExtArgs> | null
+    select?: item_category_pricesSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the item_prices
+     * Omit specific fields from the item_category_prices
      */
-    omit?: item_pricesOmit<ExtArgs> | null
+    omit?: item_category_pricesOmit<ExtArgs> | null
     /**
-     * The data needed to create a item_prices.
+     * Choose, which related nodes to fetch as well
      */
-    data: XOR<item_pricesCreateInput, item_pricesUncheckedCreateInput>
+    include?: item_category_pricesInclude<ExtArgs> | null
+    /**
+     * The data needed to create a item_category_prices.
+     */
+    data: XOR<item_category_pricesCreateInput, item_category_pricesUncheckedCreateInput>
   }
 
   /**
-   * item_prices createMany
+   * item_category_prices createMany
    */
-  export type item_pricesCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type item_category_pricesCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many item_prices.
+     * The data used to create many item_category_prices.
      */
-    data: item_pricesCreateManyInput | item_pricesCreateManyInput[]
+    data: item_category_pricesCreateManyInput | item_category_pricesCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * item_prices update
+   * item_category_prices update
    */
-  export type item_pricesUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type item_category_pricesUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the item_prices
+     * Select specific fields to fetch from the item_category_prices
      */
-    select?: item_pricesSelect<ExtArgs> | null
+    select?: item_category_pricesSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the item_prices
+     * Omit specific fields from the item_category_prices
      */
-    omit?: item_pricesOmit<ExtArgs> | null
+    omit?: item_category_pricesOmit<ExtArgs> | null
     /**
-     * The data needed to update a item_prices.
+     * Choose, which related nodes to fetch as well
      */
-    data: XOR<item_pricesUpdateInput, item_pricesUncheckedUpdateInput>
+    include?: item_category_pricesInclude<ExtArgs> | null
     /**
-     * Choose, which item_prices to update.
+     * The data needed to update a item_category_prices.
      */
-    where: item_pricesWhereUniqueInput
+    data: XOR<item_category_pricesUpdateInput, item_category_pricesUncheckedUpdateInput>
+    /**
+     * Choose, which item_category_prices to update.
+     */
+    where: item_category_pricesWhereUniqueInput
   }
 
   /**
-   * item_prices updateMany
+   * item_category_prices updateMany
    */
-  export type item_pricesUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type item_category_pricesUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update item_prices.
+     * The data used to update item_category_prices.
      */
-    data: XOR<item_pricesUpdateManyMutationInput, item_pricesUncheckedUpdateManyInput>
+    data: XOR<item_category_pricesUpdateManyMutationInput, item_category_pricesUncheckedUpdateManyInput>
     /**
-     * Filter which item_prices to update
+     * Filter which item_category_prices to update
      */
-    where?: item_pricesWhereInput
+    where?: item_category_pricesWhereInput
     /**
-     * Limit how many item_prices to update.
+     * Limit how many item_category_prices to update.
      */
     limit?: number
   }
 
   /**
-   * item_prices upsert
+   * item_category_prices upsert
    */
-  export type item_pricesUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type item_category_pricesUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the item_prices
+     * Select specific fields to fetch from the item_category_prices
      */
-    select?: item_pricesSelect<ExtArgs> | null
+    select?: item_category_pricesSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the item_prices
+     * Omit specific fields from the item_category_prices
      */
-    omit?: item_pricesOmit<ExtArgs> | null
+    omit?: item_category_pricesOmit<ExtArgs> | null
     /**
-     * The filter to search for the item_prices to update in case it exists.
+     * Choose, which related nodes to fetch as well
      */
-    where: item_pricesWhereUniqueInput
+    include?: item_category_pricesInclude<ExtArgs> | null
     /**
-     * In case the item_prices found by the `where` argument doesn't exist, create a new item_prices with this data.
+     * The filter to search for the item_category_prices to update in case it exists.
      */
-    create: XOR<item_pricesCreateInput, item_pricesUncheckedCreateInput>
+    where: item_category_pricesWhereUniqueInput
     /**
-     * In case the item_prices was found with the provided `where` argument, update it with this data.
+     * In case the item_category_prices found by the `where` argument doesn't exist, create a new item_category_prices with this data.
      */
-    update: XOR<item_pricesUpdateInput, item_pricesUncheckedUpdateInput>
+    create: XOR<item_category_pricesCreateInput, item_category_pricesUncheckedCreateInput>
+    /**
+     * In case the item_category_prices was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<item_category_pricesUpdateInput, item_category_pricesUncheckedUpdateInput>
   }
 
   /**
-   * item_prices delete
+   * item_category_prices delete
    */
-  export type item_pricesDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type item_category_pricesDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the item_prices
+     * Select specific fields to fetch from the item_category_prices
      */
-    select?: item_pricesSelect<ExtArgs> | null
+    select?: item_category_pricesSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the item_prices
+     * Omit specific fields from the item_category_prices
      */
-    omit?: item_pricesOmit<ExtArgs> | null
+    omit?: item_category_pricesOmit<ExtArgs> | null
     /**
-     * Filter which item_prices to delete.
+     * Choose, which related nodes to fetch as well
      */
-    where: item_pricesWhereUniqueInput
+    include?: item_category_pricesInclude<ExtArgs> | null
+    /**
+     * Filter which item_category_prices to delete.
+     */
+    where: item_category_pricesWhereUniqueInput
   }
 
   /**
-   * item_prices deleteMany
+   * item_category_prices deleteMany
    */
-  export type item_pricesDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type item_category_pricesDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which item_prices to delete
+     * Filter which item_category_prices to delete
      */
-    where?: item_pricesWhereInput
+    where?: item_category_pricesWhereInput
     /**
-     * Limit how many item_prices to delete.
+     * Limit how many item_category_prices to delete.
      */
     limit?: number
   }
 
   /**
-   * item_prices without action
+   * item_category_prices without action
    */
-  export type item_pricesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type item_category_pricesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the item_prices
+     * Select specific fields to fetch from the item_category_prices
      */
-    select?: item_pricesSelect<ExtArgs> | null
+    select?: item_category_pricesSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the item_prices
+     * Omit specific fields from the item_category_prices
      */
-    omit?: item_pricesOmit<ExtArgs> | null
+    omit?: item_category_pricesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: item_category_pricesInclude<ExtArgs> | null
   }
 
 
@@ -49905,6 +50561,18 @@ export namespace Prisma {
   export type ContactScalarFieldEnum = (typeof ContactScalarFieldEnum)[keyof typeof ContactScalarFieldEnum]
 
 
+  export const Sap_saleScalarFieldEnum: {
+    id: 'id',
+    code: 'code',
+    description: 'description',
+    status: 'status',
+    create_at: 'create_at',
+    update_at: 'update_at'
+  };
+
+  export type Sap_saleScalarFieldEnum = (typeof Sap_saleScalarFieldEnum)[keyof typeof Sap_saleScalarFieldEnum]
+
+
   export const MaterialsScalarFieldEnum: {
     id: 'id',
     material_code: 'material_code',
@@ -49912,7 +50580,7 @@ export namespace Prisma {
     material_name_en: 'material_name_en',
     long_meterial_name: 'long_meterial_name',
     material_type_id: 'material_type_id',
-    material_unit_id: 'material_unit_id',
+    sap_sale_id: 'sap_sale_id',
     description: 'description',
     status: 'status',
     create_at: 'create_at',
@@ -49924,6 +50592,8 @@ export namespace Prisma {
 
   export const Material_typesScalarFieldEnum: {
     id: 'id',
+    name_th: 'name_th',
+    name_en: 'name_en',
     description: 'description',
     status: 'status',
     create_at: 'create_at',
@@ -49955,6 +50625,7 @@ export namespace Prisma {
     department_id: 'department_id',
     item_category_id: 'item_category_id',
     stock_location_id: 'stock_location_id',
+    rfid_number: 'rfid_number',
     name_th: 'name_th',
     name_en: 'name_en',
     status: 'status',
@@ -49995,20 +50666,9 @@ export namespace Prisma {
   export type Item_categoriesScalarFieldEnum = (typeof Item_categoriesScalarFieldEnum)[keyof typeof Item_categoriesScalarFieldEnum]
 
 
-  export const TypesScalarFieldEnum: {
+  export const Item_category_pricesScalarFieldEnum: {
     id: 'id',
-    description: 'description',
-    status: 'status',
-    create_at: 'create_at',
-    update_at: 'update_at'
-  };
-
-  export type TypesScalarFieldEnum = (typeof TypesScalarFieldEnum)[keyof typeof TypesScalarFieldEnum]
-
-
-  export const Item_pricesScalarFieldEnum: {
-    id: 'id',
-    item_id: 'item_id',
+    item_category_id: 'item_category_id',
     price: 'price',
     description: 'description',
     status: 'status',
@@ -50016,7 +50676,7 @@ export namespace Prisma {
     update_at: 'update_at'
   };
 
-  export type Item_pricesScalarFieldEnum = (typeof Item_pricesScalarFieldEnum)[keyof typeof Item_pricesScalarFieldEnum]
+  export type Item_category_pricesScalarFieldEnum = (typeof Item_category_pricesScalarFieldEnum)[keyof typeof Item_category_pricesScalarFieldEnum]
 
 
   export const DirtiesScalarFieldEnum: {
@@ -50568,7 +51228,16 @@ export namespace Prisma {
   export type contactOrderByRelevanceFieldEnum = (typeof contactOrderByRelevanceFieldEnum)[keyof typeof contactOrderByRelevanceFieldEnum]
 
 
+  export const sap_saleOrderByRelevanceFieldEnum: {
+    code: 'code',
+    description: 'description'
+  };
+
+  export type sap_saleOrderByRelevanceFieldEnum = (typeof sap_saleOrderByRelevanceFieldEnum)[keyof typeof sap_saleOrderByRelevanceFieldEnum]
+
+
   export const materialsOrderByRelevanceFieldEnum: {
+    material_code: 'material_code',
     material_name_th: 'material_name_th',
     material_name_en: 'material_name_en',
     long_meterial_name: 'long_meterial_name',
@@ -50579,6 +51248,8 @@ export namespace Prisma {
 
 
   export const material_typesOrderByRelevanceFieldEnum: {
+    name_th: 'name_th',
+    name_en: 'name_en',
     description: 'description'
   };
 
@@ -50595,6 +51266,7 @@ export namespace Prisma {
 
 
   export const itemsOrderByRelevanceFieldEnum: {
+    rfid_number: 'rfid_number',
     name_th: 'name_th',
     name_en: 'name_en'
   };
@@ -50618,18 +51290,11 @@ export namespace Prisma {
   export type item_categoriesOrderByRelevanceFieldEnum = (typeof item_categoriesOrderByRelevanceFieldEnum)[keyof typeof item_categoriesOrderByRelevanceFieldEnum]
 
 
-  export const typesOrderByRelevanceFieldEnum: {
+  export const item_category_pricesOrderByRelevanceFieldEnum: {
     description: 'description'
   };
 
-  export type typesOrderByRelevanceFieldEnum = (typeof typesOrderByRelevanceFieldEnum)[keyof typeof typesOrderByRelevanceFieldEnum]
-
-
-  export const item_pricesOrderByRelevanceFieldEnum: {
-    description: 'description'
-  };
-
-  export type item_pricesOrderByRelevanceFieldEnum = (typeof item_pricesOrderByRelevanceFieldEnum)[keyof typeof item_pricesOrderByRelevanceFieldEnum]
+  export type item_category_pricesOrderByRelevanceFieldEnum = (typeof item_category_pricesOrderByRelevanceFieldEnum)[keyof typeof item_category_pricesOrderByRelevanceFieldEnum]
 
 
   export const dirtiesOrderByRelevanceFieldEnum: {
@@ -51713,21 +52378,87 @@ export namespace Prisma {
     update_at?: DateTimeWithAggregatesFilter<"contact"> | Date | string
   }
 
+  export type sap_saleWhereInput = {
+    AND?: sap_saleWhereInput | sap_saleWhereInput[]
+    OR?: sap_saleWhereInput[]
+    NOT?: sap_saleWhereInput | sap_saleWhereInput[]
+    id?: IntFilter<"sap_sale"> | number
+    code?: StringFilter<"sap_sale"> | string
+    description?: StringNullableFilter<"sap_sale"> | string | null
+    status?: BoolFilter<"sap_sale"> | boolean
+    create_at?: DateTimeFilter<"sap_sale"> | Date | string
+    update_at?: DateTimeFilter<"sap_sale"> | Date | string
+    materials?: MaterialsListRelationFilter
+  }
+
+  export type sap_saleOrderByWithRelationInput = {
+    id?: SortOrder
+    code?: SortOrder
+    description?: SortOrderInput | SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+    materials?: materialsOrderByRelationAggregateInput
+    _relevance?: sap_saleOrderByRelevanceInput
+  }
+
+  export type sap_saleWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: sap_saleWhereInput | sap_saleWhereInput[]
+    OR?: sap_saleWhereInput[]
+    NOT?: sap_saleWhereInput | sap_saleWhereInput[]
+    code?: StringFilter<"sap_sale"> | string
+    description?: StringNullableFilter<"sap_sale"> | string | null
+    status?: BoolFilter<"sap_sale"> | boolean
+    create_at?: DateTimeFilter<"sap_sale"> | Date | string
+    update_at?: DateTimeFilter<"sap_sale"> | Date | string
+    materials?: MaterialsListRelationFilter
+  }, "id">
+
+  export type sap_saleOrderByWithAggregationInput = {
+    id?: SortOrder
+    code?: SortOrder
+    description?: SortOrderInput | SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+    _count?: sap_saleCountOrderByAggregateInput
+    _avg?: sap_saleAvgOrderByAggregateInput
+    _max?: sap_saleMaxOrderByAggregateInput
+    _min?: sap_saleMinOrderByAggregateInput
+    _sum?: sap_saleSumOrderByAggregateInput
+  }
+
+  export type sap_saleScalarWhereWithAggregatesInput = {
+    AND?: sap_saleScalarWhereWithAggregatesInput | sap_saleScalarWhereWithAggregatesInput[]
+    OR?: sap_saleScalarWhereWithAggregatesInput[]
+    NOT?: sap_saleScalarWhereWithAggregatesInput | sap_saleScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"sap_sale"> | number
+    code?: StringWithAggregatesFilter<"sap_sale"> | string
+    description?: StringNullableWithAggregatesFilter<"sap_sale"> | string | null
+    status?: BoolWithAggregatesFilter<"sap_sale"> | boolean
+    create_at?: DateTimeWithAggregatesFilter<"sap_sale"> | Date | string
+    update_at?: DateTimeWithAggregatesFilter<"sap_sale"> | Date | string
+  }
+
   export type materialsWhereInput = {
     AND?: materialsWhereInput | materialsWhereInput[]
     OR?: materialsWhereInput[]
     NOT?: materialsWhereInput | materialsWhereInput[]
     id?: IntFilter<"materials"> | number
-    material_code?: IntFilter<"materials"> | number
+    material_code?: StringFilter<"materials"> | string
     material_name_th?: StringFilter<"materials"> | string
     material_name_en?: StringFilter<"materials"> | string
     long_meterial_name?: StringFilter<"materials"> | string
     material_type_id?: IntFilter<"materials"> | number
-    material_unit_id?: IntFilter<"materials"> | number
-    description?: StringFilter<"materials"> | string
+    sap_sale_id?: IntNullableFilter<"materials"> | number | null
+    description?: StringNullableFilter<"materials"> | string | null
     status?: BoolFilter<"materials"> | boolean
     create_at?: DateTimeFilter<"materials"> | Date | string
     update_at?: DateTimeFilter<"materials"> | Date | string
+    material_types?: XOR<Material_typesScalarRelationFilter, material_typesWhereInput>
+    sap_sale?: XOR<Sap_saleNullableScalarRelationFilter, sap_saleWhereInput> | null
+    items?: ItemsListRelationFilter
   }
 
   export type materialsOrderByWithRelationInput = {
@@ -51737,30 +52468,36 @@ export namespace Prisma {
     material_name_en?: SortOrder
     long_meterial_name?: SortOrder
     material_type_id?: SortOrder
-    material_unit_id?: SortOrder
-    description?: SortOrder
+    sap_sale_id?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
+    material_types?: material_typesOrderByWithRelationInput
+    sap_sale?: sap_saleOrderByWithRelationInput
+    items?: itemsOrderByRelationAggregateInput
     _relevance?: materialsOrderByRelevanceInput
   }
 
   export type materialsWhereUniqueInput = Prisma.AtLeast<{
     id?: number
+    material_code?: string
     AND?: materialsWhereInput | materialsWhereInput[]
     OR?: materialsWhereInput[]
     NOT?: materialsWhereInput | materialsWhereInput[]
-    material_code?: IntFilter<"materials"> | number
     material_name_th?: StringFilter<"materials"> | string
     material_name_en?: StringFilter<"materials"> | string
     long_meterial_name?: StringFilter<"materials"> | string
     material_type_id?: IntFilter<"materials"> | number
-    material_unit_id?: IntFilter<"materials"> | number
-    description?: StringFilter<"materials"> | string
+    sap_sale_id?: IntNullableFilter<"materials"> | number | null
+    description?: StringNullableFilter<"materials"> | string | null
     status?: BoolFilter<"materials"> | boolean
     create_at?: DateTimeFilter<"materials"> | Date | string
     update_at?: DateTimeFilter<"materials"> | Date | string
-  }, "id">
+    material_types?: XOR<Material_typesScalarRelationFilter, material_typesWhereInput>
+    sap_sale?: XOR<Sap_saleNullableScalarRelationFilter, sap_saleWhereInput> | null
+    items?: ItemsListRelationFilter
+  }, "id" | "material_code">
 
   export type materialsOrderByWithAggregationInput = {
     id?: SortOrder
@@ -51769,8 +52506,8 @@ export namespace Prisma {
     material_name_en?: SortOrder
     long_meterial_name?: SortOrder
     material_type_id?: SortOrder
-    material_unit_id?: SortOrder
-    description?: SortOrder
+    sap_sale_id?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
@@ -51786,13 +52523,13 @@ export namespace Prisma {
     OR?: materialsScalarWhereWithAggregatesInput[]
     NOT?: materialsScalarWhereWithAggregatesInput | materialsScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"materials"> | number
-    material_code?: IntWithAggregatesFilter<"materials"> | number
+    material_code?: StringWithAggregatesFilter<"materials"> | string
     material_name_th?: StringWithAggregatesFilter<"materials"> | string
     material_name_en?: StringWithAggregatesFilter<"materials"> | string
     long_meterial_name?: StringWithAggregatesFilter<"materials"> | string
     material_type_id?: IntWithAggregatesFilter<"materials"> | number
-    material_unit_id?: IntWithAggregatesFilter<"materials"> | number
-    description?: StringWithAggregatesFilter<"materials"> | string
+    sap_sale_id?: IntNullableWithAggregatesFilter<"materials"> | number | null
+    description?: StringNullableWithAggregatesFilter<"materials"> | string | null
     status?: BoolWithAggregatesFilter<"materials"> | boolean
     create_at?: DateTimeWithAggregatesFilter<"materials"> | Date | string
     update_at?: DateTimeWithAggregatesFilter<"materials"> | Date | string
@@ -51803,18 +52540,24 @@ export namespace Prisma {
     OR?: material_typesWhereInput[]
     NOT?: material_typesWhereInput | material_typesWhereInput[]
     id?: IntFilter<"material_types"> | number
-    description?: StringFilter<"material_types"> | string
+    name_th?: StringFilter<"material_types"> | string
+    name_en?: StringFilter<"material_types"> | string
+    description?: StringNullableFilter<"material_types"> | string | null
     status?: BoolFilter<"material_types"> | boolean
     create_at?: DateTimeFilter<"material_types"> | Date | string
     update_at?: DateTimeFilter<"material_types"> | Date | string
+    materials?: MaterialsListRelationFilter
   }
 
   export type material_typesOrderByWithRelationInput = {
     id?: SortOrder
-    description?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
+    description?: SortOrderInput | SortOrder
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
+    materials?: materialsOrderByRelationAggregateInput
     _relevance?: material_typesOrderByRelevanceInput
   }
 
@@ -51823,15 +52566,20 @@ export namespace Prisma {
     AND?: material_typesWhereInput | material_typesWhereInput[]
     OR?: material_typesWhereInput[]
     NOT?: material_typesWhereInput | material_typesWhereInput[]
-    description?: StringFilter<"material_types"> | string
+    name_th?: StringFilter<"material_types"> | string
+    name_en?: StringFilter<"material_types"> | string
+    description?: StringNullableFilter<"material_types"> | string | null
     status?: BoolFilter<"material_types"> | boolean
     create_at?: DateTimeFilter<"material_types"> | Date | string
     update_at?: DateTimeFilter<"material_types"> | Date | string
+    materials?: MaterialsListRelationFilter
   }, "id">
 
   export type material_typesOrderByWithAggregationInput = {
     id?: SortOrder
-    description?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
+    description?: SortOrderInput | SortOrder
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
@@ -51847,7 +52595,9 @@ export namespace Prisma {
     OR?: material_typesScalarWhereWithAggregatesInput[]
     NOT?: material_typesScalarWhereWithAggregatesInput | material_typesScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"material_types"> | number
-    description?: StringWithAggregatesFilter<"material_types"> | string
+    name_th?: StringWithAggregatesFilter<"material_types"> | string
+    name_en?: StringWithAggregatesFilter<"material_types"> | string
+    description?: StringNullableWithAggregatesFilter<"material_types"> | string | null
     status?: BoolWithAggregatesFilter<"material_types"> | boolean
     create_at?: DateTimeWithAggregatesFilter<"material_types"> | Date | string
     update_at?: DateTimeWithAggregatesFilter<"material_types"> | Date | string
@@ -51933,57 +52683,67 @@ export namespace Prisma {
     OR?: itemsWhereInput[]
     NOT?: itemsWhereInput | itemsWhereInput[]
     id?: IntFilter<"items"> | number
-    material_id?: IntFilter<"items"> | number
+    material_id?: IntNullableFilter<"items"> | number | null
     saleoffice_id?: IntFilter<"items"> | number
     department_id?: IntFilter<"items"> | number
-    item_category_id?: IntFilter<"items"> | number
+    item_category_id?: IntNullableFilter<"items"> | number | null
     stock_location_id?: IntFilter<"items"> | number
+    rfid_number?: StringNullableFilter<"items"> | string | null
     name_th?: StringNullableFilter<"items"> | string | null
     name_en?: StringNullableFilter<"items"> | string | null
     status?: BoolFilter<"items"> | boolean
     create_at?: DateTimeFilter<"items"> | Date | string
     update_at?: DateTimeFilter<"items"> | Date | string
+    item_category?: XOR<Item_categoriesNullableScalarRelationFilter, item_categoriesWhereInput> | null
+    material?: XOR<MaterialsNullableScalarRelationFilter, materialsWhereInput> | null
   }
 
   export type itemsOrderByWithRelationInput = {
     id?: SortOrder
-    material_id?: SortOrder
+    material_id?: SortOrderInput | SortOrder
     saleoffice_id?: SortOrder
     department_id?: SortOrder
-    item_category_id?: SortOrder
+    item_category_id?: SortOrderInput | SortOrder
     stock_location_id?: SortOrder
+    rfid_number?: SortOrderInput | SortOrder
     name_th?: SortOrderInput | SortOrder
     name_en?: SortOrderInput | SortOrder
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
+    item_category?: item_categoriesOrderByWithRelationInput
+    material?: materialsOrderByWithRelationInput
     _relevance?: itemsOrderByRelevanceInput
   }
 
   export type itemsWhereUniqueInput = Prisma.AtLeast<{
     id?: number
+    rfid_number?: string
     AND?: itemsWhereInput | itemsWhereInput[]
     OR?: itemsWhereInput[]
     NOT?: itemsWhereInput | itemsWhereInput[]
-    material_id?: IntFilter<"items"> | number
+    material_id?: IntNullableFilter<"items"> | number | null
     saleoffice_id?: IntFilter<"items"> | number
     department_id?: IntFilter<"items"> | number
-    item_category_id?: IntFilter<"items"> | number
+    item_category_id?: IntNullableFilter<"items"> | number | null
     stock_location_id?: IntFilter<"items"> | number
     name_th?: StringNullableFilter<"items"> | string | null
     name_en?: StringNullableFilter<"items"> | string | null
     status?: BoolFilter<"items"> | boolean
     create_at?: DateTimeFilter<"items"> | Date | string
     update_at?: DateTimeFilter<"items"> | Date | string
-  }, "id">
+    item_category?: XOR<Item_categoriesNullableScalarRelationFilter, item_categoriesWhereInput> | null
+    material?: XOR<MaterialsNullableScalarRelationFilter, materialsWhereInput> | null
+  }, "id" | "rfid_number">
 
   export type itemsOrderByWithAggregationInput = {
     id?: SortOrder
-    material_id?: SortOrder
+    material_id?: SortOrderInput | SortOrder
     saleoffice_id?: SortOrder
     department_id?: SortOrder
-    item_category_id?: SortOrder
+    item_category_id?: SortOrderInput | SortOrder
     stock_location_id?: SortOrder
+    rfid_number?: SortOrderInput | SortOrder
     name_th?: SortOrderInput | SortOrder
     name_en?: SortOrderInput | SortOrder
     status?: SortOrder
@@ -52001,11 +52761,12 @@ export namespace Prisma {
     OR?: itemsScalarWhereWithAggregatesInput[]
     NOT?: itemsScalarWhereWithAggregatesInput | itemsScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"items"> | number
-    material_id?: IntWithAggregatesFilter<"items"> | number
+    material_id?: IntNullableWithAggregatesFilter<"items"> | number | null
     saleoffice_id?: IntWithAggregatesFilter<"items"> | number
     department_id?: IntWithAggregatesFilter<"items"> | number
-    item_category_id?: IntWithAggregatesFilter<"items"> | number
+    item_category_id?: IntNullableWithAggregatesFilter<"items"> | number | null
     stock_location_id?: IntWithAggregatesFilter<"items"> | number
+    rfid_number?: StringNullableWithAggregatesFilter<"items"> | string | null
     name_th?: StringNullableWithAggregatesFilter<"items"> | string | null
     name_en?: StringNullableWithAggregatesFilter<"items"> | string | null
     status?: BoolWithAggregatesFilter<"items"> | boolean
@@ -52101,6 +52862,8 @@ export namespace Prisma {
     status?: BoolFilter<"item_categories"> | boolean
     create_at?: DateTimeFilter<"item_categories"> | Date | string
     update_at?: DateTimeFilter<"item_categories"> | Date | string
+    item_category_prices?: Item_category_pricesListRelationFilter
+    items?: ItemsListRelationFilter
   }
 
   export type item_categoriesOrderByWithRelationInput = {
@@ -52113,6 +52876,8 @@ export namespace Prisma {
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
+    item_category_prices?: item_category_pricesOrderByRelationAggregateInput
+    items?: itemsOrderByRelationAggregateInput
     _relevance?: item_categoriesOrderByRelevanceInput
   }
 
@@ -52129,6 +52894,8 @@ export namespace Prisma {
     status?: BoolFilter<"item_categories"> | boolean
     create_at?: DateTimeFilter<"item_categories"> | Date | string
     update_at?: DateTimeFilter<"item_categories"> | Date | string
+    item_category_prices?: Item_category_pricesListRelationFilter
+    items?: ItemsListRelationFilter
   }, "id">
 
   export type item_categoriesOrderByWithAggregationInput = {
@@ -52163,124 +52930,72 @@ export namespace Prisma {
     update_at?: DateTimeWithAggregatesFilter<"item_categories"> | Date | string
   }
 
-  export type typesWhereInput = {
-    AND?: typesWhereInput | typesWhereInput[]
-    OR?: typesWhereInput[]
-    NOT?: typesWhereInput | typesWhereInput[]
-    id?: IntFilter<"types"> | number
-    description?: StringFilter<"types"> | string
-    status?: BoolFilter<"types"> | boolean
-    create_at?: DateTimeFilter<"types"> | Date | string
-    update_at?: DateTimeFilter<"types"> | Date | string
+  export type item_category_pricesWhereInput = {
+    AND?: item_category_pricesWhereInput | item_category_pricesWhereInput[]
+    OR?: item_category_pricesWhereInput[]
+    NOT?: item_category_pricesWhereInput | item_category_pricesWhereInput[]
+    id?: IntFilter<"item_category_prices"> | number
+    item_category_id?: IntFilter<"item_category_prices"> | number
+    price?: FloatFilter<"item_category_prices"> | number
+    description?: StringFilter<"item_category_prices"> | string
+    status?: BoolFilter<"item_category_prices"> | boolean
+    create_at?: DateTimeFilter<"item_category_prices"> | Date | string
+    update_at?: DateTimeFilter<"item_category_prices"> | Date | string
+    item_category?: XOR<Item_categoriesScalarRelationFilter, item_categoriesWhereInput>
   }
 
-  export type typesOrderByWithRelationInput = {
+  export type item_category_pricesOrderByWithRelationInput = {
     id?: SortOrder
-    description?: SortOrder
-    status?: SortOrder
-    create_at?: SortOrder
-    update_at?: SortOrder
-    _relevance?: typesOrderByRelevanceInput
-  }
-
-  export type typesWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
-    AND?: typesWhereInput | typesWhereInput[]
-    OR?: typesWhereInput[]
-    NOT?: typesWhereInput | typesWhereInput[]
-    description?: StringFilter<"types"> | string
-    status?: BoolFilter<"types"> | boolean
-    create_at?: DateTimeFilter<"types"> | Date | string
-    update_at?: DateTimeFilter<"types"> | Date | string
-  }, "id">
-
-  export type typesOrderByWithAggregationInput = {
-    id?: SortOrder
-    description?: SortOrder
-    status?: SortOrder
-    create_at?: SortOrder
-    update_at?: SortOrder
-    _count?: typesCountOrderByAggregateInput
-    _avg?: typesAvgOrderByAggregateInput
-    _max?: typesMaxOrderByAggregateInput
-    _min?: typesMinOrderByAggregateInput
-    _sum?: typesSumOrderByAggregateInput
-  }
-
-  export type typesScalarWhereWithAggregatesInput = {
-    AND?: typesScalarWhereWithAggregatesInput | typesScalarWhereWithAggregatesInput[]
-    OR?: typesScalarWhereWithAggregatesInput[]
-    NOT?: typesScalarWhereWithAggregatesInput | typesScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"types"> | number
-    description?: StringWithAggregatesFilter<"types"> | string
-    status?: BoolWithAggregatesFilter<"types"> | boolean
-    create_at?: DateTimeWithAggregatesFilter<"types"> | Date | string
-    update_at?: DateTimeWithAggregatesFilter<"types"> | Date | string
-  }
-
-  export type item_pricesWhereInput = {
-    AND?: item_pricesWhereInput | item_pricesWhereInput[]
-    OR?: item_pricesWhereInput[]
-    NOT?: item_pricesWhereInput | item_pricesWhereInput[]
-    id?: IntFilter<"item_prices"> | number
-    item_id?: IntFilter<"item_prices"> | number
-    price?: FloatFilter<"item_prices"> | number
-    description?: StringFilter<"item_prices"> | string
-    status?: BoolFilter<"item_prices"> | boolean
-    create_at?: DateTimeFilter<"item_prices"> | Date | string
-    update_at?: DateTimeFilter<"item_prices"> | Date | string
-  }
-
-  export type item_pricesOrderByWithRelationInput = {
-    id?: SortOrder
-    item_id?: SortOrder
+    item_category_id?: SortOrder
     price?: SortOrder
     description?: SortOrder
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
-    _relevance?: item_pricesOrderByRelevanceInput
+    item_category?: item_categoriesOrderByWithRelationInput
+    _relevance?: item_category_pricesOrderByRelevanceInput
   }
 
-  export type item_pricesWhereUniqueInput = Prisma.AtLeast<{
+  export type item_category_pricesWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    AND?: item_pricesWhereInput | item_pricesWhereInput[]
-    OR?: item_pricesWhereInput[]
-    NOT?: item_pricesWhereInput | item_pricesWhereInput[]
-    item_id?: IntFilter<"item_prices"> | number
-    price?: FloatFilter<"item_prices"> | number
-    description?: StringFilter<"item_prices"> | string
-    status?: BoolFilter<"item_prices"> | boolean
-    create_at?: DateTimeFilter<"item_prices"> | Date | string
-    update_at?: DateTimeFilter<"item_prices"> | Date | string
+    AND?: item_category_pricesWhereInput | item_category_pricesWhereInput[]
+    OR?: item_category_pricesWhereInput[]
+    NOT?: item_category_pricesWhereInput | item_category_pricesWhereInput[]
+    item_category_id?: IntFilter<"item_category_prices"> | number
+    price?: FloatFilter<"item_category_prices"> | number
+    description?: StringFilter<"item_category_prices"> | string
+    status?: BoolFilter<"item_category_prices"> | boolean
+    create_at?: DateTimeFilter<"item_category_prices"> | Date | string
+    update_at?: DateTimeFilter<"item_category_prices"> | Date | string
+    item_category?: XOR<Item_categoriesScalarRelationFilter, item_categoriesWhereInput>
   }, "id">
 
-  export type item_pricesOrderByWithAggregationInput = {
+  export type item_category_pricesOrderByWithAggregationInput = {
     id?: SortOrder
-    item_id?: SortOrder
+    item_category_id?: SortOrder
     price?: SortOrder
     description?: SortOrder
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
-    _count?: item_pricesCountOrderByAggregateInput
-    _avg?: item_pricesAvgOrderByAggregateInput
-    _max?: item_pricesMaxOrderByAggregateInput
-    _min?: item_pricesMinOrderByAggregateInput
-    _sum?: item_pricesSumOrderByAggregateInput
+    _count?: item_category_pricesCountOrderByAggregateInput
+    _avg?: item_category_pricesAvgOrderByAggregateInput
+    _max?: item_category_pricesMaxOrderByAggregateInput
+    _min?: item_category_pricesMinOrderByAggregateInput
+    _sum?: item_category_pricesSumOrderByAggregateInput
   }
 
-  export type item_pricesScalarWhereWithAggregatesInput = {
-    AND?: item_pricesScalarWhereWithAggregatesInput | item_pricesScalarWhereWithAggregatesInput[]
-    OR?: item_pricesScalarWhereWithAggregatesInput[]
-    NOT?: item_pricesScalarWhereWithAggregatesInput | item_pricesScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"item_prices"> | number
-    item_id?: IntWithAggregatesFilter<"item_prices"> | number
-    price?: FloatWithAggregatesFilter<"item_prices"> | number
-    description?: StringWithAggregatesFilter<"item_prices"> | string
-    status?: BoolWithAggregatesFilter<"item_prices"> | boolean
-    create_at?: DateTimeWithAggregatesFilter<"item_prices"> | Date | string
-    update_at?: DateTimeWithAggregatesFilter<"item_prices"> | Date | string
+  export type item_category_pricesScalarWhereWithAggregatesInput = {
+    AND?: item_category_pricesScalarWhereWithAggregatesInput | item_category_pricesScalarWhereWithAggregatesInput[]
+    OR?: item_category_pricesScalarWhereWithAggregatesInput[]
+    NOT?: item_category_pricesScalarWhereWithAggregatesInput | item_category_pricesScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"item_category_prices"> | number
+    item_category_id?: IntWithAggregatesFilter<"item_category_prices"> | number
+    price?: FloatWithAggregatesFilter<"item_category_prices"> | number
+    description?: StringWithAggregatesFilter<"item_category_prices"> | string
+    status?: BoolWithAggregatesFilter<"item_category_prices"> | boolean
+    create_at?: DateTimeWithAggregatesFilter<"item_category_prices"> | Date | string
+    update_at?: DateTimeWithAggregatesFilter<"item_category_prices"> | Date | string
   }
 
   export type dirtiesWhereInput = {
@@ -55411,82 +56126,148 @@ export namespace Prisma {
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type materialsCreateInput = {
-    material_code: number
-    material_name_th: string
-    material_name_en: string
-    long_meterial_name: string
-    material_type_id: number
-    material_unit_id: number
-    description: string
+  export type sap_saleCreateInput = {
+    code: string
+    description?: string | null
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
+    materials?: materialsCreateNestedManyWithoutSap_saleInput
+  }
+
+  export type sap_saleUncheckedCreateInput = {
+    id?: number
+    code: string
+    description?: string | null
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    materials?: materialsUncheckedCreateNestedManyWithoutSap_saleInput
+  }
+
+  export type sap_saleUpdateInput = {
+    code?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    materials?: materialsUpdateManyWithoutSap_saleNestedInput
+  }
+
+  export type sap_saleUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    code?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    materials?: materialsUncheckedUpdateManyWithoutSap_saleNestedInput
+  }
+
+  export type sap_saleCreateManyInput = {
+    id?: number
+    code: string
+    description?: string | null
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type sap_saleUpdateManyMutationInput = {
+    code?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type sap_saleUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    code?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type materialsCreateInput = {
+    material_code: string
+    material_name_th: string
+    material_name_en: string
+    long_meterial_name: string
+    description?: string | null
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    material_types: material_typesCreateNestedOneWithoutMaterialsInput
+    sap_sale?: sap_saleCreateNestedOneWithoutMaterialsInput
+    items?: itemsCreateNestedManyWithoutMaterialInput
   }
 
   export type materialsUncheckedCreateInput = {
     id?: number
-    material_code: number
+    material_code: string
     material_name_th: string
     material_name_en: string
     long_meterial_name: string
     material_type_id: number
-    material_unit_id: number
-    description: string
+    sap_sale_id?: number | null
+    description?: string | null
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
+    items?: itemsUncheckedCreateNestedManyWithoutMaterialInput
   }
 
   export type materialsUpdateInput = {
-    material_code?: IntFieldUpdateOperationsInput | number
+    material_code?: StringFieldUpdateOperationsInput | string
     material_name_th?: StringFieldUpdateOperationsInput | string
     material_name_en?: StringFieldUpdateOperationsInput | string
     long_meterial_name?: StringFieldUpdateOperationsInput | string
-    material_type_id?: IntFieldUpdateOperationsInput | number
-    material_unit_id?: IntFieldUpdateOperationsInput | number
-    description?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    material_types?: material_typesUpdateOneRequiredWithoutMaterialsNestedInput
+    sap_sale?: sap_saleUpdateOneWithoutMaterialsNestedInput
+    items?: itemsUpdateManyWithoutMaterialNestedInput
   }
 
   export type materialsUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    material_code?: IntFieldUpdateOperationsInput | number
+    material_code?: StringFieldUpdateOperationsInput | string
     material_name_th?: StringFieldUpdateOperationsInput | string
     material_name_en?: StringFieldUpdateOperationsInput | string
     long_meterial_name?: StringFieldUpdateOperationsInput | string
     material_type_id?: IntFieldUpdateOperationsInput | number
-    material_unit_id?: IntFieldUpdateOperationsInput | number
-    description?: StringFieldUpdateOperationsInput | string
+    sap_sale_id?: NullableIntFieldUpdateOperationsInput | number | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    items?: itemsUncheckedUpdateManyWithoutMaterialNestedInput
   }
 
   export type materialsCreateManyInput = {
     id?: number
-    material_code: number
+    material_code: string
     material_name_th: string
     material_name_en: string
     long_meterial_name: string
     material_type_id: number
-    material_unit_id: number
-    description: string
+    sap_sale_id?: number | null
+    description?: string | null
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
   }
 
   export type materialsUpdateManyMutationInput = {
-    material_code?: IntFieldUpdateOperationsInput | number
+    material_code?: StringFieldUpdateOperationsInput | string
     material_name_th?: StringFieldUpdateOperationsInput | string
     material_name_en?: StringFieldUpdateOperationsInput | string
     long_meterial_name?: StringFieldUpdateOperationsInput | string
-    material_type_id?: IntFieldUpdateOperationsInput | number
-    material_unit_id?: IntFieldUpdateOperationsInput | number
-    description?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -55494,58 +56275,74 @@ export namespace Prisma {
 
   export type materialsUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    material_code?: IntFieldUpdateOperationsInput | number
+    material_code?: StringFieldUpdateOperationsInput | string
     material_name_th?: StringFieldUpdateOperationsInput | string
     material_name_en?: StringFieldUpdateOperationsInput | string
     long_meterial_name?: StringFieldUpdateOperationsInput | string
     material_type_id?: IntFieldUpdateOperationsInput | number
-    material_unit_id?: IntFieldUpdateOperationsInput | number
-    description?: StringFieldUpdateOperationsInput | string
+    sap_sale_id?: NullableIntFieldUpdateOperationsInput | number | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type material_typesCreateInput = {
-    description: string
+    name_th: string
+    name_en: string
+    description?: string | null
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
+    materials?: materialsCreateNestedManyWithoutMaterial_typesInput
   }
 
   export type material_typesUncheckedCreateInput = {
     id?: number
-    description: string
+    name_th: string
+    name_en: string
+    description?: string | null
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
+    materials?: materialsUncheckedCreateNestedManyWithoutMaterial_typesInput
   }
 
   export type material_typesUpdateInput = {
-    description?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    materials?: materialsUpdateManyWithoutMaterial_typesNestedInput
   }
 
   export type material_typesUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    description?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    materials?: materialsUncheckedUpdateManyWithoutMaterial_typesNestedInput
   }
 
   export type material_typesCreateManyInput = {
     id?: number
-    description: string
+    name_th: string
+    name_en: string
+    description?: string | null
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
   }
 
   export type material_typesUpdateManyMutationInput = {
-    description?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -55553,7 +56350,9 @@ export namespace Prisma {
 
   export type material_typesUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    description?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -55641,25 +56440,27 @@ export namespace Prisma {
   }
 
   export type itemsCreateInput = {
-    material_id: number
     saleoffice_id: number
     department_id: number
-    item_category_id: number
     stock_location_id: number
+    rfid_number?: string | null
     name_th?: string | null
     name_en?: string | null
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
+    item_category?: item_categoriesCreateNestedOneWithoutItemsInput
+    material?: materialsCreateNestedOneWithoutItemsInput
   }
 
   export type itemsUncheckedCreateInput = {
     id?: number
-    material_id: number
+    material_id?: number | null
     saleoffice_id: number
     department_id: number
-    item_category_id: number
+    item_category_id?: number | null
     stock_location_id: number
+    rfid_number?: string | null
     name_th?: string | null
     name_en?: string | null
     status: boolean
@@ -55668,25 +56469,27 @@ export namespace Prisma {
   }
 
   export type itemsUpdateInput = {
-    material_id?: IntFieldUpdateOperationsInput | number
     saleoffice_id?: IntFieldUpdateOperationsInput | number
     department_id?: IntFieldUpdateOperationsInput | number
-    item_category_id?: IntFieldUpdateOperationsInput | number
     stock_location_id?: IntFieldUpdateOperationsInput | number
+    rfid_number?: NullableStringFieldUpdateOperationsInput | string | null
     name_th?: NullableStringFieldUpdateOperationsInput | string | null
     name_en?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    item_category?: item_categoriesUpdateOneWithoutItemsNestedInput
+    material?: materialsUpdateOneWithoutItemsNestedInput
   }
 
   export type itemsUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    material_id?: IntFieldUpdateOperationsInput | number
+    material_id?: NullableIntFieldUpdateOperationsInput | number | null
     saleoffice_id?: IntFieldUpdateOperationsInput | number
     department_id?: IntFieldUpdateOperationsInput | number
-    item_category_id?: IntFieldUpdateOperationsInput | number
+    item_category_id?: NullableIntFieldUpdateOperationsInput | number | null
     stock_location_id?: IntFieldUpdateOperationsInput | number
+    rfid_number?: NullableStringFieldUpdateOperationsInput | string | null
     name_th?: NullableStringFieldUpdateOperationsInput | string | null
     name_en?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
@@ -55696,11 +56499,12 @@ export namespace Prisma {
 
   export type itemsCreateManyInput = {
     id?: number
-    material_id: number
+    material_id?: number | null
     saleoffice_id: number
     department_id: number
-    item_category_id: number
+    item_category_id?: number | null
     stock_location_id: number
+    rfid_number?: string | null
     name_th?: string | null
     name_en?: string | null
     status: boolean
@@ -55709,11 +56513,10 @@ export namespace Prisma {
   }
 
   export type itemsUpdateManyMutationInput = {
-    material_id?: IntFieldUpdateOperationsInput | number
     saleoffice_id?: IntFieldUpdateOperationsInput | number
     department_id?: IntFieldUpdateOperationsInput | number
-    item_category_id?: IntFieldUpdateOperationsInput | number
     stock_location_id?: IntFieldUpdateOperationsInput | number
+    rfid_number?: NullableStringFieldUpdateOperationsInput | string | null
     name_th?: NullableStringFieldUpdateOperationsInput | string | null
     name_en?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
@@ -55723,11 +56526,12 @@ export namespace Prisma {
 
   export type itemsUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    material_id?: IntFieldUpdateOperationsInput | number
+    material_id?: NullableIntFieldUpdateOperationsInput | number | null
     saleoffice_id?: IntFieldUpdateOperationsInput | number
     department_id?: IntFieldUpdateOperationsInput | number
-    item_category_id?: IntFieldUpdateOperationsInput | number
+    item_category_id?: NullableIntFieldUpdateOperationsInput | number | null
     stock_location_id?: IntFieldUpdateOperationsInput | number
+    rfid_number?: NullableStringFieldUpdateOperationsInput | string | null
     name_th?: NullableStringFieldUpdateOperationsInput | string | null
     name_en?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
@@ -55825,6 +56629,8 @@ export namespace Prisma {
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
+    item_category_prices?: item_category_pricesCreateNestedManyWithoutItem_categoryInput
+    items?: itemsCreateNestedManyWithoutItem_categoryInput
   }
 
   export type item_categoriesUncheckedCreateInput = {
@@ -55837,6 +56643,8 @@ export namespace Prisma {
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
+    item_category_prices?: item_category_pricesUncheckedCreateNestedManyWithoutItem_categoryInput
+    items?: itemsUncheckedCreateNestedManyWithoutItem_categoryInput
   }
 
   export type item_categoriesUpdateInput = {
@@ -55848,6 +56656,8 @@ export namespace Prisma {
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    item_category_prices?: item_category_pricesUpdateManyWithoutItem_categoryNestedInput
+    items?: itemsUpdateManyWithoutItem_categoryNestedInput
   }
 
   export type item_categoriesUncheckedUpdateInput = {
@@ -55860,6 +56670,8 @@ export namespace Prisma {
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    item_category_prices?: item_category_pricesUncheckedUpdateManyWithoutItem_categoryNestedInput
+    items?: itemsUncheckedUpdateManyWithoutItem_categoryNestedInput
   }
 
   export type item_categoriesCreateManyInput = {
@@ -55897,61 +56709,18 @@ export namespace Prisma {
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type typesCreateInput = {
+  export type item_category_pricesCreateInput = {
+    price: number
     description: string
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
+    item_category: item_categoriesCreateNestedOneWithoutItem_category_pricesInput
   }
 
-  export type typesUncheckedCreateInput = {
+  export type item_category_pricesUncheckedCreateInput = {
     id?: number
-    description: string
-    status: boolean
-    create_at?: Date | string
-    update_at?: Date | string
-  }
-
-  export type typesUpdateInput = {
-    description?: StringFieldUpdateOperationsInput | string
-    status?: BoolFieldUpdateOperationsInput | boolean
-    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type typesUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    description?: StringFieldUpdateOperationsInput | string
-    status?: BoolFieldUpdateOperationsInput | boolean
-    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type typesCreateManyInput = {
-    id?: number
-    description: string
-    status: boolean
-    create_at?: Date | string
-    update_at?: Date | string
-  }
-
-  export type typesUpdateManyMutationInput = {
-    description?: StringFieldUpdateOperationsInput | string
-    status?: BoolFieldUpdateOperationsInput | boolean
-    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type typesUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    description?: StringFieldUpdateOperationsInput | string
-    status?: BoolFieldUpdateOperationsInput | boolean
-    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type item_pricesCreateInput = {
-    item_id: number
+    item_category_id: number
     price: number
     description: string
     status: boolean
@@ -55959,9 +56728,28 @@ export namespace Prisma {
     update_at?: Date | string
   }
 
-  export type item_pricesUncheckedCreateInput = {
+  export type item_category_pricesUpdateInput = {
+    price?: FloatFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    item_category?: item_categoriesUpdateOneRequiredWithoutItem_category_pricesNestedInput
+  }
+
+  export type item_category_pricesUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    item_category_id?: IntFieldUpdateOperationsInput | number
+    price?: FloatFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type item_category_pricesCreateManyInput = {
     id?: number
-    item_id: number
+    item_category_id: number
     price: number
     description: string
     status: boolean
@@ -55969,8 +56757,7 @@ export namespace Prisma {
     update_at?: Date | string
   }
 
-  export type item_pricesUpdateInput = {
-    item_id?: IntFieldUpdateOperationsInput | number
+  export type item_category_pricesUpdateManyMutationInput = {
     price?: FloatFieldUpdateOperationsInput | number
     description?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
@@ -55978,38 +56765,9 @@ export namespace Prisma {
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type item_pricesUncheckedUpdateInput = {
+  export type item_category_pricesUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    item_id?: IntFieldUpdateOperationsInput | number
-    price?: FloatFieldUpdateOperationsInput | number
-    description?: StringFieldUpdateOperationsInput | string
-    status?: BoolFieldUpdateOperationsInput | boolean
-    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type item_pricesCreateManyInput = {
-    id?: number
-    item_id: number
-    price: number
-    description: string
-    status: boolean
-    create_at?: Date | string
-    update_at?: Date | string
-  }
-
-  export type item_pricesUpdateManyMutationInput = {
-    item_id?: IntFieldUpdateOperationsInput | number
-    price?: FloatFieldUpdateOperationsInput | number
-    description?: StringFieldUpdateOperationsInput | string
-    status?: BoolFieldUpdateOperationsInput | boolean
-    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type item_pricesUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    item_id?: IntFieldUpdateOperationsInput | number
+    item_category_id?: IntFieldUpdateOperationsInput | number
     price?: FloatFieldUpdateOperationsInput | number
     description?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
@@ -59344,6 +60102,88 @@ export namespace Prisma {
     factory_sale_office_id?: SortOrder
   }
 
+  export type MaterialsListRelationFilter = {
+    every?: materialsWhereInput
+    some?: materialsWhereInput
+    none?: materialsWhereInput
+  }
+
+  export type materialsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type sap_saleOrderByRelevanceInput = {
+    fields: sap_saleOrderByRelevanceFieldEnum | sap_saleOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type sap_saleCountOrderByAggregateInput = {
+    id?: SortOrder
+    code?: SortOrder
+    description?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+  }
+
+  export type sap_saleAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type sap_saleMaxOrderByAggregateInput = {
+    id?: SortOrder
+    code?: SortOrder
+    description?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+  }
+
+  export type sap_saleMinOrderByAggregateInput = {
+    id?: SortOrder
+    code?: SortOrder
+    description?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+  }
+
+  export type sap_saleSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type Material_typesScalarRelationFilter = {
+    is?: material_typesWhereInput
+    isNot?: material_typesWhereInput
+  }
+
+  export type Sap_saleNullableScalarRelationFilter = {
+    is?: sap_saleWhereInput | null
+    isNot?: sap_saleWhereInput | null
+  }
+
+  export type ItemsListRelationFilter = {
+    every?: itemsWhereInput
+    some?: itemsWhereInput
+    none?: itemsWhereInput
+  }
+
+  export type itemsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type materialsOrderByRelevanceInput = {
     fields: materialsOrderByRelevanceFieldEnum | materialsOrderByRelevanceFieldEnum[]
     sort: SortOrder
@@ -59357,7 +60197,7 @@ export namespace Prisma {
     material_name_en?: SortOrder
     long_meterial_name?: SortOrder
     material_type_id?: SortOrder
-    material_unit_id?: SortOrder
+    sap_sale_id?: SortOrder
     description?: SortOrder
     status?: SortOrder
     create_at?: SortOrder
@@ -59366,9 +60206,8 @@ export namespace Prisma {
 
   export type materialsAvgOrderByAggregateInput = {
     id?: SortOrder
-    material_code?: SortOrder
     material_type_id?: SortOrder
-    material_unit_id?: SortOrder
+    sap_sale_id?: SortOrder
   }
 
   export type materialsMaxOrderByAggregateInput = {
@@ -59378,7 +60217,7 @@ export namespace Prisma {
     material_name_en?: SortOrder
     long_meterial_name?: SortOrder
     material_type_id?: SortOrder
-    material_unit_id?: SortOrder
+    sap_sale_id?: SortOrder
     description?: SortOrder
     status?: SortOrder
     create_at?: SortOrder
@@ -59392,7 +60231,7 @@ export namespace Prisma {
     material_name_en?: SortOrder
     long_meterial_name?: SortOrder
     material_type_id?: SortOrder
-    material_unit_id?: SortOrder
+    sap_sale_id?: SortOrder
     description?: SortOrder
     status?: SortOrder
     create_at?: SortOrder
@@ -59401,9 +60240,24 @@ export namespace Prisma {
 
   export type materialsSumOrderByAggregateInput = {
     id?: SortOrder
-    material_code?: SortOrder
     material_type_id?: SortOrder
-    material_unit_id?: SortOrder
+    sap_sale_id?: SortOrder
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
   export type material_typesOrderByRelevanceInput = {
@@ -59414,6 +60268,8 @@ export namespace Prisma {
 
   export type material_typesCountOrderByAggregateInput = {
     id?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
     description?: SortOrder
     status?: SortOrder
     create_at?: SortOrder
@@ -59426,6 +60282,8 @@ export namespace Prisma {
 
   export type material_typesMaxOrderByAggregateInput = {
     id?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
     description?: SortOrder
     status?: SortOrder
     create_at?: SortOrder
@@ -59434,6 +60292,8 @@ export namespace Prisma {
 
   export type material_typesMinOrderByAggregateInput = {
     id?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
     description?: SortOrder
     status?: SortOrder
     create_at?: SortOrder
@@ -59498,6 +60358,16 @@ export namespace Prisma {
     qty?: SortOrder
   }
 
+  export type Item_categoriesNullableScalarRelationFilter = {
+    is?: item_categoriesWhereInput | null
+    isNot?: item_categoriesWhereInput | null
+  }
+
+  export type MaterialsNullableScalarRelationFilter = {
+    is?: materialsWhereInput | null
+    isNot?: materialsWhereInput | null
+  }
+
   export type itemsOrderByRelevanceInput = {
     fields: itemsOrderByRelevanceFieldEnum | itemsOrderByRelevanceFieldEnum[]
     sort: SortOrder
@@ -59511,6 +60381,7 @@ export namespace Prisma {
     department_id?: SortOrder
     item_category_id?: SortOrder
     stock_location_id?: SortOrder
+    rfid_number?: SortOrder
     name_th?: SortOrder
     name_en?: SortOrder
     status?: SortOrder
@@ -59534,6 +60405,7 @@ export namespace Prisma {
     department_id?: SortOrder
     item_category_id?: SortOrder
     stock_location_id?: SortOrder
+    rfid_number?: SortOrder
     name_th?: SortOrder
     name_en?: SortOrder
     status?: SortOrder
@@ -59548,6 +60420,7 @@ export namespace Prisma {
     department_id?: SortOrder
     item_category_id?: SortOrder
     stock_location_id?: SortOrder
+    rfid_number?: SortOrder
     name_th?: SortOrder
     name_en?: SortOrder
     status?: SortOrder
@@ -59618,6 +60491,16 @@ export namespace Prisma {
     sale_office_id?: SortOrder
   }
 
+  export type Item_category_pricesListRelationFilter = {
+    every?: item_category_pricesWhereInput
+    some?: item_category_pricesWhereInput
+    none?: item_category_pricesWhereInput
+  }
+
+  export type item_category_pricesOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type item_categoriesOrderByRelevanceInput = {
     fields: item_categoriesOrderByRelevanceFieldEnum | item_categoriesOrderByRelevanceFieldEnum[]
     sort: SortOrder
@@ -59676,53 +60559,20 @@ export namespace Prisma {
     stock_location_id?: SortOrder
   }
 
-  export type typesOrderByRelevanceInput = {
-    fields: typesOrderByRelevanceFieldEnum | typesOrderByRelevanceFieldEnum[]
+  export type Item_categoriesScalarRelationFilter = {
+    is?: item_categoriesWhereInput
+    isNot?: item_categoriesWhereInput
+  }
+
+  export type item_category_pricesOrderByRelevanceInput = {
+    fields: item_category_pricesOrderByRelevanceFieldEnum | item_category_pricesOrderByRelevanceFieldEnum[]
     sort: SortOrder
     search: string
   }
 
-  export type typesCountOrderByAggregateInput = {
+  export type item_category_pricesCountOrderByAggregateInput = {
     id?: SortOrder
-    description?: SortOrder
-    status?: SortOrder
-    create_at?: SortOrder
-    update_at?: SortOrder
-  }
-
-  export type typesAvgOrderByAggregateInput = {
-    id?: SortOrder
-  }
-
-  export type typesMaxOrderByAggregateInput = {
-    id?: SortOrder
-    description?: SortOrder
-    status?: SortOrder
-    create_at?: SortOrder
-    update_at?: SortOrder
-  }
-
-  export type typesMinOrderByAggregateInput = {
-    id?: SortOrder
-    description?: SortOrder
-    status?: SortOrder
-    create_at?: SortOrder
-    update_at?: SortOrder
-  }
-
-  export type typesSumOrderByAggregateInput = {
-    id?: SortOrder
-  }
-
-  export type item_pricesOrderByRelevanceInput = {
-    fields: item_pricesOrderByRelevanceFieldEnum | item_pricesOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
-  }
-
-  export type item_pricesCountOrderByAggregateInput = {
-    id?: SortOrder
-    item_id?: SortOrder
+    item_category_id?: SortOrder
     price?: SortOrder
     description?: SortOrder
     status?: SortOrder
@@ -59730,25 +60580,15 @@ export namespace Prisma {
     update_at?: SortOrder
   }
 
-  export type item_pricesAvgOrderByAggregateInput = {
+  export type item_category_pricesAvgOrderByAggregateInput = {
     id?: SortOrder
-    item_id?: SortOrder
+    item_category_id?: SortOrder
     price?: SortOrder
   }
 
-  export type item_pricesMaxOrderByAggregateInput = {
+  export type item_category_pricesMaxOrderByAggregateInput = {
     id?: SortOrder
-    item_id?: SortOrder
-    price?: SortOrder
-    description?: SortOrder
-    status?: SortOrder
-    create_at?: SortOrder
-    update_at?: SortOrder
-  }
-
-  export type item_pricesMinOrderByAggregateInput = {
-    id?: SortOrder
-    item_id?: SortOrder
+    item_category_id?: SortOrder
     price?: SortOrder
     description?: SortOrder
     status?: SortOrder
@@ -59756,21 +60596,20 @@ export namespace Prisma {
     update_at?: SortOrder
   }
 
-  export type item_pricesSumOrderByAggregateInput = {
+  export type item_category_pricesMinOrderByAggregateInput = {
     id?: SortOrder
-    item_id?: SortOrder
+    item_category_id?: SortOrder
     price?: SortOrder
+    description?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
   }
 
-  export type IntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | null
-    notIn?: number[] | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  export type item_category_pricesSumOrderByAggregateInput = {
+    id?: SortOrder
+    item_category_id?: SortOrder
+    price?: SortOrder
   }
 
   export type dirtiesOrderByRelevanceInput = {
@@ -59842,22 +60681,6 @@ export namespace Prisma {
     sale_office_id?: SortOrder
     factory_id?: SortOrder
     user_id?: SortOrder
-  }
-
-  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | null
-    notIn?: number[] | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
   export type Unregistered_itemsNullableScalarRelationFilter = {
@@ -61889,12 +62712,298 @@ export namespace Prisma {
     deleteMany?: round_time_factoryScalarWhereInput | round_time_factoryScalarWhereInput[]
   }
 
+  export type materialsCreateNestedManyWithoutSap_saleInput = {
+    create?: XOR<materialsCreateWithoutSap_saleInput, materialsUncheckedCreateWithoutSap_saleInput> | materialsCreateWithoutSap_saleInput[] | materialsUncheckedCreateWithoutSap_saleInput[]
+    connectOrCreate?: materialsCreateOrConnectWithoutSap_saleInput | materialsCreateOrConnectWithoutSap_saleInput[]
+    createMany?: materialsCreateManySap_saleInputEnvelope
+    connect?: materialsWhereUniqueInput | materialsWhereUniqueInput[]
+  }
+
+  export type materialsUncheckedCreateNestedManyWithoutSap_saleInput = {
+    create?: XOR<materialsCreateWithoutSap_saleInput, materialsUncheckedCreateWithoutSap_saleInput> | materialsCreateWithoutSap_saleInput[] | materialsUncheckedCreateWithoutSap_saleInput[]
+    connectOrCreate?: materialsCreateOrConnectWithoutSap_saleInput | materialsCreateOrConnectWithoutSap_saleInput[]
+    createMany?: materialsCreateManySap_saleInputEnvelope
+    connect?: materialsWhereUniqueInput | materialsWhereUniqueInput[]
+  }
+
+  export type materialsUpdateManyWithoutSap_saleNestedInput = {
+    create?: XOR<materialsCreateWithoutSap_saleInput, materialsUncheckedCreateWithoutSap_saleInput> | materialsCreateWithoutSap_saleInput[] | materialsUncheckedCreateWithoutSap_saleInput[]
+    connectOrCreate?: materialsCreateOrConnectWithoutSap_saleInput | materialsCreateOrConnectWithoutSap_saleInput[]
+    upsert?: materialsUpsertWithWhereUniqueWithoutSap_saleInput | materialsUpsertWithWhereUniqueWithoutSap_saleInput[]
+    createMany?: materialsCreateManySap_saleInputEnvelope
+    set?: materialsWhereUniqueInput | materialsWhereUniqueInput[]
+    disconnect?: materialsWhereUniqueInput | materialsWhereUniqueInput[]
+    delete?: materialsWhereUniqueInput | materialsWhereUniqueInput[]
+    connect?: materialsWhereUniqueInput | materialsWhereUniqueInput[]
+    update?: materialsUpdateWithWhereUniqueWithoutSap_saleInput | materialsUpdateWithWhereUniqueWithoutSap_saleInput[]
+    updateMany?: materialsUpdateManyWithWhereWithoutSap_saleInput | materialsUpdateManyWithWhereWithoutSap_saleInput[]
+    deleteMany?: materialsScalarWhereInput | materialsScalarWhereInput[]
+  }
+
+  export type materialsUncheckedUpdateManyWithoutSap_saleNestedInput = {
+    create?: XOR<materialsCreateWithoutSap_saleInput, materialsUncheckedCreateWithoutSap_saleInput> | materialsCreateWithoutSap_saleInput[] | materialsUncheckedCreateWithoutSap_saleInput[]
+    connectOrCreate?: materialsCreateOrConnectWithoutSap_saleInput | materialsCreateOrConnectWithoutSap_saleInput[]
+    upsert?: materialsUpsertWithWhereUniqueWithoutSap_saleInput | materialsUpsertWithWhereUniqueWithoutSap_saleInput[]
+    createMany?: materialsCreateManySap_saleInputEnvelope
+    set?: materialsWhereUniqueInput | materialsWhereUniqueInput[]
+    disconnect?: materialsWhereUniqueInput | materialsWhereUniqueInput[]
+    delete?: materialsWhereUniqueInput | materialsWhereUniqueInput[]
+    connect?: materialsWhereUniqueInput | materialsWhereUniqueInput[]
+    update?: materialsUpdateWithWhereUniqueWithoutSap_saleInput | materialsUpdateWithWhereUniqueWithoutSap_saleInput[]
+    updateMany?: materialsUpdateManyWithWhereWithoutSap_saleInput | materialsUpdateManyWithWhereWithoutSap_saleInput[]
+    deleteMany?: materialsScalarWhereInput | materialsScalarWhereInput[]
+  }
+
+  export type material_typesCreateNestedOneWithoutMaterialsInput = {
+    create?: XOR<material_typesCreateWithoutMaterialsInput, material_typesUncheckedCreateWithoutMaterialsInput>
+    connectOrCreate?: material_typesCreateOrConnectWithoutMaterialsInput
+    connect?: material_typesWhereUniqueInput
+  }
+
+  export type sap_saleCreateNestedOneWithoutMaterialsInput = {
+    create?: XOR<sap_saleCreateWithoutMaterialsInput, sap_saleUncheckedCreateWithoutMaterialsInput>
+    connectOrCreate?: sap_saleCreateOrConnectWithoutMaterialsInput
+    connect?: sap_saleWhereUniqueInput
+  }
+
+  export type itemsCreateNestedManyWithoutMaterialInput = {
+    create?: XOR<itemsCreateWithoutMaterialInput, itemsUncheckedCreateWithoutMaterialInput> | itemsCreateWithoutMaterialInput[] | itemsUncheckedCreateWithoutMaterialInput[]
+    connectOrCreate?: itemsCreateOrConnectWithoutMaterialInput | itemsCreateOrConnectWithoutMaterialInput[]
+    createMany?: itemsCreateManyMaterialInputEnvelope
+    connect?: itemsWhereUniqueInput | itemsWhereUniqueInput[]
+  }
+
+  export type itemsUncheckedCreateNestedManyWithoutMaterialInput = {
+    create?: XOR<itemsCreateWithoutMaterialInput, itemsUncheckedCreateWithoutMaterialInput> | itemsCreateWithoutMaterialInput[] | itemsUncheckedCreateWithoutMaterialInput[]
+    connectOrCreate?: itemsCreateOrConnectWithoutMaterialInput | itemsCreateOrConnectWithoutMaterialInput[]
+    createMany?: itemsCreateManyMaterialInputEnvelope
+    connect?: itemsWhereUniqueInput | itemsWhereUniqueInput[]
+  }
+
+  export type material_typesUpdateOneRequiredWithoutMaterialsNestedInput = {
+    create?: XOR<material_typesCreateWithoutMaterialsInput, material_typesUncheckedCreateWithoutMaterialsInput>
+    connectOrCreate?: material_typesCreateOrConnectWithoutMaterialsInput
+    upsert?: material_typesUpsertWithoutMaterialsInput
+    connect?: material_typesWhereUniqueInput
+    update?: XOR<XOR<material_typesUpdateToOneWithWhereWithoutMaterialsInput, material_typesUpdateWithoutMaterialsInput>, material_typesUncheckedUpdateWithoutMaterialsInput>
+  }
+
+  export type sap_saleUpdateOneWithoutMaterialsNestedInput = {
+    create?: XOR<sap_saleCreateWithoutMaterialsInput, sap_saleUncheckedCreateWithoutMaterialsInput>
+    connectOrCreate?: sap_saleCreateOrConnectWithoutMaterialsInput
+    upsert?: sap_saleUpsertWithoutMaterialsInput
+    disconnect?: sap_saleWhereInput | boolean
+    delete?: sap_saleWhereInput | boolean
+    connect?: sap_saleWhereUniqueInput
+    update?: XOR<XOR<sap_saleUpdateToOneWithWhereWithoutMaterialsInput, sap_saleUpdateWithoutMaterialsInput>, sap_saleUncheckedUpdateWithoutMaterialsInput>
+  }
+
+  export type itemsUpdateManyWithoutMaterialNestedInput = {
+    create?: XOR<itemsCreateWithoutMaterialInput, itemsUncheckedCreateWithoutMaterialInput> | itemsCreateWithoutMaterialInput[] | itemsUncheckedCreateWithoutMaterialInput[]
+    connectOrCreate?: itemsCreateOrConnectWithoutMaterialInput | itemsCreateOrConnectWithoutMaterialInput[]
+    upsert?: itemsUpsertWithWhereUniqueWithoutMaterialInput | itemsUpsertWithWhereUniqueWithoutMaterialInput[]
+    createMany?: itemsCreateManyMaterialInputEnvelope
+    set?: itemsWhereUniqueInput | itemsWhereUniqueInput[]
+    disconnect?: itemsWhereUniqueInput | itemsWhereUniqueInput[]
+    delete?: itemsWhereUniqueInput | itemsWhereUniqueInput[]
+    connect?: itemsWhereUniqueInput | itemsWhereUniqueInput[]
+    update?: itemsUpdateWithWhereUniqueWithoutMaterialInput | itemsUpdateWithWhereUniqueWithoutMaterialInput[]
+    updateMany?: itemsUpdateManyWithWhereWithoutMaterialInput | itemsUpdateManyWithWhereWithoutMaterialInput[]
+    deleteMany?: itemsScalarWhereInput | itemsScalarWhereInput[]
+  }
+
   export type NullableIntFieldUpdateOperationsInput = {
     set?: number | null
     increment?: number
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type itemsUncheckedUpdateManyWithoutMaterialNestedInput = {
+    create?: XOR<itemsCreateWithoutMaterialInput, itemsUncheckedCreateWithoutMaterialInput> | itemsCreateWithoutMaterialInput[] | itemsUncheckedCreateWithoutMaterialInput[]
+    connectOrCreate?: itemsCreateOrConnectWithoutMaterialInput | itemsCreateOrConnectWithoutMaterialInput[]
+    upsert?: itemsUpsertWithWhereUniqueWithoutMaterialInput | itemsUpsertWithWhereUniqueWithoutMaterialInput[]
+    createMany?: itemsCreateManyMaterialInputEnvelope
+    set?: itemsWhereUniqueInput | itemsWhereUniqueInput[]
+    disconnect?: itemsWhereUniqueInput | itemsWhereUniqueInput[]
+    delete?: itemsWhereUniqueInput | itemsWhereUniqueInput[]
+    connect?: itemsWhereUniqueInput | itemsWhereUniqueInput[]
+    update?: itemsUpdateWithWhereUniqueWithoutMaterialInput | itemsUpdateWithWhereUniqueWithoutMaterialInput[]
+    updateMany?: itemsUpdateManyWithWhereWithoutMaterialInput | itemsUpdateManyWithWhereWithoutMaterialInput[]
+    deleteMany?: itemsScalarWhereInput | itemsScalarWhereInput[]
+  }
+
+  export type materialsCreateNestedManyWithoutMaterial_typesInput = {
+    create?: XOR<materialsCreateWithoutMaterial_typesInput, materialsUncheckedCreateWithoutMaterial_typesInput> | materialsCreateWithoutMaterial_typesInput[] | materialsUncheckedCreateWithoutMaterial_typesInput[]
+    connectOrCreate?: materialsCreateOrConnectWithoutMaterial_typesInput | materialsCreateOrConnectWithoutMaterial_typesInput[]
+    createMany?: materialsCreateManyMaterial_typesInputEnvelope
+    connect?: materialsWhereUniqueInput | materialsWhereUniqueInput[]
+  }
+
+  export type materialsUncheckedCreateNestedManyWithoutMaterial_typesInput = {
+    create?: XOR<materialsCreateWithoutMaterial_typesInput, materialsUncheckedCreateWithoutMaterial_typesInput> | materialsCreateWithoutMaterial_typesInput[] | materialsUncheckedCreateWithoutMaterial_typesInput[]
+    connectOrCreate?: materialsCreateOrConnectWithoutMaterial_typesInput | materialsCreateOrConnectWithoutMaterial_typesInput[]
+    createMany?: materialsCreateManyMaterial_typesInputEnvelope
+    connect?: materialsWhereUniqueInput | materialsWhereUniqueInput[]
+  }
+
+  export type materialsUpdateManyWithoutMaterial_typesNestedInput = {
+    create?: XOR<materialsCreateWithoutMaterial_typesInput, materialsUncheckedCreateWithoutMaterial_typesInput> | materialsCreateWithoutMaterial_typesInput[] | materialsUncheckedCreateWithoutMaterial_typesInput[]
+    connectOrCreate?: materialsCreateOrConnectWithoutMaterial_typesInput | materialsCreateOrConnectWithoutMaterial_typesInput[]
+    upsert?: materialsUpsertWithWhereUniqueWithoutMaterial_typesInput | materialsUpsertWithWhereUniqueWithoutMaterial_typesInput[]
+    createMany?: materialsCreateManyMaterial_typesInputEnvelope
+    set?: materialsWhereUniqueInput | materialsWhereUniqueInput[]
+    disconnect?: materialsWhereUniqueInput | materialsWhereUniqueInput[]
+    delete?: materialsWhereUniqueInput | materialsWhereUniqueInput[]
+    connect?: materialsWhereUniqueInput | materialsWhereUniqueInput[]
+    update?: materialsUpdateWithWhereUniqueWithoutMaterial_typesInput | materialsUpdateWithWhereUniqueWithoutMaterial_typesInput[]
+    updateMany?: materialsUpdateManyWithWhereWithoutMaterial_typesInput | materialsUpdateManyWithWhereWithoutMaterial_typesInput[]
+    deleteMany?: materialsScalarWhereInput | materialsScalarWhereInput[]
+  }
+
+  export type materialsUncheckedUpdateManyWithoutMaterial_typesNestedInput = {
+    create?: XOR<materialsCreateWithoutMaterial_typesInput, materialsUncheckedCreateWithoutMaterial_typesInput> | materialsCreateWithoutMaterial_typesInput[] | materialsUncheckedCreateWithoutMaterial_typesInput[]
+    connectOrCreate?: materialsCreateOrConnectWithoutMaterial_typesInput | materialsCreateOrConnectWithoutMaterial_typesInput[]
+    upsert?: materialsUpsertWithWhereUniqueWithoutMaterial_typesInput | materialsUpsertWithWhereUniqueWithoutMaterial_typesInput[]
+    createMany?: materialsCreateManyMaterial_typesInputEnvelope
+    set?: materialsWhereUniqueInput | materialsWhereUniqueInput[]
+    disconnect?: materialsWhereUniqueInput | materialsWhereUniqueInput[]
+    delete?: materialsWhereUniqueInput | materialsWhereUniqueInput[]
+    connect?: materialsWhereUniqueInput | materialsWhereUniqueInput[]
+    update?: materialsUpdateWithWhereUniqueWithoutMaterial_typesInput | materialsUpdateWithWhereUniqueWithoutMaterial_typesInput[]
+    updateMany?: materialsUpdateManyWithWhereWithoutMaterial_typesInput | materialsUpdateManyWithWhereWithoutMaterial_typesInput[]
+    deleteMany?: materialsScalarWhereInput | materialsScalarWhereInput[]
+  }
+
+  export type item_categoriesCreateNestedOneWithoutItemsInput = {
+    create?: XOR<item_categoriesCreateWithoutItemsInput, item_categoriesUncheckedCreateWithoutItemsInput>
+    connectOrCreate?: item_categoriesCreateOrConnectWithoutItemsInput
+    connect?: item_categoriesWhereUniqueInput
+  }
+
+  export type materialsCreateNestedOneWithoutItemsInput = {
+    create?: XOR<materialsCreateWithoutItemsInput, materialsUncheckedCreateWithoutItemsInput>
+    connectOrCreate?: materialsCreateOrConnectWithoutItemsInput
+    connect?: materialsWhereUniqueInput
+  }
+
+  export type item_categoriesUpdateOneWithoutItemsNestedInput = {
+    create?: XOR<item_categoriesCreateWithoutItemsInput, item_categoriesUncheckedCreateWithoutItemsInput>
+    connectOrCreate?: item_categoriesCreateOrConnectWithoutItemsInput
+    upsert?: item_categoriesUpsertWithoutItemsInput
+    disconnect?: item_categoriesWhereInput | boolean
+    delete?: item_categoriesWhereInput | boolean
+    connect?: item_categoriesWhereUniqueInput
+    update?: XOR<XOR<item_categoriesUpdateToOneWithWhereWithoutItemsInput, item_categoriesUpdateWithoutItemsInput>, item_categoriesUncheckedUpdateWithoutItemsInput>
+  }
+
+  export type materialsUpdateOneWithoutItemsNestedInput = {
+    create?: XOR<materialsCreateWithoutItemsInput, materialsUncheckedCreateWithoutItemsInput>
+    connectOrCreate?: materialsCreateOrConnectWithoutItemsInput
+    upsert?: materialsUpsertWithoutItemsInput
+    disconnect?: materialsWhereInput | boolean
+    delete?: materialsWhereInput | boolean
+    connect?: materialsWhereUniqueInput
+    update?: XOR<XOR<materialsUpdateToOneWithWhereWithoutItemsInput, materialsUpdateWithoutItemsInput>, materialsUncheckedUpdateWithoutItemsInput>
+  }
+
+  export type item_category_pricesCreateNestedManyWithoutItem_categoryInput = {
+    create?: XOR<item_category_pricesCreateWithoutItem_categoryInput, item_category_pricesUncheckedCreateWithoutItem_categoryInput> | item_category_pricesCreateWithoutItem_categoryInput[] | item_category_pricesUncheckedCreateWithoutItem_categoryInput[]
+    connectOrCreate?: item_category_pricesCreateOrConnectWithoutItem_categoryInput | item_category_pricesCreateOrConnectWithoutItem_categoryInput[]
+    createMany?: item_category_pricesCreateManyItem_categoryInputEnvelope
+    connect?: item_category_pricesWhereUniqueInput | item_category_pricesWhereUniqueInput[]
+  }
+
+  export type itemsCreateNestedManyWithoutItem_categoryInput = {
+    create?: XOR<itemsCreateWithoutItem_categoryInput, itemsUncheckedCreateWithoutItem_categoryInput> | itemsCreateWithoutItem_categoryInput[] | itemsUncheckedCreateWithoutItem_categoryInput[]
+    connectOrCreate?: itemsCreateOrConnectWithoutItem_categoryInput | itemsCreateOrConnectWithoutItem_categoryInput[]
+    createMany?: itemsCreateManyItem_categoryInputEnvelope
+    connect?: itemsWhereUniqueInput | itemsWhereUniqueInput[]
+  }
+
+  export type item_category_pricesUncheckedCreateNestedManyWithoutItem_categoryInput = {
+    create?: XOR<item_category_pricesCreateWithoutItem_categoryInput, item_category_pricesUncheckedCreateWithoutItem_categoryInput> | item_category_pricesCreateWithoutItem_categoryInput[] | item_category_pricesUncheckedCreateWithoutItem_categoryInput[]
+    connectOrCreate?: item_category_pricesCreateOrConnectWithoutItem_categoryInput | item_category_pricesCreateOrConnectWithoutItem_categoryInput[]
+    createMany?: item_category_pricesCreateManyItem_categoryInputEnvelope
+    connect?: item_category_pricesWhereUniqueInput | item_category_pricesWhereUniqueInput[]
+  }
+
+  export type itemsUncheckedCreateNestedManyWithoutItem_categoryInput = {
+    create?: XOR<itemsCreateWithoutItem_categoryInput, itemsUncheckedCreateWithoutItem_categoryInput> | itemsCreateWithoutItem_categoryInput[] | itemsUncheckedCreateWithoutItem_categoryInput[]
+    connectOrCreate?: itemsCreateOrConnectWithoutItem_categoryInput | itemsCreateOrConnectWithoutItem_categoryInput[]
+    createMany?: itemsCreateManyItem_categoryInputEnvelope
+    connect?: itemsWhereUniqueInput | itemsWhereUniqueInput[]
+  }
+
+  export type item_category_pricesUpdateManyWithoutItem_categoryNestedInput = {
+    create?: XOR<item_category_pricesCreateWithoutItem_categoryInput, item_category_pricesUncheckedCreateWithoutItem_categoryInput> | item_category_pricesCreateWithoutItem_categoryInput[] | item_category_pricesUncheckedCreateWithoutItem_categoryInput[]
+    connectOrCreate?: item_category_pricesCreateOrConnectWithoutItem_categoryInput | item_category_pricesCreateOrConnectWithoutItem_categoryInput[]
+    upsert?: item_category_pricesUpsertWithWhereUniqueWithoutItem_categoryInput | item_category_pricesUpsertWithWhereUniqueWithoutItem_categoryInput[]
+    createMany?: item_category_pricesCreateManyItem_categoryInputEnvelope
+    set?: item_category_pricesWhereUniqueInput | item_category_pricesWhereUniqueInput[]
+    disconnect?: item_category_pricesWhereUniqueInput | item_category_pricesWhereUniqueInput[]
+    delete?: item_category_pricesWhereUniqueInput | item_category_pricesWhereUniqueInput[]
+    connect?: item_category_pricesWhereUniqueInput | item_category_pricesWhereUniqueInput[]
+    update?: item_category_pricesUpdateWithWhereUniqueWithoutItem_categoryInput | item_category_pricesUpdateWithWhereUniqueWithoutItem_categoryInput[]
+    updateMany?: item_category_pricesUpdateManyWithWhereWithoutItem_categoryInput | item_category_pricesUpdateManyWithWhereWithoutItem_categoryInput[]
+    deleteMany?: item_category_pricesScalarWhereInput | item_category_pricesScalarWhereInput[]
+  }
+
+  export type itemsUpdateManyWithoutItem_categoryNestedInput = {
+    create?: XOR<itemsCreateWithoutItem_categoryInput, itemsUncheckedCreateWithoutItem_categoryInput> | itemsCreateWithoutItem_categoryInput[] | itemsUncheckedCreateWithoutItem_categoryInput[]
+    connectOrCreate?: itemsCreateOrConnectWithoutItem_categoryInput | itemsCreateOrConnectWithoutItem_categoryInput[]
+    upsert?: itemsUpsertWithWhereUniqueWithoutItem_categoryInput | itemsUpsertWithWhereUniqueWithoutItem_categoryInput[]
+    createMany?: itemsCreateManyItem_categoryInputEnvelope
+    set?: itemsWhereUniqueInput | itemsWhereUniqueInput[]
+    disconnect?: itemsWhereUniqueInput | itemsWhereUniqueInput[]
+    delete?: itemsWhereUniqueInput | itemsWhereUniqueInput[]
+    connect?: itemsWhereUniqueInput | itemsWhereUniqueInput[]
+    update?: itemsUpdateWithWhereUniqueWithoutItem_categoryInput | itemsUpdateWithWhereUniqueWithoutItem_categoryInput[]
+    updateMany?: itemsUpdateManyWithWhereWithoutItem_categoryInput | itemsUpdateManyWithWhereWithoutItem_categoryInput[]
+    deleteMany?: itemsScalarWhereInput | itemsScalarWhereInput[]
+  }
+
+  export type item_category_pricesUncheckedUpdateManyWithoutItem_categoryNestedInput = {
+    create?: XOR<item_category_pricesCreateWithoutItem_categoryInput, item_category_pricesUncheckedCreateWithoutItem_categoryInput> | item_category_pricesCreateWithoutItem_categoryInput[] | item_category_pricesUncheckedCreateWithoutItem_categoryInput[]
+    connectOrCreate?: item_category_pricesCreateOrConnectWithoutItem_categoryInput | item_category_pricesCreateOrConnectWithoutItem_categoryInput[]
+    upsert?: item_category_pricesUpsertWithWhereUniqueWithoutItem_categoryInput | item_category_pricesUpsertWithWhereUniqueWithoutItem_categoryInput[]
+    createMany?: item_category_pricesCreateManyItem_categoryInputEnvelope
+    set?: item_category_pricesWhereUniqueInput | item_category_pricesWhereUniqueInput[]
+    disconnect?: item_category_pricesWhereUniqueInput | item_category_pricesWhereUniqueInput[]
+    delete?: item_category_pricesWhereUniqueInput | item_category_pricesWhereUniqueInput[]
+    connect?: item_category_pricesWhereUniqueInput | item_category_pricesWhereUniqueInput[]
+    update?: item_category_pricesUpdateWithWhereUniqueWithoutItem_categoryInput | item_category_pricesUpdateWithWhereUniqueWithoutItem_categoryInput[]
+    updateMany?: item_category_pricesUpdateManyWithWhereWithoutItem_categoryInput | item_category_pricesUpdateManyWithWhereWithoutItem_categoryInput[]
+    deleteMany?: item_category_pricesScalarWhereInput | item_category_pricesScalarWhereInput[]
+  }
+
+  export type itemsUncheckedUpdateManyWithoutItem_categoryNestedInput = {
+    create?: XOR<itemsCreateWithoutItem_categoryInput, itemsUncheckedCreateWithoutItem_categoryInput> | itemsCreateWithoutItem_categoryInput[] | itemsUncheckedCreateWithoutItem_categoryInput[]
+    connectOrCreate?: itemsCreateOrConnectWithoutItem_categoryInput | itemsCreateOrConnectWithoutItem_categoryInput[]
+    upsert?: itemsUpsertWithWhereUniqueWithoutItem_categoryInput | itemsUpsertWithWhereUniqueWithoutItem_categoryInput[]
+    createMany?: itemsCreateManyItem_categoryInputEnvelope
+    set?: itemsWhereUniqueInput | itemsWhereUniqueInput[]
+    disconnect?: itemsWhereUniqueInput | itemsWhereUniqueInput[]
+    delete?: itemsWhereUniqueInput | itemsWhereUniqueInput[]
+    connect?: itemsWhereUniqueInput | itemsWhereUniqueInput[]
+    update?: itemsUpdateWithWhereUniqueWithoutItem_categoryInput | itemsUpdateWithWhereUniqueWithoutItem_categoryInput[]
+    updateMany?: itemsUpdateManyWithWhereWithoutItem_categoryInput | itemsUpdateManyWithWhereWithoutItem_categoryInput[]
+    deleteMany?: itemsScalarWhereInput | itemsScalarWhereInput[]
+  }
+
+  export type item_categoriesCreateNestedOneWithoutItem_category_pricesInput = {
+    create?: XOR<item_categoriesCreateWithoutItem_category_pricesInput, item_categoriesUncheckedCreateWithoutItem_category_pricesInput>
+    connectOrCreate?: item_categoriesCreateOrConnectWithoutItem_category_pricesInput
+    connect?: item_categoriesWhereUniqueInput
+  }
+
+  export type item_categoriesUpdateOneRequiredWithoutItem_category_pricesNestedInput = {
+    create?: XOR<item_categoriesCreateWithoutItem_category_pricesInput, item_categoriesUncheckedCreateWithoutItem_category_pricesInput>
+    connectOrCreate?: item_categoriesCreateOrConnectWithoutItem_category_pricesInput
+    upsert?: item_categoriesUpsertWithoutItem_category_pricesInput
+    connect?: item_categoriesWhereUniqueInput
+    update?: XOR<XOR<item_categoriesUpdateToOneWithWhereWithoutItem_category_pricesInput, item_categoriesUpdateWithoutItem_category_pricesInput>, item_categoriesUncheckedUpdateWithoutItem_category_pricesInput>
   }
 
   export type unregistered_itemsCreateNestedOneWithoutDirty_detailsInput = {
@@ -62943,6 +64052,615 @@ export namespace Prisma {
     update_at?: DateTimeFilter<"round_time_factory"> | Date | string
   }
 
+  export type materialsCreateWithoutSap_saleInput = {
+    material_code: string
+    material_name_th: string
+    material_name_en: string
+    long_meterial_name: string
+    description?: string | null
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    material_types: material_typesCreateNestedOneWithoutMaterialsInput
+    items?: itemsCreateNestedManyWithoutMaterialInput
+  }
+
+  export type materialsUncheckedCreateWithoutSap_saleInput = {
+    id?: number
+    material_code: string
+    material_name_th: string
+    material_name_en: string
+    long_meterial_name: string
+    material_type_id: number
+    description?: string | null
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    items?: itemsUncheckedCreateNestedManyWithoutMaterialInput
+  }
+
+  export type materialsCreateOrConnectWithoutSap_saleInput = {
+    where: materialsWhereUniqueInput
+    create: XOR<materialsCreateWithoutSap_saleInput, materialsUncheckedCreateWithoutSap_saleInput>
+  }
+
+  export type materialsCreateManySap_saleInputEnvelope = {
+    data: materialsCreateManySap_saleInput | materialsCreateManySap_saleInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type materialsUpsertWithWhereUniqueWithoutSap_saleInput = {
+    where: materialsWhereUniqueInput
+    update: XOR<materialsUpdateWithoutSap_saleInput, materialsUncheckedUpdateWithoutSap_saleInput>
+    create: XOR<materialsCreateWithoutSap_saleInput, materialsUncheckedCreateWithoutSap_saleInput>
+  }
+
+  export type materialsUpdateWithWhereUniqueWithoutSap_saleInput = {
+    where: materialsWhereUniqueInput
+    data: XOR<materialsUpdateWithoutSap_saleInput, materialsUncheckedUpdateWithoutSap_saleInput>
+  }
+
+  export type materialsUpdateManyWithWhereWithoutSap_saleInput = {
+    where: materialsScalarWhereInput
+    data: XOR<materialsUpdateManyMutationInput, materialsUncheckedUpdateManyWithoutSap_saleInput>
+  }
+
+  export type materialsScalarWhereInput = {
+    AND?: materialsScalarWhereInput | materialsScalarWhereInput[]
+    OR?: materialsScalarWhereInput[]
+    NOT?: materialsScalarWhereInput | materialsScalarWhereInput[]
+    id?: IntFilter<"materials"> | number
+    material_code?: StringFilter<"materials"> | string
+    material_name_th?: StringFilter<"materials"> | string
+    material_name_en?: StringFilter<"materials"> | string
+    long_meterial_name?: StringFilter<"materials"> | string
+    material_type_id?: IntFilter<"materials"> | number
+    sap_sale_id?: IntNullableFilter<"materials"> | number | null
+    description?: StringNullableFilter<"materials"> | string | null
+    status?: BoolFilter<"materials"> | boolean
+    create_at?: DateTimeFilter<"materials"> | Date | string
+    update_at?: DateTimeFilter<"materials"> | Date | string
+  }
+
+  export type material_typesCreateWithoutMaterialsInput = {
+    name_th: string
+    name_en: string
+    description?: string | null
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type material_typesUncheckedCreateWithoutMaterialsInput = {
+    id?: number
+    name_th: string
+    name_en: string
+    description?: string | null
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type material_typesCreateOrConnectWithoutMaterialsInput = {
+    where: material_typesWhereUniqueInput
+    create: XOR<material_typesCreateWithoutMaterialsInput, material_typesUncheckedCreateWithoutMaterialsInput>
+  }
+
+  export type sap_saleCreateWithoutMaterialsInput = {
+    code: string
+    description?: string | null
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type sap_saleUncheckedCreateWithoutMaterialsInput = {
+    id?: number
+    code: string
+    description?: string | null
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type sap_saleCreateOrConnectWithoutMaterialsInput = {
+    where: sap_saleWhereUniqueInput
+    create: XOR<sap_saleCreateWithoutMaterialsInput, sap_saleUncheckedCreateWithoutMaterialsInput>
+  }
+
+  export type itemsCreateWithoutMaterialInput = {
+    saleoffice_id: number
+    department_id: number
+    stock_location_id: number
+    rfid_number?: string | null
+    name_th?: string | null
+    name_en?: string | null
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    item_category?: item_categoriesCreateNestedOneWithoutItemsInput
+  }
+
+  export type itemsUncheckedCreateWithoutMaterialInput = {
+    id?: number
+    saleoffice_id: number
+    department_id: number
+    item_category_id?: number | null
+    stock_location_id: number
+    rfid_number?: string | null
+    name_th?: string | null
+    name_en?: string | null
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type itemsCreateOrConnectWithoutMaterialInput = {
+    where: itemsWhereUniqueInput
+    create: XOR<itemsCreateWithoutMaterialInput, itemsUncheckedCreateWithoutMaterialInput>
+  }
+
+  export type itemsCreateManyMaterialInputEnvelope = {
+    data: itemsCreateManyMaterialInput | itemsCreateManyMaterialInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type material_typesUpsertWithoutMaterialsInput = {
+    update: XOR<material_typesUpdateWithoutMaterialsInput, material_typesUncheckedUpdateWithoutMaterialsInput>
+    create: XOR<material_typesCreateWithoutMaterialsInput, material_typesUncheckedCreateWithoutMaterialsInput>
+    where?: material_typesWhereInput
+  }
+
+  export type material_typesUpdateToOneWithWhereWithoutMaterialsInput = {
+    where?: material_typesWhereInput
+    data: XOR<material_typesUpdateWithoutMaterialsInput, material_typesUncheckedUpdateWithoutMaterialsInput>
+  }
+
+  export type material_typesUpdateWithoutMaterialsInput = {
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type material_typesUncheckedUpdateWithoutMaterialsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type sap_saleUpsertWithoutMaterialsInput = {
+    update: XOR<sap_saleUpdateWithoutMaterialsInput, sap_saleUncheckedUpdateWithoutMaterialsInput>
+    create: XOR<sap_saleCreateWithoutMaterialsInput, sap_saleUncheckedCreateWithoutMaterialsInput>
+    where?: sap_saleWhereInput
+  }
+
+  export type sap_saleUpdateToOneWithWhereWithoutMaterialsInput = {
+    where?: sap_saleWhereInput
+    data: XOR<sap_saleUpdateWithoutMaterialsInput, sap_saleUncheckedUpdateWithoutMaterialsInput>
+  }
+
+  export type sap_saleUpdateWithoutMaterialsInput = {
+    code?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type sap_saleUncheckedUpdateWithoutMaterialsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    code?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type itemsUpsertWithWhereUniqueWithoutMaterialInput = {
+    where: itemsWhereUniqueInput
+    update: XOR<itemsUpdateWithoutMaterialInput, itemsUncheckedUpdateWithoutMaterialInput>
+    create: XOR<itemsCreateWithoutMaterialInput, itemsUncheckedCreateWithoutMaterialInput>
+  }
+
+  export type itemsUpdateWithWhereUniqueWithoutMaterialInput = {
+    where: itemsWhereUniqueInput
+    data: XOR<itemsUpdateWithoutMaterialInput, itemsUncheckedUpdateWithoutMaterialInput>
+  }
+
+  export type itemsUpdateManyWithWhereWithoutMaterialInput = {
+    where: itemsScalarWhereInput
+    data: XOR<itemsUpdateManyMutationInput, itemsUncheckedUpdateManyWithoutMaterialInput>
+  }
+
+  export type itemsScalarWhereInput = {
+    AND?: itemsScalarWhereInput | itemsScalarWhereInput[]
+    OR?: itemsScalarWhereInput[]
+    NOT?: itemsScalarWhereInput | itemsScalarWhereInput[]
+    id?: IntFilter<"items"> | number
+    material_id?: IntNullableFilter<"items"> | number | null
+    saleoffice_id?: IntFilter<"items"> | number
+    department_id?: IntFilter<"items"> | number
+    item_category_id?: IntNullableFilter<"items"> | number | null
+    stock_location_id?: IntFilter<"items"> | number
+    rfid_number?: StringNullableFilter<"items"> | string | null
+    name_th?: StringNullableFilter<"items"> | string | null
+    name_en?: StringNullableFilter<"items"> | string | null
+    status?: BoolFilter<"items"> | boolean
+    create_at?: DateTimeFilter<"items"> | Date | string
+    update_at?: DateTimeFilter<"items"> | Date | string
+  }
+
+  export type materialsCreateWithoutMaterial_typesInput = {
+    material_code: string
+    material_name_th: string
+    material_name_en: string
+    long_meterial_name: string
+    description?: string | null
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    sap_sale?: sap_saleCreateNestedOneWithoutMaterialsInput
+    items?: itemsCreateNestedManyWithoutMaterialInput
+  }
+
+  export type materialsUncheckedCreateWithoutMaterial_typesInput = {
+    id?: number
+    material_code: string
+    material_name_th: string
+    material_name_en: string
+    long_meterial_name: string
+    sap_sale_id?: number | null
+    description?: string | null
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    items?: itemsUncheckedCreateNestedManyWithoutMaterialInput
+  }
+
+  export type materialsCreateOrConnectWithoutMaterial_typesInput = {
+    where: materialsWhereUniqueInput
+    create: XOR<materialsCreateWithoutMaterial_typesInput, materialsUncheckedCreateWithoutMaterial_typesInput>
+  }
+
+  export type materialsCreateManyMaterial_typesInputEnvelope = {
+    data: materialsCreateManyMaterial_typesInput | materialsCreateManyMaterial_typesInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type materialsUpsertWithWhereUniqueWithoutMaterial_typesInput = {
+    where: materialsWhereUniqueInput
+    update: XOR<materialsUpdateWithoutMaterial_typesInput, materialsUncheckedUpdateWithoutMaterial_typesInput>
+    create: XOR<materialsCreateWithoutMaterial_typesInput, materialsUncheckedCreateWithoutMaterial_typesInput>
+  }
+
+  export type materialsUpdateWithWhereUniqueWithoutMaterial_typesInput = {
+    where: materialsWhereUniqueInput
+    data: XOR<materialsUpdateWithoutMaterial_typesInput, materialsUncheckedUpdateWithoutMaterial_typesInput>
+  }
+
+  export type materialsUpdateManyWithWhereWithoutMaterial_typesInput = {
+    where: materialsScalarWhereInput
+    data: XOR<materialsUpdateManyMutationInput, materialsUncheckedUpdateManyWithoutMaterial_typesInput>
+  }
+
+  export type item_categoriesCreateWithoutItemsInput = {
+    type_id: number
+    sale_office_id: number
+    department_id: number
+    stock_location_id: number
+    description: string
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    item_category_prices?: item_category_pricesCreateNestedManyWithoutItem_categoryInput
+  }
+
+  export type item_categoriesUncheckedCreateWithoutItemsInput = {
+    id?: number
+    type_id: number
+    sale_office_id: number
+    department_id: number
+    stock_location_id: number
+    description: string
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    item_category_prices?: item_category_pricesUncheckedCreateNestedManyWithoutItem_categoryInput
+  }
+
+  export type item_categoriesCreateOrConnectWithoutItemsInput = {
+    where: item_categoriesWhereUniqueInput
+    create: XOR<item_categoriesCreateWithoutItemsInput, item_categoriesUncheckedCreateWithoutItemsInput>
+  }
+
+  export type materialsCreateWithoutItemsInput = {
+    material_code: string
+    material_name_th: string
+    material_name_en: string
+    long_meterial_name: string
+    description?: string | null
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    material_types: material_typesCreateNestedOneWithoutMaterialsInput
+    sap_sale?: sap_saleCreateNestedOneWithoutMaterialsInput
+  }
+
+  export type materialsUncheckedCreateWithoutItemsInput = {
+    id?: number
+    material_code: string
+    material_name_th: string
+    material_name_en: string
+    long_meterial_name: string
+    material_type_id: number
+    sap_sale_id?: number | null
+    description?: string | null
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type materialsCreateOrConnectWithoutItemsInput = {
+    where: materialsWhereUniqueInput
+    create: XOR<materialsCreateWithoutItemsInput, materialsUncheckedCreateWithoutItemsInput>
+  }
+
+  export type item_categoriesUpsertWithoutItemsInput = {
+    update: XOR<item_categoriesUpdateWithoutItemsInput, item_categoriesUncheckedUpdateWithoutItemsInput>
+    create: XOR<item_categoriesCreateWithoutItemsInput, item_categoriesUncheckedCreateWithoutItemsInput>
+    where?: item_categoriesWhereInput
+  }
+
+  export type item_categoriesUpdateToOneWithWhereWithoutItemsInput = {
+    where?: item_categoriesWhereInput
+    data: XOR<item_categoriesUpdateWithoutItemsInput, item_categoriesUncheckedUpdateWithoutItemsInput>
+  }
+
+  export type item_categoriesUpdateWithoutItemsInput = {
+    type_id?: IntFieldUpdateOperationsInput | number
+    sale_office_id?: IntFieldUpdateOperationsInput | number
+    department_id?: IntFieldUpdateOperationsInput | number
+    stock_location_id?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    item_category_prices?: item_category_pricesUpdateManyWithoutItem_categoryNestedInput
+  }
+
+  export type item_categoriesUncheckedUpdateWithoutItemsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    type_id?: IntFieldUpdateOperationsInput | number
+    sale_office_id?: IntFieldUpdateOperationsInput | number
+    department_id?: IntFieldUpdateOperationsInput | number
+    stock_location_id?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    item_category_prices?: item_category_pricesUncheckedUpdateManyWithoutItem_categoryNestedInput
+  }
+
+  export type materialsUpsertWithoutItemsInput = {
+    update: XOR<materialsUpdateWithoutItemsInput, materialsUncheckedUpdateWithoutItemsInput>
+    create: XOR<materialsCreateWithoutItemsInput, materialsUncheckedCreateWithoutItemsInput>
+    where?: materialsWhereInput
+  }
+
+  export type materialsUpdateToOneWithWhereWithoutItemsInput = {
+    where?: materialsWhereInput
+    data: XOR<materialsUpdateWithoutItemsInput, materialsUncheckedUpdateWithoutItemsInput>
+  }
+
+  export type materialsUpdateWithoutItemsInput = {
+    material_code?: StringFieldUpdateOperationsInput | string
+    material_name_th?: StringFieldUpdateOperationsInput | string
+    material_name_en?: StringFieldUpdateOperationsInput | string
+    long_meterial_name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    material_types?: material_typesUpdateOneRequiredWithoutMaterialsNestedInput
+    sap_sale?: sap_saleUpdateOneWithoutMaterialsNestedInput
+  }
+
+  export type materialsUncheckedUpdateWithoutItemsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    material_code?: StringFieldUpdateOperationsInput | string
+    material_name_th?: StringFieldUpdateOperationsInput | string
+    material_name_en?: StringFieldUpdateOperationsInput | string
+    long_meterial_name?: StringFieldUpdateOperationsInput | string
+    material_type_id?: IntFieldUpdateOperationsInput | number
+    sap_sale_id?: NullableIntFieldUpdateOperationsInput | number | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type item_category_pricesCreateWithoutItem_categoryInput = {
+    price: number
+    description: string
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type item_category_pricesUncheckedCreateWithoutItem_categoryInput = {
+    id?: number
+    price: number
+    description: string
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type item_category_pricesCreateOrConnectWithoutItem_categoryInput = {
+    where: item_category_pricesWhereUniqueInput
+    create: XOR<item_category_pricesCreateWithoutItem_categoryInput, item_category_pricesUncheckedCreateWithoutItem_categoryInput>
+  }
+
+  export type item_category_pricesCreateManyItem_categoryInputEnvelope = {
+    data: item_category_pricesCreateManyItem_categoryInput | item_category_pricesCreateManyItem_categoryInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type itemsCreateWithoutItem_categoryInput = {
+    saleoffice_id: number
+    department_id: number
+    stock_location_id: number
+    rfid_number?: string | null
+    name_th?: string | null
+    name_en?: string | null
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    material?: materialsCreateNestedOneWithoutItemsInput
+  }
+
+  export type itemsUncheckedCreateWithoutItem_categoryInput = {
+    id?: number
+    material_id?: number | null
+    saleoffice_id: number
+    department_id: number
+    stock_location_id: number
+    rfid_number?: string | null
+    name_th?: string | null
+    name_en?: string | null
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type itemsCreateOrConnectWithoutItem_categoryInput = {
+    where: itemsWhereUniqueInput
+    create: XOR<itemsCreateWithoutItem_categoryInput, itemsUncheckedCreateWithoutItem_categoryInput>
+  }
+
+  export type itemsCreateManyItem_categoryInputEnvelope = {
+    data: itemsCreateManyItem_categoryInput | itemsCreateManyItem_categoryInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type item_category_pricesUpsertWithWhereUniqueWithoutItem_categoryInput = {
+    where: item_category_pricesWhereUniqueInput
+    update: XOR<item_category_pricesUpdateWithoutItem_categoryInput, item_category_pricesUncheckedUpdateWithoutItem_categoryInput>
+    create: XOR<item_category_pricesCreateWithoutItem_categoryInput, item_category_pricesUncheckedCreateWithoutItem_categoryInput>
+  }
+
+  export type item_category_pricesUpdateWithWhereUniqueWithoutItem_categoryInput = {
+    where: item_category_pricesWhereUniqueInput
+    data: XOR<item_category_pricesUpdateWithoutItem_categoryInput, item_category_pricesUncheckedUpdateWithoutItem_categoryInput>
+  }
+
+  export type item_category_pricesUpdateManyWithWhereWithoutItem_categoryInput = {
+    where: item_category_pricesScalarWhereInput
+    data: XOR<item_category_pricesUpdateManyMutationInput, item_category_pricesUncheckedUpdateManyWithoutItem_categoryInput>
+  }
+
+  export type item_category_pricesScalarWhereInput = {
+    AND?: item_category_pricesScalarWhereInput | item_category_pricesScalarWhereInput[]
+    OR?: item_category_pricesScalarWhereInput[]
+    NOT?: item_category_pricesScalarWhereInput | item_category_pricesScalarWhereInput[]
+    id?: IntFilter<"item_category_prices"> | number
+    item_category_id?: IntFilter<"item_category_prices"> | number
+    price?: FloatFilter<"item_category_prices"> | number
+    description?: StringFilter<"item_category_prices"> | string
+    status?: BoolFilter<"item_category_prices"> | boolean
+    create_at?: DateTimeFilter<"item_category_prices"> | Date | string
+    update_at?: DateTimeFilter<"item_category_prices"> | Date | string
+  }
+
+  export type itemsUpsertWithWhereUniqueWithoutItem_categoryInput = {
+    where: itemsWhereUniqueInput
+    update: XOR<itemsUpdateWithoutItem_categoryInput, itemsUncheckedUpdateWithoutItem_categoryInput>
+    create: XOR<itemsCreateWithoutItem_categoryInput, itemsUncheckedCreateWithoutItem_categoryInput>
+  }
+
+  export type itemsUpdateWithWhereUniqueWithoutItem_categoryInput = {
+    where: itemsWhereUniqueInput
+    data: XOR<itemsUpdateWithoutItem_categoryInput, itemsUncheckedUpdateWithoutItem_categoryInput>
+  }
+
+  export type itemsUpdateManyWithWhereWithoutItem_categoryInput = {
+    where: itemsScalarWhereInput
+    data: XOR<itemsUpdateManyMutationInput, itemsUncheckedUpdateManyWithoutItem_categoryInput>
+  }
+
+  export type item_categoriesCreateWithoutItem_category_pricesInput = {
+    type_id: number
+    sale_office_id: number
+    department_id: number
+    stock_location_id: number
+    description: string
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    items?: itemsCreateNestedManyWithoutItem_categoryInput
+  }
+
+  export type item_categoriesUncheckedCreateWithoutItem_category_pricesInput = {
+    id?: number
+    type_id: number
+    sale_office_id: number
+    department_id: number
+    stock_location_id: number
+    description: string
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    items?: itemsUncheckedCreateNestedManyWithoutItem_categoryInput
+  }
+
+  export type item_categoriesCreateOrConnectWithoutItem_category_pricesInput = {
+    where: item_categoriesWhereUniqueInput
+    create: XOR<item_categoriesCreateWithoutItem_category_pricesInput, item_categoriesUncheckedCreateWithoutItem_category_pricesInput>
+  }
+
+  export type item_categoriesUpsertWithoutItem_category_pricesInput = {
+    update: XOR<item_categoriesUpdateWithoutItem_category_pricesInput, item_categoriesUncheckedUpdateWithoutItem_category_pricesInput>
+    create: XOR<item_categoriesCreateWithoutItem_category_pricesInput, item_categoriesUncheckedCreateWithoutItem_category_pricesInput>
+    where?: item_categoriesWhereInput
+  }
+
+  export type item_categoriesUpdateToOneWithWhereWithoutItem_category_pricesInput = {
+    where?: item_categoriesWhereInput
+    data: XOR<item_categoriesUpdateWithoutItem_category_pricesInput, item_categoriesUncheckedUpdateWithoutItem_category_pricesInput>
+  }
+
+  export type item_categoriesUpdateWithoutItem_category_pricesInput = {
+    type_id?: IntFieldUpdateOperationsInput | number
+    sale_office_id?: IntFieldUpdateOperationsInput | number
+    department_id?: IntFieldUpdateOperationsInput | number
+    stock_location_id?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    items?: itemsUpdateManyWithoutItem_categoryNestedInput
+  }
+
+  export type item_categoriesUncheckedUpdateWithoutItem_category_pricesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    type_id?: IntFieldUpdateOperationsInput | number
+    sale_office_id?: IntFieldUpdateOperationsInput | number
+    department_id?: IntFieldUpdateOperationsInput | number
+    stock_location_id?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    items?: itemsUncheckedUpdateManyWithoutItem_categoryNestedInput
+  }
+
   export type unregistered_itemsCreateWithoutDirty_detailsInput = {
     item_id: number
     name: string
@@ -63711,6 +65429,257 @@ export namespace Prisma {
   export type round_time_factoryUncheckedUpdateManyWithoutFactoryInput = {
     id?: IntFieldUpdateOperationsInput | number
     time?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type materialsCreateManySap_saleInput = {
+    id?: number
+    material_code: string
+    material_name_th: string
+    material_name_en: string
+    long_meterial_name: string
+    material_type_id: number
+    description?: string | null
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type materialsUpdateWithoutSap_saleInput = {
+    material_code?: StringFieldUpdateOperationsInput | string
+    material_name_th?: StringFieldUpdateOperationsInput | string
+    material_name_en?: StringFieldUpdateOperationsInput | string
+    long_meterial_name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    material_types?: material_typesUpdateOneRequiredWithoutMaterialsNestedInput
+    items?: itemsUpdateManyWithoutMaterialNestedInput
+  }
+
+  export type materialsUncheckedUpdateWithoutSap_saleInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    material_code?: StringFieldUpdateOperationsInput | string
+    material_name_th?: StringFieldUpdateOperationsInput | string
+    material_name_en?: StringFieldUpdateOperationsInput | string
+    long_meterial_name?: StringFieldUpdateOperationsInput | string
+    material_type_id?: IntFieldUpdateOperationsInput | number
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    items?: itemsUncheckedUpdateManyWithoutMaterialNestedInput
+  }
+
+  export type materialsUncheckedUpdateManyWithoutSap_saleInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    material_code?: StringFieldUpdateOperationsInput | string
+    material_name_th?: StringFieldUpdateOperationsInput | string
+    material_name_en?: StringFieldUpdateOperationsInput | string
+    long_meterial_name?: StringFieldUpdateOperationsInput | string
+    material_type_id?: IntFieldUpdateOperationsInput | number
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type itemsCreateManyMaterialInput = {
+    id?: number
+    saleoffice_id: number
+    department_id: number
+    item_category_id?: number | null
+    stock_location_id: number
+    rfid_number?: string | null
+    name_th?: string | null
+    name_en?: string | null
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type itemsUpdateWithoutMaterialInput = {
+    saleoffice_id?: IntFieldUpdateOperationsInput | number
+    department_id?: IntFieldUpdateOperationsInput | number
+    stock_location_id?: IntFieldUpdateOperationsInput | number
+    rfid_number?: NullableStringFieldUpdateOperationsInput | string | null
+    name_th?: NullableStringFieldUpdateOperationsInput | string | null
+    name_en?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    item_category?: item_categoriesUpdateOneWithoutItemsNestedInput
+  }
+
+  export type itemsUncheckedUpdateWithoutMaterialInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    saleoffice_id?: IntFieldUpdateOperationsInput | number
+    department_id?: IntFieldUpdateOperationsInput | number
+    item_category_id?: NullableIntFieldUpdateOperationsInput | number | null
+    stock_location_id?: IntFieldUpdateOperationsInput | number
+    rfid_number?: NullableStringFieldUpdateOperationsInput | string | null
+    name_th?: NullableStringFieldUpdateOperationsInput | string | null
+    name_en?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type itemsUncheckedUpdateManyWithoutMaterialInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    saleoffice_id?: IntFieldUpdateOperationsInput | number
+    department_id?: IntFieldUpdateOperationsInput | number
+    item_category_id?: NullableIntFieldUpdateOperationsInput | number | null
+    stock_location_id?: IntFieldUpdateOperationsInput | number
+    rfid_number?: NullableStringFieldUpdateOperationsInput | string | null
+    name_th?: NullableStringFieldUpdateOperationsInput | string | null
+    name_en?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type materialsCreateManyMaterial_typesInput = {
+    id?: number
+    material_code: string
+    material_name_th: string
+    material_name_en: string
+    long_meterial_name: string
+    sap_sale_id?: number | null
+    description?: string | null
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type materialsUpdateWithoutMaterial_typesInput = {
+    material_code?: StringFieldUpdateOperationsInput | string
+    material_name_th?: StringFieldUpdateOperationsInput | string
+    material_name_en?: StringFieldUpdateOperationsInput | string
+    long_meterial_name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    sap_sale?: sap_saleUpdateOneWithoutMaterialsNestedInput
+    items?: itemsUpdateManyWithoutMaterialNestedInput
+  }
+
+  export type materialsUncheckedUpdateWithoutMaterial_typesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    material_code?: StringFieldUpdateOperationsInput | string
+    material_name_th?: StringFieldUpdateOperationsInput | string
+    material_name_en?: StringFieldUpdateOperationsInput | string
+    long_meterial_name?: StringFieldUpdateOperationsInput | string
+    sap_sale_id?: NullableIntFieldUpdateOperationsInput | number | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    items?: itemsUncheckedUpdateManyWithoutMaterialNestedInput
+  }
+
+  export type materialsUncheckedUpdateManyWithoutMaterial_typesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    material_code?: StringFieldUpdateOperationsInput | string
+    material_name_th?: StringFieldUpdateOperationsInput | string
+    material_name_en?: StringFieldUpdateOperationsInput | string
+    long_meterial_name?: StringFieldUpdateOperationsInput | string
+    sap_sale_id?: NullableIntFieldUpdateOperationsInput | number | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type item_category_pricesCreateManyItem_categoryInput = {
+    id?: number
+    price: number
+    description: string
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type itemsCreateManyItem_categoryInput = {
+    id?: number
+    material_id?: number | null
+    saleoffice_id: number
+    department_id: number
+    stock_location_id: number
+    rfid_number?: string | null
+    name_th?: string | null
+    name_en?: string | null
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type item_category_pricesUpdateWithoutItem_categoryInput = {
+    price?: FloatFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type item_category_pricesUncheckedUpdateWithoutItem_categoryInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    price?: FloatFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type item_category_pricesUncheckedUpdateManyWithoutItem_categoryInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    price?: FloatFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type itemsUpdateWithoutItem_categoryInput = {
+    saleoffice_id?: IntFieldUpdateOperationsInput | number
+    department_id?: IntFieldUpdateOperationsInput | number
+    stock_location_id?: IntFieldUpdateOperationsInput | number
+    rfid_number?: NullableStringFieldUpdateOperationsInput | string | null
+    name_th?: NullableStringFieldUpdateOperationsInput | string | null
+    name_en?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    material?: materialsUpdateOneWithoutItemsNestedInput
+  }
+
+  export type itemsUncheckedUpdateWithoutItem_categoryInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    material_id?: NullableIntFieldUpdateOperationsInput | number | null
+    saleoffice_id?: IntFieldUpdateOperationsInput | number
+    department_id?: IntFieldUpdateOperationsInput | number
+    stock_location_id?: IntFieldUpdateOperationsInput | number
+    rfid_number?: NullableStringFieldUpdateOperationsInput | string | null
+    name_th?: NullableStringFieldUpdateOperationsInput | string | null
+    name_en?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type itemsUncheckedUpdateManyWithoutItem_categoryInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    material_id?: NullableIntFieldUpdateOperationsInput | number | null
+    saleoffice_id?: IntFieldUpdateOperationsInput | number
+    department_id?: IntFieldUpdateOperationsInput | number
+    stock_location_id?: IntFieldUpdateOperationsInput | number
+    rfid_number?: NullableStringFieldUpdateOperationsInput | string | null
+    name_th?: NullableStringFieldUpdateOperationsInput | string | null
+    name_en?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string

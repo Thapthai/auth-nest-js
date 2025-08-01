@@ -11,6 +11,10 @@ export class ItemsService {
   async create(createItemDto: CreateItemDto) {
     return this.prisma.items.create({
       data: createItemDto,
+      include: {
+        material: true,
+        item_category: true,
+      },
     });
   }
 
@@ -25,15 +29,35 @@ export class ItemsService {
       where.id = { notIn: with_out_id };
     }
 
-    return this.prisma.items.findMany({
+    const items = await this.prisma.items.findMany({
       where,
+      include: {
+        material: true,
+        item_category: true,
+      },
       orderBy: { id: 'desc' },
     });
+    return { data: items };
   }
 
-  async findAllItemPagination({ page = 1, pageSize = 10, keyword = '' }: { page?: number; pageSize?: number; keyword?: string }) {
+  async findAllItemPagination({
+    page = 1,
+    pageSize = 10,
+    keyword = '',
+    department_id = '',
+    saleoffice_id = '',
+    item_category_id = '',
+    material_id = ''
+  }: {
+    page?: number;
+    pageSize?: number;
+    keyword?: string;
+    department_id?: string;
+    saleoffice_id?: string;
+    item_category_id?: string;
+    material_id?: string;
+  }) {
     const skip = (page - 1) * pageSize;
-
 
     const where: any = {};
 
@@ -41,7 +65,24 @@ export class ItemsService {
       where.OR = [
         { name_th: { contains: keyword } },
         { name_en: { contains: keyword } },
+        { rfid_number: { contains: keyword } },
       ];
+    }
+
+    if (department_id) {
+      where.department_id = parseInt(department_id);
+    }
+
+    if (saleoffice_id) {
+      where.saleoffice_id = parseInt(saleoffice_id);
+    }
+
+    if (item_category_id) {
+      where.item_category_id = parseInt(item_category_id);
+    }
+
+    if (material_id) {
+      where.material_id = parseInt(material_id);
     }
 
     const total = await this.prisma.items.count({
@@ -52,15 +93,15 @@ export class ItemsService {
       where,
       skip,
       take: pageSize,
-      orderBy: { id: 'asc' },
-      select: {
-        id: true,
-        name_th: true,
-        name_en: true,
-        status: true,
-        create_at: true,
-        update_at: true,
+      include: {
+        material: {
+          include: {
+            material_types: true,
+          },
+        },
+        item_category: true,
       },
+      orderBy: { id: 'asc' },
     });
 
     return {
@@ -76,6 +117,19 @@ export class ItemsService {
   async findOne(id: number) {
     const item = await this.prisma.items.findUnique({
       where: { id },
+      include: {
+        material: {
+          include: {
+            material_types: true,
+            sap_sale: true,
+          },
+        },
+        item_category: {
+          include: {
+            item_category_prices: true,
+          },
+        },
+      },
     });
     if (!item) throw new NotFoundException(`Item with id ${id} not found`);
     return item;
@@ -86,6 +140,10 @@ export class ItemsService {
     return this.prisma.items.update({
       where: { id },
       data: updateItemDto,
+      include: {
+        material: true,
+        item_category: true,
+      },
     });
   }
 

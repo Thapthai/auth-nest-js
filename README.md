@@ -89,7 +89,8 @@ docker-compose build
 docker-compose up -d
 
 # Development with hot reload
-docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d
+docker-compose up --build -d
+
 
 # View logs
 docker-compose logs -f app

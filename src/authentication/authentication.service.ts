@@ -178,22 +178,24 @@ export class AuthService {
 
   async verifyEmail(verificationEmailDTO: VerificationEmailDTO, res) {
 
-    const token = verificationEmailDTO.token;
-    const record = await this.prisma.verification_token.findUnique({ where: { token } });
+    return "verify email";
 
-    if (!record || record.expires < new Date()) {
-      return res.redirect(`${process.env.FRONTEND_URL}/login`);
-    }
+    // const token = verificationEmailDTO.token;
+    // const record = await this.prisma.verification_token.findUnique({ where: { token } });
 
-    await this.prisma.user.update({
-      where: { email: record.email },
-      data: { email_verified_at: new Date() },
-    });
+    // if (!record || record.expires < new Date()) {
+    //   return res.redirect(`${process.env.FRONTEND_URL}/login`);
+    // }
 
-    await this.prisma.verification_token.delete({ where: { token } });
+    // await this.prisma.user.update({
+    //   where: { email: record.email },
+    //   data: { email_verified_at: new Date() },
+    // });
 
-    // return { message: 'Email verified successfully.' };
-    return res.redirect(`${process.env.FRONTEND_URL}/verify-email-successful`);
+    // await this.prisma.verification_token.delete({ where: { token } });
+
+    // // return { message: 'Email verified successfully.' };
+    // return res.redirect(`${process.env.FRONTEND_URL}/verify-email-successful`);
 
   }
 

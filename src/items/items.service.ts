@@ -9,6 +9,7 @@ export class ItemsService {
   constructor(private prisma: PrismaService) { }
 
   async create(createItemDto: CreateItemDto) {
+    
     return this.prisma.items.create({
       data: createItemDto
     });

@@ -7,7 +7,9 @@ async function bootstrap() {
   app.enableCors({
     origin: [
       process.env.FRONTEND_URL || 'http://localhost:3005',
-      'http://10.11.9.43:3005'
+      'http://localhost:3005',
+      'http://10.11.9.43:3005',
+      'http://127.0.0.1:3005'
     ],
     credentials: true,
   })

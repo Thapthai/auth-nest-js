@@ -30,6 +30,7 @@ import { ItemCategoriesModule } from './item_categories/item_categories.module';
 import { MaterialTypesModule } from './material_types/material_types.module';
 import { MaterialsModule } from './materials/materials.module';
 import { SapSaleModule } from './sap_sale/sap_sale.module';
+import { StockLocationsModule } from './stock_locations/stock_locations.module';
 
 @Module({
   imports: [
@@ -66,6 +67,7 @@ import { SapSaleModule } from './sap_sale/sap_sale.module';
     MaterialTypesModule,
     MaterialsModule,
     SapSaleModule,
+    StockLocationsModule,
   ],
   controllers: [],
   providers: [

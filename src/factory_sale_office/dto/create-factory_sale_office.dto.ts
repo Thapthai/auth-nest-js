@@ -1,11 +1,11 @@
-import { IsBoolean, IsString } from "class-validator";
+import { IsBoolean, IsInt } from "class-validator";
 
 export class CreateFactorySaleOfficeDto {
 
-    @IsString()
+    @IsInt()
     sale_office_id: number;
 
-    @IsString()
+    @IsInt()
     factory_id: number;
 
     @IsBoolean()

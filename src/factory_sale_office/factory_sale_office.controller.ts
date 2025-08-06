@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestjs/common';
 import { FactorySaleOfficeService } from './factory_sale_office.service';
 import { CreateFactorySaleOfficeDto } from './dto/create-factory_sale_office.dto';
 import { UpdateFactorySaleOfficeDto } from './dto/update-factory_sale_office.dto';
@@ -15,6 +15,19 @@ export class FactorySaleOfficeController {
   @Get()
   findAll() {
     return this.factorySaleOfficeService.findAll();
+  }
+  
+  @Get('paginated')
+  findAllPaginated(
+    @Query('page') page = '1',
+    @Query('pageSize') pageSize = '10',
+    @Query('keyword') keyword = ''
+  ) {
+    return this.factorySaleOfficeService.findAllItemPagination({
+      page: Number(page),
+      pageSize: Number(pageSize),
+      keyword: keyword.trim(),
+    });
   }
 
   @Get(':id')

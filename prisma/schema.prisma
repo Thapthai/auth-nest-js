@@ -81,6 +81,7 @@ model sale_offices {
   round_time_express             round_time_express[]
   round_time_shelf_count_express round_time_shelf_count_express[]
   round_time_clean               round_time_clean[]
+  factory_sale_office            factory_sale_office[]
 }
 
 model user_sale_offices {
@@ -122,6 +123,9 @@ model factory_sale_office {
   status         Boolean
   create_at      DateTime @default(now())
   update_at      DateTime @updatedAt
+
+  sale_office sale_offices @relation(fields: [sale_office_id], references: [id])
+  factory     factories    @relation(fields: [factory_id], references: [id])
 }
 
 model factories {
@@ -137,7 +141,8 @@ model factories {
   create_at DateTime @default(now())
   update_at DateTime @updatedAt
 
-  round_time_factory round_time_factory[]
+  round_time_factory  round_time_factory[]
+  factory_sale_office factory_sale_office[]
 }
 
 model machines {

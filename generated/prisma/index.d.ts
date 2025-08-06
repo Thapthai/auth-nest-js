@@ -4563,6 +4563,7 @@ export namespace Prisma {
     round_time_express: number
     round_time_shelf_count_express: number
     round_time_clean: number
+    factory_sale_office: number
   }
 
   export type Sale_officesCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4572,6 +4573,7 @@ export namespace Prisma {
     round_time_express?: boolean | Sale_officesCountOutputTypeCountRound_time_expressArgs
     round_time_shelf_count_express?: boolean | Sale_officesCountOutputTypeCountRound_time_shelf_count_expressArgs
     round_time_clean?: boolean | Sale_officesCountOutputTypeCountRound_time_cleanArgs
+    factory_sale_office?: boolean | Sale_officesCountOutputTypeCountFactory_sale_officeArgs
   }
 
   // Custom InputTypes
@@ -4627,6 +4629,13 @@ export namespace Prisma {
     where?: round_time_cleanWhereInput
   }
 
+  /**
+   * Sale_officesCountOutputType without action
+   */
+  export type Sale_officesCountOutputTypeCountFactory_sale_officeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: factory_sale_officeWhereInput
+  }
+
 
   /**
    * Count Type FactoriesCountOutputType
@@ -4634,10 +4643,12 @@ export namespace Prisma {
 
   export type FactoriesCountOutputType = {
     round_time_factory: number
+    factory_sale_office: number
   }
 
   export type FactoriesCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     round_time_factory?: boolean | FactoriesCountOutputTypeCountRound_time_factoryArgs
+    factory_sale_office?: boolean | FactoriesCountOutputTypeCountFactory_sale_officeArgs
   }
 
   // Custom InputTypes
@@ -4656,6 +4667,13 @@ export namespace Prisma {
    */
   export type FactoriesCountOutputTypeCountRound_time_factoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: round_time_factoryWhereInput
+  }
+
+  /**
+   * FactoriesCountOutputType without action
+   */
+  export type FactoriesCountOutputTypeCountFactory_sale_officeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: factory_sale_officeWhereInput
   }
 
 
@@ -9848,6 +9866,7 @@ export namespace Prisma {
     round_time_express?: boolean | sale_offices$round_time_expressArgs<ExtArgs>
     round_time_shelf_count_express?: boolean | sale_offices$round_time_shelf_count_expressArgs<ExtArgs>
     round_time_clean?: boolean | sale_offices$round_time_cleanArgs<ExtArgs>
+    factory_sale_office?: boolean | sale_offices$factory_sale_officeArgs<ExtArgs>
     _count?: boolean | Sale_officesCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["sale_offices"]>
 
@@ -9871,6 +9890,7 @@ export namespace Prisma {
     round_time_express?: boolean | sale_offices$round_time_expressArgs<ExtArgs>
     round_time_shelf_count_express?: boolean | sale_offices$round_time_shelf_count_expressArgs<ExtArgs>
     round_time_clean?: boolean | sale_offices$round_time_cleanArgs<ExtArgs>
+    factory_sale_office?: boolean | sale_offices$factory_sale_officeArgs<ExtArgs>
     _count?: boolean | Sale_officesCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -9883,6 +9903,7 @@ export namespace Prisma {
       round_time_express: Prisma.$round_time_expressPayload<ExtArgs>[]
       round_time_shelf_count_express: Prisma.$round_time_shelf_count_expressPayload<ExtArgs>[]
       round_time_clean: Prisma.$round_time_cleanPayload<ExtArgs>[]
+      factory_sale_office: Prisma.$factory_sale_officePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -10238,6 +10259,7 @@ export namespace Prisma {
     round_time_express<T extends sale_offices$round_time_expressArgs<ExtArgs> = {}>(args?: Subset<T, sale_offices$round_time_expressArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$round_time_expressPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     round_time_shelf_count_express<T extends sale_offices$round_time_shelf_count_expressArgs<ExtArgs> = {}>(args?: Subset<T, sale_offices$round_time_shelf_count_expressArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$round_time_shelf_count_expressPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     round_time_clean<T extends sale_offices$round_time_cleanArgs<ExtArgs> = {}>(args?: Subset<T, sale_offices$round_time_cleanArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$round_time_cleanPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    factory_sale_office<T extends sale_offices$factory_sale_officeArgs<ExtArgs> = {}>(args?: Subset<T, sale_offices$factory_sale_officeArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$factory_sale_officePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -10758,6 +10780,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: Round_time_cleanScalarFieldEnum | Round_time_cleanScalarFieldEnum[]
+  }
+
+  /**
+   * sale_offices.factory_sale_office
+   */
+  export type sale_offices$factory_sale_officeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the factory_sale_office
+     */
+    select?: factory_sale_officeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the factory_sale_office
+     */
+    omit?: factory_sale_officeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: factory_sale_officeInclude<ExtArgs> | null
+    where?: factory_sale_officeWhereInput
+    orderBy?: factory_sale_officeOrderByWithRelationInput | factory_sale_officeOrderByWithRelationInput[]
+    cursor?: factory_sale_officeWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Factory_sale_officeScalarFieldEnum | Factory_sale_officeScalarFieldEnum[]
   }
 
   /**
@@ -13027,6 +13073,8 @@ export namespace Prisma {
     status?: boolean
     create_at?: boolean
     update_at?: boolean
+    sale_office?: boolean | sale_officesDefaultArgs<ExtArgs>
+    factory?: boolean | factoriesDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["factory_sale_office"]>
 
 
@@ -13041,10 +13089,17 @@ export namespace Prisma {
   }
 
   export type factory_sale_officeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "sale_office_id" | "factory_id" | "status" | "create_at" | "update_at", ExtArgs["result"]["factory_sale_office"]>
+  export type factory_sale_officeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    sale_office?: boolean | sale_officesDefaultArgs<ExtArgs>
+    factory?: boolean | factoriesDefaultArgs<ExtArgs>
+  }
 
   export type $factory_sale_officePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "factory_sale_office"
-    objects: {}
+    objects: {
+      sale_office: Prisma.$sale_officesPayload<ExtArgs>
+      factory: Prisma.$factoriesPayload<ExtArgs>
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       sale_office_id: number
@@ -13392,6 +13447,8 @@ export namespace Prisma {
    */
   export interface Prisma__factory_sale_officeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    sale_office<T extends sale_officesDefaultArgs<ExtArgs> = {}>(args?: Subset<T, sale_officesDefaultArgs<ExtArgs>>): Prisma__sale_officesClient<$Result.GetResult<Prisma.$sale_officesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    factory<T extends factoriesDefaultArgs<ExtArgs> = {}>(args?: Subset<T, factoriesDefaultArgs<ExtArgs>>): Prisma__factoriesClient<$Result.GetResult<Prisma.$factoriesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -13444,6 +13501,10 @@ export namespace Prisma {
      */
     omit?: factory_sale_officeOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: factory_sale_officeInclude<ExtArgs> | null
+    /**
      * Filter, which factory_sale_office to fetch.
      */
     where: factory_sale_officeWhereUniqueInput
@@ -13462,6 +13523,10 @@ export namespace Prisma {
      */
     omit?: factory_sale_officeOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: factory_sale_officeInclude<ExtArgs> | null
+    /**
      * Filter, which factory_sale_office to fetch.
      */
     where: factory_sale_officeWhereUniqueInput
@@ -13479,6 +13544,10 @@ export namespace Prisma {
      * Omit specific fields from the factory_sale_office
      */
     omit?: factory_sale_officeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: factory_sale_officeInclude<ExtArgs> | null
     /**
      * Filter, which factory_sale_office to fetch.
      */
@@ -13528,6 +13597,10 @@ export namespace Prisma {
      */
     omit?: factory_sale_officeOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: factory_sale_officeInclude<ExtArgs> | null
+    /**
      * Filter, which factory_sale_office to fetch.
      */
     where?: factory_sale_officeWhereInput
@@ -13576,6 +13649,10 @@ export namespace Prisma {
      */
     omit?: factory_sale_officeOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: factory_sale_officeInclude<ExtArgs> | null
+    /**
      * Filter, which factory_sale_offices to fetch.
      */
     where?: factory_sale_officeWhereInput
@@ -13619,6 +13696,10 @@ export namespace Prisma {
      */
     omit?: factory_sale_officeOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: factory_sale_officeInclude<ExtArgs> | null
+    /**
      * The data needed to create a factory_sale_office.
      */
     data: XOR<factory_sale_officeCreateInput, factory_sale_officeUncheckedCreateInput>
@@ -13647,6 +13728,10 @@ export namespace Prisma {
      * Omit specific fields from the factory_sale_office
      */
     omit?: factory_sale_officeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: factory_sale_officeInclude<ExtArgs> | null
     /**
      * The data needed to update a factory_sale_office.
      */
@@ -13688,6 +13773,10 @@ export namespace Prisma {
      */
     omit?: factory_sale_officeOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: factory_sale_officeInclude<ExtArgs> | null
+    /**
      * The filter to search for the factory_sale_office to update in case it exists.
      */
     where: factory_sale_officeWhereUniqueInput
@@ -13713,6 +13802,10 @@ export namespace Prisma {
      * Omit specific fields from the factory_sale_office
      */
     omit?: factory_sale_officeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: factory_sale_officeInclude<ExtArgs> | null
     /**
      * Filter which factory_sale_office to delete.
      */
@@ -13745,6 +13838,10 @@ export namespace Prisma {
      * Omit specific fields from the factory_sale_office
      */
     omit?: factory_sale_officeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: factory_sale_officeInclude<ExtArgs> | null
   }
 
 
@@ -14003,6 +14100,7 @@ export namespace Prisma {
     create_at?: boolean
     update_at?: boolean
     round_time_factory?: boolean | factories$round_time_factoryArgs<ExtArgs>
+    factory_sale_office?: boolean | factories$factory_sale_officeArgs<ExtArgs>
     _count?: boolean | FactoriesCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["factories"]>
 
@@ -14025,6 +14123,7 @@ export namespace Prisma {
   export type factoriesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "price" | "address" | "post" | "tel" | "tax_id" | "name_th" | "name_en" | "status" | "create_at" | "update_at", ExtArgs["result"]["factories"]>
   export type factoriesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     round_time_factory?: boolean | factories$round_time_factoryArgs<ExtArgs>
+    factory_sale_office?: boolean | factories$factory_sale_officeArgs<ExtArgs>
     _count?: boolean | FactoriesCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -14032,6 +14131,7 @@ export namespace Prisma {
     name: "factories"
     objects: {
       round_time_factory: Prisma.$round_time_factoryPayload<ExtArgs>[]
+      factory_sale_office: Prisma.$factory_sale_officePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -14386,6 +14486,7 @@ export namespace Prisma {
   export interface Prisma__factoriesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     round_time_factory<T extends factories$round_time_factoryArgs<ExtArgs> = {}>(args?: Subset<T, factories$round_time_factoryArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$round_time_factoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    factory_sale_office<T extends factories$factory_sale_officeArgs<ExtArgs> = {}>(args?: Subset<T, factories$factory_sale_officeArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$factory_sale_officePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -14790,6 +14891,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: Round_time_factoryScalarFieldEnum | Round_time_factoryScalarFieldEnum[]
+  }
+
+  /**
+   * factories.factory_sale_office
+   */
+  export type factories$factory_sale_officeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the factory_sale_office
+     */
+    select?: factory_sale_officeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the factory_sale_office
+     */
+    omit?: factory_sale_officeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: factory_sale_officeInclude<ExtArgs> | null
+    where?: factory_sale_officeWhereInput
+    orderBy?: factory_sale_officeOrderByWithRelationInput | factory_sale_officeOrderByWithRelationInput[]
+    cursor?: factory_sale_officeWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Factory_sale_officeScalarFieldEnum | Factory_sale_officeScalarFieldEnum[]
   }
 
   /**
@@ -52030,6 +52155,7 @@ export namespace Prisma {
     round_time_express?: Round_time_expressListRelationFilter
     round_time_shelf_count_express?: Round_time_shelf_count_expressListRelationFilter
     round_time_clean?: Round_time_cleanListRelationFilter
+    factory_sale_office?: Factory_sale_officeListRelationFilter
   }
 
   export type sale_officesOrderByWithRelationInput = {
@@ -52046,6 +52172,7 @@ export namespace Prisma {
     round_time_express?: round_time_expressOrderByRelationAggregateInput
     round_time_shelf_count_express?: round_time_shelf_count_expressOrderByRelationAggregateInput
     round_time_clean?: round_time_cleanOrderByRelationAggregateInput
+    factory_sale_office?: factory_sale_officeOrderByRelationAggregateInput
     _relevance?: sale_officesOrderByRelevanceInput
   }
 
@@ -52066,6 +52193,7 @@ export namespace Prisma {
     round_time_express?: Round_time_expressListRelationFilter
     round_time_shelf_count_express?: Round_time_shelf_count_expressListRelationFilter
     round_time_clean?: Round_time_cleanListRelationFilter
+    factory_sale_office?: Factory_sale_officeListRelationFilter
   }, "id">
 
   export type sale_officesOrderByWithAggregationInput = {
@@ -52266,6 +52394,8 @@ export namespace Prisma {
     status?: BoolFilter<"factory_sale_office"> | boolean
     create_at?: DateTimeFilter<"factory_sale_office"> | Date | string
     update_at?: DateTimeFilter<"factory_sale_office"> | Date | string
+    sale_office?: XOR<Sale_officesScalarRelationFilter, sale_officesWhereInput>
+    factory?: XOR<FactoriesScalarRelationFilter, factoriesWhereInput>
   }
 
   export type factory_sale_officeOrderByWithRelationInput = {
@@ -52275,6 +52405,8 @@ export namespace Prisma {
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
+    sale_office?: sale_officesOrderByWithRelationInput
+    factory?: factoriesOrderByWithRelationInput
   }
 
   export type factory_sale_officeWhereUniqueInput = Prisma.AtLeast<{
@@ -52287,6 +52419,8 @@ export namespace Prisma {
     status?: BoolFilter<"factory_sale_office"> | boolean
     create_at?: DateTimeFilter<"factory_sale_office"> | Date | string
     update_at?: DateTimeFilter<"factory_sale_office"> | Date | string
+    sale_office?: XOR<Sale_officesScalarRelationFilter, sale_officesWhereInput>
+    factory?: XOR<FactoriesScalarRelationFilter, factoriesWhereInput>
   }, "id">
 
   export type factory_sale_officeOrderByWithAggregationInput = {
@@ -52331,6 +52465,7 @@ export namespace Prisma {
     create_at?: DateTimeFilter<"factories"> | Date | string
     update_at?: DateTimeFilter<"factories"> | Date | string
     round_time_factory?: Round_time_factoryListRelationFilter
+    factory_sale_office?: Factory_sale_officeListRelationFilter
   }
 
   export type factoriesOrderByWithRelationInput = {
@@ -52346,6 +52481,7 @@ export namespace Prisma {
     create_at?: SortOrder
     update_at?: SortOrder
     round_time_factory?: round_time_factoryOrderByRelationAggregateInput
+    factory_sale_office?: factory_sale_officeOrderByRelationAggregateInput
     _relevance?: factoriesOrderByRelevanceInput
   }
 
@@ -52365,6 +52501,7 @@ export namespace Prisma {
     create_at?: DateTimeFilter<"factories"> | Date | string
     update_at?: DateTimeFilter<"factories"> | Date | string
     round_time_factory?: Round_time_factoryListRelationFilter
+    factory_sale_office?: Factory_sale_officeListRelationFilter
   }, "id">
 
   export type factoriesOrderByWithAggregationInput = {
@@ -55791,6 +55928,7 @@ export namespace Prisma {
     round_time_express?: round_time_expressCreateNestedManyWithoutSale_officeInput
     round_time_shelf_count_express?: round_time_shelf_count_expressCreateNestedManyWithoutSale_officeInput
     round_time_clean?: round_time_cleanCreateNestedManyWithoutSale_officeInput
+    factory_sale_office?: factory_sale_officeCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesUncheckedCreateInput = {
@@ -55807,6 +55945,7 @@ export namespace Prisma {
     round_time_express?: round_time_expressUncheckedCreateNestedManyWithoutSale_officeInput
     round_time_shelf_count_express?: round_time_shelf_count_expressUncheckedCreateNestedManyWithoutSale_officeInput
     round_time_clean?: round_time_cleanUncheckedCreateNestedManyWithoutSale_officeInput
+    factory_sale_office?: factory_sale_officeUncheckedCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesUpdateInput = {
@@ -55822,6 +55961,7 @@ export namespace Prisma {
     round_time_express?: round_time_expressUpdateManyWithoutSale_officeNestedInput
     round_time_shelf_count_express?: round_time_shelf_count_expressUpdateManyWithoutSale_officeNestedInput
     round_time_clean?: round_time_cleanUpdateManyWithoutSale_officeNestedInput
+    factory_sale_office?: factory_sale_officeUpdateManyWithoutSale_officeNestedInput
   }
 
   export type sale_officesUncheckedUpdateInput = {
@@ -55838,6 +55978,7 @@ export namespace Prisma {
     round_time_express?: round_time_expressUncheckedUpdateManyWithoutSale_officeNestedInput
     round_time_shelf_count_express?: round_time_shelf_count_expressUncheckedUpdateManyWithoutSale_officeNestedInput
     round_time_clean?: round_time_cleanUncheckedUpdateManyWithoutSale_officeNestedInput
+    factory_sale_office?: factory_sale_officeUncheckedUpdateManyWithoutSale_officeNestedInput
   }
 
   export type sale_officesCreateManyInput = {
@@ -56029,11 +56170,11 @@ export namespace Prisma {
   }
 
   export type factory_sale_officeCreateInput = {
-    sale_office_id: number
-    factory_id: number
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
+    sale_office: sale_officesCreateNestedOneWithoutFactory_sale_officeInput
+    factory: factoriesCreateNestedOneWithoutFactory_sale_officeInput
   }
 
   export type factory_sale_officeUncheckedCreateInput = {
@@ -56046,11 +56187,11 @@ export namespace Prisma {
   }
 
   export type factory_sale_officeUpdateInput = {
-    sale_office_id?: IntFieldUpdateOperationsInput | number
-    factory_id?: IntFieldUpdateOperationsInput | number
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    sale_office?: sale_officesUpdateOneRequiredWithoutFactory_sale_officeNestedInput
+    factory?: factoriesUpdateOneRequiredWithoutFactory_sale_officeNestedInput
   }
 
   export type factory_sale_officeUncheckedUpdateInput = {
@@ -56072,8 +56213,6 @@ export namespace Prisma {
   }
 
   export type factory_sale_officeUpdateManyMutationInput = {
-    sale_office_id?: IntFieldUpdateOperationsInput | number
-    factory_id?: IntFieldUpdateOperationsInput | number
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -56100,6 +56239,7 @@ export namespace Prisma {
     create_at?: Date | string
     update_at?: Date | string
     round_time_factory?: round_time_factoryCreateNestedManyWithoutFactoryInput
+    factory_sale_office?: factory_sale_officeCreateNestedManyWithoutFactoryInput
   }
 
   export type factoriesUncheckedCreateInput = {
@@ -56115,6 +56255,7 @@ export namespace Prisma {
     create_at?: Date | string
     update_at?: Date | string
     round_time_factory?: round_time_factoryUncheckedCreateNestedManyWithoutFactoryInput
+    factory_sale_office?: factory_sale_officeUncheckedCreateNestedManyWithoutFactoryInput
   }
 
   export type factoriesUpdateInput = {
@@ -56129,6 +56270,7 @@ export namespace Prisma {
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
     round_time_factory?: round_time_factoryUpdateManyWithoutFactoryNestedInput
+    factory_sale_office?: factory_sale_officeUpdateManyWithoutFactoryNestedInput
   }
 
   export type factoriesUncheckedUpdateInput = {
@@ -56144,6 +56286,7 @@ export namespace Prisma {
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
     round_time_factory?: round_time_factoryUncheckedUpdateManyWithoutFactoryNestedInput
+    factory_sale_office?: factory_sale_officeUncheckedUpdateManyWithoutFactoryNestedInput
   }
 
   export type factoriesCreateManyInput = {
@@ -59923,6 +60066,12 @@ export namespace Prisma {
     none?: round_time_cleanWhereInput
   }
 
+  export type Factory_sale_officeListRelationFilter = {
+    every?: factory_sale_officeWhereInput
+    some?: factory_sale_officeWhereInput
+    none?: factory_sale_officeWhereInput
+  }
+
   export type departmentsOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -59940,6 +60089,10 @@ export namespace Prisma {
   }
 
   export type round_time_cleanOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type factory_sale_officeOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -60108,6 +60261,11 @@ export namespace Prisma {
     id?: SortOrder
     sale_office_id?: SortOrder
     ship_id?: SortOrder
+  }
+
+  export type FactoriesScalarRelationFilter = {
+    is?: factoriesWhereInput
+    isNot?: factoriesWhereInput
   }
 
   export type factory_sale_officeCountOrderByAggregateInput = {
@@ -62510,11 +62668,6 @@ export namespace Prisma {
     sale_office_id?: SortOrder
   }
 
-  export type FactoriesScalarRelationFilter = {
-    is?: factoriesWhereInput
-    isNot?: factoriesWhereInput
-  }
-
   export type round_time_factoryOrderByRelevanceInput = {
     fields: round_time_factoryOrderByRelevanceFieldEnum | round_time_factoryOrderByRelevanceFieldEnum[]
     sort: SortOrder
@@ -62670,6 +62823,13 @@ export namespace Prisma {
     connect?: round_time_cleanWhereUniqueInput | round_time_cleanWhereUniqueInput[]
   }
 
+  export type factory_sale_officeCreateNestedManyWithoutSale_officeInput = {
+    create?: XOR<factory_sale_officeCreateWithoutSale_officeInput, factory_sale_officeUncheckedCreateWithoutSale_officeInput> | factory_sale_officeCreateWithoutSale_officeInput[] | factory_sale_officeUncheckedCreateWithoutSale_officeInput[]
+    connectOrCreate?: factory_sale_officeCreateOrConnectWithoutSale_officeInput | factory_sale_officeCreateOrConnectWithoutSale_officeInput[]
+    createMany?: factory_sale_officeCreateManySale_officeInputEnvelope
+    connect?: factory_sale_officeWhereUniqueInput | factory_sale_officeWhereUniqueInput[]
+  }
+
   export type departmentsUncheckedCreateNestedManyWithoutSale_officeInput = {
     create?: XOR<departmentsCreateWithoutSale_officeInput, departmentsUncheckedCreateWithoutSale_officeInput> | departmentsCreateWithoutSale_officeInput[] | departmentsUncheckedCreateWithoutSale_officeInput[]
     connectOrCreate?: departmentsCreateOrConnectWithoutSale_officeInput | departmentsCreateOrConnectWithoutSale_officeInput[]
@@ -62710,6 +62870,13 @@ export namespace Prisma {
     connectOrCreate?: round_time_cleanCreateOrConnectWithoutSale_officeInput | round_time_cleanCreateOrConnectWithoutSale_officeInput[]
     createMany?: round_time_cleanCreateManySale_officeInputEnvelope
     connect?: round_time_cleanWhereUniqueInput | round_time_cleanWhereUniqueInput[]
+  }
+
+  export type factory_sale_officeUncheckedCreateNestedManyWithoutSale_officeInput = {
+    create?: XOR<factory_sale_officeCreateWithoutSale_officeInput, factory_sale_officeUncheckedCreateWithoutSale_officeInput> | factory_sale_officeCreateWithoutSale_officeInput[] | factory_sale_officeUncheckedCreateWithoutSale_officeInput[]
+    connectOrCreate?: factory_sale_officeCreateOrConnectWithoutSale_officeInput | factory_sale_officeCreateOrConnectWithoutSale_officeInput[]
+    createMany?: factory_sale_officeCreateManySale_officeInputEnvelope
+    connect?: factory_sale_officeWhereUniqueInput | factory_sale_officeWhereUniqueInput[]
   }
 
   export type departmentsUpdateManyWithoutSale_officeNestedInput = {
@@ -62796,6 +62963,20 @@ export namespace Prisma {
     deleteMany?: round_time_cleanScalarWhereInput | round_time_cleanScalarWhereInput[]
   }
 
+  export type factory_sale_officeUpdateManyWithoutSale_officeNestedInput = {
+    create?: XOR<factory_sale_officeCreateWithoutSale_officeInput, factory_sale_officeUncheckedCreateWithoutSale_officeInput> | factory_sale_officeCreateWithoutSale_officeInput[] | factory_sale_officeUncheckedCreateWithoutSale_officeInput[]
+    connectOrCreate?: factory_sale_officeCreateOrConnectWithoutSale_officeInput | factory_sale_officeCreateOrConnectWithoutSale_officeInput[]
+    upsert?: factory_sale_officeUpsertWithWhereUniqueWithoutSale_officeInput | factory_sale_officeUpsertWithWhereUniqueWithoutSale_officeInput[]
+    createMany?: factory_sale_officeCreateManySale_officeInputEnvelope
+    set?: factory_sale_officeWhereUniqueInput | factory_sale_officeWhereUniqueInput[]
+    disconnect?: factory_sale_officeWhereUniqueInput | factory_sale_officeWhereUniqueInput[]
+    delete?: factory_sale_officeWhereUniqueInput | factory_sale_officeWhereUniqueInput[]
+    connect?: factory_sale_officeWhereUniqueInput | factory_sale_officeWhereUniqueInput[]
+    update?: factory_sale_officeUpdateWithWhereUniqueWithoutSale_officeInput | factory_sale_officeUpdateWithWhereUniqueWithoutSale_officeInput[]
+    updateMany?: factory_sale_officeUpdateManyWithWhereWithoutSale_officeInput | factory_sale_officeUpdateManyWithWhereWithoutSale_officeInput[]
+    deleteMany?: factory_sale_officeScalarWhereInput | factory_sale_officeScalarWhereInput[]
+  }
+
   export type departmentsUncheckedUpdateManyWithoutSale_officeNestedInput = {
     create?: XOR<departmentsCreateWithoutSale_officeInput, departmentsUncheckedCreateWithoutSale_officeInput> | departmentsCreateWithoutSale_officeInput[] | departmentsUncheckedCreateWithoutSale_officeInput[]
     connectOrCreate?: departmentsCreateOrConnectWithoutSale_officeInput | departmentsCreateOrConnectWithoutSale_officeInput[]
@@ -62880,6 +63061,20 @@ export namespace Prisma {
     deleteMany?: round_time_cleanScalarWhereInput | round_time_cleanScalarWhereInput[]
   }
 
+  export type factory_sale_officeUncheckedUpdateManyWithoutSale_officeNestedInput = {
+    create?: XOR<factory_sale_officeCreateWithoutSale_officeInput, factory_sale_officeUncheckedCreateWithoutSale_officeInput> | factory_sale_officeCreateWithoutSale_officeInput[] | factory_sale_officeUncheckedCreateWithoutSale_officeInput[]
+    connectOrCreate?: factory_sale_officeCreateOrConnectWithoutSale_officeInput | factory_sale_officeCreateOrConnectWithoutSale_officeInput[]
+    upsert?: factory_sale_officeUpsertWithWhereUniqueWithoutSale_officeInput | factory_sale_officeUpsertWithWhereUniqueWithoutSale_officeInput[]
+    createMany?: factory_sale_officeCreateManySale_officeInputEnvelope
+    set?: factory_sale_officeWhereUniqueInput | factory_sale_officeWhereUniqueInput[]
+    disconnect?: factory_sale_officeWhereUniqueInput | factory_sale_officeWhereUniqueInput[]
+    delete?: factory_sale_officeWhereUniqueInput | factory_sale_officeWhereUniqueInput[]
+    connect?: factory_sale_officeWhereUniqueInput | factory_sale_officeWhereUniqueInput[]
+    update?: factory_sale_officeUpdateWithWhereUniqueWithoutSale_officeInput | factory_sale_officeUpdateWithWhereUniqueWithoutSale_officeInput[]
+    updateMany?: factory_sale_officeUpdateManyWithWhereWithoutSale_officeInput | factory_sale_officeUpdateManyWithWhereWithoutSale_officeInput[]
+    deleteMany?: factory_sale_officeScalarWhereInput | factory_sale_officeScalarWhereInput[]
+  }
+
   export type sale_officesCreateNestedOneWithoutUser_sale_officeInput = {
     create?: XOR<sale_officesCreateWithoutUser_sale_officeInput, sale_officesUncheckedCreateWithoutUser_sale_officeInput>
     connectOrCreate?: sale_officesCreateOrConnectWithoutUser_sale_officeInput
@@ -62922,6 +63117,34 @@ export namespace Prisma {
     update?: XOR<XOR<sale_officesUpdateToOneWithWhereWithoutDepartmentsInput, sale_officesUpdateWithoutDepartmentsInput>, sale_officesUncheckedUpdateWithoutDepartmentsInput>
   }
 
+  export type sale_officesCreateNestedOneWithoutFactory_sale_officeInput = {
+    create?: XOR<sale_officesCreateWithoutFactory_sale_officeInput, sale_officesUncheckedCreateWithoutFactory_sale_officeInput>
+    connectOrCreate?: sale_officesCreateOrConnectWithoutFactory_sale_officeInput
+    connect?: sale_officesWhereUniqueInput
+  }
+
+  export type factoriesCreateNestedOneWithoutFactory_sale_officeInput = {
+    create?: XOR<factoriesCreateWithoutFactory_sale_officeInput, factoriesUncheckedCreateWithoutFactory_sale_officeInput>
+    connectOrCreate?: factoriesCreateOrConnectWithoutFactory_sale_officeInput
+    connect?: factoriesWhereUniqueInput
+  }
+
+  export type sale_officesUpdateOneRequiredWithoutFactory_sale_officeNestedInput = {
+    create?: XOR<sale_officesCreateWithoutFactory_sale_officeInput, sale_officesUncheckedCreateWithoutFactory_sale_officeInput>
+    connectOrCreate?: sale_officesCreateOrConnectWithoutFactory_sale_officeInput
+    upsert?: sale_officesUpsertWithoutFactory_sale_officeInput
+    connect?: sale_officesWhereUniqueInput
+    update?: XOR<XOR<sale_officesUpdateToOneWithWhereWithoutFactory_sale_officeInput, sale_officesUpdateWithoutFactory_sale_officeInput>, sale_officesUncheckedUpdateWithoutFactory_sale_officeInput>
+  }
+
+  export type factoriesUpdateOneRequiredWithoutFactory_sale_officeNestedInput = {
+    create?: XOR<factoriesCreateWithoutFactory_sale_officeInput, factoriesUncheckedCreateWithoutFactory_sale_officeInput>
+    connectOrCreate?: factoriesCreateOrConnectWithoutFactory_sale_officeInput
+    upsert?: factoriesUpsertWithoutFactory_sale_officeInput
+    connect?: factoriesWhereUniqueInput
+    update?: XOR<XOR<factoriesUpdateToOneWithWhereWithoutFactory_sale_officeInput, factoriesUpdateWithoutFactory_sale_officeInput>, factoriesUncheckedUpdateWithoutFactory_sale_officeInput>
+  }
+
   export type round_time_factoryCreateNestedManyWithoutFactoryInput = {
     create?: XOR<round_time_factoryCreateWithoutFactoryInput, round_time_factoryUncheckedCreateWithoutFactoryInput> | round_time_factoryCreateWithoutFactoryInput[] | round_time_factoryUncheckedCreateWithoutFactoryInput[]
     connectOrCreate?: round_time_factoryCreateOrConnectWithoutFactoryInput | round_time_factoryCreateOrConnectWithoutFactoryInput[]
@@ -62929,11 +63152,25 @@ export namespace Prisma {
     connect?: round_time_factoryWhereUniqueInput | round_time_factoryWhereUniqueInput[]
   }
 
+  export type factory_sale_officeCreateNestedManyWithoutFactoryInput = {
+    create?: XOR<factory_sale_officeCreateWithoutFactoryInput, factory_sale_officeUncheckedCreateWithoutFactoryInput> | factory_sale_officeCreateWithoutFactoryInput[] | factory_sale_officeUncheckedCreateWithoutFactoryInput[]
+    connectOrCreate?: factory_sale_officeCreateOrConnectWithoutFactoryInput | factory_sale_officeCreateOrConnectWithoutFactoryInput[]
+    createMany?: factory_sale_officeCreateManyFactoryInputEnvelope
+    connect?: factory_sale_officeWhereUniqueInput | factory_sale_officeWhereUniqueInput[]
+  }
+
   export type round_time_factoryUncheckedCreateNestedManyWithoutFactoryInput = {
     create?: XOR<round_time_factoryCreateWithoutFactoryInput, round_time_factoryUncheckedCreateWithoutFactoryInput> | round_time_factoryCreateWithoutFactoryInput[] | round_time_factoryUncheckedCreateWithoutFactoryInput[]
     connectOrCreate?: round_time_factoryCreateOrConnectWithoutFactoryInput | round_time_factoryCreateOrConnectWithoutFactoryInput[]
     createMany?: round_time_factoryCreateManyFactoryInputEnvelope
     connect?: round_time_factoryWhereUniqueInput | round_time_factoryWhereUniqueInput[]
+  }
+
+  export type factory_sale_officeUncheckedCreateNestedManyWithoutFactoryInput = {
+    create?: XOR<factory_sale_officeCreateWithoutFactoryInput, factory_sale_officeUncheckedCreateWithoutFactoryInput> | factory_sale_officeCreateWithoutFactoryInput[] | factory_sale_officeUncheckedCreateWithoutFactoryInput[]
+    connectOrCreate?: factory_sale_officeCreateOrConnectWithoutFactoryInput | factory_sale_officeCreateOrConnectWithoutFactoryInput[]
+    createMany?: factory_sale_officeCreateManyFactoryInputEnvelope
+    connect?: factory_sale_officeWhereUniqueInput | factory_sale_officeWhereUniqueInput[]
   }
 
   export type FloatFieldUpdateOperationsInput = {
@@ -62958,6 +63195,20 @@ export namespace Prisma {
     deleteMany?: round_time_factoryScalarWhereInput | round_time_factoryScalarWhereInput[]
   }
 
+  export type factory_sale_officeUpdateManyWithoutFactoryNestedInput = {
+    create?: XOR<factory_sale_officeCreateWithoutFactoryInput, factory_sale_officeUncheckedCreateWithoutFactoryInput> | factory_sale_officeCreateWithoutFactoryInput[] | factory_sale_officeUncheckedCreateWithoutFactoryInput[]
+    connectOrCreate?: factory_sale_officeCreateOrConnectWithoutFactoryInput | factory_sale_officeCreateOrConnectWithoutFactoryInput[]
+    upsert?: factory_sale_officeUpsertWithWhereUniqueWithoutFactoryInput | factory_sale_officeUpsertWithWhereUniqueWithoutFactoryInput[]
+    createMany?: factory_sale_officeCreateManyFactoryInputEnvelope
+    set?: factory_sale_officeWhereUniqueInput | factory_sale_officeWhereUniqueInput[]
+    disconnect?: factory_sale_officeWhereUniqueInput | factory_sale_officeWhereUniqueInput[]
+    delete?: factory_sale_officeWhereUniqueInput | factory_sale_officeWhereUniqueInput[]
+    connect?: factory_sale_officeWhereUniqueInput | factory_sale_officeWhereUniqueInput[]
+    update?: factory_sale_officeUpdateWithWhereUniqueWithoutFactoryInput | factory_sale_officeUpdateWithWhereUniqueWithoutFactoryInput[]
+    updateMany?: factory_sale_officeUpdateManyWithWhereWithoutFactoryInput | factory_sale_officeUpdateManyWithWhereWithoutFactoryInput[]
+    deleteMany?: factory_sale_officeScalarWhereInput | factory_sale_officeScalarWhereInput[]
+  }
+
   export type round_time_factoryUncheckedUpdateManyWithoutFactoryNestedInput = {
     create?: XOR<round_time_factoryCreateWithoutFactoryInput, round_time_factoryUncheckedCreateWithoutFactoryInput> | round_time_factoryCreateWithoutFactoryInput[] | round_time_factoryUncheckedCreateWithoutFactoryInput[]
     connectOrCreate?: round_time_factoryCreateOrConnectWithoutFactoryInput | round_time_factoryCreateOrConnectWithoutFactoryInput[]
@@ -62970,6 +63221,20 @@ export namespace Prisma {
     update?: round_time_factoryUpdateWithWhereUniqueWithoutFactoryInput | round_time_factoryUpdateWithWhereUniqueWithoutFactoryInput[]
     updateMany?: round_time_factoryUpdateManyWithWhereWithoutFactoryInput | round_time_factoryUpdateManyWithWhereWithoutFactoryInput[]
     deleteMany?: round_time_factoryScalarWhereInput | round_time_factoryScalarWhereInput[]
+  }
+
+  export type factory_sale_officeUncheckedUpdateManyWithoutFactoryNestedInput = {
+    create?: XOR<factory_sale_officeCreateWithoutFactoryInput, factory_sale_officeUncheckedCreateWithoutFactoryInput> | factory_sale_officeCreateWithoutFactoryInput[] | factory_sale_officeUncheckedCreateWithoutFactoryInput[]
+    connectOrCreate?: factory_sale_officeCreateOrConnectWithoutFactoryInput | factory_sale_officeCreateOrConnectWithoutFactoryInput[]
+    upsert?: factory_sale_officeUpsertWithWhereUniqueWithoutFactoryInput | factory_sale_officeUpsertWithWhereUniqueWithoutFactoryInput[]
+    createMany?: factory_sale_officeCreateManyFactoryInputEnvelope
+    set?: factory_sale_officeWhereUniqueInput | factory_sale_officeWhereUniqueInput[]
+    disconnect?: factory_sale_officeWhereUniqueInput | factory_sale_officeWhereUniqueInput[]
+    delete?: factory_sale_officeWhereUniqueInput | factory_sale_officeWhereUniqueInput[]
+    connect?: factory_sale_officeWhereUniqueInput | factory_sale_officeWhereUniqueInput[]
+    update?: factory_sale_officeUpdateWithWhereUniqueWithoutFactoryInput | factory_sale_officeUpdateWithWhereUniqueWithoutFactoryInput[]
+    updateMany?: factory_sale_officeUpdateManyWithWhereWithoutFactoryInput | factory_sale_officeUpdateManyWithWhereWithoutFactoryInput[]
+    deleteMany?: factory_sale_officeScalarWhereInput | factory_sale_officeScalarWhereInput[]
   }
 
   export type materialsCreateNestedManyWithoutSap_saleInput = {
@@ -63929,6 +64194,31 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type factory_sale_officeCreateWithoutSale_officeInput = {
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    factory: factoriesCreateNestedOneWithoutFactory_sale_officeInput
+  }
+
+  export type factory_sale_officeUncheckedCreateWithoutSale_officeInput = {
+    id?: number
+    factory_id: number
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type factory_sale_officeCreateOrConnectWithoutSale_officeInput = {
+    where: factory_sale_officeWhereUniqueInput
+    create: XOR<factory_sale_officeCreateWithoutSale_officeInput, factory_sale_officeUncheckedCreateWithoutSale_officeInput>
+  }
+
+  export type factory_sale_officeCreateManySale_officeInputEnvelope = {
+    data: factory_sale_officeCreateManySale_officeInput | factory_sale_officeCreateManySale_officeInput[]
+    skipDuplicates?: boolean
+  }
+
   export type departmentsUpsertWithWhereUniqueWithoutSale_officeInput = {
     where: departmentsWhereUniqueInput
     update: XOR<departmentsUpdateWithoutSale_officeInput, departmentsUncheckedUpdateWithoutSale_officeInput>
@@ -64091,6 +64381,34 @@ export namespace Prisma {
     update_at?: DateTimeFilter<"round_time_clean"> | Date | string
   }
 
+  export type factory_sale_officeUpsertWithWhereUniqueWithoutSale_officeInput = {
+    where: factory_sale_officeWhereUniqueInput
+    update: XOR<factory_sale_officeUpdateWithoutSale_officeInput, factory_sale_officeUncheckedUpdateWithoutSale_officeInput>
+    create: XOR<factory_sale_officeCreateWithoutSale_officeInput, factory_sale_officeUncheckedCreateWithoutSale_officeInput>
+  }
+
+  export type factory_sale_officeUpdateWithWhereUniqueWithoutSale_officeInput = {
+    where: factory_sale_officeWhereUniqueInput
+    data: XOR<factory_sale_officeUpdateWithoutSale_officeInput, factory_sale_officeUncheckedUpdateWithoutSale_officeInput>
+  }
+
+  export type factory_sale_officeUpdateManyWithWhereWithoutSale_officeInput = {
+    where: factory_sale_officeScalarWhereInput
+    data: XOR<factory_sale_officeUpdateManyMutationInput, factory_sale_officeUncheckedUpdateManyWithoutSale_officeInput>
+  }
+
+  export type factory_sale_officeScalarWhereInput = {
+    AND?: factory_sale_officeScalarWhereInput | factory_sale_officeScalarWhereInput[]
+    OR?: factory_sale_officeScalarWhereInput[]
+    NOT?: factory_sale_officeScalarWhereInput | factory_sale_officeScalarWhereInput[]
+    id?: IntFilter<"factory_sale_office"> | number
+    sale_office_id?: IntFilter<"factory_sale_office"> | number
+    factory_id?: IntFilter<"factory_sale_office"> | number
+    status?: BoolFilter<"factory_sale_office"> | boolean
+    create_at?: DateTimeFilter<"factory_sale_office"> | Date | string
+    update_at?: DateTimeFilter<"factory_sale_office"> | Date | string
+  }
+
   export type sale_officesCreateWithoutUser_sale_officeInput = {
     site_code: string
     site_office_name_th: string
@@ -64103,6 +64421,7 @@ export namespace Prisma {
     round_time_express?: round_time_expressCreateNestedManyWithoutSale_officeInput
     round_time_shelf_count_express?: round_time_shelf_count_expressCreateNestedManyWithoutSale_officeInput
     round_time_clean?: round_time_cleanCreateNestedManyWithoutSale_officeInput
+    factory_sale_office?: factory_sale_officeCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesUncheckedCreateWithoutUser_sale_officeInput = {
@@ -64118,6 +64437,7 @@ export namespace Prisma {
     round_time_express?: round_time_expressUncheckedCreateNestedManyWithoutSale_officeInput
     round_time_shelf_count_express?: round_time_shelf_count_expressUncheckedCreateNestedManyWithoutSale_officeInput
     round_time_clean?: round_time_cleanUncheckedCreateNestedManyWithoutSale_officeInput
+    factory_sale_office?: factory_sale_officeUncheckedCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesCreateOrConnectWithoutUser_sale_officeInput = {
@@ -64184,6 +64504,7 @@ export namespace Prisma {
     round_time_express?: round_time_expressUpdateManyWithoutSale_officeNestedInput
     round_time_shelf_count_express?: round_time_shelf_count_expressUpdateManyWithoutSale_officeNestedInput
     round_time_clean?: round_time_cleanUpdateManyWithoutSale_officeNestedInput
+    factory_sale_office?: factory_sale_officeUpdateManyWithoutSale_officeNestedInput
   }
 
   export type sale_officesUncheckedUpdateWithoutUser_sale_officeInput = {
@@ -64199,6 +64520,7 @@ export namespace Prisma {
     round_time_express?: round_time_expressUncheckedUpdateManyWithoutSale_officeNestedInput
     round_time_shelf_count_express?: round_time_shelf_count_expressUncheckedUpdateManyWithoutSale_officeNestedInput
     round_time_clean?: round_time_cleanUncheckedUpdateManyWithoutSale_officeNestedInput
+    factory_sale_office?: factory_sale_officeUncheckedUpdateManyWithoutSale_officeNestedInput
   }
 
   export type userUpsertWithoutUser_sale_officeInput = {
@@ -64255,6 +64577,7 @@ export namespace Prisma {
     round_time_express?: round_time_expressCreateNestedManyWithoutSale_officeInput
     round_time_shelf_count_express?: round_time_shelf_count_expressCreateNestedManyWithoutSale_officeInput
     round_time_clean?: round_time_cleanCreateNestedManyWithoutSale_officeInput
+    factory_sale_office?: factory_sale_officeCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesUncheckedCreateWithoutDepartmentsInput = {
@@ -64270,6 +64593,7 @@ export namespace Prisma {
     round_time_express?: round_time_expressUncheckedCreateNestedManyWithoutSale_officeInput
     round_time_shelf_count_express?: round_time_shelf_count_expressUncheckedCreateNestedManyWithoutSale_officeInput
     round_time_clean?: round_time_cleanUncheckedCreateNestedManyWithoutSale_officeInput
+    factory_sale_office?: factory_sale_officeUncheckedCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesCreateOrConnectWithoutDepartmentsInput = {
@@ -64300,6 +64624,7 @@ export namespace Prisma {
     round_time_express?: round_time_expressUpdateManyWithoutSale_officeNestedInput
     round_time_shelf_count_express?: round_time_shelf_count_expressUpdateManyWithoutSale_officeNestedInput
     round_time_clean?: round_time_cleanUpdateManyWithoutSale_officeNestedInput
+    factory_sale_office?: factory_sale_officeUpdateManyWithoutSale_officeNestedInput
   }
 
   export type sale_officesUncheckedUpdateWithoutDepartmentsInput = {
@@ -64315,6 +64640,159 @@ export namespace Prisma {
     round_time_express?: round_time_expressUncheckedUpdateManyWithoutSale_officeNestedInput
     round_time_shelf_count_express?: round_time_shelf_count_expressUncheckedUpdateManyWithoutSale_officeNestedInput
     round_time_clean?: round_time_cleanUncheckedUpdateManyWithoutSale_officeNestedInput
+    factory_sale_office?: factory_sale_officeUncheckedUpdateManyWithoutSale_officeNestedInput
+  }
+
+  export type sale_officesCreateWithoutFactory_sale_officeInput = {
+    site_code: string
+    site_office_name_th: string
+    site_office_name_en: string
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    departments?: departmentsCreateNestedManyWithoutSale_officeInput
+    user_sale_office?: user_sale_officesCreateNestedManyWithoutSale_officeInput
+    round_time_dirties?: round_time_dirtiesCreateNestedManyWithoutSale_officeInput
+    round_time_express?: round_time_expressCreateNestedManyWithoutSale_officeInput
+    round_time_shelf_count_express?: round_time_shelf_count_expressCreateNestedManyWithoutSale_officeInput
+    round_time_clean?: round_time_cleanCreateNestedManyWithoutSale_officeInput
+  }
+
+  export type sale_officesUncheckedCreateWithoutFactory_sale_officeInput = {
+    id?: number
+    site_code: string
+    site_office_name_th: string
+    site_office_name_en: string
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    departments?: departmentsUncheckedCreateNestedManyWithoutSale_officeInput
+    user_sale_office?: user_sale_officesUncheckedCreateNestedManyWithoutSale_officeInput
+    round_time_dirties?: round_time_dirtiesUncheckedCreateNestedManyWithoutSale_officeInput
+    round_time_express?: round_time_expressUncheckedCreateNestedManyWithoutSale_officeInput
+    round_time_shelf_count_express?: round_time_shelf_count_expressUncheckedCreateNestedManyWithoutSale_officeInput
+    round_time_clean?: round_time_cleanUncheckedCreateNestedManyWithoutSale_officeInput
+  }
+
+  export type sale_officesCreateOrConnectWithoutFactory_sale_officeInput = {
+    where: sale_officesWhereUniqueInput
+    create: XOR<sale_officesCreateWithoutFactory_sale_officeInput, sale_officesUncheckedCreateWithoutFactory_sale_officeInput>
+  }
+
+  export type factoriesCreateWithoutFactory_sale_officeInput = {
+    price: number
+    address: string
+    post: string
+    tel: string
+    tax_id: number
+    name_th: string
+    name_en: string
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    round_time_factory?: round_time_factoryCreateNestedManyWithoutFactoryInput
+  }
+
+  export type factoriesUncheckedCreateWithoutFactory_sale_officeInput = {
+    id?: number
+    price: number
+    address: string
+    post: string
+    tel: string
+    tax_id: number
+    name_th: string
+    name_en: string
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    round_time_factory?: round_time_factoryUncheckedCreateNestedManyWithoutFactoryInput
+  }
+
+  export type factoriesCreateOrConnectWithoutFactory_sale_officeInput = {
+    where: factoriesWhereUniqueInput
+    create: XOR<factoriesCreateWithoutFactory_sale_officeInput, factoriesUncheckedCreateWithoutFactory_sale_officeInput>
+  }
+
+  export type sale_officesUpsertWithoutFactory_sale_officeInput = {
+    update: XOR<sale_officesUpdateWithoutFactory_sale_officeInput, sale_officesUncheckedUpdateWithoutFactory_sale_officeInput>
+    create: XOR<sale_officesCreateWithoutFactory_sale_officeInput, sale_officesUncheckedCreateWithoutFactory_sale_officeInput>
+    where?: sale_officesWhereInput
+  }
+
+  export type sale_officesUpdateToOneWithWhereWithoutFactory_sale_officeInput = {
+    where?: sale_officesWhereInput
+    data: XOR<sale_officesUpdateWithoutFactory_sale_officeInput, sale_officesUncheckedUpdateWithoutFactory_sale_officeInput>
+  }
+
+  export type sale_officesUpdateWithoutFactory_sale_officeInput = {
+    site_code?: StringFieldUpdateOperationsInput | string
+    site_office_name_th?: StringFieldUpdateOperationsInput | string
+    site_office_name_en?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    departments?: departmentsUpdateManyWithoutSale_officeNestedInput
+    user_sale_office?: user_sale_officesUpdateManyWithoutSale_officeNestedInput
+    round_time_dirties?: round_time_dirtiesUpdateManyWithoutSale_officeNestedInput
+    round_time_express?: round_time_expressUpdateManyWithoutSale_officeNestedInput
+    round_time_shelf_count_express?: round_time_shelf_count_expressUpdateManyWithoutSale_officeNestedInput
+    round_time_clean?: round_time_cleanUpdateManyWithoutSale_officeNestedInput
+  }
+
+  export type sale_officesUncheckedUpdateWithoutFactory_sale_officeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    site_code?: StringFieldUpdateOperationsInput | string
+    site_office_name_th?: StringFieldUpdateOperationsInput | string
+    site_office_name_en?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    departments?: departmentsUncheckedUpdateManyWithoutSale_officeNestedInput
+    user_sale_office?: user_sale_officesUncheckedUpdateManyWithoutSale_officeNestedInput
+    round_time_dirties?: round_time_dirtiesUncheckedUpdateManyWithoutSale_officeNestedInput
+    round_time_express?: round_time_expressUncheckedUpdateManyWithoutSale_officeNestedInput
+    round_time_shelf_count_express?: round_time_shelf_count_expressUncheckedUpdateManyWithoutSale_officeNestedInput
+    round_time_clean?: round_time_cleanUncheckedUpdateManyWithoutSale_officeNestedInput
+  }
+
+  export type factoriesUpsertWithoutFactory_sale_officeInput = {
+    update: XOR<factoriesUpdateWithoutFactory_sale_officeInput, factoriesUncheckedUpdateWithoutFactory_sale_officeInput>
+    create: XOR<factoriesCreateWithoutFactory_sale_officeInput, factoriesUncheckedCreateWithoutFactory_sale_officeInput>
+    where?: factoriesWhereInput
+  }
+
+  export type factoriesUpdateToOneWithWhereWithoutFactory_sale_officeInput = {
+    where?: factoriesWhereInput
+    data: XOR<factoriesUpdateWithoutFactory_sale_officeInput, factoriesUncheckedUpdateWithoutFactory_sale_officeInput>
+  }
+
+  export type factoriesUpdateWithoutFactory_sale_officeInput = {
+    price?: FloatFieldUpdateOperationsInput | number
+    address?: StringFieldUpdateOperationsInput | string
+    post?: StringFieldUpdateOperationsInput | string
+    tel?: StringFieldUpdateOperationsInput | string
+    tax_id?: IntFieldUpdateOperationsInput | number
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    round_time_factory?: round_time_factoryUpdateManyWithoutFactoryNestedInput
+  }
+
+  export type factoriesUncheckedUpdateWithoutFactory_sale_officeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    price?: FloatFieldUpdateOperationsInput | number
+    address?: StringFieldUpdateOperationsInput | string
+    post?: StringFieldUpdateOperationsInput | string
+    tel?: StringFieldUpdateOperationsInput | string
+    tax_id?: IntFieldUpdateOperationsInput | number
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    round_time_factory?: round_time_factoryUncheckedUpdateManyWithoutFactoryNestedInput
   }
 
   export type round_time_factoryCreateWithoutFactoryInput = {
@@ -64339,6 +64817,31 @@ export namespace Prisma {
 
   export type round_time_factoryCreateManyFactoryInputEnvelope = {
     data: round_time_factoryCreateManyFactoryInput | round_time_factoryCreateManyFactoryInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type factory_sale_officeCreateWithoutFactoryInput = {
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    sale_office: sale_officesCreateNestedOneWithoutFactory_sale_officeInput
+  }
+
+  export type factory_sale_officeUncheckedCreateWithoutFactoryInput = {
+    id?: number
+    sale_office_id: number
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type factory_sale_officeCreateOrConnectWithoutFactoryInput = {
+    where: factory_sale_officeWhereUniqueInput
+    create: XOR<factory_sale_officeCreateWithoutFactoryInput, factory_sale_officeUncheckedCreateWithoutFactoryInput>
+  }
+
+  export type factory_sale_officeCreateManyFactoryInputEnvelope = {
+    data: factory_sale_officeCreateManyFactoryInput | factory_sale_officeCreateManyFactoryInput[]
     skipDuplicates?: boolean
   }
 
@@ -64368,6 +64871,22 @@ export namespace Prisma {
     status?: BoolFilter<"round_time_factory"> | boolean
     create_at?: DateTimeFilter<"round_time_factory"> | Date | string
     update_at?: DateTimeFilter<"round_time_factory"> | Date | string
+  }
+
+  export type factory_sale_officeUpsertWithWhereUniqueWithoutFactoryInput = {
+    where: factory_sale_officeWhereUniqueInput
+    update: XOR<factory_sale_officeUpdateWithoutFactoryInput, factory_sale_officeUncheckedUpdateWithoutFactoryInput>
+    create: XOR<factory_sale_officeCreateWithoutFactoryInput, factory_sale_officeUncheckedCreateWithoutFactoryInput>
+  }
+
+  export type factory_sale_officeUpdateWithWhereUniqueWithoutFactoryInput = {
+    where: factory_sale_officeWhereUniqueInput
+    data: XOR<factory_sale_officeUpdateWithoutFactoryInput, factory_sale_officeUncheckedUpdateWithoutFactoryInput>
+  }
+
+  export type factory_sale_officeUpdateManyWithWhereWithoutFactoryInput = {
+    where: factory_sale_officeScalarWhereInput
+    data: XOR<factory_sale_officeUpdateManyMutationInput, factory_sale_officeUncheckedUpdateManyWithoutFactoryInput>
   }
 
   export type materialsCreateWithoutSap_saleInput = {
@@ -65296,6 +65815,7 @@ export namespace Prisma {
     round_time_express?: round_time_expressCreateNestedManyWithoutSale_officeInput
     round_time_shelf_count_express?: round_time_shelf_count_expressCreateNestedManyWithoutSale_officeInput
     round_time_clean?: round_time_cleanCreateNestedManyWithoutSale_officeInput
+    factory_sale_office?: factory_sale_officeCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesUncheckedCreateWithoutRound_time_dirtiesInput = {
@@ -65311,6 +65831,7 @@ export namespace Prisma {
     round_time_express?: round_time_expressUncheckedCreateNestedManyWithoutSale_officeInput
     round_time_shelf_count_express?: round_time_shelf_count_expressUncheckedCreateNestedManyWithoutSale_officeInput
     round_time_clean?: round_time_cleanUncheckedCreateNestedManyWithoutSale_officeInput
+    factory_sale_office?: factory_sale_officeUncheckedCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesCreateOrConnectWithoutRound_time_dirtiesInput = {
@@ -65341,6 +65862,7 @@ export namespace Prisma {
     round_time_express?: round_time_expressUpdateManyWithoutSale_officeNestedInput
     round_time_shelf_count_express?: round_time_shelf_count_expressUpdateManyWithoutSale_officeNestedInput
     round_time_clean?: round_time_cleanUpdateManyWithoutSale_officeNestedInput
+    factory_sale_office?: factory_sale_officeUpdateManyWithoutSale_officeNestedInput
   }
 
   export type sale_officesUncheckedUpdateWithoutRound_time_dirtiesInput = {
@@ -65356,6 +65878,7 @@ export namespace Prisma {
     round_time_express?: round_time_expressUncheckedUpdateManyWithoutSale_officeNestedInput
     round_time_shelf_count_express?: round_time_shelf_count_expressUncheckedUpdateManyWithoutSale_officeNestedInput
     round_time_clean?: round_time_cleanUncheckedUpdateManyWithoutSale_officeNestedInput
+    factory_sale_office?: factory_sale_officeUncheckedUpdateManyWithoutSale_officeNestedInput
   }
 
   export type sale_officesCreateWithoutRound_time_expressInput = {
@@ -65370,6 +65893,7 @@ export namespace Prisma {
     round_time_dirties?: round_time_dirtiesCreateNestedManyWithoutSale_officeInput
     round_time_shelf_count_express?: round_time_shelf_count_expressCreateNestedManyWithoutSale_officeInput
     round_time_clean?: round_time_cleanCreateNestedManyWithoutSale_officeInput
+    factory_sale_office?: factory_sale_officeCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesUncheckedCreateWithoutRound_time_expressInput = {
@@ -65385,6 +65909,7 @@ export namespace Prisma {
     round_time_dirties?: round_time_dirtiesUncheckedCreateNestedManyWithoutSale_officeInput
     round_time_shelf_count_express?: round_time_shelf_count_expressUncheckedCreateNestedManyWithoutSale_officeInput
     round_time_clean?: round_time_cleanUncheckedCreateNestedManyWithoutSale_officeInput
+    factory_sale_office?: factory_sale_officeUncheckedCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesCreateOrConnectWithoutRound_time_expressInput = {
@@ -65415,6 +65940,7 @@ export namespace Prisma {
     round_time_dirties?: round_time_dirtiesUpdateManyWithoutSale_officeNestedInput
     round_time_shelf_count_express?: round_time_shelf_count_expressUpdateManyWithoutSale_officeNestedInput
     round_time_clean?: round_time_cleanUpdateManyWithoutSale_officeNestedInput
+    factory_sale_office?: factory_sale_officeUpdateManyWithoutSale_officeNestedInput
   }
 
   export type sale_officesUncheckedUpdateWithoutRound_time_expressInput = {
@@ -65430,6 +65956,7 @@ export namespace Prisma {
     round_time_dirties?: round_time_dirtiesUncheckedUpdateManyWithoutSale_officeNestedInput
     round_time_shelf_count_express?: round_time_shelf_count_expressUncheckedUpdateManyWithoutSale_officeNestedInput
     round_time_clean?: round_time_cleanUncheckedUpdateManyWithoutSale_officeNestedInput
+    factory_sale_office?: factory_sale_officeUncheckedUpdateManyWithoutSale_officeNestedInput
   }
 
   export type sale_officesCreateWithoutRound_time_shelf_count_expressInput = {
@@ -65444,6 +65971,7 @@ export namespace Prisma {
     round_time_dirties?: round_time_dirtiesCreateNestedManyWithoutSale_officeInput
     round_time_express?: round_time_expressCreateNestedManyWithoutSale_officeInput
     round_time_clean?: round_time_cleanCreateNestedManyWithoutSale_officeInput
+    factory_sale_office?: factory_sale_officeCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesUncheckedCreateWithoutRound_time_shelf_count_expressInput = {
@@ -65459,6 +65987,7 @@ export namespace Prisma {
     round_time_dirties?: round_time_dirtiesUncheckedCreateNestedManyWithoutSale_officeInput
     round_time_express?: round_time_expressUncheckedCreateNestedManyWithoutSale_officeInput
     round_time_clean?: round_time_cleanUncheckedCreateNestedManyWithoutSale_officeInput
+    factory_sale_office?: factory_sale_officeUncheckedCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesCreateOrConnectWithoutRound_time_shelf_count_expressInput = {
@@ -65489,6 +66018,7 @@ export namespace Prisma {
     round_time_dirties?: round_time_dirtiesUpdateManyWithoutSale_officeNestedInput
     round_time_express?: round_time_expressUpdateManyWithoutSale_officeNestedInput
     round_time_clean?: round_time_cleanUpdateManyWithoutSale_officeNestedInput
+    factory_sale_office?: factory_sale_officeUpdateManyWithoutSale_officeNestedInput
   }
 
   export type sale_officesUncheckedUpdateWithoutRound_time_shelf_count_expressInput = {
@@ -65504,6 +66034,7 @@ export namespace Prisma {
     round_time_dirties?: round_time_dirtiesUncheckedUpdateManyWithoutSale_officeNestedInput
     round_time_express?: round_time_expressUncheckedUpdateManyWithoutSale_officeNestedInput
     round_time_clean?: round_time_cleanUncheckedUpdateManyWithoutSale_officeNestedInput
+    factory_sale_office?: factory_sale_officeUncheckedUpdateManyWithoutSale_officeNestedInput
   }
 
   export type sale_officesCreateWithoutRound_time_cleanInput = {
@@ -65518,6 +66049,7 @@ export namespace Prisma {
     round_time_dirties?: round_time_dirtiesCreateNestedManyWithoutSale_officeInput
     round_time_express?: round_time_expressCreateNestedManyWithoutSale_officeInput
     round_time_shelf_count_express?: round_time_shelf_count_expressCreateNestedManyWithoutSale_officeInput
+    factory_sale_office?: factory_sale_officeCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesUncheckedCreateWithoutRound_time_cleanInput = {
@@ -65533,6 +66065,7 @@ export namespace Prisma {
     round_time_dirties?: round_time_dirtiesUncheckedCreateNestedManyWithoutSale_officeInput
     round_time_express?: round_time_expressUncheckedCreateNestedManyWithoutSale_officeInput
     round_time_shelf_count_express?: round_time_shelf_count_expressUncheckedCreateNestedManyWithoutSale_officeInput
+    factory_sale_office?: factory_sale_officeUncheckedCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesCreateOrConnectWithoutRound_time_cleanInput = {
@@ -65563,6 +66096,7 @@ export namespace Prisma {
     round_time_dirties?: round_time_dirtiesUpdateManyWithoutSale_officeNestedInput
     round_time_express?: round_time_expressUpdateManyWithoutSale_officeNestedInput
     round_time_shelf_count_express?: round_time_shelf_count_expressUpdateManyWithoutSale_officeNestedInput
+    factory_sale_office?: factory_sale_officeUpdateManyWithoutSale_officeNestedInput
   }
 
   export type sale_officesUncheckedUpdateWithoutRound_time_cleanInput = {
@@ -65578,6 +66112,7 @@ export namespace Prisma {
     round_time_dirties?: round_time_dirtiesUncheckedUpdateManyWithoutSale_officeNestedInput
     round_time_express?: round_time_expressUncheckedUpdateManyWithoutSale_officeNestedInput
     round_time_shelf_count_express?: round_time_shelf_count_expressUncheckedUpdateManyWithoutSale_officeNestedInput
+    factory_sale_office?: factory_sale_officeUncheckedUpdateManyWithoutSale_officeNestedInput
   }
 
   export type factoriesCreateWithoutRound_time_factoryInput = {
@@ -65591,6 +66126,7 @@ export namespace Prisma {
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
+    factory_sale_office?: factory_sale_officeCreateNestedManyWithoutFactoryInput
   }
 
   export type factoriesUncheckedCreateWithoutRound_time_factoryInput = {
@@ -65605,6 +66141,7 @@ export namespace Prisma {
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
+    factory_sale_office?: factory_sale_officeUncheckedCreateNestedManyWithoutFactoryInput
   }
 
   export type factoriesCreateOrConnectWithoutRound_time_factoryInput = {
@@ -65634,6 +66171,7 @@ export namespace Prisma {
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    factory_sale_office?: factory_sale_officeUpdateManyWithoutFactoryNestedInput
   }
 
   export type factoriesUncheckedUpdateWithoutRound_time_factoryInput = {
@@ -65648,6 +66186,7 @@ export namespace Prisma {
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    factory_sale_office?: factory_sale_officeUncheckedUpdateManyWithoutFactoryNestedInput
   }
 
   export type user_sale_officesCreateManyUserInput = {
@@ -65730,6 +66269,14 @@ export namespace Prisma {
   export type round_time_cleanCreateManySale_officeInput = {
     id?: number
     time: string
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type factory_sale_officeCreateManySale_officeInput = {
+    id?: number
+    factory_id: number
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
@@ -65891,9 +66438,40 @@ export namespace Prisma {
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type factory_sale_officeUpdateWithoutSale_officeInput = {
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    factory?: factoriesUpdateOneRequiredWithoutFactory_sale_officeNestedInput
+  }
+
+  export type factory_sale_officeUncheckedUpdateWithoutSale_officeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    factory_id?: IntFieldUpdateOperationsInput | number
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type factory_sale_officeUncheckedUpdateManyWithoutSale_officeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    factory_id?: IntFieldUpdateOperationsInput | number
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type round_time_factoryCreateManyFactoryInput = {
     id?: number
     time: string
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type factory_sale_officeCreateManyFactoryInput = {
+    id?: number
+    sale_office_id: number
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
@@ -65917,6 +66495,29 @@ export namespace Prisma {
   export type round_time_factoryUncheckedUpdateManyWithoutFactoryInput = {
     id?: IntFieldUpdateOperationsInput | number
     time?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type factory_sale_officeUpdateWithoutFactoryInput = {
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    sale_office?: sale_officesUpdateOneRequiredWithoutFactory_sale_officeNestedInput
+  }
+
+  export type factory_sale_officeUncheckedUpdateWithoutFactoryInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    sale_office_id?: IntFieldUpdateOperationsInput | number
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type factory_sale_officeUncheckedUpdateManyWithoutFactoryInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    sale_office_id?: IntFieldUpdateOperationsInput | number
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string

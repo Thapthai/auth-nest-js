@@ -182,9 +182,9 @@ model materials {
   create_at          DateTime @default(now())
   update_at          DateTime @updatedAt
 
-  material_types material_types @relation(fields: [material_type_id], references: [id])
-  sap_sale       sap_sale?      @relation(fields: [sap_sale_id], references: [id])
-  items          items[]
+  material_types  material_types    @relation(fields: [material_type_id], references: [id])
+  sap_sale        sap_sale?         @relation(fields: [sap_sale_id], references: [id])
+  items           items[]
   item_categories item_categories[]
 }
 
@@ -257,7 +257,7 @@ model item_categories {
 
   item_category_prices item_category_prices[]
   items                items[]
-  material             materials? @relation(fields: [material_id], references: [id])
+  material             materials?             @relation(fields: [material_id], references: [id])
 }
 
 model item_category_prices {
@@ -324,7 +324,7 @@ model dirty_detail_rounds {
   update_at       DateTime @updatedAt
 }
 
-model customer_group_types {
+model sale_office_group_types {
   id        Int      @id @default(autoincrement())
   level     String
   group     String
@@ -334,13 +334,17 @@ model customer_group_types {
   update_at DateTime @updatedAt
 }
 
-model customer_groups {
-  id                     Int      @id @default(autoincrement())
-  sale_office_id         Int
-  customer_group_type_id Int
-  status                 Boolean
-  create_at              DateTime @default(now())
-  update_at              DateTime @updatedAt
+model sale_office_groups {
+  id                        Int      @id @default(autoincrement())
+  name_th                   String
+  name_en                   String
+  description               String?
+  code                      String?
+  sale_office_id            Int
+  sale_office_group_type_id Int
+  status                    Boolean
+  create_at                 DateTime @default(now())
+  update_at                 DateTime @updatedAt
 }
 
 model stock_locations {

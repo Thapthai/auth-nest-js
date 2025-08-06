@@ -129,15 +129,15 @@ export type dirty_details = $Result.DefaultSelection<Prisma.$dirty_detailsPayloa
  */
 export type dirty_detail_rounds = $Result.DefaultSelection<Prisma.$dirty_detail_roundsPayload>
 /**
- * Model customer_group_types
+ * Model sale_office_group_types
  * 
  */
-export type customer_group_types = $Result.DefaultSelection<Prisma.$customer_group_typesPayload>
+export type sale_office_group_types = $Result.DefaultSelection<Prisma.$sale_office_group_typesPayload>
 /**
- * Model customer_groups
+ * Model sale_office_groups
  * 
  */
-export type customer_groups = $Result.DefaultSelection<Prisma.$customer_groupsPayload>
+export type sale_office_groups = $Result.DefaultSelection<Prisma.$sale_office_groupsPayload>
 /**
  * Model stock_locations
  * 
@@ -595,24 +595,24 @@ export class PrismaClient<
   get dirty_detail_rounds(): Prisma.dirty_detail_roundsDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.customer_group_types`: Exposes CRUD operations for the **customer_group_types** model.
+   * `prisma.sale_office_group_types`: Exposes CRUD operations for the **sale_office_group_types** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Customer_group_types
-    * const customer_group_types = await prisma.customer_group_types.findMany()
+    * // Fetch zero or more Sale_office_group_types
+    * const sale_office_group_types = await prisma.sale_office_group_types.findMany()
     * ```
     */
-  get customer_group_types(): Prisma.customer_group_typesDelegate<ExtArgs, ClientOptions>;
+  get sale_office_group_types(): Prisma.sale_office_group_typesDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.customer_groups`: Exposes CRUD operations for the **customer_groups** model.
+   * `prisma.sale_office_groups`: Exposes CRUD operations for the **sale_office_groups** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Customer_groups
-    * const customer_groups = await prisma.customer_groups.findMany()
+    * // Fetch zero or more Sale_office_groups
+    * const sale_office_groups = await prisma.sale_office_groups.findMany()
     * ```
     */
-  get customer_groups(): Prisma.customer_groupsDelegate<ExtArgs, ClientOptions>;
+  get sale_office_groups(): Prisma.sale_office_groupsDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.stock_locations`: Exposes CRUD operations for the **stock_locations** model.
@@ -1276,8 +1276,8 @@ export namespace Prisma {
     dirties: 'dirties',
     dirty_details: 'dirty_details',
     dirty_detail_rounds: 'dirty_detail_rounds',
-    customer_group_types: 'customer_group_types',
-    customer_groups: 'customer_groups',
+    sale_office_group_types: 'sale_office_group_types',
+    sale_office_groups: 'sale_office_groups',
     stock_locations: 'stock_locations',
     shelfcounts: 'shelfcounts',
     shelfcount_details: 'shelfcount_details',
@@ -1316,7 +1316,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "verification_token" | "password_reset_token" | "notifications" | "permission" | "sale_offices" | "user_sale_offices" | "departments" | "factory_sale_office" | "factories" | "machines" | "contact" | "sap_sale" | "materials" | "material_types" | "item_units_meaures" | "items" | "items_details" | "item_categories" | "item_category_prices" | "dirties" | "dirty_details" | "dirty_detail_rounds" | "customer_group_types" | "customer_groups" | "stock_locations" | "shelfcounts" | "shelfcount_details" | "damages" | "damage_details" | "ships" | "new_linens" | "new_linen_details" | "repair_washs" | "repair_wash_details" | "cleans" | "clean_details" | "return_washs" | "retrun_wash_details" | "unregistered_items" | "round_time_dirties" | "round_time_express" | "round_time_shelf_count_express" | "round_time_clean" | "round_time_factory"
+      modelProps: "user" | "verification_token" | "password_reset_token" | "notifications" | "permission" | "sale_offices" | "user_sale_offices" | "departments" | "factory_sale_office" | "factories" | "machines" | "contact" | "sap_sale" | "materials" | "material_types" | "item_units_meaures" | "items" | "items_details" | "item_categories" | "item_category_prices" | "dirties" | "dirty_details" | "dirty_detail_rounds" | "sale_office_group_types" | "sale_office_groups" | "stock_locations" | "shelfcounts" | "shelfcount_details" | "damages" | "damage_details" | "ships" | "new_linens" | "new_linen_details" | "repair_washs" | "repair_wash_details" | "cleans" | "clean_details" | "return_washs" | "retrun_wash_details" | "unregistered_items" | "round_time_dirties" | "round_time_express" | "round_time_shelf_count_express" | "round_time_clean" | "round_time_factory"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -2838,135 +2838,135 @@ export namespace Prisma {
           }
         }
       }
-      customer_group_types: {
-        payload: Prisma.$customer_group_typesPayload<ExtArgs>
-        fields: Prisma.customer_group_typesFieldRefs
+      sale_office_group_types: {
+        payload: Prisma.$sale_office_group_typesPayload<ExtArgs>
+        fields: Prisma.sale_office_group_typesFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.customer_group_typesFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$customer_group_typesPayload> | null
+            args: Prisma.sale_office_group_typesFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sale_office_group_typesPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.customer_group_typesFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$customer_group_typesPayload>
+            args: Prisma.sale_office_group_typesFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sale_office_group_typesPayload>
           }
           findFirst: {
-            args: Prisma.customer_group_typesFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$customer_group_typesPayload> | null
+            args: Prisma.sale_office_group_typesFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sale_office_group_typesPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.customer_group_typesFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$customer_group_typesPayload>
+            args: Prisma.sale_office_group_typesFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sale_office_group_typesPayload>
           }
           findMany: {
-            args: Prisma.customer_group_typesFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$customer_group_typesPayload>[]
+            args: Prisma.sale_office_group_typesFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sale_office_group_typesPayload>[]
           }
           create: {
-            args: Prisma.customer_group_typesCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$customer_group_typesPayload>
+            args: Prisma.sale_office_group_typesCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sale_office_group_typesPayload>
           }
           createMany: {
-            args: Prisma.customer_group_typesCreateManyArgs<ExtArgs>
+            args: Prisma.sale_office_group_typesCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           delete: {
-            args: Prisma.customer_group_typesDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$customer_group_typesPayload>
+            args: Prisma.sale_office_group_typesDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sale_office_group_typesPayload>
           }
           update: {
-            args: Prisma.customer_group_typesUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$customer_group_typesPayload>
+            args: Prisma.sale_office_group_typesUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sale_office_group_typesPayload>
           }
           deleteMany: {
-            args: Prisma.customer_group_typesDeleteManyArgs<ExtArgs>
+            args: Prisma.sale_office_group_typesDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.customer_group_typesUpdateManyArgs<ExtArgs>
+            args: Prisma.sale_office_group_typesUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           upsert: {
-            args: Prisma.customer_group_typesUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$customer_group_typesPayload>
+            args: Prisma.sale_office_group_typesUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sale_office_group_typesPayload>
           }
           aggregate: {
-            args: Prisma.Customer_group_typesAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateCustomer_group_types>
+            args: Prisma.Sale_office_group_typesAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSale_office_group_types>
           }
           groupBy: {
-            args: Prisma.customer_group_typesGroupByArgs<ExtArgs>
-            result: $Utils.Optional<Customer_group_typesGroupByOutputType>[]
+            args: Prisma.sale_office_group_typesGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Sale_office_group_typesGroupByOutputType>[]
           }
           count: {
-            args: Prisma.customer_group_typesCountArgs<ExtArgs>
-            result: $Utils.Optional<Customer_group_typesCountAggregateOutputType> | number
+            args: Prisma.sale_office_group_typesCountArgs<ExtArgs>
+            result: $Utils.Optional<Sale_office_group_typesCountAggregateOutputType> | number
           }
         }
       }
-      customer_groups: {
-        payload: Prisma.$customer_groupsPayload<ExtArgs>
-        fields: Prisma.customer_groupsFieldRefs
+      sale_office_groups: {
+        payload: Prisma.$sale_office_groupsPayload<ExtArgs>
+        fields: Prisma.sale_office_groupsFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.customer_groupsFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$customer_groupsPayload> | null
+            args: Prisma.sale_office_groupsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sale_office_groupsPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.customer_groupsFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$customer_groupsPayload>
+            args: Prisma.sale_office_groupsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sale_office_groupsPayload>
           }
           findFirst: {
-            args: Prisma.customer_groupsFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$customer_groupsPayload> | null
+            args: Prisma.sale_office_groupsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sale_office_groupsPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.customer_groupsFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$customer_groupsPayload>
+            args: Prisma.sale_office_groupsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sale_office_groupsPayload>
           }
           findMany: {
-            args: Prisma.customer_groupsFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$customer_groupsPayload>[]
+            args: Prisma.sale_office_groupsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sale_office_groupsPayload>[]
           }
           create: {
-            args: Prisma.customer_groupsCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$customer_groupsPayload>
+            args: Prisma.sale_office_groupsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sale_office_groupsPayload>
           }
           createMany: {
-            args: Prisma.customer_groupsCreateManyArgs<ExtArgs>
+            args: Prisma.sale_office_groupsCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           delete: {
-            args: Prisma.customer_groupsDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$customer_groupsPayload>
+            args: Prisma.sale_office_groupsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sale_office_groupsPayload>
           }
           update: {
-            args: Prisma.customer_groupsUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$customer_groupsPayload>
+            args: Prisma.sale_office_groupsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sale_office_groupsPayload>
           }
           deleteMany: {
-            args: Prisma.customer_groupsDeleteManyArgs<ExtArgs>
+            args: Prisma.sale_office_groupsDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.customer_groupsUpdateManyArgs<ExtArgs>
+            args: Prisma.sale_office_groupsUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           upsert: {
-            args: Prisma.customer_groupsUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$customer_groupsPayload>
+            args: Prisma.sale_office_groupsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sale_office_groupsPayload>
           }
           aggregate: {
-            args: Prisma.Customer_groupsAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateCustomer_groups>
+            args: Prisma.Sale_office_groupsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSale_office_groups>
           }
           groupBy: {
-            args: Prisma.customer_groupsGroupByArgs<ExtArgs>
-            result: $Utils.Optional<Customer_groupsGroupByOutputType>[]
+            args: Prisma.sale_office_groupsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Sale_office_groupsGroupByOutputType>[]
           }
           count: {
-            args: Prisma.customer_groupsCountArgs<ExtArgs>
-            result: $Utils.Optional<Customer_groupsCountAggregateOutputType> | number
+            args: Prisma.sale_office_groupsCountArgs<ExtArgs>
+            result: $Utils.Optional<Sale_office_groupsCountAggregateOutputType> | number
           }
         }
       }
@@ -4405,8 +4405,8 @@ export namespace Prisma {
     dirties?: dirtiesOmit
     dirty_details?: dirty_detailsOmit
     dirty_detail_rounds?: dirty_detail_roundsOmit
-    customer_group_types?: customer_group_typesOmit
-    customer_groups?: customer_groupsOmit
+    sale_office_group_types?: sale_office_group_typesOmit
+    sale_office_groups?: sale_office_groupsOmit
     stock_locations?: stock_locationsOmit
     shelfcounts?: shelfcountsOmit
     shelfcount_details?: shelfcount_detailsOmit
@@ -28125,36 +28125,26 @@ export namespace Prisma {
 
 
   /**
-   * Model customer_group_types
+   * Model sale_office_group_types
    */
 
-  export type AggregateCustomer_group_types = {
-    _count: Customer_group_typesCountAggregateOutputType | null
-    _avg: Customer_group_typesAvgAggregateOutputType | null
-    _sum: Customer_group_typesSumAggregateOutputType | null
-    _min: Customer_group_typesMinAggregateOutputType | null
-    _max: Customer_group_typesMaxAggregateOutputType | null
+  export type AggregateSale_office_group_types = {
+    _count: Sale_office_group_typesCountAggregateOutputType | null
+    _avg: Sale_office_group_typesAvgAggregateOutputType | null
+    _sum: Sale_office_group_typesSumAggregateOutputType | null
+    _min: Sale_office_group_typesMinAggregateOutputType | null
+    _max: Sale_office_group_typesMaxAggregateOutputType | null
   }
 
-  export type Customer_group_typesAvgAggregateOutputType = {
+  export type Sale_office_group_typesAvgAggregateOutputType = {
     id: number | null
   }
 
-  export type Customer_group_typesSumAggregateOutputType = {
+  export type Sale_office_group_typesSumAggregateOutputType = {
     id: number | null
   }
 
-  export type Customer_group_typesMinAggregateOutputType = {
-    id: number | null
-    level: string | null
-    group: string | null
-    type: string | null
-    status: boolean | null
-    create_at: Date | null
-    update_at: Date | null
-  }
-
-  export type Customer_group_typesMaxAggregateOutputType = {
+  export type Sale_office_group_typesMinAggregateOutputType = {
     id: number | null
     level: string | null
     group: string | null
@@ -28164,7 +28154,17 @@ export namespace Prisma {
     update_at: Date | null
   }
 
-  export type Customer_group_typesCountAggregateOutputType = {
+  export type Sale_office_group_typesMaxAggregateOutputType = {
+    id: number | null
+    level: string | null
+    group: string | null
+    type: string | null
+    status: boolean | null
+    create_at: Date | null
+    update_at: Date | null
+  }
+
+  export type Sale_office_group_typesCountAggregateOutputType = {
     id: number
     level: number
     group: number
@@ -28176,25 +28176,15 @@ export namespace Prisma {
   }
 
 
-  export type Customer_group_typesAvgAggregateInputType = {
+  export type Sale_office_group_typesAvgAggregateInputType = {
     id?: true
   }
 
-  export type Customer_group_typesSumAggregateInputType = {
+  export type Sale_office_group_typesSumAggregateInputType = {
     id?: true
   }
 
-  export type Customer_group_typesMinAggregateInputType = {
-    id?: true
-    level?: true
-    group?: true
-    type?: true
-    status?: true
-    create_at?: true
-    update_at?: true
-  }
-
-  export type Customer_group_typesMaxAggregateInputType = {
+  export type Sale_office_group_typesMinAggregateInputType = {
     id?: true
     level?: true
     group?: true
@@ -28204,7 +28194,17 @@ export namespace Prisma {
     update_at?: true
   }
 
-  export type Customer_group_typesCountAggregateInputType = {
+  export type Sale_office_group_typesMaxAggregateInputType = {
+    id?: true
+    level?: true
+    group?: true
+    type?: true
+    status?: true
+    create_at?: true
+    update_at?: true
+  }
+
+  export type Sale_office_group_typesCountAggregateInputType = {
     id?: true
     level?: true
     group?: true
@@ -28215,93 +28215,93 @@ export namespace Prisma {
     _all?: true
   }
 
-  export type Customer_group_typesAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Sale_office_group_typesAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which customer_group_types to aggregate.
+     * Filter which sale_office_group_types to aggregate.
      */
-    where?: customer_group_typesWhereInput
+    where?: sale_office_group_typesWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of customer_group_types to fetch.
+     * Determine the order of sale_office_group_types to fetch.
      */
-    orderBy?: customer_group_typesOrderByWithRelationInput | customer_group_typesOrderByWithRelationInput[]
+    orderBy?: sale_office_group_typesOrderByWithRelationInput | sale_office_group_typesOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: customer_group_typesWhereUniqueInput
+    cursor?: sale_office_group_typesWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` customer_group_types from the position of the cursor.
+     * Take `±n` sale_office_group_types from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` customer_group_types.
+     * Skip the first `n` sale_office_group_types.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned customer_group_types
+     * Count returned sale_office_group_types
     **/
-    _count?: true | Customer_group_typesCountAggregateInputType
+    _count?: true | Sale_office_group_typesCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: Customer_group_typesAvgAggregateInputType
+    _avg?: Sale_office_group_typesAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: Customer_group_typesSumAggregateInputType
+    _sum?: Sale_office_group_typesSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: Customer_group_typesMinAggregateInputType
+    _min?: Sale_office_group_typesMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: Customer_group_typesMaxAggregateInputType
+    _max?: Sale_office_group_typesMaxAggregateInputType
   }
 
-  export type GetCustomer_group_typesAggregateType<T extends Customer_group_typesAggregateArgs> = {
-        [P in keyof T & keyof AggregateCustomer_group_types]: P extends '_count' | 'count'
+  export type GetSale_office_group_typesAggregateType<T extends Sale_office_group_typesAggregateArgs> = {
+        [P in keyof T & keyof AggregateSale_office_group_types]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateCustomer_group_types[P]>
-      : GetScalarType<T[P], AggregateCustomer_group_types[P]>
+        : GetScalarType<T[P], AggregateSale_office_group_types[P]>
+      : GetScalarType<T[P], AggregateSale_office_group_types[P]>
   }
 
 
 
 
-  export type customer_group_typesGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: customer_group_typesWhereInput
-    orderBy?: customer_group_typesOrderByWithAggregationInput | customer_group_typesOrderByWithAggregationInput[]
-    by: Customer_group_typesScalarFieldEnum[] | Customer_group_typesScalarFieldEnum
-    having?: customer_group_typesScalarWhereWithAggregatesInput
+  export type sale_office_group_typesGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: sale_office_group_typesWhereInput
+    orderBy?: sale_office_group_typesOrderByWithAggregationInput | sale_office_group_typesOrderByWithAggregationInput[]
+    by: Sale_office_group_typesScalarFieldEnum[] | Sale_office_group_typesScalarFieldEnum
+    having?: sale_office_group_typesScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: Customer_group_typesCountAggregateInputType | true
-    _avg?: Customer_group_typesAvgAggregateInputType
-    _sum?: Customer_group_typesSumAggregateInputType
-    _min?: Customer_group_typesMinAggregateInputType
-    _max?: Customer_group_typesMaxAggregateInputType
+    _count?: Sale_office_group_typesCountAggregateInputType | true
+    _avg?: Sale_office_group_typesAvgAggregateInputType
+    _sum?: Sale_office_group_typesSumAggregateInputType
+    _min?: Sale_office_group_typesMinAggregateInputType
+    _max?: Sale_office_group_typesMaxAggregateInputType
   }
 
-  export type Customer_group_typesGroupByOutputType = {
+  export type Sale_office_group_typesGroupByOutputType = {
     id: number
     level: string
     group: string
@@ -28309,28 +28309,28 @@ export namespace Prisma {
     status: boolean
     create_at: Date
     update_at: Date
-    _count: Customer_group_typesCountAggregateOutputType | null
-    _avg: Customer_group_typesAvgAggregateOutputType | null
-    _sum: Customer_group_typesSumAggregateOutputType | null
-    _min: Customer_group_typesMinAggregateOutputType | null
-    _max: Customer_group_typesMaxAggregateOutputType | null
+    _count: Sale_office_group_typesCountAggregateOutputType | null
+    _avg: Sale_office_group_typesAvgAggregateOutputType | null
+    _sum: Sale_office_group_typesSumAggregateOutputType | null
+    _min: Sale_office_group_typesMinAggregateOutputType | null
+    _max: Sale_office_group_typesMaxAggregateOutputType | null
   }
 
-  type GetCustomer_group_typesGroupByPayload<T extends customer_group_typesGroupByArgs> = Prisma.PrismaPromise<
+  type GetSale_office_group_typesGroupByPayload<T extends sale_office_group_typesGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<Customer_group_typesGroupByOutputType, T['by']> &
+      PickEnumerable<Sale_office_group_typesGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof Customer_group_typesGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof Sale_office_group_typesGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], Customer_group_typesGroupByOutputType[P]>
-            : GetScalarType<T[P], Customer_group_typesGroupByOutputType[P]>
+              : GetScalarType<T[P], Sale_office_group_typesGroupByOutputType[P]>
+            : GetScalarType<T[P], Sale_office_group_typesGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type customer_group_typesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type sale_office_group_typesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     level?: boolean
     group?: boolean
@@ -28338,11 +28338,11 @@ export namespace Prisma {
     status?: boolean
     create_at?: boolean
     update_at?: boolean
-  }, ExtArgs["result"]["customer_group_types"]>
+  }, ExtArgs["result"]["sale_office_group_types"]>
 
 
 
-  export type customer_group_typesSelectScalar = {
+  export type sale_office_group_typesSelectScalar = {
     id?: boolean
     level?: boolean
     group?: boolean
@@ -28352,10 +28352,10 @@ export namespace Prisma {
     update_at?: boolean
   }
 
-  export type customer_group_typesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "level" | "group" | "type" | "status" | "create_at" | "update_at", ExtArgs["result"]["customer_group_types"]>
+  export type sale_office_group_typesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "level" | "group" | "type" | "status" | "create_at" | "update_at", ExtArgs["result"]["sale_office_group_types"]>
 
-  export type $customer_group_typesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "customer_group_types"
+  export type $sale_office_group_typesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "sale_office_group_types"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -28365,143 +28365,143 @@ export namespace Prisma {
       status: boolean
       create_at: Date
       update_at: Date
-    }, ExtArgs["result"]["customer_group_types"]>
+    }, ExtArgs["result"]["sale_office_group_types"]>
     composites: {}
   }
 
-  type customer_group_typesGetPayload<S extends boolean | null | undefined | customer_group_typesDefaultArgs> = $Result.GetResult<Prisma.$customer_group_typesPayload, S>
+  type sale_office_group_typesGetPayload<S extends boolean | null | undefined | sale_office_group_typesDefaultArgs> = $Result.GetResult<Prisma.$sale_office_group_typesPayload, S>
 
-  type customer_group_typesCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<customer_group_typesFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: Customer_group_typesCountAggregateInputType | true
+  type sale_office_group_typesCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<sale_office_group_typesFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Sale_office_group_typesCountAggregateInputType | true
     }
 
-  export interface customer_group_typesDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['customer_group_types'], meta: { name: 'customer_group_types' } }
+  export interface sale_office_group_typesDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['sale_office_group_types'], meta: { name: 'sale_office_group_types' } }
     /**
-     * Find zero or one Customer_group_types that matches the filter.
-     * @param {customer_group_typesFindUniqueArgs} args - Arguments to find a Customer_group_types
+     * Find zero or one Sale_office_group_types that matches the filter.
+     * @param {sale_office_group_typesFindUniqueArgs} args - Arguments to find a Sale_office_group_types
      * @example
-     * // Get one Customer_group_types
-     * const customer_group_types = await prisma.customer_group_types.findUnique({
+     * // Get one Sale_office_group_types
+     * const sale_office_group_types = await prisma.sale_office_group_types.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends customer_group_typesFindUniqueArgs>(args: SelectSubset<T, customer_group_typesFindUniqueArgs<ExtArgs>>): Prisma__customer_group_typesClient<$Result.GetResult<Prisma.$customer_group_typesPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends sale_office_group_typesFindUniqueArgs>(args: SelectSubset<T, sale_office_group_typesFindUniqueArgs<ExtArgs>>): Prisma__sale_office_group_typesClient<$Result.GetResult<Prisma.$sale_office_group_typesPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Customer_group_types that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Sale_office_group_types that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {customer_group_typesFindUniqueOrThrowArgs} args - Arguments to find a Customer_group_types
+     * @param {sale_office_group_typesFindUniqueOrThrowArgs} args - Arguments to find a Sale_office_group_types
      * @example
-     * // Get one Customer_group_types
-     * const customer_group_types = await prisma.customer_group_types.findUniqueOrThrow({
+     * // Get one Sale_office_group_types
+     * const sale_office_group_types = await prisma.sale_office_group_types.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends customer_group_typesFindUniqueOrThrowArgs>(args: SelectSubset<T, customer_group_typesFindUniqueOrThrowArgs<ExtArgs>>): Prisma__customer_group_typesClient<$Result.GetResult<Prisma.$customer_group_typesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends sale_office_group_typesFindUniqueOrThrowArgs>(args: SelectSubset<T, sale_office_group_typesFindUniqueOrThrowArgs<ExtArgs>>): Prisma__sale_office_group_typesClient<$Result.GetResult<Prisma.$sale_office_group_typesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Customer_group_types that matches the filter.
+     * Find the first Sale_office_group_types that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {customer_group_typesFindFirstArgs} args - Arguments to find a Customer_group_types
+     * @param {sale_office_group_typesFindFirstArgs} args - Arguments to find a Sale_office_group_types
      * @example
-     * // Get one Customer_group_types
-     * const customer_group_types = await prisma.customer_group_types.findFirst({
+     * // Get one Sale_office_group_types
+     * const sale_office_group_types = await prisma.sale_office_group_types.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends customer_group_typesFindFirstArgs>(args?: SelectSubset<T, customer_group_typesFindFirstArgs<ExtArgs>>): Prisma__customer_group_typesClient<$Result.GetResult<Prisma.$customer_group_typesPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends sale_office_group_typesFindFirstArgs>(args?: SelectSubset<T, sale_office_group_typesFindFirstArgs<ExtArgs>>): Prisma__sale_office_group_typesClient<$Result.GetResult<Prisma.$sale_office_group_typesPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Customer_group_types that matches the filter or
+     * Find the first Sale_office_group_types that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {customer_group_typesFindFirstOrThrowArgs} args - Arguments to find a Customer_group_types
+     * @param {sale_office_group_typesFindFirstOrThrowArgs} args - Arguments to find a Sale_office_group_types
      * @example
-     * // Get one Customer_group_types
-     * const customer_group_types = await prisma.customer_group_types.findFirstOrThrow({
+     * // Get one Sale_office_group_types
+     * const sale_office_group_types = await prisma.sale_office_group_types.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends customer_group_typesFindFirstOrThrowArgs>(args?: SelectSubset<T, customer_group_typesFindFirstOrThrowArgs<ExtArgs>>): Prisma__customer_group_typesClient<$Result.GetResult<Prisma.$customer_group_typesPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends sale_office_group_typesFindFirstOrThrowArgs>(args?: SelectSubset<T, sale_office_group_typesFindFirstOrThrowArgs<ExtArgs>>): Prisma__sale_office_group_typesClient<$Result.GetResult<Prisma.$sale_office_group_typesPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Customer_group_types that matches the filter.
+     * Find zero or more Sale_office_group_types that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {customer_group_typesFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {sale_office_group_typesFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Customer_group_types
-     * const customer_group_types = await prisma.customer_group_types.findMany()
+     * // Get all Sale_office_group_types
+     * const sale_office_group_types = await prisma.sale_office_group_types.findMany()
      * 
-     * // Get first 10 Customer_group_types
-     * const customer_group_types = await prisma.customer_group_types.findMany({ take: 10 })
+     * // Get first 10 Sale_office_group_types
+     * const sale_office_group_types = await prisma.sale_office_group_types.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const customer_group_typesWithIdOnly = await prisma.customer_group_types.findMany({ select: { id: true } })
+     * const sale_office_group_typesWithIdOnly = await prisma.sale_office_group_types.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends customer_group_typesFindManyArgs>(args?: SelectSubset<T, customer_group_typesFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$customer_group_typesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends sale_office_group_typesFindManyArgs>(args?: SelectSubset<T, sale_office_group_typesFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$sale_office_group_typesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Customer_group_types.
-     * @param {customer_group_typesCreateArgs} args - Arguments to create a Customer_group_types.
+     * Create a Sale_office_group_types.
+     * @param {sale_office_group_typesCreateArgs} args - Arguments to create a Sale_office_group_types.
      * @example
-     * // Create one Customer_group_types
-     * const Customer_group_types = await prisma.customer_group_types.create({
+     * // Create one Sale_office_group_types
+     * const Sale_office_group_types = await prisma.sale_office_group_types.create({
      *   data: {
-     *     // ... data to create a Customer_group_types
+     *     // ... data to create a Sale_office_group_types
      *   }
      * })
      * 
      */
-    create<T extends customer_group_typesCreateArgs>(args: SelectSubset<T, customer_group_typesCreateArgs<ExtArgs>>): Prisma__customer_group_typesClient<$Result.GetResult<Prisma.$customer_group_typesPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends sale_office_group_typesCreateArgs>(args: SelectSubset<T, sale_office_group_typesCreateArgs<ExtArgs>>): Prisma__sale_office_group_typesClient<$Result.GetResult<Prisma.$sale_office_group_typesPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Customer_group_types.
-     * @param {customer_group_typesCreateManyArgs} args - Arguments to create many Customer_group_types.
+     * Create many Sale_office_group_types.
+     * @param {sale_office_group_typesCreateManyArgs} args - Arguments to create many Sale_office_group_types.
      * @example
-     * // Create many Customer_group_types
-     * const customer_group_types = await prisma.customer_group_types.createMany({
+     * // Create many Sale_office_group_types
+     * const sale_office_group_types = await prisma.sale_office_group_types.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends customer_group_typesCreateManyArgs>(args?: SelectSubset<T, customer_group_typesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends sale_office_group_typesCreateManyArgs>(args?: SelectSubset<T, sale_office_group_typesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Delete a Customer_group_types.
-     * @param {customer_group_typesDeleteArgs} args - Arguments to delete one Customer_group_types.
+     * Delete a Sale_office_group_types.
+     * @param {sale_office_group_typesDeleteArgs} args - Arguments to delete one Sale_office_group_types.
      * @example
-     * // Delete one Customer_group_types
-     * const Customer_group_types = await prisma.customer_group_types.delete({
+     * // Delete one Sale_office_group_types
+     * const Sale_office_group_types = await prisma.sale_office_group_types.delete({
      *   where: {
-     *     // ... filter to delete one Customer_group_types
+     *     // ... filter to delete one Sale_office_group_types
      *   }
      * })
      * 
      */
-    delete<T extends customer_group_typesDeleteArgs>(args: SelectSubset<T, customer_group_typesDeleteArgs<ExtArgs>>): Prisma__customer_group_typesClient<$Result.GetResult<Prisma.$customer_group_typesPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends sale_office_group_typesDeleteArgs>(args: SelectSubset<T, sale_office_group_typesDeleteArgs<ExtArgs>>): Prisma__sale_office_group_typesClient<$Result.GetResult<Prisma.$sale_office_group_typesPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Customer_group_types.
-     * @param {customer_group_typesUpdateArgs} args - Arguments to update one Customer_group_types.
+     * Update one Sale_office_group_types.
+     * @param {sale_office_group_typesUpdateArgs} args - Arguments to update one Sale_office_group_types.
      * @example
-     * // Update one Customer_group_types
-     * const customer_group_types = await prisma.customer_group_types.update({
+     * // Update one Sale_office_group_types
+     * const sale_office_group_types = await prisma.sale_office_group_types.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -28511,30 +28511,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends customer_group_typesUpdateArgs>(args: SelectSubset<T, customer_group_typesUpdateArgs<ExtArgs>>): Prisma__customer_group_typesClient<$Result.GetResult<Prisma.$customer_group_typesPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends sale_office_group_typesUpdateArgs>(args: SelectSubset<T, sale_office_group_typesUpdateArgs<ExtArgs>>): Prisma__sale_office_group_typesClient<$Result.GetResult<Prisma.$sale_office_group_typesPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Customer_group_types.
-     * @param {customer_group_typesDeleteManyArgs} args - Arguments to filter Customer_group_types to delete.
+     * Delete zero or more Sale_office_group_types.
+     * @param {sale_office_group_typesDeleteManyArgs} args - Arguments to filter Sale_office_group_types to delete.
      * @example
-     * // Delete a few Customer_group_types
-     * const { count } = await prisma.customer_group_types.deleteMany({
+     * // Delete a few Sale_office_group_types
+     * const { count } = await prisma.sale_office_group_types.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends customer_group_typesDeleteManyArgs>(args?: SelectSubset<T, customer_group_typesDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends sale_office_group_typesDeleteManyArgs>(args?: SelectSubset<T, sale_office_group_typesDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Customer_group_types.
+     * Update zero or more Sale_office_group_types.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {customer_group_typesUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {sale_office_group_typesUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Customer_group_types
-     * const customer_group_types = await prisma.customer_group_types.updateMany({
+     * // Update many Sale_office_group_types
+     * const sale_office_group_types = await prisma.sale_office_group_types.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -28544,56 +28544,56 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends customer_group_typesUpdateManyArgs>(args: SelectSubset<T, customer_group_typesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends sale_office_group_typesUpdateManyArgs>(args: SelectSubset<T, sale_office_group_typesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one Customer_group_types.
-     * @param {customer_group_typesUpsertArgs} args - Arguments to update or create a Customer_group_types.
+     * Create or update one Sale_office_group_types.
+     * @param {sale_office_group_typesUpsertArgs} args - Arguments to update or create a Sale_office_group_types.
      * @example
-     * // Update or create a Customer_group_types
-     * const customer_group_types = await prisma.customer_group_types.upsert({
+     * // Update or create a Sale_office_group_types
+     * const sale_office_group_types = await prisma.sale_office_group_types.upsert({
      *   create: {
-     *     // ... data to create a Customer_group_types
+     *     // ... data to create a Sale_office_group_types
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Customer_group_types we want to update
+     *     // ... the filter for the Sale_office_group_types we want to update
      *   }
      * })
      */
-    upsert<T extends customer_group_typesUpsertArgs>(args: SelectSubset<T, customer_group_typesUpsertArgs<ExtArgs>>): Prisma__customer_group_typesClient<$Result.GetResult<Prisma.$customer_group_typesPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends sale_office_group_typesUpsertArgs>(args: SelectSubset<T, sale_office_group_typesUpsertArgs<ExtArgs>>): Prisma__sale_office_group_typesClient<$Result.GetResult<Prisma.$sale_office_group_typesPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Customer_group_types.
+     * Count the number of Sale_office_group_types.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {customer_group_typesCountArgs} args - Arguments to filter Customer_group_types to count.
+     * @param {sale_office_group_typesCountArgs} args - Arguments to filter Sale_office_group_types to count.
      * @example
-     * // Count the number of Customer_group_types
-     * const count = await prisma.customer_group_types.count({
+     * // Count the number of Sale_office_group_types
+     * const count = await prisma.sale_office_group_types.count({
      *   where: {
-     *     // ... the filter for the Customer_group_types we want to count
+     *     // ... the filter for the Sale_office_group_types we want to count
      *   }
      * })
     **/
-    count<T extends customer_group_typesCountArgs>(
-      args?: Subset<T, customer_group_typesCountArgs>,
+    count<T extends sale_office_group_typesCountArgs>(
+      args?: Subset<T, sale_office_group_typesCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], Customer_group_typesCountAggregateOutputType>
+          : GetScalarType<T['select'], Sale_office_group_typesCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Customer_group_types.
+     * Allows you to perform aggregations operations on a Sale_office_group_types.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {Customer_group_typesAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {Sale_office_group_typesAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -28613,13 +28613,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends Customer_group_typesAggregateArgs>(args: Subset<T, Customer_group_typesAggregateArgs>): Prisma.PrismaPromise<GetCustomer_group_typesAggregateType<T>>
+    aggregate<T extends Sale_office_group_typesAggregateArgs>(args: Subset<T, Sale_office_group_typesAggregateArgs>): Prisma.PrismaPromise<GetSale_office_group_typesAggregateType<T>>
 
     /**
-     * Group by Customer_group_types.
+     * Group by Sale_office_group_types.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {customer_group_typesGroupByArgs} args - Group by arguments.
+     * @param {sale_office_group_typesGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -28634,14 +28634,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends customer_group_typesGroupByArgs,
+      T extends sale_office_group_typesGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: customer_group_typesGroupByArgs['orderBy'] }
-        : { orderBy?: customer_group_typesGroupByArgs['orderBy'] },
+        ? { orderBy: sale_office_group_typesGroupByArgs['orderBy'] }
+        : { orderBy?: sale_office_group_typesGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -28690,20 +28690,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, customer_group_typesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCustomer_group_typesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, sale_office_group_typesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSale_office_group_typesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the customer_group_types model
+   * Fields of the sale_office_group_types model
    */
-  readonly fields: customer_group_typesFieldRefs;
+  readonly fields: sale_office_group_typesFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for customer_group_types.
+   * The delegate class that acts as a "Promise-like" for sale_office_group_types.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__customer_group_typesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__sale_office_group_typesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -28731,383 +28731,395 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the customer_group_types model
+   * Fields of the sale_office_group_types model
    */
-  interface customer_group_typesFieldRefs {
-    readonly id: FieldRef<"customer_group_types", 'Int'>
-    readonly level: FieldRef<"customer_group_types", 'String'>
-    readonly group: FieldRef<"customer_group_types", 'String'>
-    readonly type: FieldRef<"customer_group_types", 'String'>
-    readonly status: FieldRef<"customer_group_types", 'Boolean'>
-    readonly create_at: FieldRef<"customer_group_types", 'DateTime'>
-    readonly update_at: FieldRef<"customer_group_types", 'DateTime'>
+  interface sale_office_group_typesFieldRefs {
+    readonly id: FieldRef<"sale_office_group_types", 'Int'>
+    readonly level: FieldRef<"sale_office_group_types", 'String'>
+    readonly group: FieldRef<"sale_office_group_types", 'String'>
+    readonly type: FieldRef<"sale_office_group_types", 'String'>
+    readonly status: FieldRef<"sale_office_group_types", 'Boolean'>
+    readonly create_at: FieldRef<"sale_office_group_types", 'DateTime'>
+    readonly update_at: FieldRef<"sale_office_group_types", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * customer_group_types findUnique
+   * sale_office_group_types findUnique
    */
-  export type customer_group_typesFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type sale_office_group_typesFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the customer_group_types
+     * Select specific fields to fetch from the sale_office_group_types
      */
-    select?: customer_group_typesSelect<ExtArgs> | null
+    select?: sale_office_group_typesSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the customer_group_types
+     * Omit specific fields from the sale_office_group_types
      */
-    omit?: customer_group_typesOmit<ExtArgs> | null
+    omit?: sale_office_group_typesOmit<ExtArgs> | null
     /**
-     * Filter, which customer_group_types to fetch.
+     * Filter, which sale_office_group_types to fetch.
      */
-    where: customer_group_typesWhereUniqueInput
+    where: sale_office_group_typesWhereUniqueInput
   }
 
   /**
-   * customer_group_types findUniqueOrThrow
+   * sale_office_group_types findUniqueOrThrow
    */
-  export type customer_group_typesFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type sale_office_group_typesFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the customer_group_types
+     * Select specific fields to fetch from the sale_office_group_types
      */
-    select?: customer_group_typesSelect<ExtArgs> | null
+    select?: sale_office_group_typesSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the customer_group_types
+     * Omit specific fields from the sale_office_group_types
      */
-    omit?: customer_group_typesOmit<ExtArgs> | null
+    omit?: sale_office_group_typesOmit<ExtArgs> | null
     /**
-     * Filter, which customer_group_types to fetch.
+     * Filter, which sale_office_group_types to fetch.
      */
-    where: customer_group_typesWhereUniqueInput
+    where: sale_office_group_typesWhereUniqueInput
   }
 
   /**
-   * customer_group_types findFirst
+   * sale_office_group_types findFirst
    */
-  export type customer_group_typesFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type sale_office_group_typesFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the customer_group_types
+     * Select specific fields to fetch from the sale_office_group_types
      */
-    select?: customer_group_typesSelect<ExtArgs> | null
+    select?: sale_office_group_typesSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the customer_group_types
+     * Omit specific fields from the sale_office_group_types
      */
-    omit?: customer_group_typesOmit<ExtArgs> | null
+    omit?: sale_office_group_typesOmit<ExtArgs> | null
     /**
-     * Filter, which customer_group_types to fetch.
+     * Filter, which sale_office_group_types to fetch.
      */
-    where?: customer_group_typesWhereInput
+    where?: sale_office_group_typesWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of customer_group_types to fetch.
+     * Determine the order of sale_office_group_types to fetch.
      */
-    orderBy?: customer_group_typesOrderByWithRelationInput | customer_group_typesOrderByWithRelationInput[]
+    orderBy?: sale_office_group_typesOrderByWithRelationInput | sale_office_group_typesOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for customer_group_types.
+     * Sets the position for searching for sale_office_group_types.
      */
-    cursor?: customer_group_typesWhereUniqueInput
+    cursor?: sale_office_group_typesWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` customer_group_types from the position of the cursor.
+     * Take `±n` sale_office_group_types from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` customer_group_types.
+     * Skip the first `n` sale_office_group_types.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of customer_group_types.
+     * Filter by unique combinations of sale_office_group_types.
      */
-    distinct?: Customer_group_typesScalarFieldEnum | Customer_group_typesScalarFieldEnum[]
+    distinct?: Sale_office_group_typesScalarFieldEnum | Sale_office_group_typesScalarFieldEnum[]
   }
 
   /**
-   * customer_group_types findFirstOrThrow
+   * sale_office_group_types findFirstOrThrow
    */
-  export type customer_group_typesFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type sale_office_group_typesFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the customer_group_types
+     * Select specific fields to fetch from the sale_office_group_types
      */
-    select?: customer_group_typesSelect<ExtArgs> | null
+    select?: sale_office_group_typesSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the customer_group_types
+     * Omit specific fields from the sale_office_group_types
      */
-    omit?: customer_group_typesOmit<ExtArgs> | null
+    omit?: sale_office_group_typesOmit<ExtArgs> | null
     /**
-     * Filter, which customer_group_types to fetch.
+     * Filter, which sale_office_group_types to fetch.
      */
-    where?: customer_group_typesWhereInput
+    where?: sale_office_group_typesWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of customer_group_types to fetch.
+     * Determine the order of sale_office_group_types to fetch.
      */
-    orderBy?: customer_group_typesOrderByWithRelationInput | customer_group_typesOrderByWithRelationInput[]
+    orderBy?: sale_office_group_typesOrderByWithRelationInput | sale_office_group_typesOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for customer_group_types.
+     * Sets the position for searching for sale_office_group_types.
      */
-    cursor?: customer_group_typesWhereUniqueInput
+    cursor?: sale_office_group_typesWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` customer_group_types from the position of the cursor.
+     * Take `±n` sale_office_group_types from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` customer_group_types.
+     * Skip the first `n` sale_office_group_types.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of customer_group_types.
+     * Filter by unique combinations of sale_office_group_types.
      */
-    distinct?: Customer_group_typesScalarFieldEnum | Customer_group_typesScalarFieldEnum[]
+    distinct?: Sale_office_group_typesScalarFieldEnum | Sale_office_group_typesScalarFieldEnum[]
   }
 
   /**
-   * customer_group_types findMany
+   * sale_office_group_types findMany
    */
-  export type customer_group_typesFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type sale_office_group_typesFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the customer_group_types
+     * Select specific fields to fetch from the sale_office_group_types
      */
-    select?: customer_group_typesSelect<ExtArgs> | null
+    select?: sale_office_group_typesSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the customer_group_types
+     * Omit specific fields from the sale_office_group_types
      */
-    omit?: customer_group_typesOmit<ExtArgs> | null
+    omit?: sale_office_group_typesOmit<ExtArgs> | null
     /**
-     * Filter, which customer_group_types to fetch.
+     * Filter, which sale_office_group_types to fetch.
      */
-    where?: customer_group_typesWhereInput
+    where?: sale_office_group_typesWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of customer_group_types to fetch.
+     * Determine the order of sale_office_group_types to fetch.
      */
-    orderBy?: customer_group_typesOrderByWithRelationInput | customer_group_typesOrderByWithRelationInput[]
+    orderBy?: sale_office_group_typesOrderByWithRelationInput | sale_office_group_typesOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing customer_group_types.
+     * Sets the position for listing sale_office_group_types.
      */
-    cursor?: customer_group_typesWhereUniqueInput
+    cursor?: sale_office_group_typesWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` customer_group_types from the position of the cursor.
+     * Take `±n` sale_office_group_types from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` customer_group_types.
+     * Skip the first `n` sale_office_group_types.
      */
     skip?: number
-    distinct?: Customer_group_typesScalarFieldEnum | Customer_group_typesScalarFieldEnum[]
+    distinct?: Sale_office_group_typesScalarFieldEnum | Sale_office_group_typesScalarFieldEnum[]
   }
 
   /**
-   * customer_group_types create
+   * sale_office_group_types create
    */
-  export type customer_group_typesCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type sale_office_group_typesCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the customer_group_types
+     * Select specific fields to fetch from the sale_office_group_types
      */
-    select?: customer_group_typesSelect<ExtArgs> | null
+    select?: sale_office_group_typesSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the customer_group_types
+     * Omit specific fields from the sale_office_group_types
      */
-    omit?: customer_group_typesOmit<ExtArgs> | null
+    omit?: sale_office_group_typesOmit<ExtArgs> | null
     /**
-     * The data needed to create a customer_group_types.
+     * The data needed to create a sale_office_group_types.
      */
-    data: XOR<customer_group_typesCreateInput, customer_group_typesUncheckedCreateInput>
+    data: XOR<sale_office_group_typesCreateInput, sale_office_group_typesUncheckedCreateInput>
   }
 
   /**
-   * customer_group_types createMany
+   * sale_office_group_types createMany
    */
-  export type customer_group_typesCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type sale_office_group_typesCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many customer_group_types.
+     * The data used to create many sale_office_group_types.
      */
-    data: customer_group_typesCreateManyInput | customer_group_typesCreateManyInput[]
+    data: sale_office_group_typesCreateManyInput | sale_office_group_typesCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * customer_group_types update
+   * sale_office_group_types update
    */
-  export type customer_group_typesUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type sale_office_group_typesUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the customer_group_types
+     * Select specific fields to fetch from the sale_office_group_types
      */
-    select?: customer_group_typesSelect<ExtArgs> | null
+    select?: sale_office_group_typesSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the customer_group_types
+     * Omit specific fields from the sale_office_group_types
      */
-    omit?: customer_group_typesOmit<ExtArgs> | null
+    omit?: sale_office_group_typesOmit<ExtArgs> | null
     /**
-     * The data needed to update a customer_group_types.
+     * The data needed to update a sale_office_group_types.
      */
-    data: XOR<customer_group_typesUpdateInput, customer_group_typesUncheckedUpdateInput>
+    data: XOR<sale_office_group_typesUpdateInput, sale_office_group_typesUncheckedUpdateInput>
     /**
-     * Choose, which customer_group_types to update.
+     * Choose, which sale_office_group_types to update.
      */
-    where: customer_group_typesWhereUniqueInput
+    where: sale_office_group_typesWhereUniqueInput
   }
 
   /**
-   * customer_group_types updateMany
+   * sale_office_group_types updateMany
    */
-  export type customer_group_typesUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type sale_office_group_typesUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update customer_group_types.
+     * The data used to update sale_office_group_types.
      */
-    data: XOR<customer_group_typesUpdateManyMutationInput, customer_group_typesUncheckedUpdateManyInput>
+    data: XOR<sale_office_group_typesUpdateManyMutationInput, sale_office_group_typesUncheckedUpdateManyInput>
     /**
-     * Filter which customer_group_types to update
+     * Filter which sale_office_group_types to update
      */
-    where?: customer_group_typesWhereInput
+    where?: sale_office_group_typesWhereInput
     /**
-     * Limit how many customer_group_types to update.
+     * Limit how many sale_office_group_types to update.
      */
     limit?: number
   }
 
   /**
-   * customer_group_types upsert
+   * sale_office_group_types upsert
    */
-  export type customer_group_typesUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type sale_office_group_typesUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the customer_group_types
+     * Select specific fields to fetch from the sale_office_group_types
      */
-    select?: customer_group_typesSelect<ExtArgs> | null
+    select?: sale_office_group_typesSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the customer_group_types
+     * Omit specific fields from the sale_office_group_types
      */
-    omit?: customer_group_typesOmit<ExtArgs> | null
+    omit?: sale_office_group_typesOmit<ExtArgs> | null
     /**
-     * The filter to search for the customer_group_types to update in case it exists.
+     * The filter to search for the sale_office_group_types to update in case it exists.
      */
-    where: customer_group_typesWhereUniqueInput
+    where: sale_office_group_typesWhereUniqueInput
     /**
-     * In case the customer_group_types found by the `where` argument doesn't exist, create a new customer_group_types with this data.
+     * In case the sale_office_group_types found by the `where` argument doesn't exist, create a new sale_office_group_types with this data.
      */
-    create: XOR<customer_group_typesCreateInput, customer_group_typesUncheckedCreateInput>
+    create: XOR<sale_office_group_typesCreateInput, sale_office_group_typesUncheckedCreateInput>
     /**
-     * In case the customer_group_types was found with the provided `where` argument, update it with this data.
+     * In case the sale_office_group_types was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<customer_group_typesUpdateInput, customer_group_typesUncheckedUpdateInput>
+    update: XOR<sale_office_group_typesUpdateInput, sale_office_group_typesUncheckedUpdateInput>
   }
 
   /**
-   * customer_group_types delete
+   * sale_office_group_types delete
    */
-  export type customer_group_typesDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type sale_office_group_typesDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the customer_group_types
+     * Select specific fields to fetch from the sale_office_group_types
      */
-    select?: customer_group_typesSelect<ExtArgs> | null
+    select?: sale_office_group_typesSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the customer_group_types
+     * Omit specific fields from the sale_office_group_types
      */
-    omit?: customer_group_typesOmit<ExtArgs> | null
+    omit?: sale_office_group_typesOmit<ExtArgs> | null
     /**
-     * Filter which customer_group_types to delete.
+     * Filter which sale_office_group_types to delete.
      */
-    where: customer_group_typesWhereUniqueInput
+    where: sale_office_group_typesWhereUniqueInput
   }
 
   /**
-   * customer_group_types deleteMany
+   * sale_office_group_types deleteMany
    */
-  export type customer_group_typesDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type sale_office_group_typesDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which customer_group_types to delete
+     * Filter which sale_office_group_types to delete
      */
-    where?: customer_group_typesWhereInput
+    where?: sale_office_group_typesWhereInput
     /**
-     * Limit how many customer_group_types to delete.
+     * Limit how many sale_office_group_types to delete.
      */
     limit?: number
   }
 
   /**
-   * customer_group_types without action
+   * sale_office_group_types without action
    */
-  export type customer_group_typesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type sale_office_group_typesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the customer_group_types
+     * Select specific fields to fetch from the sale_office_group_types
      */
-    select?: customer_group_typesSelect<ExtArgs> | null
+    select?: sale_office_group_typesSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the customer_group_types
+     * Omit specific fields from the sale_office_group_types
      */
-    omit?: customer_group_typesOmit<ExtArgs> | null
+    omit?: sale_office_group_typesOmit<ExtArgs> | null
   }
 
 
   /**
-   * Model customer_groups
+   * Model sale_office_groups
    */
 
-  export type AggregateCustomer_groups = {
-    _count: Customer_groupsCountAggregateOutputType | null
-    _avg: Customer_groupsAvgAggregateOutputType | null
-    _sum: Customer_groupsSumAggregateOutputType | null
-    _min: Customer_groupsMinAggregateOutputType | null
-    _max: Customer_groupsMaxAggregateOutputType | null
+  export type AggregateSale_office_groups = {
+    _count: Sale_office_groupsCountAggregateOutputType | null
+    _avg: Sale_office_groupsAvgAggregateOutputType | null
+    _sum: Sale_office_groupsSumAggregateOutputType | null
+    _min: Sale_office_groupsMinAggregateOutputType | null
+    _max: Sale_office_groupsMaxAggregateOutputType | null
   }
 
-  export type Customer_groupsAvgAggregateOutputType = {
+  export type Sale_office_groupsAvgAggregateOutputType = {
     id: number | null
     sale_office_id: number | null
-    customer_group_type_id: number | null
+    sale_office_group_type_id: number | null
   }
 
-  export type Customer_groupsSumAggregateOutputType = {
+  export type Sale_office_groupsSumAggregateOutputType = {
     id: number | null
     sale_office_id: number | null
-    customer_group_type_id: number | null
+    sale_office_group_type_id: number | null
   }
 
-  export type Customer_groupsMinAggregateOutputType = {
+  export type Sale_office_groupsMinAggregateOutputType = {
     id: number | null
+    name_th: string | null
+    name_en: string | null
+    description: string | null
+    code: string | null
     sale_office_id: number | null
-    customer_group_type_id: number | null
+    sale_office_group_type_id: number | null
     status: boolean | null
     create_at: Date | null
     update_at: Date | null
   }
 
-  export type Customer_groupsMaxAggregateOutputType = {
+  export type Sale_office_groupsMaxAggregateOutputType = {
     id: number | null
+    name_th: string | null
+    name_en: string | null
+    description: string | null
+    code: string | null
     sale_office_id: number | null
-    customer_group_type_id: number | null
+    sale_office_group_type_id: number | null
     status: boolean | null
     create_at: Date | null
     update_at: Date | null
   }
 
-  export type Customer_groupsCountAggregateOutputType = {
+  export type Sale_office_groupsCountAggregateOutputType = {
     id: number
+    name_th: number
+    name_en: number
+    description: number
+    code: number
     sale_office_id: number
-    customer_group_type_id: number
+    sale_office_group_type_id: number
     status: number
     create_at: number
     update_at: number
@@ -29115,329 +29127,357 @@ export namespace Prisma {
   }
 
 
-  export type Customer_groupsAvgAggregateInputType = {
+  export type Sale_office_groupsAvgAggregateInputType = {
     id?: true
     sale_office_id?: true
-    customer_group_type_id?: true
+    sale_office_group_type_id?: true
   }
 
-  export type Customer_groupsSumAggregateInputType = {
+  export type Sale_office_groupsSumAggregateInputType = {
     id?: true
     sale_office_id?: true
-    customer_group_type_id?: true
+    sale_office_group_type_id?: true
   }
 
-  export type Customer_groupsMinAggregateInputType = {
+  export type Sale_office_groupsMinAggregateInputType = {
     id?: true
+    name_th?: true
+    name_en?: true
+    description?: true
+    code?: true
     sale_office_id?: true
-    customer_group_type_id?: true
+    sale_office_group_type_id?: true
     status?: true
     create_at?: true
     update_at?: true
   }
 
-  export type Customer_groupsMaxAggregateInputType = {
+  export type Sale_office_groupsMaxAggregateInputType = {
     id?: true
+    name_th?: true
+    name_en?: true
+    description?: true
+    code?: true
     sale_office_id?: true
-    customer_group_type_id?: true
+    sale_office_group_type_id?: true
     status?: true
     create_at?: true
     update_at?: true
   }
 
-  export type Customer_groupsCountAggregateInputType = {
+  export type Sale_office_groupsCountAggregateInputType = {
     id?: true
+    name_th?: true
+    name_en?: true
+    description?: true
+    code?: true
     sale_office_id?: true
-    customer_group_type_id?: true
+    sale_office_group_type_id?: true
     status?: true
     create_at?: true
     update_at?: true
     _all?: true
   }
 
-  export type Customer_groupsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Sale_office_groupsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which customer_groups to aggregate.
+     * Filter which sale_office_groups to aggregate.
      */
-    where?: customer_groupsWhereInput
+    where?: sale_office_groupsWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of customer_groups to fetch.
+     * Determine the order of sale_office_groups to fetch.
      */
-    orderBy?: customer_groupsOrderByWithRelationInput | customer_groupsOrderByWithRelationInput[]
+    orderBy?: sale_office_groupsOrderByWithRelationInput | sale_office_groupsOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: customer_groupsWhereUniqueInput
+    cursor?: sale_office_groupsWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` customer_groups from the position of the cursor.
+     * Take `±n` sale_office_groups from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` customer_groups.
+     * Skip the first `n` sale_office_groups.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned customer_groups
+     * Count returned sale_office_groups
     **/
-    _count?: true | Customer_groupsCountAggregateInputType
+    _count?: true | Sale_office_groupsCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: Customer_groupsAvgAggregateInputType
+    _avg?: Sale_office_groupsAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: Customer_groupsSumAggregateInputType
+    _sum?: Sale_office_groupsSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: Customer_groupsMinAggregateInputType
+    _min?: Sale_office_groupsMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: Customer_groupsMaxAggregateInputType
+    _max?: Sale_office_groupsMaxAggregateInputType
   }
 
-  export type GetCustomer_groupsAggregateType<T extends Customer_groupsAggregateArgs> = {
-        [P in keyof T & keyof AggregateCustomer_groups]: P extends '_count' | 'count'
+  export type GetSale_office_groupsAggregateType<T extends Sale_office_groupsAggregateArgs> = {
+        [P in keyof T & keyof AggregateSale_office_groups]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateCustomer_groups[P]>
-      : GetScalarType<T[P], AggregateCustomer_groups[P]>
+        : GetScalarType<T[P], AggregateSale_office_groups[P]>
+      : GetScalarType<T[P], AggregateSale_office_groups[P]>
   }
 
 
 
 
-  export type customer_groupsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: customer_groupsWhereInput
-    orderBy?: customer_groupsOrderByWithAggregationInput | customer_groupsOrderByWithAggregationInput[]
-    by: Customer_groupsScalarFieldEnum[] | Customer_groupsScalarFieldEnum
-    having?: customer_groupsScalarWhereWithAggregatesInput
+  export type sale_office_groupsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: sale_office_groupsWhereInput
+    orderBy?: sale_office_groupsOrderByWithAggregationInput | sale_office_groupsOrderByWithAggregationInput[]
+    by: Sale_office_groupsScalarFieldEnum[] | Sale_office_groupsScalarFieldEnum
+    having?: sale_office_groupsScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: Customer_groupsCountAggregateInputType | true
-    _avg?: Customer_groupsAvgAggregateInputType
-    _sum?: Customer_groupsSumAggregateInputType
-    _min?: Customer_groupsMinAggregateInputType
-    _max?: Customer_groupsMaxAggregateInputType
+    _count?: Sale_office_groupsCountAggregateInputType | true
+    _avg?: Sale_office_groupsAvgAggregateInputType
+    _sum?: Sale_office_groupsSumAggregateInputType
+    _min?: Sale_office_groupsMinAggregateInputType
+    _max?: Sale_office_groupsMaxAggregateInputType
   }
 
-  export type Customer_groupsGroupByOutputType = {
+  export type Sale_office_groupsGroupByOutputType = {
     id: number
+    name_th: string
+    name_en: string
+    description: string | null
+    code: string | null
     sale_office_id: number
-    customer_group_type_id: number
+    sale_office_group_type_id: number
     status: boolean
     create_at: Date
     update_at: Date
-    _count: Customer_groupsCountAggregateOutputType | null
-    _avg: Customer_groupsAvgAggregateOutputType | null
-    _sum: Customer_groupsSumAggregateOutputType | null
-    _min: Customer_groupsMinAggregateOutputType | null
-    _max: Customer_groupsMaxAggregateOutputType | null
+    _count: Sale_office_groupsCountAggregateOutputType | null
+    _avg: Sale_office_groupsAvgAggregateOutputType | null
+    _sum: Sale_office_groupsSumAggregateOutputType | null
+    _min: Sale_office_groupsMinAggregateOutputType | null
+    _max: Sale_office_groupsMaxAggregateOutputType | null
   }
 
-  type GetCustomer_groupsGroupByPayload<T extends customer_groupsGroupByArgs> = Prisma.PrismaPromise<
+  type GetSale_office_groupsGroupByPayload<T extends sale_office_groupsGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<Customer_groupsGroupByOutputType, T['by']> &
+      PickEnumerable<Sale_office_groupsGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof Customer_groupsGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof Sale_office_groupsGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], Customer_groupsGroupByOutputType[P]>
-            : GetScalarType<T[P], Customer_groupsGroupByOutputType[P]>
+              : GetScalarType<T[P], Sale_office_groupsGroupByOutputType[P]>
+            : GetScalarType<T[P], Sale_office_groupsGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type customer_groupsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type sale_office_groupsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    name_th?: boolean
+    name_en?: boolean
+    description?: boolean
+    code?: boolean
     sale_office_id?: boolean
-    customer_group_type_id?: boolean
+    sale_office_group_type_id?: boolean
     status?: boolean
     create_at?: boolean
     update_at?: boolean
-  }, ExtArgs["result"]["customer_groups"]>
+  }, ExtArgs["result"]["sale_office_groups"]>
 
 
 
-  export type customer_groupsSelectScalar = {
+  export type sale_office_groupsSelectScalar = {
     id?: boolean
+    name_th?: boolean
+    name_en?: boolean
+    description?: boolean
+    code?: boolean
     sale_office_id?: boolean
-    customer_group_type_id?: boolean
+    sale_office_group_type_id?: boolean
     status?: boolean
     create_at?: boolean
     update_at?: boolean
   }
 
-  export type customer_groupsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "sale_office_id" | "customer_group_type_id" | "status" | "create_at" | "update_at", ExtArgs["result"]["customer_groups"]>
+  export type sale_office_groupsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name_th" | "name_en" | "description" | "code" | "sale_office_id" | "sale_office_group_type_id" | "status" | "create_at" | "update_at", ExtArgs["result"]["sale_office_groups"]>
 
-  export type $customer_groupsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "customer_groups"
+  export type $sale_office_groupsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "sale_office_groups"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: number
+      name_th: string
+      name_en: string
+      description: string | null
+      code: string | null
       sale_office_id: number
-      customer_group_type_id: number
+      sale_office_group_type_id: number
       status: boolean
       create_at: Date
       update_at: Date
-    }, ExtArgs["result"]["customer_groups"]>
+    }, ExtArgs["result"]["sale_office_groups"]>
     composites: {}
   }
 
-  type customer_groupsGetPayload<S extends boolean | null | undefined | customer_groupsDefaultArgs> = $Result.GetResult<Prisma.$customer_groupsPayload, S>
+  type sale_office_groupsGetPayload<S extends boolean | null | undefined | sale_office_groupsDefaultArgs> = $Result.GetResult<Prisma.$sale_office_groupsPayload, S>
 
-  type customer_groupsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<customer_groupsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: Customer_groupsCountAggregateInputType | true
+  type sale_office_groupsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<sale_office_groupsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Sale_office_groupsCountAggregateInputType | true
     }
 
-  export interface customer_groupsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['customer_groups'], meta: { name: 'customer_groups' } }
+  export interface sale_office_groupsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['sale_office_groups'], meta: { name: 'sale_office_groups' } }
     /**
-     * Find zero or one Customer_groups that matches the filter.
-     * @param {customer_groupsFindUniqueArgs} args - Arguments to find a Customer_groups
+     * Find zero or one Sale_office_groups that matches the filter.
+     * @param {sale_office_groupsFindUniqueArgs} args - Arguments to find a Sale_office_groups
      * @example
-     * // Get one Customer_groups
-     * const customer_groups = await prisma.customer_groups.findUnique({
+     * // Get one Sale_office_groups
+     * const sale_office_groups = await prisma.sale_office_groups.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends customer_groupsFindUniqueArgs>(args: SelectSubset<T, customer_groupsFindUniqueArgs<ExtArgs>>): Prisma__customer_groupsClient<$Result.GetResult<Prisma.$customer_groupsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends sale_office_groupsFindUniqueArgs>(args: SelectSubset<T, sale_office_groupsFindUniqueArgs<ExtArgs>>): Prisma__sale_office_groupsClient<$Result.GetResult<Prisma.$sale_office_groupsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Customer_groups that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Sale_office_groups that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {customer_groupsFindUniqueOrThrowArgs} args - Arguments to find a Customer_groups
+     * @param {sale_office_groupsFindUniqueOrThrowArgs} args - Arguments to find a Sale_office_groups
      * @example
-     * // Get one Customer_groups
-     * const customer_groups = await prisma.customer_groups.findUniqueOrThrow({
+     * // Get one Sale_office_groups
+     * const sale_office_groups = await prisma.sale_office_groups.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends customer_groupsFindUniqueOrThrowArgs>(args: SelectSubset<T, customer_groupsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__customer_groupsClient<$Result.GetResult<Prisma.$customer_groupsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends sale_office_groupsFindUniqueOrThrowArgs>(args: SelectSubset<T, sale_office_groupsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__sale_office_groupsClient<$Result.GetResult<Prisma.$sale_office_groupsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Customer_groups that matches the filter.
+     * Find the first Sale_office_groups that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {customer_groupsFindFirstArgs} args - Arguments to find a Customer_groups
+     * @param {sale_office_groupsFindFirstArgs} args - Arguments to find a Sale_office_groups
      * @example
-     * // Get one Customer_groups
-     * const customer_groups = await prisma.customer_groups.findFirst({
+     * // Get one Sale_office_groups
+     * const sale_office_groups = await prisma.sale_office_groups.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends customer_groupsFindFirstArgs>(args?: SelectSubset<T, customer_groupsFindFirstArgs<ExtArgs>>): Prisma__customer_groupsClient<$Result.GetResult<Prisma.$customer_groupsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends sale_office_groupsFindFirstArgs>(args?: SelectSubset<T, sale_office_groupsFindFirstArgs<ExtArgs>>): Prisma__sale_office_groupsClient<$Result.GetResult<Prisma.$sale_office_groupsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Customer_groups that matches the filter or
+     * Find the first Sale_office_groups that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {customer_groupsFindFirstOrThrowArgs} args - Arguments to find a Customer_groups
+     * @param {sale_office_groupsFindFirstOrThrowArgs} args - Arguments to find a Sale_office_groups
      * @example
-     * // Get one Customer_groups
-     * const customer_groups = await prisma.customer_groups.findFirstOrThrow({
+     * // Get one Sale_office_groups
+     * const sale_office_groups = await prisma.sale_office_groups.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends customer_groupsFindFirstOrThrowArgs>(args?: SelectSubset<T, customer_groupsFindFirstOrThrowArgs<ExtArgs>>): Prisma__customer_groupsClient<$Result.GetResult<Prisma.$customer_groupsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends sale_office_groupsFindFirstOrThrowArgs>(args?: SelectSubset<T, sale_office_groupsFindFirstOrThrowArgs<ExtArgs>>): Prisma__sale_office_groupsClient<$Result.GetResult<Prisma.$sale_office_groupsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Customer_groups that matches the filter.
+     * Find zero or more Sale_office_groups that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {customer_groupsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {sale_office_groupsFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Customer_groups
-     * const customer_groups = await prisma.customer_groups.findMany()
+     * // Get all Sale_office_groups
+     * const sale_office_groups = await prisma.sale_office_groups.findMany()
      * 
-     * // Get first 10 Customer_groups
-     * const customer_groups = await prisma.customer_groups.findMany({ take: 10 })
+     * // Get first 10 Sale_office_groups
+     * const sale_office_groups = await prisma.sale_office_groups.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const customer_groupsWithIdOnly = await prisma.customer_groups.findMany({ select: { id: true } })
+     * const sale_office_groupsWithIdOnly = await prisma.sale_office_groups.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends customer_groupsFindManyArgs>(args?: SelectSubset<T, customer_groupsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$customer_groupsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends sale_office_groupsFindManyArgs>(args?: SelectSubset<T, sale_office_groupsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$sale_office_groupsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Customer_groups.
-     * @param {customer_groupsCreateArgs} args - Arguments to create a Customer_groups.
+     * Create a Sale_office_groups.
+     * @param {sale_office_groupsCreateArgs} args - Arguments to create a Sale_office_groups.
      * @example
-     * // Create one Customer_groups
-     * const Customer_groups = await prisma.customer_groups.create({
+     * // Create one Sale_office_groups
+     * const Sale_office_groups = await prisma.sale_office_groups.create({
      *   data: {
-     *     // ... data to create a Customer_groups
+     *     // ... data to create a Sale_office_groups
      *   }
      * })
      * 
      */
-    create<T extends customer_groupsCreateArgs>(args: SelectSubset<T, customer_groupsCreateArgs<ExtArgs>>): Prisma__customer_groupsClient<$Result.GetResult<Prisma.$customer_groupsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends sale_office_groupsCreateArgs>(args: SelectSubset<T, sale_office_groupsCreateArgs<ExtArgs>>): Prisma__sale_office_groupsClient<$Result.GetResult<Prisma.$sale_office_groupsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Customer_groups.
-     * @param {customer_groupsCreateManyArgs} args - Arguments to create many Customer_groups.
+     * Create many Sale_office_groups.
+     * @param {sale_office_groupsCreateManyArgs} args - Arguments to create many Sale_office_groups.
      * @example
-     * // Create many Customer_groups
-     * const customer_groups = await prisma.customer_groups.createMany({
+     * // Create many Sale_office_groups
+     * const sale_office_groups = await prisma.sale_office_groups.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends customer_groupsCreateManyArgs>(args?: SelectSubset<T, customer_groupsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends sale_office_groupsCreateManyArgs>(args?: SelectSubset<T, sale_office_groupsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Delete a Customer_groups.
-     * @param {customer_groupsDeleteArgs} args - Arguments to delete one Customer_groups.
+     * Delete a Sale_office_groups.
+     * @param {sale_office_groupsDeleteArgs} args - Arguments to delete one Sale_office_groups.
      * @example
-     * // Delete one Customer_groups
-     * const Customer_groups = await prisma.customer_groups.delete({
+     * // Delete one Sale_office_groups
+     * const Sale_office_groups = await prisma.sale_office_groups.delete({
      *   where: {
-     *     // ... filter to delete one Customer_groups
+     *     // ... filter to delete one Sale_office_groups
      *   }
      * })
      * 
      */
-    delete<T extends customer_groupsDeleteArgs>(args: SelectSubset<T, customer_groupsDeleteArgs<ExtArgs>>): Prisma__customer_groupsClient<$Result.GetResult<Prisma.$customer_groupsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends sale_office_groupsDeleteArgs>(args: SelectSubset<T, sale_office_groupsDeleteArgs<ExtArgs>>): Prisma__sale_office_groupsClient<$Result.GetResult<Prisma.$sale_office_groupsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Customer_groups.
-     * @param {customer_groupsUpdateArgs} args - Arguments to update one Customer_groups.
+     * Update one Sale_office_groups.
+     * @param {sale_office_groupsUpdateArgs} args - Arguments to update one Sale_office_groups.
      * @example
-     * // Update one Customer_groups
-     * const customer_groups = await prisma.customer_groups.update({
+     * // Update one Sale_office_groups
+     * const sale_office_groups = await prisma.sale_office_groups.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -29447,30 +29487,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends customer_groupsUpdateArgs>(args: SelectSubset<T, customer_groupsUpdateArgs<ExtArgs>>): Prisma__customer_groupsClient<$Result.GetResult<Prisma.$customer_groupsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends sale_office_groupsUpdateArgs>(args: SelectSubset<T, sale_office_groupsUpdateArgs<ExtArgs>>): Prisma__sale_office_groupsClient<$Result.GetResult<Prisma.$sale_office_groupsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Customer_groups.
-     * @param {customer_groupsDeleteManyArgs} args - Arguments to filter Customer_groups to delete.
+     * Delete zero or more Sale_office_groups.
+     * @param {sale_office_groupsDeleteManyArgs} args - Arguments to filter Sale_office_groups to delete.
      * @example
-     * // Delete a few Customer_groups
-     * const { count } = await prisma.customer_groups.deleteMany({
+     * // Delete a few Sale_office_groups
+     * const { count } = await prisma.sale_office_groups.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends customer_groupsDeleteManyArgs>(args?: SelectSubset<T, customer_groupsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends sale_office_groupsDeleteManyArgs>(args?: SelectSubset<T, sale_office_groupsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Customer_groups.
+     * Update zero or more Sale_office_groups.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {customer_groupsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {sale_office_groupsUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Customer_groups
-     * const customer_groups = await prisma.customer_groups.updateMany({
+     * // Update many Sale_office_groups
+     * const sale_office_groups = await prisma.sale_office_groups.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -29480,56 +29520,56 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends customer_groupsUpdateManyArgs>(args: SelectSubset<T, customer_groupsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends sale_office_groupsUpdateManyArgs>(args: SelectSubset<T, sale_office_groupsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one Customer_groups.
-     * @param {customer_groupsUpsertArgs} args - Arguments to update or create a Customer_groups.
+     * Create or update one Sale_office_groups.
+     * @param {sale_office_groupsUpsertArgs} args - Arguments to update or create a Sale_office_groups.
      * @example
-     * // Update or create a Customer_groups
-     * const customer_groups = await prisma.customer_groups.upsert({
+     * // Update or create a Sale_office_groups
+     * const sale_office_groups = await prisma.sale_office_groups.upsert({
      *   create: {
-     *     // ... data to create a Customer_groups
+     *     // ... data to create a Sale_office_groups
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Customer_groups we want to update
+     *     // ... the filter for the Sale_office_groups we want to update
      *   }
      * })
      */
-    upsert<T extends customer_groupsUpsertArgs>(args: SelectSubset<T, customer_groupsUpsertArgs<ExtArgs>>): Prisma__customer_groupsClient<$Result.GetResult<Prisma.$customer_groupsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends sale_office_groupsUpsertArgs>(args: SelectSubset<T, sale_office_groupsUpsertArgs<ExtArgs>>): Prisma__sale_office_groupsClient<$Result.GetResult<Prisma.$sale_office_groupsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Customer_groups.
+     * Count the number of Sale_office_groups.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {customer_groupsCountArgs} args - Arguments to filter Customer_groups to count.
+     * @param {sale_office_groupsCountArgs} args - Arguments to filter Sale_office_groups to count.
      * @example
-     * // Count the number of Customer_groups
-     * const count = await prisma.customer_groups.count({
+     * // Count the number of Sale_office_groups
+     * const count = await prisma.sale_office_groups.count({
      *   where: {
-     *     // ... the filter for the Customer_groups we want to count
+     *     // ... the filter for the Sale_office_groups we want to count
      *   }
      * })
     **/
-    count<T extends customer_groupsCountArgs>(
-      args?: Subset<T, customer_groupsCountArgs>,
+    count<T extends sale_office_groupsCountArgs>(
+      args?: Subset<T, sale_office_groupsCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], Customer_groupsCountAggregateOutputType>
+          : GetScalarType<T['select'], Sale_office_groupsCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Customer_groups.
+     * Allows you to perform aggregations operations on a Sale_office_groups.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {Customer_groupsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {Sale_office_groupsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -29549,13 +29589,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends Customer_groupsAggregateArgs>(args: Subset<T, Customer_groupsAggregateArgs>): Prisma.PrismaPromise<GetCustomer_groupsAggregateType<T>>
+    aggregate<T extends Sale_office_groupsAggregateArgs>(args: Subset<T, Sale_office_groupsAggregateArgs>): Prisma.PrismaPromise<GetSale_office_groupsAggregateType<T>>
 
     /**
-     * Group by Customer_groups.
+     * Group by Sale_office_groups.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {customer_groupsGroupByArgs} args - Group by arguments.
+     * @param {sale_office_groupsGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -29570,14 +29610,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends customer_groupsGroupByArgs,
+      T extends sale_office_groupsGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: customer_groupsGroupByArgs['orderBy'] }
-        : { orderBy?: customer_groupsGroupByArgs['orderBy'] },
+        ? { orderBy: sale_office_groupsGroupByArgs['orderBy'] }
+        : { orderBy?: sale_office_groupsGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -29626,20 +29666,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, customer_groupsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCustomer_groupsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, sale_office_groupsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSale_office_groupsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the customer_groups model
+   * Fields of the sale_office_groups model
    */
-  readonly fields: customer_groupsFieldRefs;
+  readonly fields: sale_office_groupsFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for customer_groups.
+   * The delegate class that acts as a "Promise-like" for sale_office_groups.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__customer_groupsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__sale_office_groupsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -29667,333 +29707,337 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the customer_groups model
+   * Fields of the sale_office_groups model
    */
-  interface customer_groupsFieldRefs {
-    readonly id: FieldRef<"customer_groups", 'Int'>
-    readonly sale_office_id: FieldRef<"customer_groups", 'Int'>
-    readonly customer_group_type_id: FieldRef<"customer_groups", 'Int'>
-    readonly status: FieldRef<"customer_groups", 'Boolean'>
-    readonly create_at: FieldRef<"customer_groups", 'DateTime'>
-    readonly update_at: FieldRef<"customer_groups", 'DateTime'>
+  interface sale_office_groupsFieldRefs {
+    readonly id: FieldRef<"sale_office_groups", 'Int'>
+    readonly name_th: FieldRef<"sale_office_groups", 'String'>
+    readonly name_en: FieldRef<"sale_office_groups", 'String'>
+    readonly description: FieldRef<"sale_office_groups", 'String'>
+    readonly code: FieldRef<"sale_office_groups", 'String'>
+    readonly sale_office_id: FieldRef<"sale_office_groups", 'Int'>
+    readonly sale_office_group_type_id: FieldRef<"sale_office_groups", 'Int'>
+    readonly status: FieldRef<"sale_office_groups", 'Boolean'>
+    readonly create_at: FieldRef<"sale_office_groups", 'DateTime'>
+    readonly update_at: FieldRef<"sale_office_groups", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * customer_groups findUnique
+   * sale_office_groups findUnique
    */
-  export type customer_groupsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type sale_office_groupsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the customer_groups
+     * Select specific fields to fetch from the sale_office_groups
      */
-    select?: customer_groupsSelect<ExtArgs> | null
+    select?: sale_office_groupsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the customer_groups
+     * Omit specific fields from the sale_office_groups
      */
-    omit?: customer_groupsOmit<ExtArgs> | null
+    omit?: sale_office_groupsOmit<ExtArgs> | null
     /**
-     * Filter, which customer_groups to fetch.
+     * Filter, which sale_office_groups to fetch.
      */
-    where: customer_groupsWhereUniqueInput
+    where: sale_office_groupsWhereUniqueInput
   }
 
   /**
-   * customer_groups findUniqueOrThrow
+   * sale_office_groups findUniqueOrThrow
    */
-  export type customer_groupsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type sale_office_groupsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the customer_groups
+     * Select specific fields to fetch from the sale_office_groups
      */
-    select?: customer_groupsSelect<ExtArgs> | null
+    select?: sale_office_groupsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the customer_groups
+     * Omit specific fields from the sale_office_groups
      */
-    omit?: customer_groupsOmit<ExtArgs> | null
+    omit?: sale_office_groupsOmit<ExtArgs> | null
     /**
-     * Filter, which customer_groups to fetch.
+     * Filter, which sale_office_groups to fetch.
      */
-    where: customer_groupsWhereUniqueInput
+    where: sale_office_groupsWhereUniqueInput
   }
 
   /**
-   * customer_groups findFirst
+   * sale_office_groups findFirst
    */
-  export type customer_groupsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type sale_office_groupsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the customer_groups
+     * Select specific fields to fetch from the sale_office_groups
      */
-    select?: customer_groupsSelect<ExtArgs> | null
+    select?: sale_office_groupsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the customer_groups
+     * Omit specific fields from the sale_office_groups
      */
-    omit?: customer_groupsOmit<ExtArgs> | null
+    omit?: sale_office_groupsOmit<ExtArgs> | null
     /**
-     * Filter, which customer_groups to fetch.
+     * Filter, which sale_office_groups to fetch.
      */
-    where?: customer_groupsWhereInput
+    where?: sale_office_groupsWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of customer_groups to fetch.
+     * Determine the order of sale_office_groups to fetch.
      */
-    orderBy?: customer_groupsOrderByWithRelationInput | customer_groupsOrderByWithRelationInput[]
+    orderBy?: sale_office_groupsOrderByWithRelationInput | sale_office_groupsOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for customer_groups.
+     * Sets the position for searching for sale_office_groups.
      */
-    cursor?: customer_groupsWhereUniqueInput
+    cursor?: sale_office_groupsWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` customer_groups from the position of the cursor.
+     * Take `±n` sale_office_groups from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` customer_groups.
+     * Skip the first `n` sale_office_groups.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of customer_groups.
+     * Filter by unique combinations of sale_office_groups.
      */
-    distinct?: Customer_groupsScalarFieldEnum | Customer_groupsScalarFieldEnum[]
+    distinct?: Sale_office_groupsScalarFieldEnum | Sale_office_groupsScalarFieldEnum[]
   }
 
   /**
-   * customer_groups findFirstOrThrow
+   * sale_office_groups findFirstOrThrow
    */
-  export type customer_groupsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type sale_office_groupsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the customer_groups
+     * Select specific fields to fetch from the sale_office_groups
      */
-    select?: customer_groupsSelect<ExtArgs> | null
+    select?: sale_office_groupsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the customer_groups
+     * Omit specific fields from the sale_office_groups
      */
-    omit?: customer_groupsOmit<ExtArgs> | null
+    omit?: sale_office_groupsOmit<ExtArgs> | null
     /**
-     * Filter, which customer_groups to fetch.
+     * Filter, which sale_office_groups to fetch.
      */
-    where?: customer_groupsWhereInput
+    where?: sale_office_groupsWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of customer_groups to fetch.
+     * Determine the order of sale_office_groups to fetch.
      */
-    orderBy?: customer_groupsOrderByWithRelationInput | customer_groupsOrderByWithRelationInput[]
+    orderBy?: sale_office_groupsOrderByWithRelationInput | sale_office_groupsOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for customer_groups.
+     * Sets the position for searching for sale_office_groups.
      */
-    cursor?: customer_groupsWhereUniqueInput
+    cursor?: sale_office_groupsWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` customer_groups from the position of the cursor.
+     * Take `±n` sale_office_groups from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` customer_groups.
+     * Skip the first `n` sale_office_groups.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of customer_groups.
+     * Filter by unique combinations of sale_office_groups.
      */
-    distinct?: Customer_groupsScalarFieldEnum | Customer_groupsScalarFieldEnum[]
+    distinct?: Sale_office_groupsScalarFieldEnum | Sale_office_groupsScalarFieldEnum[]
   }
 
   /**
-   * customer_groups findMany
+   * sale_office_groups findMany
    */
-  export type customer_groupsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type sale_office_groupsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the customer_groups
+     * Select specific fields to fetch from the sale_office_groups
      */
-    select?: customer_groupsSelect<ExtArgs> | null
+    select?: sale_office_groupsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the customer_groups
+     * Omit specific fields from the sale_office_groups
      */
-    omit?: customer_groupsOmit<ExtArgs> | null
+    omit?: sale_office_groupsOmit<ExtArgs> | null
     /**
-     * Filter, which customer_groups to fetch.
+     * Filter, which sale_office_groups to fetch.
      */
-    where?: customer_groupsWhereInput
+    where?: sale_office_groupsWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of customer_groups to fetch.
+     * Determine the order of sale_office_groups to fetch.
      */
-    orderBy?: customer_groupsOrderByWithRelationInput | customer_groupsOrderByWithRelationInput[]
+    orderBy?: sale_office_groupsOrderByWithRelationInput | sale_office_groupsOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing customer_groups.
+     * Sets the position for listing sale_office_groups.
      */
-    cursor?: customer_groupsWhereUniqueInput
+    cursor?: sale_office_groupsWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` customer_groups from the position of the cursor.
+     * Take `±n` sale_office_groups from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` customer_groups.
+     * Skip the first `n` sale_office_groups.
      */
     skip?: number
-    distinct?: Customer_groupsScalarFieldEnum | Customer_groupsScalarFieldEnum[]
+    distinct?: Sale_office_groupsScalarFieldEnum | Sale_office_groupsScalarFieldEnum[]
   }
 
   /**
-   * customer_groups create
+   * sale_office_groups create
    */
-  export type customer_groupsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type sale_office_groupsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the customer_groups
+     * Select specific fields to fetch from the sale_office_groups
      */
-    select?: customer_groupsSelect<ExtArgs> | null
+    select?: sale_office_groupsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the customer_groups
+     * Omit specific fields from the sale_office_groups
      */
-    omit?: customer_groupsOmit<ExtArgs> | null
+    omit?: sale_office_groupsOmit<ExtArgs> | null
     /**
-     * The data needed to create a customer_groups.
+     * The data needed to create a sale_office_groups.
      */
-    data: XOR<customer_groupsCreateInput, customer_groupsUncheckedCreateInput>
+    data: XOR<sale_office_groupsCreateInput, sale_office_groupsUncheckedCreateInput>
   }
 
   /**
-   * customer_groups createMany
+   * sale_office_groups createMany
    */
-  export type customer_groupsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type sale_office_groupsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many customer_groups.
+     * The data used to create many sale_office_groups.
      */
-    data: customer_groupsCreateManyInput | customer_groupsCreateManyInput[]
+    data: sale_office_groupsCreateManyInput | sale_office_groupsCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * customer_groups update
+   * sale_office_groups update
    */
-  export type customer_groupsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type sale_office_groupsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the customer_groups
+     * Select specific fields to fetch from the sale_office_groups
      */
-    select?: customer_groupsSelect<ExtArgs> | null
+    select?: sale_office_groupsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the customer_groups
+     * Omit specific fields from the sale_office_groups
      */
-    omit?: customer_groupsOmit<ExtArgs> | null
+    omit?: sale_office_groupsOmit<ExtArgs> | null
     /**
-     * The data needed to update a customer_groups.
+     * The data needed to update a sale_office_groups.
      */
-    data: XOR<customer_groupsUpdateInput, customer_groupsUncheckedUpdateInput>
+    data: XOR<sale_office_groupsUpdateInput, sale_office_groupsUncheckedUpdateInput>
     /**
-     * Choose, which customer_groups to update.
+     * Choose, which sale_office_groups to update.
      */
-    where: customer_groupsWhereUniqueInput
+    where: sale_office_groupsWhereUniqueInput
   }
 
   /**
-   * customer_groups updateMany
+   * sale_office_groups updateMany
    */
-  export type customer_groupsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type sale_office_groupsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update customer_groups.
+     * The data used to update sale_office_groups.
      */
-    data: XOR<customer_groupsUpdateManyMutationInput, customer_groupsUncheckedUpdateManyInput>
+    data: XOR<sale_office_groupsUpdateManyMutationInput, sale_office_groupsUncheckedUpdateManyInput>
     /**
-     * Filter which customer_groups to update
+     * Filter which sale_office_groups to update
      */
-    where?: customer_groupsWhereInput
+    where?: sale_office_groupsWhereInput
     /**
-     * Limit how many customer_groups to update.
+     * Limit how many sale_office_groups to update.
      */
     limit?: number
   }
 
   /**
-   * customer_groups upsert
+   * sale_office_groups upsert
    */
-  export type customer_groupsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type sale_office_groupsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the customer_groups
+     * Select specific fields to fetch from the sale_office_groups
      */
-    select?: customer_groupsSelect<ExtArgs> | null
+    select?: sale_office_groupsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the customer_groups
+     * Omit specific fields from the sale_office_groups
      */
-    omit?: customer_groupsOmit<ExtArgs> | null
+    omit?: sale_office_groupsOmit<ExtArgs> | null
     /**
-     * The filter to search for the customer_groups to update in case it exists.
+     * The filter to search for the sale_office_groups to update in case it exists.
      */
-    where: customer_groupsWhereUniqueInput
+    where: sale_office_groupsWhereUniqueInput
     /**
-     * In case the customer_groups found by the `where` argument doesn't exist, create a new customer_groups with this data.
+     * In case the sale_office_groups found by the `where` argument doesn't exist, create a new sale_office_groups with this data.
      */
-    create: XOR<customer_groupsCreateInput, customer_groupsUncheckedCreateInput>
+    create: XOR<sale_office_groupsCreateInput, sale_office_groupsUncheckedCreateInput>
     /**
-     * In case the customer_groups was found with the provided `where` argument, update it with this data.
+     * In case the sale_office_groups was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<customer_groupsUpdateInput, customer_groupsUncheckedUpdateInput>
+    update: XOR<sale_office_groupsUpdateInput, sale_office_groupsUncheckedUpdateInput>
   }
 
   /**
-   * customer_groups delete
+   * sale_office_groups delete
    */
-  export type customer_groupsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type sale_office_groupsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the customer_groups
+     * Select specific fields to fetch from the sale_office_groups
      */
-    select?: customer_groupsSelect<ExtArgs> | null
+    select?: sale_office_groupsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the customer_groups
+     * Omit specific fields from the sale_office_groups
      */
-    omit?: customer_groupsOmit<ExtArgs> | null
+    omit?: sale_office_groupsOmit<ExtArgs> | null
     /**
-     * Filter which customer_groups to delete.
+     * Filter which sale_office_groups to delete.
      */
-    where: customer_groupsWhereUniqueInput
+    where: sale_office_groupsWhereUniqueInput
   }
 
   /**
-   * customer_groups deleteMany
+   * sale_office_groups deleteMany
    */
-  export type customer_groupsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type sale_office_groupsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which customer_groups to delete
+     * Filter which sale_office_groups to delete
      */
-    where?: customer_groupsWhereInput
+    where?: sale_office_groupsWhereInput
     /**
-     * Limit how many customer_groups to delete.
+     * Limit how many sale_office_groups to delete.
      */
     limit?: number
   }
 
   /**
-   * customer_groups without action
+   * sale_office_groups without action
    */
-  export type customer_groupsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type sale_office_groupsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the customer_groups
+     * Select specific fields to fetch from the sale_office_groups
      */
-    select?: customer_groupsSelect<ExtArgs> | null
+    select?: sale_office_groupsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the customer_groups
+     * Omit specific fields from the sale_office_groups
      */
-    omit?: customer_groupsOmit<ExtArgs> | null
+    omit?: sale_office_groupsOmit<ExtArgs> | null
   }
 
 
@@ -50821,7 +50865,7 @@ export namespace Prisma {
   export type Dirty_detail_roundsScalarFieldEnum = (typeof Dirty_detail_roundsScalarFieldEnum)[keyof typeof Dirty_detail_roundsScalarFieldEnum]
 
 
-  export const Customer_group_typesScalarFieldEnum: {
+  export const Sale_office_group_typesScalarFieldEnum: {
     id: 'id',
     level: 'level',
     group: 'group',
@@ -50831,19 +50875,23 @@ export namespace Prisma {
     update_at: 'update_at'
   };
 
-  export type Customer_group_typesScalarFieldEnum = (typeof Customer_group_typesScalarFieldEnum)[keyof typeof Customer_group_typesScalarFieldEnum]
+  export type Sale_office_group_typesScalarFieldEnum = (typeof Sale_office_group_typesScalarFieldEnum)[keyof typeof Sale_office_group_typesScalarFieldEnum]
 
 
-  export const Customer_groupsScalarFieldEnum: {
+  export const Sale_office_groupsScalarFieldEnum: {
     id: 'id',
+    name_th: 'name_th',
+    name_en: 'name_en',
+    description: 'description',
+    code: 'code',
     sale_office_id: 'sale_office_id',
-    customer_group_type_id: 'customer_group_type_id',
+    sale_office_group_type_id: 'sale_office_group_type_id',
     status: 'status',
     create_at: 'create_at',
     update_at: 'update_at'
   };
 
-  export type Customer_groupsScalarFieldEnum = (typeof Customer_groupsScalarFieldEnum)[keyof typeof Customer_groupsScalarFieldEnum]
+  export type Sale_office_groupsScalarFieldEnum = (typeof Sale_office_groupsScalarFieldEnum)[keyof typeof Sale_office_groupsScalarFieldEnum]
 
 
   export const Stock_locationsScalarFieldEnum: {
@@ -51393,13 +51441,23 @@ export namespace Prisma {
   export type dirtiesOrderByRelevanceFieldEnum = (typeof dirtiesOrderByRelevanceFieldEnum)[keyof typeof dirtiesOrderByRelevanceFieldEnum]
 
 
-  export const customer_group_typesOrderByRelevanceFieldEnum: {
+  export const sale_office_group_typesOrderByRelevanceFieldEnum: {
     level: 'level',
     group: 'group',
     type: 'type'
   };
 
-  export type customer_group_typesOrderByRelevanceFieldEnum = (typeof customer_group_typesOrderByRelevanceFieldEnum)[keyof typeof customer_group_typesOrderByRelevanceFieldEnum]
+  export type sale_office_group_typesOrderByRelevanceFieldEnum = (typeof sale_office_group_typesOrderByRelevanceFieldEnum)[keyof typeof sale_office_group_typesOrderByRelevanceFieldEnum]
+
+
+  export const sale_office_groupsOrderByRelevanceFieldEnum: {
+    name_th: 'name_th',
+    name_en: 'name_en',
+    description: 'description',
+    code: 'code'
+  };
+
+  export type sale_office_groupsOrderByRelevanceFieldEnum = (typeof sale_office_groupsOrderByRelevanceFieldEnum)[keyof typeof sale_office_groupsOrderByRelevanceFieldEnum]
 
 
   export const stock_locationsOrderByRelevanceFieldEnum: {
@@ -53391,20 +53449,20 @@ export namespace Prisma {
     update_at?: DateTimeWithAggregatesFilter<"dirty_detail_rounds"> | Date | string
   }
 
-  export type customer_group_typesWhereInput = {
-    AND?: customer_group_typesWhereInput | customer_group_typesWhereInput[]
-    OR?: customer_group_typesWhereInput[]
-    NOT?: customer_group_typesWhereInput | customer_group_typesWhereInput[]
-    id?: IntFilter<"customer_group_types"> | number
-    level?: StringFilter<"customer_group_types"> | string
-    group?: StringFilter<"customer_group_types"> | string
-    type?: StringFilter<"customer_group_types"> | string
-    status?: BoolFilter<"customer_group_types"> | boolean
-    create_at?: DateTimeFilter<"customer_group_types"> | Date | string
-    update_at?: DateTimeFilter<"customer_group_types"> | Date | string
+  export type sale_office_group_typesWhereInput = {
+    AND?: sale_office_group_typesWhereInput | sale_office_group_typesWhereInput[]
+    OR?: sale_office_group_typesWhereInput[]
+    NOT?: sale_office_group_typesWhereInput | sale_office_group_typesWhereInput[]
+    id?: IntFilter<"sale_office_group_types"> | number
+    level?: StringFilter<"sale_office_group_types"> | string
+    group?: StringFilter<"sale_office_group_types"> | string
+    type?: StringFilter<"sale_office_group_types"> | string
+    status?: BoolFilter<"sale_office_group_types"> | boolean
+    create_at?: DateTimeFilter<"sale_office_group_types"> | Date | string
+    update_at?: DateTimeFilter<"sale_office_group_types"> | Date | string
   }
 
-  export type customer_group_typesOrderByWithRelationInput = {
+  export type sale_office_group_typesOrderByWithRelationInput = {
     id?: SortOrder
     level?: SortOrder
     group?: SortOrder
@@ -53412,23 +53470,23 @@ export namespace Prisma {
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
-    _relevance?: customer_group_typesOrderByRelevanceInput
+    _relevance?: sale_office_group_typesOrderByRelevanceInput
   }
 
-  export type customer_group_typesWhereUniqueInput = Prisma.AtLeast<{
+  export type sale_office_group_typesWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    AND?: customer_group_typesWhereInput | customer_group_typesWhereInput[]
-    OR?: customer_group_typesWhereInput[]
-    NOT?: customer_group_typesWhereInput | customer_group_typesWhereInput[]
-    level?: StringFilter<"customer_group_types"> | string
-    group?: StringFilter<"customer_group_types"> | string
-    type?: StringFilter<"customer_group_types"> | string
-    status?: BoolFilter<"customer_group_types"> | boolean
-    create_at?: DateTimeFilter<"customer_group_types"> | Date | string
-    update_at?: DateTimeFilter<"customer_group_types"> | Date | string
+    AND?: sale_office_group_typesWhereInput | sale_office_group_typesWhereInput[]
+    OR?: sale_office_group_typesWhereInput[]
+    NOT?: sale_office_group_typesWhereInput | sale_office_group_typesWhereInput[]
+    level?: StringFilter<"sale_office_group_types"> | string
+    group?: StringFilter<"sale_office_group_types"> | string
+    type?: StringFilter<"sale_office_group_types"> | string
+    status?: BoolFilter<"sale_office_group_types"> | boolean
+    create_at?: DateTimeFilter<"sale_office_group_types"> | Date | string
+    update_at?: DateTimeFilter<"sale_office_group_types"> | Date | string
   }, "id">
 
-  export type customer_group_typesOrderByWithAggregationInput = {
+  export type sale_office_group_typesOrderByWithAggregationInput = {
     id?: SortOrder
     level?: SortOrder
     group?: SortOrder
@@ -53436,83 +53494,104 @@ export namespace Prisma {
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
-    _count?: customer_group_typesCountOrderByAggregateInput
-    _avg?: customer_group_typesAvgOrderByAggregateInput
-    _max?: customer_group_typesMaxOrderByAggregateInput
-    _min?: customer_group_typesMinOrderByAggregateInput
-    _sum?: customer_group_typesSumOrderByAggregateInput
+    _count?: sale_office_group_typesCountOrderByAggregateInput
+    _avg?: sale_office_group_typesAvgOrderByAggregateInput
+    _max?: sale_office_group_typesMaxOrderByAggregateInput
+    _min?: sale_office_group_typesMinOrderByAggregateInput
+    _sum?: sale_office_group_typesSumOrderByAggregateInput
   }
 
-  export type customer_group_typesScalarWhereWithAggregatesInput = {
-    AND?: customer_group_typesScalarWhereWithAggregatesInput | customer_group_typesScalarWhereWithAggregatesInput[]
-    OR?: customer_group_typesScalarWhereWithAggregatesInput[]
-    NOT?: customer_group_typesScalarWhereWithAggregatesInput | customer_group_typesScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"customer_group_types"> | number
-    level?: StringWithAggregatesFilter<"customer_group_types"> | string
-    group?: StringWithAggregatesFilter<"customer_group_types"> | string
-    type?: StringWithAggregatesFilter<"customer_group_types"> | string
-    status?: BoolWithAggregatesFilter<"customer_group_types"> | boolean
-    create_at?: DateTimeWithAggregatesFilter<"customer_group_types"> | Date | string
-    update_at?: DateTimeWithAggregatesFilter<"customer_group_types"> | Date | string
+  export type sale_office_group_typesScalarWhereWithAggregatesInput = {
+    AND?: sale_office_group_typesScalarWhereWithAggregatesInput | sale_office_group_typesScalarWhereWithAggregatesInput[]
+    OR?: sale_office_group_typesScalarWhereWithAggregatesInput[]
+    NOT?: sale_office_group_typesScalarWhereWithAggregatesInput | sale_office_group_typesScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"sale_office_group_types"> | number
+    level?: StringWithAggregatesFilter<"sale_office_group_types"> | string
+    group?: StringWithAggregatesFilter<"sale_office_group_types"> | string
+    type?: StringWithAggregatesFilter<"sale_office_group_types"> | string
+    status?: BoolWithAggregatesFilter<"sale_office_group_types"> | boolean
+    create_at?: DateTimeWithAggregatesFilter<"sale_office_group_types"> | Date | string
+    update_at?: DateTimeWithAggregatesFilter<"sale_office_group_types"> | Date | string
   }
 
-  export type customer_groupsWhereInput = {
-    AND?: customer_groupsWhereInput | customer_groupsWhereInput[]
-    OR?: customer_groupsWhereInput[]
-    NOT?: customer_groupsWhereInput | customer_groupsWhereInput[]
-    id?: IntFilter<"customer_groups"> | number
-    sale_office_id?: IntFilter<"customer_groups"> | number
-    customer_group_type_id?: IntFilter<"customer_groups"> | number
-    status?: BoolFilter<"customer_groups"> | boolean
-    create_at?: DateTimeFilter<"customer_groups"> | Date | string
-    update_at?: DateTimeFilter<"customer_groups"> | Date | string
+  export type sale_office_groupsWhereInput = {
+    AND?: sale_office_groupsWhereInput | sale_office_groupsWhereInput[]
+    OR?: sale_office_groupsWhereInput[]
+    NOT?: sale_office_groupsWhereInput | sale_office_groupsWhereInput[]
+    id?: IntFilter<"sale_office_groups"> | number
+    name_th?: StringFilter<"sale_office_groups"> | string
+    name_en?: StringFilter<"sale_office_groups"> | string
+    description?: StringNullableFilter<"sale_office_groups"> | string | null
+    code?: StringNullableFilter<"sale_office_groups"> | string | null
+    sale_office_id?: IntFilter<"sale_office_groups"> | number
+    sale_office_group_type_id?: IntFilter<"sale_office_groups"> | number
+    status?: BoolFilter<"sale_office_groups"> | boolean
+    create_at?: DateTimeFilter<"sale_office_groups"> | Date | string
+    update_at?: DateTimeFilter<"sale_office_groups"> | Date | string
   }
 
-  export type customer_groupsOrderByWithRelationInput = {
+  export type sale_office_groupsOrderByWithRelationInput = {
     id?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
+    description?: SortOrderInput | SortOrder
+    code?: SortOrderInput | SortOrder
     sale_office_id?: SortOrder
-    customer_group_type_id?: SortOrder
+    sale_office_group_type_id?: SortOrder
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
+    _relevance?: sale_office_groupsOrderByRelevanceInput
   }
 
-  export type customer_groupsWhereUniqueInput = Prisma.AtLeast<{
+  export type sale_office_groupsWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    AND?: customer_groupsWhereInput | customer_groupsWhereInput[]
-    OR?: customer_groupsWhereInput[]
-    NOT?: customer_groupsWhereInput | customer_groupsWhereInput[]
-    sale_office_id?: IntFilter<"customer_groups"> | number
-    customer_group_type_id?: IntFilter<"customer_groups"> | number
-    status?: BoolFilter<"customer_groups"> | boolean
-    create_at?: DateTimeFilter<"customer_groups"> | Date | string
-    update_at?: DateTimeFilter<"customer_groups"> | Date | string
+    AND?: sale_office_groupsWhereInput | sale_office_groupsWhereInput[]
+    OR?: sale_office_groupsWhereInput[]
+    NOT?: sale_office_groupsWhereInput | sale_office_groupsWhereInput[]
+    name_th?: StringFilter<"sale_office_groups"> | string
+    name_en?: StringFilter<"sale_office_groups"> | string
+    description?: StringNullableFilter<"sale_office_groups"> | string | null
+    code?: StringNullableFilter<"sale_office_groups"> | string | null
+    sale_office_id?: IntFilter<"sale_office_groups"> | number
+    sale_office_group_type_id?: IntFilter<"sale_office_groups"> | number
+    status?: BoolFilter<"sale_office_groups"> | boolean
+    create_at?: DateTimeFilter<"sale_office_groups"> | Date | string
+    update_at?: DateTimeFilter<"sale_office_groups"> | Date | string
   }, "id">
 
-  export type customer_groupsOrderByWithAggregationInput = {
+  export type sale_office_groupsOrderByWithAggregationInput = {
     id?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
+    description?: SortOrderInput | SortOrder
+    code?: SortOrderInput | SortOrder
     sale_office_id?: SortOrder
-    customer_group_type_id?: SortOrder
+    sale_office_group_type_id?: SortOrder
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
-    _count?: customer_groupsCountOrderByAggregateInput
-    _avg?: customer_groupsAvgOrderByAggregateInput
-    _max?: customer_groupsMaxOrderByAggregateInput
-    _min?: customer_groupsMinOrderByAggregateInput
-    _sum?: customer_groupsSumOrderByAggregateInput
+    _count?: sale_office_groupsCountOrderByAggregateInput
+    _avg?: sale_office_groupsAvgOrderByAggregateInput
+    _max?: sale_office_groupsMaxOrderByAggregateInput
+    _min?: sale_office_groupsMinOrderByAggregateInput
+    _sum?: sale_office_groupsSumOrderByAggregateInput
   }
 
-  export type customer_groupsScalarWhereWithAggregatesInput = {
-    AND?: customer_groupsScalarWhereWithAggregatesInput | customer_groupsScalarWhereWithAggregatesInput[]
-    OR?: customer_groupsScalarWhereWithAggregatesInput[]
-    NOT?: customer_groupsScalarWhereWithAggregatesInput | customer_groupsScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"customer_groups"> | number
-    sale_office_id?: IntWithAggregatesFilter<"customer_groups"> | number
-    customer_group_type_id?: IntWithAggregatesFilter<"customer_groups"> | number
-    status?: BoolWithAggregatesFilter<"customer_groups"> | boolean
-    create_at?: DateTimeWithAggregatesFilter<"customer_groups"> | Date | string
-    update_at?: DateTimeWithAggregatesFilter<"customer_groups"> | Date | string
+  export type sale_office_groupsScalarWhereWithAggregatesInput = {
+    AND?: sale_office_groupsScalarWhereWithAggregatesInput | sale_office_groupsScalarWhereWithAggregatesInput[]
+    OR?: sale_office_groupsScalarWhereWithAggregatesInput[]
+    NOT?: sale_office_groupsScalarWhereWithAggregatesInput | sale_office_groupsScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"sale_office_groups"> | number
+    name_th?: StringWithAggregatesFilter<"sale_office_groups"> | string
+    name_en?: StringWithAggregatesFilter<"sale_office_groups"> | string
+    description?: StringNullableWithAggregatesFilter<"sale_office_groups"> | string | null
+    code?: StringNullableWithAggregatesFilter<"sale_office_groups"> | string | null
+    sale_office_id?: IntWithAggregatesFilter<"sale_office_groups"> | number
+    sale_office_group_type_id?: IntWithAggregatesFilter<"sale_office_groups"> | number
+    status?: BoolWithAggregatesFilter<"sale_office_groups"> | boolean
+    create_at?: DateTimeWithAggregatesFilter<"sale_office_groups"> | Date | string
+    update_at?: DateTimeWithAggregatesFilter<"sale_office_groups"> | Date | string
   }
 
   export type stock_locationsWhereInput = {
@@ -57227,7 +57306,7 @@ export namespace Prisma {
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type customer_group_typesCreateInput = {
+  export type sale_office_group_typesCreateInput = {
     level: string
     group: string
     type: string
@@ -57236,36 +57315,7 @@ export namespace Prisma {
     update_at?: Date | string
   }
 
-  export type customer_group_typesUncheckedCreateInput = {
-    id?: number
-    level: string
-    group: string
-    type: string
-    status: boolean
-    create_at?: Date | string
-    update_at?: Date | string
-  }
-
-  export type customer_group_typesUpdateInput = {
-    level?: StringFieldUpdateOperationsInput | string
-    group?: StringFieldUpdateOperationsInput | string
-    type?: StringFieldUpdateOperationsInput | string
-    status?: BoolFieldUpdateOperationsInput | boolean
-    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type customer_group_typesUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    level?: StringFieldUpdateOperationsInput | string
-    group?: StringFieldUpdateOperationsInput | string
-    type?: StringFieldUpdateOperationsInput | string
-    status?: BoolFieldUpdateOperationsInput | boolean
-    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type customer_group_typesCreateManyInput = {
+  export type sale_office_group_typesUncheckedCreateInput = {
     id?: number
     level: string
     group: string
@@ -57275,7 +57325,7 @@ export namespace Prisma {
     update_at?: Date | string
   }
 
-  export type customer_group_typesUpdateManyMutationInput = {
+  export type sale_office_group_typesUpdateInput = {
     level?: StringFieldUpdateOperationsInput | string
     group?: StringFieldUpdateOperationsInput | string
     type?: StringFieldUpdateOperationsInput | string
@@ -57284,7 +57334,7 @@ export namespace Prisma {
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type customer_group_typesUncheckedUpdateManyInput = {
+  export type sale_office_group_typesUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     level?: StringFieldUpdateOperationsInput | string
     group?: StringFieldUpdateOperationsInput | string
@@ -57294,61 +57344,118 @@ export namespace Prisma {
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type customer_groupsCreateInput = {
-    sale_office_id: number
-    customer_group_type_id: number
-    status: boolean
-    create_at?: Date | string
-    update_at?: Date | string
-  }
-
-  export type customer_groupsUncheckedCreateInput = {
+  export type sale_office_group_typesCreateManyInput = {
     id?: number
-    sale_office_id: number
-    customer_group_type_id: number
+    level: string
+    group: string
+    type: string
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
   }
 
-  export type customer_groupsUpdateInput = {
-    sale_office_id?: IntFieldUpdateOperationsInput | number
-    customer_group_type_id?: IntFieldUpdateOperationsInput | number
+  export type sale_office_group_typesUpdateManyMutationInput = {
+    level?: StringFieldUpdateOperationsInput | string
+    group?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type customer_groupsUncheckedUpdateInput = {
+  export type sale_office_group_typesUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    sale_office_id?: IntFieldUpdateOperationsInput | number
-    customer_group_type_id?: IntFieldUpdateOperationsInput | number
+    level?: StringFieldUpdateOperationsInput | string
+    group?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type customer_groupsCreateManyInput = {
+  export type sale_office_groupsCreateInput = {
+    name_th: string
+    name_en: string
+    description?: string | null
+    code?: string | null
+    sale_office_id: number
+    sale_office_group_type_id: number
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type sale_office_groupsUncheckedCreateInput = {
     id?: number
+    name_th: string
+    name_en: string
+    description?: string | null
+    code?: string | null
     sale_office_id: number
-    customer_group_type_id: number
+    sale_office_group_type_id: number
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
   }
 
-  export type customer_groupsUpdateManyMutationInput = {
+  export type sale_office_groupsUpdateInput = {
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    code?: NullableStringFieldUpdateOperationsInput | string | null
     sale_office_id?: IntFieldUpdateOperationsInput | number
-    customer_group_type_id?: IntFieldUpdateOperationsInput | number
+    sale_office_group_type_id?: IntFieldUpdateOperationsInput | number
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type customer_groupsUncheckedUpdateManyInput = {
+  export type sale_office_groupsUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    code?: NullableStringFieldUpdateOperationsInput | string | null
     sale_office_id?: IntFieldUpdateOperationsInput | number
-    customer_group_type_id?: IntFieldUpdateOperationsInput | number
+    sale_office_group_type_id?: IntFieldUpdateOperationsInput | number
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type sale_office_groupsCreateManyInput = {
+    id?: number
+    name_th: string
+    name_en: string
+    description?: string | null
+    code?: string | null
+    sale_office_id: number
+    sale_office_group_type_id: number
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type sale_office_groupsUpdateManyMutationInput = {
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    code?: NullableStringFieldUpdateOperationsInput | string | null
+    sale_office_id?: IntFieldUpdateOperationsInput | number
+    sale_office_group_type_id?: IntFieldUpdateOperationsInput | number
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type sale_office_groupsUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    code?: NullableStringFieldUpdateOperationsInput | string | null
+    sale_office_id?: IntFieldUpdateOperationsInput | number
+    sale_office_group_type_id?: IntFieldUpdateOperationsInput | number
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -60994,13 +61101,13 @@ export namespace Prisma {
     _max?: NestedFloatNullableFilter<$PrismaModel>
   }
 
-  export type customer_group_typesOrderByRelevanceInput = {
-    fields: customer_group_typesOrderByRelevanceFieldEnum | customer_group_typesOrderByRelevanceFieldEnum[]
+  export type sale_office_group_typesOrderByRelevanceInput = {
+    fields: sale_office_group_typesOrderByRelevanceFieldEnum | sale_office_group_typesOrderByRelevanceFieldEnum[]
     sort: SortOrder
     search: string
   }
 
-  export type customer_group_typesCountOrderByAggregateInput = {
+  export type sale_office_group_typesCountOrderByAggregateInput = {
     id?: SortOrder
     level?: SortOrder
     group?: SortOrder
@@ -61010,11 +61117,11 @@ export namespace Prisma {
     update_at?: SortOrder
   }
 
-  export type customer_group_typesAvgOrderByAggregateInput = {
+  export type sale_office_group_typesAvgOrderByAggregateInput = {
     id?: SortOrder
   }
 
-  export type customer_group_typesMaxOrderByAggregateInput = {
+  export type sale_office_group_typesMaxOrderByAggregateInput = {
     id?: SortOrder
     level?: SortOrder
     group?: SortOrder
@@ -61024,7 +61131,7 @@ export namespace Prisma {
     update_at?: SortOrder
   }
 
-  export type customer_group_typesMinOrderByAggregateInput = {
+  export type sale_office_group_typesMinOrderByAggregateInput = {
     id?: SortOrder
     level?: SortOrder
     group?: SortOrder
@@ -61034,47 +61141,65 @@ export namespace Prisma {
     update_at?: SortOrder
   }
 
-  export type customer_group_typesSumOrderByAggregateInput = {
+  export type sale_office_group_typesSumOrderByAggregateInput = {
     id?: SortOrder
   }
 
-  export type customer_groupsCountOrderByAggregateInput = {
+  export type sale_office_groupsOrderByRelevanceInput = {
+    fields: sale_office_groupsOrderByRelevanceFieldEnum | sale_office_groupsOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type sale_office_groupsCountOrderByAggregateInput = {
     id?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
+    description?: SortOrder
+    code?: SortOrder
     sale_office_id?: SortOrder
-    customer_group_type_id?: SortOrder
+    sale_office_group_type_id?: SortOrder
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
   }
 
-  export type customer_groupsAvgOrderByAggregateInput = {
+  export type sale_office_groupsAvgOrderByAggregateInput = {
     id?: SortOrder
     sale_office_id?: SortOrder
-    customer_group_type_id?: SortOrder
+    sale_office_group_type_id?: SortOrder
   }
 
-  export type customer_groupsMaxOrderByAggregateInput = {
+  export type sale_office_groupsMaxOrderByAggregateInput = {
     id?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
+    description?: SortOrder
+    code?: SortOrder
     sale_office_id?: SortOrder
-    customer_group_type_id?: SortOrder
+    sale_office_group_type_id?: SortOrder
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
   }
 
-  export type customer_groupsMinOrderByAggregateInput = {
+  export type sale_office_groupsMinOrderByAggregateInput = {
     id?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
+    description?: SortOrder
+    code?: SortOrder
     sale_office_id?: SortOrder
-    customer_group_type_id?: SortOrder
+    sale_office_group_type_id?: SortOrder
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
   }
 
-  export type customer_groupsSumOrderByAggregateInput = {
+  export type sale_office_groupsSumOrderByAggregateInput = {
     id?: SortOrder
     sale_office_id?: SortOrder
-    customer_group_type_id?: SortOrder
+    sale_office_group_type_id?: SortOrder
   }
 
   export type stock_locationsOrderByRelevanceInput = {

@@ -395,7 +395,7 @@ exports.Prisma.Dirty_detail_roundsScalarFieldEnum = {
   update_at: 'update_at'
 };
 
-exports.Prisma.Customer_group_typesScalarFieldEnum = {
+exports.Prisma.Sale_office_group_typesScalarFieldEnum = {
   id: 'id',
   level: 'level',
   group: 'group',
@@ -405,10 +405,14 @@ exports.Prisma.Customer_group_typesScalarFieldEnum = {
   update_at: 'update_at'
 };
 
-exports.Prisma.Customer_groupsScalarFieldEnum = {
+exports.Prisma.Sale_office_groupsScalarFieldEnum = {
   id: 'id',
+  name_th: 'name_th',
+  name_en: 'name_en',
+  description: 'description',
+  code: 'code',
   sale_office_id: 'sale_office_id',
-  customer_group_type_id: 'customer_group_type_id',
+  sale_office_group_type_id: 'sale_office_group_type_id',
   status: 'status',
   create_at: 'create_at',
   update_at: 'update_at'
@@ -838,10 +842,17 @@ exports.Prisma.dirtiesOrderByRelevanceFieldEnum = {
   sign_NH: 'sign_NH'
 };
 
-exports.Prisma.customer_group_typesOrderByRelevanceFieldEnum = {
+exports.Prisma.sale_office_group_typesOrderByRelevanceFieldEnum = {
   level: 'level',
   group: 'group',
   type: 'type'
+};
+
+exports.Prisma.sale_office_groupsOrderByRelevanceFieldEnum = {
+  name_th: 'name_th',
+  name_en: 'name_en',
+  description: 'description',
+  code: 'code'
 };
 
 exports.Prisma.stock_locationsOrderByRelevanceFieldEnum = {
@@ -970,8 +981,8 @@ exports.Prisma.ModelName = {
   dirties: 'dirties',
   dirty_details: 'dirty_details',
   dirty_detail_rounds: 'dirty_detail_rounds',
-  customer_group_types: 'customer_group_types',
-  customer_groups: 'customer_groups',
+  sale_office_group_types: 'sale_office_group_types',
+  sale_office_groups: 'sale_office_groups',
   stock_locations: 'stock_locations',
   shelfcounts: 'shelfcounts',
   shelfcount_details: 'shelfcount_details',

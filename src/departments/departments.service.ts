@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, ConflictException } from '@nestjs/common';
 import { CreateDepartmentDto } from './dto/create-department.dto';
 import { UpdateDepartmentDto } from './dto/update-department.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
@@ -7,7 +7,38 @@ import { PrismaService } from 'src/prisma/prisma.service';
 export class DepartmentsService {
   constructor(private readonly prisma: PrismaService) { }
 
+  // Function to get detailed duplicate information
+  async getDuplicateFieldDetails(department_code: string, sale_office_id: number, excludeId?: number): Promise<string[]> {
+    const duplicateFields: string[] = [];
+
+    // Check department_code within the same sale_office_id only
+    const existingDepartmentCode = await this.prisma.departments.findFirst({
+      where: {
+        department_code,
+        sale_office_id, // ต้องเป็น sale_office_id เดียวกัน
+        ...(excludeId && { NOT: { id: excludeId } })
+      }
+    });
+
+    if (existingDepartmentCode) {
+      duplicateFields.push('Department code already exists in this sale office');
+    }
+
+    return duplicateFields;
+  }
+
+
   async create(createDepartmentDto: CreateDepartmentDto) {
+    // Check for duplicates
+    const duplicateFields = await this.getDuplicateFieldDetails(
+      createDepartmentDto.department_code,
+      createDepartmentDto.sale_office_id
+    );
+
+    if (duplicateFields.length > 0) {
+      throw new ConflictException(duplicateFields);
+    }
+
     return this.prisma.departments.create({
       data: createDepartmentDto,
     });
@@ -93,7 +124,21 @@ export class DepartmentsService {
   }
 
   async update(id: number, updateDepartmentDto: UpdateDepartmentDto) {
-    await this.findOne(id); // ตรวจสอบก่อนว่า department มีอยู่จริง
+    const existingDepartment = await this.findOne(id); // ตรวจสอบก่อนว่า department มีอยู่จริง
+
+    // Check for duplicates only if department_code or sale_office_id is being updated
+    if (updateDepartmentDto.department_code || updateDepartmentDto.sale_office_id) {
+      const duplicateFields = await this.getDuplicateFieldDetails(
+        updateDepartmentDto.department_code || existingDepartment.department_code,
+        updateDepartmentDto.sale_office_id || existingDepartment.sale_office_id,
+        id // Exclude current record
+      );
+
+      if (duplicateFields.length > 0) {
+        throw new ConflictException(duplicateFields);
+      }
+    }
+
     return this.prisma.departments.update({
       where: { id },
       data: updateDepartmentDto,

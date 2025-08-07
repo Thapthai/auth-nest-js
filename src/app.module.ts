@@ -33,6 +33,7 @@ import { SapSaleModule } from './sap_sale/sap_sale.module';
 import { StockLocationsModule } from './stock_locations/stock_locations.module';
 import { SaleOfficeGroupsModule } from './sale_office_groups/sale_office_groups.module';
 import { SaleOfficeGroupTypesModule } from './sale_office_group_types/sale_office_group_types.module';
+import { ExcelModule } from './excel/excel.module';
 
 @Module({
   imports: [
@@ -72,6 +73,7 @@ import { SaleOfficeGroupTypesModule } from './sale_office_group_types/sale_offic
     StockLocationsModule,
     SaleOfficeGroupsModule,
     SaleOfficeGroupTypesModule,
+    ExcelModule,
   ],
   controllers: [],
   providers: [

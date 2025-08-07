@@ -67,13 +67,15 @@ model permission {
 }
 
 model sale_offices {
-  id                  Int      @id @default(autoincrement())
-  site_code           String
-  site_office_name_th String
-  site_office_name_en String
-  status              Boolean
-  create_at           DateTime @default(now())
-  update_at           DateTime @updatedAt
+  id               Int      @id @default(autoincrement())
+  sale_office_code String
+  name_th          String
+  name_en          String
+  site_path        String
+  lab_site_code    String
+  status           Boolean
+  create_at        DateTime @default(now())
+  update_at        DateTime @updatedAt
 
   departments                    departments[]
   user_sale_office               user_sale_offices[]

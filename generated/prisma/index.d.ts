@@ -9668,9 +9668,11 @@ export namespace Prisma {
 
   export type Sale_officesMinAggregateOutputType = {
     id: number | null
-    site_code: string | null
-    site_office_name_th: string | null
-    site_office_name_en: string | null
+    sale_office_code: string | null
+    name_th: string | null
+    name_en: string | null
+    site_path: string | null
+    lab_site_code: string | null
     status: boolean | null
     create_at: Date | null
     update_at: Date | null
@@ -9678,9 +9680,11 @@ export namespace Prisma {
 
   export type Sale_officesMaxAggregateOutputType = {
     id: number | null
-    site_code: string | null
-    site_office_name_th: string | null
-    site_office_name_en: string | null
+    sale_office_code: string | null
+    name_th: string | null
+    name_en: string | null
+    site_path: string | null
+    lab_site_code: string | null
     status: boolean | null
     create_at: Date | null
     update_at: Date | null
@@ -9688,9 +9692,11 @@ export namespace Prisma {
 
   export type Sale_officesCountAggregateOutputType = {
     id: number
-    site_code: number
-    site_office_name_th: number
-    site_office_name_en: number
+    sale_office_code: number
+    name_th: number
+    name_en: number
+    site_path: number
+    lab_site_code: number
     status: number
     create_at: number
     update_at: number
@@ -9708,9 +9714,11 @@ export namespace Prisma {
 
   export type Sale_officesMinAggregateInputType = {
     id?: true
-    site_code?: true
-    site_office_name_th?: true
-    site_office_name_en?: true
+    sale_office_code?: true
+    name_th?: true
+    name_en?: true
+    site_path?: true
+    lab_site_code?: true
     status?: true
     create_at?: true
     update_at?: true
@@ -9718,9 +9726,11 @@ export namespace Prisma {
 
   export type Sale_officesMaxAggregateInputType = {
     id?: true
-    site_code?: true
-    site_office_name_th?: true
-    site_office_name_en?: true
+    sale_office_code?: true
+    name_th?: true
+    name_en?: true
+    site_path?: true
+    lab_site_code?: true
     status?: true
     create_at?: true
     update_at?: true
@@ -9728,9 +9738,11 @@ export namespace Prisma {
 
   export type Sale_officesCountAggregateInputType = {
     id?: true
-    site_code?: true
-    site_office_name_th?: true
-    site_office_name_en?: true
+    sale_office_code?: true
+    name_th?: true
+    name_en?: true
+    site_path?: true
+    lab_site_code?: true
     status?: true
     create_at?: true
     update_at?: true
@@ -9825,9 +9837,11 @@ export namespace Prisma {
 
   export type Sale_officesGroupByOutputType = {
     id: number
-    site_code: string
-    site_office_name_th: string
-    site_office_name_en: string
+    sale_office_code: string
+    name_th: string
+    name_en: string
+    site_path: string
+    lab_site_code: string
     status: boolean
     create_at: Date
     update_at: Date
@@ -9854,9 +9868,11 @@ export namespace Prisma {
 
   export type sale_officesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    site_code?: boolean
-    site_office_name_th?: boolean
-    site_office_name_en?: boolean
+    sale_office_code?: boolean
+    name_th?: boolean
+    name_en?: boolean
+    site_path?: boolean
+    lab_site_code?: boolean
     status?: boolean
     create_at?: boolean
     update_at?: boolean
@@ -9874,15 +9890,17 @@ export namespace Prisma {
 
   export type sale_officesSelectScalar = {
     id?: boolean
-    site_code?: boolean
-    site_office_name_th?: boolean
-    site_office_name_en?: boolean
+    sale_office_code?: boolean
+    name_th?: boolean
+    name_en?: boolean
+    site_path?: boolean
+    lab_site_code?: boolean
     status?: boolean
     create_at?: boolean
     update_at?: boolean
   }
 
-  export type sale_officesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "site_code" | "site_office_name_th" | "site_office_name_en" | "status" | "create_at" | "update_at", ExtArgs["result"]["sale_offices"]>
+  export type sale_officesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "sale_office_code" | "name_th" | "name_en" | "site_path" | "lab_site_code" | "status" | "create_at" | "update_at", ExtArgs["result"]["sale_offices"]>
   export type sale_officesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     departments?: boolean | sale_offices$departmentsArgs<ExtArgs>
     user_sale_office?: boolean | sale_offices$user_sale_officeArgs<ExtArgs>
@@ -9907,9 +9925,11 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      site_code: string
-      site_office_name_th: string
-      site_office_name_en: string
+      sale_office_code: string
+      name_th: string
+      name_en: string
+      site_path: string
+      lab_site_code: string
       status: boolean
       create_at: Date
       update_at: Date
@@ -10290,9 +10310,11 @@ export namespace Prisma {
    */
   interface sale_officesFieldRefs {
     readonly id: FieldRef<"sale_offices", 'Int'>
-    readonly site_code: FieldRef<"sale_offices", 'String'>
-    readonly site_office_name_th: FieldRef<"sale_offices", 'String'>
-    readonly site_office_name_en: FieldRef<"sale_offices", 'String'>
+    readonly sale_office_code: FieldRef<"sale_offices", 'String'>
+    readonly name_th: FieldRef<"sale_offices", 'String'>
+    readonly name_en: FieldRef<"sale_offices", 'String'>
+    readonly site_path: FieldRef<"sale_offices", 'String'>
+    readonly lab_site_code: FieldRef<"sale_offices", 'String'>
     readonly status: FieldRef<"sale_offices", 'Boolean'>
     readonly create_at: FieldRef<"sale_offices", 'DateTime'>
     readonly update_at: FieldRef<"sale_offices", 'DateTime'>
@@ -50718,9 +50740,11 @@ export namespace Prisma {
 
   export const Sale_officesScalarFieldEnum: {
     id: 'id',
-    site_code: 'site_code',
-    site_office_name_th: 'site_office_name_th',
-    site_office_name_en: 'site_office_name_en',
+    sale_office_code: 'sale_office_code',
+    name_th: 'name_th',
+    name_en: 'name_en',
+    site_path: 'site_path',
+    lab_site_code: 'lab_site_code',
     status: 'status',
     create_at: 'create_at',
     update_at: 'update_at'
@@ -51441,9 +51465,11 @@ export namespace Prisma {
 
 
   export const sale_officesOrderByRelevanceFieldEnum: {
-    site_code: 'site_code',
-    site_office_name_th: 'site_office_name_th',
-    site_office_name_en: 'site_office_name_en'
+    sale_office_code: 'sale_office_code',
+    name_th: 'name_th',
+    name_en: 'name_en',
+    site_path: 'site_path',
+    lab_site_code: 'lab_site_code'
   };
 
   export type sale_officesOrderByRelevanceFieldEnum = (typeof sale_officesOrderByRelevanceFieldEnum)[keyof typeof sale_officesOrderByRelevanceFieldEnum]
@@ -52143,9 +52169,11 @@ export namespace Prisma {
     OR?: sale_officesWhereInput[]
     NOT?: sale_officesWhereInput | sale_officesWhereInput[]
     id?: IntFilter<"sale_offices"> | number
-    site_code?: StringFilter<"sale_offices"> | string
-    site_office_name_th?: StringFilter<"sale_offices"> | string
-    site_office_name_en?: StringFilter<"sale_offices"> | string
+    sale_office_code?: StringFilter<"sale_offices"> | string
+    name_th?: StringFilter<"sale_offices"> | string
+    name_en?: StringFilter<"sale_offices"> | string
+    site_path?: StringFilter<"sale_offices"> | string
+    lab_site_code?: StringFilter<"sale_offices"> | string
     status?: BoolFilter<"sale_offices"> | boolean
     create_at?: DateTimeFilter<"sale_offices"> | Date | string
     update_at?: DateTimeFilter<"sale_offices"> | Date | string
@@ -52160,9 +52188,11 @@ export namespace Prisma {
 
   export type sale_officesOrderByWithRelationInput = {
     id?: SortOrder
-    site_code?: SortOrder
-    site_office_name_th?: SortOrder
-    site_office_name_en?: SortOrder
+    sale_office_code?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
+    site_path?: SortOrder
+    lab_site_code?: SortOrder
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
@@ -52181,9 +52211,11 @@ export namespace Prisma {
     AND?: sale_officesWhereInput | sale_officesWhereInput[]
     OR?: sale_officesWhereInput[]
     NOT?: sale_officesWhereInput | sale_officesWhereInput[]
-    site_code?: StringFilter<"sale_offices"> | string
-    site_office_name_th?: StringFilter<"sale_offices"> | string
-    site_office_name_en?: StringFilter<"sale_offices"> | string
+    sale_office_code?: StringFilter<"sale_offices"> | string
+    name_th?: StringFilter<"sale_offices"> | string
+    name_en?: StringFilter<"sale_offices"> | string
+    site_path?: StringFilter<"sale_offices"> | string
+    lab_site_code?: StringFilter<"sale_offices"> | string
     status?: BoolFilter<"sale_offices"> | boolean
     create_at?: DateTimeFilter<"sale_offices"> | Date | string
     update_at?: DateTimeFilter<"sale_offices"> | Date | string
@@ -52198,9 +52230,11 @@ export namespace Prisma {
 
   export type sale_officesOrderByWithAggregationInput = {
     id?: SortOrder
-    site_code?: SortOrder
-    site_office_name_th?: SortOrder
-    site_office_name_en?: SortOrder
+    sale_office_code?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
+    site_path?: SortOrder
+    lab_site_code?: SortOrder
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
@@ -52216,9 +52250,11 @@ export namespace Prisma {
     OR?: sale_officesScalarWhereWithAggregatesInput[]
     NOT?: sale_officesScalarWhereWithAggregatesInput | sale_officesScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"sale_offices"> | number
-    site_code?: StringWithAggregatesFilter<"sale_offices"> | string
-    site_office_name_th?: StringWithAggregatesFilter<"sale_offices"> | string
-    site_office_name_en?: StringWithAggregatesFilter<"sale_offices"> | string
+    sale_office_code?: StringWithAggregatesFilter<"sale_offices"> | string
+    name_th?: StringWithAggregatesFilter<"sale_offices"> | string
+    name_en?: StringWithAggregatesFilter<"sale_offices"> | string
+    site_path?: StringWithAggregatesFilter<"sale_offices"> | string
+    lab_site_code?: StringWithAggregatesFilter<"sale_offices"> | string
     status?: BoolWithAggregatesFilter<"sale_offices"> | boolean
     create_at?: DateTimeWithAggregatesFilter<"sale_offices"> | Date | string
     update_at?: DateTimeWithAggregatesFilter<"sale_offices"> | Date | string
@@ -55916,9 +55952,11 @@ export namespace Prisma {
   }
 
   export type sale_officesCreateInput = {
-    site_code: string
-    site_office_name_th: string
-    site_office_name_en: string
+    sale_office_code: string
+    name_th: string
+    name_en: string
+    site_path: string
+    lab_site_code: string
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
@@ -55933,9 +55971,11 @@ export namespace Prisma {
 
   export type sale_officesUncheckedCreateInput = {
     id?: number
-    site_code: string
-    site_office_name_th: string
-    site_office_name_en: string
+    sale_office_code: string
+    name_th: string
+    name_en: string
+    site_path: string
+    lab_site_code: string
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
@@ -55949,9 +55989,11 @@ export namespace Prisma {
   }
 
   export type sale_officesUpdateInput = {
-    site_code?: StringFieldUpdateOperationsInput | string
-    site_office_name_th?: StringFieldUpdateOperationsInput | string
-    site_office_name_en?: StringFieldUpdateOperationsInput | string
+    sale_office_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    site_path?: StringFieldUpdateOperationsInput | string
+    lab_site_code?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -55966,9 +56008,11 @@ export namespace Prisma {
 
   export type sale_officesUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    site_code?: StringFieldUpdateOperationsInput | string
-    site_office_name_th?: StringFieldUpdateOperationsInput | string
-    site_office_name_en?: StringFieldUpdateOperationsInput | string
+    sale_office_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    site_path?: StringFieldUpdateOperationsInput | string
+    lab_site_code?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -55983,18 +56027,22 @@ export namespace Prisma {
 
   export type sale_officesCreateManyInput = {
     id?: number
-    site_code: string
-    site_office_name_th: string
-    site_office_name_en: string
+    sale_office_code: string
+    name_th: string
+    name_en: string
+    site_path: string
+    lab_site_code: string
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
   }
 
   export type sale_officesUpdateManyMutationInput = {
-    site_code?: StringFieldUpdateOperationsInput | string
-    site_office_name_th?: StringFieldUpdateOperationsInput | string
-    site_office_name_en?: StringFieldUpdateOperationsInput | string
+    sale_office_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    site_path?: StringFieldUpdateOperationsInput | string
+    lab_site_code?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -56002,9 +56050,11 @@ export namespace Prisma {
 
   export type sale_officesUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    site_code?: StringFieldUpdateOperationsInput | string
-    site_office_name_th?: StringFieldUpdateOperationsInput | string
-    site_office_name_en?: StringFieldUpdateOperationsInput | string
+    sale_office_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    site_path?: StringFieldUpdateOperationsInput | string
+    lab_site_code?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -60104,9 +60154,11 @@ export namespace Prisma {
 
   export type sale_officesCountOrderByAggregateInput = {
     id?: SortOrder
-    site_code?: SortOrder
-    site_office_name_th?: SortOrder
-    site_office_name_en?: SortOrder
+    sale_office_code?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
+    site_path?: SortOrder
+    lab_site_code?: SortOrder
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
@@ -60118,9 +60170,11 @@ export namespace Prisma {
 
   export type sale_officesMaxOrderByAggregateInput = {
     id?: SortOrder
-    site_code?: SortOrder
-    site_office_name_th?: SortOrder
-    site_office_name_en?: SortOrder
+    sale_office_code?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
+    site_path?: SortOrder
+    lab_site_code?: SortOrder
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
@@ -60128,9 +60182,11 @@ export namespace Prisma {
 
   export type sale_officesMinOrderByAggregateInput = {
     id?: SortOrder
-    site_code?: SortOrder
-    site_office_name_th?: SortOrder
-    site_office_name_en?: SortOrder
+    sale_office_code?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
+    site_path?: SortOrder
+    lab_site_code?: SortOrder
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
@@ -64410,9 +64466,11 @@ export namespace Prisma {
   }
 
   export type sale_officesCreateWithoutUser_sale_officeInput = {
-    site_code: string
-    site_office_name_th: string
-    site_office_name_en: string
+    sale_office_code: string
+    name_th: string
+    name_en: string
+    site_path: string
+    lab_site_code: string
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
@@ -64426,9 +64484,11 @@ export namespace Prisma {
 
   export type sale_officesUncheckedCreateWithoutUser_sale_officeInput = {
     id?: number
-    site_code: string
-    site_office_name_th: string
-    site_office_name_en: string
+    sale_office_code: string
+    name_th: string
+    name_en: string
+    site_path: string
+    lab_site_code: string
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
@@ -64493,9 +64553,11 @@ export namespace Prisma {
   }
 
   export type sale_officesUpdateWithoutUser_sale_officeInput = {
-    site_code?: StringFieldUpdateOperationsInput | string
-    site_office_name_th?: StringFieldUpdateOperationsInput | string
-    site_office_name_en?: StringFieldUpdateOperationsInput | string
+    sale_office_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    site_path?: StringFieldUpdateOperationsInput | string
+    lab_site_code?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -64509,9 +64571,11 @@ export namespace Prisma {
 
   export type sale_officesUncheckedUpdateWithoutUser_sale_officeInput = {
     id?: IntFieldUpdateOperationsInput | number
-    site_code?: StringFieldUpdateOperationsInput | string
-    site_office_name_th?: StringFieldUpdateOperationsInput | string
-    site_office_name_en?: StringFieldUpdateOperationsInput | string
+    sale_office_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    site_path?: StringFieldUpdateOperationsInput | string
+    lab_site_code?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -64566,9 +64630,11 @@ export namespace Prisma {
   }
 
   export type sale_officesCreateWithoutDepartmentsInput = {
-    site_code: string
-    site_office_name_th: string
-    site_office_name_en: string
+    sale_office_code: string
+    name_th: string
+    name_en: string
+    site_path: string
+    lab_site_code: string
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
@@ -64582,9 +64648,11 @@ export namespace Prisma {
 
   export type sale_officesUncheckedCreateWithoutDepartmentsInput = {
     id?: number
-    site_code: string
-    site_office_name_th: string
-    site_office_name_en: string
+    sale_office_code: string
+    name_th: string
+    name_en: string
+    site_path: string
+    lab_site_code: string
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
@@ -64613,9 +64681,11 @@ export namespace Prisma {
   }
 
   export type sale_officesUpdateWithoutDepartmentsInput = {
-    site_code?: StringFieldUpdateOperationsInput | string
-    site_office_name_th?: StringFieldUpdateOperationsInput | string
-    site_office_name_en?: StringFieldUpdateOperationsInput | string
+    sale_office_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    site_path?: StringFieldUpdateOperationsInput | string
+    lab_site_code?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -64629,9 +64699,11 @@ export namespace Prisma {
 
   export type sale_officesUncheckedUpdateWithoutDepartmentsInput = {
     id?: IntFieldUpdateOperationsInput | number
-    site_code?: StringFieldUpdateOperationsInput | string
-    site_office_name_th?: StringFieldUpdateOperationsInput | string
-    site_office_name_en?: StringFieldUpdateOperationsInput | string
+    sale_office_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    site_path?: StringFieldUpdateOperationsInput | string
+    lab_site_code?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -64644,9 +64716,11 @@ export namespace Prisma {
   }
 
   export type sale_officesCreateWithoutFactory_sale_officeInput = {
-    site_code: string
-    site_office_name_th: string
-    site_office_name_en: string
+    sale_office_code: string
+    name_th: string
+    name_en: string
+    site_path: string
+    lab_site_code: string
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
@@ -64660,9 +64734,11 @@ export namespace Prisma {
 
   export type sale_officesUncheckedCreateWithoutFactory_sale_officeInput = {
     id?: number
-    site_code: string
-    site_office_name_th: string
-    site_office_name_en: string
+    sale_office_code: string
+    name_th: string
+    name_en: string
+    site_path: string
+    lab_site_code: string
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
@@ -64725,9 +64801,11 @@ export namespace Prisma {
   }
 
   export type sale_officesUpdateWithoutFactory_sale_officeInput = {
-    site_code?: StringFieldUpdateOperationsInput | string
-    site_office_name_th?: StringFieldUpdateOperationsInput | string
-    site_office_name_en?: StringFieldUpdateOperationsInput | string
+    sale_office_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    site_path?: StringFieldUpdateOperationsInput | string
+    lab_site_code?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -64741,9 +64819,11 @@ export namespace Prisma {
 
   export type sale_officesUncheckedUpdateWithoutFactory_sale_officeInput = {
     id?: IntFieldUpdateOperationsInput | number
-    site_code?: StringFieldUpdateOperationsInput | string
-    site_office_name_th?: StringFieldUpdateOperationsInput | string
-    site_office_name_en?: StringFieldUpdateOperationsInput | string
+    sale_office_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    site_path?: StringFieldUpdateOperationsInput | string
+    lab_site_code?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -65804,9 +65884,11 @@ export namespace Prisma {
   }
 
   export type sale_officesCreateWithoutRound_time_dirtiesInput = {
-    site_code: string
-    site_office_name_th: string
-    site_office_name_en: string
+    sale_office_code: string
+    name_th: string
+    name_en: string
+    site_path: string
+    lab_site_code: string
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
@@ -65820,9 +65902,11 @@ export namespace Prisma {
 
   export type sale_officesUncheckedCreateWithoutRound_time_dirtiesInput = {
     id?: number
-    site_code: string
-    site_office_name_th: string
-    site_office_name_en: string
+    sale_office_code: string
+    name_th: string
+    name_en: string
+    site_path: string
+    lab_site_code: string
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
@@ -65851,9 +65935,11 @@ export namespace Prisma {
   }
 
   export type sale_officesUpdateWithoutRound_time_dirtiesInput = {
-    site_code?: StringFieldUpdateOperationsInput | string
-    site_office_name_th?: StringFieldUpdateOperationsInput | string
-    site_office_name_en?: StringFieldUpdateOperationsInput | string
+    sale_office_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    site_path?: StringFieldUpdateOperationsInput | string
+    lab_site_code?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -65867,9 +65953,11 @@ export namespace Prisma {
 
   export type sale_officesUncheckedUpdateWithoutRound_time_dirtiesInput = {
     id?: IntFieldUpdateOperationsInput | number
-    site_code?: StringFieldUpdateOperationsInput | string
-    site_office_name_th?: StringFieldUpdateOperationsInput | string
-    site_office_name_en?: StringFieldUpdateOperationsInput | string
+    sale_office_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    site_path?: StringFieldUpdateOperationsInput | string
+    lab_site_code?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -65882,9 +65970,11 @@ export namespace Prisma {
   }
 
   export type sale_officesCreateWithoutRound_time_expressInput = {
-    site_code: string
-    site_office_name_th: string
-    site_office_name_en: string
+    sale_office_code: string
+    name_th: string
+    name_en: string
+    site_path: string
+    lab_site_code: string
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
@@ -65898,9 +65988,11 @@ export namespace Prisma {
 
   export type sale_officesUncheckedCreateWithoutRound_time_expressInput = {
     id?: number
-    site_code: string
-    site_office_name_th: string
-    site_office_name_en: string
+    sale_office_code: string
+    name_th: string
+    name_en: string
+    site_path: string
+    lab_site_code: string
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
@@ -65929,9 +66021,11 @@ export namespace Prisma {
   }
 
   export type sale_officesUpdateWithoutRound_time_expressInput = {
-    site_code?: StringFieldUpdateOperationsInput | string
-    site_office_name_th?: StringFieldUpdateOperationsInput | string
-    site_office_name_en?: StringFieldUpdateOperationsInput | string
+    sale_office_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    site_path?: StringFieldUpdateOperationsInput | string
+    lab_site_code?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -65945,9 +66039,11 @@ export namespace Prisma {
 
   export type sale_officesUncheckedUpdateWithoutRound_time_expressInput = {
     id?: IntFieldUpdateOperationsInput | number
-    site_code?: StringFieldUpdateOperationsInput | string
-    site_office_name_th?: StringFieldUpdateOperationsInput | string
-    site_office_name_en?: StringFieldUpdateOperationsInput | string
+    sale_office_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    site_path?: StringFieldUpdateOperationsInput | string
+    lab_site_code?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -65960,9 +66056,11 @@ export namespace Prisma {
   }
 
   export type sale_officesCreateWithoutRound_time_shelf_count_expressInput = {
-    site_code: string
-    site_office_name_th: string
-    site_office_name_en: string
+    sale_office_code: string
+    name_th: string
+    name_en: string
+    site_path: string
+    lab_site_code: string
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
@@ -65976,9 +66074,11 @@ export namespace Prisma {
 
   export type sale_officesUncheckedCreateWithoutRound_time_shelf_count_expressInput = {
     id?: number
-    site_code: string
-    site_office_name_th: string
-    site_office_name_en: string
+    sale_office_code: string
+    name_th: string
+    name_en: string
+    site_path: string
+    lab_site_code: string
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
@@ -66007,9 +66107,11 @@ export namespace Prisma {
   }
 
   export type sale_officesUpdateWithoutRound_time_shelf_count_expressInput = {
-    site_code?: StringFieldUpdateOperationsInput | string
-    site_office_name_th?: StringFieldUpdateOperationsInput | string
-    site_office_name_en?: StringFieldUpdateOperationsInput | string
+    sale_office_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    site_path?: StringFieldUpdateOperationsInput | string
+    lab_site_code?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -66023,9 +66125,11 @@ export namespace Prisma {
 
   export type sale_officesUncheckedUpdateWithoutRound_time_shelf_count_expressInput = {
     id?: IntFieldUpdateOperationsInput | number
-    site_code?: StringFieldUpdateOperationsInput | string
-    site_office_name_th?: StringFieldUpdateOperationsInput | string
-    site_office_name_en?: StringFieldUpdateOperationsInput | string
+    sale_office_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    site_path?: StringFieldUpdateOperationsInput | string
+    lab_site_code?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -66038,9 +66142,11 @@ export namespace Prisma {
   }
 
   export type sale_officesCreateWithoutRound_time_cleanInput = {
-    site_code: string
-    site_office_name_th: string
-    site_office_name_en: string
+    sale_office_code: string
+    name_th: string
+    name_en: string
+    site_path: string
+    lab_site_code: string
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
@@ -66054,9 +66160,11 @@ export namespace Prisma {
 
   export type sale_officesUncheckedCreateWithoutRound_time_cleanInput = {
     id?: number
-    site_code: string
-    site_office_name_th: string
-    site_office_name_en: string
+    sale_office_code: string
+    name_th: string
+    name_en: string
+    site_path: string
+    lab_site_code: string
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
@@ -66085,9 +66193,11 @@ export namespace Prisma {
   }
 
   export type sale_officesUpdateWithoutRound_time_cleanInput = {
-    site_code?: StringFieldUpdateOperationsInput | string
-    site_office_name_th?: StringFieldUpdateOperationsInput | string
-    site_office_name_en?: StringFieldUpdateOperationsInput | string
+    sale_office_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    site_path?: StringFieldUpdateOperationsInput | string
+    lab_site_code?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -66101,9 +66211,11 @@ export namespace Prisma {
 
   export type sale_officesUncheckedUpdateWithoutRound_time_cleanInput = {
     id?: IntFieldUpdateOperationsInput | number
-    site_code?: StringFieldUpdateOperationsInput | string
-    site_office_name_th?: StringFieldUpdateOperationsInput | string
-    site_office_name_en?: StringFieldUpdateOperationsInput | string
+    sale_office_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    site_path?: StringFieldUpdateOperationsInput | string
+    lab_site_code?: StringFieldUpdateOperationsInput | string
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string

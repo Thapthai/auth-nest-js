@@ -48,8 +48,10 @@ export class FactorySaleOfficeService {
         status: true,
         sale_office: {
           select: {
-            site_office_name_th: true,
-            site_office_name_en: true,
+            name_th: true,
+            name_en: true,
+            site_path: true,
+            lab_site_code: true,
           },
         },
         factory: {

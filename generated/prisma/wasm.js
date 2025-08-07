@@ -177,9 +177,11 @@ exports.Prisma.PermissionScalarFieldEnum = {
 
 exports.Prisma.Sale_officesScalarFieldEnum = {
   id: 'id',
-  site_code: 'site_code',
-  site_office_name_th: 'site_office_name_th',
-  site_office_name_en: 'site_office_name_en',
+  sale_office_code: 'sale_office_code',
+  name_th: 'name_th',
+  name_en: 'name_en',
+  site_path: 'site_path',
+  lab_site_code: 'lab_site_code',
   status: 'status',
   create_at: 'create_at',
   update_at: 'update_at'
@@ -759,9 +761,11 @@ exports.Prisma.permissionOrderByRelevanceFieldEnum = {
 };
 
 exports.Prisma.sale_officesOrderByRelevanceFieldEnum = {
-  site_code: 'site_code',
-  site_office_name_th: 'site_office_name_th',
-  site_office_name_en: 'site_office_name_en'
+  sale_office_code: 'sale_office_code',
+  name_th: 'name_th',
+  name_en: 'name_en',
+  site_path: 'site_path',
+  lab_site_code: 'lab_site_code'
 };
 
 exports.Prisma.user_sale_officesOrderByRelevanceFieldEnum = {

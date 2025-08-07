@@ -47,7 +47,7 @@ export class AuthService {
           id: true
         }
       });
-      
+
       await this.generateVerificationToken(user.email);
 
       return user;
@@ -169,7 +169,7 @@ export class AuthService {
         expires,
       },
     });
- 
+
     // ส่งอีเมลยืนยัน
     await this.sendVerifyEmail.sendVerificationEmail(email, token);
 
@@ -178,24 +178,22 @@ export class AuthService {
 
   async verifyEmail(verificationEmailDTO: VerificationEmailDTO, res) {
 
-    return "verify email";
+    const token = verificationEmailDTO.token;
+    const record = await this.prisma.verification_token.findUnique({ where: { token } });
 
-    // const token = verificationEmailDTO.token;
-    // const record = await this.prisma.verification_token.findUnique({ where: { token } });
+    if (!record || record.expires < new Date()) {
+      return res.redirect(`${process.env.FRONTEND_URL}/login`);
+    }
 
-    // if (!record || record.expires < new Date()) {
-    //   return res.redirect(`${process.env.FRONTEND_URL}/login`);
-    // }
+    await this.prisma.user.update({
+      where: { email: record.email },
+      data: { email_verified_at: new Date() },
+    });
 
-    // await this.prisma.user.update({
-    //   where: { email: record.email },
-    //   data: { email_verified_at: new Date() },
-    // });
+    await this.prisma.verification_token.delete({ where: { token } });
 
-    // await this.prisma.verification_token.delete({ where: { token } });
-
-    // // return { message: 'Email verified successfully.' };
-    // return res.redirect(`${process.env.FRONTEND_URL}/verify-email-successful`);
+    // return { message: 'Email verified successfully.' };
+    return res.redirect(`${process.env.FRONTEND_URL}/verify-email-successful`);
 
   }
 

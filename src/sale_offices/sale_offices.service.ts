@@ -31,9 +31,9 @@ export class SaleOfficesService {
 
     if (keyword) {
       where.OR = [
-        { site_code: { contains: keyword } },
-        { site_office_name_th: { contains: keyword } },
-        { site_office_name_en: { contains: keyword } },
+        { sale_office_code: { contains: keyword } },
+        { name_th: { contains: keyword } },
+        { name_en: { contains: keyword } },
       ];
     }
 
@@ -48,9 +48,11 @@ export class SaleOfficesService {
       orderBy: { id: 'asc' },
       select: {
         id: true,
-        site_code: true,
-        site_office_name_th: true,
-        site_office_name_en: true,
+        sale_office_code: true,
+        name_th: true,
+        name_en: true,
+        site_path: true,
+        lab_site_code: true,
         status: true,
         create_at: true,
         update_at: true,

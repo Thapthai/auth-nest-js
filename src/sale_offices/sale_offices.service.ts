@@ -12,7 +12,7 @@ export class SaleOfficesService {
   // Function to get detailed duplicate information
   async getDuplicateFieldDetails(sale_office_code: string, site_path: string, lab_site_code: string, excludeId?: number): Promise<string[]> {
     const duplicateFields: string[] = [];
-    
+
     // Check sale_office_code
     const existingSaleOfficeCode = await this.prisma.sale_offices.findFirst({
       where: {

@@ -144,6 +144,11 @@ export type sale_office_groups = $Result.DefaultSelection<Prisma.$sale_office_gr
  */
 export type stock_locations = $Result.DefaultSelection<Prisma.$stock_locationsPayload>
 /**
+ * Model locations
+ * 
+ */
+export type locations = $Result.DefaultSelection<Prisma.$locationsPayload>
+/**
  * Model shelfcounts
  * 
  */
@@ -623,6 +628,16 @@ export class PrismaClient<
     * ```
     */
   get stock_locations(): Prisma.stock_locationsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.locations`: Exposes CRUD operations for the **locations** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Locations
+    * const locations = await prisma.locations.findMany()
+    * ```
+    */
+  get locations(): Prisma.locationsDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.shelfcounts`: Exposes CRUD operations for the **shelfcounts** model.
@@ -1279,6 +1294,7 @@ export namespace Prisma {
     sale_office_group_types: 'sale_office_group_types',
     sale_office_groups: 'sale_office_groups',
     stock_locations: 'stock_locations',
+    locations: 'locations',
     shelfcounts: 'shelfcounts',
     shelfcount_details: 'shelfcount_details',
     damages: 'damages',
@@ -1316,7 +1332,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "verification_token" | "password_reset_token" | "notifications" | "permission" | "sale_offices" | "user_sale_offices" | "departments" | "factory_sale_office" | "factories" | "machines" | "contact" | "sap_sale" | "materials" | "material_types" | "item_units_meaures" | "items" | "items_details" | "item_categories" | "item_category_prices" | "dirties" | "dirty_details" | "dirty_detail_rounds" | "sale_office_group_types" | "sale_office_groups" | "stock_locations" | "shelfcounts" | "shelfcount_details" | "damages" | "damage_details" | "ships" | "new_linens" | "new_linen_details" | "repair_washs" | "repair_wash_details" | "cleans" | "clean_details" | "return_washs" | "retrun_wash_details" | "unregistered_items" | "round_time_dirties" | "round_time_express" | "round_time_shelf_count_express" | "round_time_clean" | "round_time_factory"
+      modelProps: "user" | "verification_token" | "password_reset_token" | "notifications" | "permission" | "sale_offices" | "user_sale_offices" | "departments" | "factory_sale_office" | "factories" | "machines" | "contact" | "sap_sale" | "materials" | "material_types" | "item_units_meaures" | "items" | "items_details" | "item_categories" | "item_category_prices" | "dirties" | "dirty_details" | "dirty_detail_rounds" | "sale_office_group_types" | "sale_office_groups" | "stock_locations" | "locations" | "shelfcounts" | "shelfcount_details" | "damages" | "damage_details" | "ships" | "new_linens" | "new_linen_details" | "repair_washs" | "repair_wash_details" | "cleans" | "clean_details" | "return_washs" | "retrun_wash_details" | "unregistered_items" | "round_time_dirties" | "round_time_express" | "round_time_shelf_count_express" | "round_time_clean" | "round_time_factory"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -3036,6 +3052,72 @@ export namespace Prisma {
           }
         }
       }
+      locations: {
+        payload: Prisma.$locationsPayload<ExtArgs>
+        fields: Prisma.locationsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.locationsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$locationsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.locationsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$locationsPayload>
+          }
+          findFirst: {
+            args: Prisma.locationsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$locationsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.locationsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$locationsPayload>
+          }
+          findMany: {
+            args: Prisma.locationsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$locationsPayload>[]
+          }
+          create: {
+            args: Prisma.locationsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$locationsPayload>
+          }
+          createMany: {
+            args: Prisma.locationsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.locationsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$locationsPayload>
+          }
+          update: {
+            args: Prisma.locationsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$locationsPayload>
+          }
+          deleteMany: {
+            args: Prisma.locationsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.locationsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.locationsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$locationsPayload>
+          }
+          aggregate: {
+            args: Prisma.LocationsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateLocations>
+          }
+          groupBy: {
+            args: Prisma.locationsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<LocationsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.locationsCountArgs<ExtArgs>
+            result: $Utils.Optional<LocationsCountAggregateOutputType> | number
+          }
+        }
+      }
       shelfcounts: {
         payload: Prisma.$shelfcountsPayload<ExtArgs>
         fields: Prisma.shelfcountsFieldRefs
@@ -4408,6 +4490,7 @@ export namespace Prisma {
     sale_office_group_types?: sale_office_group_typesOmit
     sale_office_groups?: sale_office_groupsOmit
     stock_locations?: stock_locationsOmit
+    locations?: locationsOmit
     shelfcounts?: shelfcountsOmit
     shelfcount_details?: shelfcount_detailsOmit
     damages?: damagesOmit
@@ -4647,37 +4730,6 @@ export namespace Prisma {
 
 
   /**
-   * Count Type DepartmentsCountOutputType
-   */
-
-  export type DepartmentsCountOutputType = {
-    stock_locations: number
-  }
-
-  export type DepartmentsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    stock_locations?: boolean | DepartmentsCountOutputTypeCountStock_locationsArgs
-  }
-
-  // Custom InputTypes
-  /**
-   * DepartmentsCountOutputType without action
-   */
-  export type DepartmentsCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the DepartmentsCountOutputType
-     */
-    select?: DepartmentsCountOutputTypeSelect<ExtArgs> | null
-  }
-
-  /**
-   * DepartmentsCountOutputType without action
-   */
-  export type DepartmentsCountOutputTypeCountStock_locationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: stock_locationsWhereInput
-  }
-
-
-  /**
    * Count Type FactoriesCountOutputType
    */
 
@@ -4856,6 +4908,37 @@ export namespace Prisma {
    */
   export type Item_categoriesCountOutputTypeCountItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: itemsWhereInput
+  }
+
+
+  /**
+   * Count Type Stock_locationsCountOutputType
+   */
+
+  export type Stock_locationsCountOutputType = {
+    locations: number
+  }
+
+  export type Stock_locationsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    locations?: boolean | Stock_locationsCountOutputTypeCountLocationsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * Stock_locationsCountOutputType without action
+   */
+  export type Stock_locationsCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Stock_locationsCountOutputType
+     */
+    select?: Stock_locationsCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * Stock_locationsCountOutputType without action
+   */
+  export type Stock_locationsCountOutputTypeCountLocationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: locationsWhereInput
   }
 
 
@@ -12164,8 +12247,6 @@ export namespace Prisma {
     create_at?: boolean
     update_at?: boolean
     sale_office?: boolean | sale_officesDefaultArgs<ExtArgs>
-    stock_locations?: boolean | departments$stock_locationsArgs<ExtArgs>
-    _count?: boolean | DepartmentsCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["departments"]>
 
 
@@ -12188,15 +12269,12 @@ export namespace Prisma {
   export type departmentsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "department_code" | "sale_office_id" | "description" | "group_code" | "ship_id" | "is_default" | "name_th" | "name_en" | "status" | "create_at" | "update_at", ExtArgs["result"]["departments"]>
   export type departmentsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     sale_office?: boolean | sale_officesDefaultArgs<ExtArgs>
-    stock_locations?: boolean | departments$stock_locationsArgs<ExtArgs>
-    _count?: boolean | DepartmentsCountOutputTypeDefaultArgs<ExtArgs>
   }
 
   export type $departmentsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "departments"
     objects: {
       sale_office: Prisma.$sale_officesPayload<ExtArgs>
-      stock_locations: Prisma.$stock_locationsPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -12552,7 +12630,6 @@ export namespace Prisma {
   export interface Prisma__departmentsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     sale_office<T extends sale_officesDefaultArgs<ExtArgs> = {}>(args?: Subset<T, sale_officesDefaultArgs<ExtArgs>>): Prisma__sale_officesClient<$Result.GetResult<Prisma.$sale_officesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    stock_locations<T extends departments$stock_locationsArgs<ExtArgs> = {}>(args?: Subset<T, departments$stock_locationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$stock_locationsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -12934,30 +13011,6 @@ export namespace Prisma {
      * Limit how many departments to delete.
      */
     limit?: number
-  }
-
-  /**
-   * departments.stock_locations
-   */
-  export type departments$stock_locationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the stock_locations
-     */
-    select?: stock_locationsSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the stock_locations
-     */
-    omit?: stock_locationsOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: stock_locationsInclude<ExtArgs> | null
-    where?: stock_locationsWhereInput
-    orderBy?: stock_locationsOrderByWithRelationInput | stock_locationsOrderByWithRelationInput[]
-    cursor?: stock_locationsWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: Stock_locationsScalarFieldEnum | Stock_locationsScalarFieldEnum[]
   }
 
   /**
@@ -30300,19 +30353,16 @@ export namespace Prisma {
 
   export type Stock_locationsAvgAggregateOutputType = {
     id: number | null
-    department_id: number | null
     sale_office_id: number | null
   }
 
   export type Stock_locationsSumAggregateOutputType = {
     id: number | null
-    department_id: number | null
     sale_office_id: number | null
   }
 
   export type Stock_locationsMinAggregateOutputType = {
     id: number | null
-    department_id: number | null
     sale_office_id: number | null
     site_short_code: string | null
     description: string | null
@@ -30323,7 +30373,6 @@ export namespace Prisma {
 
   export type Stock_locationsMaxAggregateOutputType = {
     id: number | null
-    department_id: number | null
     sale_office_id: number | null
     site_short_code: string | null
     description: string | null
@@ -30334,7 +30383,6 @@ export namespace Prisma {
 
   export type Stock_locationsCountAggregateOutputType = {
     id: number
-    department_id: number
     sale_office_id: number
     site_short_code: number
     description: number
@@ -30347,19 +30395,16 @@ export namespace Prisma {
 
   export type Stock_locationsAvgAggregateInputType = {
     id?: true
-    department_id?: true
     sale_office_id?: true
   }
 
   export type Stock_locationsSumAggregateInputType = {
     id?: true
-    department_id?: true
     sale_office_id?: true
   }
 
   export type Stock_locationsMinAggregateInputType = {
     id?: true
-    department_id?: true
     sale_office_id?: true
     site_short_code?: true
     description?: true
@@ -30370,7 +30415,6 @@ export namespace Prisma {
 
   export type Stock_locationsMaxAggregateInputType = {
     id?: true
-    department_id?: true
     sale_office_id?: true
     site_short_code?: true
     description?: true
@@ -30381,7 +30425,6 @@ export namespace Prisma {
 
   export type Stock_locationsCountAggregateInputType = {
     id?: true
-    department_id?: true
     sale_office_id?: true
     site_short_code?: true
     description?: true
@@ -30479,7 +30522,6 @@ export namespace Prisma {
 
   export type Stock_locationsGroupByOutputType = {
     id: number
-    department_id: number
     sale_office_id: number
     site_short_code: string
     description: string | null
@@ -30509,22 +30551,21 @@ export namespace Prisma {
 
   export type stock_locationsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    department_id?: boolean
     sale_office_id?: boolean
     site_short_code?: boolean
     description?: boolean
     status?: boolean
     create_at?: boolean
     update_at?: boolean
-    department?: boolean | departmentsDefaultArgs<ExtArgs>
     sale_office?: boolean | sale_officesDefaultArgs<ExtArgs>
+    locations?: boolean | stock_locations$locationsArgs<ExtArgs>
+    _count?: boolean | Stock_locationsCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["stock_locations"]>
 
 
 
   export type stock_locationsSelectScalar = {
     id?: boolean
-    department_id?: boolean
     sale_office_id?: boolean
     site_short_code?: boolean
     description?: boolean
@@ -30533,21 +30574,21 @@ export namespace Prisma {
     update_at?: boolean
   }
 
-  export type stock_locationsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "department_id" | "sale_office_id" | "site_short_code" | "description" | "status" | "create_at" | "update_at", ExtArgs["result"]["stock_locations"]>
+  export type stock_locationsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "sale_office_id" | "site_short_code" | "description" | "status" | "create_at" | "update_at", ExtArgs["result"]["stock_locations"]>
   export type stock_locationsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    department?: boolean | departmentsDefaultArgs<ExtArgs>
     sale_office?: boolean | sale_officesDefaultArgs<ExtArgs>
+    locations?: boolean | stock_locations$locationsArgs<ExtArgs>
+    _count?: boolean | Stock_locationsCountOutputTypeDefaultArgs<ExtArgs>
   }
 
   export type $stock_locationsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "stock_locations"
     objects: {
-      department: Prisma.$departmentsPayload<ExtArgs>
       sale_office: Prisma.$sale_officesPayload<ExtArgs>
+      locations: Prisma.$locationsPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      department_id: number
       sale_office_id: number
       site_short_code: string
       description: string | null
@@ -30894,8 +30935,8 @@ export namespace Prisma {
    */
   export interface Prisma__stock_locationsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    department<T extends departmentsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, departmentsDefaultArgs<ExtArgs>>): Prisma__departmentsClient<$Result.GetResult<Prisma.$departmentsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     sale_office<T extends sale_officesDefaultArgs<ExtArgs> = {}>(args?: Subset<T, sale_officesDefaultArgs<ExtArgs>>): Prisma__sale_officesClient<$Result.GetResult<Prisma.$sale_officesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    locations<T extends stock_locations$locationsArgs<ExtArgs> = {}>(args?: Subset<T, stock_locations$locationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$locationsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -30926,7 +30967,6 @@ export namespace Prisma {
    */
   interface stock_locationsFieldRefs {
     readonly id: FieldRef<"stock_locations", 'Int'>
-    readonly department_id: FieldRef<"stock_locations", 'Int'>
     readonly sale_office_id: FieldRef<"stock_locations", 'Int'>
     readonly site_short_code: FieldRef<"stock_locations", 'String'>
     readonly description: FieldRef<"stock_locations", 'String'>
@@ -31276,6 +31316,30 @@ export namespace Prisma {
   }
 
   /**
+   * stock_locations.locations
+   */
+  export type stock_locations$locationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the locations
+     */
+    select?: locationsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the locations
+     */
+    omit?: locationsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: locationsInclude<ExtArgs> | null
+    where?: locationsWhereInput
+    orderBy?: locationsOrderByWithRelationInput | locationsOrderByWithRelationInput[]
+    cursor?: locationsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: LocationsScalarFieldEnum | LocationsScalarFieldEnum[]
+  }
+
+  /**
    * stock_locations without action
    */
   export type stock_locationsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -31291,6 +31355,995 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: stock_locationsInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model locations
+   */
+
+  export type AggregateLocations = {
+    _count: LocationsCountAggregateOutputType | null
+    _avg: LocationsAvgAggregateOutputType | null
+    _sum: LocationsSumAggregateOutputType | null
+    _min: LocationsMinAggregateOutputType | null
+    _max: LocationsMaxAggregateOutputType | null
+  }
+
+  export type LocationsAvgAggregateOutputType = {
+    id: number | null
+    stock_location_id: number | null
+  }
+
+  export type LocationsSumAggregateOutputType = {
+    id: number | null
+    stock_location_id: number | null
+  }
+
+  export type LocationsMinAggregateOutputType = {
+    id: number | null
+    stock_location_id: number | null
+    site_short_code: string | null
+    description: string | null
+    status: boolean | null
+    create_at: Date | null
+    update_at: Date | null
+  }
+
+  export type LocationsMaxAggregateOutputType = {
+    id: number | null
+    stock_location_id: number | null
+    site_short_code: string | null
+    description: string | null
+    status: boolean | null
+    create_at: Date | null
+    update_at: Date | null
+  }
+
+  export type LocationsCountAggregateOutputType = {
+    id: number
+    stock_location_id: number
+    site_short_code: number
+    description: number
+    status: number
+    create_at: number
+    update_at: number
+    _all: number
+  }
+
+
+  export type LocationsAvgAggregateInputType = {
+    id?: true
+    stock_location_id?: true
+  }
+
+  export type LocationsSumAggregateInputType = {
+    id?: true
+    stock_location_id?: true
+  }
+
+  export type LocationsMinAggregateInputType = {
+    id?: true
+    stock_location_id?: true
+    site_short_code?: true
+    description?: true
+    status?: true
+    create_at?: true
+    update_at?: true
+  }
+
+  export type LocationsMaxAggregateInputType = {
+    id?: true
+    stock_location_id?: true
+    site_short_code?: true
+    description?: true
+    status?: true
+    create_at?: true
+    update_at?: true
+  }
+
+  export type LocationsCountAggregateInputType = {
+    id?: true
+    stock_location_id?: true
+    site_short_code?: true
+    description?: true
+    status?: true
+    create_at?: true
+    update_at?: true
+    _all?: true
+  }
+
+  export type LocationsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which locations to aggregate.
+     */
+    where?: locationsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of locations to fetch.
+     */
+    orderBy?: locationsOrderByWithRelationInput | locationsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: locationsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` locations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` locations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned locations
+    **/
+    _count?: true | LocationsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: LocationsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: LocationsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: LocationsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: LocationsMaxAggregateInputType
+  }
+
+  export type GetLocationsAggregateType<T extends LocationsAggregateArgs> = {
+        [P in keyof T & keyof AggregateLocations]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateLocations[P]>
+      : GetScalarType<T[P], AggregateLocations[P]>
+  }
+
+
+
+
+  export type locationsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: locationsWhereInput
+    orderBy?: locationsOrderByWithAggregationInput | locationsOrderByWithAggregationInput[]
+    by: LocationsScalarFieldEnum[] | LocationsScalarFieldEnum
+    having?: locationsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: LocationsCountAggregateInputType | true
+    _avg?: LocationsAvgAggregateInputType
+    _sum?: LocationsSumAggregateInputType
+    _min?: LocationsMinAggregateInputType
+    _max?: LocationsMaxAggregateInputType
+  }
+
+  export type LocationsGroupByOutputType = {
+    id: number
+    stock_location_id: number
+    site_short_code: string
+    description: string | null
+    status: boolean
+    create_at: Date
+    update_at: Date
+    _count: LocationsCountAggregateOutputType | null
+    _avg: LocationsAvgAggregateOutputType | null
+    _sum: LocationsSumAggregateOutputType | null
+    _min: LocationsMinAggregateOutputType | null
+    _max: LocationsMaxAggregateOutputType | null
+  }
+
+  type GetLocationsGroupByPayload<T extends locationsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<LocationsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof LocationsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], LocationsGroupByOutputType[P]>
+            : GetScalarType<T[P], LocationsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type locationsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    stock_location_id?: boolean
+    site_short_code?: boolean
+    description?: boolean
+    status?: boolean
+    create_at?: boolean
+    update_at?: boolean
+    stock_location?: boolean | stock_locationsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["locations"]>
+
+
+
+  export type locationsSelectScalar = {
+    id?: boolean
+    stock_location_id?: boolean
+    site_short_code?: boolean
+    description?: boolean
+    status?: boolean
+    create_at?: boolean
+    update_at?: boolean
+  }
+
+  export type locationsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "stock_location_id" | "site_short_code" | "description" | "status" | "create_at" | "update_at", ExtArgs["result"]["locations"]>
+  export type locationsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    stock_location?: boolean | stock_locationsDefaultArgs<ExtArgs>
+  }
+
+  export type $locationsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "locations"
+    objects: {
+      stock_location: Prisma.$stock_locationsPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      stock_location_id: number
+      site_short_code: string
+      description: string | null
+      status: boolean
+      create_at: Date
+      update_at: Date
+    }, ExtArgs["result"]["locations"]>
+    composites: {}
+  }
+
+  type locationsGetPayload<S extends boolean | null | undefined | locationsDefaultArgs> = $Result.GetResult<Prisma.$locationsPayload, S>
+
+  type locationsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<locationsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: LocationsCountAggregateInputType | true
+    }
+
+  export interface locationsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['locations'], meta: { name: 'locations' } }
+    /**
+     * Find zero or one Locations that matches the filter.
+     * @param {locationsFindUniqueArgs} args - Arguments to find a Locations
+     * @example
+     * // Get one Locations
+     * const locations = await prisma.locations.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends locationsFindUniqueArgs>(args: SelectSubset<T, locationsFindUniqueArgs<ExtArgs>>): Prisma__locationsClient<$Result.GetResult<Prisma.$locationsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Locations that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {locationsFindUniqueOrThrowArgs} args - Arguments to find a Locations
+     * @example
+     * // Get one Locations
+     * const locations = await prisma.locations.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends locationsFindUniqueOrThrowArgs>(args: SelectSubset<T, locationsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__locationsClient<$Result.GetResult<Prisma.$locationsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Locations that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {locationsFindFirstArgs} args - Arguments to find a Locations
+     * @example
+     * // Get one Locations
+     * const locations = await prisma.locations.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends locationsFindFirstArgs>(args?: SelectSubset<T, locationsFindFirstArgs<ExtArgs>>): Prisma__locationsClient<$Result.GetResult<Prisma.$locationsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Locations that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {locationsFindFirstOrThrowArgs} args - Arguments to find a Locations
+     * @example
+     * // Get one Locations
+     * const locations = await prisma.locations.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends locationsFindFirstOrThrowArgs>(args?: SelectSubset<T, locationsFindFirstOrThrowArgs<ExtArgs>>): Prisma__locationsClient<$Result.GetResult<Prisma.$locationsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Locations that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {locationsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Locations
+     * const locations = await prisma.locations.findMany()
+     * 
+     * // Get first 10 Locations
+     * const locations = await prisma.locations.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const locationsWithIdOnly = await prisma.locations.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends locationsFindManyArgs>(args?: SelectSubset<T, locationsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$locationsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Locations.
+     * @param {locationsCreateArgs} args - Arguments to create a Locations.
+     * @example
+     * // Create one Locations
+     * const Locations = await prisma.locations.create({
+     *   data: {
+     *     // ... data to create a Locations
+     *   }
+     * })
+     * 
+     */
+    create<T extends locationsCreateArgs>(args: SelectSubset<T, locationsCreateArgs<ExtArgs>>): Prisma__locationsClient<$Result.GetResult<Prisma.$locationsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Locations.
+     * @param {locationsCreateManyArgs} args - Arguments to create many Locations.
+     * @example
+     * // Create many Locations
+     * const locations = await prisma.locations.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends locationsCreateManyArgs>(args?: SelectSubset<T, locationsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Locations.
+     * @param {locationsDeleteArgs} args - Arguments to delete one Locations.
+     * @example
+     * // Delete one Locations
+     * const Locations = await prisma.locations.delete({
+     *   where: {
+     *     // ... filter to delete one Locations
+     *   }
+     * })
+     * 
+     */
+    delete<T extends locationsDeleteArgs>(args: SelectSubset<T, locationsDeleteArgs<ExtArgs>>): Prisma__locationsClient<$Result.GetResult<Prisma.$locationsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Locations.
+     * @param {locationsUpdateArgs} args - Arguments to update one Locations.
+     * @example
+     * // Update one Locations
+     * const locations = await prisma.locations.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends locationsUpdateArgs>(args: SelectSubset<T, locationsUpdateArgs<ExtArgs>>): Prisma__locationsClient<$Result.GetResult<Prisma.$locationsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Locations.
+     * @param {locationsDeleteManyArgs} args - Arguments to filter Locations to delete.
+     * @example
+     * // Delete a few Locations
+     * const { count } = await prisma.locations.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends locationsDeleteManyArgs>(args?: SelectSubset<T, locationsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Locations.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {locationsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Locations
+     * const locations = await prisma.locations.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends locationsUpdateManyArgs>(args: SelectSubset<T, locationsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Locations.
+     * @param {locationsUpsertArgs} args - Arguments to update or create a Locations.
+     * @example
+     * // Update or create a Locations
+     * const locations = await prisma.locations.upsert({
+     *   create: {
+     *     // ... data to create a Locations
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Locations we want to update
+     *   }
+     * })
+     */
+    upsert<T extends locationsUpsertArgs>(args: SelectSubset<T, locationsUpsertArgs<ExtArgs>>): Prisma__locationsClient<$Result.GetResult<Prisma.$locationsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Locations.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {locationsCountArgs} args - Arguments to filter Locations to count.
+     * @example
+     * // Count the number of Locations
+     * const count = await prisma.locations.count({
+     *   where: {
+     *     // ... the filter for the Locations we want to count
+     *   }
+     * })
+    **/
+    count<T extends locationsCountArgs>(
+      args?: Subset<T, locationsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], LocationsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Locations.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LocationsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends LocationsAggregateArgs>(args: Subset<T, LocationsAggregateArgs>): Prisma.PrismaPromise<GetLocationsAggregateType<T>>
+
+    /**
+     * Group by Locations.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {locationsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends locationsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: locationsGroupByArgs['orderBy'] }
+        : { orderBy?: locationsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, locationsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLocationsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the locations model
+   */
+  readonly fields: locationsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for locations.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__locationsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    stock_location<T extends stock_locationsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, stock_locationsDefaultArgs<ExtArgs>>): Prisma__stock_locationsClient<$Result.GetResult<Prisma.$stock_locationsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the locations model
+   */
+  interface locationsFieldRefs {
+    readonly id: FieldRef<"locations", 'Int'>
+    readonly stock_location_id: FieldRef<"locations", 'Int'>
+    readonly site_short_code: FieldRef<"locations", 'String'>
+    readonly description: FieldRef<"locations", 'String'>
+    readonly status: FieldRef<"locations", 'Boolean'>
+    readonly create_at: FieldRef<"locations", 'DateTime'>
+    readonly update_at: FieldRef<"locations", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * locations findUnique
+   */
+  export type locationsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the locations
+     */
+    select?: locationsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the locations
+     */
+    omit?: locationsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: locationsInclude<ExtArgs> | null
+    /**
+     * Filter, which locations to fetch.
+     */
+    where: locationsWhereUniqueInput
+  }
+
+  /**
+   * locations findUniqueOrThrow
+   */
+  export type locationsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the locations
+     */
+    select?: locationsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the locations
+     */
+    omit?: locationsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: locationsInclude<ExtArgs> | null
+    /**
+     * Filter, which locations to fetch.
+     */
+    where: locationsWhereUniqueInput
+  }
+
+  /**
+   * locations findFirst
+   */
+  export type locationsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the locations
+     */
+    select?: locationsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the locations
+     */
+    omit?: locationsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: locationsInclude<ExtArgs> | null
+    /**
+     * Filter, which locations to fetch.
+     */
+    where?: locationsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of locations to fetch.
+     */
+    orderBy?: locationsOrderByWithRelationInput | locationsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for locations.
+     */
+    cursor?: locationsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` locations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` locations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of locations.
+     */
+    distinct?: LocationsScalarFieldEnum | LocationsScalarFieldEnum[]
+  }
+
+  /**
+   * locations findFirstOrThrow
+   */
+  export type locationsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the locations
+     */
+    select?: locationsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the locations
+     */
+    omit?: locationsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: locationsInclude<ExtArgs> | null
+    /**
+     * Filter, which locations to fetch.
+     */
+    where?: locationsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of locations to fetch.
+     */
+    orderBy?: locationsOrderByWithRelationInput | locationsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for locations.
+     */
+    cursor?: locationsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` locations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` locations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of locations.
+     */
+    distinct?: LocationsScalarFieldEnum | LocationsScalarFieldEnum[]
+  }
+
+  /**
+   * locations findMany
+   */
+  export type locationsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the locations
+     */
+    select?: locationsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the locations
+     */
+    omit?: locationsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: locationsInclude<ExtArgs> | null
+    /**
+     * Filter, which locations to fetch.
+     */
+    where?: locationsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of locations to fetch.
+     */
+    orderBy?: locationsOrderByWithRelationInput | locationsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing locations.
+     */
+    cursor?: locationsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` locations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` locations.
+     */
+    skip?: number
+    distinct?: LocationsScalarFieldEnum | LocationsScalarFieldEnum[]
+  }
+
+  /**
+   * locations create
+   */
+  export type locationsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the locations
+     */
+    select?: locationsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the locations
+     */
+    omit?: locationsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: locationsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a locations.
+     */
+    data: XOR<locationsCreateInput, locationsUncheckedCreateInput>
+  }
+
+  /**
+   * locations createMany
+   */
+  export type locationsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many locations.
+     */
+    data: locationsCreateManyInput | locationsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * locations update
+   */
+  export type locationsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the locations
+     */
+    select?: locationsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the locations
+     */
+    omit?: locationsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: locationsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a locations.
+     */
+    data: XOR<locationsUpdateInput, locationsUncheckedUpdateInput>
+    /**
+     * Choose, which locations to update.
+     */
+    where: locationsWhereUniqueInput
+  }
+
+  /**
+   * locations updateMany
+   */
+  export type locationsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update locations.
+     */
+    data: XOR<locationsUpdateManyMutationInput, locationsUncheckedUpdateManyInput>
+    /**
+     * Filter which locations to update
+     */
+    where?: locationsWhereInput
+    /**
+     * Limit how many locations to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * locations upsert
+   */
+  export type locationsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the locations
+     */
+    select?: locationsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the locations
+     */
+    omit?: locationsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: locationsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the locations to update in case it exists.
+     */
+    where: locationsWhereUniqueInput
+    /**
+     * In case the locations found by the `where` argument doesn't exist, create a new locations with this data.
+     */
+    create: XOR<locationsCreateInput, locationsUncheckedCreateInput>
+    /**
+     * In case the locations was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<locationsUpdateInput, locationsUncheckedUpdateInput>
+  }
+
+  /**
+   * locations delete
+   */
+  export type locationsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the locations
+     */
+    select?: locationsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the locations
+     */
+    omit?: locationsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: locationsInclude<ExtArgs> | null
+    /**
+     * Filter which locations to delete.
+     */
+    where: locationsWhereUniqueInput
+  }
+
+  /**
+   * locations deleteMany
+   */
+  export type locationsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which locations to delete
+     */
+    where?: locationsWhereInput
+    /**
+     * Limit how many locations to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * locations without action
+   */
+  export type locationsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the locations
+     */
+    select?: locationsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the locations
+     */
+    omit?: locationsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: locationsInclude<ExtArgs> | null
   }
 
 
@@ -51190,7 +52243,6 @@ export namespace Prisma {
 
   export const Stock_locationsScalarFieldEnum: {
     id: 'id',
-    department_id: 'department_id',
     sale_office_id: 'sale_office_id',
     site_short_code: 'site_short_code',
     description: 'description',
@@ -51200,6 +52252,19 @@ export namespace Prisma {
   };
 
   export type Stock_locationsScalarFieldEnum = (typeof Stock_locationsScalarFieldEnum)[keyof typeof Stock_locationsScalarFieldEnum]
+
+
+  export const LocationsScalarFieldEnum: {
+    id: 'id',
+    stock_location_id: 'stock_location_id',
+    site_short_code: 'site_short_code',
+    description: 'description',
+    status: 'status',
+    create_at: 'create_at',
+    update_at: 'update_at'
+  };
+
+  export type LocationsScalarFieldEnum = (typeof LocationsScalarFieldEnum)[keyof typeof LocationsScalarFieldEnum]
 
 
   export const ShelfcountsScalarFieldEnum: {
@@ -51762,6 +52827,14 @@ export namespace Prisma {
   };
 
   export type stock_locationsOrderByRelevanceFieldEnum = (typeof stock_locationsOrderByRelevanceFieldEnum)[keyof typeof stock_locationsOrderByRelevanceFieldEnum]
+
+
+  export const locationsOrderByRelevanceFieldEnum: {
+    site_short_code: 'site_short_code',
+    description: 'description'
+  };
+
+  export type locationsOrderByRelevanceFieldEnum = (typeof locationsOrderByRelevanceFieldEnum)[keyof typeof locationsOrderByRelevanceFieldEnum]
 
 
   export const shelfcountsOrderByRelevanceFieldEnum: {
@@ -52493,7 +53566,6 @@ export namespace Prisma {
     create_at?: DateTimeFilter<"departments"> | Date | string
     update_at?: DateTimeFilter<"departments"> | Date | string
     sale_office?: XOR<Sale_officesScalarRelationFilter, sale_officesWhereInput>
-    stock_locations?: Stock_locationsListRelationFilter
   }
 
   export type departmentsOrderByWithRelationInput = {
@@ -52510,7 +53582,6 @@ export namespace Prisma {
     create_at?: SortOrder
     update_at?: SortOrder
     sale_office?: sale_officesOrderByWithRelationInput
-    stock_locations?: stock_locationsOrderByRelationAggregateInput
     _relevance?: departmentsOrderByRelevanceInput
   }
 
@@ -52531,7 +53602,6 @@ export namespace Prisma {
     create_at?: DateTimeFilter<"departments"> | Date | string
     update_at?: DateTimeFilter<"departments"> | Date | string
     sale_office?: XOR<Sale_officesScalarRelationFilter, sale_officesWhereInput>
-    stock_locations?: Stock_locationsListRelationFilter
   }, "id">
 
   export type departmentsOrderByWithAggregationInput = {
@@ -53924,28 +54994,26 @@ export namespace Prisma {
     OR?: stock_locationsWhereInput[]
     NOT?: stock_locationsWhereInput | stock_locationsWhereInput[]
     id?: IntFilter<"stock_locations"> | number
-    department_id?: IntFilter<"stock_locations"> | number
     sale_office_id?: IntFilter<"stock_locations"> | number
     site_short_code?: StringFilter<"stock_locations"> | string
     description?: StringNullableFilter<"stock_locations"> | string | null
     status?: BoolFilter<"stock_locations"> | boolean
     create_at?: DateTimeFilter<"stock_locations"> | Date | string
     update_at?: DateTimeFilter<"stock_locations"> | Date | string
-    department?: XOR<DepartmentsScalarRelationFilter, departmentsWhereInput>
     sale_office?: XOR<Sale_officesScalarRelationFilter, sale_officesWhereInput>
+    locations?: LocationsListRelationFilter
   }
 
   export type stock_locationsOrderByWithRelationInput = {
     id?: SortOrder
-    department_id?: SortOrder
     sale_office_id?: SortOrder
     site_short_code?: SortOrder
     description?: SortOrderInput | SortOrder
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
-    department?: departmentsOrderByWithRelationInput
     sale_office?: sale_officesOrderByWithRelationInput
+    locations?: locationsOrderByRelationAggregateInput
     _relevance?: stock_locationsOrderByRelevanceInput
   }
 
@@ -53954,20 +55022,18 @@ export namespace Prisma {
     AND?: stock_locationsWhereInput | stock_locationsWhereInput[]
     OR?: stock_locationsWhereInput[]
     NOT?: stock_locationsWhereInput | stock_locationsWhereInput[]
-    department_id?: IntFilter<"stock_locations"> | number
     sale_office_id?: IntFilter<"stock_locations"> | number
     site_short_code?: StringFilter<"stock_locations"> | string
     description?: StringNullableFilter<"stock_locations"> | string | null
     status?: BoolFilter<"stock_locations"> | boolean
     create_at?: DateTimeFilter<"stock_locations"> | Date | string
     update_at?: DateTimeFilter<"stock_locations"> | Date | string
-    department?: XOR<DepartmentsScalarRelationFilter, departmentsWhereInput>
     sale_office?: XOR<Sale_officesScalarRelationFilter, sale_officesWhereInput>
+    locations?: LocationsListRelationFilter
   }, "id">
 
   export type stock_locationsOrderByWithAggregationInput = {
     id?: SortOrder
-    department_id?: SortOrder
     sale_office_id?: SortOrder
     site_short_code?: SortOrder
     description?: SortOrderInput | SortOrder
@@ -53986,13 +55052,80 @@ export namespace Prisma {
     OR?: stock_locationsScalarWhereWithAggregatesInput[]
     NOT?: stock_locationsScalarWhereWithAggregatesInput | stock_locationsScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"stock_locations"> | number
-    department_id?: IntWithAggregatesFilter<"stock_locations"> | number
     sale_office_id?: IntWithAggregatesFilter<"stock_locations"> | number
     site_short_code?: StringWithAggregatesFilter<"stock_locations"> | string
     description?: StringNullableWithAggregatesFilter<"stock_locations"> | string | null
     status?: BoolWithAggregatesFilter<"stock_locations"> | boolean
     create_at?: DateTimeWithAggregatesFilter<"stock_locations"> | Date | string
     update_at?: DateTimeWithAggregatesFilter<"stock_locations"> | Date | string
+  }
+
+  export type locationsWhereInput = {
+    AND?: locationsWhereInput | locationsWhereInput[]
+    OR?: locationsWhereInput[]
+    NOT?: locationsWhereInput | locationsWhereInput[]
+    id?: IntFilter<"locations"> | number
+    stock_location_id?: IntFilter<"locations"> | number
+    site_short_code?: StringFilter<"locations"> | string
+    description?: StringNullableFilter<"locations"> | string | null
+    status?: BoolFilter<"locations"> | boolean
+    create_at?: DateTimeFilter<"locations"> | Date | string
+    update_at?: DateTimeFilter<"locations"> | Date | string
+    stock_location?: XOR<Stock_locationsScalarRelationFilter, stock_locationsWhereInput>
+  }
+
+  export type locationsOrderByWithRelationInput = {
+    id?: SortOrder
+    stock_location_id?: SortOrder
+    site_short_code?: SortOrder
+    description?: SortOrderInput | SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+    stock_location?: stock_locationsOrderByWithRelationInput
+    _relevance?: locationsOrderByRelevanceInput
+  }
+
+  export type locationsWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: locationsWhereInput | locationsWhereInput[]
+    OR?: locationsWhereInput[]
+    NOT?: locationsWhereInput | locationsWhereInput[]
+    stock_location_id?: IntFilter<"locations"> | number
+    site_short_code?: StringFilter<"locations"> | string
+    description?: StringNullableFilter<"locations"> | string | null
+    status?: BoolFilter<"locations"> | boolean
+    create_at?: DateTimeFilter<"locations"> | Date | string
+    update_at?: DateTimeFilter<"locations"> | Date | string
+    stock_location?: XOR<Stock_locationsScalarRelationFilter, stock_locationsWhereInput>
+  }, "id">
+
+  export type locationsOrderByWithAggregationInput = {
+    id?: SortOrder
+    stock_location_id?: SortOrder
+    site_short_code?: SortOrder
+    description?: SortOrderInput | SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+    _count?: locationsCountOrderByAggregateInput
+    _avg?: locationsAvgOrderByAggregateInput
+    _max?: locationsMaxOrderByAggregateInput
+    _min?: locationsMinOrderByAggregateInput
+    _sum?: locationsSumOrderByAggregateInput
+  }
+
+  export type locationsScalarWhereWithAggregatesInput = {
+    AND?: locationsScalarWhereWithAggregatesInput | locationsScalarWhereWithAggregatesInput[]
+    OR?: locationsScalarWhereWithAggregatesInput[]
+    NOT?: locationsScalarWhereWithAggregatesInput | locationsScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"locations"> | number
+    stock_location_id?: IntWithAggregatesFilter<"locations"> | number
+    site_short_code?: StringWithAggregatesFilter<"locations"> | string
+    description?: StringNullableWithAggregatesFilter<"locations"> | string | null
+    status?: BoolWithAggregatesFilter<"locations"> | boolean
+    create_at?: DateTimeWithAggregatesFilter<"locations"> | Date | string
+    update_at?: DateTimeWithAggregatesFilter<"locations"> | Date | string
   }
 
   export type shelfcountsWhereInput = {
@@ -56292,7 +57425,6 @@ export namespace Prisma {
     create_at?: Date | string
     update_at?: Date | string
     sale_office: sale_officesCreateNestedOneWithoutDepartmentsInput
-    stock_locations?: stock_locationsCreateNestedManyWithoutDepartmentInput
   }
 
   export type departmentsUncheckedCreateInput = {
@@ -56308,7 +57440,6 @@ export namespace Prisma {
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
-    stock_locations?: stock_locationsUncheckedCreateNestedManyWithoutDepartmentInput
   }
 
   export type departmentsUpdateInput = {
@@ -56323,7 +57454,6 @@ export namespace Prisma {
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
     sale_office?: sale_officesUpdateOneRequiredWithoutDepartmentsNestedInput
-    stock_locations?: stock_locationsUpdateManyWithoutDepartmentNestedInput
   }
 
   export type departmentsUncheckedUpdateInput = {
@@ -56339,7 +57469,6 @@ export namespace Prisma {
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    stock_locations?: stock_locationsUncheckedUpdateManyWithoutDepartmentNestedInput
   }
 
   export type departmentsCreateManyInput = {
@@ -57826,19 +58955,19 @@ export namespace Prisma {
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
-    department: departmentsCreateNestedOneWithoutStock_locationsInput
     sale_office: sale_officesCreateNestedOneWithoutStock_locationsInput
+    locations?: locationsCreateNestedManyWithoutStock_locationInput
   }
 
   export type stock_locationsUncheckedCreateInput = {
     id?: number
-    department_id: number
     sale_office_id: number
     site_short_code: string
     description?: string | null
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
+    locations?: locationsUncheckedCreateNestedManyWithoutStock_locationInput
   }
 
   export type stock_locationsUpdateInput = {
@@ -57847,24 +58976,23 @@ export namespace Prisma {
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    department?: departmentsUpdateOneRequiredWithoutStock_locationsNestedInput
     sale_office?: sale_officesUpdateOneRequiredWithoutStock_locationsNestedInput
+    locations?: locationsUpdateManyWithoutStock_locationNestedInput
   }
 
   export type stock_locationsUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    department_id?: IntFieldUpdateOperationsInput | number
     sale_office_id?: IntFieldUpdateOperationsInput | number
     site_short_code?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    locations?: locationsUncheckedUpdateManyWithoutStock_locationNestedInput
   }
 
   export type stock_locationsCreateManyInput = {
     id?: number
-    department_id: number
     sale_office_id: number
     site_short_code: string
     description?: string | null
@@ -57883,8 +59011,73 @@ export namespace Prisma {
 
   export type stock_locationsUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    department_id?: IntFieldUpdateOperationsInput | number
     sale_office_id?: IntFieldUpdateOperationsInput | number
+    site_short_code?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type locationsCreateInput = {
+    site_short_code: string
+    description?: string | null
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    stock_location: stock_locationsCreateNestedOneWithoutLocationsInput
+  }
+
+  export type locationsUncheckedCreateInput = {
+    id?: number
+    stock_location_id: number
+    site_short_code: string
+    description?: string | null
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type locationsUpdateInput = {
+    site_short_code?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    stock_location?: stock_locationsUpdateOneRequiredWithoutLocationsNestedInput
+  }
+
+  export type locationsUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    stock_location_id?: IntFieldUpdateOperationsInput | number
+    site_short_code?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type locationsCreateManyInput = {
+    id?: number
+    stock_location_id: number
+    site_short_code: string
+    description?: string | null
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type locationsUpdateManyMutationInput = {
+    site_short_code?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type locationsUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    stock_location_id?: IntFieldUpdateOperationsInput | number
     site_short_code?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
@@ -61590,9 +62783,14 @@ export namespace Prisma {
     sale_office_group_type_id?: SortOrder
   }
 
-  export type DepartmentsScalarRelationFilter = {
-    is?: departmentsWhereInput
-    isNot?: departmentsWhereInput
+  export type LocationsListRelationFilter = {
+    every?: locationsWhereInput
+    some?: locationsWhereInput
+    none?: locationsWhereInput
+  }
+
+  export type locationsOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type stock_locationsOrderByRelevanceInput = {
@@ -61603,7 +62801,6 @@ export namespace Prisma {
 
   export type stock_locationsCountOrderByAggregateInput = {
     id?: SortOrder
-    department_id?: SortOrder
     sale_office_id?: SortOrder
     site_short_code?: SortOrder
     description?: SortOrder
@@ -61614,13 +62811,11 @@ export namespace Prisma {
 
   export type stock_locationsAvgOrderByAggregateInput = {
     id?: SortOrder
-    department_id?: SortOrder
     sale_office_id?: SortOrder
   }
 
   export type stock_locationsMaxOrderByAggregateInput = {
     id?: SortOrder
-    department_id?: SortOrder
     sale_office_id?: SortOrder
     site_short_code?: SortOrder
     description?: SortOrder
@@ -61631,7 +62826,6 @@ export namespace Prisma {
 
   export type stock_locationsMinOrderByAggregateInput = {
     id?: SortOrder
-    department_id?: SortOrder
     sale_office_id?: SortOrder
     site_short_code?: SortOrder
     description?: SortOrder
@@ -61642,8 +62836,58 @@ export namespace Prisma {
 
   export type stock_locationsSumOrderByAggregateInput = {
     id?: SortOrder
-    department_id?: SortOrder
     sale_office_id?: SortOrder
+  }
+
+  export type Stock_locationsScalarRelationFilter = {
+    is?: stock_locationsWhereInput
+    isNot?: stock_locationsWhereInput
+  }
+
+  export type locationsOrderByRelevanceInput = {
+    fields: locationsOrderByRelevanceFieldEnum | locationsOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type locationsCountOrderByAggregateInput = {
+    id?: SortOrder
+    stock_location_id?: SortOrder
+    site_short_code?: SortOrder
+    description?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+  }
+
+  export type locationsAvgOrderByAggregateInput = {
+    id?: SortOrder
+    stock_location_id?: SortOrder
+  }
+
+  export type locationsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    stock_location_id?: SortOrder
+    site_short_code?: SortOrder
+    description?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+  }
+
+  export type locationsMinOrderByAggregateInput = {
+    id?: SortOrder
+    stock_location_id?: SortOrder
+    site_short_code?: SortOrder
+    description?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+  }
+
+  export type locationsSumOrderByAggregateInput = {
+    id?: SortOrder
+    stock_location_id?: SortOrder
   }
 
   export type shelfcountsOrderByRelevanceInput = {
@@ -63384,54 +64628,12 @@ export namespace Prisma {
     connect?: sale_officesWhereUniqueInput
   }
 
-  export type stock_locationsCreateNestedManyWithoutDepartmentInput = {
-    create?: XOR<stock_locationsCreateWithoutDepartmentInput, stock_locationsUncheckedCreateWithoutDepartmentInput> | stock_locationsCreateWithoutDepartmentInput[] | stock_locationsUncheckedCreateWithoutDepartmentInput[]
-    connectOrCreate?: stock_locationsCreateOrConnectWithoutDepartmentInput | stock_locationsCreateOrConnectWithoutDepartmentInput[]
-    createMany?: stock_locationsCreateManyDepartmentInputEnvelope
-    connect?: stock_locationsWhereUniqueInput | stock_locationsWhereUniqueInput[]
-  }
-
-  export type stock_locationsUncheckedCreateNestedManyWithoutDepartmentInput = {
-    create?: XOR<stock_locationsCreateWithoutDepartmentInput, stock_locationsUncheckedCreateWithoutDepartmentInput> | stock_locationsCreateWithoutDepartmentInput[] | stock_locationsUncheckedCreateWithoutDepartmentInput[]
-    connectOrCreate?: stock_locationsCreateOrConnectWithoutDepartmentInput | stock_locationsCreateOrConnectWithoutDepartmentInput[]
-    createMany?: stock_locationsCreateManyDepartmentInputEnvelope
-    connect?: stock_locationsWhereUniqueInput | stock_locationsWhereUniqueInput[]
-  }
-
   export type sale_officesUpdateOneRequiredWithoutDepartmentsNestedInput = {
     create?: XOR<sale_officesCreateWithoutDepartmentsInput, sale_officesUncheckedCreateWithoutDepartmentsInput>
     connectOrCreate?: sale_officesCreateOrConnectWithoutDepartmentsInput
     upsert?: sale_officesUpsertWithoutDepartmentsInput
     connect?: sale_officesWhereUniqueInput
     update?: XOR<XOR<sale_officesUpdateToOneWithWhereWithoutDepartmentsInput, sale_officesUpdateWithoutDepartmentsInput>, sale_officesUncheckedUpdateWithoutDepartmentsInput>
-  }
-
-  export type stock_locationsUpdateManyWithoutDepartmentNestedInput = {
-    create?: XOR<stock_locationsCreateWithoutDepartmentInput, stock_locationsUncheckedCreateWithoutDepartmentInput> | stock_locationsCreateWithoutDepartmentInput[] | stock_locationsUncheckedCreateWithoutDepartmentInput[]
-    connectOrCreate?: stock_locationsCreateOrConnectWithoutDepartmentInput | stock_locationsCreateOrConnectWithoutDepartmentInput[]
-    upsert?: stock_locationsUpsertWithWhereUniqueWithoutDepartmentInput | stock_locationsUpsertWithWhereUniqueWithoutDepartmentInput[]
-    createMany?: stock_locationsCreateManyDepartmentInputEnvelope
-    set?: stock_locationsWhereUniqueInput | stock_locationsWhereUniqueInput[]
-    disconnect?: stock_locationsWhereUniqueInput | stock_locationsWhereUniqueInput[]
-    delete?: stock_locationsWhereUniqueInput | stock_locationsWhereUniqueInput[]
-    connect?: stock_locationsWhereUniqueInput | stock_locationsWhereUniqueInput[]
-    update?: stock_locationsUpdateWithWhereUniqueWithoutDepartmentInput | stock_locationsUpdateWithWhereUniqueWithoutDepartmentInput[]
-    updateMany?: stock_locationsUpdateManyWithWhereWithoutDepartmentInput | stock_locationsUpdateManyWithWhereWithoutDepartmentInput[]
-    deleteMany?: stock_locationsScalarWhereInput | stock_locationsScalarWhereInput[]
-  }
-
-  export type stock_locationsUncheckedUpdateManyWithoutDepartmentNestedInput = {
-    create?: XOR<stock_locationsCreateWithoutDepartmentInput, stock_locationsUncheckedCreateWithoutDepartmentInput> | stock_locationsCreateWithoutDepartmentInput[] | stock_locationsUncheckedCreateWithoutDepartmentInput[]
-    connectOrCreate?: stock_locationsCreateOrConnectWithoutDepartmentInput | stock_locationsCreateOrConnectWithoutDepartmentInput[]
-    upsert?: stock_locationsUpsertWithWhereUniqueWithoutDepartmentInput | stock_locationsUpsertWithWhereUniqueWithoutDepartmentInput[]
-    createMany?: stock_locationsCreateManyDepartmentInputEnvelope
-    set?: stock_locationsWhereUniqueInput | stock_locationsWhereUniqueInput[]
-    disconnect?: stock_locationsWhereUniqueInput | stock_locationsWhereUniqueInput[]
-    delete?: stock_locationsWhereUniqueInput | stock_locationsWhereUniqueInput[]
-    connect?: stock_locationsWhereUniqueInput | stock_locationsWhereUniqueInput[]
-    update?: stock_locationsUpdateWithWhereUniqueWithoutDepartmentInput | stock_locationsUpdateWithWhereUniqueWithoutDepartmentInput[]
-    updateMany?: stock_locationsUpdateManyWithWhereWithoutDepartmentInput | stock_locationsUpdateManyWithWhereWithoutDepartmentInput[]
-    deleteMany?: stock_locationsScalarWhereInput | stock_locationsScalarWhereInput[]
   }
 
   export type sale_officesCreateNestedOneWithoutFactory_sale_officeInput = {
@@ -63930,24 +65132,24 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type departmentsCreateNestedOneWithoutStock_locationsInput = {
-    create?: XOR<departmentsCreateWithoutStock_locationsInput, departmentsUncheckedCreateWithoutStock_locationsInput>
-    connectOrCreate?: departmentsCreateOrConnectWithoutStock_locationsInput
-    connect?: departmentsWhereUniqueInput
-  }
-
   export type sale_officesCreateNestedOneWithoutStock_locationsInput = {
     create?: XOR<sale_officesCreateWithoutStock_locationsInput, sale_officesUncheckedCreateWithoutStock_locationsInput>
     connectOrCreate?: sale_officesCreateOrConnectWithoutStock_locationsInput
     connect?: sale_officesWhereUniqueInput
   }
 
-  export type departmentsUpdateOneRequiredWithoutStock_locationsNestedInput = {
-    create?: XOR<departmentsCreateWithoutStock_locationsInput, departmentsUncheckedCreateWithoutStock_locationsInput>
-    connectOrCreate?: departmentsCreateOrConnectWithoutStock_locationsInput
-    upsert?: departmentsUpsertWithoutStock_locationsInput
-    connect?: departmentsWhereUniqueInput
-    update?: XOR<XOR<departmentsUpdateToOneWithWhereWithoutStock_locationsInput, departmentsUpdateWithoutStock_locationsInput>, departmentsUncheckedUpdateWithoutStock_locationsInput>
+  export type locationsCreateNestedManyWithoutStock_locationInput = {
+    create?: XOR<locationsCreateWithoutStock_locationInput, locationsUncheckedCreateWithoutStock_locationInput> | locationsCreateWithoutStock_locationInput[] | locationsUncheckedCreateWithoutStock_locationInput[]
+    connectOrCreate?: locationsCreateOrConnectWithoutStock_locationInput | locationsCreateOrConnectWithoutStock_locationInput[]
+    createMany?: locationsCreateManyStock_locationInputEnvelope
+    connect?: locationsWhereUniqueInput | locationsWhereUniqueInput[]
+  }
+
+  export type locationsUncheckedCreateNestedManyWithoutStock_locationInput = {
+    create?: XOR<locationsCreateWithoutStock_locationInput, locationsUncheckedCreateWithoutStock_locationInput> | locationsCreateWithoutStock_locationInput[] | locationsUncheckedCreateWithoutStock_locationInput[]
+    connectOrCreate?: locationsCreateOrConnectWithoutStock_locationInput | locationsCreateOrConnectWithoutStock_locationInput[]
+    createMany?: locationsCreateManyStock_locationInputEnvelope
+    connect?: locationsWhereUniqueInput | locationsWhereUniqueInput[]
   }
 
   export type sale_officesUpdateOneRequiredWithoutStock_locationsNestedInput = {
@@ -63956,6 +65158,48 @@ export namespace Prisma {
     upsert?: sale_officesUpsertWithoutStock_locationsInput
     connect?: sale_officesWhereUniqueInput
     update?: XOR<XOR<sale_officesUpdateToOneWithWhereWithoutStock_locationsInput, sale_officesUpdateWithoutStock_locationsInput>, sale_officesUncheckedUpdateWithoutStock_locationsInput>
+  }
+
+  export type locationsUpdateManyWithoutStock_locationNestedInput = {
+    create?: XOR<locationsCreateWithoutStock_locationInput, locationsUncheckedCreateWithoutStock_locationInput> | locationsCreateWithoutStock_locationInput[] | locationsUncheckedCreateWithoutStock_locationInput[]
+    connectOrCreate?: locationsCreateOrConnectWithoutStock_locationInput | locationsCreateOrConnectWithoutStock_locationInput[]
+    upsert?: locationsUpsertWithWhereUniqueWithoutStock_locationInput | locationsUpsertWithWhereUniqueWithoutStock_locationInput[]
+    createMany?: locationsCreateManyStock_locationInputEnvelope
+    set?: locationsWhereUniqueInput | locationsWhereUniqueInput[]
+    disconnect?: locationsWhereUniqueInput | locationsWhereUniqueInput[]
+    delete?: locationsWhereUniqueInput | locationsWhereUniqueInput[]
+    connect?: locationsWhereUniqueInput | locationsWhereUniqueInput[]
+    update?: locationsUpdateWithWhereUniqueWithoutStock_locationInput | locationsUpdateWithWhereUniqueWithoutStock_locationInput[]
+    updateMany?: locationsUpdateManyWithWhereWithoutStock_locationInput | locationsUpdateManyWithWhereWithoutStock_locationInput[]
+    deleteMany?: locationsScalarWhereInput | locationsScalarWhereInput[]
+  }
+
+  export type locationsUncheckedUpdateManyWithoutStock_locationNestedInput = {
+    create?: XOR<locationsCreateWithoutStock_locationInput, locationsUncheckedCreateWithoutStock_locationInput> | locationsCreateWithoutStock_locationInput[] | locationsUncheckedCreateWithoutStock_locationInput[]
+    connectOrCreate?: locationsCreateOrConnectWithoutStock_locationInput | locationsCreateOrConnectWithoutStock_locationInput[]
+    upsert?: locationsUpsertWithWhereUniqueWithoutStock_locationInput | locationsUpsertWithWhereUniqueWithoutStock_locationInput[]
+    createMany?: locationsCreateManyStock_locationInputEnvelope
+    set?: locationsWhereUniqueInput | locationsWhereUniqueInput[]
+    disconnect?: locationsWhereUniqueInput | locationsWhereUniqueInput[]
+    delete?: locationsWhereUniqueInput | locationsWhereUniqueInput[]
+    connect?: locationsWhereUniqueInput | locationsWhereUniqueInput[]
+    update?: locationsUpdateWithWhereUniqueWithoutStock_locationInput | locationsUpdateWithWhereUniqueWithoutStock_locationInput[]
+    updateMany?: locationsUpdateManyWithWhereWithoutStock_locationInput | locationsUpdateManyWithWhereWithoutStock_locationInput[]
+    deleteMany?: locationsScalarWhereInput | locationsScalarWhereInput[]
+  }
+
+  export type stock_locationsCreateNestedOneWithoutLocationsInput = {
+    create?: XOR<stock_locationsCreateWithoutLocationsInput, stock_locationsUncheckedCreateWithoutLocationsInput>
+    connectOrCreate?: stock_locationsCreateOrConnectWithoutLocationsInput
+    connect?: stock_locationsWhereUniqueInput
+  }
+
+  export type stock_locationsUpdateOneRequiredWithoutLocationsNestedInput = {
+    create?: XOR<stock_locationsCreateWithoutLocationsInput, stock_locationsUncheckedCreateWithoutLocationsInput>
+    connectOrCreate?: stock_locationsCreateOrConnectWithoutLocationsInput
+    upsert?: stock_locationsUpsertWithoutLocationsInput
+    connect?: stock_locationsWhereUniqueInput
+    update?: XOR<XOR<stock_locationsUpdateToOneWithWhereWithoutLocationsInput, stock_locationsUpdateWithoutLocationsInput>, stock_locationsUncheckedUpdateWithoutLocationsInput>
   }
 
   export type NullableBoolFieldUpdateOperationsInput = {
@@ -64388,7 +65632,6 @@ export namespace Prisma {
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
-    stock_locations?: stock_locationsCreateNestedManyWithoutDepartmentInput
   }
 
   export type departmentsUncheckedCreateWithoutSale_officeInput = {
@@ -64403,7 +65646,6 @@ export namespace Prisma {
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
-    stock_locations?: stock_locationsUncheckedCreateNestedManyWithoutDepartmentInput
   }
 
   export type departmentsCreateOrConnectWithoutSale_officeInput = {
@@ -64572,17 +65814,17 @@ export namespace Prisma {
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
-    department: departmentsCreateNestedOneWithoutStock_locationsInput
+    locations?: locationsCreateNestedManyWithoutStock_locationInput
   }
 
   export type stock_locationsUncheckedCreateWithoutSale_officeInput = {
     id?: number
-    department_id: number
     site_short_code: string
     description?: string | null
     status: boolean
     create_at?: Date | string
     update_at?: Date | string
+    locations?: locationsUncheckedCreateNestedManyWithoutStock_locationInput
   }
 
   export type stock_locationsCreateOrConnectWithoutSale_officeInput = {
@@ -64806,7 +66048,6 @@ export namespace Prisma {
     OR?: stock_locationsScalarWhereInput[]
     NOT?: stock_locationsScalarWhereInput | stock_locationsScalarWhereInput[]
     id?: IntFilter<"stock_locations"> | number
-    department_id?: IntFilter<"stock_locations"> | number
     sale_office_id?: IntFilter<"stock_locations"> | number
     site_short_code?: StringFilter<"stock_locations"> | string
     description?: StringNullableFilter<"stock_locations"> | string | null
@@ -65025,35 +66266,6 @@ export namespace Prisma {
     create: XOR<sale_officesCreateWithoutDepartmentsInput, sale_officesUncheckedCreateWithoutDepartmentsInput>
   }
 
-  export type stock_locationsCreateWithoutDepartmentInput = {
-    site_short_code: string
-    description?: string | null
-    status: boolean
-    create_at?: Date | string
-    update_at?: Date | string
-    sale_office: sale_officesCreateNestedOneWithoutStock_locationsInput
-  }
-
-  export type stock_locationsUncheckedCreateWithoutDepartmentInput = {
-    id?: number
-    sale_office_id: number
-    site_short_code: string
-    description?: string | null
-    status: boolean
-    create_at?: Date | string
-    update_at?: Date | string
-  }
-
-  export type stock_locationsCreateOrConnectWithoutDepartmentInput = {
-    where: stock_locationsWhereUniqueInput
-    create: XOR<stock_locationsCreateWithoutDepartmentInput, stock_locationsUncheckedCreateWithoutDepartmentInput>
-  }
-
-  export type stock_locationsCreateManyDepartmentInputEnvelope = {
-    data: stock_locationsCreateManyDepartmentInput | stock_locationsCreateManyDepartmentInput[]
-    skipDuplicates?: boolean
-  }
-
   export type sale_officesUpsertWithoutDepartmentsInput = {
     update: XOR<sale_officesUpdateWithoutDepartmentsInput, sale_officesUncheckedUpdateWithoutDepartmentsInput>
     create: XOR<sale_officesCreateWithoutDepartmentsInput, sale_officesUncheckedCreateWithoutDepartmentsInput>
@@ -65100,22 +66312,6 @@ export namespace Prisma {
     round_time_clean?: round_time_cleanUncheckedUpdateManyWithoutSale_officeNestedInput
     factory_sale_office?: factory_sale_officeUncheckedUpdateManyWithoutSale_officeNestedInput
     stock_locations?: stock_locationsUncheckedUpdateManyWithoutSale_officeNestedInput
-  }
-
-  export type stock_locationsUpsertWithWhereUniqueWithoutDepartmentInput = {
-    where: stock_locationsWhereUniqueInput
-    update: XOR<stock_locationsUpdateWithoutDepartmentInput, stock_locationsUncheckedUpdateWithoutDepartmentInput>
-    create: XOR<stock_locationsCreateWithoutDepartmentInput, stock_locationsUncheckedCreateWithoutDepartmentInput>
-  }
-
-  export type stock_locationsUpdateWithWhereUniqueWithoutDepartmentInput = {
-    where: stock_locationsWhereUniqueInput
-    data: XOR<stock_locationsUpdateWithoutDepartmentInput, stock_locationsUncheckedUpdateWithoutDepartmentInput>
-  }
-
-  export type stock_locationsUpdateManyWithWhereWithoutDepartmentInput = {
-    where: stock_locationsScalarWhereInput
-    data: XOR<stock_locationsUpdateManyMutationInput, stock_locationsUncheckedUpdateManyWithoutDepartmentInput>
   }
 
   export type sale_officesCreateWithoutFactory_sale_officeInput = {
@@ -66213,40 +67409,6 @@ export namespace Prisma {
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type departmentsCreateWithoutStock_locationsInput = {
-    department_code: string
-    description: string
-    group_code: string
-    ship_id: number
-    is_default: boolean
-    name_th: string
-    name_en: string
-    status: boolean
-    create_at?: Date | string
-    update_at?: Date | string
-    sale_office: sale_officesCreateNestedOneWithoutDepartmentsInput
-  }
-
-  export type departmentsUncheckedCreateWithoutStock_locationsInput = {
-    id?: number
-    department_code: string
-    sale_office_id: number
-    description: string
-    group_code: string
-    ship_id: number
-    is_default: boolean
-    name_th: string
-    name_en: string
-    status: boolean
-    create_at?: Date | string
-    update_at?: Date | string
-  }
-
-  export type departmentsCreateOrConnectWithoutStock_locationsInput = {
-    where: departmentsWhereUniqueInput
-    create: XOR<departmentsCreateWithoutStock_locationsInput, departmentsUncheckedCreateWithoutStock_locationsInput>
-  }
-
   export type sale_officesCreateWithoutStock_locationsInput = {
     sale_office_code: string
     name_th: string
@@ -66289,44 +67451,31 @@ export namespace Prisma {
     create: XOR<sale_officesCreateWithoutStock_locationsInput, sale_officesUncheckedCreateWithoutStock_locationsInput>
   }
 
-  export type departmentsUpsertWithoutStock_locationsInput = {
-    update: XOR<departmentsUpdateWithoutStock_locationsInput, departmentsUncheckedUpdateWithoutStock_locationsInput>
-    create: XOR<departmentsCreateWithoutStock_locationsInput, departmentsUncheckedCreateWithoutStock_locationsInput>
-    where?: departmentsWhereInput
+  export type locationsCreateWithoutStock_locationInput = {
+    site_short_code: string
+    description?: string | null
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
   }
 
-  export type departmentsUpdateToOneWithWhereWithoutStock_locationsInput = {
-    where?: departmentsWhereInput
-    data: XOR<departmentsUpdateWithoutStock_locationsInput, departmentsUncheckedUpdateWithoutStock_locationsInput>
+  export type locationsUncheckedCreateWithoutStock_locationInput = {
+    id?: number
+    site_short_code: string
+    description?: string | null
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
   }
 
-  export type departmentsUpdateWithoutStock_locationsInput = {
-    department_code?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    group_code?: StringFieldUpdateOperationsInput | string
-    ship_id?: IntFieldUpdateOperationsInput | number
-    is_default?: BoolFieldUpdateOperationsInput | boolean
-    name_th?: StringFieldUpdateOperationsInput | string
-    name_en?: StringFieldUpdateOperationsInput | string
-    status?: BoolFieldUpdateOperationsInput | boolean
-    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    sale_office?: sale_officesUpdateOneRequiredWithoutDepartmentsNestedInput
+  export type locationsCreateOrConnectWithoutStock_locationInput = {
+    where: locationsWhereUniqueInput
+    create: XOR<locationsCreateWithoutStock_locationInput, locationsUncheckedCreateWithoutStock_locationInput>
   }
 
-  export type departmentsUncheckedUpdateWithoutStock_locationsInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    department_code?: StringFieldUpdateOperationsInput | string
-    sale_office_id?: IntFieldUpdateOperationsInput | number
-    description?: StringFieldUpdateOperationsInput | string
-    group_code?: StringFieldUpdateOperationsInput | string
-    ship_id?: IntFieldUpdateOperationsInput | number
-    is_default?: BoolFieldUpdateOperationsInput | boolean
-    name_th?: StringFieldUpdateOperationsInput | string
-    name_en?: StringFieldUpdateOperationsInput | string
-    status?: BoolFieldUpdateOperationsInput | boolean
-    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  export type locationsCreateManyStock_locationInputEnvelope = {
+    data: locationsCreateManyStock_locationInput | locationsCreateManyStock_locationInput[]
+    skipDuplicates?: boolean
   }
 
   export type sale_officesUpsertWithoutStock_locationsInput = {
@@ -66375,6 +67524,89 @@ export namespace Prisma {
     round_time_shelf_count_express?: round_time_shelf_count_expressUncheckedUpdateManyWithoutSale_officeNestedInput
     round_time_clean?: round_time_cleanUncheckedUpdateManyWithoutSale_officeNestedInput
     factory_sale_office?: factory_sale_officeUncheckedUpdateManyWithoutSale_officeNestedInput
+  }
+
+  export type locationsUpsertWithWhereUniqueWithoutStock_locationInput = {
+    where: locationsWhereUniqueInput
+    update: XOR<locationsUpdateWithoutStock_locationInput, locationsUncheckedUpdateWithoutStock_locationInput>
+    create: XOR<locationsCreateWithoutStock_locationInput, locationsUncheckedCreateWithoutStock_locationInput>
+  }
+
+  export type locationsUpdateWithWhereUniqueWithoutStock_locationInput = {
+    where: locationsWhereUniqueInput
+    data: XOR<locationsUpdateWithoutStock_locationInput, locationsUncheckedUpdateWithoutStock_locationInput>
+  }
+
+  export type locationsUpdateManyWithWhereWithoutStock_locationInput = {
+    where: locationsScalarWhereInput
+    data: XOR<locationsUpdateManyMutationInput, locationsUncheckedUpdateManyWithoutStock_locationInput>
+  }
+
+  export type locationsScalarWhereInput = {
+    AND?: locationsScalarWhereInput | locationsScalarWhereInput[]
+    OR?: locationsScalarWhereInput[]
+    NOT?: locationsScalarWhereInput | locationsScalarWhereInput[]
+    id?: IntFilter<"locations"> | number
+    stock_location_id?: IntFilter<"locations"> | number
+    site_short_code?: StringFilter<"locations"> | string
+    description?: StringNullableFilter<"locations"> | string | null
+    status?: BoolFilter<"locations"> | boolean
+    create_at?: DateTimeFilter<"locations"> | Date | string
+    update_at?: DateTimeFilter<"locations"> | Date | string
+  }
+
+  export type stock_locationsCreateWithoutLocationsInput = {
+    site_short_code: string
+    description?: string | null
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    sale_office: sale_officesCreateNestedOneWithoutStock_locationsInput
+  }
+
+  export type stock_locationsUncheckedCreateWithoutLocationsInput = {
+    id?: number
+    sale_office_id: number
+    site_short_code: string
+    description?: string | null
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type stock_locationsCreateOrConnectWithoutLocationsInput = {
+    where: stock_locationsWhereUniqueInput
+    create: XOR<stock_locationsCreateWithoutLocationsInput, stock_locationsUncheckedCreateWithoutLocationsInput>
+  }
+
+  export type stock_locationsUpsertWithoutLocationsInput = {
+    update: XOR<stock_locationsUpdateWithoutLocationsInput, stock_locationsUncheckedUpdateWithoutLocationsInput>
+    create: XOR<stock_locationsCreateWithoutLocationsInput, stock_locationsUncheckedCreateWithoutLocationsInput>
+    where?: stock_locationsWhereInput
+  }
+
+  export type stock_locationsUpdateToOneWithWhereWithoutLocationsInput = {
+    where?: stock_locationsWhereInput
+    data: XOR<stock_locationsUpdateWithoutLocationsInput, stock_locationsUncheckedUpdateWithoutLocationsInput>
+  }
+
+  export type stock_locationsUpdateWithoutLocationsInput = {
+    site_short_code?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    sale_office?: sale_officesUpdateOneRequiredWithoutStock_locationsNestedInput
+  }
+
+  export type stock_locationsUncheckedUpdateWithoutLocationsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    sale_office_id?: IntFieldUpdateOperationsInput | number
+    site_short_code?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type dirty_detailsCreateWithoutUnregistered_itemInput = {
@@ -66983,7 +68215,6 @@ export namespace Prisma {
 
   export type stock_locationsCreateManySale_officeInput = {
     id?: number
-    department_id: number
     site_short_code: string
     description?: string | null
     status: boolean
@@ -67002,7 +68233,6 @@ export namespace Prisma {
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    stock_locations?: stock_locationsUpdateManyWithoutDepartmentNestedInput
   }
 
   export type departmentsUncheckedUpdateWithoutSale_officeInput = {
@@ -67017,7 +68247,6 @@ export namespace Prisma {
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    stock_locations?: stock_locationsUncheckedUpdateManyWithoutDepartmentNestedInput
   }
 
   export type departmentsUncheckedUpdateManyWithoutSale_officeInput = {
@@ -67178,61 +68407,21 @@ export namespace Prisma {
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    department?: departmentsUpdateOneRequiredWithoutStock_locationsNestedInput
+    locations?: locationsUpdateManyWithoutStock_locationNestedInput
   }
 
   export type stock_locationsUncheckedUpdateWithoutSale_officeInput = {
     id?: IntFieldUpdateOperationsInput | number
-    department_id?: IntFieldUpdateOperationsInput | number
     site_short_code?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    locations?: locationsUncheckedUpdateManyWithoutStock_locationNestedInput
   }
 
   export type stock_locationsUncheckedUpdateManyWithoutSale_officeInput = {
     id?: IntFieldUpdateOperationsInput | number
-    department_id?: IntFieldUpdateOperationsInput | number
-    site_short_code?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: BoolFieldUpdateOperationsInput | boolean
-    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type stock_locationsCreateManyDepartmentInput = {
-    id?: number
-    sale_office_id: number
-    site_short_code: string
-    description?: string | null
-    status: boolean
-    create_at?: Date | string
-    update_at?: Date | string
-  }
-
-  export type stock_locationsUpdateWithoutDepartmentInput = {
-    site_short_code?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: BoolFieldUpdateOperationsInput | boolean
-    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    sale_office?: sale_officesUpdateOneRequiredWithoutStock_locationsNestedInput
-  }
-
-  export type stock_locationsUncheckedUpdateWithoutDepartmentInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    sale_office_id?: IntFieldUpdateOperationsInput | number
-    site_short_code?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: BoolFieldUpdateOperationsInput | boolean
-    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type stock_locationsUncheckedUpdateManyWithoutDepartmentInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    sale_office_id?: IntFieldUpdateOperationsInput | number
     site_short_code?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
@@ -67607,6 +68796,41 @@ export namespace Prisma {
     rfid_number?: NullableStringFieldUpdateOperationsInput | string | null
     name_th?: NullableStringFieldUpdateOperationsInput | string | null
     name_en?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type locationsCreateManyStock_locationInput = {
+    id?: number
+    site_short_code: string
+    description?: string | null
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type locationsUpdateWithoutStock_locationInput = {
+    site_short_code?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type locationsUncheckedUpdateWithoutStock_locationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    site_short_code?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type locationsUncheckedUpdateManyWithoutStock_locationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    site_short_code?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string

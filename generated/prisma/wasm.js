@@ -422,8 +422,17 @@ exports.Prisma.Sale_office_groupsScalarFieldEnum = {
 
 exports.Prisma.Stock_locationsScalarFieldEnum = {
   id: 'id',
-  department_id: 'department_id',
   sale_office_id: 'sale_office_id',
+  site_short_code: 'site_short_code',
+  description: 'description',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
+exports.Prisma.LocationsScalarFieldEnum = {
+  id: 'id',
+  stock_location_id: 'stock_location_id',
   site_short_code: 'site_short_code',
   description: 'description',
   status: 'status',
@@ -864,6 +873,11 @@ exports.Prisma.stock_locationsOrderByRelevanceFieldEnum = {
   description: 'description'
 };
 
+exports.Prisma.locationsOrderByRelevanceFieldEnum = {
+  site_short_code: 'site_short_code',
+  description: 'description'
+};
+
 exports.Prisma.shelfcountsOrderByRelevanceFieldEnum = {
   shelfcount_doc_no: 'shelfcount_doc_no',
   complete_user: 'complete_user',
@@ -989,6 +1003,7 @@ exports.Prisma.ModelName = {
   sale_office_group_types: 'sale_office_group_types',
   sale_office_groups: 'sale_office_groups',
   stock_locations: 'stock_locations',
+  locations: 'locations',
   shelfcounts: 'shelfcounts',
   shelfcount_details: 'shelfcount_details',
   damages: 'damages',

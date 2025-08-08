@@ -24,14 +24,11 @@ export class StockLocationsService {
     page = 1,
     pageSize = 10,
     keyword = '',
-    department_id = '',
-    sale_office_id = ''
   }: {
     page?: number;
     pageSize?: number;
     keyword?: string;
-    department_id?: string;
-    sale_office_id?: string;
+
   }) {
     const skip = (page - 1) * pageSize;
 
@@ -40,16 +37,12 @@ export class StockLocationsService {
     if (keyword) {
       where.OR = [
         { description: { contains: keyword } },
-        { site_short_code: { equals: isNaN(parseInt(keyword)) ? undefined : parseInt(keyword) } },
-      ].filter(condition => condition.site_short_code !== undefined || condition.description);
-    }
-
-    if (department_id) {
-      where.department_id = parseInt(department_id);
-    }
-
-    if (sale_office_id) {
-      where.sale_office_id = parseInt(sale_office_id);
+        { site_short_code: { contains: keyword } },
+        { department: { name_th: { contains: keyword } } },
+        { department: { name_en: { contains: keyword } } },
+        { sale_office: { name_th: { contains: keyword } } },
+        { sale_office: { name_en: { contains: keyword } } },
+      ]
     }
 
     const total = await this.prisma.stock_locations.count({
@@ -61,6 +54,21 @@ export class StockLocationsService {
       skip,
       take: pageSize,
       orderBy: { id: 'desc' },
+      include: {
+        department: {
+          select: {
+            department_code: true,
+            name_th: true,
+            name_en: true,
+          },
+        },
+        sale_office: {
+          select: {
+            name_th: true,
+            name_en: true,
+          },
+        },
+      },
     });
 
     return {

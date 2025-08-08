@@ -860,6 +860,7 @@ exports.Prisma.sale_office_groupsOrderByRelevanceFieldEnum = {
 };
 
 exports.Prisma.stock_locationsOrderByRelevanceFieldEnum = {
+  site_short_code: 'site_short_code',
   description: 'description'
 };
 

@@ -1,4 +1,4 @@
-import { IsBoolean, IsInt, IsNotEmpty, IsString } from "class-validator";
+import { IsBoolean, IsInt, IsNotEmpty, IsOptional, IsString } from "class-validator";   
 
 export class CreateStockLocationDto {
     @IsNotEmpty()
@@ -10,12 +10,13 @@ export class CreateStockLocationDto {
     sale_office_id: number;
 
     @IsNotEmpty()
-    @IsInt()
-    site_short_code: number;
-
-    @IsNotEmpty()
     @IsString()
-    description: string;
+    site_short_code: string;
+
+
+    @IsOptional()
+    @IsString()
+    description?: string;
 
     @IsNotEmpty()
     @IsBoolean()

@@ -31,6 +31,7 @@ import { MaterialTypesModule } from './material_types/material_types.module';
 import { MaterialsModule } from './materials/materials.module';
 import { SapSaleModule } from './sap_sale/sap_sale.module';
 import { StockLocationsModule } from './stock_locations/stock_locations.module';
+import { LocationsModule } from './locations/locations.module';
 import { SaleOfficeGroupsModule } from './sale_office_groups/sale_office_groups.module';
 import { SaleOfficeGroupTypesModule } from './sale_office_group_types/sale_office_group_types.module';
 import { ExcelModule } from './excel/excel.module';
@@ -71,6 +72,7 @@ import { ExcelModule } from './excel/excel.module';
     MaterialsModule,
     SapSaleModule,
     StockLocationsModule,
+    LocationsModule,
     SaleOfficeGroupsModule,
     SaleOfficeGroupTypesModule,
     ExcelModule,

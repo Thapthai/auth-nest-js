@@ -22,11 +22,13 @@ export class StockLocationsController {
     @Query('page') page = '1',
     @Query('pageSize') pageSize = '10',
     @Query('keyword') keyword = '',
+    @Query('sale_office_id') sale_office_id = '',
   ) {
     return this.stockLocationsService.findAllStockLocationPagination({
       page: Number(page),
       pageSize: Number(pageSize),
       keyword: keyword.trim(),
+      sale_office_id: sale_office_id.trim(),
     });
   }
 

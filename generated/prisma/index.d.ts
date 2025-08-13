@@ -30365,6 +30365,8 @@ export namespace Prisma {
     id: number | null
     sale_office_id: number | null
     site_short_code: string | null
+    name_th: string | null
+    name_en: string | null
     description: string | null
     status: boolean | null
     create_at: Date | null
@@ -30375,6 +30377,8 @@ export namespace Prisma {
     id: number | null
     sale_office_id: number | null
     site_short_code: string | null
+    name_th: string | null
+    name_en: string | null
     description: string | null
     status: boolean | null
     create_at: Date | null
@@ -30385,6 +30389,8 @@ export namespace Prisma {
     id: number
     sale_office_id: number
     site_short_code: number
+    name_th: number
+    name_en: number
     description: number
     status: number
     create_at: number
@@ -30407,6 +30413,8 @@ export namespace Prisma {
     id?: true
     sale_office_id?: true
     site_short_code?: true
+    name_th?: true
+    name_en?: true
     description?: true
     status?: true
     create_at?: true
@@ -30417,6 +30425,8 @@ export namespace Prisma {
     id?: true
     sale_office_id?: true
     site_short_code?: true
+    name_th?: true
+    name_en?: true
     description?: true
     status?: true
     create_at?: true
@@ -30427,6 +30437,8 @@ export namespace Prisma {
     id?: true
     sale_office_id?: true
     site_short_code?: true
+    name_th?: true
+    name_en?: true
     description?: true
     status?: true
     create_at?: true
@@ -30524,6 +30536,8 @@ export namespace Prisma {
     id: number
     sale_office_id: number
     site_short_code: string
+    name_th: string
+    name_en: string
     description: string | null
     status: boolean
     create_at: Date
@@ -30553,6 +30567,8 @@ export namespace Prisma {
     id?: boolean
     sale_office_id?: boolean
     site_short_code?: boolean
+    name_th?: boolean
+    name_en?: boolean
     description?: boolean
     status?: boolean
     create_at?: boolean
@@ -30568,13 +30584,15 @@ export namespace Prisma {
     id?: boolean
     sale_office_id?: boolean
     site_short_code?: boolean
+    name_th?: boolean
+    name_en?: boolean
     description?: boolean
     status?: boolean
     create_at?: boolean
     update_at?: boolean
   }
 
-  export type stock_locationsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "sale_office_id" | "site_short_code" | "description" | "status" | "create_at" | "update_at", ExtArgs["result"]["stock_locations"]>
+  export type stock_locationsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "sale_office_id" | "site_short_code" | "name_th" | "name_en" | "description" | "status" | "create_at" | "update_at", ExtArgs["result"]["stock_locations"]>
   export type stock_locationsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     sale_office?: boolean | sale_officesDefaultArgs<ExtArgs>
     locations?: boolean | stock_locations$locationsArgs<ExtArgs>
@@ -30591,6 +30609,8 @@ export namespace Prisma {
       id: number
       sale_office_id: number
       site_short_code: string
+      name_th: string
+      name_en: string
       description: string | null
       status: boolean
       create_at: Date
@@ -30969,6 +30989,8 @@ export namespace Prisma {
     readonly id: FieldRef<"stock_locations", 'Int'>
     readonly sale_office_id: FieldRef<"stock_locations", 'Int'>
     readonly site_short_code: FieldRef<"stock_locations", 'String'>
+    readonly name_th: FieldRef<"stock_locations", 'String'>
+    readonly name_en: FieldRef<"stock_locations", 'String'>
     readonly description: FieldRef<"stock_locations", 'String'>
     readonly status: FieldRef<"stock_locations", 'Boolean'>
     readonly create_at: FieldRef<"stock_locations", 'DateTime'>
@@ -31384,6 +31406,8 @@ export namespace Prisma {
     id: number | null
     stock_location_id: number | null
     site_short_code: string | null
+    name_th: string | null
+    name_en: string | null
     description: string | null
     status: boolean | null
     create_at: Date | null
@@ -31394,6 +31418,8 @@ export namespace Prisma {
     id: number | null
     stock_location_id: number | null
     site_short_code: string | null
+    name_th: string | null
+    name_en: string | null
     description: string | null
     status: boolean | null
     create_at: Date | null
@@ -31404,6 +31430,8 @@ export namespace Prisma {
     id: number
     stock_location_id: number
     site_short_code: number
+    name_th: number
+    name_en: number
     description: number
     status: number
     create_at: number
@@ -31426,6 +31454,8 @@ export namespace Prisma {
     id?: true
     stock_location_id?: true
     site_short_code?: true
+    name_th?: true
+    name_en?: true
     description?: true
     status?: true
     create_at?: true
@@ -31436,6 +31466,8 @@ export namespace Prisma {
     id?: true
     stock_location_id?: true
     site_short_code?: true
+    name_th?: true
+    name_en?: true
     description?: true
     status?: true
     create_at?: true
@@ -31446,6 +31478,8 @@ export namespace Prisma {
     id?: true
     stock_location_id?: true
     site_short_code?: true
+    name_th?: true
+    name_en?: true
     description?: true
     status?: true
     create_at?: true
@@ -31543,6 +31577,8 @@ export namespace Prisma {
     id: number
     stock_location_id: number
     site_short_code: string
+    name_th: string
+    name_en: string
     description: string | null
     status: boolean
     create_at: Date
@@ -31572,6 +31608,8 @@ export namespace Prisma {
     id?: boolean
     stock_location_id?: boolean
     site_short_code?: boolean
+    name_th?: boolean
+    name_en?: boolean
     description?: boolean
     status?: boolean
     create_at?: boolean
@@ -31585,13 +31623,15 @@ export namespace Prisma {
     id?: boolean
     stock_location_id?: boolean
     site_short_code?: boolean
+    name_th?: boolean
+    name_en?: boolean
     description?: boolean
     status?: boolean
     create_at?: boolean
     update_at?: boolean
   }
 
-  export type locationsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "stock_location_id" | "site_short_code" | "description" | "status" | "create_at" | "update_at", ExtArgs["result"]["locations"]>
+  export type locationsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "stock_location_id" | "site_short_code" | "name_th" | "name_en" | "description" | "status" | "create_at" | "update_at", ExtArgs["result"]["locations"]>
   export type locationsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     stock_location?: boolean | stock_locationsDefaultArgs<ExtArgs>
   }
@@ -31605,6 +31645,8 @@ export namespace Prisma {
       id: number
       stock_location_id: number
       site_short_code: string
+      name_th: string
+      name_en: string
       description: string | null
       status: boolean
       create_at: Date
@@ -31982,6 +32024,8 @@ export namespace Prisma {
     readonly id: FieldRef<"locations", 'Int'>
     readonly stock_location_id: FieldRef<"locations", 'Int'>
     readonly site_short_code: FieldRef<"locations", 'String'>
+    readonly name_th: FieldRef<"locations", 'String'>
+    readonly name_en: FieldRef<"locations", 'String'>
     readonly description: FieldRef<"locations", 'String'>
     readonly status: FieldRef<"locations", 'Boolean'>
     readonly create_at: FieldRef<"locations", 'DateTime'>
@@ -52245,6 +52289,8 @@ export namespace Prisma {
     id: 'id',
     sale_office_id: 'sale_office_id',
     site_short_code: 'site_short_code',
+    name_th: 'name_th',
+    name_en: 'name_en',
     description: 'description',
     status: 'status',
     create_at: 'create_at',
@@ -52258,6 +52304,8 @@ export namespace Prisma {
     id: 'id',
     stock_location_id: 'stock_location_id',
     site_short_code: 'site_short_code',
+    name_th: 'name_th',
+    name_en: 'name_en',
     description: 'description',
     status: 'status',
     create_at: 'create_at',
@@ -52823,6 +52871,8 @@ export namespace Prisma {
 
   export const stock_locationsOrderByRelevanceFieldEnum: {
     site_short_code: 'site_short_code',
+    name_th: 'name_th',
+    name_en: 'name_en',
     description: 'description'
   };
 
@@ -52831,6 +52881,8 @@ export namespace Prisma {
 
   export const locationsOrderByRelevanceFieldEnum: {
     site_short_code: 'site_short_code',
+    name_th: 'name_th',
+    name_en: 'name_en',
     description: 'description'
   };
 
@@ -54996,6 +55048,8 @@ export namespace Prisma {
     id?: IntFilter<"stock_locations"> | number
     sale_office_id?: IntFilter<"stock_locations"> | number
     site_short_code?: StringFilter<"stock_locations"> | string
+    name_th?: StringFilter<"stock_locations"> | string
+    name_en?: StringFilter<"stock_locations"> | string
     description?: StringNullableFilter<"stock_locations"> | string | null
     status?: BoolFilter<"stock_locations"> | boolean
     create_at?: DateTimeFilter<"stock_locations"> | Date | string
@@ -55008,6 +55062,8 @@ export namespace Prisma {
     id?: SortOrder
     sale_office_id?: SortOrder
     site_short_code?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
     description?: SortOrderInput | SortOrder
     status?: SortOrder
     create_at?: SortOrder
@@ -55024,6 +55080,8 @@ export namespace Prisma {
     NOT?: stock_locationsWhereInput | stock_locationsWhereInput[]
     sale_office_id?: IntFilter<"stock_locations"> | number
     site_short_code?: StringFilter<"stock_locations"> | string
+    name_th?: StringFilter<"stock_locations"> | string
+    name_en?: StringFilter<"stock_locations"> | string
     description?: StringNullableFilter<"stock_locations"> | string | null
     status?: BoolFilter<"stock_locations"> | boolean
     create_at?: DateTimeFilter<"stock_locations"> | Date | string
@@ -55036,6 +55094,8 @@ export namespace Prisma {
     id?: SortOrder
     sale_office_id?: SortOrder
     site_short_code?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
     description?: SortOrderInput | SortOrder
     status?: SortOrder
     create_at?: SortOrder
@@ -55054,6 +55114,8 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"stock_locations"> | number
     sale_office_id?: IntWithAggregatesFilter<"stock_locations"> | number
     site_short_code?: StringWithAggregatesFilter<"stock_locations"> | string
+    name_th?: StringWithAggregatesFilter<"stock_locations"> | string
+    name_en?: StringWithAggregatesFilter<"stock_locations"> | string
     description?: StringNullableWithAggregatesFilter<"stock_locations"> | string | null
     status?: BoolWithAggregatesFilter<"stock_locations"> | boolean
     create_at?: DateTimeWithAggregatesFilter<"stock_locations"> | Date | string
@@ -55067,6 +55129,8 @@ export namespace Prisma {
     id?: IntFilter<"locations"> | number
     stock_location_id?: IntFilter<"locations"> | number
     site_short_code?: StringFilter<"locations"> | string
+    name_th?: StringFilter<"locations"> | string
+    name_en?: StringFilter<"locations"> | string
     description?: StringNullableFilter<"locations"> | string | null
     status?: BoolFilter<"locations"> | boolean
     create_at?: DateTimeFilter<"locations"> | Date | string
@@ -55078,6 +55142,8 @@ export namespace Prisma {
     id?: SortOrder
     stock_location_id?: SortOrder
     site_short_code?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
     description?: SortOrderInput | SortOrder
     status?: SortOrder
     create_at?: SortOrder
@@ -55093,6 +55159,8 @@ export namespace Prisma {
     NOT?: locationsWhereInput | locationsWhereInput[]
     stock_location_id?: IntFilter<"locations"> | number
     site_short_code?: StringFilter<"locations"> | string
+    name_th?: StringFilter<"locations"> | string
+    name_en?: StringFilter<"locations"> | string
     description?: StringNullableFilter<"locations"> | string | null
     status?: BoolFilter<"locations"> | boolean
     create_at?: DateTimeFilter<"locations"> | Date | string
@@ -55104,6 +55172,8 @@ export namespace Prisma {
     id?: SortOrder
     stock_location_id?: SortOrder
     site_short_code?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
     description?: SortOrderInput | SortOrder
     status?: SortOrder
     create_at?: SortOrder
@@ -55122,6 +55192,8 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"locations"> | number
     stock_location_id?: IntWithAggregatesFilter<"locations"> | number
     site_short_code?: StringWithAggregatesFilter<"locations"> | string
+    name_th?: StringWithAggregatesFilter<"locations"> | string
+    name_en?: StringWithAggregatesFilter<"locations"> | string
     description?: StringNullableWithAggregatesFilter<"locations"> | string | null
     status?: BoolWithAggregatesFilter<"locations"> | boolean
     create_at?: DateTimeWithAggregatesFilter<"locations"> | Date | string
@@ -58951,6 +59023,8 @@ export namespace Prisma {
 
   export type stock_locationsCreateInput = {
     site_short_code: string
+    name_th?: string
+    name_en?: string
     description?: string | null
     status: boolean
     create_at?: Date | string
@@ -58963,6 +59037,8 @@ export namespace Prisma {
     id?: number
     sale_office_id: number
     site_short_code: string
+    name_th?: string
+    name_en?: string
     description?: string | null
     status: boolean
     create_at?: Date | string
@@ -58972,6 +59048,8 @@ export namespace Prisma {
 
   export type stock_locationsUpdateInput = {
     site_short_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -58984,6 +59062,8 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     sale_office_id?: IntFieldUpdateOperationsInput | number
     site_short_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -58995,6 +59075,8 @@ export namespace Prisma {
     id?: number
     sale_office_id: number
     site_short_code: string
+    name_th?: string
+    name_en?: string
     description?: string | null
     status: boolean
     create_at?: Date | string
@@ -59003,6 +59085,8 @@ export namespace Prisma {
 
   export type stock_locationsUpdateManyMutationInput = {
     site_short_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -59013,6 +59097,8 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     sale_office_id?: IntFieldUpdateOperationsInput | number
     site_short_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -59021,6 +59107,8 @@ export namespace Prisma {
 
   export type locationsCreateInput = {
     site_short_code: string
+    name_th?: string
+    name_en?: string
     description?: string | null
     status: boolean
     create_at?: Date | string
@@ -59032,6 +59120,8 @@ export namespace Prisma {
     id?: number
     stock_location_id: number
     site_short_code: string
+    name_th?: string
+    name_en?: string
     description?: string | null
     status: boolean
     create_at?: Date | string
@@ -59040,6 +59130,8 @@ export namespace Prisma {
 
   export type locationsUpdateInput = {
     site_short_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -59051,6 +59143,8 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     stock_location_id?: IntFieldUpdateOperationsInput | number
     site_short_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -59061,6 +59155,8 @@ export namespace Prisma {
     id?: number
     stock_location_id: number
     site_short_code: string
+    name_th?: string
+    name_en?: string
     description?: string | null
     status: boolean
     create_at?: Date | string
@@ -59069,6 +59165,8 @@ export namespace Prisma {
 
   export type locationsUpdateManyMutationInput = {
     site_short_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -59079,6 +59177,8 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     stock_location_id?: IntFieldUpdateOperationsInput | number
     site_short_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -62803,6 +62903,8 @@ export namespace Prisma {
     id?: SortOrder
     sale_office_id?: SortOrder
     site_short_code?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
     description?: SortOrder
     status?: SortOrder
     create_at?: SortOrder
@@ -62818,6 +62920,8 @@ export namespace Prisma {
     id?: SortOrder
     sale_office_id?: SortOrder
     site_short_code?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
     description?: SortOrder
     status?: SortOrder
     create_at?: SortOrder
@@ -62828,6 +62932,8 @@ export namespace Prisma {
     id?: SortOrder
     sale_office_id?: SortOrder
     site_short_code?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
     description?: SortOrder
     status?: SortOrder
     create_at?: SortOrder
@@ -62854,6 +62960,8 @@ export namespace Prisma {
     id?: SortOrder
     stock_location_id?: SortOrder
     site_short_code?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
     description?: SortOrder
     status?: SortOrder
     create_at?: SortOrder
@@ -62869,6 +62977,8 @@ export namespace Prisma {
     id?: SortOrder
     stock_location_id?: SortOrder
     site_short_code?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
     description?: SortOrder
     status?: SortOrder
     create_at?: SortOrder
@@ -62879,6 +62989,8 @@ export namespace Prisma {
     id?: SortOrder
     stock_location_id?: SortOrder
     site_short_code?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
     description?: SortOrder
     status?: SortOrder
     create_at?: SortOrder
@@ -65810,6 +65922,8 @@ export namespace Prisma {
 
   export type stock_locationsCreateWithoutSale_officeInput = {
     site_short_code: string
+    name_th?: string
+    name_en?: string
     description?: string | null
     status: boolean
     create_at?: Date | string
@@ -65820,6 +65934,8 @@ export namespace Prisma {
   export type stock_locationsUncheckedCreateWithoutSale_officeInput = {
     id?: number
     site_short_code: string
+    name_th?: string
+    name_en?: string
     description?: string | null
     status: boolean
     create_at?: Date | string
@@ -66050,6 +66166,8 @@ export namespace Prisma {
     id?: IntFilter<"stock_locations"> | number
     sale_office_id?: IntFilter<"stock_locations"> | number
     site_short_code?: StringFilter<"stock_locations"> | string
+    name_th?: StringFilter<"stock_locations"> | string
+    name_en?: StringFilter<"stock_locations"> | string
     description?: StringNullableFilter<"stock_locations"> | string | null
     status?: BoolFilter<"stock_locations"> | boolean
     create_at?: DateTimeFilter<"stock_locations"> | Date | string
@@ -67453,6 +67571,8 @@ export namespace Prisma {
 
   export type locationsCreateWithoutStock_locationInput = {
     site_short_code: string
+    name_th?: string
+    name_en?: string
     description?: string | null
     status: boolean
     create_at?: Date | string
@@ -67462,6 +67582,8 @@ export namespace Prisma {
   export type locationsUncheckedCreateWithoutStock_locationInput = {
     id?: number
     site_short_code: string
+    name_th?: string
+    name_en?: string
     description?: string | null
     status: boolean
     create_at?: Date | string
@@ -67549,6 +67671,8 @@ export namespace Prisma {
     id?: IntFilter<"locations"> | number
     stock_location_id?: IntFilter<"locations"> | number
     site_short_code?: StringFilter<"locations"> | string
+    name_th?: StringFilter<"locations"> | string
+    name_en?: StringFilter<"locations"> | string
     description?: StringNullableFilter<"locations"> | string | null
     status?: BoolFilter<"locations"> | boolean
     create_at?: DateTimeFilter<"locations"> | Date | string
@@ -67557,6 +67681,8 @@ export namespace Prisma {
 
   export type stock_locationsCreateWithoutLocationsInput = {
     site_short_code: string
+    name_th?: string
+    name_en?: string
     description?: string | null
     status: boolean
     create_at?: Date | string
@@ -67568,6 +67694,8 @@ export namespace Prisma {
     id?: number
     sale_office_id: number
     site_short_code: string
+    name_th?: string
+    name_en?: string
     description?: string | null
     status: boolean
     create_at?: Date | string
@@ -67592,6 +67720,8 @@ export namespace Prisma {
 
   export type stock_locationsUpdateWithoutLocationsInput = {
     site_short_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -67603,6 +67733,8 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     sale_office_id?: IntFieldUpdateOperationsInput | number
     site_short_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -68216,6 +68348,8 @@ export namespace Prisma {
   export type stock_locationsCreateManySale_officeInput = {
     id?: number
     site_short_code: string
+    name_th?: string
+    name_en?: string
     description?: string | null
     status: boolean
     create_at?: Date | string
@@ -68403,6 +68537,8 @@ export namespace Prisma {
 
   export type stock_locationsUpdateWithoutSale_officeInput = {
     site_short_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -68413,6 +68549,8 @@ export namespace Prisma {
   export type stock_locationsUncheckedUpdateWithoutSale_officeInput = {
     id?: IntFieldUpdateOperationsInput | number
     site_short_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -68423,6 +68561,8 @@ export namespace Prisma {
   export type stock_locationsUncheckedUpdateManyWithoutSale_officeInput = {
     id?: IntFieldUpdateOperationsInput | number
     site_short_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -68804,6 +68944,8 @@ export namespace Prisma {
   export type locationsCreateManyStock_locationInput = {
     id?: number
     site_short_code: string
+    name_th?: string
+    name_en?: string
     description?: string | null
     status: boolean
     create_at?: Date | string
@@ -68812,6 +68954,8 @@ export namespace Prisma {
 
   export type locationsUpdateWithoutStock_locationInput = {
     site_short_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -68821,6 +68965,8 @@ export namespace Prisma {
   export type locationsUncheckedUpdateWithoutStock_locationInput = {
     id?: IntFieldUpdateOperationsInput | number
     site_short_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -68830,6 +68976,8 @@ export namespace Prisma {
   export type locationsUncheckedUpdateManyWithoutStock_locationInput = {
     id?: IntFieldUpdateOperationsInput | number
     site_short_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string

@@ -107,10 +107,12 @@ export class LocationsService {
       include: {
         stock_location: {
           select: {
+            id: true,
             site_short_code: true,
             description: true,
             sale_office: {
               select: {
+                id: true,
                 name_th: true,
                 name_en: true,
                 sale_office_code: true,
@@ -136,10 +138,13 @@ export class LocationsService {
       include: {
         stock_location: {
           select: {
+            id: true,
             site_short_code: true,
             description: true,
+            sale_office_id: true,
             sale_office: {
               select: {
+                id: true,
                 name_th: true,
                 name_en: true,
                 sale_office_code: true,
@@ -169,6 +174,9 @@ export class LocationsService {
         id
       );
 
+      console.log("duplicateFields", duplicateFields);
+
+
       if (duplicateFields.length > 0) {
         throw new ConflictException(duplicateFields);
       }
@@ -180,10 +188,12 @@ export class LocationsService {
       include: {
         stock_location: {
           select: {
+            id: true,
             site_short_code: true,
             description: true,
             sale_office: {
               select: {
+                id: true,
                 name_th: true,
                 name_en: true,
                 sale_office_code: true,

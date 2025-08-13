@@ -359,6 +359,8 @@ model stock_locations {
   id              Int      @id @default(autoincrement())
   sale_office_id  Int
   site_short_code String
+  name_th         String
+  name_en         String
   description     String?
   status          Boolean
   create_at       DateTime @default(now())
@@ -372,6 +374,8 @@ model locations {
   id                Int      @id @default(autoincrement())
   stock_location_id Int
   site_short_code   String
+  name_th           String
+  name_en           String
   description       String?
   status            Boolean
   create_at         DateTime @default(now())

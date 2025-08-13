@@ -10,6 +10,16 @@ export class CreateLocationDto {
     @MaxLength(50)
     site_short_code: string;
 
+    @IsNotEmpty()
+    @IsString()
+    @MaxLength(100)
+    name_th: string;
+
+    @IsNotEmpty()
+    @IsString()
+    @MaxLength(100)
+    name_en: string;
+
     @IsOptional()
     @IsString()
     @MaxLength(200)

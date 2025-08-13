@@ -424,6 +424,8 @@ exports.Prisma.Stock_locationsScalarFieldEnum = {
   id: 'id',
   sale_office_id: 'sale_office_id',
   site_short_code: 'site_short_code',
+  name_th: 'name_th',
+  name_en: 'name_en',
   description: 'description',
   status: 'status',
   create_at: 'create_at',
@@ -434,6 +436,8 @@ exports.Prisma.LocationsScalarFieldEnum = {
   id: 'id',
   stock_location_id: 'stock_location_id',
   site_short_code: 'site_short_code',
+  name_th: 'name_th',
+  name_en: 'name_en',
   description: 'description',
   status: 'status',
   create_at: 'create_at',
@@ -870,11 +874,15 @@ exports.Prisma.sale_office_groupsOrderByRelevanceFieldEnum = {
 
 exports.Prisma.stock_locationsOrderByRelevanceFieldEnum = {
   site_short_code: 'site_short_code',
+  name_th: 'name_th',
+  name_en: 'name_en',
   description: 'description'
 };
 
 exports.Prisma.locationsOrderByRelevanceFieldEnum = {
   site_short_code: 'site_short_code',
+  name_th: 'name_th',
+  name_en: 'name_en',
   description: 'description'
 };
 

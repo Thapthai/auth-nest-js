@@ -20,12 +20,12 @@ exports.Prisma = Prisma
 exports.$Enums = {}
 
 /**
- * Prisma Client JS version: 6.13.0
- * Query Engine version: 361e86d0ea4987e9f53a565309b3eed797a6bcbd
+ * Prisma Client JS version: 6.14.0
+ * Query Engine version: 717184b7b35ea05dfa71a3236b7af656013e1e49
  */
 Prisma.prismaVersion = {
-  client: "6.13.0",
-  engine: "361e86d0ea4987e9f53a565309b3eed797a6bcbd"
+  client: "6.14.0",
+  engine: "717184b7b35ea05dfa71a3236b7af656013e1e49"
 }
 
 Prisma.PrismaClientKnownRequestError = () => {
@@ -731,6 +731,63 @@ exports.Prisma.Round_time_factoryScalarFieldEnum = {
   update_at: 'update_at'
 };
 
+exports.Prisma.Customer_groupsScalarFieldEnum = {
+  id: 'id',
+  name_th: 'name_th',
+  name_en: 'name_en',
+  level1: 'level1',
+  level2: 'level2',
+  description: 'description',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
+exports.Prisma.CustomersScalarFieldEnum = {
+  id: 'id',
+  customer_group_id: 'customer_group_id',
+  site_short_code: 'site_short_code',
+  name_th: 'name_th',
+  name_en: 'name_en',
+  sale_office_id: 'sale_office_id',
+  department_id: 'department_id',
+  payment_type_id: 'payment_type_id',
+  address: 'address',
+  tel: 'tel',
+  tax_no: 'tax_no',
+  tax_id: 'tax_id',
+  tax_id_type: 'tax_id_type',
+  remark: 'remark',
+  email: 'email',
+  enable_date: 'enable_date',
+  disable_date: 'disable_date',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
+exports.Prisma.Ship_toScalarFieldEnum = {
+  id: 'id',
+  site_short_code: 'site_short_code',
+  name_th: 'name_th',
+  name_en: 'name_en',
+  customer_id: 'customer_id',
+  ship_to_id: 'ship_to_id',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
+exports.Prisma.Payment_typesScalarFieldEnum = {
+  id: 'id',
+  name_th: 'name_th',
+  name_en: 'name_en',
+  description: 'description',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -983,6 +1040,39 @@ exports.Prisma.round_time_factoryOrderByRelevanceFieldEnum = {
   time: 'time'
 };
 
+exports.Prisma.customer_groupsOrderByRelevanceFieldEnum = {
+  name_th: 'name_th',
+  name_en: 'name_en',
+  level1: 'level1',
+  level2: 'level2',
+  description: 'description'
+};
+
+exports.Prisma.customersOrderByRelevanceFieldEnum = {
+  site_short_code: 'site_short_code',
+  name_th: 'name_th',
+  name_en: 'name_en',
+  address: 'address',
+  tel: 'tel',
+  tax_no: 'tax_no',
+  tax_id: 'tax_id',
+  tax_id_type: 'tax_id_type',
+  remark: 'remark',
+  email: 'email'
+};
+
+exports.Prisma.ship_toOrderByRelevanceFieldEnum = {
+  site_short_code: 'site_short_code',
+  name_th: 'name_th',
+  name_en: 'name_en'
+};
+
+exports.Prisma.payment_typesOrderByRelevanceFieldEnum = {
+  name_th: 'name_th',
+  name_en: 'name_en',
+  description: 'description'
+};
+
 
 exports.Prisma.ModelName = {
   user: 'user',
@@ -1030,7 +1120,11 @@ exports.Prisma.ModelName = {
   round_time_express: 'round_time_express',
   round_time_shelf_count_express: 'round_time_shelf_count_express',
   round_time_clean: 'round_time_clean',
-  round_time_factory: 'round_time_factory'
+  round_time_factory: 'round_time_factory',
+  customer_groups: 'customer_groups',
+  customers: 'customers',
+  ship_to: 'ship_to',
+  payment_types: 'payment_types'
 };
 
 /**

@@ -35,6 +35,10 @@ import { LocationsModule } from './locations/locations.module';
 import { SaleOfficeGroupsModule } from './sale_office_groups/sale_office_groups.module';
 import { SaleOfficeGroupTypesModule } from './sale_office_group_types/sale_office_group_types.module';
 import { ExcelModule } from './excel/excel.module';
+import { CustomerGroupsModule } from './customer_groups/customer_groups.module';
+import { CustomersModule } from './customers/customers.module';
+import { ShipToModule } from './ship_to/ship_to.module';
+import { PaymentTypesModule } from './payment_types/payment_types.module';
 
 @Module({
   imports: [
@@ -76,6 +80,10 @@ import { ExcelModule } from './excel/excel.module';
     SaleOfficeGroupsModule,
     SaleOfficeGroupTypesModule,
     ExcelModule,
+    CustomerGroupsModule,
+    CustomersModule,
+    ShipToModule,
+    PaymentTypesModule,
   ],
   controllers: [],
   providers: [

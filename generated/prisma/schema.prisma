@@ -359,8 +359,8 @@ model stock_locations {
   id              Int      @id @default(autoincrement())
   sale_office_id  Int
   site_short_code String
-  name_th         String   @default("ชื่อไทย")
-  name_en         String   @default("Name En")
+  name_th         String
+  name_en         String
   description     String?
   status          Boolean
   create_at       DateTime @default(now())
@@ -374,8 +374,8 @@ model locations {
   id                Int      @id @default(autoincrement())
   stock_location_id Int
   site_short_code   String
-  name_th           String   @default("ชื่อไทย")
-  name_en           String   @default("Name En")
+  name_th           String
+  name_en           String
   description       String?
   status            Boolean
   create_at         DateTime @default(now())
@@ -680,4 +680,70 @@ model round_time_factory {
   update_at  DateTime @updatedAt
 
   factory factories @relation(fields: [factory_id], references: [id])
+}
+
+model customer_groups {
+  id          Int         @id @default(autoincrement())
+  name_th     String
+  name_en     String
+  level1      String
+  level2      String
+  description String?
+  status      Boolean     @default(true)
+  create_at   DateTime    @default(now())
+  update_at   DateTime    @updatedAt
+  customers   customers[]
+}
+
+model customers {
+  id                Int       @id @default(autoincrement())
+  customer_group_id Int?
+  site_short_code   String
+  name_th           String
+  name_en           String
+  sale_office_id    Int?
+  department_id     Int?
+  payment_type_id   Int?
+  address           String
+  tel               String?
+  tax_no            String?
+  tax_id            String?
+  tax_id_type       String?
+  remark            String?
+  email             String?
+  enable_date       DateTime?
+  disable_date      DateTime?
+  status            Boolean   @default(true)
+  create_at         DateTime  @default(now())
+  update_at         DateTime  @updatedAt
+
+  payment_type   payment_types?   @relation(fields: [payment_type_id], references: [id])
+  customer_group customer_groups? @relation(fields: [customer_group_id], references: [id])
+  ship_tos       ship_to[]
+}
+
+model ship_to {
+  id              Int      @id @default(autoincrement())
+  site_short_code String
+  name_th         String
+  name_en         String?
+  customer_id     Int
+  ship_to_id      Int
+  status          Boolean  @default(true)
+  create_at       DateTime @default(now())
+  update_at       DateTime @updatedAt
+
+  customer customers @relation(fields: [customer_id], references: [id])
+}
+
+model payment_types {
+  id          Int      @id @default(autoincrement())
+  name_th     String
+  name_en     String
+  description String?
+  status      Boolean  @default(true)
+  create_at   DateTime @default(now())
+  update_at   DateTime @updatedAt
+
+  customers customers[]
 }

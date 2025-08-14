@@ -243,6 +243,26 @@ export type round_time_clean = $Result.DefaultSelection<Prisma.$round_time_clean
  * 
  */
 export type round_time_factory = $Result.DefaultSelection<Prisma.$round_time_factoryPayload>
+/**
+ * Model customer_groups
+ * 
+ */
+export type customer_groups = $Result.DefaultSelection<Prisma.$customer_groupsPayload>
+/**
+ * Model customers
+ * 
+ */
+export type customers = $Result.DefaultSelection<Prisma.$customersPayload>
+/**
+ * Model ship_to
+ * 
+ */
+export type ship_to = $Result.DefaultSelection<Prisma.$ship_toPayload>
+/**
+ * Model payment_types
+ * 
+ */
+export type payment_types = $Result.DefaultSelection<Prisma.$payment_typesPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -292,13 +312,6 @@ export class PrismaClient<
    * Disconnect from the database
    */
   $disconnect(): $Utils.JsPromise<void>;
-
-  /**
-   * Add a middleware
-   * @deprecated since 4.16.0. For new code, prefer client extensions instead.
-   * @see https://pris.ly/d/extensions
-   */
-  $use(cb: Prisma.Middleware): void
 
 /**
    * Executes a prepared raw query and returns the number of affected rows.
@@ -828,6 +841,46 @@ export class PrismaClient<
     * ```
     */
   get round_time_factory(): Prisma.round_time_factoryDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.customer_groups`: Exposes CRUD operations for the **customer_groups** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Customer_groups
+    * const customer_groups = await prisma.customer_groups.findMany()
+    * ```
+    */
+  get customer_groups(): Prisma.customer_groupsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.customers`: Exposes CRUD operations for the **customers** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Customers
+    * const customers = await prisma.customers.findMany()
+    * ```
+    */
+  get customers(): Prisma.customersDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.ship_to`: Exposes CRUD operations for the **ship_to** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Ship_tos
+    * const ship_tos = await prisma.ship_to.findMany()
+    * ```
+    */
+  get ship_to(): Prisma.ship_toDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.payment_types`: Exposes CRUD operations for the **payment_types** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Payment_types
+    * const payment_types = await prisma.payment_types.findMany()
+    * ```
+    */
+  get payment_types(): Prisma.payment_typesDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -886,8 +939,8 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 6.13.0
-   * Query Engine version: 361e86d0ea4987e9f53a565309b3eed797a6bcbd
+   * Prisma Client JS version: 6.14.0
+   * Query Engine version: 717184b7b35ea05dfa71a3236b7af656013e1e49
    */
   export type PrismaVersion = {
     client: string
@@ -1313,7 +1366,11 @@ export namespace Prisma {
     round_time_express: 'round_time_express',
     round_time_shelf_count_express: 'round_time_shelf_count_express',
     round_time_clean: 'round_time_clean',
-    round_time_factory: 'round_time_factory'
+    round_time_factory: 'round_time_factory',
+    customer_groups: 'customer_groups',
+    customers: 'customers',
+    ship_to: 'ship_to',
+    payment_types: 'payment_types'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1332,7 +1389,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "verification_token" | "password_reset_token" | "notifications" | "permission" | "sale_offices" | "user_sale_offices" | "departments" | "factory_sale_office" | "factories" | "machines" | "contact" | "sap_sale" | "materials" | "material_types" | "item_units_meaures" | "items" | "items_details" | "item_categories" | "item_category_prices" | "dirties" | "dirty_details" | "dirty_detail_rounds" | "sale_office_group_types" | "sale_office_groups" | "stock_locations" | "locations" | "shelfcounts" | "shelfcount_details" | "damages" | "damage_details" | "ships" | "new_linens" | "new_linen_details" | "repair_washs" | "repair_wash_details" | "cleans" | "clean_details" | "return_washs" | "retrun_wash_details" | "unregistered_items" | "round_time_dirties" | "round_time_express" | "round_time_shelf_count_express" | "round_time_clean" | "round_time_factory"
+      modelProps: "user" | "verification_token" | "password_reset_token" | "notifications" | "permission" | "sale_offices" | "user_sale_offices" | "departments" | "factory_sale_office" | "factories" | "machines" | "contact" | "sap_sale" | "materials" | "material_types" | "item_units_meaures" | "items" | "items_details" | "item_categories" | "item_category_prices" | "dirties" | "dirty_details" | "dirty_detail_rounds" | "sale_office_group_types" | "sale_office_groups" | "stock_locations" | "locations" | "shelfcounts" | "shelfcount_details" | "damages" | "damage_details" | "ships" | "new_linens" | "new_linen_details" | "repair_washs" | "repair_wash_details" | "cleans" | "clean_details" | "return_washs" | "retrun_wash_details" | "unregistered_items" | "round_time_dirties" | "round_time_express" | "round_time_shelf_count_express" | "round_time_clean" | "round_time_factory" | "customer_groups" | "customers" | "ship_to" | "payment_types"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -4372,6 +4429,270 @@ export namespace Prisma {
           }
         }
       }
+      customer_groups: {
+        payload: Prisma.$customer_groupsPayload<ExtArgs>
+        fields: Prisma.customer_groupsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.customer_groupsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$customer_groupsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.customer_groupsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$customer_groupsPayload>
+          }
+          findFirst: {
+            args: Prisma.customer_groupsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$customer_groupsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.customer_groupsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$customer_groupsPayload>
+          }
+          findMany: {
+            args: Prisma.customer_groupsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$customer_groupsPayload>[]
+          }
+          create: {
+            args: Prisma.customer_groupsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$customer_groupsPayload>
+          }
+          createMany: {
+            args: Prisma.customer_groupsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.customer_groupsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$customer_groupsPayload>
+          }
+          update: {
+            args: Prisma.customer_groupsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$customer_groupsPayload>
+          }
+          deleteMany: {
+            args: Prisma.customer_groupsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.customer_groupsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.customer_groupsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$customer_groupsPayload>
+          }
+          aggregate: {
+            args: Prisma.Customer_groupsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCustomer_groups>
+          }
+          groupBy: {
+            args: Prisma.customer_groupsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Customer_groupsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.customer_groupsCountArgs<ExtArgs>
+            result: $Utils.Optional<Customer_groupsCountAggregateOutputType> | number
+          }
+        }
+      }
+      customers: {
+        payload: Prisma.$customersPayload<ExtArgs>
+        fields: Prisma.customersFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.customersFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$customersPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.customersFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$customersPayload>
+          }
+          findFirst: {
+            args: Prisma.customersFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$customersPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.customersFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$customersPayload>
+          }
+          findMany: {
+            args: Prisma.customersFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$customersPayload>[]
+          }
+          create: {
+            args: Prisma.customersCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$customersPayload>
+          }
+          createMany: {
+            args: Prisma.customersCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.customersDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$customersPayload>
+          }
+          update: {
+            args: Prisma.customersUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$customersPayload>
+          }
+          deleteMany: {
+            args: Prisma.customersDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.customersUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.customersUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$customersPayload>
+          }
+          aggregate: {
+            args: Prisma.CustomersAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCustomers>
+          }
+          groupBy: {
+            args: Prisma.customersGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CustomersGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.customersCountArgs<ExtArgs>
+            result: $Utils.Optional<CustomersCountAggregateOutputType> | number
+          }
+        }
+      }
+      ship_to: {
+        payload: Prisma.$ship_toPayload<ExtArgs>
+        fields: Prisma.ship_toFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ship_toFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ship_toPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ship_toFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ship_toPayload>
+          }
+          findFirst: {
+            args: Prisma.ship_toFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ship_toPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ship_toFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ship_toPayload>
+          }
+          findMany: {
+            args: Prisma.ship_toFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ship_toPayload>[]
+          }
+          create: {
+            args: Prisma.ship_toCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ship_toPayload>
+          }
+          createMany: {
+            args: Prisma.ship_toCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.ship_toDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ship_toPayload>
+          }
+          update: {
+            args: Prisma.ship_toUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ship_toPayload>
+          }
+          deleteMany: {
+            args: Prisma.ship_toDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ship_toUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.ship_toUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ship_toPayload>
+          }
+          aggregate: {
+            args: Prisma.Ship_toAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateShip_to>
+          }
+          groupBy: {
+            args: Prisma.ship_toGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Ship_toGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ship_toCountArgs<ExtArgs>
+            result: $Utils.Optional<Ship_toCountAggregateOutputType> | number
+          }
+        }
+      }
+      payment_types: {
+        payload: Prisma.$payment_typesPayload<ExtArgs>
+        fields: Prisma.payment_typesFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.payment_typesFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$payment_typesPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.payment_typesFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$payment_typesPayload>
+          }
+          findFirst: {
+            args: Prisma.payment_typesFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$payment_typesPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.payment_typesFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$payment_typesPayload>
+          }
+          findMany: {
+            args: Prisma.payment_typesFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$payment_typesPayload>[]
+          }
+          create: {
+            args: Prisma.payment_typesCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$payment_typesPayload>
+          }
+          createMany: {
+            args: Prisma.payment_typesCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.payment_typesDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$payment_typesPayload>
+          }
+          update: {
+            args: Prisma.payment_typesUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$payment_typesPayload>
+          }
+          deleteMany: {
+            args: Prisma.payment_typesDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.payment_typesUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.payment_typesUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$payment_typesPayload>
+          }
+          aggregate: {
+            args: Prisma.Payment_typesAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePayment_types>
+          }
+          groupBy: {
+            args: Prisma.payment_typesGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Payment_typesGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.payment_typesCountArgs<ExtArgs>
+            result: $Utils.Optional<Payment_typesCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -4510,6 +4831,10 @@ export namespace Prisma {
     round_time_shelf_count_express?: round_time_shelf_count_expressOmit
     round_time_clean?: round_time_cleanOmit
     round_time_factory?: round_time_factoryOmit
+    customer_groups?: customer_groupsOmit
+    customers?: customersOmit
+    ship_to?: ship_toOmit
+    payment_types?: payment_typesOmit
   }
 
   /* Types for Logging */
@@ -4567,25 +4892,6 @@ export namespace Prisma {
     | 'runCommandRaw'
     | 'findRaw'
     | 'groupBy'
-
-  /**
-   * These options are being passed into the middleware as "params"
-   */
-  export type MiddlewareParams = {
-    model?: ModelName
-    action: PrismaAction
-    args: any
-    dataPath: string[]
-    runInTransaction: boolean
-  }
-
-  /**
-   * The `T` type makes sure, that the `return proceed` is not forgotten in the middleware implementation
-   */
-  export type Middleware<T = any> = (
-    params: MiddlewareParams,
-    next: (params: MiddlewareParams) => $Utils.JsPromise<T>,
-  ) => $Utils.JsPromise<T>
 
   // tested in getLogLevel.test.ts
   export function getLogLevel(log: Array<LogLevel | LogDefinition>): LogLevel | undefined;
@@ -4970,6 +5276,99 @@ export namespace Prisma {
    */
   export type Unregistered_itemsCountOutputTypeCountDirty_detailsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: dirty_detailsWhereInput
+  }
+
+
+  /**
+   * Count Type Customer_groupsCountOutputType
+   */
+
+  export type Customer_groupsCountOutputType = {
+    customers: number
+  }
+
+  export type Customer_groupsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    customers?: boolean | Customer_groupsCountOutputTypeCountCustomersArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * Customer_groupsCountOutputType without action
+   */
+  export type Customer_groupsCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Customer_groupsCountOutputType
+     */
+    select?: Customer_groupsCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * Customer_groupsCountOutputType without action
+   */
+  export type Customer_groupsCountOutputTypeCountCustomersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: customersWhereInput
+  }
+
+
+  /**
+   * Count Type CustomersCountOutputType
+   */
+
+  export type CustomersCountOutputType = {
+    ship_tos: number
+  }
+
+  export type CustomersCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    ship_tos?: boolean | CustomersCountOutputTypeCountShip_tosArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * CustomersCountOutputType without action
+   */
+  export type CustomersCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomersCountOutputType
+     */
+    select?: CustomersCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * CustomersCountOutputType without action
+   */
+  export type CustomersCountOutputTypeCountShip_tosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ship_toWhereInput
+  }
+
+
+  /**
+   * Count Type Payment_typesCountOutputType
+   */
+
+  export type Payment_typesCountOutputType = {
+    customers: number
+  }
+
+  export type Payment_typesCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    customers?: boolean | Payment_typesCountOutputTypeCountCustomersArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * Payment_typesCountOutputType without action
+   */
+  export type Payment_typesCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Payment_typesCountOutputType
+     */
+    select?: Payment_typesCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * Payment_typesCountOutputType without action
+   */
+  export type Payment_typesCountOutputTypeCountCustomersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: customersWhereInput
   }
 
 
@@ -51897,6 +52296,4281 @@ export namespace Prisma {
 
 
   /**
+   * Model customer_groups
+   */
+
+  export type AggregateCustomer_groups = {
+    _count: Customer_groupsCountAggregateOutputType | null
+    _avg: Customer_groupsAvgAggregateOutputType | null
+    _sum: Customer_groupsSumAggregateOutputType | null
+    _min: Customer_groupsMinAggregateOutputType | null
+    _max: Customer_groupsMaxAggregateOutputType | null
+  }
+
+  export type Customer_groupsAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type Customer_groupsSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type Customer_groupsMinAggregateOutputType = {
+    id: number | null
+    name_th: string | null
+    name_en: string | null
+    level1: string | null
+    level2: string | null
+    description: string | null
+    status: boolean | null
+    create_at: Date | null
+    update_at: Date | null
+  }
+
+  export type Customer_groupsMaxAggregateOutputType = {
+    id: number | null
+    name_th: string | null
+    name_en: string | null
+    level1: string | null
+    level2: string | null
+    description: string | null
+    status: boolean | null
+    create_at: Date | null
+    update_at: Date | null
+  }
+
+  export type Customer_groupsCountAggregateOutputType = {
+    id: number
+    name_th: number
+    name_en: number
+    level1: number
+    level2: number
+    description: number
+    status: number
+    create_at: number
+    update_at: number
+    _all: number
+  }
+
+
+  export type Customer_groupsAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type Customer_groupsSumAggregateInputType = {
+    id?: true
+  }
+
+  export type Customer_groupsMinAggregateInputType = {
+    id?: true
+    name_th?: true
+    name_en?: true
+    level1?: true
+    level2?: true
+    description?: true
+    status?: true
+    create_at?: true
+    update_at?: true
+  }
+
+  export type Customer_groupsMaxAggregateInputType = {
+    id?: true
+    name_th?: true
+    name_en?: true
+    level1?: true
+    level2?: true
+    description?: true
+    status?: true
+    create_at?: true
+    update_at?: true
+  }
+
+  export type Customer_groupsCountAggregateInputType = {
+    id?: true
+    name_th?: true
+    name_en?: true
+    level1?: true
+    level2?: true
+    description?: true
+    status?: true
+    create_at?: true
+    update_at?: true
+    _all?: true
+  }
+
+  export type Customer_groupsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which customer_groups to aggregate.
+     */
+    where?: customer_groupsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of customer_groups to fetch.
+     */
+    orderBy?: customer_groupsOrderByWithRelationInput | customer_groupsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: customer_groupsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` customer_groups from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` customer_groups.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned customer_groups
+    **/
+    _count?: true | Customer_groupsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Customer_groupsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Customer_groupsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Customer_groupsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Customer_groupsMaxAggregateInputType
+  }
+
+  export type GetCustomer_groupsAggregateType<T extends Customer_groupsAggregateArgs> = {
+        [P in keyof T & keyof AggregateCustomer_groups]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCustomer_groups[P]>
+      : GetScalarType<T[P], AggregateCustomer_groups[P]>
+  }
+
+
+
+
+  export type customer_groupsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: customer_groupsWhereInput
+    orderBy?: customer_groupsOrderByWithAggregationInput | customer_groupsOrderByWithAggregationInput[]
+    by: Customer_groupsScalarFieldEnum[] | Customer_groupsScalarFieldEnum
+    having?: customer_groupsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Customer_groupsCountAggregateInputType | true
+    _avg?: Customer_groupsAvgAggregateInputType
+    _sum?: Customer_groupsSumAggregateInputType
+    _min?: Customer_groupsMinAggregateInputType
+    _max?: Customer_groupsMaxAggregateInputType
+  }
+
+  export type Customer_groupsGroupByOutputType = {
+    id: number
+    name_th: string
+    name_en: string
+    level1: string
+    level2: string
+    description: string | null
+    status: boolean
+    create_at: Date
+    update_at: Date
+    _count: Customer_groupsCountAggregateOutputType | null
+    _avg: Customer_groupsAvgAggregateOutputType | null
+    _sum: Customer_groupsSumAggregateOutputType | null
+    _min: Customer_groupsMinAggregateOutputType | null
+    _max: Customer_groupsMaxAggregateOutputType | null
+  }
+
+  type GetCustomer_groupsGroupByPayload<T extends customer_groupsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Customer_groupsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Customer_groupsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Customer_groupsGroupByOutputType[P]>
+            : GetScalarType<T[P], Customer_groupsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type customer_groupsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name_th?: boolean
+    name_en?: boolean
+    level1?: boolean
+    level2?: boolean
+    description?: boolean
+    status?: boolean
+    create_at?: boolean
+    update_at?: boolean
+    customers?: boolean | customer_groups$customersArgs<ExtArgs>
+    _count?: boolean | Customer_groupsCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["customer_groups"]>
+
+
+
+  export type customer_groupsSelectScalar = {
+    id?: boolean
+    name_th?: boolean
+    name_en?: boolean
+    level1?: boolean
+    level2?: boolean
+    description?: boolean
+    status?: boolean
+    create_at?: boolean
+    update_at?: boolean
+  }
+
+  export type customer_groupsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name_th" | "name_en" | "level1" | "level2" | "description" | "status" | "create_at" | "update_at", ExtArgs["result"]["customer_groups"]>
+  export type customer_groupsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    customers?: boolean | customer_groups$customersArgs<ExtArgs>
+    _count?: boolean | Customer_groupsCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+  export type $customer_groupsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "customer_groups"
+    objects: {
+      customers: Prisma.$customersPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      name_th: string
+      name_en: string
+      level1: string
+      level2: string
+      description: string | null
+      status: boolean
+      create_at: Date
+      update_at: Date
+    }, ExtArgs["result"]["customer_groups"]>
+    composites: {}
+  }
+
+  type customer_groupsGetPayload<S extends boolean | null | undefined | customer_groupsDefaultArgs> = $Result.GetResult<Prisma.$customer_groupsPayload, S>
+
+  type customer_groupsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<customer_groupsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Customer_groupsCountAggregateInputType | true
+    }
+
+  export interface customer_groupsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['customer_groups'], meta: { name: 'customer_groups' } }
+    /**
+     * Find zero or one Customer_groups that matches the filter.
+     * @param {customer_groupsFindUniqueArgs} args - Arguments to find a Customer_groups
+     * @example
+     * // Get one Customer_groups
+     * const customer_groups = await prisma.customer_groups.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends customer_groupsFindUniqueArgs>(args: SelectSubset<T, customer_groupsFindUniqueArgs<ExtArgs>>): Prisma__customer_groupsClient<$Result.GetResult<Prisma.$customer_groupsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Customer_groups that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {customer_groupsFindUniqueOrThrowArgs} args - Arguments to find a Customer_groups
+     * @example
+     * // Get one Customer_groups
+     * const customer_groups = await prisma.customer_groups.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends customer_groupsFindUniqueOrThrowArgs>(args: SelectSubset<T, customer_groupsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__customer_groupsClient<$Result.GetResult<Prisma.$customer_groupsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Customer_groups that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {customer_groupsFindFirstArgs} args - Arguments to find a Customer_groups
+     * @example
+     * // Get one Customer_groups
+     * const customer_groups = await prisma.customer_groups.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends customer_groupsFindFirstArgs>(args?: SelectSubset<T, customer_groupsFindFirstArgs<ExtArgs>>): Prisma__customer_groupsClient<$Result.GetResult<Prisma.$customer_groupsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Customer_groups that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {customer_groupsFindFirstOrThrowArgs} args - Arguments to find a Customer_groups
+     * @example
+     * // Get one Customer_groups
+     * const customer_groups = await prisma.customer_groups.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends customer_groupsFindFirstOrThrowArgs>(args?: SelectSubset<T, customer_groupsFindFirstOrThrowArgs<ExtArgs>>): Prisma__customer_groupsClient<$Result.GetResult<Prisma.$customer_groupsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Customer_groups that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {customer_groupsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Customer_groups
+     * const customer_groups = await prisma.customer_groups.findMany()
+     * 
+     * // Get first 10 Customer_groups
+     * const customer_groups = await prisma.customer_groups.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const customer_groupsWithIdOnly = await prisma.customer_groups.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends customer_groupsFindManyArgs>(args?: SelectSubset<T, customer_groupsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$customer_groupsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Customer_groups.
+     * @param {customer_groupsCreateArgs} args - Arguments to create a Customer_groups.
+     * @example
+     * // Create one Customer_groups
+     * const Customer_groups = await prisma.customer_groups.create({
+     *   data: {
+     *     // ... data to create a Customer_groups
+     *   }
+     * })
+     * 
+     */
+    create<T extends customer_groupsCreateArgs>(args: SelectSubset<T, customer_groupsCreateArgs<ExtArgs>>): Prisma__customer_groupsClient<$Result.GetResult<Prisma.$customer_groupsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Customer_groups.
+     * @param {customer_groupsCreateManyArgs} args - Arguments to create many Customer_groups.
+     * @example
+     * // Create many Customer_groups
+     * const customer_groups = await prisma.customer_groups.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends customer_groupsCreateManyArgs>(args?: SelectSubset<T, customer_groupsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Customer_groups.
+     * @param {customer_groupsDeleteArgs} args - Arguments to delete one Customer_groups.
+     * @example
+     * // Delete one Customer_groups
+     * const Customer_groups = await prisma.customer_groups.delete({
+     *   where: {
+     *     // ... filter to delete one Customer_groups
+     *   }
+     * })
+     * 
+     */
+    delete<T extends customer_groupsDeleteArgs>(args: SelectSubset<T, customer_groupsDeleteArgs<ExtArgs>>): Prisma__customer_groupsClient<$Result.GetResult<Prisma.$customer_groupsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Customer_groups.
+     * @param {customer_groupsUpdateArgs} args - Arguments to update one Customer_groups.
+     * @example
+     * // Update one Customer_groups
+     * const customer_groups = await prisma.customer_groups.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends customer_groupsUpdateArgs>(args: SelectSubset<T, customer_groupsUpdateArgs<ExtArgs>>): Prisma__customer_groupsClient<$Result.GetResult<Prisma.$customer_groupsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Customer_groups.
+     * @param {customer_groupsDeleteManyArgs} args - Arguments to filter Customer_groups to delete.
+     * @example
+     * // Delete a few Customer_groups
+     * const { count } = await prisma.customer_groups.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends customer_groupsDeleteManyArgs>(args?: SelectSubset<T, customer_groupsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Customer_groups.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {customer_groupsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Customer_groups
+     * const customer_groups = await prisma.customer_groups.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends customer_groupsUpdateManyArgs>(args: SelectSubset<T, customer_groupsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Customer_groups.
+     * @param {customer_groupsUpsertArgs} args - Arguments to update or create a Customer_groups.
+     * @example
+     * // Update or create a Customer_groups
+     * const customer_groups = await prisma.customer_groups.upsert({
+     *   create: {
+     *     // ... data to create a Customer_groups
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Customer_groups we want to update
+     *   }
+     * })
+     */
+    upsert<T extends customer_groupsUpsertArgs>(args: SelectSubset<T, customer_groupsUpsertArgs<ExtArgs>>): Prisma__customer_groupsClient<$Result.GetResult<Prisma.$customer_groupsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Customer_groups.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {customer_groupsCountArgs} args - Arguments to filter Customer_groups to count.
+     * @example
+     * // Count the number of Customer_groups
+     * const count = await prisma.customer_groups.count({
+     *   where: {
+     *     // ... the filter for the Customer_groups we want to count
+     *   }
+     * })
+    **/
+    count<T extends customer_groupsCountArgs>(
+      args?: Subset<T, customer_groupsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Customer_groupsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Customer_groups.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Customer_groupsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Customer_groupsAggregateArgs>(args: Subset<T, Customer_groupsAggregateArgs>): Prisma.PrismaPromise<GetCustomer_groupsAggregateType<T>>
+
+    /**
+     * Group by Customer_groups.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {customer_groupsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends customer_groupsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: customer_groupsGroupByArgs['orderBy'] }
+        : { orderBy?: customer_groupsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, customer_groupsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCustomer_groupsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the customer_groups model
+   */
+  readonly fields: customer_groupsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for customer_groups.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__customer_groupsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    customers<T extends customer_groups$customersArgs<ExtArgs> = {}>(args?: Subset<T, customer_groups$customersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$customersPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the customer_groups model
+   */
+  interface customer_groupsFieldRefs {
+    readonly id: FieldRef<"customer_groups", 'Int'>
+    readonly name_th: FieldRef<"customer_groups", 'String'>
+    readonly name_en: FieldRef<"customer_groups", 'String'>
+    readonly level1: FieldRef<"customer_groups", 'String'>
+    readonly level2: FieldRef<"customer_groups", 'String'>
+    readonly description: FieldRef<"customer_groups", 'String'>
+    readonly status: FieldRef<"customer_groups", 'Boolean'>
+    readonly create_at: FieldRef<"customer_groups", 'DateTime'>
+    readonly update_at: FieldRef<"customer_groups", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * customer_groups findUnique
+   */
+  export type customer_groupsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the customer_groups
+     */
+    select?: customer_groupsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the customer_groups
+     */
+    omit?: customer_groupsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: customer_groupsInclude<ExtArgs> | null
+    /**
+     * Filter, which customer_groups to fetch.
+     */
+    where: customer_groupsWhereUniqueInput
+  }
+
+  /**
+   * customer_groups findUniqueOrThrow
+   */
+  export type customer_groupsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the customer_groups
+     */
+    select?: customer_groupsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the customer_groups
+     */
+    omit?: customer_groupsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: customer_groupsInclude<ExtArgs> | null
+    /**
+     * Filter, which customer_groups to fetch.
+     */
+    where: customer_groupsWhereUniqueInput
+  }
+
+  /**
+   * customer_groups findFirst
+   */
+  export type customer_groupsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the customer_groups
+     */
+    select?: customer_groupsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the customer_groups
+     */
+    omit?: customer_groupsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: customer_groupsInclude<ExtArgs> | null
+    /**
+     * Filter, which customer_groups to fetch.
+     */
+    where?: customer_groupsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of customer_groups to fetch.
+     */
+    orderBy?: customer_groupsOrderByWithRelationInput | customer_groupsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for customer_groups.
+     */
+    cursor?: customer_groupsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` customer_groups from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` customer_groups.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of customer_groups.
+     */
+    distinct?: Customer_groupsScalarFieldEnum | Customer_groupsScalarFieldEnum[]
+  }
+
+  /**
+   * customer_groups findFirstOrThrow
+   */
+  export type customer_groupsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the customer_groups
+     */
+    select?: customer_groupsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the customer_groups
+     */
+    omit?: customer_groupsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: customer_groupsInclude<ExtArgs> | null
+    /**
+     * Filter, which customer_groups to fetch.
+     */
+    where?: customer_groupsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of customer_groups to fetch.
+     */
+    orderBy?: customer_groupsOrderByWithRelationInput | customer_groupsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for customer_groups.
+     */
+    cursor?: customer_groupsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` customer_groups from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` customer_groups.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of customer_groups.
+     */
+    distinct?: Customer_groupsScalarFieldEnum | Customer_groupsScalarFieldEnum[]
+  }
+
+  /**
+   * customer_groups findMany
+   */
+  export type customer_groupsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the customer_groups
+     */
+    select?: customer_groupsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the customer_groups
+     */
+    omit?: customer_groupsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: customer_groupsInclude<ExtArgs> | null
+    /**
+     * Filter, which customer_groups to fetch.
+     */
+    where?: customer_groupsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of customer_groups to fetch.
+     */
+    orderBy?: customer_groupsOrderByWithRelationInput | customer_groupsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing customer_groups.
+     */
+    cursor?: customer_groupsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` customer_groups from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` customer_groups.
+     */
+    skip?: number
+    distinct?: Customer_groupsScalarFieldEnum | Customer_groupsScalarFieldEnum[]
+  }
+
+  /**
+   * customer_groups create
+   */
+  export type customer_groupsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the customer_groups
+     */
+    select?: customer_groupsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the customer_groups
+     */
+    omit?: customer_groupsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: customer_groupsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a customer_groups.
+     */
+    data: XOR<customer_groupsCreateInput, customer_groupsUncheckedCreateInput>
+  }
+
+  /**
+   * customer_groups createMany
+   */
+  export type customer_groupsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many customer_groups.
+     */
+    data: customer_groupsCreateManyInput | customer_groupsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * customer_groups update
+   */
+  export type customer_groupsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the customer_groups
+     */
+    select?: customer_groupsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the customer_groups
+     */
+    omit?: customer_groupsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: customer_groupsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a customer_groups.
+     */
+    data: XOR<customer_groupsUpdateInput, customer_groupsUncheckedUpdateInput>
+    /**
+     * Choose, which customer_groups to update.
+     */
+    where: customer_groupsWhereUniqueInput
+  }
+
+  /**
+   * customer_groups updateMany
+   */
+  export type customer_groupsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update customer_groups.
+     */
+    data: XOR<customer_groupsUpdateManyMutationInput, customer_groupsUncheckedUpdateManyInput>
+    /**
+     * Filter which customer_groups to update
+     */
+    where?: customer_groupsWhereInput
+    /**
+     * Limit how many customer_groups to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * customer_groups upsert
+   */
+  export type customer_groupsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the customer_groups
+     */
+    select?: customer_groupsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the customer_groups
+     */
+    omit?: customer_groupsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: customer_groupsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the customer_groups to update in case it exists.
+     */
+    where: customer_groupsWhereUniqueInput
+    /**
+     * In case the customer_groups found by the `where` argument doesn't exist, create a new customer_groups with this data.
+     */
+    create: XOR<customer_groupsCreateInput, customer_groupsUncheckedCreateInput>
+    /**
+     * In case the customer_groups was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<customer_groupsUpdateInput, customer_groupsUncheckedUpdateInput>
+  }
+
+  /**
+   * customer_groups delete
+   */
+  export type customer_groupsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the customer_groups
+     */
+    select?: customer_groupsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the customer_groups
+     */
+    omit?: customer_groupsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: customer_groupsInclude<ExtArgs> | null
+    /**
+     * Filter which customer_groups to delete.
+     */
+    where: customer_groupsWhereUniqueInput
+  }
+
+  /**
+   * customer_groups deleteMany
+   */
+  export type customer_groupsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which customer_groups to delete
+     */
+    where?: customer_groupsWhereInput
+    /**
+     * Limit how many customer_groups to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * customer_groups.customers
+   */
+  export type customer_groups$customersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the customers
+     */
+    select?: customersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the customers
+     */
+    omit?: customersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: customersInclude<ExtArgs> | null
+    where?: customersWhereInput
+    orderBy?: customersOrderByWithRelationInput | customersOrderByWithRelationInput[]
+    cursor?: customersWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CustomersScalarFieldEnum | CustomersScalarFieldEnum[]
+  }
+
+  /**
+   * customer_groups without action
+   */
+  export type customer_groupsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the customer_groups
+     */
+    select?: customer_groupsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the customer_groups
+     */
+    omit?: customer_groupsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: customer_groupsInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model customers
+   */
+
+  export type AggregateCustomers = {
+    _count: CustomersCountAggregateOutputType | null
+    _avg: CustomersAvgAggregateOutputType | null
+    _sum: CustomersSumAggregateOutputType | null
+    _min: CustomersMinAggregateOutputType | null
+    _max: CustomersMaxAggregateOutputType | null
+  }
+
+  export type CustomersAvgAggregateOutputType = {
+    id: number | null
+    customer_group_id: number | null
+    sale_office_id: number | null
+    department_id: number | null
+    payment_type_id: number | null
+  }
+
+  export type CustomersSumAggregateOutputType = {
+    id: number | null
+    customer_group_id: number | null
+    sale_office_id: number | null
+    department_id: number | null
+    payment_type_id: number | null
+  }
+
+  export type CustomersMinAggregateOutputType = {
+    id: number | null
+    customer_group_id: number | null
+    site_short_code: string | null
+    name_th: string | null
+    name_en: string | null
+    sale_office_id: number | null
+    department_id: number | null
+    payment_type_id: number | null
+    address: string | null
+    tel: string | null
+    tax_no: string | null
+    tax_id: string | null
+    tax_id_type: string | null
+    remark: string | null
+    email: string | null
+    enable_date: Date | null
+    disable_date: Date | null
+    status: boolean | null
+    create_at: Date | null
+    update_at: Date | null
+  }
+
+  export type CustomersMaxAggregateOutputType = {
+    id: number | null
+    customer_group_id: number | null
+    site_short_code: string | null
+    name_th: string | null
+    name_en: string | null
+    sale_office_id: number | null
+    department_id: number | null
+    payment_type_id: number | null
+    address: string | null
+    tel: string | null
+    tax_no: string | null
+    tax_id: string | null
+    tax_id_type: string | null
+    remark: string | null
+    email: string | null
+    enable_date: Date | null
+    disable_date: Date | null
+    status: boolean | null
+    create_at: Date | null
+    update_at: Date | null
+  }
+
+  export type CustomersCountAggregateOutputType = {
+    id: number
+    customer_group_id: number
+    site_short_code: number
+    name_th: number
+    name_en: number
+    sale_office_id: number
+    department_id: number
+    payment_type_id: number
+    address: number
+    tel: number
+    tax_no: number
+    tax_id: number
+    tax_id_type: number
+    remark: number
+    email: number
+    enable_date: number
+    disable_date: number
+    status: number
+    create_at: number
+    update_at: number
+    _all: number
+  }
+
+
+  export type CustomersAvgAggregateInputType = {
+    id?: true
+    customer_group_id?: true
+    sale_office_id?: true
+    department_id?: true
+    payment_type_id?: true
+  }
+
+  export type CustomersSumAggregateInputType = {
+    id?: true
+    customer_group_id?: true
+    sale_office_id?: true
+    department_id?: true
+    payment_type_id?: true
+  }
+
+  export type CustomersMinAggregateInputType = {
+    id?: true
+    customer_group_id?: true
+    site_short_code?: true
+    name_th?: true
+    name_en?: true
+    sale_office_id?: true
+    department_id?: true
+    payment_type_id?: true
+    address?: true
+    tel?: true
+    tax_no?: true
+    tax_id?: true
+    tax_id_type?: true
+    remark?: true
+    email?: true
+    enable_date?: true
+    disable_date?: true
+    status?: true
+    create_at?: true
+    update_at?: true
+  }
+
+  export type CustomersMaxAggregateInputType = {
+    id?: true
+    customer_group_id?: true
+    site_short_code?: true
+    name_th?: true
+    name_en?: true
+    sale_office_id?: true
+    department_id?: true
+    payment_type_id?: true
+    address?: true
+    tel?: true
+    tax_no?: true
+    tax_id?: true
+    tax_id_type?: true
+    remark?: true
+    email?: true
+    enable_date?: true
+    disable_date?: true
+    status?: true
+    create_at?: true
+    update_at?: true
+  }
+
+  export type CustomersCountAggregateInputType = {
+    id?: true
+    customer_group_id?: true
+    site_short_code?: true
+    name_th?: true
+    name_en?: true
+    sale_office_id?: true
+    department_id?: true
+    payment_type_id?: true
+    address?: true
+    tel?: true
+    tax_no?: true
+    tax_id?: true
+    tax_id_type?: true
+    remark?: true
+    email?: true
+    enable_date?: true
+    disable_date?: true
+    status?: true
+    create_at?: true
+    update_at?: true
+    _all?: true
+  }
+
+  export type CustomersAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which customers to aggregate.
+     */
+    where?: customersWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of customers to fetch.
+     */
+    orderBy?: customersOrderByWithRelationInput | customersOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: customersWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` customers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` customers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned customers
+    **/
+    _count?: true | CustomersCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: CustomersAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: CustomersSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CustomersMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CustomersMaxAggregateInputType
+  }
+
+  export type GetCustomersAggregateType<T extends CustomersAggregateArgs> = {
+        [P in keyof T & keyof AggregateCustomers]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCustomers[P]>
+      : GetScalarType<T[P], AggregateCustomers[P]>
+  }
+
+
+
+
+  export type customersGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: customersWhereInput
+    orderBy?: customersOrderByWithAggregationInput | customersOrderByWithAggregationInput[]
+    by: CustomersScalarFieldEnum[] | CustomersScalarFieldEnum
+    having?: customersScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CustomersCountAggregateInputType | true
+    _avg?: CustomersAvgAggregateInputType
+    _sum?: CustomersSumAggregateInputType
+    _min?: CustomersMinAggregateInputType
+    _max?: CustomersMaxAggregateInputType
+  }
+
+  export type CustomersGroupByOutputType = {
+    id: number
+    customer_group_id: number | null
+    site_short_code: string
+    name_th: string
+    name_en: string
+    sale_office_id: number | null
+    department_id: number | null
+    payment_type_id: number | null
+    address: string
+    tel: string | null
+    tax_no: string | null
+    tax_id: string | null
+    tax_id_type: string | null
+    remark: string | null
+    email: string | null
+    enable_date: Date | null
+    disable_date: Date | null
+    status: boolean
+    create_at: Date
+    update_at: Date
+    _count: CustomersCountAggregateOutputType | null
+    _avg: CustomersAvgAggregateOutputType | null
+    _sum: CustomersSumAggregateOutputType | null
+    _min: CustomersMinAggregateOutputType | null
+    _max: CustomersMaxAggregateOutputType | null
+  }
+
+  type GetCustomersGroupByPayload<T extends customersGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CustomersGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CustomersGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CustomersGroupByOutputType[P]>
+            : GetScalarType<T[P], CustomersGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type customersSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    customer_group_id?: boolean
+    site_short_code?: boolean
+    name_th?: boolean
+    name_en?: boolean
+    sale_office_id?: boolean
+    department_id?: boolean
+    payment_type_id?: boolean
+    address?: boolean
+    tel?: boolean
+    tax_no?: boolean
+    tax_id?: boolean
+    tax_id_type?: boolean
+    remark?: boolean
+    email?: boolean
+    enable_date?: boolean
+    disable_date?: boolean
+    status?: boolean
+    create_at?: boolean
+    update_at?: boolean
+    payment_type?: boolean | customers$payment_typeArgs<ExtArgs>
+    customer_group?: boolean | customers$customer_groupArgs<ExtArgs>
+    ship_tos?: boolean | customers$ship_tosArgs<ExtArgs>
+    _count?: boolean | CustomersCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["customers"]>
+
+
+
+  export type customersSelectScalar = {
+    id?: boolean
+    customer_group_id?: boolean
+    site_short_code?: boolean
+    name_th?: boolean
+    name_en?: boolean
+    sale_office_id?: boolean
+    department_id?: boolean
+    payment_type_id?: boolean
+    address?: boolean
+    tel?: boolean
+    tax_no?: boolean
+    tax_id?: boolean
+    tax_id_type?: boolean
+    remark?: boolean
+    email?: boolean
+    enable_date?: boolean
+    disable_date?: boolean
+    status?: boolean
+    create_at?: boolean
+    update_at?: boolean
+  }
+
+  export type customersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "customer_group_id" | "site_short_code" | "name_th" | "name_en" | "sale_office_id" | "department_id" | "payment_type_id" | "address" | "tel" | "tax_no" | "tax_id" | "tax_id_type" | "remark" | "email" | "enable_date" | "disable_date" | "status" | "create_at" | "update_at", ExtArgs["result"]["customers"]>
+  export type customersInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    payment_type?: boolean | customers$payment_typeArgs<ExtArgs>
+    customer_group?: boolean | customers$customer_groupArgs<ExtArgs>
+    ship_tos?: boolean | customers$ship_tosArgs<ExtArgs>
+    _count?: boolean | CustomersCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+  export type $customersPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "customers"
+    objects: {
+      payment_type: Prisma.$payment_typesPayload<ExtArgs> | null
+      customer_group: Prisma.$customer_groupsPayload<ExtArgs> | null
+      ship_tos: Prisma.$ship_toPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      customer_group_id: number | null
+      site_short_code: string
+      name_th: string
+      name_en: string
+      sale_office_id: number | null
+      department_id: number | null
+      payment_type_id: number | null
+      address: string
+      tel: string | null
+      tax_no: string | null
+      tax_id: string | null
+      tax_id_type: string | null
+      remark: string | null
+      email: string | null
+      enable_date: Date | null
+      disable_date: Date | null
+      status: boolean
+      create_at: Date
+      update_at: Date
+    }, ExtArgs["result"]["customers"]>
+    composites: {}
+  }
+
+  type customersGetPayload<S extends boolean | null | undefined | customersDefaultArgs> = $Result.GetResult<Prisma.$customersPayload, S>
+
+  type customersCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<customersFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CustomersCountAggregateInputType | true
+    }
+
+  export interface customersDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['customers'], meta: { name: 'customers' } }
+    /**
+     * Find zero or one Customers that matches the filter.
+     * @param {customersFindUniqueArgs} args - Arguments to find a Customers
+     * @example
+     * // Get one Customers
+     * const customers = await prisma.customers.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends customersFindUniqueArgs>(args: SelectSubset<T, customersFindUniqueArgs<ExtArgs>>): Prisma__customersClient<$Result.GetResult<Prisma.$customersPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Customers that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {customersFindUniqueOrThrowArgs} args - Arguments to find a Customers
+     * @example
+     * // Get one Customers
+     * const customers = await prisma.customers.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends customersFindUniqueOrThrowArgs>(args: SelectSubset<T, customersFindUniqueOrThrowArgs<ExtArgs>>): Prisma__customersClient<$Result.GetResult<Prisma.$customersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Customers that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {customersFindFirstArgs} args - Arguments to find a Customers
+     * @example
+     * // Get one Customers
+     * const customers = await prisma.customers.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends customersFindFirstArgs>(args?: SelectSubset<T, customersFindFirstArgs<ExtArgs>>): Prisma__customersClient<$Result.GetResult<Prisma.$customersPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Customers that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {customersFindFirstOrThrowArgs} args - Arguments to find a Customers
+     * @example
+     * // Get one Customers
+     * const customers = await prisma.customers.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends customersFindFirstOrThrowArgs>(args?: SelectSubset<T, customersFindFirstOrThrowArgs<ExtArgs>>): Prisma__customersClient<$Result.GetResult<Prisma.$customersPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Customers that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {customersFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Customers
+     * const customers = await prisma.customers.findMany()
+     * 
+     * // Get first 10 Customers
+     * const customers = await prisma.customers.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const customersWithIdOnly = await prisma.customers.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends customersFindManyArgs>(args?: SelectSubset<T, customersFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$customersPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Customers.
+     * @param {customersCreateArgs} args - Arguments to create a Customers.
+     * @example
+     * // Create one Customers
+     * const Customers = await prisma.customers.create({
+     *   data: {
+     *     // ... data to create a Customers
+     *   }
+     * })
+     * 
+     */
+    create<T extends customersCreateArgs>(args: SelectSubset<T, customersCreateArgs<ExtArgs>>): Prisma__customersClient<$Result.GetResult<Prisma.$customersPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Customers.
+     * @param {customersCreateManyArgs} args - Arguments to create many Customers.
+     * @example
+     * // Create many Customers
+     * const customers = await prisma.customers.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends customersCreateManyArgs>(args?: SelectSubset<T, customersCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Customers.
+     * @param {customersDeleteArgs} args - Arguments to delete one Customers.
+     * @example
+     * // Delete one Customers
+     * const Customers = await prisma.customers.delete({
+     *   where: {
+     *     // ... filter to delete one Customers
+     *   }
+     * })
+     * 
+     */
+    delete<T extends customersDeleteArgs>(args: SelectSubset<T, customersDeleteArgs<ExtArgs>>): Prisma__customersClient<$Result.GetResult<Prisma.$customersPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Customers.
+     * @param {customersUpdateArgs} args - Arguments to update one Customers.
+     * @example
+     * // Update one Customers
+     * const customers = await prisma.customers.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends customersUpdateArgs>(args: SelectSubset<T, customersUpdateArgs<ExtArgs>>): Prisma__customersClient<$Result.GetResult<Prisma.$customersPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Customers.
+     * @param {customersDeleteManyArgs} args - Arguments to filter Customers to delete.
+     * @example
+     * // Delete a few Customers
+     * const { count } = await prisma.customers.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends customersDeleteManyArgs>(args?: SelectSubset<T, customersDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Customers.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {customersUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Customers
+     * const customers = await prisma.customers.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends customersUpdateManyArgs>(args: SelectSubset<T, customersUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Customers.
+     * @param {customersUpsertArgs} args - Arguments to update or create a Customers.
+     * @example
+     * // Update or create a Customers
+     * const customers = await prisma.customers.upsert({
+     *   create: {
+     *     // ... data to create a Customers
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Customers we want to update
+     *   }
+     * })
+     */
+    upsert<T extends customersUpsertArgs>(args: SelectSubset<T, customersUpsertArgs<ExtArgs>>): Prisma__customersClient<$Result.GetResult<Prisma.$customersPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Customers.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {customersCountArgs} args - Arguments to filter Customers to count.
+     * @example
+     * // Count the number of Customers
+     * const count = await prisma.customers.count({
+     *   where: {
+     *     // ... the filter for the Customers we want to count
+     *   }
+     * })
+    **/
+    count<T extends customersCountArgs>(
+      args?: Subset<T, customersCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CustomersCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Customers.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomersAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CustomersAggregateArgs>(args: Subset<T, CustomersAggregateArgs>): Prisma.PrismaPromise<GetCustomersAggregateType<T>>
+
+    /**
+     * Group by Customers.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {customersGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends customersGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: customersGroupByArgs['orderBy'] }
+        : { orderBy?: customersGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, customersGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCustomersGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the customers model
+   */
+  readonly fields: customersFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for customers.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__customersClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    payment_type<T extends customers$payment_typeArgs<ExtArgs> = {}>(args?: Subset<T, customers$payment_typeArgs<ExtArgs>>): Prisma__payment_typesClient<$Result.GetResult<Prisma.$payment_typesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    customer_group<T extends customers$customer_groupArgs<ExtArgs> = {}>(args?: Subset<T, customers$customer_groupArgs<ExtArgs>>): Prisma__customer_groupsClient<$Result.GetResult<Prisma.$customer_groupsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    ship_tos<T extends customers$ship_tosArgs<ExtArgs> = {}>(args?: Subset<T, customers$ship_tosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ship_toPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the customers model
+   */
+  interface customersFieldRefs {
+    readonly id: FieldRef<"customers", 'Int'>
+    readonly customer_group_id: FieldRef<"customers", 'Int'>
+    readonly site_short_code: FieldRef<"customers", 'String'>
+    readonly name_th: FieldRef<"customers", 'String'>
+    readonly name_en: FieldRef<"customers", 'String'>
+    readonly sale_office_id: FieldRef<"customers", 'Int'>
+    readonly department_id: FieldRef<"customers", 'Int'>
+    readonly payment_type_id: FieldRef<"customers", 'Int'>
+    readonly address: FieldRef<"customers", 'String'>
+    readonly tel: FieldRef<"customers", 'String'>
+    readonly tax_no: FieldRef<"customers", 'String'>
+    readonly tax_id: FieldRef<"customers", 'String'>
+    readonly tax_id_type: FieldRef<"customers", 'String'>
+    readonly remark: FieldRef<"customers", 'String'>
+    readonly email: FieldRef<"customers", 'String'>
+    readonly enable_date: FieldRef<"customers", 'DateTime'>
+    readonly disable_date: FieldRef<"customers", 'DateTime'>
+    readonly status: FieldRef<"customers", 'Boolean'>
+    readonly create_at: FieldRef<"customers", 'DateTime'>
+    readonly update_at: FieldRef<"customers", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * customers findUnique
+   */
+  export type customersFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the customers
+     */
+    select?: customersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the customers
+     */
+    omit?: customersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: customersInclude<ExtArgs> | null
+    /**
+     * Filter, which customers to fetch.
+     */
+    where: customersWhereUniqueInput
+  }
+
+  /**
+   * customers findUniqueOrThrow
+   */
+  export type customersFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the customers
+     */
+    select?: customersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the customers
+     */
+    omit?: customersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: customersInclude<ExtArgs> | null
+    /**
+     * Filter, which customers to fetch.
+     */
+    where: customersWhereUniqueInput
+  }
+
+  /**
+   * customers findFirst
+   */
+  export type customersFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the customers
+     */
+    select?: customersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the customers
+     */
+    omit?: customersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: customersInclude<ExtArgs> | null
+    /**
+     * Filter, which customers to fetch.
+     */
+    where?: customersWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of customers to fetch.
+     */
+    orderBy?: customersOrderByWithRelationInput | customersOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for customers.
+     */
+    cursor?: customersWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` customers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` customers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of customers.
+     */
+    distinct?: CustomersScalarFieldEnum | CustomersScalarFieldEnum[]
+  }
+
+  /**
+   * customers findFirstOrThrow
+   */
+  export type customersFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the customers
+     */
+    select?: customersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the customers
+     */
+    omit?: customersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: customersInclude<ExtArgs> | null
+    /**
+     * Filter, which customers to fetch.
+     */
+    where?: customersWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of customers to fetch.
+     */
+    orderBy?: customersOrderByWithRelationInput | customersOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for customers.
+     */
+    cursor?: customersWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` customers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` customers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of customers.
+     */
+    distinct?: CustomersScalarFieldEnum | CustomersScalarFieldEnum[]
+  }
+
+  /**
+   * customers findMany
+   */
+  export type customersFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the customers
+     */
+    select?: customersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the customers
+     */
+    omit?: customersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: customersInclude<ExtArgs> | null
+    /**
+     * Filter, which customers to fetch.
+     */
+    where?: customersWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of customers to fetch.
+     */
+    orderBy?: customersOrderByWithRelationInput | customersOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing customers.
+     */
+    cursor?: customersWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` customers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` customers.
+     */
+    skip?: number
+    distinct?: CustomersScalarFieldEnum | CustomersScalarFieldEnum[]
+  }
+
+  /**
+   * customers create
+   */
+  export type customersCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the customers
+     */
+    select?: customersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the customers
+     */
+    omit?: customersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: customersInclude<ExtArgs> | null
+    /**
+     * The data needed to create a customers.
+     */
+    data: XOR<customersCreateInput, customersUncheckedCreateInput>
+  }
+
+  /**
+   * customers createMany
+   */
+  export type customersCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many customers.
+     */
+    data: customersCreateManyInput | customersCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * customers update
+   */
+  export type customersUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the customers
+     */
+    select?: customersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the customers
+     */
+    omit?: customersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: customersInclude<ExtArgs> | null
+    /**
+     * The data needed to update a customers.
+     */
+    data: XOR<customersUpdateInput, customersUncheckedUpdateInput>
+    /**
+     * Choose, which customers to update.
+     */
+    where: customersWhereUniqueInput
+  }
+
+  /**
+   * customers updateMany
+   */
+  export type customersUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update customers.
+     */
+    data: XOR<customersUpdateManyMutationInput, customersUncheckedUpdateManyInput>
+    /**
+     * Filter which customers to update
+     */
+    where?: customersWhereInput
+    /**
+     * Limit how many customers to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * customers upsert
+   */
+  export type customersUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the customers
+     */
+    select?: customersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the customers
+     */
+    omit?: customersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: customersInclude<ExtArgs> | null
+    /**
+     * The filter to search for the customers to update in case it exists.
+     */
+    where: customersWhereUniqueInput
+    /**
+     * In case the customers found by the `where` argument doesn't exist, create a new customers with this data.
+     */
+    create: XOR<customersCreateInput, customersUncheckedCreateInput>
+    /**
+     * In case the customers was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<customersUpdateInput, customersUncheckedUpdateInput>
+  }
+
+  /**
+   * customers delete
+   */
+  export type customersDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the customers
+     */
+    select?: customersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the customers
+     */
+    omit?: customersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: customersInclude<ExtArgs> | null
+    /**
+     * Filter which customers to delete.
+     */
+    where: customersWhereUniqueInput
+  }
+
+  /**
+   * customers deleteMany
+   */
+  export type customersDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which customers to delete
+     */
+    where?: customersWhereInput
+    /**
+     * Limit how many customers to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * customers.payment_type
+   */
+  export type customers$payment_typeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payment_types
+     */
+    select?: payment_typesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payment_types
+     */
+    omit?: payment_typesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payment_typesInclude<ExtArgs> | null
+    where?: payment_typesWhereInput
+  }
+
+  /**
+   * customers.customer_group
+   */
+  export type customers$customer_groupArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the customer_groups
+     */
+    select?: customer_groupsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the customer_groups
+     */
+    omit?: customer_groupsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: customer_groupsInclude<ExtArgs> | null
+    where?: customer_groupsWhereInput
+  }
+
+  /**
+   * customers.ship_tos
+   */
+  export type customers$ship_tosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ship_to
+     */
+    select?: ship_toSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ship_to
+     */
+    omit?: ship_toOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ship_toInclude<ExtArgs> | null
+    where?: ship_toWhereInput
+    orderBy?: ship_toOrderByWithRelationInput | ship_toOrderByWithRelationInput[]
+    cursor?: ship_toWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Ship_toScalarFieldEnum | Ship_toScalarFieldEnum[]
+  }
+
+  /**
+   * customers without action
+   */
+  export type customersDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the customers
+     */
+    select?: customersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the customers
+     */
+    omit?: customersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: customersInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model ship_to
+   */
+
+  export type AggregateShip_to = {
+    _count: Ship_toCountAggregateOutputType | null
+    _avg: Ship_toAvgAggregateOutputType | null
+    _sum: Ship_toSumAggregateOutputType | null
+    _min: Ship_toMinAggregateOutputType | null
+    _max: Ship_toMaxAggregateOutputType | null
+  }
+
+  export type Ship_toAvgAggregateOutputType = {
+    id: number | null
+    customer_id: number | null
+    ship_to_id: number | null
+  }
+
+  export type Ship_toSumAggregateOutputType = {
+    id: number | null
+    customer_id: number | null
+    ship_to_id: number | null
+  }
+
+  export type Ship_toMinAggregateOutputType = {
+    id: number | null
+    site_short_code: string | null
+    name_th: string | null
+    name_en: string | null
+    customer_id: number | null
+    ship_to_id: number | null
+    status: boolean | null
+    create_at: Date | null
+    update_at: Date | null
+  }
+
+  export type Ship_toMaxAggregateOutputType = {
+    id: number | null
+    site_short_code: string | null
+    name_th: string | null
+    name_en: string | null
+    customer_id: number | null
+    ship_to_id: number | null
+    status: boolean | null
+    create_at: Date | null
+    update_at: Date | null
+  }
+
+  export type Ship_toCountAggregateOutputType = {
+    id: number
+    site_short_code: number
+    name_th: number
+    name_en: number
+    customer_id: number
+    ship_to_id: number
+    status: number
+    create_at: number
+    update_at: number
+    _all: number
+  }
+
+
+  export type Ship_toAvgAggregateInputType = {
+    id?: true
+    customer_id?: true
+    ship_to_id?: true
+  }
+
+  export type Ship_toSumAggregateInputType = {
+    id?: true
+    customer_id?: true
+    ship_to_id?: true
+  }
+
+  export type Ship_toMinAggregateInputType = {
+    id?: true
+    site_short_code?: true
+    name_th?: true
+    name_en?: true
+    customer_id?: true
+    ship_to_id?: true
+    status?: true
+    create_at?: true
+    update_at?: true
+  }
+
+  export type Ship_toMaxAggregateInputType = {
+    id?: true
+    site_short_code?: true
+    name_th?: true
+    name_en?: true
+    customer_id?: true
+    ship_to_id?: true
+    status?: true
+    create_at?: true
+    update_at?: true
+  }
+
+  export type Ship_toCountAggregateInputType = {
+    id?: true
+    site_short_code?: true
+    name_th?: true
+    name_en?: true
+    customer_id?: true
+    ship_to_id?: true
+    status?: true
+    create_at?: true
+    update_at?: true
+    _all?: true
+  }
+
+  export type Ship_toAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ship_to to aggregate.
+     */
+    where?: ship_toWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ship_tos to fetch.
+     */
+    orderBy?: ship_toOrderByWithRelationInput | ship_toOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ship_toWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ship_tos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ship_tos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ship_tos
+    **/
+    _count?: true | Ship_toCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Ship_toAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Ship_toSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Ship_toMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Ship_toMaxAggregateInputType
+  }
+
+  export type GetShip_toAggregateType<T extends Ship_toAggregateArgs> = {
+        [P in keyof T & keyof AggregateShip_to]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateShip_to[P]>
+      : GetScalarType<T[P], AggregateShip_to[P]>
+  }
+
+
+
+
+  export type ship_toGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ship_toWhereInput
+    orderBy?: ship_toOrderByWithAggregationInput | ship_toOrderByWithAggregationInput[]
+    by: Ship_toScalarFieldEnum[] | Ship_toScalarFieldEnum
+    having?: ship_toScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Ship_toCountAggregateInputType | true
+    _avg?: Ship_toAvgAggregateInputType
+    _sum?: Ship_toSumAggregateInputType
+    _min?: Ship_toMinAggregateInputType
+    _max?: Ship_toMaxAggregateInputType
+  }
+
+  export type Ship_toGroupByOutputType = {
+    id: number
+    site_short_code: string
+    name_th: string
+    name_en: string | null
+    customer_id: number
+    ship_to_id: number
+    status: boolean
+    create_at: Date
+    update_at: Date
+    _count: Ship_toCountAggregateOutputType | null
+    _avg: Ship_toAvgAggregateOutputType | null
+    _sum: Ship_toSumAggregateOutputType | null
+    _min: Ship_toMinAggregateOutputType | null
+    _max: Ship_toMaxAggregateOutputType | null
+  }
+
+  type GetShip_toGroupByPayload<T extends ship_toGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Ship_toGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Ship_toGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Ship_toGroupByOutputType[P]>
+            : GetScalarType<T[P], Ship_toGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ship_toSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    site_short_code?: boolean
+    name_th?: boolean
+    name_en?: boolean
+    customer_id?: boolean
+    ship_to_id?: boolean
+    status?: boolean
+    create_at?: boolean
+    update_at?: boolean
+    customer?: boolean | customersDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["ship_to"]>
+
+
+
+  export type ship_toSelectScalar = {
+    id?: boolean
+    site_short_code?: boolean
+    name_th?: boolean
+    name_en?: boolean
+    customer_id?: boolean
+    ship_to_id?: boolean
+    status?: boolean
+    create_at?: boolean
+    update_at?: boolean
+  }
+
+  export type ship_toOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "site_short_code" | "name_th" | "name_en" | "customer_id" | "ship_to_id" | "status" | "create_at" | "update_at", ExtArgs["result"]["ship_to"]>
+  export type ship_toInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    customer?: boolean | customersDefaultArgs<ExtArgs>
+  }
+
+  export type $ship_toPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ship_to"
+    objects: {
+      customer: Prisma.$customersPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      site_short_code: string
+      name_th: string
+      name_en: string | null
+      customer_id: number
+      ship_to_id: number
+      status: boolean
+      create_at: Date
+      update_at: Date
+    }, ExtArgs["result"]["ship_to"]>
+    composites: {}
+  }
+
+  type ship_toGetPayload<S extends boolean | null | undefined | ship_toDefaultArgs> = $Result.GetResult<Prisma.$ship_toPayload, S>
+
+  type ship_toCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ship_toFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Ship_toCountAggregateInputType | true
+    }
+
+  export interface ship_toDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ship_to'], meta: { name: 'ship_to' } }
+    /**
+     * Find zero or one Ship_to that matches the filter.
+     * @param {ship_toFindUniqueArgs} args - Arguments to find a Ship_to
+     * @example
+     * // Get one Ship_to
+     * const ship_to = await prisma.ship_to.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ship_toFindUniqueArgs>(args: SelectSubset<T, ship_toFindUniqueArgs<ExtArgs>>): Prisma__ship_toClient<$Result.GetResult<Prisma.$ship_toPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Ship_to that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ship_toFindUniqueOrThrowArgs} args - Arguments to find a Ship_to
+     * @example
+     * // Get one Ship_to
+     * const ship_to = await prisma.ship_to.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ship_toFindUniqueOrThrowArgs>(args: SelectSubset<T, ship_toFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ship_toClient<$Result.GetResult<Prisma.$ship_toPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Ship_to that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ship_toFindFirstArgs} args - Arguments to find a Ship_to
+     * @example
+     * // Get one Ship_to
+     * const ship_to = await prisma.ship_to.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ship_toFindFirstArgs>(args?: SelectSubset<T, ship_toFindFirstArgs<ExtArgs>>): Prisma__ship_toClient<$Result.GetResult<Prisma.$ship_toPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Ship_to that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ship_toFindFirstOrThrowArgs} args - Arguments to find a Ship_to
+     * @example
+     * // Get one Ship_to
+     * const ship_to = await prisma.ship_to.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ship_toFindFirstOrThrowArgs>(args?: SelectSubset<T, ship_toFindFirstOrThrowArgs<ExtArgs>>): Prisma__ship_toClient<$Result.GetResult<Prisma.$ship_toPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Ship_tos that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ship_toFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Ship_tos
+     * const ship_tos = await prisma.ship_to.findMany()
+     * 
+     * // Get first 10 Ship_tos
+     * const ship_tos = await prisma.ship_to.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const ship_toWithIdOnly = await prisma.ship_to.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ship_toFindManyArgs>(args?: SelectSubset<T, ship_toFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ship_toPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Ship_to.
+     * @param {ship_toCreateArgs} args - Arguments to create a Ship_to.
+     * @example
+     * // Create one Ship_to
+     * const Ship_to = await prisma.ship_to.create({
+     *   data: {
+     *     // ... data to create a Ship_to
+     *   }
+     * })
+     * 
+     */
+    create<T extends ship_toCreateArgs>(args: SelectSubset<T, ship_toCreateArgs<ExtArgs>>): Prisma__ship_toClient<$Result.GetResult<Prisma.$ship_toPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Ship_tos.
+     * @param {ship_toCreateManyArgs} args - Arguments to create many Ship_tos.
+     * @example
+     * // Create many Ship_tos
+     * const ship_to = await prisma.ship_to.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ship_toCreateManyArgs>(args?: SelectSubset<T, ship_toCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Ship_to.
+     * @param {ship_toDeleteArgs} args - Arguments to delete one Ship_to.
+     * @example
+     * // Delete one Ship_to
+     * const Ship_to = await prisma.ship_to.delete({
+     *   where: {
+     *     // ... filter to delete one Ship_to
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ship_toDeleteArgs>(args: SelectSubset<T, ship_toDeleteArgs<ExtArgs>>): Prisma__ship_toClient<$Result.GetResult<Prisma.$ship_toPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Ship_to.
+     * @param {ship_toUpdateArgs} args - Arguments to update one Ship_to.
+     * @example
+     * // Update one Ship_to
+     * const ship_to = await prisma.ship_to.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ship_toUpdateArgs>(args: SelectSubset<T, ship_toUpdateArgs<ExtArgs>>): Prisma__ship_toClient<$Result.GetResult<Prisma.$ship_toPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Ship_tos.
+     * @param {ship_toDeleteManyArgs} args - Arguments to filter Ship_tos to delete.
+     * @example
+     * // Delete a few Ship_tos
+     * const { count } = await prisma.ship_to.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ship_toDeleteManyArgs>(args?: SelectSubset<T, ship_toDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Ship_tos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ship_toUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Ship_tos
+     * const ship_to = await prisma.ship_to.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ship_toUpdateManyArgs>(args: SelectSubset<T, ship_toUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Ship_to.
+     * @param {ship_toUpsertArgs} args - Arguments to update or create a Ship_to.
+     * @example
+     * // Update or create a Ship_to
+     * const ship_to = await prisma.ship_to.upsert({
+     *   create: {
+     *     // ... data to create a Ship_to
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Ship_to we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ship_toUpsertArgs>(args: SelectSubset<T, ship_toUpsertArgs<ExtArgs>>): Prisma__ship_toClient<$Result.GetResult<Prisma.$ship_toPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Ship_tos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ship_toCountArgs} args - Arguments to filter Ship_tos to count.
+     * @example
+     * // Count the number of Ship_tos
+     * const count = await prisma.ship_to.count({
+     *   where: {
+     *     // ... the filter for the Ship_tos we want to count
+     *   }
+     * })
+    **/
+    count<T extends ship_toCountArgs>(
+      args?: Subset<T, ship_toCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Ship_toCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Ship_to.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Ship_toAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Ship_toAggregateArgs>(args: Subset<T, Ship_toAggregateArgs>): Prisma.PrismaPromise<GetShip_toAggregateType<T>>
+
+    /**
+     * Group by Ship_to.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ship_toGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ship_toGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ship_toGroupByArgs['orderBy'] }
+        : { orderBy?: ship_toGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ship_toGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetShip_toGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ship_to model
+   */
+  readonly fields: ship_toFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ship_to.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ship_toClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    customer<T extends customersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, customersDefaultArgs<ExtArgs>>): Prisma__customersClient<$Result.GetResult<Prisma.$customersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ship_to model
+   */
+  interface ship_toFieldRefs {
+    readonly id: FieldRef<"ship_to", 'Int'>
+    readonly site_short_code: FieldRef<"ship_to", 'String'>
+    readonly name_th: FieldRef<"ship_to", 'String'>
+    readonly name_en: FieldRef<"ship_to", 'String'>
+    readonly customer_id: FieldRef<"ship_to", 'Int'>
+    readonly ship_to_id: FieldRef<"ship_to", 'Int'>
+    readonly status: FieldRef<"ship_to", 'Boolean'>
+    readonly create_at: FieldRef<"ship_to", 'DateTime'>
+    readonly update_at: FieldRef<"ship_to", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ship_to findUnique
+   */
+  export type ship_toFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ship_to
+     */
+    select?: ship_toSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ship_to
+     */
+    omit?: ship_toOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ship_toInclude<ExtArgs> | null
+    /**
+     * Filter, which ship_to to fetch.
+     */
+    where: ship_toWhereUniqueInput
+  }
+
+  /**
+   * ship_to findUniqueOrThrow
+   */
+  export type ship_toFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ship_to
+     */
+    select?: ship_toSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ship_to
+     */
+    omit?: ship_toOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ship_toInclude<ExtArgs> | null
+    /**
+     * Filter, which ship_to to fetch.
+     */
+    where: ship_toWhereUniqueInput
+  }
+
+  /**
+   * ship_to findFirst
+   */
+  export type ship_toFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ship_to
+     */
+    select?: ship_toSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ship_to
+     */
+    omit?: ship_toOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ship_toInclude<ExtArgs> | null
+    /**
+     * Filter, which ship_to to fetch.
+     */
+    where?: ship_toWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ship_tos to fetch.
+     */
+    orderBy?: ship_toOrderByWithRelationInput | ship_toOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ship_tos.
+     */
+    cursor?: ship_toWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ship_tos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ship_tos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ship_tos.
+     */
+    distinct?: Ship_toScalarFieldEnum | Ship_toScalarFieldEnum[]
+  }
+
+  /**
+   * ship_to findFirstOrThrow
+   */
+  export type ship_toFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ship_to
+     */
+    select?: ship_toSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ship_to
+     */
+    omit?: ship_toOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ship_toInclude<ExtArgs> | null
+    /**
+     * Filter, which ship_to to fetch.
+     */
+    where?: ship_toWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ship_tos to fetch.
+     */
+    orderBy?: ship_toOrderByWithRelationInput | ship_toOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ship_tos.
+     */
+    cursor?: ship_toWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ship_tos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ship_tos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ship_tos.
+     */
+    distinct?: Ship_toScalarFieldEnum | Ship_toScalarFieldEnum[]
+  }
+
+  /**
+   * ship_to findMany
+   */
+  export type ship_toFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ship_to
+     */
+    select?: ship_toSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ship_to
+     */
+    omit?: ship_toOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ship_toInclude<ExtArgs> | null
+    /**
+     * Filter, which ship_tos to fetch.
+     */
+    where?: ship_toWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ship_tos to fetch.
+     */
+    orderBy?: ship_toOrderByWithRelationInput | ship_toOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ship_tos.
+     */
+    cursor?: ship_toWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ship_tos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ship_tos.
+     */
+    skip?: number
+    distinct?: Ship_toScalarFieldEnum | Ship_toScalarFieldEnum[]
+  }
+
+  /**
+   * ship_to create
+   */
+  export type ship_toCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ship_to
+     */
+    select?: ship_toSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ship_to
+     */
+    omit?: ship_toOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ship_toInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ship_to.
+     */
+    data: XOR<ship_toCreateInput, ship_toUncheckedCreateInput>
+  }
+
+  /**
+   * ship_to createMany
+   */
+  export type ship_toCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ship_tos.
+     */
+    data: ship_toCreateManyInput | ship_toCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ship_to update
+   */
+  export type ship_toUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ship_to
+     */
+    select?: ship_toSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ship_to
+     */
+    omit?: ship_toOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ship_toInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ship_to.
+     */
+    data: XOR<ship_toUpdateInput, ship_toUncheckedUpdateInput>
+    /**
+     * Choose, which ship_to to update.
+     */
+    where: ship_toWhereUniqueInput
+  }
+
+  /**
+   * ship_to updateMany
+   */
+  export type ship_toUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ship_tos.
+     */
+    data: XOR<ship_toUpdateManyMutationInput, ship_toUncheckedUpdateManyInput>
+    /**
+     * Filter which ship_tos to update
+     */
+    where?: ship_toWhereInput
+    /**
+     * Limit how many ship_tos to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ship_to upsert
+   */
+  export type ship_toUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ship_to
+     */
+    select?: ship_toSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ship_to
+     */
+    omit?: ship_toOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ship_toInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ship_to to update in case it exists.
+     */
+    where: ship_toWhereUniqueInput
+    /**
+     * In case the ship_to found by the `where` argument doesn't exist, create a new ship_to with this data.
+     */
+    create: XOR<ship_toCreateInput, ship_toUncheckedCreateInput>
+    /**
+     * In case the ship_to was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ship_toUpdateInput, ship_toUncheckedUpdateInput>
+  }
+
+  /**
+   * ship_to delete
+   */
+  export type ship_toDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ship_to
+     */
+    select?: ship_toSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ship_to
+     */
+    omit?: ship_toOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ship_toInclude<ExtArgs> | null
+    /**
+     * Filter which ship_to to delete.
+     */
+    where: ship_toWhereUniqueInput
+  }
+
+  /**
+   * ship_to deleteMany
+   */
+  export type ship_toDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ship_tos to delete
+     */
+    where?: ship_toWhereInput
+    /**
+     * Limit how many ship_tos to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ship_to without action
+   */
+  export type ship_toDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ship_to
+     */
+    select?: ship_toSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ship_to
+     */
+    omit?: ship_toOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ship_toInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model payment_types
+   */
+
+  export type AggregatePayment_types = {
+    _count: Payment_typesCountAggregateOutputType | null
+    _avg: Payment_typesAvgAggregateOutputType | null
+    _sum: Payment_typesSumAggregateOutputType | null
+    _min: Payment_typesMinAggregateOutputType | null
+    _max: Payment_typesMaxAggregateOutputType | null
+  }
+
+  export type Payment_typesAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type Payment_typesSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type Payment_typesMinAggregateOutputType = {
+    id: number | null
+    name_th: string | null
+    name_en: string | null
+    description: string | null
+    status: boolean | null
+    create_at: Date | null
+    update_at: Date | null
+  }
+
+  export type Payment_typesMaxAggregateOutputType = {
+    id: number | null
+    name_th: string | null
+    name_en: string | null
+    description: string | null
+    status: boolean | null
+    create_at: Date | null
+    update_at: Date | null
+  }
+
+  export type Payment_typesCountAggregateOutputType = {
+    id: number
+    name_th: number
+    name_en: number
+    description: number
+    status: number
+    create_at: number
+    update_at: number
+    _all: number
+  }
+
+
+  export type Payment_typesAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type Payment_typesSumAggregateInputType = {
+    id?: true
+  }
+
+  export type Payment_typesMinAggregateInputType = {
+    id?: true
+    name_th?: true
+    name_en?: true
+    description?: true
+    status?: true
+    create_at?: true
+    update_at?: true
+  }
+
+  export type Payment_typesMaxAggregateInputType = {
+    id?: true
+    name_th?: true
+    name_en?: true
+    description?: true
+    status?: true
+    create_at?: true
+    update_at?: true
+  }
+
+  export type Payment_typesCountAggregateInputType = {
+    id?: true
+    name_th?: true
+    name_en?: true
+    description?: true
+    status?: true
+    create_at?: true
+    update_at?: true
+    _all?: true
+  }
+
+  export type Payment_typesAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which payment_types to aggregate.
+     */
+    where?: payment_typesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of payment_types to fetch.
+     */
+    orderBy?: payment_typesOrderByWithRelationInput | payment_typesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: payment_typesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` payment_types from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` payment_types.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned payment_types
+    **/
+    _count?: true | Payment_typesCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Payment_typesAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Payment_typesSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Payment_typesMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Payment_typesMaxAggregateInputType
+  }
+
+  export type GetPayment_typesAggregateType<T extends Payment_typesAggregateArgs> = {
+        [P in keyof T & keyof AggregatePayment_types]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePayment_types[P]>
+      : GetScalarType<T[P], AggregatePayment_types[P]>
+  }
+
+
+
+
+  export type payment_typesGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: payment_typesWhereInput
+    orderBy?: payment_typesOrderByWithAggregationInput | payment_typesOrderByWithAggregationInput[]
+    by: Payment_typesScalarFieldEnum[] | Payment_typesScalarFieldEnum
+    having?: payment_typesScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Payment_typesCountAggregateInputType | true
+    _avg?: Payment_typesAvgAggregateInputType
+    _sum?: Payment_typesSumAggregateInputType
+    _min?: Payment_typesMinAggregateInputType
+    _max?: Payment_typesMaxAggregateInputType
+  }
+
+  export type Payment_typesGroupByOutputType = {
+    id: number
+    name_th: string
+    name_en: string
+    description: string | null
+    status: boolean
+    create_at: Date
+    update_at: Date
+    _count: Payment_typesCountAggregateOutputType | null
+    _avg: Payment_typesAvgAggregateOutputType | null
+    _sum: Payment_typesSumAggregateOutputType | null
+    _min: Payment_typesMinAggregateOutputType | null
+    _max: Payment_typesMaxAggregateOutputType | null
+  }
+
+  type GetPayment_typesGroupByPayload<T extends payment_typesGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Payment_typesGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Payment_typesGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Payment_typesGroupByOutputType[P]>
+            : GetScalarType<T[P], Payment_typesGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type payment_typesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name_th?: boolean
+    name_en?: boolean
+    description?: boolean
+    status?: boolean
+    create_at?: boolean
+    update_at?: boolean
+    customers?: boolean | payment_types$customersArgs<ExtArgs>
+    _count?: boolean | Payment_typesCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["payment_types"]>
+
+
+
+  export type payment_typesSelectScalar = {
+    id?: boolean
+    name_th?: boolean
+    name_en?: boolean
+    description?: boolean
+    status?: boolean
+    create_at?: boolean
+    update_at?: boolean
+  }
+
+  export type payment_typesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name_th" | "name_en" | "description" | "status" | "create_at" | "update_at", ExtArgs["result"]["payment_types"]>
+  export type payment_typesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    customers?: boolean | payment_types$customersArgs<ExtArgs>
+    _count?: boolean | Payment_typesCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+  export type $payment_typesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "payment_types"
+    objects: {
+      customers: Prisma.$customersPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      name_th: string
+      name_en: string
+      description: string | null
+      status: boolean
+      create_at: Date
+      update_at: Date
+    }, ExtArgs["result"]["payment_types"]>
+    composites: {}
+  }
+
+  type payment_typesGetPayload<S extends boolean | null | undefined | payment_typesDefaultArgs> = $Result.GetResult<Prisma.$payment_typesPayload, S>
+
+  type payment_typesCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<payment_typesFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Payment_typesCountAggregateInputType | true
+    }
+
+  export interface payment_typesDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['payment_types'], meta: { name: 'payment_types' } }
+    /**
+     * Find zero or one Payment_types that matches the filter.
+     * @param {payment_typesFindUniqueArgs} args - Arguments to find a Payment_types
+     * @example
+     * // Get one Payment_types
+     * const payment_types = await prisma.payment_types.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends payment_typesFindUniqueArgs>(args: SelectSubset<T, payment_typesFindUniqueArgs<ExtArgs>>): Prisma__payment_typesClient<$Result.GetResult<Prisma.$payment_typesPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Payment_types that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {payment_typesFindUniqueOrThrowArgs} args - Arguments to find a Payment_types
+     * @example
+     * // Get one Payment_types
+     * const payment_types = await prisma.payment_types.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends payment_typesFindUniqueOrThrowArgs>(args: SelectSubset<T, payment_typesFindUniqueOrThrowArgs<ExtArgs>>): Prisma__payment_typesClient<$Result.GetResult<Prisma.$payment_typesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Payment_types that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {payment_typesFindFirstArgs} args - Arguments to find a Payment_types
+     * @example
+     * // Get one Payment_types
+     * const payment_types = await prisma.payment_types.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends payment_typesFindFirstArgs>(args?: SelectSubset<T, payment_typesFindFirstArgs<ExtArgs>>): Prisma__payment_typesClient<$Result.GetResult<Prisma.$payment_typesPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Payment_types that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {payment_typesFindFirstOrThrowArgs} args - Arguments to find a Payment_types
+     * @example
+     * // Get one Payment_types
+     * const payment_types = await prisma.payment_types.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends payment_typesFindFirstOrThrowArgs>(args?: SelectSubset<T, payment_typesFindFirstOrThrowArgs<ExtArgs>>): Prisma__payment_typesClient<$Result.GetResult<Prisma.$payment_typesPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Payment_types that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {payment_typesFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Payment_types
+     * const payment_types = await prisma.payment_types.findMany()
+     * 
+     * // Get first 10 Payment_types
+     * const payment_types = await prisma.payment_types.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const payment_typesWithIdOnly = await prisma.payment_types.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends payment_typesFindManyArgs>(args?: SelectSubset<T, payment_typesFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$payment_typesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Payment_types.
+     * @param {payment_typesCreateArgs} args - Arguments to create a Payment_types.
+     * @example
+     * // Create one Payment_types
+     * const Payment_types = await prisma.payment_types.create({
+     *   data: {
+     *     // ... data to create a Payment_types
+     *   }
+     * })
+     * 
+     */
+    create<T extends payment_typesCreateArgs>(args: SelectSubset<T, payment_typesCreateArgs<ExtArgs>>): Prisma__payment_typesClient<$Result.GetResult<Prisma.$payment_typesPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Payment_types.
+     * @param {payment_typesCreateManyArgs} args - Arguments to create many Payment_types.
+     * @example
+     * // Create many Payment_types
+     * const payment_types = await prisma.payment_types.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends payment_typesCreateManyArgs>(args?: SelectSubset<T, payment_typesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Payment_types.
+     * @param {payment_typesDeleteArgs} args - Arguments to delete one Payment_types.
+     * @example
+     * // Delete one Payment_types
+     * const Payment_types = await prisma.payment_types.delete({
+     *   where: {
+     *     // ... filter to delete one Payment_types
+     *   }
+     * })
+     * 
+     */
+    delete<T extends payment_typesDeleteArgs>(args: SelectSubset<T, payment_typesDeleteArgs<ExtArgs>>): Prisma__payment_typesClient<$Result.GetResult<Prisma.$payment_typesPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Payment_types.
+     * @param {payment_typesUpdateArgs} args - Arguments to update one Payment_types.
+     * @example
+     * // Update one Payment_types
+     * const payment_types = await prisma.payment_types.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends payment_typesUpdateArgs>(args: SelectSubset<T, payment_typesUpdateArgs<ExtArgs>>): Prisma__payment_typesClient<$Result.GetResult<Prisma.$payment_typesPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Payment_types.
+     * @param {payment_typesDeleteManyArgs} args - Arguments to filter Payment_types to delete.
+     * @example
+     * // Delete a few Payment_types
+     * const { count } = await prisma.payment_types.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends payment_typesDeleteManyArgs>(args?: SelectSubset<T, payment_typesDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Payment_types.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {payment_typesUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Payment_types
+     * const payment_types = await prisma.payment_types.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends payment_typesUpdateManyArgs>(args: SelectSubset<T, payment_typesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Payment_types.
+     * @param {payment_typesUpsertArgs} args - Arguments to update or create a Payment_types.
+     * @example
+     * // Update or create a Payment_types
+     * const payment_types = await prisma.payment_types.upsert({
+     *   create: {
+     *     // ... data to create a Payment_types
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Payment_types we want to update
+     *   }
+     * })
+     */
+    upsert<T extends payment_typesUpsertArgs>(args: SelectSubset<T, payment_typesUpsertArgs<ExtArgs>>): Prisma__payment_typesClient<$Result.GetResult<Prisma.$payment_typesPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Payment_types.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {payment_typesCountArgs} args - Arguments to filter Payment_types to count.
+     * @example
+     * // Count the number of Payment_types
+     * const count = await prisma.payment_types.count({
+     *   where: {
+     *     // ... the filter for the Payment_types we want to count
+     *   }
+     * })
+    **/
+    count<T extends payment_typesCountArgs>(
+      args?: Subset<T, payment_typesCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Payment_typesCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Payment_types.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Payment_typesAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Payment_typesAggregateArgs>(args: Subset<T, Payment_typesAggregateArgs>): Prisma.PrismaPromise<GetPayment_typesAggregateType<T>>
+
+    /**
+     * Group by Payment_types.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {payment_typesGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends payment_typesGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: payment_typesGroupByArgs['orderBy'] }
+        : { orderBy?: payment_typesGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, payment_typesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPayment_typesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the payment_types model
+   */
+  readonly fields: payment_typesFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for payment_types.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__payment_typesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    customers<T extends payment_types$customersArgs<ExtArgs> = {}>(args?: Subset<T, payment_types$customersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$customersPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the payment_types model
+   */
+  interface payment_typesFieldRefs {
+    readonly id: FieldRef<"payment_types", 'Int'>
+    readonly name_th: FieldRef<"payment_types", 'String'>
+    readonly name_en: FieldRef<"payment_types", 'String'>
+    readonly description: FieldRef<"payment_types", 'String'>
+    readonly status: FieldRef<"payment_types", 'Boolean'>
+    readonly create_at: FieldRef<"payment_types", 'DateTime'>
+    readonly update_at: FieldRef<"payment_types", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * payment_types findUnique
+   */
+  export type payment_typesFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payment_types
+     */
+    select?: payment_typesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payment_types
+     */
+    omit?: payment_typesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payment_typesInclude<ExtArgs> | null
+    /**
+     * Filter, which payment_types to fetch.
+     */
+    where: payment_typesWhereUniqueInput
+  }
+
+  /**
+   * payment_types findUniqueOrThrow
+   */
+  export type payment_typesFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payment_types
+     */
+    select?: payment_typesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payment_types
+     */
+    omit?: payment_typesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payment_typesInclude<ExtArgs> | null
+    /**
+     * Filter, which payment_types to fetch.
+     */
+    where: payment_typesWhereUniqueInput
+  }
+
+  /**
+   * payment_types findFirst
+   */
+  export type payment_typesFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payment_types
+     */
+    select?: payment_typesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payment_types
+     */
+    omit?: payment_typesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payment_typesInclude<ExtArgs> | null
+    /**
+     * Filter, which payment_types to fetch.
+     */
+    where?: payment_typesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of payment_types to fetch.
+     */
+    orderBy?: payment_typesOrderByWithRelationInput | payment_typesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for payment_types.
+     */
+    cursor?: payment_typesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` payment_types from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` payment_types.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of payment_types.
+     */
+    distinct?: Payment_typesScalarFieldEnum | Payment_typesScalarFieldEnum[]
+  }
+
+  /**
+   * payment_types findFirstOrThrow
+   */
+  export type payment_typesFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payment_types
+     */
+    select?: payment_typesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payment_types
+     */
+    omit?: payment_typesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payment_typesInclude<ExtArgs> | null
+    /**
+     * Filter, which payment_types to fetch.
+     */
+    where?: payment_typesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of payment_types to fetch.
+     */
+    orderBy?: payment_typesOrderByWithRelationInput | payment_typesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for payment_types.
+     */
+    cursor?: payment_typesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` payment_types from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` payment_types.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of payment_types.
+     */
+    distinct?: Payment_typesScalarFieldEnum | Payment_typesScalarFieldEnum[]
+  }
+
+  /**
+   * payment_types findMany
+   */
+  export type payment_typesFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payment_types
+     */
+    select?: payment_typesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payment_types
+     */
+    omit?: payment_typesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payment_typesInclude<ExtArgs> | null
+    /**
+     * Filter, which payment_types to fetch.
+     */
+    where?: payment_typesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of payment_types to fetch.
+     */
+    orderBy?: payment_typesOrderByWithRelationInput | payment_typesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing payment_types.
+     */
+    cursor?: payment_typesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` payment_types from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` payment_types.
+     */
+    skip?: number
+    distinct?: Payment_typesScalarFieldEnum | Payment_typesScalarFieldEnum[]
+  }
+
+  /**
+   * payment_types create
+   */
+  export type payment_typesCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payment_types
+     */
+    select?: payment_typesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payment_types
+     */
+    omit?: payment_typesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payment_typesInclude<ExtArgs> | null
+    /**
+     * The data needed to create a payment_types.
+     */
+    data: XOR<payment_typesCreateInput, payment_typesUncheckedCreateInput>
+  }
+
+  /**
+   * payment_types createMany
+   */
+  export type payment_typesCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many payment_types.
+     */
+    data: payment_typesCreateManyInput | payment_typesCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * payment_types update
+   */
+  export type payment_typesUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payment_types
+     */
+    select?: payment_typesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payment_types
+     */
+    omit?: payment_typesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payment_typesInclude<ExtArgs> | null
+    /**
+     * The data needed to update a payment_types.
+     */
+    data: XOR<payment_typesUpdateInput, payment_typesUncheckedUpdateInput>
+    /**
+     * Choose, which payment_types to update.
+     */
+    where: payment_typesWhereUniqueInput
+  }
+
+  /**
+   * payment_types updateMany
+   */
+  export type payment_typesUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update payment_types.
+     */
+    data: XOR<payment_typesUpdateManyMutationInput, payment_typesUncheckedUpdateManyInput>
+    /**
+     * Filter which payment_types to update
+     */
+    where?: payment_typesWhereInput
+    /**
+     * Limit how many payment_types to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * payment_types upsert
+   */
+  export type payment_typesUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payment_types
+     */
+    select?: payment_typesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payment_types
+     */
+    omit?: payment_typesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payment_typesInclude<ExtArgs> | null
+    /**
+     * The filter to search for the payment_types to update in case it exists.
+     */
+    where: payment_typesWhereUniqueInput
+    /**
+     * In case the payment_types found by the `where` argument doesn't exist, create a new payment_types with this data.
+     */
+    create: XOR<payment_typesCreateInput, payment_typesUncheckedCreateInput>
+    /**
+     * In case the payment_types was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<payment_typesUpdateInput, payment_typesUncheckedUpdateInput>
+  }
+
+  /**
+   * payment_types delete
+   */
+  export type payment_typesDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payment_types
+     */
+    select?: payment_typesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payment_types
+     */
+    omit?: payment_typesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payment_typesInclude<ExtArgs> | null
+    /**
+     * Filter which payment_types to delete.
+     */
+    where: payment_typesWhereUniqueInput
+  }
+
+  /**
+   * payment_types deleteMany
+   */
+  export type payment_typesDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which payment_types to delete
+     */
+    where?: payment_typesWhereInput
+    /**
+     * Limit how many payment_types to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * payment_types.customers
+   */
+  export type payment_types$customersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the customers
+     */
+    select?: customersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the customers
+     */
+    omit?: customersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: customersInclude<ExtArgs> | null
+    where?: customersWhereInput
+    orderBy?: customersOrderByWithRelationInput | customersOrderByWithRelationInput[]
+    cursor?: customersWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CustomersScalarFieldEnum | CustomersScalarFieldEnum[]
+  }
+
+  /**
+   * payment_types without action
+   */
+  export type payment_typesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the payment_types
+     */
+    select?: payment_typesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the payment_types
+     */
+    omit?: payment_typesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: payment_typesInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -52659,6 +57333,75 @@ export namespace Prisma {
   export type Round_time_factoryScalarFieldEnum = (typeof Round_time_factoryScalarFieldEnum)[keyof typeof Round_time_factoryScalarFieldEnum]
 
 
+  export const Customer_groupsScalarFieldEnum: {
+    id: 'id',
+    name_th: 'name_th',
+    name_en: 'name_en',
+    level1: 'level1',
+    level2: 'level2',
+    description: 'description',
+    status: 'status',
+    create_at: 'create_at',
+    update_at: 'update_at'
+  };
+
+  export type Customer_groupsScalarFieldEnum = (typeof Customer_groupsScalarFieldEnum)[keyof typeof Customer_groupsScalarFieldEnum]
+
+
+  export const CustomersScalarFieldEnum: {
+    id: 'id',
+    customer_group_id: 'customer_group_id',
+    site_short_code: 'site_short_code',
+    name_th: 'name_th',
+    name_en: 'name_en',
+    sale_office_id: 'sale_office_id',
+    department_id: 'department_id',
+    payment_type_id: 'payment_type_id',
+    address: 'address',
+    tel: 'tel',
+    tax_no: 'tax_no',
+    tax_id: 'tax_id',
+    tax_id_type: 'tax_id_type',
+    remark: 'remark',
+    email: 'email',
+    enable_date: 'enable_date',
+    disable_date: 'disable_date',
+    status: 'status',
+    create_at: 'create_at',
+    update_at: 'update_at'
+  };
+
+  export type CustomersScalarFieldEnum = (typeof CustomersScalarFieldEnum)[keyof typeof CustomersScalarFieldEnum]
+
+
+  export const Ship_toScalarFieldEnum: {
+    id: 'id',
+    site_short_code: 'site_short_code',
+    name_th: 'name_th',
+    name_en: 'name_en',
+    customer_id: 'customer_id',
+    ship_to_id: 'ship_to_id',
+    status: 'status',
+    create_at: 'create_at',
+    update_at: 'update_at'
+  };
+
+  export type Ship_toScalarFieldEnum = (typeof Ship_toScalarFieldEnum)[keyof typeof Ship_toScalarFieldEnum]
+
+
+  export const Payment_typesScalarFieldEnum: {
+    id: 'id',
+    name_th: 'name_th',
+    name_en: 'name_en',
+    description: 'description',
+    status: 'status',
+    create_at: 'create_at',
+    update_at: 'update_at'
+  };
+
+  export type Payment_typesScalarFieldEnum = (typeof Payment_typesScalarFieldEnum)[keyof typeof Payment_typesScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -53038,6 +57781,51 @@ export namespace Prisma {
   };
 
   export type round_time_factoryOrderByRelevanceFieldEnum = (typeof round_time_factoryOrderByRelevanceFieldEnum)[keyof typeof round_time_factoryOrderByRelevanceFieldEnum]
+
+
+  export const customer_groupsOrderByRelevanceFieldEnum: {
+    name_th: 'name_th',
+    name_en: 'name_en',
+    level1: 'level1',
+    level2: 'level2',
+    description: 'description'
+  };
+
+  export type customer_groupsOrderByRelevanceFieldEnum = (typeof customer_groupsOrderByRelevanceFieldEnum)[keyof typeof customer_groupsOrderByRelevanceFieldEnum]
+
+
+  export const customersOrderByRelevanceFieldEnum: {
+    site_short_code: 'site_short_code',
+    name_th: 'name_th',
+    name_en: 'name_en',
+    address: 'address',
+    tel: 'tel',
+    tax_no: 'tax_no',
+    tax_id: 'tax_id',
+    tax_id_type: 'tax_id_type',
+    remark: 'remark',
+    email: 'email'
+  };
+
+  export type customersOrderByRelevanceFieldEnum = (typeof customersOrderByRelevanceFieldEnum)[keyof typeof customersOrderByRelevanceFieldEnum]
+
+
+  export const ship_toOrderByRelevanceFieldEnum: {
+    site_short_code: 'site_short_code',
+    name_th: 'name_th',
+    name_en: 'name_en'
+  };
+
+  export type ship_toOrderByRelevanceFieldEnum = (typeof ship_toOrderByRelevanceFieldEnum)[keyof typeof ship_toOrderByRelevanceFieldEnum]
+
+
+  export const payment_typesOrderByRelevanceFieldEnum: {
+    name_th: 'name_th',
+    name_en: 'name_en',
+    description: 'description'
+  };
+
+  export type payment_typesOrderByRelevanceFieldEnum = (typeof payment_typesOrderByRelevanceFieldEnum)[keyof typeof payment_typesOrderByRelevanceFieldEnum]
 
 
   /**
@@ -56937,6 +61725,369 @@ export namespace Prisma {
     update_at?: DateTimeWithAggregatesFilter<"round_time_factory"> | Date | string
   }
 
+  export type customer_groupsWhereInput = {
+    AND?: customer_groupsWhereInput | customer_groupsWhereInput[]
+    OR?: customer_groupsWhereInput[]
+    NOT?: customer_groupsWhereInput | customer_groupsWhereInput[]
+    id?: IntFilter<"customer_groups"> | number
+    name_th?: StringFilter<"customer_groups"> | string
+    name_en?: StringFilter<"customer_groups"> | string
+    level1?: StringFilter<"customer_groups"> | string
+    level2?: StringFilter<"customer_groups"> | string
+    description?: StringNullableFilter<"customer_groups"> | string | null
+    status?: BoolFilter<"customer_groups"> | boolean
+    create_at?: DateTimeFilter<"customer_groups"> | Date | string
+    update_at?: DateTimeFilter<"customer_groups"> | Date | string
+    customers?: CustomersListRelationFilter
+  }
+
+  export type customer_groupsOrderByWithRelationInput = {
+    id?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
+    level1?: SortOrder
+    level2?: SortOrder
+    description?: SortOrderInput | SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+    customers?: customersOrderByRelationAggregateInput
+    _relevance?: customer_groupsOrderByRelevanceInput
+  }
+
+  export type customer_groupsWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: customer_groupsWhereInput | customer_groupsWhereInput[]
+    OR?: customer_groupsWhereInput[]
+    NOT?: customer_groupsWhereInput | customer_groupsWhereInput[]
+    name_th?: StringFilter<"customer_groups"> | string
+    name_en?: StringFilter<"customer_groups"> | string
+    level1?: StringFilter<"customer_groups"> | string
+    level2?: StringFilter<"customer_groups"> | string
+    description?: StringNullableFilter<"customer_groups"> | string | null
+    status?: BoolFilter<"customer_groups"> | boolean
+    create_at?: DateTimeFilter<"customer_groups"> | Date | string
+    update_at?: DateTimeFilter<"customer_groups"> | Date | string
+    customers?: CustomersListRelationFilter
+  }, "id">
+
+  export type customer_groupsOrderByWithAggregationInput = {
+    id?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
+    level1?: SortOrder
+    level2?: SortOrder
+    description?: SortOrderInput | SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+    _count?: customer_groupsCountOrderByAggregateInput
+    _avg?: customer_groupsAvgOrderByAggregateInput
+    _max?: customer_groupsMaxOrderByAggregateInput
+    _min?: customer_groupsMinOrderByAggregateInput
+    _sum?: customer_groupsSumOrderByAggregateInput
+  }
+
+  export type customer_groupsScalarWhereWithAggregatesInput = {
+    AND?: customer_groupsScalarWhereWithAggregatesInput | customer_groupsScalarWhereWithAggregatesInput[]
+    OR?: customer_groupsScalarWhereWithAggregatesInput[]
+    NOT?: customer_groupsScalarWhereWithAggregatesInput | customer_groupsScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"customer_groups"> | number
+    name_th?: StringWithAggregatesFilter<"customer_groups"> | string
+    name_en?: StringWithAggregatesFilter<"customer_groups"> | string
+    level1?: StringWithAggregatesFilter<"customer_groups"> | string
+    level2?: StringWithAggregatesFilter<"customer_groups"> | string
+    description?: StringNullableWithAggregatesFilter<"customer_groups"> | string | null
+    status?: BoolWithAggregatesFilter<"customer_groups"> | boolean
+    create_at?: DateTimeWithAggregatesFilter<"customer_groups"> | Date | string
+    update_at?: DateTimeWithAggregatesFilter<"customer_groups"> | Date | string
+  }
+
+  export type customersWhereInput = {
+    AND?: customersWhereInput | customersWhereInput[]
+    OR?: customersWhereInput[]
+    NOT?: customersWhereInput | customersWhereInput[]
+    id?: IntFilter<"customers"> | number
+    customer_group_id?: IntNullableFilter<"customers"> | number | null
+    site_short_code?: StringFilter<"customers"> | string
+    name_th?: StringFilter<"customers"> | string
+    name_en?: StringFilter<"customers"> | string
+    sale_office_id?: IntNullableFilter<"customers"> | number | null
+    department_id?: IntNullableFilter<"customers"> | number | null
+    payment_type_id?: IntNullableFilter<"customers"> | number | null
+    address?: StringFilter<"customers"> | string
+    tel?: StringNullableFilter<"customers"> | string | null
+    tax_no?: StringNullableFilter<"customers"> | string | null
+    tax_id?: StringNullableFilter<"customers"> | string | null
+    tax_id_type?: StringNullableFilter<"customers"> | string | null
+    remark?: StringNullableFilter<"customers"> | string | null
+    email?: StringNullableFilter<"customers"> | string | null
+    enable_date?: DateTimeNullableFilter<"customers"> | Date | string | null
+    disable_date?: DateTimeNullableFilter<"customers"> | Date | string | null
+    status?: BoolFilter<"customers"> | boolean
+    create_at?: DateTimeFilter<"customers"> | Date | string
+    update_at?: DateTimeFilter<"customers"> | Date | string
+    payment_type?: XOR<Payment_typesNullableScalarRelationFilter, payment_typesWhereInput> | null
+    customer_group?: XOR<Customer_groupsNullableScalarRelationFilter, customer_groupsWhereInput> | null
+    ship_tos?: Ship_toListRelationFilter
+  }
+
+  export type customersOrderByWithRelationInput = {
+    id?: SortOrder
+    customer_group_id?: SortOrderInput | SortOrder
+    site_short_code?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
+    sale_office_id?: SortOrderInput | SortOrder
+    department_id?: SortOrderInput | SortOrder
+    payment_type_id?: SortOrderInput | SortOrder
+    address?: SortOrder
+    tel?: SortOrderInput | SortOrder
+    tax_no?: SortOrderInput | SortOrder
+    tax_id?: SortOrderInput | SortOrder
+    tax_id_type?: SortOrderInput | SortOrder
+    remark?: SortOrderInput | SortOrder
+    email?: SortOrderInput | SortOrder
+    enable_date?: SortOrderInput | SortOrder
+    disable_date?: SortOrderInput | SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+    payment_type?: payment_typesOrderByWithRelationInput
+    customer_group?: customer_groupsOrderByWithRelationInput
+    ship_tos?: ship_toOrderByRelationAggregateInput
+    _relevance?: customersOrderByRelevanceInput
+  }
+
+  export type customersWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: customersWhereInput | customersWhereInput[]
+    OR?: customersWhereInput[]
+    NOT?: customersWhereInput | customersWhereInput[]
+    customer_group_id?: IntNullableFilter<"customers"> | number | null
+    site_short_code?: StringFilter<"customers"> | string
+    name_th?: StringFilter<"customers"> | string
+    name_en?: StringFilter<"customers"> | string
+    sale_office_id?: IntNullableFilter<"customers"> | number | null
+    department_id?: IntNullableFilter<"customers"> | number | null
+    payment_type_id?: IntNullableFilter<"customers"> | number | null
+    address?: StringFilter<"customers"> | string
+    tel?: StringNullableFilter<"customers"> | string | null
+    tax_no?: StringNullableFilter<"customers"> | string | null
+    tax_id?: StringNullableFilter<"customers"> | string | null
+    tax_id_type?: StringNullableFilter<"customers"> | string | null
+    remark?: StringNullableFilter<"customers"> | string | null
+    email?: StringNullableFilter<"customers"> | string | null
+    enable_date?: DateTimeNullableFilter<"customers"> | Date | string | null
+    disable_date?: DateTimeNullableFilter<"customers"> | Date | string | null
+    status?: BoolFilter<"customers"> | boolean
+    create_at?: DateTimeFilter<"customers"> | Date | string
+    update_at?: DateTimeFilter<"customers"> | Date | string
+    payment_type?: XOR<Payment_typesNullableScalarRelationFilter, payment_typesWhereInput> | null
+    customer_group?: XOR<Customer_groupsNullableScalarRelationFilter, customer_groupsWhereInput> | null
+    ship_tos?: Ship_toListRelationFilter
+  }, "id">
+
+  export type customersOrderByWithAggregationInput = {
+    id?: SortOrder
+    customer_group_id?: SortOrderInput | SortOrder
+    site_short_code?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
+    sale_office_id?: SortOrderInput | SortOrder
+    department_id?: SortOrderInput | SortOrder
+    payment_type_id?: SortOrderInput | SortOrder
+    address?: SortOrder
+    tel?: SortOrderInput | SortOrder
+    tax_no?: SortOrderInput | SortOrder
+    tax_id?: SortOrderInput | SortOrder
+    tax_id_type?: SortOrderInput | SortOrder
+    remark?: SortOrderInput | SortOrder
+    email?: SortOrderInput | SortOrder
+    enable_date?: SortOrderInput | SortOrder
+    disable_date?: SortOrderInput | SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+    _count?: customersCountOrderByAggregateInput
+    _avg?: customersAvgOrderByAggregateInput
+    _max?: customersMaxOrderByAggregateInput
+    _min?: customersMinOrderByAggregateInput
+    _sum?: customersSumOrderByAggregateInput
+  }
+
+  export type customersScalarWhereWithAggregatesInput = {
+    AND?: customersScalarWhereWithAggregatesInput | customersScalarWhereWithAggregatesInput[]
+    OR?: customersScalarWhereWithAggregatesInput[]
+    NOT?: customersScalarWhereWithAggregatesInput | customersScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"customers"> | number
+    customer_group_id?: IntNullableWithAggregatesFilter<"customers"> | number | null
+    site_short_code?: StringWithAggregatesFilter<"customers"> | string
+    name_th?: StringWithAggregatesFilter<"customers"> | string
+    name_en?: StringWithAggregatesFilter<"customers"> | string
+    sale_office_id?: IntNullableWithAggregatesFilter<"customers"> | number | null
+    department_id?: IntNullableWithAggregatesFilter<"customers"> | number | null
+    payment_type_id?: IntNullableWithAggregatesFilter<"customers"> | number | null
+    address?: StringWithAggregatesFilter<"customers"> | string
+    tel?: StringNullableWithAggregatesFilter<"customers"> | string | null
+    tax_no?: StringNullableWithAggregatesFilter<"customers"> | string | null
+    tax_id?: StringNullableWithAggregatesFilter<"customers"> | string | null
+    tax_id_type?: StringNullableWithAggregatesFilter<"customers"> | string | null
+    remark?: StringNullableWithAggregatesFilter<"customers"> | string | null
+    email?: StringNullableWithAggregatesFilter<"customers"> | string | null
+    enable_date?: DateTimeNullableWithAggregatesFilter<"customers"> | Date | string | null
+    disable_date?: DateTimeNullableWithAggregatesFilter<"customers"> | Date | string | null
+    status?: BoolWithAggregatesFilter<"customers"> | boolean
+    create_at?: DateTimeWithAggregatesFilter<"customers"> | Date | string
+    update_at?: DateTimeWithAggregatesFilter<"customers"> | Date | string
+  }
+
+  export type ship_toWhereInput = {
+    AND?: ship_toWhereInput | ship_toWhereInput[]
+    OR?: ship_toWhereInput[]
+    NOT?: ship_toWhereInput | ship_toWhereInput[]
+    id?: IntFilter<"ship_to"> | number
+    site_short_code?: StringFilter<"ship_to"> | string
+    name_th?: StringFilter<"ship_to"> | string
+    name_en?: StringNullableFilter<"ship_to"> | string | null
+    customer_id?: IntFilter<"ship_to"> | number
+    ship_to_id?: IntFilter<"ship_to"> | number
+    status?: BoolFilter<"ship_to"> | boolean
+    create_at?: DateTimeFilter<"ship_to"> | Date | string
+    update_at?: DateTimeFilter<"ship_to"> | Date | string
+    customer?: XOR<CustomersScalarRelationFilter, customersWhereInput>
+  }
+
+  export type ship_toOrderByWithRelationInput = {
+    id?: SortOrder
+    site_short_code?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrderInput | SortOrder
+    customer_id?: SortOrder
+    ship_to_id?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+    customer?: customersOrderByWithRelationInput
+    _relevance?: ship_toOrderByRelevanceInput
+  }
+
+  export type ship_toWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: ship_toWhereInput | ship_toWhereInput[]
+    OR?: ship_toWhereInput[]
+    NOT?: ship_toWhereInput | ship_toWhereInput[]
+    site_short_code?: StringFilter<"ship_to"> | string
+    name_th?: StringFilter<"ship_to"> | string
+    name_en?: StringNullableFilter<"ship_to"> | string | null
+    customer_id?: IntFilter<"ship_to"> | number
+    ship_to_id?: IntFilter<"ship_to"> | number
+    status?: BoolFilter<"ship_to"> | boolean
+    create_at?: DateTimeFilter<"ship_to"> | Date | string
+    update_at?: DateTimeFilter<"ship_to"> | Date | string
+    customer?: XOR<CustomersScalarRelationFilter, customersWhereInput>
+  }, "id">
+
+  export type ship_toOrderByWithAggregationInput = {
+    id?: SortOrder
+    site_short_code?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrderInput | SortOrder
+    customer_id?: SortOrder
+    ship_to_id?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+    _count?: ship_toCountOrderByAggregateInput
+    _avg?: ship_toAvgOrderByAggregateInput
+    _max?: ship_toMaxOrderByAggregateInput
+    _min?: ship_toMinOrderByAggregateInput
+    _sum?: ship_toSumOrderByAggregateInput
+  }
+
+  export type ship_toScalarWhereWithAggregatesInput = {
+    AND?: ship_toScalarWhereWithAggregatesInput | ship_toScalarWhereWithAggregatesInput[]
+    OR?: ship_toScalarWhereWithAggregatesInput[]
+    NOT?: ship_toScalarWhereWithAggregatesInput | ship_toScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"ship_to"> | number
+    site_short_code?: StringWithAggregatesFilter<"ship_to"> | string
+    name_th?: StringWithAggregatesFilter<"ship_to"> | string
+    name_en?: StringNullableWithAggregatesFilter<"ship_to"> | string | null
+    customer_id?: IntWithAggregatesFilter<"ship_to"> | number
+    ship_to_id?: IntWithAggregatesFilter<"ship_to"> | number
+    status?: BoolWithAggregatesFilter<"ship_to"> | boolean
+    create_at?: DateTimeWithAggregatesFilter<"ship_to"> | Date | string
+    update_at?: DateTimeWithAggregatesFilter<"ship_to"> | Date | string
+  }
+
+  export type payment_typesWhereInput = {
+    AND?: payment_typesWhereInput | payment_typesWhereInput[]
+    OR?: payment_typesWhereInput[]
+    NOT?: payment_typesWhereInput | payment_typesWhereInput[]
+    id?: IntFilter<"payment_types"> | number
+    name_th?: StringFilter<"payment_types"> | string
+    name_en?: StringFilter<"payment_types"> | string
+    description?: StringNullableFilter<"payment_types"> | string | null
+    status?: BoolFilter<"payment_types"> | boolean
+    create_at?: DateTimeFilter<"payment_types"> | Date | string
+    update_at?: DateTimeFilter<"payment_types"> | Date | string
+    customers?: CustomersListRelationFilter
+  }
+
+  export type payment_typesOrderByWithRelationInput = {
+    id?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
+    description?: SortOrderInput | SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+    customers?: customersOrderByRelationAggregateInput
+    _relevance?: payment_typesOrderByRelevanceInput
+  }
+
+  export type payment_typesWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: payment_typesWhereInput | payment_typesWhereInput[]
+    OR?: payment_typesWhereInput[]
+    NOT?: payment_typesWhereInput | payment_typesWhereInput[]
+    name_th?: StringFilter<"payment_types"> | string
+    name_en?: StringFilter<"payment_types"> | string
+    description?: StringNullableFilter<"payment_types"> | string | null
+    status?: BoolFilter<"payment_types"> | boolean
+    create_at?: DateTimeFilter<"payment_types"> | Date | string
+    update_at?: DateTimeFilter<"payment_types"> | Date | string
+    customers?: CustomersListRelationFilter
+  }, "id">
+
+  export type payment_typesOrderByWithAggregationInput = {
+    id?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
+    description?: SortOrderInput | SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+    _count?: payment_typesCountOrderByAggregateInput
+    _avg?: payment_typesAvgOrderByAggregateInput
+    _max?: payment_typesMaxOrderByAggregateInput
+    _min?: payment_typesMinOrderByAggregateInput
+    _sum?: payment_typesSumOrderByAggregateInput
+  }
+
+  export type payment_typesScalarWhereWithAggregatesInput = {
+    AND?: payment_typesScalarWhereWithAggregatesInput | payment_typesScalarWhereWithAggregatesInput[]
+    OR?: payment_typesScalarWhereWithAggregatesInput[]
+    NOT?: payment_typesScalarWhereWithAggregatesInput | payment_typesScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"payment_types"> | number
+    name_th?: StringWithAggregatesFilter<"payment_types"> | string
+    name_en?: StringWithAggregatesFilter<"payment_types"> | string
+    description?: StringNullableWithAggregatesFilter<"payment_types"> | string | null
+    status?: BoolWithAggregatesFilter<"payment_types"> | boolean
+    create_at?: DateTimeWithAggregatesFilter<"payment_types"> | Date | string
+    update_at?: DateTimeWithAggregatesFilter<"payment_types"> | Date | string
+  }
+
   export type userCreateInput = {
     name: string
     email: string
@@ -59023,8 +64174,8 @@ export namespace Prisma {
 
   export type stock_locationsCreateInput = {
     site_short_code: string
-    name_th?: string
-    name_en?: string
+    name_th: string
+    name_en: string
     description?: string | null
     status: boolean
     create_at?: Date | string
@@ -59037,8 +64188,8 @@ export namespace Prisma {
     id?: number
     sale_office_id: number
     site_short_code: string
-    name_th?: string
-    name_en?: string
+    name_th: string
+    name_en: string
     description?: string | null
     status: boolean
     create_at?: Date | string
@@ -59075,8 +64226,8 @@ export namespace Prisma {
     id?: number
     sale_office_id: number
     site_short_code: string
-    name_th?: string
-    name_en?: string
+    name_th: string
+    name_en: string
     description?: string | null
     status: boolean
     create_at?: Date | string
@@ -59107,8 +64258,8 @@ export namespace Prisma {
 
   export type locationsCreateInput = {
     site_short_code: string
-    name_th?: string
-    name_en?: string
+    name_th: string
+    name_en: string
     description?: string | null
     status: boolean
     create_at?: Date | string
@@ -59120,8 +64271,8 @@ export namespace Prisma {
     id?: number
     stock_location_id: number
     site_short_code: string
-    name_th?: string
-    name_en?: string
+    name_th: string
+    name_en: string
     description?: string | null
     status: boolean
     create_at?: Date | string
@@ -59155,8 +64306,8 @@ export namespace Prisma {
     id?: number
     stock_location_id: number
     site_short_code: string
-    name_th?: string
-    name_en?: string
+    name_th: string
+    name_en: string
     description?: string | null
     status: boolean
     create_at?: Date | string
@@ -61131,6 +66282,402 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     factory_id?: IntFieldUpdateOperationsInput | number
     time?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type customer_groupsCreateInput = {
+    name_th: string
+    name_en: string
+    level1: string
+    level2: string
+    description?: string | null
+    status?: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    customers?: customersCreateNestedManyWithoutCustomer_groupInput
+  }
+
+  export type customer_groupsUncheckedCreateInput = {
+    id?: number
+    name_th: string
+    name_en: string
+    level1: string
+    level2: string
+    description?: string | null
+    status?: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    customers?: customersUncheckedCreateNestedManyWithoutCustomer_groupInput
+  }
+
+  export type customer_groupsUpdateInput = {
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    level1?: StringFieldUpdateOperationsInput | string
+    level2?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    customers?: customersUpdateManyWithoutCustomer_groupNestedInput
+  }
+
+  export type customer_groupsUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    level1?: StringFieldUpdateOperationsInput | string
+    level2?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    customers?: customersUncheckedUpdateManyWithoutCustomer_groupNestedInput
+  }
+
+  export type customer_groupsCreateManyInput = {
+    id?: number
+    name_th: string
+    name_en: string
+    level1: string
+    level2: string
+    description?: string | null
+    status?: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type customer_groupsUpdateManyMutationInput = {
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    level1?: StringFieldUpdateOperationsInput | string
+    level2?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type customer_groupsUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    level1?: StringFieldUpdateOperationsInput | string
+    level2?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type customersCreateInput = {
+    site_short_code: string
+    name_th: string
+    name_en: string
+    sale_office_id?: number | null
+    department_id?: number | null
+    address: string
+    tel?: string | null
+    tax_no?: string | null
+    tax_id?: string | null
+    tax_id_type?: string | null
+    remark?: string | null
+    email?: string | null
+    enable_date?: Date | string | null
+    disable_date?: Date | string | null
+    status?: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    payment_type?: payment_typesCreateNestedOneWithoutCustomersInput
+    customer_group?: customer_groupsCreateNestedOneWithoutCustomersInput
+    ship_tos?: ship_toCreateNestedManyWithoutCustomerInput
+  }
+
+  export type customersUncheckedCreateInput = {
+    id?: number
+    customer_group_id?: number | null
+    site_short_code: string
+    name_th: string
+    name_en: string
+    sale_office_id?: number | null
+    department_id?: number | null
+    payment_type_id?: number | null
+    address: string
+    tel?: string | null
+    tax_no?: string | null
+    tax_id?: string | null
+    tax_id_type?: string | null
+    remark?: string | null
+    email?: string | null
+    enable_date?: Date | string | null
+    disable_date?: Date | string | null
+    status?: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    ship_tos?: ship_toUncheckedCreateNestedManyWithoutCustomerInput
+  }
+
+  export type customersUpdateInput = {
+    site_short_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    sale_office_id?: NullableIntFieldUpdateOperationsInput | number | null
+    department_id?: NullableIntFieldUpdateOperationsInput | number | null
+    address?: StringFieldUpdateOperationsInput | string
+    tel?: NullableStringFieldUpdateOperationsInput | string | null
+    tax_no?: NullableStringFieldUpdateOperationsInput | string | null
+    tax_id?: NullableStringFieldUpdateOperationsInput | string | null
+    tax_id_type?: NullableStringFieldUpdateOperationsInput | string | null
+    remark?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    enable_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    disable_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    payment_type?: payment_typesUpdateOneWithoutCustomersNestedInput
+    customer_group?: customer_groupsUpdateOneWithoutCustomersNestedInput
+    ship_tos?: ship_toUpdateManyWithoutCustomerNestedInput
+  }
+
+  export type customersUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    customer_group_id?: NullableIntFieldUpdateOperationsInput | number | null
+    site_short_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    sale_office_id?: NullableIntFieldUpdateOperationsInput | number | null
+    department_id?: NullableIntFieldUpdateOperationsInput | number | null
+    payment_type_id?: NullableIntFieldUpdateOperationsInput | number | null
+    address?: StringFieldUpdateOperationsInput | string
+    tel?: NullableStringFieldUpdateOperationsInput | string | null
+    tax_no?: NullableStringFieldUpdateOperationsInput | string | null
+    tax_id?: NullableStringFieldUpdateOperationsInput | string | null
+    tax_id_type?: NullableStringFieldUpdateOperationsInput | string | null
+    remark?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    enable_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    disable_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    ship_tos?: ship_toUncheckedUpdateManyWithoutCustomerNestedInput
+  }
+
+  export type customersCreateManyInput = {
+    id?: number
+    customer_group_id?: number | null
+    site_short_code: string
+    name_th: string
+    name_en: string
+    sale_office_id?: number | null
+    department_id?: number | null
+    payment_type_id?: number | null
+    address: string
+    tel?: string | null
+    tax_no?: string | null
+    tax_id?: string | null
+    tax_id_type?: string | null
+    remark?: string | null
+    email?: string | null
+    enable_date?: Date | string | null
+    disable_date?: Date | string | null
+    status?: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type customersUpdateManyMutationInput = {
+    site_short_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    sale_office_id?: NullableIntFieldUpdateOperationsInput | number | null
+    department_id?: NullableIntFieldUpdateOperationsInput | number | null
+    address?: StringFieldUpdateOperationsInput | string
+    tel?: NullableStringFieldUpdateOperationsInput | string | null
+    tax_no?: NullableStringFieldUpdateOperationsInput | string | null
+    tax_id?: NullableStringFieldUpdateOperationsInput | string | null
+    tax_id_type?: NullableStringFieldUpdateOperationsInput | string | null
+    remark?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    enable_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    disable_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type customersUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    customer_group_id?: NullableIntFieldUpdateOperationsInput | number | null
+    site_short_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    sale_office_id?: NullableIntFieldUpdateOperationsInput | number | null
+    department_id?: NullableIntFieldUpdateOperationsInput | number | null
+    payment_type_id?: NullableIntFieldUpdateOperationsInput | number | null
+    address?: StringFieldUpdateOperationsInput | string
+    tel?: NullableStringFieldUpdateOperationsInput | string | null
+    tax_no?: NullableStringFieldUpdateOperationsInput | string | null
+    tax_id?: NullableStringFieldUpdateOperationsInput | string | null
+    tax_id_type?: NullableStringFieldUpdateOperationsInput | string | null
+    remark?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    enable_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    disable_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ship_toCreateInput = {
+    site_short_code: string
+    name_th: string
+    name_en?: string | null
+    ship_to_id: number
+    status?: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    customer: customersCreateNestedOneWithoutShip_tosInput
+  }
+
+  export type ship_toUncheckedCreateInput = {
+    id?: number
+    site_short_code: string
+    name_th: string
+    name_en?: string | null
+    customer_id: number
+    ship_to_id: number
+    status?: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type ship_toUpdateInput = {
+    site_short_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: NullableStringFieldUpdateOperationsInput | string | null
+    ship_to_id?: IntFieldUpdateOperationsInput | number
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    customer?: customersUpdateOneRequiredWithoutShip_tosNestedInput
+  }
+
+  export type ship_toUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    site_short_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: NullableStringFieldUpdateOperationsInput | string | null
+    customer_id?: IntFieldUpdateOperationsInput | number
+    ship_to_id?: IntFieldUpdateOperationsInput | number
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ship_toCreateManyInput = {
+    id?: number
+    site_short_code: string
+    name_th: string
+    name_en?: string | null
+    customer_id: number
+    ship_to_id: number
+    status?: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type ship_toUpdateManyMutationInput = {
+    site_short_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: NullableStringFieldUpdateOperationsInput | string | null
+    ship_to_id?: IntFieldUpdateOperationsInput | number
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ship_toUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    site_short_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: NullableStringFieldUpdateOperationsInput | string | null
+    customer_id?: IntFieldUpdateOperationsInput | number
+    ship_to_id?: IntFieldUpdateOperationsInput | number
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type payment_typesCreateInput = {
+    name_th: string
+    name_en: string
+    description?: string | null
+    status?: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    customers?: customersCreateNestedManyWithoutPayment_typeInput
+  }
+
+  export type payment_typesUncheckedCreateInput = {
+    id?: number
+    name_th: string
+    name_en: string
+    description?: string | null
+    status?: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    customers?: customersUncheckedCreateNestedManyWithoutPayment_typeInput
+  }
+
+  export type payment_typesUpdateInput = {
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    customers?: customersUpdateManyWithoutPayment_typeNestedInput
+  }
+
+  export type payment_typesUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    customers?: customersUncheckedUpdateManyWithoutPayment_typeNestedInput
+  }
+
+  export type payment_typesCreateManyInput = {
+    id?: number
+    name_th: string
+    name_en: string
+    description?: string | null
+    status?: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type payment_typesUpdateManyMutationInput = {
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type payment_typesUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -64300,6 +69847,280 @@ export namespace Prisma {
     factory_id?: SortOrder
   }
 
+  export type CustomersListRelationFilter = {
+    every?: customersWhereInput
+    some?: customersWhereInput
+    none?: customersWhereInput
+  }
+
+  export type customersOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type customer_groupsOrderByRelevanceInput = {
+    fields: customer_groupsOrderByRelevanceFieldEnum | customer_groupsOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type customer_groupsCountOrderByAggregateInput = {
+    id?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
+    level1?: SortOrder
+    level2?: SortOrder
+    description?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+  }
+
+  export type customer_groupsAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type customer_groupsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
+    level1?: SortOrder
+    level2?: SortOrder
+    description?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+  }
+
+  export type customer_groupsMinOrderByAggregateInput = {
+    id?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
+    level1?: SortOrder
+    level2?: SortOrder
+    description?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+  }
+
+  export type customer_groupsSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type Payment_typesNullableScalarRelationFilter = {
+    is?: payment_typesWhereInput | null
+    isNot?: payment_typesWhereInput | null
+  }
+
+  export type Customer_groupsNullableScalarRelationFilter = {
+    is?: customer_groupsWhereInput | null
+    isNot?: customer_groupsWhereInput | null
+  }
+
+  export type Ship_toListRelationFilter = {
+    every?: ship_toWhereInput
+    some?: ship_toWhereInput
+    none?: ship_toWhereInput
+  }
+
+  export type ship_toOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type customersOrderByRelevanceInput = {
+    fields: customersOrderByRelevanceFieldEnum | customersOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type customersCountOrderByAggregateInput = {
+    id?: SortOrder
+    customer_group_id?: SortOrder
+    site_short_code?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
+    sale_office_id?: SortOrder
+    department_id?: SortOrder
+    payment_type_id?: SortOrder
+    address?: SortOrder
+    tel?: SortOrder
+    tax_no?: SortOrder
+    tax_id?: SortOrder
+    tax_id_type?: SortOrder
+    remark?: SortOrder
+    email?: SortOrder
+    enable_date?: SortOrder
+    disable_date?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+  }
+
+  export type customersAvgOrderByAggregateInput = {
+    id?: SortOrder
+    customer_group_id?: SortOrder
+    sale_office_id?: SortOrder
+    department_id?: SortOrder
+    payment_type_id?: SortOrder
+  }
+
+  export type customersMaxOrderByAggregateInput = {
+    id?: SortOrder
+    customer_group_id?: SortOrder
+    site_short_code?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
+    sale_office_id?: SortOrder
+    department_id?: SortOrder
+    payment_type_id?: SortOrder
+    address?: SortOrder
+    tel?: SortOrder
+    tax_no?: SortOrder
+    tax_id?: SortOrder
+    tax_id_type?: SortOrder
+    remark?: SortOrder
+    email?: SortOrder
+    enable_date?: SortOrder
+    disable_date?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+  }
+
+  export type customersMinOrderByAggregateInput = {
+    id?: SortOrder
+    customer_group_id?: SortOrder
+    site_short_code?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
+    sale_office_id?: SortOrder
+    department_id?: SortOrder
+    payment_type_id?: SortOrder
+    address?: SortOrder
+    tel?: SortOrder
+    tax_no?: SortOrder
+    tax_id?: SortOrder
+    tax_id_type?: SortOrder
+    remark?: SortOrder
+    email?: SortOrder
+    enable_date?: SortOrder
+    disable_date?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+  }
+
+  export type customersSumOrderByAggregateInput = {
+    id?: SortOrder
+    customer_group_id?: SortOrder
+    sale_office_id?: SortOrder
+    department_id?: SortOrder
+    payment_type_id?: SortOrder
+  }
+
+  export type CustomersScalarRelationFilter = {
+    is?: customersWhereInput
+    isNot?: customersWhereInput
+  }
+
+  export type ship_toOrderByRelevanceInput = {
+    fields: ship_toOrderByRelevanceFieldEnum | ship_toOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type ship_toCountOrderByAggregateInput = {
+    id?: SortOrder
+    site_short_code?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
+    customer_id?: SortOrder
+    ship_to_id?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+  }
+
+  export type ship_toAvgOrderByAggregateInput = {
+    id?: SortOrder
+    customer_id?: SortOrder
+    ship_to_id?: SortOrder
+  }
+
+  export type ship_toMaxOrderByAggregateInput = {
+    id?: SortOrder
+    site_short_code?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
+    customer_id?: SortOrder
+    ship_to_id?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+  }
+
+  export type ship_toMinOrderByAggregateInput = {
+    id?: SortOrder
+    site_short_code?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
+    customer_id?: SortOrder
+    ship_to_id?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+  }
+
+  export type ship_toSumOrderByAggregateInput = {
+    id?: SortOrder
+    customer_id?: SortOrder
+    ship_to_id?: SortOrder
+  }
+
+  export type payment_typesOrderByRelevanceInput = {
+    fields: payment_typesOrderByRelevanceFieldEnum | payment_typesOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type payment_typesCountOrderByAggregateInput = {
+    id?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
+    description?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+  }
+
+  export type payment_typesAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type payment_typesMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
+    description?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+  }
+
+  export type payment_typesMinOrderByAggregateInput = {
+    id?: SortOrder
+    name_th?: SortOrder
+    name_en?: SortOrder
+    description?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+  }
+
+  export type payment_typesSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
   export type user_sale_officesCreateNestedManyWithoutUserInput = {
     create?: XOR<user_sale_officesCreateWithoutUserInput, user_sale_officesUncheckedCreateWithoutUserInput> | user_sale_officesCreateWithoutUserInput[] | user_sale_officesUncheckedCreateWithoutUserInput[]
     connectOrCreate?: user_sale_officesCreateOrConnectWithoutUserInput | user_sale_officesCreateOrConnectWithoutUserInput[]
@@ -65430,6 +71251,178 @@ export namespace Prisma {
     update?: XOR<XOR<factoriesUpdateToOneWithWhereWithoutRound_time_factoryInput, factoriesUpdateWithoutRound_time_factoryInput>, factoriesUncheckedUpdateWithoutRound_time_factoryInput>
   }
 
+  export type customersCreateNestedManyWithoutCustomer_groupInput = {
+    create?: XOR<customersCreateWithoutCustomer_groupInput, customersUncheckedCreateWithoutCustomer_groupInput> | customersCreateWithoutCustomer_groupInput[] | customersUncheckedCreateWithoutCustomer_groupInput[]
+    connectOrCreate?: customersCreateOrConnectWithoutCustomer_groupInput | customersCreateOrConnectWithoutCustomer_groupInput[]
+    createMany?: customersCreateManyCustomer_groupInputEnvelope
+    connect?: customersWhereUniqueInput | customersWhereUniqueInput[]
+  }
+
+  export type customersUncheckedCreateNestedManyWithoutCustomer_groupInput = {
+    create?: XOR<customersCreateWithoutCustomer_groupInput, customersUncheckedCreateWithoutCustomer_groupInput> | customersCreateWithoutCustomer_groupInput[] | customersUncheckedCreateWithoutCustomer_groupInput[]
+    connectOrCreate?: customersCreateOrConnectWithoutCustomer_groupInput | customersCreateOrConnectWithoutCustomer_groupInput[]
+    createMany?: customersCreateManyCustomer_groupInputEnvelope
+    connect?: customersWhereUniqueInput | customersWhereUniqueInput[]
+  }
+
+  export type customersUpdateManyWithoutCustomer_groupNestedInput = {
+    create?: XOR<customersCreateWithoutCustomer_groupInput, customersUncheckedCreateWithoutCustomer_groupInput> | customersCreateWithoutCustomer_groupInput[] | customersUncheckedCreateWithoutCustomer_groupInput[]
+    connectOrCreate?: customersCreateOrConnectWithoutCustomer_groupInput | customersCreateOrConnectWithoutCustomer_groupInput[]
+    upsert?: customersUpsertWithWhereUniqueWithoutCustomer_groupInput | customersUpsertWithWhereUniqueWithoutCustomer_groupInput[]
+    createMany?: customersCreateManyCustomer_groupInputEnvelope
+    set?: customersWhereUniqueInput | customersWhereUniqueInput[]
+    disconnect?: customersWhereUniqueInput | customersWhereUniqueInput[]
+    delete?: customersWhereUniqueInput | customersWhereUniqueInput[]
+    connect?: customersWhereUniqueInput | customersWhereUniqueInput[]
+    update?: customersUpdateWithWhereUniqueWithoutCustomer_groupInput | customersUpdateWithWhereUniqueWithoutCustomer_groupInput[]
+    updateMany?: customersUpdateManyWithWhereWithoutCustomer_groupInput | customersUpdateManyWithWhereWithoutCustomer_groupInput[]
+    deleteMany?: customersScalarWhereInput | customersScalarWhereInput[]
+  }
+
+  export type customersUncheckedUpdateManyWithoutCustomer_groupNestedInput = {
+    create?: XOR<customersCreateWithoutCustomer_groupInput, customersUncheckedCreateWithoutCustomer_groupInput> | customersCreateWithoutCustomer_groupInput[] | customersUncheckedCreateWithoutCustomer_groupInput[]
+    connectOrCreate?: customersCreateOrConnectWithoutCustomer_groupInput | customersCreateOrConnectWithoutCustomer_groupInput[]
+    upsert?: customersUpsertWithWhereUniqueWithoutCustomer_groupInput | customersUpsertWithWhereUniqueWithoutCustomer_groupInput[]
+    createMany?: customersCreateManyCustomer_groupInputEnvelope
+    set?: customersWhereUniqueInput | customersWhereUniqueInput[]
+    disconnect?: customersWhereUniqueInput | customersWhereUniqueInput[]
+    delete?: customersWhereUniqueInput | customersWhereUniqueInput[]
+    connect?: customersWhereUniqueInput | customersWhereUniqueInput[]
+    update?: customersUpdateWithWhereUniqueWithoutCustomer_groupInput | customersUpdateWithWhereUniqueWithoutCustomer_groupInput[]
+    updateMany?: customersUpdateManyWithWhereWithoutCustomer_groupInput | customersUpdateManyWithWhereWithoutCustomer_groupInput[]
+    deleteMany?: customersScalarWhereInput | customersScalarWhereInput[]
+  }
+
+  export type payment_typesCreateNestedOneWithoutCustomersInput = {
+    create?: XOR<payment_typesCreateWithoutCustomersInput, payment_typesUncheckedCreateWithoutCustomersInput>
+    connectOrCreate?: payment_typesCreateOrConnectWithoutCustomersInput
+    connect?: payment_typesWhereUniqueInput
+  }
+
+  export type customer_groupsCreateNestedOneWithoutCustomersInput = {
+    create?: XOR<customer_groupsCreateWithoutCustomersInput, customer_groupsUncheckedCreateWithoutCustomersInput>
+    connectOrCreate?: customer_groupsCreateOrConnectWithoutCustomersInput
+    connect?: customer_groupsWhereUniqueInput
+  }
+
+  export type ship_toCreateNestedManyWithoutCustomerInput = {
+    create?: XOR<ship_toCreateWithoutCustomerInput, ship_toUncheckedCreateWithoutCustomerInput> | ship_toCreateWithoutCustomerInput[] | ship_toUncheckedCreateWithoutCustomerInput[]
+    connectOrCreate?: ship_toCreateOrConnectWithoutCustomerInput | ship_toCreateOrConnectWithoutCustomerInput[]
+    createMany?: ship_toCreateManyCustomerInputEnvelope
+    connect?: ship_toWhereUniqueInput | ship_toWhereUniqueInput[]
+  }
+
+  export type ship_toUncheckedCreateNestedManyWithoutCustomerInput = {
+    create?: XOR<ship_toCreateWithoutCustomerInput, ship_toUncheckedCreateWithoutCustomerInput> | ship_toCreateWithoutCustomerInput[] | ship_toUncheckedCreateWithoutCustomerInput[]
+    connectOrCreate?: ship_toCreateOrConnectWithoutCustomerInput | ship_toCreateOrConnectWithoutCustomerInput[]
+    createMany?: ship_toCreateManyCustomerInputEnvelope
+    connect?: ship_toWhereUniqueInput | ship_toWhereUniqueInput[]
+  }
+
+  export type payment_typesUpdateOneWithoutCustomersNestedInput = {
+    create?: XOR<payment_typesCreateWithoutCustomersInput, payment_typesUncheckedCreateWithoutCustomersInput>
+    connectOrCreate?: payment_typesCreateOrConnectWithoutCustomersInput
+    upsert?: payment_typesUpsertWithoutCustomersInput
+    disconnect?: payment_typesWhereInput | boolean
+    delete?: payment_typesWhereInput | boolean
+    connect?: payment_typesWhereUniqueInput
+    update?: XOR<XOR<payment_typesUpdateToOneWithWhereWithoutCustomersInput, payment_typesUpdateWithoutCustomersInput>, payment_typesUncheckedUpdateWithoutCustomersInput>
+  }
+
+  export type customer_groupsUpdateOneWithoutCustomersNestedInput = {
+    create?: XOR<customer_groupsCreateWithoutCustomersInput, customer_groupsUncheckedCreateWithoutCustomersInput>
+    connectOrCreate?: customer_groupsCreateOrConnectWithoutCustomersInput
+    upsert?: customer_groupsUpsertWithoutCustomersInput
+    disconnect?: customer_groupsWhereInput | boolean
+    delete?: customer_groupsWhereInput | boolean
+    connect?: customer_groupsWhereUniqueInput
+    update?: XOR<XOR<customer_groupsUpdateToOneWithWhereWithoutCustomersInput, customer_groupsUpdateWithoutCustomersInput>, customer_groupsUncheckedUpdateWithoutCustomersInput>
+  }
+
+  export type ship_toUpdateManyWithoutCustomerNestedInput = {
+    create?: XOR<ship_toCreateWithoutCustomerInput, ship_toUncheckedCreateWithoutCustomerInput> | ship_toCreateWithoutCustomerInput[] | ship_toUncheckedCreateWithoutCustomerInput[]
+    connectOrCreate?: ship_toCreateOrConnectWithoutCustomerInput | ship_toCreateOrConnectWithoutCustomerInput[]
+    upsert?: ship_toUpsertWithWhereUniqueWithoutCustomerInput | ship_toUpsertWithWhereUniqueWithoutCustomerInput[]
+    createMany?: ship_toCreateManyCustomerInputEnvelope
+    set?: ship_toWhereUniqueInput | ship_toWhereUniqueInput[]
+    disconnect?: ship_toWhereUniqueInput | ship_toWhereUniqueInput[]
+    delete?: ship_toWhereUniqueInput | ship_toWhereUniqueInput[]
+    connect?: ship_toWhereUniqueInput | ship_toWhereUniqueInput[]
+    update?: ship_toUpdateWithWhereUniqueWithoutCustomerInput | ship_toUpdateWithWhereUniqueWithoutCustomerInput[]
+    updateMany?: ship_toUpdateManyWithWhereWithoutCustomerInput | ship_toUpdateManyWithWhereWithoutCustomerInput[]
+    deleteMany?: ship_toScalarWhereInput | ship_toScalarWhereInput[]
+  }
+
+  export type ship_toUncheckedUpdateManyWithoutCustomerNestedInput = {
+    create?: XOR<ship_toCreateWithoutCustomerInput, ship_toUncheckedCreateWithoutCustomerInput> | ship_toCreateWithoutCustomerInput[] | ship_toUncheckedCreateWithoutCustomerInput[]
+    connectOrCreate?: ship_toCreateOrConnectWithoutCustomerInput | ship_toCreateOrConnectWithoutCustomerInput[]
+    upsert?: ship_toUpsertWithWhereUniqueWithoutCustomerInput | ship_toUpsertWithWhereUniqueWithoutCustomerInput[]
+    createMany?: ship_toCreateManyCustomerInputEnvelope
+    set?: ship_toWhereUniqueInput | ship_toWhereUniqueInput[]
+    disconnect?: ship_toWhereUniqueInput | ship_toWhereUniqueInput[]
+    delete?: ship_toWhereUniqueInput | ship_toWhereUniqueInput[]
+    connect?: ship_toWhereUniqueInput | ship_toWhereUniqueInput[]
+    update?: ship_toUpdateWithWhereUniqueWithoutCustomerInput | ship_toUpdateWithWhereUniqueWithoutCustomerInput[]
+    updateMany?: ship_toUpdateManyWithWhereWithoutCustomerInput | ship_toUpdateManyWithWhereWithoutCustomerInput[]
+    deleteMany?: ship_toScalarWhereInput | ship_toScalarWhereInput[]
+  }
+
+  export type customersCreateNestedOneWithoutShip_tosInput = {
+    create?: XOR<customersCreateWithoutShip_tosInput, customersUncheckedCreateWithoutShip_tosInput>
+    connectOrCreate?: customersCreateOrConnectWithoutShip_tosInput
+    connect?: customersWhereUniqueInput
+  }
+
+  export type customersUpdateOneRequiredWithoutShip_tosNestedInput = {
+    create?: XOR<customersCreateWithoutShip_tosInput, customersUncheckedCreateWithoutShip_tosInput>
+    connectOrCreate?: customersCreateOrConnectWithoutShip_tosInput
+    upsert?: customersUpsertWithoutShip_tosInput
+    connect?: customersWhereUniqueInput
+    update?: XOR<XOR<customersUpdateToOneWithWhereWithoutShip_tosInput, customersUpdateWithoutShip_tosInput>, customersUncheckedUpdateWithoutShip_tosInput>
+  }
+
+  export type customersCreateNestedManyWithoutPayment_typeInput = {
+    create?: XOR<customersCreateWithoutPayment_typeInput, customersUncheckedCreateWithoutPayment_typeInput> | customersCreateWithoutPayment_typeInput[] | customersUncheckedCreateWithoutPayment_typeInput[]
+    connectOrCreate?: customersCreateOrConnectWithoutPayment_typeInput | customersCreateOrConnectWithoutPayment_typeInput[]
+    createMany?: customersCreateManyPayment_typeInputEnvelope
+    connect?: customersWhereUniqueInput | customersWhereUniqueInput[]
+  }
+
+  export type customersUncheckedCreateNestedManyWithoutPayment_typeInput = {
+    create?: XOR<customersCreateWithoutPayment_typeInput, customersUncheckedCreateWithoutPayment_typeInput> | customersCreateWithoutPayment_typeInput[] | customersUncheckedCreateWithoutPayment_typeInput[]
+    connectOrCreate?: customersCreateOrConnectWithoutPayment_typeInput | customersCreateOrConnectWithoutPayment_typeInput[]
+    createMany?: customersCreateManyPayment_typeInputEnvelope
+    connect?: customersWhereUniqueInput | customersWhereUniqueInput[]
+  }
+
+  export type customersUpdateManyWithoutPayment_typeNestedInput = {
+    create?: XOR<customersCreateWithoutPayment_typeInput, customersUncheckedCreateWithoutPayment_typeInput> | customersCreateWithoutPayment_typeInput[] | customersUncheckedCreateWithoutPayment_typeInput[]
+    connectOrCreate?: customersCreateOrConnectWithoutPayment_typeInput | customersCreateOrConnectWithoutPayment_typeInput[]
+    upsert?: customersUpsertWithWhereUniqueWithoutPayment_typeInput | customersUpsertWithWhereUniqueWithoutPayment_typeInput[]
+    createMany?: customersCreateManyPayment_typeInputEnvelope
+    set?: customersWhereUniqueInput | customersWhereUniqueInput[]
+    disconnect?: customersWhereUniqueInput | customersWhereUniqueInput[]
+    delete?: customersWhereUniqueInput | customersWhereUniqueInput[]
+    connect?: customersWhereUniqueInput | customersWhereUniqueInput[]
+    update?: customersUpdateWithWhereUniqueWithoutPayment_typeInput | customersUpdateWithWhereUniqueWithoutPayment_typeInput[]
+    updateMany?: customersUpdateManyWithWhereWithoutPayment_typeInput | customersUpdateManyWithWhereWithoutPayment_typeInput[]
+    deleteMany?: customersScalarWhereInput | customersScalarWhereInput[]
+  }
+
+  export type customersUncheckedUpdateManyWithoutPayment_typeNestedInput = {
+    create?: XOR<customersCreateWithoutPayment_typeInput, customersUncheckedCreateWithoutPayment_typeInput> | customersCreateWithoutPayment_typeInput[] | customersUncheckedCreateWithoutPayment_typeInput[]
+    connectOrCreate?: customersCreateOrConnectWithoutPayment_typeInput | customersCreateOrConnectWithoutPayment_typeInput[]
+    upsert?: customersUpsertWithWhereUniqueWithoutPayment_typeInput | customersUpsertWithWhereUniqueWithoutPayment_typeInput[]
+    createMany?: customersCreateManyPayment_typeInputEnvelope
+    set?: customersWhereUniqueInput | customersWhereUniqueInput[]
+    disconnect?: customersWhereUniqueInput | customersWhereUniqueInput[]
+    delete?: customersWhereUniqueInput | customersWhereUniqueInput[]
+    connect?: customersWhereUniqueInput | customersWhereUniqueInput[]
+    update?: customersUpdateWithWhereUniqueWithoutPayment_typeInput | customersUpdateWithWhereUniqueWithoutPayment_typeInput[]
+    updateMany?: customersUpdateManyWithWhereWithoutPayment_typeInput | customersUpdateManyWithWhereWithoutPayment_typeInput[]
+    deleteMany?: customersScalarWhereInput | customersScalarWhereInput[]
+  }
+
   export type NestedIntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[]
@@ -65922,8 +71915,8 @@ export namespace Prisma {
 
   export type stock_locationsCreateWithoutSale_officeInput = {
     site_short_code: string
-    name_th?: string
-    name_en?: string
+    name_th: string
+    name_en: string
     description?: string | null
     status: boolean
     create_at?: Date | string
@@ -65934,8 +71927,8 @@ export namespace Prisma {
   export type stock_locationsUncheckedCreateWithoutSale_officeInput = {
     id?: number
     site_short_code: string
-    name_th?: string
-    name_en?: string
+    name_th: string
+    name_en: string
     description?: string | null
     status: boolean
     create_at?: Date | string
@@ -67571,8 +73564,8 @@ export namespace Prisma {
 
   export type locationsCreateWithoutStock_locationInput = {
     site_short_code: string
-    name_th?: string
-    name_en?: string
+    name_th: string
+    name_en: string
     description?: string | null
     status: boolean
     create_at?: Date | string
@@ -67582,8 +73575,8 @@ export namespace Prisma {
   export type locationsUncheckedCreateWithoutStock_locationInput = {
     id?: number
     site_short_code: string
-    name_th?: string
-    name_en?: string
+    name_th: string
+    name_en: string
     description?: string | null
     status: boolean
     create_at?: Date | string
@@ -67681,8 +73674,8 @@ export namespace Prisma {
 
   export type stock_locationsCreateWithoutLocationsInput = {
     site_short_code: string
-    name_th?: string
-    name_en?: string
+    name_th: string
+    name_en: string
     description?: string | null
     status: boolean
     create_at?: Date | string
@@ -67694,8 +73687,8 @@ export namespace Prisma {
     id?: number
     sale_office_id: number
     site_short_code: string
-    name_th?: string
-    name_en?: string
+    name_th: string
+    name_en: string
     description?: string | null
     status: boolean
     create_at?: Date | string
@@ -68252,6 +74245,458 @@ export namespace Prisma {
     factory_sale_office?: factory_sale_officeUncheckedUpdateManyWithoutFactoryNestedInput
   }
 
+  export type customersCreateWithoutCustomer_groupInput = {
+    site_short_code: string
+    name_th: string
+    name_en: string
+    sale_office_id?: number | null
+    department_id?: number | null
+    address: string
+    tel?: string | null
+    tax_no?: string | null
+    tax_id?: string | null
+    tax_id_type?: string | null
+    remark?: string | null
+    email?: string | null
+    enable_date?: Date | string | null
+    disable_date?: Date | string | null
+    status?: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    payment_type?: payment_typesCreateNestedOneWithoutCustomersInput
+    ship_tos?: ship_toCreateNestedManyWithoutCustomerInput
+  }
+
+  export type customersUncheckedCreateWithoutCustomer_groupInput = {
+    id?: number
+    site_short_code: string
+    name_th: string
+    name_en: string
+    sale_office_id?: number | null
+    department_id?: number | null
+    payment_type_id?: number | null
+    address: string
+    tel?: string | null
+    tax_no?: string | null
+    tax_id?: string | null
+    tax_id_type?: string | null
+    remark?: string | null
+    email?: string | null
+    enable_date?: Date | string | null
+    disable_date?: Date | string | null
+    status?: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    ship_tos?: ship_toUncheckedCreateNestedManyWithoutCustomerInput
+  }
+
+  export type customersCreateOrConnectWithoutCustomer_groupInput = {
+    where: customersWhereUniqueInput
+    create: XOR<customersCreateWithoutCustomer_groupInput, customersUncheckedCreateWithoutCustomer_groupInput>
+  }
+
+  export type customersCreateManyCustomer_groupInputEnvelope = {
+    data: customersCreateManyCustomer_groupInput | customersCreateManyCustomer_groupInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type customersUpsertWithWhereUniqueWithoutCustomer_groupInput = {
+    where: customersWhereUniqueInput
+    update: XOR<customersUpdateWithoutCustomer_groupInput, customersUncheckedUpdateWithoutCustomer_groupInput>
+    create: XOR<customersCreateWithoutCustomer_groupInput, customersUncheckedCreateWithoutCustomer_groupInput>
+  }
+
+  export type customersUpdateWithWhereUniqueWithoutCustomer_groupInput = {
+    where: customersWhereUniqueInput
+    data: XOR<customersUpdateWithoutCustomer_groupInput, customersUncheckedUpdateWithoutCustomer_groupInput>
+  }
+
+  export type customersUpdateManyWithWhereWithoutCustomer_groupInput = {
+    where: customersScalarWhereInput
+    data: XOR<customersUpdateManyMutationInput, customersUncheckedUpdateManyWithoutCustomer_groupInput>
+  }
+
+  export type customersScalarWhereInput = {
+    AND?: customersScalarWhereInput | customersScalarWhereInput[]
+    OR?: customersScalarWhereInput[]
+    NOT?: customersScalarWhereInput | customersScalarWhereInput[]
+    id?: IntFilter<"customers"> | number
+    customer_group_id?: IntNullableFilter<"customers"> | number | null
+    site_short_code?: StringFilter<"customers"> | string
+    name_th?: StringFilter<"customers"> | string
+    name_en?: StringFilter<"customers"> | string
+    sale_office_id?: IntNullableFilter<"customers"> | number | null
+    department_id?: IntNullableFilter<"customers"> | number | null
+    payment_type_id?: IntNullableFilter<"customers"> | number | null
+    address?: StringFilter<"customers"> | string
+    tel?: StringNullableFilter<"customers"> | string | null
+    tax_no?: StringNullableFilter<"customers"> | string | null
+    tax_id?: StringNullableFilter<"customers"> | string | null
+    tax_id_type?: StringNullableFilter<"customers"> | string | null
+    remark?: StringNullableFilter<"customers"> | string | null
+    email?: StringNullableFilter<"customers"> | string | null
+    enable_date?: DateTimeNullableFilter<"customers"> | Date | string | null
+    disable_date?: DateTimeNullableFilter<"customers"> | Date | string | null
+    status?: BoolFilter<"customers"> | boolean
+    create_at?: DateTimeFilter<"customers"> | Date | string
+    update_at?: DateTimeFilter<"customers"> | Date | string
+  }
+
+  export type payment_typesCreateWithoutCustomersInput = {
+    name_th: string
+    name_en: string
+    description?: string | null
+    status?: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type payment_typesUncheckedCreateWithoutCustomersInput = {
+    id?: number
+    name_th: string
+    name_en: string
+    description?: string | null
+    status?: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type payment_typesCreateOrConnectWithoutCustomersInput = {
+    where: payment_typesWhereUniqueInput
+    create: XOR<payment_typesCreateWithoutCustomersInput, payment_typesUncheckedCreateWithoutCustomersInput>
+  }
+
+  export type customer_groupsCreateWithoutCustomersInput = {
+    name_th: string
+    name_en: string
+    level1: string
+    level2: string
+    description?: string | null
+    status?: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type customer_groupsUncheckedCreateWithoutCustomersInput = {
+    id?: number
+    name_th: string
+    name_en: string
+    level1: string
+    level2: string
+    description?: string | null
+    status?: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type customer_groupsCreateOrConnectWithoutCustomersInput = {
+    where: customer_groupsWhereUniqueInput
+    create: XOR<customer_groupsCreateWithoutCustomersInput, customer_groupsUncheckedCreateWithoutCustomersInput>
+  }
+
+  export type ship_toCreateWithoutCustomerInput = {
+    site_short_code: string
+    name_th: string
+    name_en?: string | null
+    ship_to_id: number
+    status?: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type ship_toUncheckedCreateWithoutCustomerInput = {
+    id?: number
+    site_short_code: string
+    name_th: string
+    name_en?: string | null
+    ship_to_id: number
+    status?: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type ship_toCreateOrConnectWithoutCustomerInput = {
+    where: ship_toWhereUniqueInput
+    create: XOR<ship_toCreateWithoutCustomerInput, ship_toUncheckedCreateWithoutCustomerInput>
+  }
+
+  export type ship_toCreateManyCustomerInputEnvelope = {
+    data: ship_toCreateManyCustomerInput | ship_toCreateManyCustomerInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type payment_typesUpsertWithoutCustomersInput = {
+    update: XOR<payment_typesUpdateWithoutCustomersInput, payment_typesUncheckedUpdateWithoutCustomersInput>
+    create: XOR<payment_typesCreateWithoutCustomersInput, payment_typesUncheckedCreateWithoutCustomersInput>
+    where?: payment_typesWhereInput
+  }
+
+  export type payment_typesUpdateToOneWithWhereWithoutCustomersInput = {
+    where?: payment_typesWhereInput
+    data: XOR<payment_typesUpdateWithoutCustomersInput, payment_typesUncheckedUpdateWithoutCustomersInput>
+  }
+
+  export type payment_typesUpdateWithoutCustomersInput = {
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type payment_typesUncheckedUpdateWithoutCustomersInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type customer_groupsUpsertWithoutCustomersInput = {
+    update: XOR<customer_groupsUpdateWithoutCustomersInput, customer_groupsUncheckedUpdateWithoutCustomersInput>
+    create: XOR<customer_groupsCreateWithoutCustomersInput, customer_groupsUncheckedCreateWithoutCustomersInput>
+    where?: customer_groupsWhereInput
+  }
+
+  export type customer_groupsUpdateToOneWithWhereWithoutCustomersInput = {
+    where?: customer_groupsWhereInput
+    data: XOR<customer_groupsUpdateWithoutCustomersInput, customer_groupsUncheckedUpdateWithoutCustomersInput>
+  }
+
+  export type customer_groupsUpdateWithoutCustomersInput = {
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    level1?: StringFieldUpdateOperationsInput | string
+    level2?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type customer_groupsUncheckedUpdateWithoutCustomersInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    level1?: StringFieldUpdateOperationsInput | string
+    level2?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ship_toUpsertWithWhereUniqueWithoutCustomerInput = {
+    where: ship_toWhereUniqueInput
+    update: XOR<ship_toUpdateWithoutCustomerInput, ship_toUncheckedUpdateWithoutCustomerInput>
+    create: XOR<ship_toCreateWithoutCustomerInput, ship_toUncheckedCreateWithoutCustomerInput>
+  }
+
+  export type ship_toUpdateWithWhereUniqueWithoutCustomerInput = {
+    where: ship_toWhereUniqueInput
+    data: XOR<ship_toUpdateWithoutCustomerInput, ship_toUncheckedUpdateWithoutCustomerInput>
+  }
+
+  export type ship_toUpdateManyWithWhereWithoutCustomerInput = {
+    where: ship_toScalarWhereInput
+    data: XOR<ship_toUpdateManyMutationInput, ship_toUncheckedUpdateManyWithoutCustomerInput>
+  }
+
+  export type ship_toScalarWhereInput = {
+    AND?: ship_toScalarWhereInput | ship_toScalarWhereInput[]
+    OR?: ship_toScalarWhereInput[]
+    NOT?: ship_toScalarWhereInput | ship_toScalarWhereInput[]
+    id?: IntFilter<"ship_to"> | number
+    site_short_code?: StringFilter<"ship_to"> | string
+    name_th?: StringFilter<"ship_to"> | string
+    name_en?: StringNullableFilter<"ship_to"> | string | null
+    customer_id?: IntFilter<"ship_to"> | number
+    ship_to_id?: IntFilter<"ship_to"> | number
+    status?: BoolFilter<"ship_to"> | boolean
+    create_at?: DateTimeFilter<"ship_to"> | Date | string
+    update_at?: DateTimeFilter<"ship_to"> | Date | string
+  }
+
+  export type customersCreateWithoutShip_tosInput = {
+    site_short_code: string
+    name_th: string
+    name_en: string
+    sale_office_id?: number | null
+    department_id?: number | null
+    address: string
+    tel?: string | null
+    tax_no?: string | null
+    tax_id?: string | null
+    tax_id_type?: string | null
+    remark?: string | null
+    email?: string | null
+    enable_date?: Date | string | null
+    disable_date?: Date | string | null
+    status?: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    payment_type?: payment_typesCreateNestedOneWithoutCustomersInput
+    customer_group?: customer_groupsCreateNestedOneWithoutCustomersInput
+  }
+
+  export type customersUncheckedCreateWithoutShip_tosInput = {
+    id?: number
+    customer_group_id?: number | null
+    site_short_code: string
+    name_th: string
+    name_en: string
+    sale_office_id?: number | null
+    department_id?: number | null
+    payment_type_id?: number | null
+    address: string
+    tel?: string | null
+    tax_no?: string | null
+    tax_id?: string | null
+    tax_id_type?: string | null
+    remark?: string | null
+    email?: string | null
+    enable_date?: Date | string | null
+    disable_date?: Date | string | null
+    status?: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type customersCreateOrConnectWithoutShip_tosInput = {
+    where: customersWhereUniqueInput
+    create: XOR<customersCreateWithoutShip_tosInput, customersUncheckedCreateWithoutShip_tosInput>
+  }
+
+  export type customersUpsertWithoutShip_tosInput = {
+    update: XOR<customersUpdateWithoutShip_tosInput, customersUncheckedUpdateWithoutShip_tosInput>
+    create: XOR<customersCreateWithoutShip_tosInput, customersUncheckedCreateWithoutShip_tosInput>
+    where?: customersWhereInput
+  }
+
+  export type customersUpdateToOneWithWhereWithoutShip_tosInput = {
+    where?: customersWhereInput
+    data: XOR<customersUpdateWithoutShip_tosInput, customersUncheckedUpdateWithoutShip_tosInput>
+  }
+
+  export type customersUpdateWithoutShip_tosInput = {
+    site_short_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    sale_office_id?: NullableIntFieldUpdateOperationsInput | number | null
+    department_id?: NullableIntFieldUpdateOperationsInput | number | null
+    address?: StringFieldUpdateOperationsInput | string
+    tel?: NullableStringFieldUpdateOperationsInput | string | null
+    tax_no?: NullableStringFieldUpdateOperationsInput | string | null
+    tax_id?: NullableStringFieldUpdateOperationsInput | string | null
+    tax_id_type?: NullableStringFieldUpdateOperationsInput | string | null
+    remark?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    enable_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    disable_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    payment_type?: payment_typesUpdateOneWithoutCustomersNestedInput
+    customer_group?: customer_groupsUpdateOneWithoutCustomersNestedInput
+  }
+
+  export type customersUncheckedUpdateWithoutShip_tosInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    customer_group_id?: NullableIntFieldUpdateOperationsInput | number | null
+    site_short_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    sale_office_id?: NullableIntFieldUpdateOperationsInput | number | null
+    department_id?: NullableIntFieldUpdateOperationsInput | number | null
+    payment_type_id?: NullableIntFieldUpdateOperationsInput | number | null
+    address?: StringFieldUpdateOperationsInput | string
+    tel?: NullableStringFieldUpdateOperationsInput | string | null
+    tax_no?: NullableStringFieldUpdateOperationsInput | string | null
+    tax_id?: NullableStringFieldUpdateOperationsInput | string | null
+    tax_id_type?: NullableStringFieldUpdateOperationsInput | string | null
+    remark?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    enable_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    disable_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type customersCreateWithoutPayment_typeInput = {
+    site_short_code: string
+    name_th: string
+    name_en: string
+    sale_office_id?: number | null
+    department_id?: number | null
+    address: string
+    tel?: string | null
+    tax_no?: string | null
+    tax_id?: string | null
+    tax_id_type?: string | null
+    remark?: string | null
+    email?: string | null
+    enable_date?: Date | string | null
+    disable_date?: Date | string | null
+    status?: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    customer_group?: customer_groupsCreateNestedOneWithoutCustomersInput
+    ship_tos?: ship_toCreateNestedManyWithoutCustomerInput
+  }
+
+  export type customersUncheckedCreateWithoutPayment_typeInput = {
+    id?: number
+    customer_group_id?: number | null
+    site_short_code: string
+    name_th: string
+    name_en: string
+    sale_office_id?: number | null
+    department_id?: number | null
+    address: string
+    tel?: string | null
+    tax_no?: string | null
+    tax_id?: string | null
+    tax_id_type?: string | null
+    remark?: string | null
+    email?: string | null
+    enable_date?: Date | string | null
+    disable_date?: Date | string | null
+    status?: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    ship_tos?: ship_toUncheckedCreateNestedManyWithoutCustomerInput
+  }
+
+  export type customersCreateOrConnectWithoutPayment_typeInput = {
+    where: customersWhereUniqueInput
+    create: XOR<customersCreateWithoutPayment_typeInput, customersUncheckedCreateWithoutPayment_typeInput>
+  }
+
+  export type customersCreateManyPayment_typeInputEnvelope = {
+    data: customersCreateManyPayment_typeInput | customersCreateManyPayment_typeInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type customersUpsertWithWhereUniqueWithoutPayment_typeInput = {
+    where: customersWhereUniqueInput
+    update: XOR<customersUpdateWithoutPayment_typeInput, customersUncheckedUpdateWithoutPayment_typeInput>
+    create: XOR<customersCreateWithoutPayment_typeInput, customersUncheckedCreateWithoutPayment_typeInput>
+  }
+
+  export type customersUpdateWithWhereUniqueWithoutPayment_typeInput = {
+    where: customersWhereUniqueInput
+    data: XOR<customersUpdateWithoutPayment_typeInput, customersUncheckedUpdateWithoutPayment_typeInput>
+  }
+
+  export type customersUpdateManyWithWhereWithoutPayment_typeInput = {
+    where: customersScalarWhereInput
+    data: XOR<customersUpdateManyMutationInput, customersUncheckedUpdateManyWithoutPayment_typeInput>
+  }
+
   export type user_sale_officesCreateManyUserInput = {
     id?: number
     sale_office_id: number
@@ -68348,8 +74793,8 @@ export namespace Prisma {
   export type stock_locationsCreateManySale_officeInput = {
     id?: number
     site_short_code: string
-    name_th?: string
-    name_en?: string
+    name_th: string
+    name_en: string
     description?: string | null
     status: boolean
     create_at?: Date | string
@@ -68944,8 +75389,8 @@ export namespace Prisma {
   export type locationsCreateManyStock_locationInput = {
     id?: number
     site_short_code: string
-    name_th?: string
-    name_en?: string
+    name_th: string
+    name_en: string
     description?: string | null
     status: boolean
     create_at?: Date | string
@@ -69042,6 +75487,227 @@ export namespace Prisma {
     receive_qty?: FloatFieldUpdateOperationsInput | number
     weight?: FloatFieldUpdateOperationsInput | number
     is_cancel?: BoolFieldUpdateOperationsInput | boolean
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type customersCreateManyCustomer_groupInput = {
+    id?: number
+    site_short_code: string
+    name_th: string
+    name_en: string
+    sale_office_id?: number | null
+    department_id?: number | null
+    payment_type_id?: number | null
+    address: string
+    tel?: string | null
+    tax_no?: string | null
+    tax_id?: string | null
+    tax_id_type?: string | null
+    remark?: string | null
+    email?: string | null
+    enable_date?: Date | string | null
+    disable_date?: Date | string | null
+    status?: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type customersUpdateWithoutCustomer_groupInput = {
+    site_short_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    sale_office_id?: NullableIntFieldUpdateOperationsInput | number | null
+    department_id?: NullableIntFieldUpdateOperationsInput | number | null
+    address?: StringFieldUpdateOperationsInput | string
+    tel?: NullableStringFieldUpdateOperationsInput | string | null
+    tax_no?: NullableStringFieldUpdateOperationsInput | string | null
+    tax_id?: NullableStringFieldUpdateOperationsInput | string | null
+    tax_id_type?: NullableStringFieldUpdateOperationsInput | string | null
+    remark?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    enable_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    disable_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    payment_type?: payment_typesUpdateOneWithoutCustomersNestedInput
+    ship_tos?: ship_toUpdateManyWithoutCustomerNestedInput
+  }
+
+  export type customersUncheckedUpdateWithoutCustomer_groupInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    site_short_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    sale_office_id?: NullableIntFieldUpdateOperationsInput | number | null
+    department_id?: NullableIntFieldUpdateOperationsInput | number | null
+    payment_type_id?: NullableIntFieldUpdateOperationsInput | number | null
+    address?: StringFieldUpdateOperationsInput | string
+    tel?: NullableStringFieldUpdateOperationsInput | string | null
+    tax_no?: NullableStringFieldUpdateOperationsInput | string | null
+    tax_id?: NullableStringFieldUpdateOperationsInput | string | null
+    tax_id_type?: NullableStringFieldUpdateOperationsInput | string | null
+    remark?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    enable_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    disable_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    ship_tos?: ship_toUncheckedUpdateManyWithoutCustomerNestedInput
+  }
+
+  export type customersUncheckedUpdateManyWithoutCustomer_groupInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    site_short_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    sale_office_id?: NullableIntFieldUpdateOperationsInput | number | null
+    department_id?: NullableIntFieldUpdateOperationsInput | number | null
+    payment_type_id?: NullableIntFieldUpdateOperationsInput | number | null
+    address?: StringFieldUpdateOperationsInput | string
+    tel?: NullableStringFieldUpdateOperationsInput | string | null
+    tax_no?: NullableStringFieldUpdateOperationsInput | string | null
+    tax_id?: NullableStringFieldUpdateOperationsInput | string | null
+    tax_id_type?: NullableStringFieldUpdateOperationsInput | string | null
+    remark?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    enable_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    disable_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ship_toCreateManyCustomerInput = {
+    id?: number
+    site_short_code: string
+    name_th: string
+    name_en?: string | null
+    ship_to_id: number
+    status?: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type ship_toUpdateWithoutCustomerInput = {
+    site_short_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: NullableStringFieldUpdateOperationsInput | string | null
+    ship_to_id?: IntFieldUpdateOperationsInput | number
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ship_toUncheckedUpdateWithoutCustomerInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    site_short_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: NullableStringFieldUpdateOperationsInput | string | null
+    ship_to_id?: IntFieldUpdateOperationsInput | number
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ship_toUncheckedUpdateManyWithoutCustomerInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    site_short_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: NullableStringFieldUpdateOperationsInput | string | null
+    ship_to_id?: IntFieldUpdateOperationsInput | number
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type customersCreateManyPayment_typeInput = {
+    id?: number
+    customer_group_id?: number | null
+    site_short_code: string
+    name_th: string
+    name_en: string
+    sale_office_id?: number | null
+    department_id?: number | null
+    address: string
+    tel?: string | null
+    tax_no?: string | null
+    tax_id?: string | null
+    tax_id_type?: string | null
+    remark?: string | null
+    email?: string | null
+    enable_date?: Date | string | null
+    disable_date?: Date | string | null
+    status?: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type customersUpdateWithoutPayment_typeInput = {
+    site_short_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    sale_office_id?: NullableIntFieldUpdateOperationsInput | number | null
+    department_id?: NullableIntFieldUpdateOperationsInput | number | null
+    address?: StringFieldUpdateOperationsInput | string
+    tel?: NullableStringFieldUpdateOperationsInput | string | null
+    tax_no?: NullableStringFieldUpdateOperationsInput | string | null
+    tax_id?: NullableStringFieldUpdateOperationsInput | string | null
+    tax_id_type?: NullableStringFieldUpdateOperationsInput | string | null
+    remark?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    enable_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    disable_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    customer_group?: customer_groupsUpdateOneWithoutCustomersNestedInput
+    ship_tos?: ship_toUpdateManyWithoutCustomerNestedInput
+  }
+
+  export type customersUncheckedUpdateWithoutPayment_typeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    customer_group_id?: NullableIntFieldUpdateOperationsInput | number | null
+    site_short_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    sale_office_id?: NullableIntFieldUpdateOperationsInput | number | null
+    department_id?: NullableIntFieldUpdateOperationsInput | number | null
+    address?: StringFieldUpdateOperationsInput | string
+    tel?: NullableStringFieldUpdateOperationsInput | string | null
+    tax_no?: NullableStringFieldUpdateOperationsInput | string | null
+    tax_id?: NullableStringFieldUpdateOperationsInput | string | null
+    tax_id_type?: NullableStringFieldUpdateOperationsInput | string | null
+    remark?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    enable_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    disable_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    ship_tos?: ship_toUncheckedUpdateManyWithoutCustomerNestedInput
+  }
+
+  export type customersUncheckedUpdateManyWithoutPayment_typeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    customer_group_id?: NullableIntFieldUpdateOperationsInput | number | null
+    site_short_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    sale_office_id?: NullableIntFieldUpdateOperationsInput | number | null
+    department_id?: NullableIntFieldUpdateOperationsInput | number | null
+    address?: StringFieldUpdateOperationsInput | string
+    tel?: NullableStringFieldUpdateOperationsInput | string | null
+    tax_no?: NullableStringFieldUpdateOperationsInput | string | null
+    tax_id?: NullableStringFieldUpdateOperationsInput | string | null
+    tax_id_type?: NullableStringFieldUpdateOperationsInput | string | null
+    remark?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    enable_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    disable_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string

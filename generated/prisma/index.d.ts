@@ -254,10 +254,15 @@ export type customer_groups = $Result.DefaultSelection<Prisma.$customer_groupsPa
  */
 export type customers = $Result.DefaultSelection<Prisma.$customersPayload>
 /**
- * Model ship_to
+ * Model sale_office_customers
  * 
  */
-export type ship_to = $Result.DefaultSelection<Prisma.$ship_toPayload>
+export type sale_office_customers = $Result.DefaultSelection<Prisma.$sale_office_customersPayload>
+/**
+ * Model ship_tos
+ * 
+ */
+export type ship_tos = $Result.DefaultSelection<Prisma.$ship_tosPayload>
 /**
  * Model payment_types
  * 
@@ -863,14 +868,24 @@ export class PrismaClient<
   get customers(): Prisma.customersDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.ship_to`: Exposes CRUD operations for the **ship_to** model.
+   * `prisma.sale_office_customers`: Exposes CRUD operations for the **sale_office_customers** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Sale_office_customers
+    * const sale_office_customers = await prisma.sale_office_customers.findMany()
+    * ```
+    */
+  get sale_office_customers(): Prisma.sale_office_customersDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.ship_tos`: Exposes CRUD operations for the **ship_tos** model.
     * Example usage:
     * ```ts
     * // Fetch zero or more Ship_tos
-    * const ship_tos = await prisma.ship_to.findMany()
+    * const ship_tos = await prisma.ship_tos.findMany()
     * ```
     */
-  get ship_to(): Prisma.ship_toDelegate<ExtArgs, ClientOptions>;
+  get ship_tos(): Prisma.ship_tosDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.payment_types`: Exposes CRUD operations for the **payment_types** model.
@@ -1369,7 +1384,8 @@ export namespace Prisma {
     round_time_factory: 'round_time_factory',
     customer_groups: 'customer_groups',
     customers: 'customers',
-    ship_to: 'ship_to',
+    sale_office_customers: 'sale_office_customers',
+    ship_tos: 'ship_tos',
     payment_types: 'payment_types'
   };
 
@@ -1389,7 +1405,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "verification_token" | "password_reset_token" | "notifications" | "permission" | "sale_offices" | "user_sale_offices" | "departments" | "factory_sale_office" | "factories" | "machines" | "contact" | "sap_sale" | "materials" | "material_types" | "item_units_meaures" | "items" | "items_details" | "item_categories" | "item_category_prices" | "dirties" | "dirty_details" | "dirty_detail_rounds" | "sale_office_group_types" | "sale_office_groups" | "stock_locations" | "locations" | "shelfcounts" | "shelfcount_details" | "damages" | "damage_details" | "ships" | "new_linens" | "new_linen_details" | "repair_washs" | "repair_wash_details" | "cleans" | "clean_details" | "return_washs" | "retrun_wash_details" | "unregistered_items" | "round_time_dirties" | "round_time_express" | "round_time_shelf_count_express" | "round_time_clean" | "round_time_factory" | "customer_groups" | "customers" | "ship_to" | "payment_types"
+      modelProps: "user" | "verification_token" | "password_reset_token" | "notifications" | "permission" | "sale_offices" | "user_sale_offices" | "departments" | "factory_sale_office" | "factories" | "machines" | "contact" | "sap_sale" | "materials" | "material_types" | "item_units_meaures" | "items" | "items_details" | "item_categories" | "item_category_prices" | "dirties" | "dirty_details" | "dirty_detail_rounds" | "sale_office_group_types" | "sale_office_groups" | "stock_locations" | "locations" | "shelfcounts" | "shelfcount_details" | "damages" | "damage_details" | "ships" | "new_linens" | "new_linen_details" | "repair_washs" | "repair_wash_details" | "cleans" | "clean_details" | "return_washs" | "retrun_wash_details" | "unregistered_items" | "round_time_dirties" | "round_time_express" | "round_time_shelf_count_express" | "round_time_clean" | "round_time_factory" | "customer_groups" | "customers" | "sale_office_customers" | "ship_tos" | "payment_types"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -4561,69 +4577,135 @@ export namespace Prisma {
           }
         }
       }
-      ship_to: {
-        payload: Prisma.$ship_toPayload<ExtArgs>
-        fields: Prisma.ship_toFieldRefs
+      sale_office_customers: {
+        payload: Prisma.$sale_office_customersPayload<ExtArgs>
+        fields: Prisma.sale_office_customersFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.ship_toFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ship_toPayload> | null
+            args: Prisma.sale_office_customersFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sale_office_customersPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.ship_toFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ship_toPayload>
+            args: Prisma.sale_office_customersFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sale_office_customersPayload>
           }
           findFirst: {
-            args: Prisma.ship_toFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ship_toPayload> | null
+            args: Prisma.sale_office_customersFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sale_office_customersPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.ship_toFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ship_toPayload>
+            args: Prisma.sale_office_customersFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sale_office_customersPayload>
           }
           findMany: {
-            args: Prisma.ship_toFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ship_toPayload>[]
+            args: Prisma.sale_office_customersFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sale_office_customersPayload>[]
           }
           create: {
-            args: Prisma.ship_toCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ship_toPayload>
+            args: Prisma.sale_office_customersCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sale_office_customersPayload>
           }
           createMany: {
-            args: Prisma.ship_toCreateManyArgs<ExtArgs>
+            args: Prisma.sale_office_customersCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           delete: {
-            args: Prisma.ship_toDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ship_toPayload>
+            args: Prisma.sale_office_customersDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sale_office_customersPayload>
           }
           update: {
-            args: Prisma.ship_toUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ship_toPayload>
+            args: Prisma.sale_office_customersUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sale_office_customersPayload>
           }
           deleteMany: {
-            args: Prisma.ship_toDeleteManyArgs<ExtArgs>
+            args: Prisma.sale_office_customersDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.ship_toUpdateManyArgs<ExtArgs>
+            args: Prisma.sale_office_customersUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           upsert: {
-            args: Prisma.ship_toUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ship_toPayload>
+            args: Prisma.sale_office_customersUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$sale_office_customersPayload>
           }
           aggregate: {
-            args: Prisma.Ship_toAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateShip_to>
+            args: Prisma.Sale_office_customersAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSale_office_customers>
           }
           groupBy: {
-            args: Prisma.ship_toGroupByArgs<ExtArgs>
-            result: $Utils.Optional<Ship_toGroupByOutputType>[]
+            args: Prisma.sale_office_customersGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Sale_office_customersGroupByOutputType>[]
           }
           count: {
-            args: Prisma.ship_toCountArgs<ExtArgs>
-            result: $Utils.Optional<Ship_toCountAggregateOutputType> | number
+            args: Prisma.sale_office_customersCountArgs<ExtArgs>
+            result: $Utils.Optional<Sale_office_customersCountAggregateOutputType> | number
+          }
+        }
+      }
+      ship_tos: {
+        payload: Prisma.$ship_tosPayload<ExtArgs>
+        fields: Prisma.ship_tosFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ship_tosFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ship_tosPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ship_tosFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ship_tosPayload>
+          }
+          findFirst: {
+            args: Prisma.ship_tosFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ship_tosPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ship_tosFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ship_tosPayload>
+          }
+          findMany: {
+            args: Prisma.ship_tosFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ship_tosPayload>[]
+          }
+          create: {
+            args: Prisma.ship_tosCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ship_tosPayload>
+          }
+          createMany: {
+            args: Prisma.ship_tosCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.ship_tosDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ship_tosPayload>
+          }
+          update: {
+            args: Prisma.ship_tosUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ship_tosPayload>
+          }
+          deleteMany: {
+            args: Prisma.ship_tosDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ship_tosUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.ship_tosUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ship_tosPayload>
+          }
+          aggregate: {
+            args: Prisma.Ship_tosAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateShip_tos>
+          }
+          groupBy: {
+            args: Prisma.ship_tosGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Ship_tosGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ship_tosCountArgs<ExtArgs>
+            result: $Utils.Optional<Ship_tosCountAggregateOutputType> | number
           }
         }
       }
@@ -4833,7 +4915,8 @@ export namespace Prisma {
     round_time_factory?: round_time_factoryOmit
     customer_groups?: customer_groupsOmit
     customers?: customersOmit
-    ship_to?: ship_toOmit
+    sale_office_customers?: sale_office_customersOmit
+    ship_tos?: ship_tosOmit
     payment_types?: payment_typesOmit
   }
 
@@ -4954,6 +5037,7 @@ export namespace Prisma {
     round_time_clean: number
     factory_sale_office: number
     stock_locations: number
+    sale_office_customers: number
   }
 
   export type Sale_officesCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4965,6 +5049,7 @@ export namespace Prisma {
     round_time_clean?: boolean | Sale_officesCountOutputTypeCountRound_time_cleanArgs
     factory_sale_office?: boolean | Sale_officesCountOutputTypeCountFactory_sale_officeArgs
     stock_locations?: boolean | Sale_officesCountOutputTypeCountStock_locationsArgs
+    sale_office_customers?: boolean | Sale_officesCountOutputTypeCountSale_office_customersArgs
   }
 
   // Custom InputTypes
@@ -5032,6 +5117,13 @@ export namespace Prisma {
    */
   export type Sale_officesCountOutputTypeCountStock_locationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: stock_locationsWhereInput
+  }
+
+  /**
+   * Sale_officesCountOutputType without action
+   */
+  export type Sale_officesCountOutputTypeCountSale_office_customersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: sale_office_customersWhereInput
   }
 
 
@@ -5315,11 +5407,11 @@ export namespace Prisma {
    */
 
   export type CustomersCountOutputType = {
-    ship_tos: number
+    sale_office_customers: number
   }
 
   export type CustomersCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    ship_tos?: boolean | CustomersCountOutputTypeCountShip_tosArgs
+    sale_office_customers?: boolean | CustomersCountOutputTypeCountSale_office_customersArgs
   }
 
   // Custom InputTypes
@@ -5336,8 +5428,39 @@ export namespace Prisma {
   /**
    * CustomersCountOutputType without action
    */
-  export type CustomersCountOutputTypeCountShip_tosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ship_toWhereInput
+  export type CustomersCountOutputTypeCountSale_office_customersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: sale_office_customersWhereInput
+  }
+
+
+  /**
+   * Count Type Sale_office_customersCountOutputType
+   */
+
+  export type Sale_office_customersCountOutputType = {
+    ship_to: number
+  }
+
+  export type Sale_office_customersCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    ship_to?: boolean | Sale_office_customersCountOutputTypeCountShip_toArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * Sale_office_customersCountOutputType without action
+   */
+  export type Sale_office_customersCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sale_office_customersCountOutputType
+     */
+    select?: Sale_office_customersCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * Sale_office_customersCountOutputType without action
+   */
+  export type Sale_office_customersCountOutputTypeCountShip_toArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ship_tosWhereInput
   }
 
 
@@ -10406,6 +10529,7 @@ export namespace Prisma {
     round_time_clean?: boolean | sale_offices$round_time_cleanArgs<ExtArgs>
     factory_sale_office?: boolean | sale_offices$factory_sale_officeArgs<ExtArgs>
     stock_locations?: boolean | sale_offices$stock_locationsArgs<ExtArgs>
+    sale_office_customers?: boolean | sale_offices$sale_office_customersArgs<ExtArgs>
     _count?: boolean | Sale_officesCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["sale_offices"]>
 
@@ -10433,6 +10557,7 @@ export namespace Prisma {
     round_time_clean?: boolean | sale_offices$round_time_cleanArgs<ExtArgs>
     factory_sale_office?: boolean | sale_offices$factory_sale_officeArgs<ExtArgs>
     stock_locations?: boolean | sale_offices$stock_locationsArgs<ExtArgs>
+    sale_office_customers?: boolean | sale_offices$sale_office_customersArgs<ExtArgs>
     _count?: boolean | Sale_officesCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -10447,6 +10572,7 @@ export namespace Prisma {
       round_time_clean: Prisma.$round_time_cleanPayload<ExtArgs>[]
       factory_sale_office: Prisma.$factory_sale_officePayload<ExtArgs>[]
       stock_locations: Prisma.$stock_locationsPayload<ExtArgs>[]
+      sale_office_customers: Prisma.$sale_office_customersPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -10806,6 +10932,7 @@ export namespace Prisma {
     round_time_clean<T extends sale_offices$round_time_cleanArgs<ExtArgs> = {}>(args?: Subset<T, sale_offices$round_time_cleanArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$round_time_cleanPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     factory_sale_office<T extends sale_offices$factory_sale_officeArgs<ExtArgs> = {}>(args?: Subset<T, sale_offices$factory_sale_officeArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$factory_sale_officePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     stock_locations<T extends sale_offices$stock_locationsArgs<ExtArgs> = {}>(args?: Subset<T, sale_offices$stock_locationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$stock_locationsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    sale_office_customers<T extends sale_offices$sale_office_customersArgs<ExtArgs> = {}>(args?: Subset<T, sale_offices$sale_office_customersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$sale_office_customersPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -11376,6 +11503,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: Stock_locationsScalarFieldEnum | Stock_locationsScalarFieldEnum[]
+  }
+
+  /**
+   * sale_offices.sale_office_customers
+   */
+  export type sale_offices$sale_office_customersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sale_office_customers
+     */
+    select?: sale_office_customersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sale_office_customers
+     */
+    omit?: sale_office_customersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sale_office_customersInclude<ExtArgs> | null
+    where?: sale_office_customersWhereInput
+    orderBy?: sale_office_customersOrderByWithRelationInput | sale_office_customersOrderByWithRelationInput[]
+    cursor?: sale_office_customersWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Sale_office_customersScalarFieldEnum | Sale_office_customersScalarFieldEnum[]
   }
 
   /**
@@ -53664,7 +53815,7 @@ export namespace Prisma {
     update_at?: boolean
     payment_type?: boolean | customers$payment_typeArgs<ExtArgs>
     customer_group?: boolean | customers$customer_groupArgs<ExtArgs>
-    ship_tos?: boolean | customers$ship_tosArgs<ExtArgs>
+    sale_office_customers?: boolean | customers$sale_office_customersArgs<ExtArgs>
     _count?: boolean | CustomersCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["customers"]>
 
@@ -53697,7 +53848,7 @@ export namespace Prisma {
   export type customersInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     payment_type?: boolean | customers$payment_typeArgs<ExtArgs>
     customer_group?: boolean | customers$customer_groupArgs<ExtArgs>
-    ship_tos?: boolean | customers$ship_tosArgs<ExtArgs>
+    sale_office_customers?: boolean | customers$sale_office_customersArgs<ExtArgs>
     _count?: boolean | CustomersCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -53706,7 +53857,7 @@ export namespace Prisma {
     objects: {
       payment_type: Prisma.$payment_typesPayload<ExtArgs> | null
       customer_group: Prisma.$customer_groupsPayload<ExtArgs> | null
-      ship_tos: Prisma.$ship_toPayload<ExtArgs>[]
+      sale_office_customers: Prisma.$sale_office_customersPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -54071,7 +54222,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     payment_type<T extends customers$payment_typeArgs<ExtArgs> = {}>(args?: Subset<T, customers$payment_typeArgs<ExtArgs>>): Prisma__payment_typesClient<$Result.GetResult<Prisma.$payment_typesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     customer_group<T extends customers$customer_groupArgs<ExtArgs> = {}>(args?: Subset<T, customers$customer_groupArgs<ExtArgs>>): Prisma__customer_groupsClient<$Result.GetResult<Prisma.$customer_groupsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    ship_tos<T extends customers$ship_tosArgs<ExtArgs> = {}>(args?: Subset<T, customers$ship_tosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ship_toPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    sale_office_customers<T extends customers$sale_office_customersArgs<ExtArgs> = {}>(args?: Subset<T, customers$sale_office_customersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$sale_office_customersPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -54502,27 +54653,27 @@ export namespace Prisma {
   }
 
   /**
-   * customers.ship_tos
+   * customers.sale_office_customers
    */
-  export type customers$ship_tosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type customers$sale_office_customersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ship_to
+     * Select specific fields to fetch from the sale_office_customers
      */
-    select?: ship_toSelect<ExtArgs> | null
+    select?: sale_office_customersSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the ship_to
+     * Omit specific fields from the sale_office_customers
      */
-    omit?: ship_toOmit<ExtArgs> | null
+    omit?: sale_office_customersOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ship_toInclude<ExtArgs> | null
-    where?: ship_toWhereInput
-    orderBy?: ship_toOrderByWithRelationInput | ship_toOrderByWithRelationInput[]
-    cursor?: ship_toWhereUniqueInput
+    include?: sale_office_customersInclude<ExtArgs> | null
+    where?: sale_office_customersWhereInput
+    orderBy?: sale_office_customersOrderByWithRelationInput | sale_office_customersOrderByWithRelationInput[]
+    cursor?: sale_office_customersWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: Ship_toScalarFieldEnum | Ship_toScalarFieldEnum[]
+    distinct?: Sale_office_customersScalarFieldEnum | Sale_office_customersScalarFieldEnum[]
   }
 
   /**
@@ -54545,60 +54696,51 @@ export namespace Prisma {
 
 
   /**
-   * Model ship_to
+   * Model sale_office_customers
    */
 
-  export type AggregateShip_to = {
-    _count: Ship_toCountAggregateOutputType | null
-    _avg: Ship_toAvgAggregateOutputType | null
-    _sum: Ship_toSumAggregateOutputType | null
-    _min: Ship_toMinAggregateOutputType | null
-    _max: Ship_toMaxAggregateOutputType | null
+  export type AggregateSale_office_customers = {
+    _count: Sale_office_customersCountAggregateOutputType | null
+    _avg: Sale_office_customersAvgAggregateOutputType | null
+    _sum: Sale_office_customersSumAggregateOutputType | null
+    _min: Sale_office_customersMinAggregateOutputType | null
+    _max: Sale_office_customersMaxAggregateOutputType | null
   }
 
-  export type Ship_toAvgAggregateOutputType = {
+  export type Sale_office_customersAvgAggregateOutputType = {
     id: number | null
+    sale_office_id: number | null
     customer_id: number | null
-    ship_to_id: number | null
   }
 
-  export type Ship_toSumAggregateOutputType = {
+  export type Sale_office_customersSumAggregateOutputType = {
     id: number | null
+    sale_office_id: number | null
     customer_id: number | null
-    ship_to_id: number | null
   }
 
-  export type Ship_toMinAggregateOutputType = {
+  export type Sale_office_customersMinAggregateOutputType = {
     id: number | null
-    site_short_code: string | null
-    name_th: string | null
-    name_en: string | null
+    sale_office_id: number | null
     customer_id: number | null
-    ship_to_id: number | null
     status: boolean | null
     create_at: Date | null
     update_at: Date | null
   }
 
-  export type Ship_toMaxAggregateOutputType = {
+  export type Sale_office_customersMaxAggregateOutputType = {
     id: number | null
-    site_short_code: string | null
-    name_th: string | null
-    name_en: string | null
+    sale_office_id: number | null
     customer_id: number | null
-    ship_to_id: number | null
     status: boolean | null
     create_at: Date | null
     update_at: Date | null
   }
 
-  export type Ship_toCountAggregateOutputType = {
+  export type Sale_office_customersCountAggregateOutputType = {
     id: number
-    site_short_code: number
-    name_th: number
-    name_en: number
+    sale_office_id: number
     customer_id: number
-    ship_to_id: number
     status: number
     create_at: number
     update_at: number
@@ -54606,356 +54748,343 @@ export namespace Prisma {
   }
 
 
-  export type Ship_toAvgAggregateInputType = {
+  export type Sale_office_customersAvgAggregateInputType = {
     id?: true
+    sale_office_id?: true
     customer_id?: true
-    ship_to_id?: true
   }
 
-  export type Ship_toSumAggregateInputType = {
+  export type Sale_office_customersSumAggregateInputType = {
     id?: true
+    sale_office_id?: true
     customer_id?: true
-    ship_to_id?: true
   }
 
-  export type Ship_toMinAggregateInputType = {
+  export type Sale_office_customersMinAggregateInputType = {
     id?: true
-    site_short_code?: true
-    name_th?: true
-    name_en?: true
+    sale_office_id?: true
     customer_id?: true
-    ship_to_id?: true
     status?: true
     create_at?: true
     update_at?: true
   }
 
-  export type Ship_toMaxAggregateInputType = {
+  export type Sale_office_customersMaxAggregateInputType = {
     id?: true
-    site_short_code?: true
-    name_th?: true
-    name_en?: true
+    sale_office_id?: true
     customer_id?: true
-    ship_to_id?: true
     status?: true
     create_at?: true
     update_at?: true
   }
 
-  export type Ship_toCountAggregateInputType = {
+  export type Sale_office_customersCountAggregateInputType = {
     id?: true
-    site_short_code?: true
-    name_th?: true
-    name_en?: true
+    sale_office_id?: true
     customer_id?: true
-    ship_to_id?: true
     status?: true
     create_at?: true
     update_at?: true
     _all?: true
   }
 
-  export type Ship_toAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Sale_office_customersAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which ship_to to aggregate.
+     * Filter which sale_office_customers to aggregate.
      */
-    where?: ship_toWhereInput
+    where?: sale_office_customersWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of ship_tos to fetch.
+     * Determine the order of sale_office_customers to fetch.
      */
-    orderBy?: ship_toOrderByWithRelationInput | ship_toOrderByWithRelationInput[]
+    orderBy?: sale_office_customersOrderByWithRelationInput | sale_office_customersOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: ship_toWhereUniqueInput
+    cursor?: sale_office_customersWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` ship_tos from the position of the cursor.
+     * Take `±n` sale_office_customers from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` ship_tos.
+     * Skip the first `n` sale_office_customers.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned ship_tos
+     * Count returned sale_office_customers
     **/
-    _count?: true | Ship_toCountAggregateInputType
+    _count?: true | Sale_office_customersCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: Ship_toAvgAggregateInputType
+    _avg?: Sale_office_customersAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: Ship_toSumAggregateInputType
+    _sum?: Sale_office_customersSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: Ship_toMinAggregateInputType
+    _min?: Sale_office_customersMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: Ship_toMaxAggregateInputType
+    _max?: Sale_office_customersMaxAggregateInputType
   }
 
-  export type GetShip_toAggregateType<T extends Ship_toAggregateArgs> = {
-        [P in keyof T & keyof AggregateShip_to]: P extends '_count' | 'count'
+  export type GetSale_office_customersAggregateType<T extends Sale_office_customersAggregateArgs> = {
+        [P in keyof T & keyof AggregateSale_office_customers]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateShip_to[P]>
-      : GetScalarType<T[P], AggregateShip_to[P]>
+        : GetScalarType<T[P], AggregateSale_office_customers[P]>
+      : GetScalarType<T[P], AggregateSale_office_customers[P]>
   }
 
 
 
 
-  export type ship_toGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ship_toWhereInput
-    orderBy?: ship_toOrderByWithAggregationInput | ship_toOrderByWithAggregationInput[]
-    by: Ship_toScalarFieldEnum[] | Ship_toScalarFieldEnum
-    having?: ship_toScalarWhereWithAggregatesInput
+  export type sale_office_customersGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: sale_office_customersWhereInput
+    orderBy?: sale_office_customersOrderByWithAggregationInput | sale_office_customersOrderByWithAggregationInput[]
+    by: Sale_office_customersScalarFieldEnum[] | Sale_office_customersScalarFieldEnum
+    having?: sale_office_customersScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: Ship_toCountAggregateInputType | true
-    _avg?: Ship_toAvgAggregateInputType
-    _sum?: Ship_toSumAggregateInputType
-    _min?: Ship_toMinAggregateInputType
-    _max?: Ship_toMaxAggregateInputType
+    _count?: Sale_office_customersCountAggregateInputType | true
+    _avg?: Sale_office_customersAvgAggregateInputType
+    _sum?: Sale_office_customersSumAggregateInputType
+    _min?: Sale_office_customersMinAggregateInputType
+    _max?: Sale_office_customersMaxAggregateInputType
   }
 
-  export type Ship_toGroupByOutputType = {
+  export type Sale_office_customersGroupByOutputType = {
     id: number
-    site_short_code: string
-    name_th: string
-    name_en: string | null
+    sale_office_id: number
     customer_id: number
-    ship_to_id: number
     status: boolean
     create_at: Date
     update_at: Date
-    _count: Ship_toCountAggregateOutputType | null
-    _avg: Ship_toAvgAggregateOutputType | null
-    _sum: Ship_toSumAggregateOutputType | null
-    _min: Ship_toMinAggregateOutputType | null
-    _max: Ship_toMaxAggregateOutputType | null
+    _count: Sale_office_customersCountAggregateOutputType | null
+    _avg: Sale_office_customersAvgAggregateOutputType | null
+    _sum: Sale_office_customersSumAggregateOutputType | null
+    _min: Sale_office_customersMinAggregateOutputType | null
+    _max: Sale_office_customersMaxAggregateOutputType | null
   }
 
-  type GetShip_toGroupByPayload<T extends ship_toGroupByArgs> = Prisma.PrismaPromise<
+  type GetSale_office_customersGroupByPayload<T extends sale_office_customersGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<Ship_toGroupByOutputType, T['by']> &
+      PickEnumerable<Sale_office_customersGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof Ship_toGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof Sale_office_customersGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], Ship_toGroupByOutputType[P]>
-            : GetScalarType<T[P], Ship_toGroupByOutputType[P]>
+              : GetScalarType<T[P], Sale_office_customersGroupByOutputType[P]>
+            : GetScalarType<T[P], Sale_office_customersGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type ship_toSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type sale_office_customersSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    site_short_code?: boolean
-    name_th?: boolean
-    name_en?: boolean
+    sale_office_id?: boolean
     customer_id?: boolean
-    ship_to_id?: boolean
     status?: boolean
     create_at?: boolean
     update_at?: boolean
+    sale_office?: boolean | sale_officesDefaultArgs<ExtArgs>
     customer?: boolean | customersDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["ship_to"]>
+    ship_to?: boolean | sale_office_customers$ship_toArgs<ExtArgs>
+    _count?: boolean | Sale_office_customersCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["sale_office_customers"]>
 
 
 
-  export type ship_toSelectScalar = {
+  export type sale_office_customersSelectScalar = {
     id?: boolean
-    site_short_code?: boolean
-    name_th?: boolean
-    name_en?: boolean
+    sale_office_id?: boolean
     customer_id?: boolean
-    ship_to_id?: boolean
     status?: boolean
     create_at?: boolean
     update_at?: boolean
   }
 
-  export type ship_toOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "site_short_code" | "name_th" | "name_en" | "customer_id" | "ship_to_id" | "status" | "create_at" | "update_at", ExtArgs["result"]["ship_to"]>
-  export type ship_toInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type sale_office_customersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "sale_office_id" | "customer_id" | "status" | "create_at" | "update_at", ExtArgs["result"]["sale_office_customers"]>
+  export type sale_office_customersInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    sale_office?: boolean | sale_officesDefaultArgs<ExtArgs>
     customer?: boolean | customersDefaultArgs<ExtArgs>
+    ship_to?: boolean | sale_office_customers$ship_toArgs<ExtArgs>
+    _count?: boolean | Sale_office_customersCountOutputTypeDefaultArgs<ExtArgs>
   }
 
-  export type $ship_toPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "ship_to"
+  export type $sale_office_customersPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "sale_office_customers"
     objects: {
+      sale_office: Prisma.$sale_officesPayload<ExtArgs>
       customer: Prisma.$customersPayload<ExtArgs>
+      ship_to: Prisma.$ship_tosPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      site_short_code: string
-      name_th: string
-      name_en: string | null
+      sale_office_id: number
       customer_id: number
-      ship_to_id: number
       status: boolean
       create_at: Date
       update_at: Date
-    }, ExtArgs["result"]["ship_to"]>
+    }, ExtArgs["result"]["sale_office_customers"]>
     composites: {}
   }
 
-  type ship_toGetPayload<S extends boolean | null | undefined | ship_toDefaultArgs> = $Result.GetResult<Prisma.$ship_toPayload, S>
+  type sale_office_customersGetPayload<S extends boolean | null | undefined | sale_office_customersDefaultArgs> = $Result.GetResult<Prisma.$sale_office_customersPayload, S>
 
-  type ship_toCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<ship_toFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: Ship_toCountAggregateInputType | true
+  type sale_office_customersCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<sale_office_customersFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Sale_office_customersCountAggregateInputType | true
     }
 
-  export interface ship_toDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ship_to'], meta: { name: 'ship_to' } }
+  export interface sale_office_customersDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['sale_office_customers'], meta: { name: 'sale_office_customers' } }
     /**
-     * Find zero or one Ship_to that matches the filter.
-     * @param {ship_toFindUniqueArgs} args - Arguments to find a Ship_to
+     * Find zero or one Sale_office_customers that matches the filter.
+     * @param {sale_office_customersFindUniqueArgs} args - Arguments to find a Sale_office_customers
      * @example
-     * // Get one Ship_to
-     * const ship_to = await prisma.ship_to.findUnique({
+     * // Get one Sale_office_customers
+     * const sale_office_customers = await prisma.sale_office_customers.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends ship_toFindUniqueArgs>(args: SelectSubset<T, ship_toFindUniqueArgs<ExtArgs>>): Prisma__ship_toClient<$Result.GetResult<Prisma.$ship_toPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends sale_office_customersFindUniqueArgs>(args: SelectSubset<T, sale_office_customersFindUniqueArgs<ExtArgs>>): Prisma__sale_office_customersClient<$Result.GetResult<Prisma.$sale_office_customersPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Ship_to that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Sale_office_customers that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {ship_toFindUniqueOrThrowArgs} args - Arguments to find a Ship_to
+     * @param {sale_office_customersFindUniqueOrThrowArgs} args - Arguments to find a Sale_office_customers
      * @example
-     * // Get one Ship_to
-     * const ship_to = await prisma.ship_to.findUniqueOrThrow({
+     * // Get one Sale_office_customers
+     * const sale_office_customers = await prisma.sale_office_customers.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends ship_toFindUniqueOrThrowArgs>(args: SelectSubset<T, ship_toFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ship_toClient<$Result.GetResult<Prisma.$ship_toPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends sale_office_customersFindUniqueOrThrowArgs>(args: SelectSubset<T, sale_office_customersFindUniqueOrThrowArgs<ExtArgs>>): Prisma__sale_office_customersClient<$Result.GetResult<Prisma.$sale_office_customersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Ship_to that matches the filter.
+     * Find the first Sale_office_customers that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ship_toFindFirstArgs} args - Arguments to find a Ship_to
+     * @param {sale_office_customersFindFirstArgs} args - Arguments to find a Sale_office_customers
      * @example
-     * // Get one Ship_to
-     * const ship_to = await prisma.ship_to.findFirst({
+     * // Get one Sale_office_customers
+     * const sale_office_customers = await prisma.sale_office_customers.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends ship_toFindFirstArgs>(args?: SelectSubset<T, ship_toFindFirstArgs<ExtArgs>>): Prisma__ship_toClient<$Result.GetResult<Prisma.$ship_toPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends sale_office_customersFindFirstArgs>(args?: SelectSubset<T, sale_office_customersFindFirstArgs<ExtArgs>>): Prisma__sale_office_customersClient<$Result.GetResult<Prisma.$sale_office_customersPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Ship_to that matches the filter or
+     * Find the first Sale_office_customers that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ship_toFindFirstOrThrowArgs} args - Arguments to find a Ship_to
+     * @param {sale_office_customersFindFirstOrThrowArgs} args - Arguments to find a Sale_office_customers
      * @example
-     * // Get one Ship_to
-     * const ship_to = await prisma.ship_to.findFirstOrThrow({
+     * // Get one Sale_office_customers
+     * const sale_office_customers = await prisma.sale_office_customers.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends ship_toFindFirstOrThrowArgs>(args?: SelectSubset<T, ship_toFindFirstOrThrowArgs<ExtArgs>>): Prisma__ship_toClient<$Result.GetResult<Prisma.$ship_toPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends sale_office_customersFindFirstOrThrowArgs>(args?: SelectSubset<T, sale_office_customersFindFirstOrThrowArgs<ExtArgs>>): Prisma__sale_office_customersClient<$Result.GetResult<Prisma.$sale_office_customersPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Ship_tos that matches the filter.
+     * Find zero or more Sale_office_customers that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ship_toFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {sale_office_customersFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Ship_tos
-     * const ship_tos = await prisma.ship_to.findMany()
+     * // Get all Sale_office_customers
+     * const sale_office_customers = await prisma.sale_office_customers.findMany()
      * 
-     * // Get first 10 Ship_tos
-     * const ship_tos = await prisma.ship_to.findMany({ take: 10 })
+     * // Get first 10 Sale_office_customers
+     * const sale_office_customers = await prisma.sale_office_customers.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const ship_toWithIdOnly = await prisma.ship_to.findMany({ select: { id: true } })
+     * const sale_office_customersWithIdOnly = await prisma.sale_office_customers.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends ship_toFindManyArgs>(args?: SelectSubset<T, ship_toFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ship_toPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends sale_office_customersFindManyArgs>(args?: SelectSubset<T, sale_office_customersFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$sale_office_customersPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Ship_to.
-     * @param {ship_toCreateArgs} args - Arguments to create a Ship_to.
+     * Create a Sale_office_customers.
+     * @param {sale_office_customersCreateArgs} args - Arguments to create a Sale_office_customers.
      * @example
-     * // Create one Ship_to
-     * const Ship_to = await prisma.ship_to.create({
+     * // Create one Sale_office_customers
+     * const Sale_office_customers = await prisma.sale_office_customers.create({
      *   data: {
-     *     // ... data to create a Ship_to
+     *     // ... data to create a Sale_office_customers
      *   }
      * })
      * 
      */
-    create<T extends ship_toCreateArgs>(args: SelectSubset<T, ship_toCreateArgs<ExtArgs>>): Prisma__ship_toClient<$Result.GetResult<Prisma.$ship_toPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends sale_office_customersCreateArgs>(args: SelectSubset<T, sale_office_customersCreateArgs<ExtArgs>>): Prisma__sale_office_customersClient<$Result.GetResult<Prisma.$sale_office_customersPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Ship_tos.
-     * @param {ship_toCreateManyArgs} args - Arguments to create many Ship_tos.
+     * Create many Sale_office_customers.
+     * @param {sale_office_customersCreateManyArgs} args - Arguments to create many Sale_office_customers.
      * @example
-     * // Create many Ship_tos
-     * const ship_to = await prisma.ship_to.createMany({
+     * // Create many Sale_office_customers
+     * const sale_office_customers = await prisma.sale_office_customers.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends ship_toCreateManyArgs>(args?: SelectSubset<T, ship_toCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends sale_office_customersCreateManyArgs>(args?: SelectSubset<T, sale_office_customersCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Delete a Ship_to.
-     * @param {ship_toDeleteArgs} args - Arguments to delete one Ship_to.
+     * Delete a Sale_office_customers.
+     * @param {sale_office_customersDeleteArgs} args - Arguments to delete one Sale_office_customers.
      * @example
-     * // Delete one Ship_to
-     * const Ship_to = await prisma.ship_to.delete({
+     * // Delete one Sale_office_customers
+     * const Sale_office_customers = await prisma.sale_office_customers.delete({
      *   where: {
-     *     // ... filter to delete one Ship_to
+     *     // ... filter to delete one Sale_office_customers
      *   }
      * })
      * 
      */
-    delete<T extends ship_toDeleteArgs>(args: SelectSubset<T, ship_toDeleteArgs<ExtArgs>>): Prisma__ship_toClient<$Result.GetResult<Prisma.$ship_toPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends sale_office_customersDeleteArgs>(args: SelectSubset<T, sale_office_customersDeleteArgs<ExtArgs>>): Prisma__sale_office_customersClient<$Result.GetResult<Prisma.$sale_office_customersPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Ship_to.
-     * @param {ship_toUpdateArgs} args - Arguments to update one Ship_to.
+     * Update one Sale_office_customers.
+     * @param {sale_office_customersUpdateArgs} args - Arguments to update one Sale_office_customers.
      * @example
-     * // Update one Ship_to
-     * const ship_to = await prisma.ship_to.update({
+     * // Update one Sale_office_customers
+     * const sale_office_customers = await prisma.sale_office_customers.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -54965,30 +55094,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends ship_toUpdateArgs>(args: SelectSubset<T, ship_toUpdateArgs<ExtArgs>>): Prisma__ship_toClient<$Result.GetResult<Prisma.$ship_toPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends sale_office_customersUpdateArgs>(args: SelectSubset<T, sale_office_customersUpdateArgs<ExtArgs>>): Prisma__sale_office_customersClient<$Result.GetResult<Prisma.$sale_office_customersPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Ship_tos.
-     * @param {ship_toDeleteManyArgs} args - Arguments to filter Ship_tos to delete.
+     * Delete zero or more Sale_office_customers.
+     * @param {sale_office_customersDeleteManyArgs} args - Arguments to filter Sale_office_customers to delete.
      * @example
-     * // Delete a few Ship_tos
-     * const { count } = await prisma.ship_to.deleteMany({
+     * // Delete a few Sale_office_customers
+     * const { count } = await prisma.sale_office_customers.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends ship_toDeleteManyArgs>(args?: SelectSubset<T, ship_toDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends sale_office_customersDeleteManyArgs>(args?: SelectSubset<T, sale_office_customersDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Ship_tos.
+     * Update zero or more Sale_office_customers.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ship_toUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {sale_office_customersUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Ship_tos
-     * const ship_to = await prisma.ship_to.updateMany({
+     * // Update many Sale_office_customers
+     * const sale_office_customers = await prisma.sale_office_customers.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -54998,56 +55127,56 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends ship_toUpdateManyArgs>(args: SelectSubset<T, ship_toUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends sale_office_customersUpdateManyArgs>(args: SelectSubset<T, sale_office_customersUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one Ship_to.
-     * @param {ship_toUpsertArgs} args - Arguments to update or create a Ship_to.
+     * Create or update one Sale_office_customers.
+     * @param {sale_office_customersUpsertArgs} args - Arguments to update or create a Sale_office_customers.
      * @example
-     * // Update or create a Ship_to
-     * const ship_to = await prisma.ship_to.upsert({
+     * // Update or create a Sale_office_customers
+     * const sale_office_customers = await prisma.sale_office_customers.upsert({
      *   create: {
-     *     // ... data to create a Ship_to
+     *     // ... data to create a Sale_office_customers
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Ship_to we want to update
+     *     // ... the filter for the Sale_office_customers we want to update
      *   }
      * })
      */
-    upsert<T extends ship_toUpsertArgs>(args: SelectSubset<T, ship_toUpsertArgs<ExtArgs>>): Prisma__ship_toClient<$Result.GetResult<Prisma.$ship_toPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends sale_office_customersUpsertArgs>(args: SelectSubset<T, sale_office_customersUpsertArgs<ExtArgs>>): Prisma__sale_office_customersClient<$Result.GetResult<Prisma.$sale_office_customersPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Ship_tos.
+     * Count the number of Sale_office_customers.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ship_toCountArgs} args - Arguments to filter Ship_tos to count.
+     * @param {sale_office_customersCountArgs} args - Arguments to filter Sale_office_customers to count.
      * @example
-     * // Count the number of Ship_tos
-     * const count = await prisma.ship_to.count({
+     * // Count the number of Sale_office_customers
+     * const count = await prisma.sale_office_customers.count({
      *   where: {
-     *     // ... the filter for the Ship_tos we want to count
+     *     // ... the filter for the Sale_office_customers we want to count
      *   }
      * })
     **/
-    count<T extends ship_toCountArgs>(
-      args?: Subset<T, ship_toCountArgs>,
+    count<T extends sale_office_customersCountArgs>(
+      args?: Subset<T, sale_office_customersCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], Ship_toCountAggregateOutputType>
+          : GetScalarType<T['select'], Sale_office_customersCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Ship_to.
+     * Allows you to perform aggregations operations on a Sale_office_customers.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {Ship_toAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {Sale_office_customersAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -55067,13 +55196,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends Ship_toAggregateArgs>(args: Subset<T, Ship_toAggregateArgs>): Prisma.PrismaPromise<GetShip_toAggregateType<T>>
+    aggregate<T extends Sale_office_customersAggregateArgs>(args: Subset<T, Sale_office_customersAggregateArgs>): Prisma.PrismaPromise<GetSale_office_customersAggregateType<T>>
 
     /**
-     * Group by Ship_to.
+     * Group by Sale_office_customers.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ship_toGroupByArgs} args - Group by arguments.
+     * @param {sale_office_customersGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -55088,14 +55217,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends ship_toGroupByArgs,
+      T extends sale_office_customersGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: ship_toGroupByArgs['orderBy'] }
-        : { orderBy?: ship_toGroupByArgs['orderBy'] },
+        ? { orderBy: sale_office_customersGroupByArgs['orderBy'] }
+        : { orderBy?: sale_office_customersGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -55144,22 +55273,24 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, ship_toGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetShip_toGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, sale_office_customersGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSale_office_customersGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the ship_to model
+   * Fields of the sale_office_customers model
    */
-  readonly fields: ship_toFieldRefs;
+  readonly fields: sale_office_customersFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for ship_to.
+   * The delegate class that acts as a "Promise-like" for sale_office_customers.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__ship_toClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__sale_office_customersClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    sale_office<T extends sale_officesDefaultArgs<ExtArgs> = {}>(args?: Subset<T, sale_officesDefaultArgs<ExtArgs>>): Prisma__sale_officesClient<$Result.GetResult<Prisma.$sale_officesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     customer<T extends customersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, customersDefaultArgs<ExtArgs>>): Prisma__customersClient<$Result.GetResult<Prisma.$customersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    ship_to<T extends sale_office_customers$ship_toArgs<ExtArgs> = {}>(args?: Subset<T, sale_office_customers$ship_toArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ship_tosPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -55186,98 +55317,512 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the ship_to model
+   * Fields of the sale_office_customers model
    */
-  interface ship_toFieldRefs {
-    readonly id: FieldRef<"ship_to", 'Int'>
-    readonly site_short_code: FieldRef<"ship_to", 'String'>
-    readonly name_th: FieldRef<"ship_to", 'String'>
-    readonly name_en: FieldRef<"ship_to", 'String'>
-    readonly customer_id: FieldRef<"ship_to", 'Int'>
-    readonly ship_to_id: FieldRef<"ship_to", 'Int'>
-    readonly status: FieldRef<"ship_to", 'Boolean'>
-    readonly create_at: FieldRef<"ship_to", 'DateTime'>
-    readonly update_at: FieldRef<"ship_to", 'DateTime'>
+  interface sale_office_customersFieldRefs {
+    readonly id: FieldRef<"sale_office_customers", 'Int'>
+    readonly sale_office_id: FieldRef<"sale_office_customers", 'Int'>
+    readonly customer_id: FieldRef<"sale_office_customers", 'Int'>
+    readonly status: FieldRef<"sale_office_customers", 'Boolean'>
+    readonly create_at: FieldRef<"sale_office_customers", 'DateTime'>
+    readonly update_at: FieldRef<"sale_office_customers", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * ship_to findUnique
+   * sale_office_customers findUnique
    */
-  export type ship_toFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type sale_office_customersFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ship_to
+     * Select specific fields to fetch from the sale_office_customers
      */
-    select?: ship_toSelect<ExtArgs> | null
+    select?: sale_office_customersSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the ship_to
+     * Omit specific fields from the sale_office_customers
      */
-    omit?: ship_toOmit<ExtArgs> | null
+    omit?: sale_office_customersOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ship_toInclude<ExtArgs> | null
+    include?: sale_office_customersInclude<ExtArgs> | null
     /**
-     * Filter, which ship_to to fetch.
+     * Filter, which sale_office_customers to fetch.
      */
-    where: ship_toWhereUniqueInput
+    where: sale_office_customersWhereUniqueInput
   }
 
   /**
-   * ship_to findUniqueOrThrow
+   * sale_office_customers findUniqueOrThrow
    */
-  export type ship_toFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type sale_office_customersFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ship_to
+     * Select specific fields to fetch from the sale_office_customers
      */
-    select?: ship_toSelect<ExtArgs> | null
+    select?: sale_office_customersSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the ship_to
+     * Omit specific fields from the sale_office_customers
      */
-    omit?: ship_toOmit<ExtArgs> | null
+    omit?: sale_office_customersOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ship_toInclude<ExtArgs> | null
+    include?: sale_office_customersInclude<ExtArgs> | null
     /**
-     * Filter, which ship_to to fetch.
+     * Filter, which sale_office_customers to fetch.
      */
-    where: ship_toWhereUniqueInput
+    where: sale_office_customersWhereUniqueInput
   }
 
   /**
-   * ship_to findFirst
+   * sale_office_customers findFirst
    */
-  export type ship_toFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type sale_office_customersFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ship_to
+     * Select specific fields to fetch from the sale_office_customers
      */
-    select?: ship_toSelect<ExtArgs> | null
+    select?: sale_office_customersSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the ship_to
+     * Omit specific fields from the sale_office_customers
      */
-    omit?: ship_toOmit<ExtArgs> | null
+    omit?: sale_office_customersOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ship_toInclude<ExtArgs> | null
+    include?: sale_office_customersInclude<ExtArgs> | null
     /**
-     * Filter, which ship_to to fetch.
+     * Filter, which sale_office_customers to fetch.
      */
-    where?: ship_toWhereInput
+    where?: sale_office_customersWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of sale_office_customers to fetch.
+     */
+    orderBy?: sale_office_customersOrderByWithRelationInput | sale_office_customersOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for sale_office_customers.
+     */
+    cursor?: sale_office_customersWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` sale_office_customers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` sale_office_customers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of sale_office_customers.
+     */
+    distinct?: Sale_office_customersScalarFieldEnum | Sale_office_customersScalarFieldEnum[]
+  }
+
+  /**
+   * sale_office_customers findFirstOrThrow
+   */
+  export type sale_office_customersFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sale_office_customers
+     */
+    select?: sale_office_customersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sale_office_customers
+     */
+    omit?: sale_office_customersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sale_office_customersInclude<ExtArgs> | null
+    /**
+     * Filter, which sale_office_customers to fetch.
+     */
+    where?: sale_office_customersWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of sale_office_customers to fetch.
+     */
+    orderBy?: sale_office_customersOrderByWithRelationInput | sale_office_customersOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for sale_office_customers.
+     */
+    cursor?: sale_office_customersWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` sale_office_customers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` sale_office_customers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of sale_office_customers.
+     */
+    distinct?: Sale_office_customersScalarFieldEnum | Sale_office_customersScalarFieldEnum[]
+  }
+
+  /**
+   * sale_office_customers findMany
+   */
+  export type sale_office_customersFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sale_office_customers
+     */
+    select?: sale_office_customersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sale_office_customers
+     */
+    omit?: sale_office_customersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sale_office_customersInclude<ExtArgs> | null
+    /**
+     * Filter, which sale_office_customers to fetch.
+     */
+    where?: sale_office_customersWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of sale_office_customers to fetch.
+     */
+    orderBy?: sale_office_customersOrderByWithRelationInput | sale_office_customersOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing sale_office_customers.
+     */
+    cursor?: sale_office_customersWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` sale_office_customers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` sale_office_customers.
+     */
+    skip?: number
+    distinct?: Sale_office_customersScalarFieldEnum | Sale_office_customersScalarFieldEnum[]
+  }
+
+  /**
+   * sale_office_customers create
+   */
+  export type sale_office_customersCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sale_office_customers
+     */
+    select?: sale_office_customersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sale_office_customers
+     */
+    omit?: sale_office_customersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sale_office_customersInclude<ExtArgs> | null
+    /**
+     * The data needed to create a sale_office_customers.
+     */
+    data: XOR<sale_office_customersCreateInput, sale_office_customersUncheckedCreateInput>
+  }
+
+  /**
+   * sale_office_customers createMany
+   */
+  export type sale_office_customersCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many sale_office_customers.
+     */
+    data: sale_office_customersCreateManyInput | sale_office_customersCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * sale_office_customers update
+   */
+  export type sale_office_customersUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sale_office_customers
+     */
+    select?: sale_office_customersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sale_office_customers
+     */
+    omit?: sale_office_customersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sale_office_customersInclude<ExtArgs> | null
+    /**
+     * The data needed to update a sale_office_customers.
+     */
+    data: XOR<sale_office_customersUpdateInput, sale_office_customersUncheckedUpdateInput>
+    /**
+     * Choose, which sale_office_customers to update.
+     */
+    where: sale_office_customersWhereUniqueInput
+  }
+
+  /**
+   * sale_office_customers updateMany
+   */
+  export type sale_office_customersUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update sale_office_customers.
+     */
+    data: XOR<sale_office_customersUpdateManyMutationInput, sale_office_customersUncheckedUpdateManyInput>
+    /**
+     * Filter which sale_office_customers to update
+     */
+    where?: sale_office_customersWhereInput
+    /**
+     * Limit how many sale_office_customers to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * sale_office_customers upsert
+   */
+  export type sale_office_customersUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sale_office_customers
+     */
+    select?: sale_office_customersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sale_office_customers
+     */
+    omit?: sale_office_customersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sale_office_customersInclude<ExtArgs> | null
+    /**
+     * The filter to search for the sale_office_customers to update in case it exists.
+     */
+    where: sale_office_customersWhereUniqueInput
+    /**
+     * In case the sale_office_customers found by the `where` argument doesn't exist, create a new sale_office_customers with this data.
+     */
+    create: XOR<sale_office_customersCreateInput, sale_office_customersUncheckedCreateInput>
+    /**
+     * In case the sale_office_customers was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<sale_office_customersUpdateInput, sale_office_customersUncheckedUpdateInput>
+  }
+
+  /**
+   * sale_office_customers delete
+   */
+  export type sale_office_customersDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sale_office_customers
+     */
+    select?: sale_office_customersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sale_office_customers
+     */
+    omit?: sale_office_customersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sale_office_customersInclude<ExtArgs> | null
+    /**
+     * Filter which sale_office_customers to delete.
+     */
+    where: sale_office_customersWhereUniqueInput
+  }
+
+  /**
+   * sale_office_customers deleteMany
+   */
+  export type sale_office_customersDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which sale_office_customers to delete
+     */
+    where?: sale_office_customersWhereInput
+    /**
+     * Limit how many sale_office_customers to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * sale_office_customers.ship_to
+   */
+  export type sale_office_customers$ship_toArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ship_tos
+     */
+    select?: ship_tosSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ship_tos
+     */
+    omit?: ship_tosOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ship_tosInclude<ExtArgs> | null
+    where?: ship_tosWhereInput
+    orderBy?: ship_tosOrderByWithRelationInput | ship_tosOrderByWithRelationInput[]
+    cursor?: ship_tosWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Ship_tosScalarFieldEnum | Ship_tosScalarFieldEnum[]
+  }
+
+  /**
+   * sale_office_customers without action
+   */
+  export type sale_office_customersDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sale_office_customers
+     */
+    select?: sale_office_customersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sale_office_customers
+     */
+    omit?: sale_office_customersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sale_office_customersInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model ship_tos
+   */
+
+  export type AggregateShip_tos = {
+    _count: Ship_tosCountAggregateOutputType | null
+    _avg: Ship_tosAvgAggregateOutputType | null
+    _sum: Ship_tosSumAggregateOutputType | null
+    _min: Ship_tosMinAggregateOutputType | null
+    _max: Ship_tosMaxAggregateOutputType | null
+  }
+
+  export type Ship_tosAvgAggregateOutputType = {
+    id: number | null
+    sale_office_customer_id: number | null
+  }
+
+  export type Ship_tosSumAggregateOutputType = {
+    id: number | null
+    sale_office_customer_id: number | null
+  }
+
+  export type Ship_tosMinAggregateOutputType = {
+    id: number | null
+    ship_to_code: string | null
+    sale_office_customer_id: number | null
+    description: string | null
+    status: boolean | null
+    create_at: Date | null
+    update_at: Date | null
+  }
+
+  export type Ship_tosMaxAggregateOutputType = {
+    id: number | null
+    ship_to_code: string | null
+    sale_office_customer_id: number | null
+    description: string | null
+    status: boolean | null
+    create_at: Date | null
+    update_at: Date | null
+  }
+
+  export type Ship_tosCountAggregateOutputType = {
+    id: number
+    ship_to_code: number
+    sale_office_customer_id: number
+    description: number
+    status: number
+    create_at: number
+    update_at: number
+    _all: number
+  }
+
+
+  export type Ship_tosAvgAggregateInputType = {
+    id?: true
+    sale_office_customer_id?: true
+  }
+
+  export type Ship_tosSumAggregateInputType = {
+    id?: true
+    sale_office_customer_id?: true
+  }
+
+  export type Ship_tosMinAggregateInputType = {
+    id?: true
+    ship_to_code?: true
+    sale_office_customer_id?: true
+    description?: true
+    status?: true
+    create_at?: true
+    update_at?: true
+  }
+
+  export type Ship_tosMaxAggregateInputType = {
+    id?: true
+    ship_to_code?: true
+    sale_office_customer_id?: true
+    description?: true
+    status?: true
+    create_at?: true
+    update_at?: true
+  }
+
+  export type Ship_tosCountAggregateInputType = {
+    id?: true
+    ship_to_code?: true
+    sale_office_customer_id?: true
+    description?: true
+    status?: true
+    create_at?: true
+    update_at?: true
+    _all?: true
+  }
+
+  export type Ship_tosAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ship_tos to aggregate.
+     */
+    where?: ship_tosWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
      * Determine the order of ship_tos to fetch.
      */
-    orderBy?: ship_toOrderByWithRelationInput | ship_toOrderByWithRelationInput[]
+    orderBy?: ship_tosOrderByWithRelationInput | ship_tosOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for ship_tos.
+     * Sets the start position
      */
-    cursor?: ship_toWhereUniqueInput
+    cursor?: ship_tosWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
@@ -55291,97 +55836,693 @@ export namespace Prisma {
      */
     skip?: number
     /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Filter by unique combinations of ship_tos.
-     */
-    distinct?: Ship_toScalarFieldEnum | Ship_toScalarFieldEnum[]
+     * Count returned ship_tos
+    **/
+    _count?: true | Ship_tosCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Ship_tosAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Ship_tosSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Ship_tosMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Ship_tosMaxAggregateInputType
   }
 
-  /**
-   * ship_to findFirstOrThrow
-   */
-  export type ship_toFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ship_to
-     */
-    select?: ship_toSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ship_to
-     */
-    omit?: ship_toOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ship_toInclude<ExtArgs> | null
-    /**
-     * Filter, which ship_to to fetch.
-     */
-    where?: ship_toWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of ship_tos to fetch.
-     */
-    orderBy?: ship_toOrderByWithRelationInput | ship_toOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for ship_tos.
-     */
-    cursor?: ship_toWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` ship_tos from the position of the cursor.
-     */
+  export type GetShip_tosAggregateType<T extends Ship_tosAggregateArgs> = {
+        [P in keyof T & keyof AggregateShip_tos]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateShip_tos[P]>
+      : GetScalarType<T[P], AggregateShip_tos[P]>
+  }
+
+
+
+
+  export type ship_tosGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ship_tosWhereInput
+    orderBy?: ship_tosOrderByWithAggregationInput | ship_tosOrderByWithAggregationInput[]
+    by: Ship_tosScalarFieldEnum[] | Ship_tosScalarFieldEnum
+    having?: ship_tosScalarWhereWithAggregatesInput
     take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` ship_tos.
-     */
     skip?: number
+    _count?: Ship_tosCountAggregateInputType | true
+    _avg?: Ship_tosAvgAggregateInputType
+    _sum?: Ship_tosSumAggregateInputType
+    _min?: Ship_tosMinAggregateInputType
+    _max?: Ship_tosMaxAggregateInputType
+  }
+
+  export type Ship_tosGroupByOutputType = {
+    id: number
+    ship_to_code: string
+    sale_office_customer_id: number
+    description: string | null
+    status: boolean
+    create_at: Date
+    update_at: Date
+    _count: Ship_tosCountAggregateOutputType | null
+    _avg: Ship_tosAvgAggregateOutputType | null
+    _sum: Ship_tosSumAggregateOutputType | null
+    _min: Ship_tosMinAggregateOutputType | null
+    _max: Ship_tosMaxAggregateOutputType | null
+  }
+
+  type GetShip_tosGroupByPayload<T extends ship_tosGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Ship_tosGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Ship_tosGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Ship_tosGroupByOutputType[P]>
+            : GetScalarType<T[P], Ship_tosGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ship_tosSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    ship_to_code?: boolean
+    sale_office_customer_id?: boolean
+    description?: boolean
+    status?: boolean
+    create_at?: boolean
+    update_at?: boolean
+    sale_office_customer?: boolean | sale_office_customersDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["ship_tos"]>
+
+
+
+  export type ship_tosSelectScalar = {
+    id?: boolean
+    ship_to_code?: boolean
+    sale_office_customer_id?: boolean
+    description?: boolean
+    status?: boolean
+    create_at?: boolean
+    update_at?: boolean
+  }
+
+  export type ship_tosOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "ship_to_code" | "sale_office_customer_id" | "description" | "status" | "create_at" | "update_at", ExtArgs["result"]["ship_tos"]>
+  export type ship_tosInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    sale_office_customer?: boolean | sale_office_customersDefaultArgs<ExtArgs>
+  }
+
+  export type $ship_tosPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ship_tos"
+    objects: {
+      sale_office_customer: Prisma.$sale_office_customersPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      ship_to_code: string
+      sale_office_customer_id: number
+      description: string | null
+      status: boolean
+      create_at: Date
+      update_at: Date
+    }, ExtArgs["result"]["ship_tos"]>
+    composites: {}
+  }
+
+  type ship_tosGetPayload<S extends boolean | null | undefined | ship_tosDefaultArgs> = $Result.GetResult<Prisma.$ship_tosPayload, S>
+
+  type ship_tosCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ship_tosFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Ship_tosCountAggregateInputType | true
+    }
+
+  export interface ship_tosDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ship_tos'], meta: { name: 'ship_tos' } }
     /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of ship_tos.
+     * Find zero or one Ship_tos that matches the filter.
+     * @param {ship_tosFindUniqueArgs} args - Arguments to find a Ship_tos
+     * @example
+     * // Get one Ship_tos
+     * const ship_tos = await prisma.ship_tos.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
      */
-    distinct?: Ship_toScalarFieldEnum | Ship_toScalarFieldEnum[]
+    findUnique<T extends ship_tosFindUniqueArgs>(args: SelectSubset<T, ship_tosFindUniqueArgs<ExtArgs>>): Prisma__ship_tosClient<$Result.GetResult<Prisma.$ship_tosPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Ship_tos that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ship_tosFindUniqueOrThrowArgs} args - Arguments to find a Ship_tos
+     * @example
+     * // Get one Ship_tos
+     * const ship_tos = await prisma.ship_tos.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ship_tosFindUniqueOrThrowArgs>(args: SelectSubset<T, ship_tosFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ship_tosClient<$Result.GetResult<Prisma.$ship_tosPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Ship_tos that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ship_tosFindFirstArgs} args - Arguments to find a Ship_tos
+     * @example
+     * // Get one Ship_tos
+     * const ship_tos = await prisma.ship_tos.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ship_tosFindFirstArgs>(args?: SelectSubset<T, ship_tosFindFirstArgs<ExtArgs>>): Prisma__ship_tosClient<$Result.GetResult<Prisma.$ship_tosPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Ship_tos that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ship_tosFindFirstOrThrowArgs} args - Arguments to find a Ship_tos
+     * @example
+     * // Get one Ship_tos
+     * const ship_tos = await prisma.ship_tos.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ship_tosFindFirstOrThrowArgs>(args?: SelectSubset<T, ship_tosFindFirstOrThrowArgs<ExtArgs>>): Prisma__ship_tosClient<$Result.GetResult<Prisma.$ship_tosPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Ship_tos that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ship_tosFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Ship_tos
+     * const ship_tos = await prisma.ship_tos.findMany()
+     * 
+     * // Get first 10 Ship_tos
+     * const ship_tos = await prisma.ship_tos.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const ship_tosWithIdOnly = await prisma.ship_tos.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ship_tosFindManyArgs>(args?: SelectSubset<T, ship_tosFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ship_tosPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Ship_tos.
+     * @param {ship_tosCreateArgs} args - Arguments to create a Ship_tos.
+     * @example
+     * // Create one Ship_tos
+     * const Ship_tos = await prisma.ship_tos.create({
+     *   data: {
+     *     // ... data to create a Ship_tos
+     *   }
+     * })
+     * 
+     */
+    create<T extends ship_tosCreateArgs>(args: SelectSubset<T, ship_tosCreateArgs<ExtArgs>>): Prisma__ship_tosClient<$Result.GetResult<Prisma.$ship_tosPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Ship_tos.
+     * @param {ship_tosCreateManyArgs} args - Arguments to create many Ship_tos.
+     * @example
+     * // Create many Ship_tos
+     * const ship_tos = await prisma.ship_tos.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ship_tosCreateManyArgs>(args?: SelectSubset<T, ship_tosCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Ship_tos.
+     * @param {ship_tosDeleteArgs} args - Arguments to delete one Ship_tos.
+     * @example
+     * // Delete one Ship_tos
+     * const Ship_tos = await prisma.ship_tos.delete({
+     *   where: {
+     *     // ... filter to delete one Ship_tos
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ship_tosDeleteArgs>(args: SelectSubset<T, ship_tosDeleteArgs<ExtArgs>>): Prisma__ship_tosClient<$Result.GetResult<Prisma.$ship_tosPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Ship_tos.
+     * @param {ship_tosUpdateArgs} args - Arguments to update one Ship_tos.
+     * @example
+     * // Update one Ship_tos
+     * const ship_tos = await prisma.ship_tos.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ship_tosUpdateArgs>(args: SelectSubset<T, ship_tosUpdateArgs<ExtArgs>>): Prisma__ship_tosClient<$Result.GetResult<Prisma.$ship_tosPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Ship_tos.
+     * @param {ship_tosDeleteManyArgs} args - Arguments to filter Ship_tos to delete.
+     * @example
+     * // Delete a few Ship_tos
+     * const { count } = await prisma.ship_tos.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ship_tosDeleteManyArgs>(args?: SelectSubset<T, ship_tosDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Ship_tos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ship_tosUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Ship_tos
+     * const ship_tos = await prisma.ship_tos.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ship_tosUpdateManyArgs>(args: SelectSubset<T, ship_tosUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Ship_tos.
+     * @param {ship_tosUpsertArgs} args - Arguments to update or create a Ship_tos.
+     * @example
+     * // Update or create a Ship_tos
+     * const ship_tos = await prisma.ship_tos.upsert({
+     *   create: {
+     *     // ... data to create a Ship_tos
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Ship_tos we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ship_tosUpsertArgs>(args: SelectSubset<T, ship_tosUpsertArgs<ExtArgs>>): Prisma__ship_tosClient<$Result.GetResult<Prisma.$ship_tosPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Ship_tos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ship_tosCountArgs} args - Arguments to filter Ship_tos to count.
+     * @example
+     * // Count the number of Ship_tos
+     * const count = await prisma.ship_tos.count({
+     *   where: {
+     *     // ... the filter for the Ship_tos we want to count
+     *   }
+     * })
+    **/
+    count<T extends ship_tosCountArgs>(
+      args?: Subset<T, ship_tosCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Ship_tosCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Ship_tos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Ship_tosAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Ship_tosAggregateArgs>(args: Subset<T, Ship_tosAggregateArgs>): Prisma.PrismaPromise<GetShip_tosAggregateType<T>>
+
+    /**
+     * Group by Ship_tos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ship_tosGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ship_tosGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ship_tosGroupByArgs['orderBy'] }
+        : { orderBy?: ship_tosGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ship_tosGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetShip_tosGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ship_tos model
+   */
+  readonly fields: ship_tosFieldRefs;
   }
 
   /**
-   * ship_to findMany
+   * The delegate class that acts as a "Promise-like" for ship_tos.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export type ship_toFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export interface Prisma__ship_tosClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    sale_office_customer<T extends sale_office_customersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, sale_office_customersDefaultArgs<ExtArgs>>): Prisma__sale_office_customersClient<$Result.GetResult<Prisma.$sale_office_customersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
-     * Select specific fields to fetch from the ship_to
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
      */
-    select?: ship_toSelect<ExtArgs> | null
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
     /**
-     * Omit specific fields from the ship_to
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
      */
-    omit?: ship_toOmit<ExtArgs> | null
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ship_tos model
+   */
+  interface ship_tosFieldRefs {
+    readonly id: FieldRef<"ship_tos", 'Int'>
+    readonly ship_to_code: FieldRef<"ship_tos", 'String'>
+    readonly sale_office_customer_id: FieldRef<"ship_tos", 'Int'>
+    readonly description: FieldRef<"ship_tos", 'String'>
+    readonly status: FieldRef<"ship_tos", 'Boolean'>
+    readonly create_at: FieldRef<"ship_tos", 'DateTime'>
+    readonly update_at: FieldRef<"ship_tos", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ship_tos findUnique
+   */
+  export type ship_tosFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ship_tos
+     */
+    select?: ship_tosSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ship_tos
+     */
+    omit?: ship_tosOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ship_toInclude<ExtArgs> | null
+    include?: ship_tosInclude<ExtArgs> | null
     /**
      * Filter, which ship_tos to fetch.
      */
-    where?: ship_toWhereInput
+    where: ship_tosWhereUniqueInput
+  }
+
+  /**
+   * ship_tos findUniqueOrThrow
+   */
+  export type ship_tosFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ship_tos
+     */
+    select?: ship_tosSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ship_tos
+     */
+    omit?: ship_tosOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ship_tosInclude<ExtArgs> | null
+    /**
+     * Filter, which ship_tos to fetch.
+     */
+    where: ship_tosWhereUniqueInput
+  }
+
+  /**
+   * ship_tos findFirst
+   */
+  export type ship_tosFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ship_tos
+     */
+    select?: ship_tosSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ship_tos
+     */
+    omit?: ship_tosOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ship_tosInclude<ExtArgs> | null
+    /**
+     * Filter, which ship_tos to fetch.
+     */
+    where?: ship_tosWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
      * Determine the order of ship_tos to fetch.
      */
-    orderBy?: ship_toOrderByWithRelationInput | ship_toOrderByWithRelationInput[]
+    orderBy?: ship_tosOrderByWithRelationInput | ship_tosOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ship_tos.
+     */
+    cursor?: ship_tosWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ship_tos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ship_tos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ship_tos.
+     */
+    distinct?: Ship_tosScalarFieldEnum | Ship_tosScalarFieldEnum[]
+  }
+
+  /**
+   * ship_tos findFirstOrThrow
+   */
+  export type ship_tosFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ship_tos
+     */
+    select?: ship_tosSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ship_tos
+     */
+    omit?: ship_tosOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ship_tosInclude<ExtArgs> | null
+    /**
+     * Filter, which ship_tos to fetch.
+     */
+    where?: ship_tosWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ship_tos to fetch.
+     */
+    orderBy?: ship_tosOrderByWithRelationInput | ship_tosOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ship_tos.
+     */
+    cursor?: ship_tosWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ship_tos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ship_tos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ship_tos.
+     */
+    distinct?: Ship_tosScalarFieldEnum | Ship_tosScalarFieldEnum[]
+  }
+
+  /**
+   * ship_tos findMany
+   */
+  export type ship_tosFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ship_tos
+     */
+    select?: ship_tosSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ship_tos
+     */
+    omit?: ship_tosOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ship_tosInclude<ExtArgs> | null
+    /**
+     * Filter, which ship_tos to fetch.
+     */
+    where?: ship_tosWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ship_tos to fetch.
+     */
+    orderBy?: ship_tosOrderByWithRelationInput | ship_tosOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the position for listing ship_tos.
      */
-    cursor?: ship_toWhereUniqueInput
+    cursor?: ship_tosWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
@@ -55394,80 +56535,80 @@ export namespace Prisma {
      * Skip the first `n` ship_tos.
      */
     skip?: number
-    distinct?: Ship_toScalarFieldEnum | Ship_toScalarFieldEnum[]
+    distinct?: Ship_tosScalarFieldEnum | Ship_tosScalarFieldEnum[]
   }
 
   /**
-   * ship_to create
+   * ship_tos create
    */
-  export type ship_toCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ship_tosCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ship_to
+     * Select specific fields to fetch from the ship_tos
      */
-    select?: ship_toSelect<ExtArgs> | null
+    select?: ship_tosSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the ship_to
+     * Omit specific fields from the ship_tos
      */
-    omit?: ship_toOmit<ExtArgs> | null
+    omit?: ship_tosOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ship_toInclude<ExtArgs> | null
+    include?: ship_tosInclude<ExtArgs> | null
     /**
-     * The data needed to create a ship_to.
+     * The data needed to create a ship_tos.
      */
-    data: XOR<ship_toCreateInput, ship_toUncheckedCreateInput>
+    data: XOR<ship_tosCreateInput, ship_tosUncheckedCreateInput>
   }
 
   /**
-   * ship_to createMany
+   * ship_tos createMany
    */
-  export type ship_toCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ship_tosCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * The data used to create many ship_tos.
      */
-    data: ship_toCreateManyInput | ship_toCreateManyInput[]
+    data: ship_tosCreateManyInput | ship_tosCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * ship_to update
+   * ship_tos update
    */
-  export type ship_toUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ship_tosUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ship_to
+     * Select specific fields to fetch from the ship_tos
      */
-    select?: ship_toSelect<ExtArgs> | null
+    select?: ship_tosSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the ship_to
+     * Omit specific fields from the ship_tos
      */
-    omit?: ship_toOmit<ExtArgs> | null
+    omit?: ship_tosOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ship_toInclude<ExtArgs> | null
+    include?: ship_tosInclude<ExtArgs> | null
     /**
-     * The data needed to update a ship_to.
+     * The data needed to update a ship_tos.
      */
-    data: XOR<ship_toUpdateInput, ship_toUncheckedUpdateInput>
+    data: XOR<ship_tosUpdateInput, ship_tosUncheckedUpdateInput>
     /**
-     * Choose, which ship_to to update.
+     * Choose, which ship_tos to update.
      */
-    where: ship_toWhereUniqueInput
+    where: ship_tosWhereUniqueInput
   }
 
   /**
-   * ship_to updateMany
+   * ship_tos updateMany
    */
-  export type ship_toUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ship_tosUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * The data used to update ship_tos.
      */
-    data: XOR<ship_toUpdateManyMutationInput, ship_toUncheckedUpdateManyInput>
+    data: XOR<ship_tosUpdateManyMutationInput, ship_tosUncheckedUpdateManyInput>
     /**
      * Filter which ship_tos to update
      */
-    where?: ship_toWhereInput
+    where?: ship_tosWhereInput
     /**
      * Limit how many ship_tos to update.
      */
@@ -55475,65 +56616,65 @@ export namespace Prisma {
   }
 
   /**
-   * ship_to upsert
+   * ship_tos upsert
    */
-  export type ship_toUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ship_tosUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ship_to
+     * Select specific fields to fetch from the ship_tos
      */
-    select?: ship_toSelect<ExtArgs> | null
+    select?: ship_tosSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the ship_to
+     * Omit specific fields from the ship_tos
      */
-    omit?: ship_toOmit<ExtArgs> | null
+    omit?: ship_tosOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ship_toInclude<ExtArgs> | null
+    include?: ship_tosInclude<ExtArgs> | null
     /**
-     * The filter to search for the ship_to to update in case it exists.
+     * The filter to search for the ship_tos to update in case it exists.
      */
-    where: ship_toWhereUniqueInput
+    where: ship_tosWhereUniqueInput
     /**
-     * In case the ship_to found by the `where` argument doesn't exist, create a new ship_to with this data.
+     * In case the ship_tos found by the `where` argument doesn't exist, create a new ship_tos with this data.
      */
-    create: XOR<ship_toCreateInput, ship_toUncheckedCreateInput>
+    create: XOR<ship_tosCreateInput, ship_tosUncheckedCreateInput>
     /**
-     * In case the ship_to was found with the provided `where` argument, update it with this data.
+     * In case the ship_tos was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<ship_toUpdateInput, ship_toUncheckedUpdateInput>
+    update: XOR<ship_tosUpdateInput, ship_tosUncheckedUpdateInput>
   }
 
   /**
-   * ship_to delete
+   * ship_tos delete
    */
-  export type ship_toDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ship_tosDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ship_to
+     * Select specific fields to fetch from the ship_tos
      */
-    select?: ship_toSelect<ExtArgs> | null
+    select?: ship_tosSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the ship_to
+     * Omit specific fields from the ship_tos
      */
-    omit?: ship_toOmit<ExtArgs> | null
+    omit?: ship_tosOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ship_toInclude<ExtArgs> | null
+    include?: ship_tosInclude<ExtArgs> | null
     /**
-     * Filter which ship_to to delete.
+     * Filter which ship_tos to delete.
      */
-    where: ship_toWhereUniqueInput
+    where: ship_tosWhereUniqueInput
   }
 
   /**
-   * ship_to deleteMany
+   * ship_tos deleteMany
    */
-  export type ship_toDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ship_tosDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Filter which ship_tos to delete
      */
-    where?: ship_toWhereInput
+    where?: ship_tosWhereInput
     /**
      * Limit how many ship_tos to delete.
      */
@@ -55541,21 +56682,21 @@ export namespace Prisma {
   }
 
   /**
-   * ship_to without action
+   * ship_tos without action
    */
-  export type ship_toDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ship_tosDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ship_to
+     * Select specific fields to fetch from the ship_tos
      */
-    select?: ship_toSelect<ExtArgs> | null
+    select?: ship_tosSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the ship_to
+     * Omit specific fields from the ship_tos
      */
-    omit?: ship_toOmit<ExtArgs> | null
+    omit?: ship_tosOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ship_toInclude<ExtArgs> | null
+    include?: ship_tosInclude<ExtArgs> | null
   }
 
 
@@ -57374,19 +58515,29 @@ export namespace Prisma {
   export type CustomersScalarFieldEnum = (typeof CustomersScalarFieldEnum)[keyof typeof CustomersScalarFieldEnum]
 
 
-  export const Ship_toScalarFieldEnum: {
+  export const Sale_office_customersScalarFieldEnum: {
     id: 'id',
-    site_short_code: 'site_short_code',
-    name_th: 'name_th',
-    name_en: 'name_en',
+    sale_office_id: 'sale_office_id',
     customer_id: 'customer_id',
-    ship_to_id: 'ship_to_id',
     status: 'status',
     create_at: 'create_at',
     update_at: 'update_at'
   };
 
-  export type Ship_toScalarFieldEnum = (typeof Ship_toScalarFieldEnum)[keyof typeof Ship_toScalarFieldEnum]
+  export type Sale_office_customersScalarFieldEnum = (typeof Sale_office_customersScalarFieldEnum)[keyof typeof Sale_office_customersScalarFieldEnum]
+
+
+  export const Ship_tosScalarFieldEnum: {
+    id: 'id',
+    ship_to_code: 'ship_to_code',
+    sale_office_customer_id: 'sale_office_customer_id',
+    description: 'description',
+    status: 'status',
+    create_at: 'create_at',
+    update_at: 'update_at'
+  };
+
+  export type Ship_tosScalarFieldEnum = (typeof Ship_tosScalarFieldEnum)[keyof typeof Ship_tosScalarFieldEnum]
 
 
   export const Payment_typesScalarFieldEnum: {
@@ -57810,13 +58961,12 @@ export namespace Prisma {
   export type customersOrderByRelevanceFieldEnum = (typeof customersOrderByRelevanceFieldEnum)[keyof typeof customersOrderByRelevanceFieldEnum]
 
 
-  export const ship_toOrderByRelevanceFieldEnum: {
-    site_short_code: 'site_short_code',
-    name_th: 'name_th',
-    name_en: 'name_en'
+  export const ship_tosOrderByRelevanceFieldEnum: {
+    ship_to_code: 'ship_to_code',
+    description: 'description'
   };
 
-  export type ship_toOrderByRelevanceFieldEnum = (typeof ship_toOrderByRelevanceFieldEnum)[keyof typeof ship_toOrderByRelevanceFieldEnum]
+  export type ship_tosOrderByRelevanceFieldEnum = (typeof ship_tosOrderByRelevanceFieldEnum)[keyof typeof ship_tosOrderByRelevanceFieldEnum]
 
 
   export const payment_typesOrderByRelevanceFieldEnum: {
@@ -58244,6 +59394,7 @@ export namespace Prisma {
     round_time_clean?: Round_time_cleanListRelationFilter
     factory_sale_office?: Factory_sale_officeListRelationFilter
     stock_locations?: Stock_locationsListRelationFilter
+    sale_office_customers?: Sale_office_customersListRelationFilter
   }
 
   export type sale_officesOrderByWithRelationInput = {
@@ -58264,6 +59415,7 @@ export namespace Prisma {
     round_time_clean?: round_time_cleanOrderByRelationAggregateInput
     factory_sale_office?: factory_sale_officeOrderByRelationAggregateInput
     stock_locations?: stock_locationsOrderByRelationAggregateInput
+    sale_office_customers?: sale_office_customersOrderByRelationAggregateInput
     _relevance?: sale_officesOrderByRelevanceInput
   }
 
@@ -58288,6 +59440,7 @@ export namespace Prisma {
     round_time_clean?: Round_time_cleanListRelationFilter
     factory_sale_office?: Factory_sale_officeListRelationFilter
     stock_locations?: Stock_locationsListRelationFilter
+    sale_office_customers?: Sale_office_customersListRelationFilter
   }, "id">
 
   export type sale_officesOrderByWithAggregationInput = {
@@ -61829,7 +62982,7 @@ export namespace Prisma {
     update_at?: DateTimeFilter<"customers"> | Date | string
     payment_type?: XOR<Payment_typesNullableScalarRelationFilter, payment_typesWhereInput> | null
     customer_group?: XOR<Customer_groupsNullableScalarRelationFilter, customer_groupsWhereInput> | null
-    ship_tos?: Ship_toListRelationFilter
+    sale_office_customers?: Sale_office_customersListRelationFilter
   }
 
   export type customersOrderByWithRelationInput = {
@@ -61855,7 +63008,7 @@ export namespace Prisma {
     update_at?: SortOrder
     payment_type?: payment_typesOrderByWithRelationInput
     customer_group?: customer_groupsOrderByWithRelationInput
-    ship_tos?: ship_toOrderByRelationAggregateInput
+    sale_office_customers?: sale_office_customersOrderByRelationAggregateInput
     _relevance?: customersOrderByRelevanceInput
   }
 
@@ -61885,7 +63038,7 @@ export namespace Prisma {
     update_at?: DateTimeFilter<"customers"> | Date | string
     payment_type?: XOR<Payment_typesNullableScalarRelationFilter, payment_typesWhereInput> | null
     customer_group?: XOR<Customer_groupsNullableScalarRelationFilter, customer_groupsWhereInput> | null
-    ship_tos?: Ship_toListRelationFilter
+    sale_office_customers?: Sale_office_customersListRelationFilter
   }, "id">
 
   export type customersOrderByWithAggregationInput = {
@@ -61942,82 +63095,140 @@ export namespace Prisma {
     update_at?: DateTimeWithAggregatesFilter<"customers"> | Date | string
   }
 
-  export type ship_toWhereInput = {
-    AND?: ship_toWhereInput | ship_toWhereInput[]
-    OR?: ship_toWhereInput[]
-    NOT?: ship_toWhereInput | ship_toWhereInput[]
-    id?: IntFilter<"ship_to"> | number
-    site_short_code?: StringFilter<"ship_to"> | string
-    name_th?: StringFilter<"ship_to"> | string
-    name_en?: StringNullableFilter<"ship_to"> | string | null
-    customer_id?: IntFilter<"ship_to"> | number
-    ship_to_id?: IntFilter<"ship_to"> | number
-    status?: BoolFilter<"ship_to"> | boolean
-    create_at?: DateTimeFilter<"ship_to"> | Date | string
-    update_at?: DateTimeFilter<"ship_to"> | Date | string
+  export type sale_office_customersWhereInput = {
+    AND?: sale_office_customersWhereInput | sale_office_customersWhereInput[]
+    OR?: sale_office_customersWhereInput[]
+    NOT?: sale_office_customersWhereInput | sale_office_customersWhereInput[]
+    id?: IntFilter<"sale_office_customers"> | number
+    sale_office_id?: IntFilter<"sale_office_customers"> | number
+    customer_id?: IntFilter<"sale_office_customers"> | number
+    status?: BoolFilter<"sale_office_customers"> | boolean
+    create_at?: DateTimeFilter<"sale_office_customers"> | Date | string
+    update_at?: DateTimeFilter<"sale_office_customers"> | Date | string
+    sale_office?: XOR<Sale_officesScalarRelationFilter, sale_officesWhereInput>
     customer?: XOR<CustomersScalarRelationFilter, customersWhereInput>
+    ship_to?: Ship_tosListRelationFilter
   }
 
-  export type ship_toOrderByWithRelationInput = {
+  export type sale_office_customersOrderByWithRelationInput = {
     id?: SortOrder
-    site_short_code?: SortOrder
-    name_th?: SortOrder
-    name_en?: SortOrderInput | SortOrder
+    sale_office_id?: SortOrder
     customer_id?: SortOrder
-    ship_to_id?: SortOrder
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
+    sale_office?: sale_officesOrderByWithRelationInput
     customer?: customersOrderByWithRelationInput
-    _relevance?: ship_toOrderByRelevanceInput
+    ship_to?: ship_tosOrderByRelationAggregateInput
   }
 
-  export type ship_toWhereUniqueInput = Prisma.AtLeast<{
+  export type sale_office_customersWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    AND?: ship_toWhereInput | ship_toWhereInput[]
-    OR?: ship_toWhereInput[]
-    NOT?: ship_toWhereInput | ship_toWhereInput[]
-    site_short_code?: StringFilter<"ship_to"> | string
-    name_th?: StringFilter<"ship_to"> | string
-    name_en?: StringNullableFilter<"ship_to"> | string | null
-    customer_id?: IntFilter<"ship_to"> | number
-    ship_to_id?: IntFilter<"ship_to"> | number
-    status?: BoolFilter<"ship_to"> | boolean
-    create_at?: DateTimeFilter<"ship_to"> | Date | string
-    update_at?: DateTimeFilter<"ship_to"> | Date | string
+    AND?: sale_office_customersWhereInput | sale_office_customersWhereInput[]
+    OR?: sale_office_customersWhereInput[]
+    NOT?: sale_office_customersWhereInput | sale_office_customersWhereInput[]
+    sale_office_id?: IntFilter<"sale_office_customers"> | number
+    customer_id?: IntFilter<"sale_office_customers"> | number
+    status?: BoolFilter<"sale_office_customers"> | boolean
+    create_at?: DateTimeFilter<"sale_office_customers"> | Date | string
+    update_at?: DateTimeFilter<"sale_office_customers"> | Date | string
+    sale_office?: XOR<Sale_officesScalarRelationFilter, sale_officesWhereInput>
     customer?: XOR<CustomersScalarRelationFilter, customersWhereInput>
+    ship_to?: Ship_tosListRelationFilter
   }, "id">
 
-  export type ship_toOrderByWithAggregationInput = {
+  export type sale_office_customersOrderByWithAggregationInput = {
     id?: SortOrder
-    site_short_code?: SortOrder
-    name_th?: SortOrder
-    name_en?: SortOrderInput | SortOrder
+    sale_office_id?: SortOrder
     customer_id?: SortOrder
-    ship_to_id?: SortOrder
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
-    _count?: ship_toCountOrderByAggregateInput
-    _avg?: ship_toAvgOrderByAggregateInput
-    _max?: ship_toMaxOrderByAggregateInput
-    _min?: ship_toMinOrderByAggregateInput
-    _sum?: ship_toSumOrderByAggregateInput
+    _count?: sale_office_customersCountOrderByAggregateInput
+    _avg?: sale_office_customersAvgOrderByAggregateInput
+    _max?: sale_office_customersMaxOrderByAggregateInput
+    _min?: sale_office_customersMinOrderByAggregateInput
+    _sum?: sale_office_customersSumOrderByAggregateInput
   }
 
-  export type ship_toScalarWhereWithAggregatesInput = {
-    AND?: ship_toScalarWhereWithAggregatesInput | ship_toScalarWhereWithAggregatesInput[]
-    OR?: ship_toScalarWhereWithAggregatesInput[]
-    NOT?: ship_toScalarWhereWithAggregatesInput | ship_toScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"ship_to"> | number
-    site_short_code?: StringWithAggregatesFilter<"ship_to"> | string
-    name_th?: StringWithAggregatesFilter<"ship_to"> | string
-    name_en?: StringNullableWithAggregatesFilter<"ship_to"> | string | null
-    customer_id?: IntWithAggregatesFilter<"ship_to"> | number
-    ship_to_id?: IntWithAggregatesFilter<"ship_to"> | number
-    status?: BoolWithAggregatesFilter<"ship_to"> | boolean
-    create_at?: DateTimeWithAggregatesFilter<"ship_to"> | Date | string
-    update_at?: DateTimeWithAggregatesFilter<"ship_to"> | Date | string
+  export type sale_office_customersScalarWhereWithAggregatesInput = {
+    AND?: sale_office_customersScalarWhereWithAggregatesInput | sale_office_customersScalarWhereWithAggregatesInput[]
+    OR?: sale_office_customersScalarWhereWithAggregatesInput[]
+    NOT?: sale_office_customersScalarWhereWithAggregatesInput | sale_office_customersScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"sale_office_customers"> | number
+    sale_office_id?: IntWithAggregatesFilter<"sale_office_customers"> | number
+    customer_id?: IntWithAggregatesFilter<"sale_office_customers"> | number
+    status?: BoolWithAggregatesFilter<"sale_office_customers"> | boolean
+    create_at?: DateTimeWithAggregatesFilter<"sale_office_customers"> | Date | string
+    update_at?: DateTimeWithAggregatesFilter<"sale_office_customers"> | Date | string
+  }
+
+  export type ship_tosWhereInput = {
+    AND?: ship_tosWhereInput | ship_tosWhereInput[]
+    OR?: ship_tosWhereInput[]
+    NOT?: ship_tosWhereInput | ship_tosWhereInput[]
+    id?: IntFilter<"ship_tos"> | number
+    ship_to_code?: StringFilter<"ship_tos"> | string
+    sale_office_customer_id?: IntFilter<"ship_tos"> | number
+    description?: StringNullableFilter<"ship_tos"> | string | null
+    status?: BoolFilter<"ship_tos"> | boolean
+    create_at?: DateTimeFilter<"ship_tos"> | Date | string
+    update_at?: DateTimeFilter<"ship_tos"> | Date | string
+    sale_office_customer?: XOR<Sale_office_customersScalarRelationFilter, sale_office_customersWhereInput>
+  }
+
+  export type ship_tosOrderByWithRelationInput = {
+    id?: SortOrder
+    ship_to_code?: SortOrder
+    sale_office_customer_id?: SortOrder
+    description?: SortOrderInput | SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+    sale_office_customer?: sale_office_customersOrderByWithRelationInput
+    _relevance?: ship_tosOrderByRelevanceInput
+  }
+
+  export type ship_tosWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: ship_tosWhereInput | ship_tosWhereInput[]
+    OR?: ship_tosWhereInput[]
+    NOT?: ship_tosWhereInput | ship_tosWhereInput[]
+    ship_to_code?: StringFilter<"ship_tos"> | string
+    sale_office_customer_id?: IntFilter<"ship_tos"> | number
+    description?: StringNullableFilter<"ship_tos"> | string | null
+    status?: BoolFilter<"ship_tos"> | boolean
+    create_at?: DateTimeFilter<"ship_tos"> | Date | string
+    update_at?: DateTimeFilter<"ship_tos"> | Date | string
+    sale_office_customer?: XOR<Sale_office_customersScalarRelationFilter, sale_office_customersWhereInput>
+  }, "id">
+
+  export type ship_tosOrderByWithAggregationInput = {
+    id?: SortOrder
+    ship_to_code?: SortOrder
+    sale_office_customer_id?: SortOrder
+    description?: SortOrderInput | SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+    _count?: ship_tosCountOrderByAggregateInput
+    _avg?: ship_tosAvgOrderByAggregateInput
+    _max?: ship_tosMaxOrderByAggregateInput
+    _min?: ship_tosMinOrderByAggregateInput
+    _sum?: ship_tosSumOrderByAggregateInput
+  }
+
+  export type ship_tosScalarWhereWithAggregatesInput = {
+    AND?: ship_tosScalarWhereWithAggregatesInput | ship_tosScalarWhereWithAggregatesInput[]
+    OR?: ship_tosScalarWhereWithAggregatesInput[]
+    NOT?: ship_tosScalarWhereWithAggregatesInput | ship_tosScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"ship_tos"> | number
+    ship_to_code?: StringWithAggregatesFilter<"ship_tos"> | string
+    sale_office_customer_id?: IntWithAggregatesFilter<"ship_tos"> | number
+    description?: StringNullableWithAggregatesFilter<"ship_tos"> | string | null
+    status?: BoolWithAggregatesFilter<"ship_tos"> | boolean
+    create_at?: DateTimeWithAggregatesFilter<"ship_tos"> | Date | string
+    update_at?: DateTimeWithAggregatesFilter<"ship_tos"> | Date | string
   }
 
   export type payment_typesWhereInput = {
@@ -62482,6 +63693,7 @@ export namespace Prisma {
     round_time_clean?: round_time_cleanCreateNestedManyWithoutSale_officeInput
     factory_sale_office?: factory_sale_officeCreateNestedManyWithoutSale_officeInput
     stock_locations?: stock_locationsCreateNestedManyWithoutSale_officeInput
+    sale_office_customers?: sale_office_customersCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesUncheckedCreateInput = {
@@ -62502,6 +63714,7 @@ export namespace Prisma {
     round_time_clean?: round_time_cleanUncheckedCreateNestedManyWithoutSale_officeInput
     factory_sale_office?: factory_sale_officeUncheckedCreateNestedManyWithoutSale_officeInput
     stock_locations?: stock_locationsUncheckedCreateNestedManyWithoutSale_officeInput
+    sale_office_customers?: sale_office_customersUncheckedCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesUpdateInput = {
@@ -62521,6 +63734,7 @@ export namespace Prisma {
     round_time_clean?: round_time_cleanUpdateManyWithoutSale_officeNestedInput
     factory_sale_office?: factory_sale_officeUpdateManyWithoutSale_officeNestedInput
     stock_locations?: stock_locationsUpdateManyWithoutSale_officeNestedInput
+    sale_office_customers?: sale_office_customersUpdateManyWithoutSale_officeNestedInput
   }
 
   export type sale_officesUncheckedUpdateInput = {
@@ -62541,6 +63755,7 @@ export namespace Prisma {
     round_time_clean?: round_time_cleanUncheckedUpdateManyWithoutSale_officeNestedInput
     factory_sale_office?: factory_sale_officeUncheckedUpdateManyWithoutSale_officeNestedInput
     stock_locations?: stock_locationsUncheckedUpdateManyWithoutSale_officeNestedInput
+    sale_office_customers?: sale_office_customersUncheckedUpdateManyWithoutSale_officeNestedInput
   }
 
   export type sale_officesCreateManyInput = {
@@ -66392,7 +67607,7 @@ export namespace Prisma {
     update_at?: Date | string
     payment_type?: payment_typesCreateNestedOneWithoutCustomersInput
     customer_group?: customer_groupsCreateNestedOneWithoutCustomersInput
-    ship_tos?: ship_toCreateNestedManyWithoutCustomerInput
+    sale_office_customers?: sale_office_customersCreateNestedManyWithoutCustomerInput
   }
 
   export type customersUncheckedCreateInput = {
@@ -66416,7 +67631,7 @@ export namespace Prisma {
     status?: boolean
     create_at?: Date | string
     update_at?: Date | string
-    ship_tos?: ship_toUncheckedCreateNestedManyWithoutCustomerInput
+    sale_office_customers?: sale_office_customersUncheckedCreateNestedManyWithoutCustomerInput
   }
 
   export type customersUpdateInput = {
@@ -66439,7 +67654,7 @@ export namespace Prisma {
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
     payment_type?: payment_typesUpdateOneWithoutCustomersNestedInput
     customer_group?: customer_groupsUpdateOneWithoutCustomersNestedInput
-    ship_tos?: ship_toUpdateManyWithoutCustomerNestedInput
+    sale_office_customers?: sale_office_customersUpdateManyWithoutCustomerNestedInput
   }
 
   export type customersUncheckedUpdateInput = {
@@ -66463,7 +67678,7 @@ export namespace Prisma {
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    ship_tos?: ship_toUncheckedUpdateManyWithoutCustomerNestedInput
+    sale_office_customers?: sale_office_customersUncheckedUpdateManyWithoutCustomerNestedInput
   }
 
   export type customersCreateManyInput = {
@@ -66532,81 +67747,129 @@ export namespace Prisma {
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type ship_toCreateInput = {
-    site_short_code: string
-    name_th: string
-    name_en?: string | null
-    ship_to_id: number
+  export type sale_office_customersCreateInput = {
     status?: boolean
     create_at?: Date | string
     update_at?: Date | string
-    customer: customersCreateNestedOneWithoutShip_tosInput
+    sale_office: sale_officesCreateNestedOneWithoutSale_office_customersInput
+    customer: customersCreateNestedOneWithoutSale_office_customersInput
+    ship_to?: ship_tosCreateNestedManyWithoutSale_office_customerInput
   }
 
-  export type ship_toUncheckedCreateInput = {
+  export type sale_office_customersUncheckedCreateInput = {
     id?: number
-    site_short_code: string
-    name_th: string
-    name_en?: string | null
+    sale_office_id: number
     customer_id: number
-    ship_to_id: number
     status?: boolean
     create_at?: Date | string
     update_at?: Date | string
+    ship_to?: ship_tosUncheckedCreateNestedManyWithoutSale_office_customerInput
   }
 
-  export type ship_toUpdateInput = {
-    site_short_code?: StringFieldUpdateOperationsInput | string
-    name_th?: StringFieldUpdateOperationsInput | string
-    name_en?: NullableStringFieldUpdateOperationsInput | string | null
-    ship_to_id?: IntFieldUpdateOperationsInput | number
+  export type sale_office_customersUpdateInput = {
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    customer?: customersUpdateOneRequiredWithoutShip_tosNestedInput
+    sale_office?: sale_officesUpdateOneRequiredWithoutSale_office_customersNestedInput
+    customer?: customersUpdateOneRequiredWithoutSale_office_customersNestedInput
+    ship_to?: ship_tosUpdateManyWithoutSale_office_customerNestedInput
   }
 
-  export type ship_toUncheckedUpdateInput = {
+  export type sale_office_customersUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    site_short_code?: StringFieldUpdateOperationsInput | string
-    name_th?: StringFieldUpdateOperationsInput | string
-    name_en?: NullableStringFieldUpdateOperationsInput | string | null
+    sale_office_id?: IntFieldUpdateOperationsInput | number
     customer_id?: IntFieldUpdateOperationsInput | number
-    ship_to_id?: IntFieldUpdateOperationsInput | number
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    ship_to?: ship_tosUncheckedUpdateManyWithoutSale_office_customerNestedInput
   }
 
-  export type ship_toCreateManyInput = {
+  export type sale_office_customersCreateManyInput = {
     id?: number
-    site_short_code: string
-    name_th: string
-    name_en?: string | null
+    sale_office_id: number
     customer_id: number
-    ship_to_id: number
     status?: boolean
     create_at?: Date | string
     update_at?: Date | string
   }
 
-  export type ship_toUpdateManyMutationInput = {
-    site_short_code?: StringFieldUpdateOperationsInput | string
-    name_th?: StringFieldUpdateOperationsInput | string
-    name_en?: NullableStringFieldUpdateOperationsInput | string | null
-    ship_to_id?: IntFieldUpdateOperationsInput | number
+  export type sale_office_customersUpdateManyMutationInput = {
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type ship_toUncheckedUpdateManyInput = {
+  export type sale_office_customersUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    site_short_code?: StringFieldUpdateOperationsInput | string
-    name_th?: StringFieldUpdateOperationsInput | string
-    name_en?: NullableStringFieldUpdateOperationsInput | string | null
+    sale_office_id?: IntFieldUpdateOperationsInput | number
     customer_id?: IntFieldUpdateOperationsInput | number
-    ship_to_id?: IntFieldUpdateOperationsInput | number
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ship_tosCreateInput = {
+    ship_to_code: string
+    description?: string | null
+    status?: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    sale_office_customer: sale_office_customersCreateNestedOneWithoutShip_toInput
+  }
+
+  export type ship_tosUncheckedCreateInput = {
+    id?: number
+    ship_to_code: string
+    sale_office_customer_id: number
+    description?: string | null
+    status?: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type ship_tosUpdateInput = {
+    ship_to_code?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    sale_office_customer?: sale_office_customersUpdateOneRequiredWithoutShip_toNestedInput
+  }
+
+  export type ship_tosUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    ship_to_code?: StringFieldUpdateOperationsInput | string
+    sale_office_customer_id?: IntFieldUpdateOperationsInput | number
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ship_tosCreateManyInput = {
+    id?: number
+    ship_to_code: string
+    sale_office_customer_id: number
+    description?: string | null
+    status?: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type ship_tosUpdateManyMutationInput = {
+    ship_to_code?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ship_tosUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    ship_to_code?: StringFieldUpdateOperationsInput | string
+    sale_office_customer_id?: IntFieldUpdateOperationsInput | number
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -67132,6 +68395,12 @@ export namespace Prisma {
     none?: stock_locationsWhereInput
   }
 
+  export type Sale_office_customersListRelationFilter = {
+    every?: sale_office_customersWhereInput
+    some?: sale_office_customersWhereInput
+    none?: sale_office_customersWhereInput
+  }
+
   export type departmentsOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -67157,6 +68426,10 @@ export namespace Prisma {
   }
 
   export type stock_locationsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type sale_office_customersOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -69917,16 +71190,6 @@ export namespace Prisma {
     isNot?: customer_groupsWhereInput | null
   }
 
-  export type Ship_toListRelationFilter = {
-    every?: ship_toWhereInput
-    some?: ship_toWhereInput
-    none?: ship_toWhereInput
-  }
-
-  export type ship_toOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
   export type customersOrderByRelevanceInput = {
     fields: customersOrderByRelevanceFieldEnum | customersOrderByRelevanceFieldEnum[]
     sort: SortOrder
@@ -70023,58 +71286,104 @@ export namespace Prisma {
     isNot?: customersWhereInput
   }
 
-  export type ship_toOrderByRelevanceInput = {
-    fields: ship_toOrderByRelevanceFieldEnum | ship_toOrderByRelevanceFieldEnum[]
+  export type Ship_tosListRelationFilter = {
+    every?: ship_tosWhereInput
+    some?: ship_tosWhereInput
+    none?: ship_tosWhereInput
+  }
+
+  export type ship_tosOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type sale_office_customersCountOrderByAggregateInput = {
+    id?: SortOrder
+    sale_office_id?: SortOrder
+    customer_id?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+  }
+
+  export type sale_office_customersAvgOrderByAggregateInput = {
+    id?: SortOrder
+    sale_office_id?: SortOrder
+    customer_id?: SortOrder
+  }
+
+  export type sale_office_customersMaxOrderByAggregateInput = {
+    id?: SortOrder
+    sale_office_id?: SortOrder
+    customer_id?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+  }
+
+  export type sale_office_customersMinOrderByAggregateInput = {
+    id?: SortOrder
+    sale_office_id?: SortOrder
+    customer_id?: SortOrder
+    status?: SortOrder
+    create_at?: SortOrder
+    update_at?: SortOrder
+  }
+
+  export type sale_office_customersSumOrderByAggregateInput = {
+    id?: SortOrder
+    sale_office_id?: SortOrder
+    customer_id?: SortOrder
+  }
+
+  export type Sale_office_customersScalarRelationFilter = {
+    is?: sale_office_customersWhereInput
+    isNot?: sale_office_customersWhereInput
+  }
+
+  export type ship_tosOrderByRelevanceInput = {
+    fields: ship_tosOrderByRelevanceFieldEnum | ship_tosOrderByRelevanceFieldEnum[]
     sort: SortOrder
     search: string
   }
 
-  export type ship_toCountOrderByAggregateInput = {
+  export type ship_tosCountOrderByAggregateInput = {
     id?: SortOrder
-    site_short_code?: SortOrder
-    name_th?: SortOrder
-    name_en?: SortOrder
-    customer_id?: SortOrder
-    ship_to_id?: SortOrder
+    ship_to_code?: SortOrder
+    sale_office_customer_id?: SortOrder
+    description?: SortOrder
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
   }
 
-  export type ship_toAvgOrderByAggregateInput = {
+  export type ship_tosAvgOrderByAggregateInput = {
     id?: SortOrder
-    customer_id?: SortOrder
-    ship_to_id?: SortOrder
+    sale_office_customer_id?: SortOrder
   }
 
-  export type ship_toMaxOrderByAggregateInput = {
+  export type ship_tosMaxOrderByAggregateInput = {
     id?: SortOrder
-    site_short_code?: SortOrder
-    name_th?: SortOrder
-    name_en?: SortOrder
-    customer_id?: SortOrder
-    ship_to_id?: SortOrder
+    ship_to_code?: SortOrder
+    sale_office_customer_id?: SortOrder
+    description?: SortOrder
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
   }
 
-  export type ship_toMinOrderByAggregateInput = {
+  export type ship_tosMinOrderByAggregateInput = {
     id?: SortOrder
-    site_short_code?: SortOrder
-    name_th?: SortOrder
-    name_en?: SortOrder
-    customer_id?: SortOrder
-    ship_to_id?: SortOrder
+    ship_to_code?: SortOrder
+    sale_office_customer_id?: SortOrder
+    description?: SortOrder
     status?: SortOrder
     create_at?: SortOrder
     update_at?: SortOrder
   }
 
-  export type ship_toSumOrderByAggregateInput = {
+  export type ship_tosSumOrderByAggregateInput = {
     id?: SortOrder
-    customer_id?: SortOrder
-    ship_to_id?: SortOrder
+    sale_office_customer_id?: SortOrder
   }
 
   export type payment_typesOrderByRelevanceInput = {
@@ -70247,6 +71556,13 @@ export namespace Prisma {
     connect?: stock_locationsWhereUniqueInput | stock_locationsWhereUniqueInput[]
   }
 
+  export type sale_office_customersCreateNestedManyWithoutSale_officeInput = {
+    create?: XOR<sale_office_customersCreateWithoutSale_officeInput, sale_office_customersUncheckedCreateWithoutSale_officeInput> | sale_office_customersCreateWithoutSale_officeInput[] | sale_office_customersUncheckedCreateWithoutSale_officeInput[]
+    connectOrCreate?: sale_office_customersCreateOrConnectWithoutSale_officeInput | sale_office_customersCreateOrConnectWithoutSale_officeInput[]
+    createMany?: sale_office_customersCreateManySale_officeInputEnvelope
+    connect?: sale_office_customersWhereUniqueInput | sale_office_customersWhereUniqueInput[]
+  }
+
   export type departmentsUncheckedCreateNestedManyWithoutSale_officeInput = {
     create?: XOR<departmentsCreateWithoutSale_officeInput, departmentsUncheckedCreateWithoutSale_officeInput> | departmentsCreateWithoutSale_officeInput[] | departmentsUncheckedCreateWithoutSale_officeInput[]
     connectOrCreate?: departmentsCreateOrConnectWithoutSale_officeInput | departmentsCreateOrConnectWithoutSale_officeInput[]
@@ -70301,6 +71617,13 @@ export namespace Prisma {
     connectOrCreate?: stock_locationsCreateOrConnectWithoutSale_officeInput | stock_locationsCreateOrConnectWithoutSale_officeInput[]
     createMany?: stock_locationsCreateManySale_officeInputEnvelope
     connect?: stock_locationsWhereUniqueInput | stock_locationsWhereUniqueInput[]
+  }
+
+  export type sale_office_customersUncheckedCreateNestedManyWithoutSale_officeInput = {
+    create?: XOR<sale_office_customersCreateWithoutSale_officeInput, sale_office_customersUncheckedCreateWithoutSale_officeInput> | sale_office_customersCreateWithoutSale_officeInput[] | sale_office_customersUncheckedCreateWithoutSale_officeInput[]
+    connectOrCreate?: sale_office_customersCreateOrConnectWithoutSale_officeInput | sale_office_customersCreateOrConnectWithoutSale_officeInput[]
+    createMany?: sale_office_customersCreateManySale_officeInputEnvelope
+    connect?: sale_office_customersWhereUniqueInput | sale_office_customersWhereUniqueInput[]
   }
 
   export type departmentsUpdateManyWithoutSale_officeNestedInput = {
@@ -70415,6 +71738,20 @@ export namespace Prisma {
     deleteMany?: stock_locationsScalarWhereInput | stock_locationsScalarWhereInput[]
   }
 
+  export type sale_office_customersUpdateManyWithoutSale_officeNestedInput = {
+    create?: XOR<sale_office_customersCreateWithoutSale_officeInput, sale_office_customersUncheckedCreateWithoutSale_officeInput> | sale_office_customersCreateWithoutSale_officeInput[] | sale_office_customersUncheckedCreateWithoutSale_officeInput[]
+    connectOrCreate?: sale_office_customersCreateOrConnectWithoutSale_officeInput | sale_office_customersCreateOrConnectWithoutSale_officeInput[]
+    upsert?: sale_office_customersUpsertWithWhereUniqueWithoutSale_officeInput | sale_office_customersUpsertWithWhereUniqueWithoutSale_officeInput[]
+    createMany?: sale_office_customersCreateManySale_officeInputEnvelope
+    set?: sale_office_customersWhereUniqueInput | sale_office_customersWhereUniqueInput[]
+    disconnect?: sale_office_customersWhereUniqueInput | sale_office_customersWhereUniqueInput[]
+    delete?: sale_office_customersWhereUniqueInput | sale_office_customersWhereUniqueInput[]
+    connect?: sale_office_customersWhereUniqueInput | sale_office_customersWhereUniqueInput[]
+    update?: sale_office_customersUpdateWithWhereUniqueWithoutSale_officeInput | sale_office_customersUpdateWithWhereUniqueWithoutSale_officeInput[]
+    updateMany?: sale_office_customersUpdateManyWithWhereWithoutSale_officeInput | sale_office_customersUpdateManyWithWhereWithoutSale_officeInput[]
+    deleteMany?: sale_office_customersScalarWhereInput | sale_office_customersScalarWhereInput[]
+  }
+
   export type departmentsUncheckedUpdateManyWithoutSale_officeNestedInput = {
     create?: XOR<departmentsCreateWithoutSale_officeInput, departmentsUncheckedCreateWithoutSale_officeInput> | departmentsCreateWithoutSale_officeInput[] | departmentsUncheckedCreateWithoutSale_officeInput[]
     connectOrCreate?: departmentsCreateOrConnectWithoutSale_officeInput | departmentsCreateOrConnectWithoutSale_officeInput[]
@@ -70525,6 +71862,20 @@ export namespace Prisma {
     update?: stock_locationsUpdateWithWhereUniqueWithoutSale_officeInput | stock_locationsUpdateWithWhereUniqueWithoutSale_officeInput[]
     updateMany?: stock_locationsUpdateManyWithWhereWithoutSale_officeInput | stock_locationsUpdateManyWithWhereWithoutSale_officeInput[]
     deleteMany?: stock_locationsScalarWhereInput | stock_locationsScalarWhereInput[]
+  }
+
+  export type sale_office_customersUncheckedUpdateManyWithoutSale_officeNestedInput = {
+    create?: XOR<sale_office_customersCreateWithoutSale_officeInput, sale_office_customersUncheckedCreateWithoutSale_officeInput> | sale_office_customersCreateWithoutSale_officeInput[] | sale_office_customersUncheckedCreateWithoutSale_officeInput[]
+    connectOrCreate?: sale_office_customersCreateOrConnectWithoutSale_officeInput | sale_office_customersCreateOrConnectWithoutSale_officeInput[]
+    upsert?: sale_office_customersUpsertWithWhereUniqueWithoutSale_officeInput | sale_office_customersUpsertWithWhereUniqueWithoutSale_officeInput[]
+    createMany?: sale_office_customersCreateManySale_officeInputEnvelope
+    set?: sale_office_customersWhereUniqueInput | sale_office_customersWhereUniqueInput[]
+    disconnect?: sale_office_customersWhereUniqueInput | sale_office_customersWhereUniqueInput[]
+    delete?: sale_office_customersWhereUniqueInput | sale_office_customersWhereUniqueInput[]
+    connect?: sale_office_customersWhereUniqueInput | sale_office_customersWhereUniqueInput[]
+    update?: sale_office_customersUpdateWithWhereUniqueWithoutSale_officeInput | sale_office_customersUpdateWithWhereUniqueWithoutSale_officeInput[]
+    updateMany?: sale_office_customersUpdateManyWithWhereWithoutSale_officeInput | sale_office_customersUpdateManyWithWhereWithoutSale_officeInput[]
+    deleteMany?: sale_office_customersScalarWhereInput | sale_office_customersScalarWhereInput[]
   }
 
   export type sale_officesCreateNestedOneWithoutUser_sale_officeInput = {
@@ -71305,18 +72656,18 @@ export namespace Prisma {
     connect?: customer_groupsWhereUniqueInput
   }
 
-  export type ship_toCreateNestedManyWithoutCustomerInput = {
-    create?: XOR<ship_toCreateWithoutCustomerInput, ship_toUncheckedCreateWithoutCustomerInput> | ship_toCreateWithoutCustomerInput[] | ship_toUncheckedCreateWithoutCustomerInput[]
-    connectOrCreate?: ship_toCreateOrConnectWithoutCustomerInput | ship_toCreateOrConnectWithoutCustomerInput[]
-    createMany?: ship_toCreateManyCustomerInputEnvelope
-    connect?: ship_toWhereUniqueInput | ship_toWhereUniqueInput[]
+  export type sale_office_customersCreateNestedManyWithoutCustomerInput = {
+    create?: XOR<sale_office_customersCreateWithoutCustomerInput, sale_office_customersUncheckedCreateWithoutCustomerInput> | sale_office_customersCreateWithoutCustomerInput[] | sale_office_customersUncheckedCreateWithoutCustomerInput[]
+    connectOrCreate?: sale_office_customersCreateOrConnectWithoutCustomerInput | sale_office_customersCreateOrConnectWithoutCustomerInput[]
+    createMany?: sale_office_customersCreateManyCustomerInputEnvelope
+    connect?: sale_office_customersWhereUniqueInput | sale_office_customersWhereUniqueInput[]
   }
 
-  export type ship_toUncheckedCreateNestedManyWithoutCustomerInput = {
-    create?: XOR<ship_toCreateWithoutCustomerInput, ship_toUncheckedCreateWithoutCustomerInput> | ship_toCreateWithoutCustomerInput[] | ship_toUncheckedCreateWithoutCustomerInput[]
-    connectOrCreate?: ship_toCreateOrConnectWithoutCustomerInput | ship_toCreateOrConnectWithoutCustomerInput[]
-    createMany?: ship_toCreateManyCustomerInputEnvelope
-    connect?: ship_toWhereUniqueInput | ship_toWhereUniqueInput[]
+  export type sale_office_customersUncheckedCreateNestedManyWithoutCustomerInput = {
+    create?: XOR<sale_office_customersCreateWithoutCustomerInput, sale_office_customersUncheckedCreateWithoutCustomerInput> | sale_office_customersCreateWithoutCustomerInput[] | sale_office_customersUncheckedCreateWithoutCustomerInput[]
+    connectOrCreate?: sale_office_customersCreateOrConnectWithoutCustomerInput | sale_office_customersCreateOrConnectWithoutCustomerInput[]
+    createMany?: sale_office_customersCreateManyCustomerInputEnvelope
+    connect?: sale_office_customersWhereUniqueInput | sale_office_customersWhereUniqueInput[]
   }
 
   export type payment_typesUpdateOneWithoutCustomersNestedInput = {
@@ -71339,46 +72690,116 @@ export namespace Prisma {
     update?: XOR<XOR<customer_groupsUpdateToOneWithWhereWithoutCustomersInput, customer_groupsUpdateWithoutCustomersInput>, customer_groupsUncheckedUpdateWithoutCustomersInput>
   }
 
-  export type ship_toUpdateManyWithoutCustomerNestedInput = {
-    create?: XOR<ship_toCreateWithoutCustomerInput, ship_toUncheckedCreateWithoutCustomerInput> | ship_toCreateWithoutCustomerInput[] | ship_toUncheckedCreateWithoutCustomerInput[]
-    connectOrCreate?: ship_toCreateOrConnectWithoutCustomerInput | ship_toCreateOrConnectWithoutCustomerInput[]
-    upsert?: ship_toUpsertWithWhereUniqueWithoutCustomerInput | ship_toUpsertWithWhereUniqueWithoutCustomerInput[]
-    createMany?: ship_toCreateManyCustomerInputEnvelope
-    set?: ship_toWhereUniqueInput | ship_toWhereUniqueInput[]
-    disconnect?: ship_toWhereUniqueInput | ship_toWhereUniqueInput[]
-    delete?: ship_toWhereUniqueInput | ship_toWhereUniqueInput[]
-    connect?: ship_toWhereUniqueInput | ship_toWhereUniqueInput[]
-    update?: ship_toUpdateWithWhereUniqueWithoutCustomerInput | ship_toUpdateWithWhereUniqueWithoutCustomerInput[]
-    updateMany?: ship_toUpdateManyWithWhereWithoutCustomerInput | ship_toUpdateManyWithWhereWithoutCustomerInput[]
-    deleteMany?: ship_toScalarWhereInput | ship_toScalarWhereInput[]
+  export type sale_office_customersUpdateManyWithoutCustomerNestedInput = {
+    create?: XOR<sale_office_customersCreateWithoutCustomerInput, sale_office_customersUncheckedCreateWithoutCustomerInput> | sale_office_customersCreateWithoutCustomerInput[] | sale_office_customersUncheckedCreateWithoutCustomerInput[]
+    connectOrCreate?: sale_office_customersCreateOrConnectWithoutCustomerInput | sale_office_customersCreateOrConnectWithoutCustomerInput[]
+    upsert?: sale_office_customersUpsertWithWhereUniqueWithoutCustomerInput | sale_office_customersUpsertWithWhereUniqueWithoutCustomerInput[]
+    createMany?: sale_office_customersCreateManyCustomerInputEnvelope
+    set?: sale_office_customersWhereUniqueInput | sale_office_customersWhereUniqueInput[]
+    disconnect?: sale_office_customersWhereUniqueInput | sale_office_customersWhereUniqueInput[]
+    delete?: sale_office_customersWhereUniqueInput | sale_office_customersWhereUniqueInput[]
+    connect?: sale_office_customersWhereUniqueInput | sale_office_customersWhereUniqueInput[]
+    update?: sale_office_customersUpdateWithWhereUniqueWithoutCustomerInput | sale_office_customersUpdateWithWhereUniqueWithoutCustomerInput[]
+    updateMany?: sale_office_customersUpdateManyWithWhereWithoutCustomerInput | sale_office_customersUpdateManyWithWhereWithoutCustomerInput[]
+    deleteMany?: sale_office_customersScalarWhereInput | sale_office_customersScalarWhereInput[]
   }
 
-  export type ship_toUncheckedUpdateManyWithoutCustomerNestedInput = {
-    create?: XOR<ship_toCreateWithoutCustomerInput, ship_toUncheckedCreateWithoutCustomerInput> | ship_toCreateWithoutCustomerInput[] | ship_toUncheckedCreateWithoutCustomerInput[]
-    connectOrCreate?: ship_toCreateOrConnectWithoutCustomerInput | ship_toCreateOrConnectWithoutCustomerInput[]
-    upsert?: ship_toUpsertWithWhereUniqueWithoutCustomerInput | ship_toUpsertWithWhereUniqueWithoutCustomerInput[]
-    createMany?: ship_toCreateManyCustomerInputEnvelope
-    set?: ship_toWhereUniqueInput | ship_toWhereUniqueInput[]
-    disconnect?: ship_toWhereUniqueInput | ship_toWhereUniqueInput[]
-    delete?: ship_toWhereUniqueInput | ship_toWhereUniqueInput[]
-    connect?: ship_toWhereUniqueInput | ship_toWhereUniqueInput[]
-    update?: ship_toUpdateWithWhereUniqueWithoutCustomerInput | ship_toUpdateWithWhereUniqueWithoutCustomerInput[]
-    updateMany?: ship_toUpdateManyWithWhereWithoutCustomerInput | ship_toUpdateManyWithWhereWithoutCustomerInput[]
-    deleteMany?: ship_toScalarWhereInput | ship_toScalarWhereInput[]
+  export type sale_office_customersUncheckedUpdateManyWithoutCustomerNestedInput = {
+    create?: XOR<sale_office_customersCreateWithoutCustomerInput, sale_office_customersUncheckedCreateWithoutCustomerInput> | sale_office_customersCreateWithoutCustomerInput[] | sale_office_customersUncheckedCreateWithoutCustomerInput[]
+    connectOrCreate?: sale_office_customersCreateOrConnectWithoutCustomerInput | sale_office_customersCreateOrConnectWithoutCustomerInput[]
+    upsert?: sale_office_customersUpsertWithWhereUniqueWithoutCustomerInput | sale_office_customersUpsertWithWhereUniqueWithoutCustomerInput[]
+    createMany?: sale_office_customersCreateManyCustomerInputEnvelope
+    set?: sale_office_customersWhereUniqueInput | sale_office_customersWhereUniqueInput[]
+    disconnect?: sale_office_customersWhereUniqueInput | sale_office_customersWhereUniqueInput[]
+    delete?: sale_office_customersWhereUniqueInput | sale_office_customersWhereUniqueInput[]
+    connect?: sale_office_customersWhereUniqueInput | sale_office_customersWhereUniqueInput[]
+    update?: sale_office_customersUpdateWithWhereUniqueWithoutCustomerInput | sale_office_customersUpdateWithWhereUniqueWithoutCustomerInput[]
+    updateMany?: sale_office_customersUpdateManyWithWhereWithoutCustomerInput | sale_office_customersUpdateManyWithWhereWithoutCustomerInput[]
+    deleteMany?: sale_office_customersScalarWhereInput | sale_office_customersScalarWhereInput[]
   }
 
-  export type customersCreateNestedOneWithoutShip_tosInput = {
-    create?: XOR<customersCreateWithoutShip_tosInput, customersUncheckedCreateWithoutShip_tosInput>
-    connectOrCreate?: customersCreateOrConnectWithoutShip_tosInput
+  export type sale_officesCreateNestedOneWithoutSale_office_customersInput = {
+    create?: XOR<sale_officesCreateWithoutSale_office_customersInput, sale_officesUncheckedCreateWithoutSale_office_customersInput>
+    connectOrCreate?: sale_officesCreateOrConnectWithoutSale_office_customersInput
+    connect?: sale_officesWhereUniqueInput
+  }
+
+  export type customersCreateNestedOneWithoutSale_office_customersInput = {
+    create?: XOR<customersCreateWithoutSale_office_customersInput, customersUncheckedCreateWithoutSale_office_customersInput>
+    connectOrCreate?: customersCreateOrConnectWithoutSale_office_customersInput
     connect?: customersWhereUniqueInput
   }
 
-  export type customersUpdateOneRequiredWithoutShip_tosNestedInput = {
-    create?: XOR<customersCreateWithoutShip_tosInput, customersUncheckedCreateWithoutShip_tosInput>
-    connectOrCreate?: customersCreateOrConnectWithoutShip_tosInput
-    upsert?: customersUpsertWithoutShip_tosInput
+  export type ship_tosCreateNestedManyWithoutSale_office_customerInput = {
+    create?: XOR<ship_tosCreateWithoutSale_office_customerInput, ship_tosUncheckedCreateWithoutSale_office_customerInput> | ship_tosCreateWithoutSale_office_customerInput[] | ship_tosUncheckedCreateWithoutSale_office_customerInput[]
+    connectOrCreate?: ship_tosCreateOrConnectWithoutSale_office_customerInput | ship_tosCreateOrConnectWithoutSale_office_customerInput[]
+    createMany?: ship_tosCreateManySale_office_customerInputEnvelope
+    connect?: ship_tosWhereUniqueInput | ship_tosWhereUniqueInput[]
+  }
+
+  export type ship_tosUncheckedCreateNestedManyWithoutSale_office_customerInput = {
+    create?: XOR<ship_tosCreateWithoutSale_office_customerInput, ship_tosUncheckedCreateWithoutSale_office_customerInput> | ship_tosCreateWithoutSale_office_customerInput[] | ship_tosUncheckedCreateWithoutSale_office_customerInput[]
+    connectOrCreate?: ship_tosCreateOrConnectWithoutSale_office_customerInput | ship_tosCreateOrConnectWithoutSale_office_customerInput[]
+    createMany?: ship_tosCreateManySale_office_customerInputEnvelope
+    connect?: ship_tosWhereUniqueInput | ship_tosWhereUniqueInput[]
+  }
+
+  export type sale_officesUpdateOneRequiredWithoutSale_office_customersNestedInput = {
+    create?: XOR<sale_officesCreateWithoutSale_office_customersInput, sale_officesUncheckedCreateWithoutSale_office_customersInput>
+    connectOrCreate?: sale_officesCreateOrConnectWithoutSale_office_customersInput
+    upsert?: sale_officesUpsertWithoutSale_office_customersInput
+    connect?: sale_officesWhereUniqueInput
+    update?: XOR<XOR<sale_officesUpdateToOneWithWhereWithoutSale_office_customersInput, sale_officesUpdateWithoutSale_office_customersInput>, sale_officesUncheckedUpdateWithoutSale_office_customersInput>
+  }
+
+  export type customersUpdateOneRequiredWithoutSale_office_customersNestedInput = {
+    create?: XOR<customersCreateWithoutSale_office_customersInput, customersUncheckedCreateWithoutSale_office_customersInput>
+    connectOrCreate?: customersCreateOrConnectWithoutSale_office_customersInput
+    upsert?: customersUpsertWithoutSale_office_customersInput
     connect?: customersWhereUniqueInput
-    update?: XOR<XOR<customersUpdateToOneWithWhereWithoutShip_tosInput, customersUpdateWithoutShip_tosInput>, customersUncheckedUpdateWithoutShip_tosInput>
+    update?: XOR<XOR<customersUpdateToOneWithWhereWithoutSale_office_customersInput, customersUpdateWithoutSale_office_customersInput>, customersUncheckedUpdateWithoutSale_office_customersInput>
+  }
+
+  export type ship_tosUpdateManyWithoutSale_office_customerNestedInput = {
+    create?: XOR<ship_tosCreateWithoutSale_office_customerInput, ship_tosUncheckedCreateWithoutSale_office_customerInput> | ship_tosCreateWithoutSale_office_customerInput[] | ship_tosUncheckedCreateWithoutSale_office_customerInput[]
+    connectOrCreate?: ship_tosCreateOrConnectWithoutSale_office_customerInput | ship_tosCreateOrConnectWithoutSale_office_customerInput[]
+    upsert?: ship_tosUpsertWithWhereUniqueWithoutSale_office_customerInput | ship_tosUpsertWithWhereUniqueWithoutSale_office_customerInput[]
+    createMany?: ship_tosCreateManySale_office_customerInputEnvelope
+    set?: ship_tosWhereUniqueInput | ship_tosWhereUniqueInput[]
+    disconnect?: ship_tosWhereUniqueInput | ship_tosWhereUniqueInput[]
+    delete?: ship_tosWhereUniqueInput | ship_tosWhereUniqueInput[]
+    connect?: ship_tosWhereUniqueInput | ship_tosWhereUniqueInput[]
+    update?: ship_tosUpdateWithWhereUniqueWithoutSale_office_customerInput | ship_tosUpdateWithWhereUniqueWithoutSale_office_customerInput[]
+    updateMany?: ship_tosUpdateManyWithWhereWithoutSale_office_customerInput | ship_tosUpdateManyWithWhereWithoutSale_office_customerInput[]
+    deleteMany?: ship_tosScalarWhereInput | ship_tosScalarWhereInput[]
+  }
+
+  export type ship_tosUncheckedUpdateManyWithoutSale_office_customerNestedInput = {
+    create?: XOR<ship_tosCreateWithoutSale_office_customerInput, ship_tosUncheckedCreateWithoutSale_office_customerInput> | ship_tosCreateWithoutSale_office_customerInput[] | ship_tosUncheckedCreateWithoutSale_office_customerInput[]
+    connectOrCreate?: ship_tosCreateOrConnectWithoutSale_office_customerInput | ship_tosCreateOrConnectWithoutSale_office_customerInput[]
+    upsert?: ship_tosUpsertWithWhereUniqueWithoutSale_office_customerInput | ship_tosUpsertWithWhereUniqueWithoutSale_office_customerInput[]
+    createMany?: ship_tosCreateManySale_office_customerInputEnvelope
+    set?: ship_tosWhereUniqueInput | ship_tosWhereUniqueInput[]
+    disconnect?: ship_tosWhereUniqueInput | ship_tosWhereUniqueInput[]
+    delete?: ship_tosWhereUniqueInput | ship_tosWhereUniqueInput[]
+    connect?: ship_tosWhereUniqueInput | ship_tosWhereUniqueInput[]
+    update?: ship_tosUpdateWithWhereUniqueWithoutSale_office_customerInput | ship_tosUpdateWithWhereUniqueWithoutSale_office_customerInput[]
+    updateMany?: ship_tosUpdateManyWithWhereWithoutSale_office_customerInput | ship_tosUpdateManyWithWhereWithoutSale_office_customerInput[]
+    deleteMany?: ship_tosScalarWhereInput | ship_tosScalarWhereInput[]
+  }
+
+  export type sale_office_customersCreateNestedOneWithoutShip_toInput = {
+    create?: XOR<sale_office_customersCreateWithoutShip_toInput, sale_office_customersUncheckedCreateWithoutShip_toInput>
+    connectOrCreate?: sale_office_customersCreateOrConnectWithoutShip_toInput
+    connect?: sale_office_customersWhereUniqueInput
+  }
+
+  export type sale_office_customersUpdateOneRequiredWithoutShip_toNestedInput = {
+    create?: XOR<sale_office_customersCreateWithoutShip_toInput, sale_office_customersUncheckedCreateWithoutShip_toInput>
+    connectOrCreate?: sale_office_customersCreateOrConnectWithoutShip_toInput
+    upsert?: sale_office_customersUpsertWithoutShip_toInput
+    connect?: sale_office_customersWhereUniqueInput
+    update?: XOR<XOR<sale_office_customersUpdateToOneWithWhereWithoutShip_toInput, sale_office_customersUpdateWithoutShip_toInput>, sale_office_customersUncheckedUpdateWithoutShip_toInput>
   }
 
   export type customersCreateNestedManyWithoutPayment_typeInput = {
@@ -71946,6 +73367,33 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type sale_office_customersCreateWithoutSale_officeInput = {
+    status?: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    customer: customersCreateNestedOneWithoutSale_office_customersInput
+    ship_to?: ship_tosCreateNestedManyWithoutSale_office_customerInput
+  }
+
+  export type sale_office_customersUncheckedCreateWithoutSale_officeInput = {
+    id?: number
+    customer_id: number
+    status?: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    ship_to?: ship_tosUncheckedCreateNestedManyWithoutSale_office_customerInput
+  }
+
+  export type sale_office_customersCreateOrConnectWithoutSale_officeInput = {
+    where: sale_office_customersWhereUniqueInput
+    create: XOR<sale_office_customersCreateWithoutSale_officeInput, sale_office_customersUncheckedCreateWithoutSale_officeInput>
+  }
+
+  export type sale_office_customersCreateManySale_officeInputEnvelope = {
+    data: sale_office_customersCreateManySale_officeInput | sale_office_customersCreateManySale_officeInput[]
+    skipDuplicates?: boolean
+  }
+
   export type departmentsUpsertWithWhereUniqueWithoutSale_officeInput = {
     where: departmentsWhereUniqueInput
     update: XOR<departmentsUpdateWithoutSale_officeInput, departmentsUncheckedUpdateWithoutSale_officeInput>
@@ -72167,6 +73615,34 @@ export namespace Prisma {
     update_at?: DateTimeFilter<"stock_locations"> | Date | string
   }
 
+  export type sale_office_customersUpsertWithWhereUniqueWithoutSale_officeInput = {
+    where: sale_office_customersWhereUniqueInput
+    update: XOR<sale_office_customersUpdateWithoutSale_officeInput, sale_office_customersUncheckedUpdateWithoutSale_officeInput>
+    create: XOR<sale_office_customersCreateWithoutSale_officeInput, sale_office_customersUncheckedCreateWithoutSale_officeInput>
+  }
+
+  export type sale_office_customersUpdateWithWhereUniqueWithoutSale_officeInput = {
+    where: sale_office_customersWhereUniqueInput
+    data: XOR<sale_office_customersUpdateWithoutSale_officeInput, sale_office_customersUncheckedUpdateWithoutSale_officeInput>
+  }
+
+  export type sale_office_customersUpdateManyWithWhereWithoutSale_officeInput = {
+    where: sale_office_customersScalarWhereInput
+    data: XOR<sale_office_customersUpdateManyMutationInput, sale_office_customersUncheckedUpdateManyWithoutSale_officeInput>
+  }
+
+  export type sale_office_customersScalarWhereInput = {
+    AND?: sale_office_customersScalarWhereInput | sale_office_customersScalarWhereInput[]
+    OR?: sale_office_customersScalarWhereInput[]
+    NOT?: sale_office_customersScalarWhereInput | sale_office_customersScalarWhereInput[]
+    id?: IntFilter<"sale_office_customers"> | number
+    sale_office_id?: IntFilter<"sale_office_customers"> | number
+    customer_id?: IntFilter<"sale_office_customers"> | number
+    status?: BoolFilter<"sale_office_customers"> | boolean
+    create_at?: DateTimeFilter<"sale_office_customers"> | Date | string
+    update_at?: DateTimeFilter<"sale_office_customers"> | Date | string
+  }
+
   export type sale_officesCreateWithoutUser_sale_officeInput = {
     sale_office_code: string
     name_th: string
@@ -72183,6 +73659,7 @@ export namespace Prisma {
     round_time_clean?: round_time_cleanCreateNestedManyWithoutSale_officeInput
     factory_sale_office?: factory_sale_officeCreateNestedManyWithoutSale_officeInput
     stock_locations?: stock_locationsCreateNestedManyWithoutSale_officeInput
+    sale_office_customers?: sale_office_customersCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesUncheckedCreateWithoutUser_sale_officeInput = {
@@ -72202,6 +73679,7 @@ export namespace Prisma {
     round_time_clean?: round_time_cleanUncheckedCreateNestedManyWithoutSale_officeInput
     factory_sale_office?: factory_sale_officeUncheckedCreateNestedManyWithoutSale_officeInput
     stock_locations?: stock_locationsUncheckedCreateNestedManyWithoutSale_officeInput
+    sale_office_customers?: sale_office_customersUncheckedCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesCreateOrConnectWithoutUser_sale_officeInput = {
@@ -72272,6 +73750,7 @@ export namespace Prisma {
     round_time_clean?: round_time_cleanUpdateManyWithoutSale_officeNestedInput
     factory_sale_office?: factory_sale_officeUpdateManyWithoutSale_officeNestedInput
     stock_locations?: stock_locationsUpdateManyWithoutSale_officeNestedInput
+    sale_office_customers?: sale_office_customersUpdateManyWithoutSale_officeNestedInput
   }
 
   export type sale_officesUncheckedUpdateWithoutUser_sale_officeInput = {
@@ -72291,6 +73770,7 @@ export namespace Prisma {
     round_time_clean?: round_time_cleanUncheckedUpdateManyWithoutSale_officeNestedInput
     factory_sale_office?: factory_sale_officeUncheckedUpdateManyWithoutSale_officeNestedInput
     stock_locations?: stock_locationsUncheckedUpdateManyWithoutSale_officeNestedInput
+    sale_office_customers?: sale_office_customersUncheckedUpdateManyWithoutSale_officeNestedInput
   }
 
   export type userUpsertWithoutUser_sale_officeInput = {
@@ -72351,6 +73831,7 @@ export namespace Prisma {
     round_time_clean?: round_time_cleanCreateNestedManyWithoutSale_officeInput
     factory_sale_office?: factory_sale_officeCreateNestedManyWithoutSale_officeInput
     stock_locations?: stock_locationsCreateNestedManyWithoutSale_officeInput
+    sale_office_customers?: sale_office_customersCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesUncheckedCreateWithoutDepartmentsInput = {
@@ -72370,6 +73851,7 @@ export namespace Prisma {
     round_time_clean?: round_time_cleanUncheckedCreateNestedManyWithoutSale_officeInput
     factory_sale_office?: factory_sale_officeUncheckedCreateNestedManyWithoutSale_officeInput
     stock_locations?: stock_locationsUncheckedCreateNestedManyWithoutSale_officeInput
+    sale_office_customers?: sale_office_customersUncheckedCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesCreateOrConnectWithoutDepartmentsInput = {
@@ -72404,6 +73886,7 @@ export namespace Prisma {
     round_time_clean?: round_time_cleanUpdateManyWithoutSale_officeNestedInput
     factory_sale_office?: factory_sale_officeUpdateManyWithoutSale_officeNestedInput
     stock_locations?: stock_locationsUpdateManyWithoutSale_officeNestedInput
+    sale_office_customers?: sale_office_customersUpdateManyWithoutSale_officeNestedInput
   }
 
   export type sale_officesUncheckedUpdateWithoutDepartmentsInput = {
@@ -72423,6 +73906,7 @@ export namespace Prisma {
     round_time_clean?: round_time_cleanUncheckedUpdateManyWithoutSale_officeNestedInput
     factory_sale_office?: factory_sale_officeUncheckedUpdateManyWithoutSale_officeNestedInput
     stock_locations?: stock_locationsUncheckedUpdateManyWithoutSale_officeNestedInput
+    sale_office_customers?: sale_office_customersUncheckedUpdateManyWithoutSale_officeNestedInput
   }
 
   export type sale_officesCreateWithoutFactory_sale_officeInput = {
@@ -72441,6 +73925,7 @@ export namespace Prisma {
     round_time_shelf_count_express?: round_time_shelf_count_expressCreateNestedManyWithoutSale_officeInput
     round_time_clean?: round_time_cleanCreateNestedManyWithoutSale_officeInput
     stock_locations?: stock_locationsCreateNestedManyWithoutSale_officeInput
+    sale_office_customers?: sale_office_customersCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesUncheckedCreateWithoutFactory_sale_officeInput = {
@@ -72460,6 +73945,7 @@ export namespace Prisma {
     round_time_shelf_count_express?: round_time_shelf_count_expressUncheckedCreateNestedManyWithoutSale_officeInput
     round_time_clean?: round_time_cleanUncheckedCreateNestedManyWithoutSale_officeInput
     stock_locations?: stock_locationsUncheckedCreateNestedManyWithoutSale_officeInput
+    sale_office_customers?: sale_office_customersUncheckedCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesCreateOrConnectWithoutFactory_sale_officeInput = {
@@ -72528,6 +74014,7 @@ export namespace Prisma {
     round_time_shelf_count_express?: round_time_shelf_count_expressUpdateManyWithoutSale_officeNestedInput
     round_time_clean?: round_time_cleanUpdateManyWithoutSale_officeNestedInput
     stock_locations?: stock_locationsUpdateManyWithoutSale_officeNestedInput
+    sale_office_customers?: sale_office_customersUpdateManyWithoutSale_officeNestedInput
   }
 
   export type sale_officesUncheckedUpdateWithoutFactory_sale_officeInput = {
@@ -72547,6 +74034,7 @@ export namespace Prisma {
     round_time_shelf_count_express?: round_time_shelf_count_expressUncheckedUpdateManyWithoutSale_officeNestedInput
     round_time_clean?: round_time_cleanUncheckedUpdateManyWithoutSale_officeNestedInput
     stock_locations?: stock_locationsUncheckedUpdateManyWithoutSale_officeNestedInput
+    sale_office_customers?: sale_office_customersUncheckedUpdateManyWithoutSale_officeNestedInput
   }
 
   export type factoriesUpsertWithoutFactory_sale_officeInput = {
@@ -73536,6 +75024,7 @@ export namespace Prisma {
     round_time_shelf_count_express?: round_time_shelf_count_expressCreateNestedManyWithoutSale_officeInput
     round_time_clean?: round_time_cleanCreateNestedManyWithoutSale_officeInput
     factory_sale_office?: factory_sale_officeCreateNestedManyWithoutSale_officeInput
+    sale_office_customers?: sale_office_customersCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesUncheckedCreateWithoutStock_locationsInput = {
@@ -73555,6 +75044,7 @@ export namespace Prisma {
     round_time_shelf_count_express?: round_time_shelf_count_expressUncheckedCreateNestedManyWithoutSale_officeInput
     round_time_clean?: round_time_cleanUncheckedCreateNestedManyWithoutSale_officeInput
     factory_sale_office?: factory_sale_officeUncheckedCreateNestedManyWithoutSale_officeInput
+    sale_office_customers?: sale_office_customersUncheckedCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesCreateOrConnectWithoutStock_locationsInput = {
@@ -73620,6 +75110,7 @@ export namespace Prisma {
     round_time_shelf_count_express?: round_time_shelf_count_expressUpdateManyWithoutSale_officeNestedInput
     round_time_clean?: round_time_cleanUpdateManyWithoutSale_officeNestedInput
     factory_sale_office?: factory_sale_officeUpdateManyWithoutSale_officeNestedInput
+    sale_office_customers?: sale_office_customersUpdateManyWithoutSale_officeNestedInput
   }
 
   export type sale_officesUncheckedUpdateWithoutStock_locationsInput = {
@@ -73639,6 +75130,7 @@ export namespace Prisma {
     round_time_shelf_count_express?: round_time_shelf_count_expressUncheckedUpdateManyWithoutSale_officeNestedInput
     round_time_clean?: round_time_cleanUncheckedUpdateManyWithoutSale_officeNestedInput
     factory_sale_office?: factory_sale_officeUncheckedUpdateManyWithoutSale_officeNestedInput
+    sale_office_customers?: sale_office_customersUncheckedUpdateManyWithoutSale_officeNestedInput
   }
 
   export type locationsUpsertWithWhereUniqueWithoutStock_locationInput = {
@@ -73827,6 +75319,7 @@ export namespace Prisma {
     round_time_clean?: round_time_cleanCreateNestedManyWithoutSale_officeInput
     factory_sale_office?: factory_sale_officeCreateNestedManyWithoutSale_officeInput
     stock_locations?: stock_locationsCreateNestedManyWithoutSale_officeInput
+    sale_office_customers?: sale_office_customersCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesUncheckedCreateWithoutRound_time_dirtiesInput = {
@@ -73846,6 +75339,7 @@ export namespace Prisma {
     round_time_clean?: round_time_cleanUncheckedCreateNestedManyWithoutSale_officeInput
     factory_sale_office?: factory_sale_officeUncheckedCreateNestedManyWithoutSale_officeInput
     stock_locations?: stock_locationsUncheckedCreateNestedManyWithoutSale_officeInput
+    sale_office_customers?: sale_office_customersUncheckedCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesCreateOrConnectWithoutRound_time_dirtiesInput = {
@@ -73880,6 +75374,7 @@ export namespace Prisma {
     round_time_clean?: round_time_cleanUpdateManyWithoutSale_officeNestedInput
     factory_sale_office?: factory_sale_officeUpdateManyWithoutSale_officeNestedInput
     stock_locations?: stock_locationsUpdateManyWithoutSale_officeNestedInput
+    sale_office_customers?: sale_office_customersUpdateManyWithoutSale_officeNestedInput
   }
 
   export type sale_officesUncheckedUpdateWithoutRound_time_dirtiesInput = {
@@ -73899,6 +75394,7 @@ export namespace Prisma {
     round_time_clean?: round_time_cleanUncheckedUpdateManyWithoutSale_officeNestedInput
     factory_sale_office?: factory_sale_officeUncheckedUpdateManyWithoutSale_officeNestedInput
     stock_locations?: stock_locationsUncheckedUpdateManyWithoutSale_officeNestedInput
+    sale_office_customers?: sale_office_customersUncheckedUpdateManyWithoutSale_officeNestedInput
   }
 
   export type sale_officesCreateWithoutRound_time_expressInput = {
@@ -73917,6 +75413,7 @@ export namespace Prisma {
     round_time_clean?: round_time_cleanCreateNestedManyWithoutSale_officeInput
     factory_sale_office?: factory_sale_officeCreateNestedManyWithoutSale_officeInput
     stock_locations?: stock_locationsCreateNestedManyWithoutSale_officeInput
+    sale_office_customers?: sale_office_customersCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesUncheckedCreateWithoutRound_time_expressInput = {
@@ -73936,6 +75433,7 @@ export namespace Prisma {
     round_time_clean?: round_time_cleanUncheckedCreateNestedManyWithoutSale_officeInput
     factory_sale_office?: factory_sale_officeUncheckedCreateNestedManyWithoutSale_officeInput
     stock_locations?: stock_locationsUncheckedCreateNestedManyWithoutSale_officeInput
+    sale_office_customers?: sale_office_customersUncheckedCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesCreateOrConnectWithoutRound_time_expressInput = {
@@ -73970,6 +75468,7 @@ export namespace Prisma {
     round_time_clean?: round_time_cleanUpdateManyWithoutSale_officeNestedInput
     factory_sale_office?: factory_sale_officeUpdateManyWithoutSale_officeNestedInput
     stock_locations?: stock_locationsUpdateManyWithoutSale_officeNestedInput
+    sale_office_customers?: sale_office_customersUpdateManyWithoutSale_officeNestedInput
   }
 
   export type sale_officesUncheckedUpdateWithoutRound_time_expressInput = {
@@ -73989,6 +75488,7 @@ export namespace Prisma {
     round_time_clean?: round_time_cleanUncheckedUpdateManyWithoutSale_officeNestedInput
     factory_sale_office?: factory_sale_officeUncheckedUpdateManyWithoutSale_officeNestedInput
     stock_locations?: stock_locationsUncheckedUpdateManyWithoutSale_officeNestedInput
+    sale_office_customers?: sale_office_customersUncheckedUpdateManyWithoutSale_officeNestedInput
   }
 
   export type sale_officesCreateWithoutRound_time_shelf_count_expressInput = {
@@ -74007,6 +75507,7 @@ export namespace Prisma {
     round_time_clean?: round_time_cleanCreateNestedManyWithoutSale_officeInput
     factory_sale_office?: factory_sale_officeCreateNestedManyWithoutSale_officeInput
     stock_locations?: stock_locationsCreateNestedManyWithoutSale_officeInput
+    sale_office_customers?: sale_office_customersCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesUncheckedCreateWithoutRound_time_shelf_count_expressInput = {
@@ -74026,6 +75527,7 @@ export namespace Prisma {
     round_time_clean?: round_time_cleanUncheckedCreateNestedManyWithoutSale_officeInput
     factory_sale_office?: factory_sale_officeUncheckedCreateNestedManyWithoutSale_officeInput
     stock_locations?: stock_locationsUncheckedCreateNestedManyWithoutSale_officeInput
+    sale_office_customers?: sale_office_customersUncheckedCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesCreateOrConnectWithoutRound_time_shelf_count_expressInput = {
@@ -74060,6 +75562,7 @@ export namespace Prisma {
     round_time_clean?: round_time_cleanUpdateManyWithoutSale_officeNestedInput
     factory_sale_office?: factory_sale_officeUpdateManyWithoutSale_officeNestedInput
     stock_locations?: stock_locationsUpdateManyWithoutSale_officeNestedInput
+    sale_office_customers?: sale_office_customersUpdateManyWithoutSale_officeNestedInput
   }
 
   export type sale_officesUncheckedUpdateWithoutRound_time_shelf_count_expressInput = {
@@ -74079,6 +75582,7 @@ export namespace Prisma {
     round_time_clean?: round_time_cleanUncheckedUpdateManyWithoutSale_officeNestedInput
     factory_sale_office?: factory_sale_officeUncheckedUpdateManyWithoutSale_officeNestedInput
     stock_locations?: stock_locationsUncheckedUpdateManyWithoutSale_officeNestedInput
+    sale_office_customers?: sale_office_customersUncheckedUpdateManyWithoutSale_officeNestedInput
   }
 
   export type sale_officesCreateWithoutRound_time_cleanInput = {
@@ -74097,6 +75601,7 @@ export namespace Prisma {
     round_time_shelf_count_express?: round_time_shelf_count_expressCreateNestedManyWithoutSale_officeInput
     factory_sale_office?: factory_sale_officeCreateNestedManyWithoutSale_officeInput
     stock_locations?: stock_locationsCreateNestedManyWithoutSale_officeInput
+    sale_office_customers?: sale_office_customersCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesUncheckedCreateWithoutRound_time_cleanInput = {
@@ -74116,6 +75621,7 @@ export namespace Prisma {
     round_time_shelf_count_express?: round_time_shelf_count_expressUncheckedCreateNestedManyWithoutSale_officeInput
     factory_sale_office?: factory_sale_officeUncheckedCreateNestedManyWithoutSale_officeInput
     stock_locations?: stock_locationsUncheckedCreateNestedManyWithoutSale_officeInput
+    sale_office_customers?: sale_office_customersUncheckedCreateNestedManyWithoutSale_officeInput
   }
 
   export type sale_officesCreateOrConnectWithoutRound_time_cleanInput = {
@@ -74150,6 +75656,7 @@ export namespace Prisma {
     round_time_shelf_count_express?: round_time_shelf_count_expressUpdateManyWithoutSale_officeNestedInput
     factory_sale_office?: factory_sale_officeUpdateManyWithoutSale_officeNestedInput
     stock_locations?: stock_locationsUpdateManyWithoutSale_officeNestedInput
+    sale_office_customers?: sale_office_customersUpdateManyWithoutSale_officeNestedInput
   }
 
   export type sale_officesUncheckedUpdateWithoutRound_time_cleanInput = {
@@ -74169,6 +75676,7 @@ export namespace Prisma {
     round_time_shelf_count_express?: round_time_shelf_count_expressUncheckedUpdateManyWithoutSale_officeNestedInput
     factory_sale_office?: factory_sale_officeUncheckedUpdateManyWithoutSale_officeNestedInput
     stock_locations?: stock_locationsUncheckedUpdateManyWithoutSale_officeNestedInput
+    sale_office_customers?: sale_office_customersUncheckedUpdateManyWithoutSale_officeNestedInput
   }
 
   export type factoriesCreateWithoutRound_time_factoryInput = {
@@ -74264,7 +75772,7 @@ export namespace Prisma {
     create_at?: Date | string
     update_at?: Date | string
     payment_type?: payment_typesCreateNestedOneWithoutCustomersInput
-    ship_tos?: ship_toCreateNestedManyWithoutCustomerInput
+    sale_office_customers?: sale_office_customersCreateNestedManyWithoutCustomerInput
   }
 
   export type customersUncheckedCreateWithoutCustomer_groupInput = {
@@ -74287,7 +75795,7 @@ export namespace Prisma {
     status?: boolean
     create_at?: Date | string
     update_at?: Date | string
-    ship_tos?: ship_toUncheckedCreateNestedManyWithoutCustomerInput
+    sale_office_customers?: sale_office_customersUncheckedCreateNestedManyWithoutCustomerInput
   }
 
   export type customersCreateOrConnectWithoutCustomer_groupInput = {
@@ -74394,34 +75902,30 @@ export namespace Prisma {
     create: XOR<customer_groupsCreateWithoutCustomersInput, customer_groupsUncheckedCreateWithoutCustomersInput>
   }
 
-  export type ship_toCreateWithoutCustomerInput = {
-    site_short_code: string
-    name_th: string
-    name_en?: string | null
-    ship_to_id: number
+  export type sale_office_customersCreateWithoutCustomerInput = {
     status?: boolean
     create_at?: Date | string
     update_at?: Date | string
+    sale_office: sale_officesCreateNestedOneWithoutSale_office_customersInput
+    ship_to?: ship_tosCreateNestedManyWithoutSale_office_customerInput
   }
 
-  export type ship_toUncheckedCreateWithoutCustomerInput = {
+  export type sale_office_customersUncheckedCreateWithoutCustomerInput = {
     id?: number
-    site_short_code: string
-    name_th: string
-    name_en?: string | null
-    ship_to_id: number
+    sale_office_id: number
     status?: boolean
     create_at?: Date | string
     update_at?: Date | string
+    ship_to?: ship_tosUncheckedCreateNestedManyWithoutSale_office_customerInput
   }
 
-  export type ship_toCreateOrConnectWithoutCustomerInput = {
-    where: ship_toWhereUniqueInput
-    create: XOR<ship_toCreateWithoutCustomerInput, ship_toUncheckedCreateWithoutCustomerInput>
+  export type sale_office_customersCreateOrConnectWithoutCustomerInput = {
+    where: sale_office_customersWhereUniqueInput
+    create: XOR<sale_office_customersCreateWithoutCustomerInput, sale_office_customersUncheckedCreateWithoutCustomerInput>
   }
 
-  export type ship_toCreateManyCustomerInputEnvelope = {
-    data: ship_toCreateManyCustomerInput | ship_toCreateManyCustomerInput[]
+  export type sale_office_customersCreateManyCustomerInputEnvelope = {
+    data: sale_office_customersCreateManyCustomerInput | sale_office_customersCreateManyCustomerInput[]
     skipDuplicates?: boolean
   }
 
@@ -74489,38 +75993,67 @@ export namespace Prisma {
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type ship_toUpsertWithWhereUniqueWithoutCustomerInput = {
-    where: ship_toWhereUniqueInput
-    update: XOR<ship_toUpdateWithoutCustomerInput, ship_toUncheckedUpdateWithoutCustomerInput>
-    create: XOR<ship_toCreateWithoutCustomerInput, ship_toUncheckedCreateWithoutCustomerInput>
+  export type sale_office_customersUpsertWithWhereUniqueWithoutCustomerInput = {
+    where: sale_office_customersWhereUniqueInput
+    update: XOR<sale_office_customersUpdateWithoutCustomerInput, sale_office_customersUncheckedUpdateWithoutCustomerInput>
+    create: XOR<sale_office_customersCreateWithoutCustomerInput, sale_office_customersUncheckedCreateWithoutCustomerInput>
   }
 
-  export type ship_toUpdateWithWhereUniqueWithoutCustomerInput = {
-    where: ship_toWhereUniqueInput
-    data: XOR<ship_toUpdateWithoutCustomerInput, ship_toUncheckedUpdateWithoutCustomerInput>
+  export type sale_office_customersUpdateWithWhereUniqueWithoutCustomerInput = {
+    where: sale_office_customersWhereUniqueInput
+    data: XOR<sale_office_customersUpdateWithoutCustomerInput, sale_office_customersUncheckedUpdateWithoutCustomerInput>
   }
 
-  export type ship_toUpdateManyWithWhereWithoutCustomerInput = {
-    where: ship_toScalarWhereInput
-    data: XOR<ship_toUpdateManyMutationInput, ship_toUncheckedUpdateManyWithoutCustomerInput>
+  export type sale_office_customersUpdateManyWithWhereWithoutCustomerInput = {
+    where: sale_office_customersScalarWhereInput
+    data: XOR<sale_office_customersUpdateManyMutationInput, sale_office_customersUncheckedUpdateManyWithoutCustomerInput>
   }
 
-  export type ship_toScalarWhereInput = {
-    AND?: ship_toScalarWhereInput | ship_toScalarWhereInput[]
-    OR?: ship_toScalarWhereInput[]
-    NOT?: ship_toScalarWhereInput | ship_toScalarWhereInput[]
-    id?: IntFilter<"ship_to"> | number
-    site_short_code?: StringFilter<"ship_to"> | string
-    name_th?: StringFilter<"ship_to"> | string
-    name_en?: StringNullableFilter<"ship_to"> | string | null
-    customer_id?: IntFilter<"ship_to"> | number
-    ship_to_id?: IntFilter<"ship_to"> | number
-    status?: BoolFilter<"ship_to"> | boolean
-    create_at?: DateTimeFilter<"ship_to"> | Date | string
-    update_at?: DateTimeFilter<"ship_to"> | Date | string
+  export type sale_officesCreateWithoutSale_office_customersInput = {
+    sale_office_code: string
+    name_th: string
+    name_en: string
+    site_path: string
+    lab_site_code: string
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    departments?: departmentsCreateNestedManyWithoutSale_officeInput
+    user_sale_office?: user_sale_officesCreateNestedManyWithoutSale_officeInput
+    round_time_dirties?: round_time_dirtiesCreateNestedManyWithoutSale_officeInput
+    round_time_express?: round_time_expressCreateNestedManyWithoutSale_officeInput
+    round_time_shelf_count_express?: round_time_shelf_count_expressCreateNestedManyWithoutSale_officeInput
+    round_time_clean?: round_time_cleanCreateNestedManyWithoutSale_officeInput
+    factory_sale_office?: factory_sale_officeCreateNestedManyWithoutSale_officeInput
+    stock_locations?: stock_locationsCreateNestedManyWithoutSale_officeInput
   }
 
-  export type customersCreateWithoutShip_tosInput = {
+  export type sale_officesUncheckedCreateWithoutSale_office_customersInput = {
+    id?: number
+    sale_office_code: string
+    name_th: string
+    name_en: string
+    site_path: string
+    lab_site_code: string
+    status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    departments?: departmentsUncheckedCreateNestedManyWithoutSale_officeInput
+    user_sale_office?: user_sale_officesUncheckedCreateNestedManyWithoutSale_officeInput
+    round_time_dirties?: round_time_dirtiesUncheckedCreateNestedManyWithoutSale_officeInput
+    round_time_express?: round_time_expressUncheckedCreateNestedManyWithoutSale_officeInput
+    round_time_shelf_count_express?: round_time_shelf_count_expressUncheckedCreateNestedManyWithoutSale_officeInput
+    round_time_clean?: round_time_cleanUncheckedCreateNestedManyWithoutSale_officeInput
+    factory_sale_office?: factory_sale_officeUncheckedCreateNestedManyWithoutSale_officeInput
+    stock_locations?: stock_locationsUncheckedCreateNestedManyWithoutSale_officeInput
+  }
+
+  export type sale_officesCreateOrConnectWithoutSale_office_customersInput = {
+    where: sale_officesWhereUniqueInput
+    create: XOR<sale_officesCreateWithoutSale_office_customersInput, sale_officesUncheckedCreateWithoutSale_office_customersInput>
+  }
+
+  export type customersCreateWithoutSale_office_customersInput = {
     site_short_code: string
     name_th: string
     name_en: string
@@ -74542,7 +76075,7 @@ export namespace Prisma {
     customer_group?: customer_groupsCreateNestedOneWithoutCustomersInput
   }
 
-  export type customersUncheckedCreateWithoutShip_tosInput = {
+  export type customersUncheckedCreateWithoutSale_office_customersInput = {
     id?: number
     customer_group_id?: number | null
     site_short_code: string
@@ -74565,23 +76098,100 @@ export namespace Prisma {
     update_at?: Date | string
   }
 
-  export type customersCreateOrConnectWithoutShip_tosInput = {
+  export type customersCreateOrConnectWithoutSale_office_customersInput = {
     where: customersWhereUniqueInput
-    create: XOR<customersCreateWithoutShip_tosInput, customersUncheckedCreateWithoutShip_tosInput>
+    create: XOR<customersCreateWithoutSale_office_customersInput, customersUncheckedCreateWithoutSale_office_customersInput>
   }
 
-  export type customersUpsertWithoutShip_tosInput = {
-    update: XOR<customersUpdateWithoutShip_tosInput, customersUncheckedUpdateWithoutShip_tosInput>
-    create: XOR<customersCreateWithoutShip_tosInput, customersUncheckedCreateWithoutShip_tosInput>
+  export type ship_tosCreateWithoutSale_office_customerInput = {
+    ship_to_code: string
+    description?: string | null
+    status?: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type ship_tosUncheckedCreateWithoutSale_office_customerInput = {
+    id?: number
+    ship_to_code: string
+    description?: string | null
+    status?: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type ship_tosCreateOrConnectWithoutSale_office_customerInput = {
+    where: ship_tosWhereUniqueInput
+    create: XOR<ship_tosCreateWithoutSale_office_customerInput, ship_tosUncheckedCreateWithoutSale_office_customerInput>
+  }
+
+  export type ship_tosCreateManySale_office_customerInputEnvelope = {
+    data: ship_tosCreateManySale_office_customerInput | ship_tosCreateManySale_office_customerInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type sale_officesUpsertWithoutSale_office_customersInput = {
+    update: XOR<sale_officesUpdateWithoutSale_office_customersInput, sale_officesUncheckedUpdateWithoutSale_office_customersInput>
+    create: XOR<sale_officesCreateWithoutSale_office_customersInput, sale_officesUncheckedCreateWithoutSale_office_customersInput>
+    where?: sale_officesWhereInput
+  }
+
+  export type sale_officesUpdateToOneWithWhereWithoutSale_office_customersInput = {
+    where?: sale_officesWhereInput
+    data: XOR<sale_officesUpdateWithoutSale_office_customersInput, sale_officesUncheckedUpdateWithoutSale_office_customersInput>
+  }
+
+  export type sale_officesUpdateWithoutSale_office_customersInput = {
+    sale_office_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    site_path?: StringFieldUpdateOperationsInput | string
+    lab_site_code?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    departments?: departmentsUpdateManyWithoutSale_officeNestedInput
+    user_sale_office?: user_sale_officesUpdateManyWithoutSale_officeNestedInput
+    round_time_dirties?: round_time_dirtiesUpdateManyWithoutSale_officeNestedInput
+    round_time_express?: round_time_expressUpdateManyWithoutSale_officeNestedInput
+    round_time_shelf_count_express?: round_time_shelf_count_expressUpdateManyWithoutSale_officeNestedInput
+    round_time_clean?: round_time_cleanUpdateManyWithoutSale_officeNestedInput
+    factory_sale_office?: factory_sale_officeUpdateManyWithoutSale_officeNestedInput
+    stock_locations?: stock_locationsUpdateManyWithoutSale_officeNestedInput
+  }
+
+  export type sale_officesUncheckedUpdateWithoutSale_office_customersInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    sale_office_code?: StringFieldUpdateOperationsInput | string
+    name_th?: StringFieldUpdateOperationsInput | string
+    name_en?: StringFieldUpdateOperationsInput | string
+    site_path?: StringFieldUpdateOperationsInput | string
+    lab_site_code?: StringFieldUpdateOperationsInput | string
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    departments?: departmentsUncheckedUpdateManyWithoutSale_officeNestedInput
+    user_sale_office?: user_sale_officesUncheckedUpdateManyWithoutSale_officeNestedInput
+    round_time_dirties?: round_time_dirtiesUncheckedUpdateManyWithoutSale_officeNestedInput
+    round_time_express?: round_time_expressUncheckedUpdateManyWithoutSale_officeNestedInput
+    round_time_shelf_count_express?: round_time_shelf_count_expressUncheckedUpdateManyWithoutSale_officeNestedInput
+    round_time_clean?: round_time_cleanUncheckedUpdateManyWithoutSale_officeNestedInput
+    factory_sale_office?: factory_sale_officeUncheckedUpdateManyWithoutSale_officeNestedInput
+    stock_locations?: stock_locationsUncheckedUpdateManyWithoutSale_officeNestedInput
+  }
+
+  export type customersUpsertWithoutSale_office_customersInput = {
+    update: XOR<customersUpdateWithoutSale_office_customersInput, customersUncheckedUpdateWithoutSale_office_customersInput>
+    create: XOR<customersCreateWithoutSale_office_customersInput, customersUncheckedCreateWithoutSale_office_customersInput>
     where?: customersWhereInput
   }
 
-  export type customersUpdateToOneWithWhereWithoutShip_tosInput = {
+  export type customersUpdateToOneWithWhereWithoutSale_office_customersInput = {
     where?: customersWhereInput
-    data: XOR<customersUpdateWithoutShip_tosInput, customersUncheckedUpdateWithoutShip_tosInput>
+    data: XOR<customersUpdateWithoutSale_office_customersInput, customersUncheckedUpdateWithoutSale_office_customersInput>
   }
 
-  export type customersUpdateWithoutShip_tosInput = {
+  export type customersUpdateWithoutSale_office_customersInput = {
     site_short_code?: StringFieldUpdateOperationsInput | string
     name_th?: StringFieldUpdateOperationsInput | string
     name_en?: StringFieldUpdateOperationsInput | string
@@ -74603,7 +76213,7 @@ export namespace Prisma {
     customer_group?: customer_groupsUpdateOneWithoutCustomersNestedInput
   }
 
-  export type customersUncheckedUpdateWithoutShip_tosInput = {
+  export type customersUncheckedUpdateWithoutSale_office_customersInput = {
     id?: IntFieldUpdateOperationsInput | number
     customer_group_id?: NullableIntFieldUpdateOperationsInput | number | null
     site_short_code?: StringFieldUpdateOperationsInput | string
@@ -74621,6 +76231,85 @@ export namespace Prisma {
     email?: NullableStringFieldUpdateOperationsInput | string | null
     enable_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     disable_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ship_tosUpsertWithWhereUniqueWithoutSale_office_customerInput = {
+    where: ship_tosWhereUniqueInput
+    update: XOR<ship_tosUpdateWithoutSale_office_customerInput, ship_tosUncheckedUpdateWithoutSale_office_customerInput>
+    create: XOR<ship_tosCreateWithoutSale_office_customerInput, ship_tosUncheckedCreateWithoutSale_office_customerInput>
+  }
+
+  export type ship_tosUpdateWithWhereUniqueWithoutSale_office_customerInput = {
+    where: ship_tosWhereUniqueInput
+    data: XOR<ship_tosUpdateWithoutSale_office_customerInput, ship_tosUncheckedUpdateWithoutSale_office_customerInput>
+  }
+
+  export type ship_tosUpdateManyWithWhereWithoutSale_office_customerInput = {
+    where: ship_tosScalarWhereInput
+    data: XOR<ship_tosUpdateManyMutationInput, ship_tosUncheckedUpdateManyWithoutSale_office_customerInput>
+  }
+
+  export type ship_tosScalarWhereInput = {
+    AND?: ship_tosScalarWhereInput | ship_tosScalarWhereInput[]
+    OR?: ship_tosScalarWhereInput[]
+    NOT?: ship_tosScalarWhereInput | ship_tosScalarWhereInput[]
+    id?: IntFilter<"ship_tos"> | number
+    ship_to_code?: StringFilter<"ship_tos"> | string
+    sale_office_customer_id?: IntFilter<"ship_tos"> | number
+    description?: StringNullableFilter<"ship_tos"> | string | null
+    status?: BoolFilter<"ship_tos"> | boolean
+    create_at?: DateTimeFilter<"ship_tos"> | Date | string
+    update_at?: DateTimeFilter<"ship_tos"> | Date | string
+  }
+
+  export type sale_office_customersCreateWithoutShip_toInput = {
+    status?: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+    sale_office: sale_officesCreateNestedOneWithoutSale_office_customersInput
+    customer: customersCreateNestedOneWithoutSale_office_customersInput
+  }
+
+  export type sale_office_customersUncheckedCreateWithoutShip_toInput = {
+    id?: number
+    sale_office_id: number
+    customer_id: number
+    status?: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type sale_office_customersCreateOrConnectWithoutShip_toInput = {
+    where: sale_office_customersWhereUniqueInput
+    create: XOR<sale_office_customersCreateWithoutShip_toInput, sale_office_customersUncheckedCreateWithoutShip_toInput>
+  }
+
+  export type sale_office_customersUpsertWithoutShip_toInput = {
+    update: XOR<sale_office_customersUpdateWithoutShip_toInput, sale_office_customersUncheckedUpdateWithoutShip_toInput>
+    create: XOR<sale_office_customersCreateWithoutShip_toInput, sale_office_customersUncheckedCreateWithoutShip_toInput>
+    where?: sale_office_customersWhereInput
+  }
+
+  export type sale_office_customersUpdateToOneWithWhereWithoutShip_toInput = {
+    where?: sale_office_customersWhereInput
+    data: XOR<sale_office_customersUpdateWithoutShip_toInput, sale_office_customersUncheckedUpdateWithoutShip_toInput>
+  }
+
+  export type sale_office_customersUpdateWithoutShip_toInput = {
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    sale_office?: sale_officesUpdateOneRequiredWithoutSale_office_customersNestedInput
+    customer?: customersUpdateOneRequiredWithoutSale_office_customersNestedInput
+  }
+
+  export type sale_office_customersUncheckedUpdateWithoutShip_toInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    sale_office_id?: IntFieldUpdateOperationsInput | number
+    customer_id?: IntFieldUpdateOperationsInput | number
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -74645,7 +76334,7 @@ export namespace Prisma {
     create_at?: Date | string
     update_at?: Date | string
     customer_group?: customer_groupsCreateNestedOneWithoutCustomersInput
-    ship_tos?: ship_toCreateNestedManyWithoutCustomerInput
+    sale_office_customers?: sale_office_customersCreateNestedManyWithoutCustomerInput
   }
 
   export type customersUncheckedCreateWithoutPayment_typeInput = {
@@ -74668,7 +76357,7 @@ export namespace Prisma {
     status?: boolean
     create_at?: Date | string
     update_at?: Date | string
-    ship_tos?: ship_toUncheckedCreateNestedManyWithoutCustomerInput
+    sale_office_customers?: sale_office_customersUncheckedCreateNestedManyWithoutCustomerInput
   }
 
   export type customersCreateOrConnectWithoutPayment_typeInput = {
@@ -74797,6 +76486,14 @@ export namespace Prisma {
     name_en: string
     description?: string | null
     status: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type sale_office_customersCreateManySale_officeInput = {
+    id?: number
+    customer_id: number
+    status?: boolean
     create_at?: Date | string
     update_at?: Date | string
   }
@@ -75009,6 +76706,31 @@ export namespace Prisma {
     name_th?: StringFieldUpdateOperationsInput | string
     name_en?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type sale_office_customersUpdateWithoutSale_officeInput = {
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    customer?: customersUpdateOneRequiredWithoutSale_office_customersNestedInput
+    ship_to?: ship_tosUpdateManyWithoutSale_office_customerNestedInput
+  }
+
+  export type sale_office_customersUncheckedUpdateWithoutSale_officeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    customer_id?: IntFieldUpdateOperationsInput | number
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    ship_to?: ship_tosUncheckedUpdateManyWithoutSale_office_customerNestedInput
+  }
+
+  export type sale_office_customersUncheckedUpdateManyWithoutSale_officeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    customer_id?: IntFieldUpdateOperationsInput | number
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -75533,7 +77255,7 @@ export namespace Prisma {
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
     payment_type?: payment_typesUpdateOneWithoutCustomersNestedInput
-    ship_tos?: ship_toUpdateManyWithoutCustomerNestedInput
+    sale_office_customers?: sale_office_customersUpdateManyWithoutCustomerNestedInput
   }
 
   export type customersUncheckedUpdateWithoutCustomer_groupInput = {
@@ -75556,7 +77278,7 @@ export namespace Prisma {
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    ship_tos?: ship_toUncheckedUpdateManyWithoutCustomerNestedInput
+    sale_office_customers?: sale_office_customersUncheckedUpdateManyWithoutCustomerNestedInput
   }
 
   export type customersUncheckedUpdateManyWithoutCustomer_groupInput = {
@@ -75581,44 +77303,69 @@ export namespace Prisma {
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type ship_toCreateManyCustomerInput = {
+  export type sale_office_customersCreateManyCustomerInput = {
     id?: number
-    site_short_code: string
-    name_th: string
-    name_en?: string | null
-    ship_to_id: number
+    sale_office_id: number
     status?: boolean
     create_at?: Date | string
     update_at?: Date | string
   }
 
-  export type ship_toUpdateWithoutCustomerInput = {
-    site_short_code?: StringFieldUpdateOperationsInput | string
-    name_th?: StringFieldUpdateOperationsInput | string
-    name_en?: NullableStringFieldUpdateOperationsInput | string | null
-    ship_to_id?: IntFieldUpdateOperationsInput | number
+  export type sale_office_customersUpdateWithoutCustomerInput = {
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    sale_office?: sale_officesUpdateOneRequiredWithoutSale_office_customersNestedInput
+    ship_to?: ship_tosUpdateManyWithoutSale_office_customerNestedInput
+  }
+
+  export type sale_office_customersUncheckedUpdateWithoutCustomerInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    sale_office_id?: IntFieldUpdateOperationsInput | number
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    ship_to?: ship_tosUncheckedUpdateManyWithoutSale_office_customerNestedInput
+  }
+
+  export type sale_office_customersUncheckedUpdateManyWithoutCustomerInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    sale_office_id?: IntFieldUpdateOperationsInput | number
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type ship_toUncheckedUpdateWithoutCustomerInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    site_short_code?: StringFieldUpdateOperationsInput | string
-    name_th?: StringFieldUpdateOperationsInput | string
-    name_en?: NullableStringFieldUpdateOperationsInput | string | null
-    ship_to_id?: IntFieldUpdateOperationsInput | number
+  export type ship_tosCreateManySale_office_customerInput = {
+    id?: number
+    ship_to_code: string
+    description?: string | null
+    status?: boolean
+    create_at?: Date | string
+    update_at?: Date | string
+  }
+
+  export type ship_tosUpdateWithoutSale_office_customerInput = {
+    ship_to_code?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type ship_toUncheckedUpdateManyWithoutCustomerInput = {
+  export type ship_tosUncheckedUpdateWithoutSale_office_customerInput = {
     id?: IntFieldUpdateOperationsInput | number
-    site_short_code?: StringFieldUpdateOperationsInput | string
-    name_th?: StringFieldUpdateOperationsInput | string
-    name_en?: NullableStringFieldUpdateOperationsInput | string | null
-    ship_to_id?: IntFieldUpdateOperationsInput | number
+    ship_to_code?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: BoolFieldUpdateOperationsInput | boolean
+    create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ship_tosUncheckedUpdateManyWithoutSale_office_customerInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    ship_to_code?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -75665,7 +77412,7 @@ export namespace Prisma {
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
     customer_group?: customer_groupsUpdateOneWithoutCustomersNestedInput
-    ship_tos?: ship_toUpdateManyWithoutCustomerNestedInput
+    sale_office_customers?: sale_office_customersUpdateManyWithoutCustomerNestedInput
   }
 
   export type customersUncheckedUpdateWithoutPayment_typeInput = {
@@ -75688,7 +77435,7 @@ export namespace Prisma {
     status?: BoolFieldUpdateOperationsInput | boolean
     create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     update_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    ship_tos?: ship_toUncheckedUpdateManyWithoutCustomerNestedInput
+    sale_office_customers?: sale_office_customersUncheckedUpdateManyWithoutCustomerNestedInput
   }
 
   export type customersUncheckedUpdateManyWithoutPayment_typeInput = {

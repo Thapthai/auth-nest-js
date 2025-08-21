@@ -766,13 +766,20 @@ exports.Prisma.CustomersScalarFieldEnum = {
   update_at: 'update_at'
 };
 
-exports.Prisma.Ship_toScalarFieldEnum = {
+exports.Prisma.Sale_office_customersScalarFieldEnum = {
   id: 'id',
-  site_short_code: 'site_short_code',
-  name_th: 'name_th',
-  name_en: 'name_en',
+  sale_office_id: 'sale_office_id',
   customer_id: 'customer_id',
-  ship_to_id: 'ship_to_id',
+  status: 'status',
+  create_at: 'create_at',
+  update_at: 'update_at'
+};
+
+exports.Prisma.Ship_tosScalarFieldEnum = {
+  id: 'id',
+  ship_to_code: 'ship_to_code',
+  sale_office_customer_id: 'sale_office_customer_id',
+  description: 'description',
   status: 'status',
   create_at: 'create_at',
   update_at: 'update_at'
@@ -1061,10 +1068,9 @@ exports.Prisma.customersOrderByRelevanceFieldEnum = {
   email: 'email'
 };
 
-exports.Prisma.ship_toOrderByRelevanceFieldEnum = {
-  site_short_code: 'site_short_code',
-  name_th: 'name_th',
-  name_en: 'name_en'
+exports.Prisma.ship_tosOrderByRelevanceFieldEnum = {
+  ship_to_code: 'ship_to_code',
+  description: 'description'
 };
 
 exports.Prisma.payment_typesOrderByRelevanceFieldEnum = {
@@ -1123,7 +1129,8 @@ exports.Prisma.ModelName = {
   round_time_factory: 'round_time_factory',
   customer_groups: 'customer_groups',
   customers: 'customers',
-  ship_to: 'ship_to',
+  sale_office_customers: 'sale_office_customers',
+  ship_tos: 'ship_tos',
   payment_types: 'payment_types'
 };
 

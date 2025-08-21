@@ -37,8 +37,9 @@ import { SaleOfficeGroupTypesModule } from './sale_office_group_types/sale_offic
 import { ExcelModule } from './excel/excel.module';
 import { CustomerGroupsModule } from './customer_groups/customer_groups.module';
 import { CustomersModule } from './customers/customers.module';
-import { ShipToModule } from './ship_to/ship_to.module';
 import { PaymentTypesModule } from './payment_types/payment_types.module';
+import { ShipTosModule } from './ship_tos/ship_tos.module';
+import { SaleOfficeCustomersModule } from './sale_office_customers/sale_office_customers.module';
 
 @Module({
   imports: [
@@ -82,8 +83,9 @@ import { PaymentTypesModule } from './payment_types/payment_types.module';
     ExcelModule,
     CustomerGroupsModule,
     CustomersModule,
-    ShipToModule,
     PaymentTypesModule,
+    ShipTosModule,
+    SaleOfficeCustomersModule,
   ],
   controllers: [],
   providers: [

@@ -1,29 +1,29 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestjs/common';
-import { ShipToService } from './ship_to.service';
+import { ShipTosService } from './ship_tos.service';
 import { CreateShipToDto } from './dto/create-ship_to.dto';
 import { UpdateShipToDto } from './dto/update-ship_to.dto';
 
-@Controller('ship-to')
-export class ShipToController {
-  constructor(private readonly shipToService: ShipToService) {}
+@Controller('ship-tos')
+export class ShipTosController {
+  constructor(private readonly shipTosService: ShipTosService) {}
 
   @Post()
   create(@Body() createShipToDto: CreateShipToDto) {
-    return this.shipToService.create(createShipToDto);
+    return this.shipTosService.create(createShipToDto);
   }
 
   @Get()
   findAll() {
-    return this.shipToService.findAll();
+    return this.shipTosService.findAll();
   }
 
-  @Get('search')
+  @Get('pagination-with-search')
   findAllWithPagination(
     @Query('page') page?: string,
     @Query('pageSize') pageSize?: string,
     @Query('keyword') keyword?: string,
   ) {
-    return this.shipToService.findAllWithPagination({
+    return this.shipTosService.findAllWithPagination({
       page: page ? Number(page) : undefined,
       pageSize: pageSize ? Number(pageSize) : undefined,
       keyword: keyword?.trim(),
@@ -32,16 +32,16 @@ export class ShipToController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.shipToService.findOne(+id);
+    return this.shipTosService.findOne(+id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateShipToDto: UpdateShipToDto) {
-    return this.shipToService.update(+id, updateShipToDto);
+    return this.shipTosService.update(+id, updateShipToDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.shipToService.remove(+id);
+    return this.shipTosService.remove(+id);
   }
 }

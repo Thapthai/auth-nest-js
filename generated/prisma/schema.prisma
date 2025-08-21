@@ -85,6 +85,7 @@ model sale_offices {
   round_time_clean               round_time_clean[]
   factory_sale_office            factory_sale_office[]
   stock_locations                stock_locations[]
+  sale_office_customers          sale_office_customers[]
 }
 
 model user_sale_offices {
@@ -717,23 +718,34 @@ model customers {
   create_at         DateTime  @default(now())
   update_at         DateTime  @updatedAt
 
-  payment_type   payment_types?   @relation(fields: [payment_type_id], references: [id])
-  customer_group customer_groups? @relation(fields: [customer_group_id], references: [id])
-  ship_tos       ship_to[]
+  payment_type          payment_types?          @relation(fields: [payment_type_id], references: [id])
+  customer_group        customer_groups?        @relation(fields: [customer_group_id], references: [id])
+  sale_office_customers sale_office_customers[]
 }
 
-model ship_to {
-  id              Int      @id @default(autoincrement())
-  site_short_code String
-  name_th         String
-  name_en         String?
-  customer_id     Int
-  ship_to_id      Int
-  status          Boolean  @default(true)
-  create_at       DateTime @default(now())
-  update_at       DateTime @updatedAt
+model sale_office_customers {
+  id             Int      @id @default(autoincrement())
+  sale_office_id Int
+  customer_id    Int
+  status         Boolean  @default(true)
+  create_at      DateTime @default(now())
+  update_at      DateTime @updatedAt
 
-  customer customers @relation(fields: [customer_id], references: [id])
+  sale_office sale_offices @relation(fields: [sale_office_id], references: [id])
+  customer    customers    @relation(fields: [customer_id], references: [id])
+  ship_to     ship_tos[]
+}
+
+model ship_tos {
+  id                      Int      @id @default(autoincrement())
+  ship_to_code            String
+  sale_office_customer_id Int
+  description             String?
+  status                  Boolean  @default(true)
+  create_at               DateTime @default(now())
+  update_at               DateTime @updatedAt
+
+  sale_office_customer sale_office_customers @relation(fields: [sale_office_customer_id], references: [id])
 }
 
 model payment_types {
